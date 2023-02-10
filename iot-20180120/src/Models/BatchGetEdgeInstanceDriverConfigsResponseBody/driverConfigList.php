@@ -15,6 +15,8 @@ class driverConfigList extends Model
     public $configList;
 
     /**
+     * @example 021d154d2a2f4dd7a489773d9e04****
+     *
      * @var string
      */
     public $driverId;

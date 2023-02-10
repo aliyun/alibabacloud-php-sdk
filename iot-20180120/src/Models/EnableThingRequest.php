@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class EnableThingRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

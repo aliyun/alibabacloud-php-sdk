@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class logList extends Model
 {
     /**
+     * @example 9201
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example device offline, productKey: a1c3t****, deviceName: my_device1
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example a1c3t****\/my_device1
+     *
      * @var string
      */
     public $pkDn;

@@ -14,21 +14,29 @@ class PublishThingModelRequest extends Model
     public $description;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -42,7 +50,6 @@ class PublishThingModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

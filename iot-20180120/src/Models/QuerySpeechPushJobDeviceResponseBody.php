@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySpeechPushJobDeviceResponseBody extends Model
 {
     /**
+     * @example iot.speechsolution.NotSigned
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QuerySpeechPushJobDeviceResponseBody extends Model
     public $data;
 
     /**
+     * @example speech solution has not been signed
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example AF71BF1D-B552-47CD-B34B-352557627992
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

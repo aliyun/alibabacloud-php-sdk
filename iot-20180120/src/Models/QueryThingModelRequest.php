@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryThingModelRequest extends Model
 {
     /**
+     * @example BatteryModule
+     *
      * @var string
      */
     public $functionBlockId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;

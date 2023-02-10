@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListOTAFirmwareRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 4.0.0
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
@@ -42,8 +52,6 @@ class ListOTAFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

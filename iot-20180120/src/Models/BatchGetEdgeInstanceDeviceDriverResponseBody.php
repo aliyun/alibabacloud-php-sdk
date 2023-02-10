@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
     public $deviceDriverList;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E8D82F7A-0F84-4BD3-AE8A-5444A5B42800
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

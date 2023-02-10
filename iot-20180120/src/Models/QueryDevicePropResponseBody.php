@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class QueryDevicePropResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example {"coordinate":"104.07086:30.549169"}
+     *
      * @var string
      */
     public $props;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

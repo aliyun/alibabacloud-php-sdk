@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindDeviceFromEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 34755DC3-2809-4AE2-BAD8-7B81ED69D570
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

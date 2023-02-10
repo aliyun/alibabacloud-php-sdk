@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DisableSceneRuleRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $ruleId;
@@ -24,7 +28,6 @@ class DisableSceneRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

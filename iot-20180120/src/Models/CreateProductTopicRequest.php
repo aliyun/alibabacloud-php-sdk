@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateProductTopicRequest extends Model
 {
     /**
+     * @example submit a test topic
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example PUB
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example aldDEin****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example submit
+     *
      * @var string
      */
     public $topicShortName;
@@ -42,9 +52,6 @@ class CreateProductTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('operation', $this->operation, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
     }
 
     public function toMap()

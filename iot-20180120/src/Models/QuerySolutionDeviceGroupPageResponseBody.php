@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySolutionDeviceGroupPageResponseBody extends Model
 {
     /**
+     * @example iot.tcloud.ProjectNotFound
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QuerySolutionDeviceGroupPageResponseBody extends Model
     public $data;
 
     /**
+     * @example project not found
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 66FF51D3-***-49F1-B1A2-***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 200
+     *
      * @var float
      */
     public $availableSpace;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1620624606000
+     *
      * @var int
      */
     public $speechListUpdateTime;
 
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2000
+     *
      * @var float
      */
     public $totalSpace;

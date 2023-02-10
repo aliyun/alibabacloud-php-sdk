@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class resourceSnapshotList extends Model
 {
     /**
+     * @example 2019-06-26 18:12:34
+     *
      * @var string
      */
     public $gmtCompleted;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCompletedTimestamp;
 
     /**
+     * @example 2019-06-26 18:12:29
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2019-06-26 18:12:34
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example [{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":0,\"level\":\"INFO\",\"message\":\"init success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543949858},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":8,\"level\":\"INFO\",\"message\":\"assembly success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543951419},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":16,\"level\":\"INFO\",\"message\":\"package success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543952591},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":32,\"level\":\"INFO\",\"message\":\"download success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543954149}]
+     *
      * @var string
      */
     public $log;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $operateType;
 
     /**
+     * @example device_config
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example device_config
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @example device_config
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example ab576e84a43043d7840cbcebf4a5****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $stage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;

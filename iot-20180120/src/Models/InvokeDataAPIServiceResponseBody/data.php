@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
+     *
      * @var string
      */
     public $apiSrn;
@@ -21,11 +23,15 @@ class data extends Model
     public $fieldNameList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
@@ -36,6 +42,8 @@ class data extends Model
     public $resultList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalSize;

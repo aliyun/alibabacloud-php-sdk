@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerGroupRequest extends Model
 {
     /**
+     * @example nJRaJPn5U1JITGf******
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +34,6 @@ class UpdateConsumerGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupId', $this->groupId, true);
-        Model::validateRequired('newGroupName', $this->newGroupName, true);
     }
 
     public function toMap()

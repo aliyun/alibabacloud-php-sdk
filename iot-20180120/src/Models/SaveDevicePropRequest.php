@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SaveDevicePropRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example {"color":"red"}
+     *
      * @var string
      */
     public $props;
@@ -42,7 +52,6 @@ class SaveDevicePropRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('props', $this->props, true);
     }
 
     public function toMap()

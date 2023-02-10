@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateProductFilterConfigRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $propertyTimestampFilter;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $propertyValueFilter;
@@ -36,9 +44,6 @@ class UpdateProductFilterConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('propertyTimestampFilter', $this->propertyTimestampFilter, true);
-        Model::validateRequired('propertyValueFilter', $this->propertyValueFilter, true);
     }
 
     public function toMap()

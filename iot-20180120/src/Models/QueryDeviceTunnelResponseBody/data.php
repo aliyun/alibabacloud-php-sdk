@@ -14,56 +14,78 @@ class data extends Model
     public $description;
 
     /**
+     * @example CONNECTED
+     *
      * @var string
      */
     public $deviceConnState;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv***00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1rYuVF***
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example DISCONNECTED
+     *
      * @var string
      */
     public $sourceConnState;
 
     /**
+     * @example d4098041-a560-***
+     *
      * @var string
      */
     public $tunnelId;
 
     /**
+     * @example OPEN
+     *
      * @var string
      */
     public $tunnelState;
 
     /**
+     * @example reboot
+     *
      * @var string
      */
     public $udi;
 
     /**
+     * @example 2021-09-22T12:44:12.000Z
+     *
      * @var string
      */
     public $utcClosed;
 
     /**
+     * @example 2021-09-22T12:44:12.000Z
+     *
      * @var string
      */
     public $utcCreated;

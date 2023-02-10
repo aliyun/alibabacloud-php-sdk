@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @example dac71722ceac4a299dbf3e8dc3c8****
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @example {\"test\":123}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example key1
+     *
      * @var string
      */
     public $key;

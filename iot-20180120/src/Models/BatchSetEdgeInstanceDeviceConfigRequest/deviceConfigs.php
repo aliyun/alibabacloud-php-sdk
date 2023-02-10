@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deviceConfigs extends Model
 {
     /**
+     * @example {"test": "device_config_demo"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example sjI0Sd124XFYyjBY****000101
+     *
      * @var string
      */
     public $iotId;
@@ -24,8 +28,6 @@ class deviceConfigs extends Model
 
     public function validate()
     {
-        Model::validateRequired('content', $this->content, true);
-        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

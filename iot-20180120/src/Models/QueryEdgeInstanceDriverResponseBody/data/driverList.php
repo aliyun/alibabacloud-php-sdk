@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class driverList extends Model
 {
     /**
+     * @example 9c1ae7bd59f1469abbdccc959228****
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $driverVersion;
 
     /**
+     * @example 2019-06-26 17:22:25
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2019-06-26 17:22:25
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 11123458765423
+     *
      * @var string
      */
     public $orderId;

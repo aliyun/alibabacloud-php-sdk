@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RegisterDeviceRequest extends Model
 {
     /**
+     * @example 674f***
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @example e8SDdgeIlk3nED****
+     *
      * @var string
      */
     public $devEui;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Ede4tde8erth****
+     *
      * @var string
      */
     public $joinEui;
 
     /**
+     * @example ALIYUNDEFINED
+     *
      * @var string
      */
     public $loraNodeType;
@@ -44,11 +56,15 @@ class RegisterDeviceRequest extends Model
     public $nickname;
 
     /**
+     * @example DIe80dfeg*****
+     *
      * @var string
      */
     public $pinCode;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -66,7 +82,6 @@ class RegisterDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

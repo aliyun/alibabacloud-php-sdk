@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example MSnT9***q010101
+     *
      * @var string
      */
     public $taskId;
@@ -24,7 +28,6 @@ class QueryTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

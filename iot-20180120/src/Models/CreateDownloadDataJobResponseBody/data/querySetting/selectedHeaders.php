@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class selectedHeaders extends Model
 {
     /**
+     * @example user_name_alias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example DAY
+     *
      * @var string
      */
     public $dimDateClass;
 
     /**
+     * @example user_name
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example INTEGER
+     *
      * @var string
      */
     public $fieldType;
 
     /**
+     * @example {xxxx:xxxx}
+     *
      * @var string
      */
     public $geoClass;
 
     /**
+     * @example DAY
+     *
      * @var string
      */
     public $timeClass;

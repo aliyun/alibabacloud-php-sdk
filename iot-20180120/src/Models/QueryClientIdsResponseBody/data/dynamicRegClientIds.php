@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dynamicRegClientIds extends Model
 {
     /**
+     * @example 9rSzYt4js92********f000112
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example 1636514022424
+     *
      * @var int
      */
     public $createTime;

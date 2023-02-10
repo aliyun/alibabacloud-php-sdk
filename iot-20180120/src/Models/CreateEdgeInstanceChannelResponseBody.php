@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceChannelResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example BE0BD49EF5EF4D119D09CC1B25******
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example B34673EA-ECE7-44F5-BF01-40B5FAE633B6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example {\"test\": \"device_config_demo\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $format;

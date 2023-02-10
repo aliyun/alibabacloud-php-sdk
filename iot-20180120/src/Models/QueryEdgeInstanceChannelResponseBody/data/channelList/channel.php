@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class channel extends Model
 {
     /**
+     * @example BE0BD49EF5EF4D119D09CC1B25******
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example le_name0
+     *
      * @var string
      */
     public $channelName;
@@ -25,21 +29,29 @@ class channel extends Model
     public $configList;
 
     /**
+     * @example 2020-03-16 23:06:52
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1584371212000
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2020-03-16 23:06:52
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1584371212000
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeviceShadowRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deltaUpdate;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example {"method":"update","state":{"desired":{"color":"green"}},"version":2}
+     *
      * @var string
      */
     public $shadowMessage;
@@ -42,9 +52,6 @@ class UpdateDeviceShadowRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('shadowMessage', $this->shadowMessage, true);
     }
 
     public function toMap()

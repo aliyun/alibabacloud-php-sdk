@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rolloutConfig extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maximumPerMinute;
 
     /**
+     * @example Qos1
+     *
      * @var string
      */
     public $messageQoS;

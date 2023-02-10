@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceSubTopicRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example hf768****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +36,6 @@ class QueryDeviceSubTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

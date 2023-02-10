@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $soundCode;

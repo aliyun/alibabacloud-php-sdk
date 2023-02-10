@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class simpleDeviceInfo extends Model
 {
     /**
+     * @example ios_1207_08
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example TfmUAeJjQQhCPH84UVNn0010c6****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1hWjHD****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example WIFIdevice
+     *
      * @var string
      */
     public $productName;

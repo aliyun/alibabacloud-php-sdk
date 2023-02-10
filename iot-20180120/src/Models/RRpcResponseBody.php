@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RRpcResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,26 +21,36 @@ class RRpcResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 889455942124347392
+     *
      * @var int
      */
     public $messageId;
 
     /**
+     * @example d29ybGQgaGVsbG8=
+     *
      * @var string
      */
     public $payloadBase64Byte;
 
     /**
+     * @example 41C4265E-F05D-4E2E-AB09-E031F501AF7F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $rrpcCode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAFirmwareRequest extends Model
 {
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example OTA function updated
+     *
      * @var string
      */
     public $firmwareDesc;
 
     /**
+     * @example Firmware2
+     *
      * @var string
      */
     public $firmwareName;
 
     /**
+     * @example 93230c3bde425a9d7984a594ac55****
+     *
      * @var string
      */
     public $firmwareSign;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $firmwareSize;
 
     /**
+     * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com/ota/bcd6142594d0183a16d825ad8225****\/A6B3400B70CA4D6D872160D1A91A****.bin
+     *
      * @var string
      */
     public $firmwareUrl;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example WifiConfigModify
+     *
      * @var string
      */
     public $moduleName;
@@ -55,26 +71,36 @@ class CreateOTAFirmwareRequest extends Model
     public $multiFiles;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needToVerify;
 
     /**
+     * @example a1uctKe****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $signMethod;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $srcVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
@@ -103,8 +129,6 @@ class CreateOTAFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('destVersion', $this->destVersion, true);
-        Model::validateRequired('firmwareName', $this->firmwareName, true);
     }
 
     public function toMap()

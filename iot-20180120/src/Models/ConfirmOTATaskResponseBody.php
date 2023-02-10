@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmOTATaskResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class ConfirmOTATaskResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example A59D3BE1-E9A3-43F3-9B50-B7C8DE165D9B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example 5d6016035c1a451daf174b1051******
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @example {\"protocol\":\"TCP\", \"ip\":\"1.2.3.4\", \"port\":1}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example key1
+     *
      * @var string
      */
     public $key;

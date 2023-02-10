@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchCheckDeviceNamesRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string[]
      */
     public $deviceName;
@@ -20,11 +22,15 @@ class BatchCheckDeviceNamesRequest extends Model
     public $deviceNameList;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -37,7 +43,6 @@ class BatchCheckDeviceNamesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

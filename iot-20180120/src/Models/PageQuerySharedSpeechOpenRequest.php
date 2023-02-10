@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class PageQuerySharedSpeechOpenRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example sd34****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example ebed9280_ba25_48df_80c2_****
+     *
      * @var string
      */
     public $shareTaskCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

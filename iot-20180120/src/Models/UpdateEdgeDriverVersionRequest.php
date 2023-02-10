@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateEdgeDriverVersionRequest extends Model
 {
     /**
+     * @example -XX:+PrintGCDetails
+     *
      * @var string
      */
     public $argument;
 
     /**
+     * @example {"deviceConfig":{"required":false},"driverConfig":{"required":false}}
+     *
      * @var string
      */
     public $configCheckRule;
 
     /**
+     * @example {"privileged":1,"devMappings":[],"volumeMappings":[],"hostNetworkMode":0,"portMappings":[]}
+     *
      * @var string
      */
     public $containerConfig;
@@ -29,31 +35,43 @@ class UpdateEdgeDriverVersionRequest extends Model
     public $description;
 
     /**
+     * @example [{"format":"JSON","content":"{\"defaultConfig\":\"this is default driver config demo\"}"}]
+     *
      * @var string
      */
     public $driverConfig;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example 1.2.0
+     *
      * @var string
      */
     public $driverVersion;
 
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $edgeVersion;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example {"ossAddress":"http://nova-scene-daily.oss-cn-shanghai.aliyuncs.com/driver/a8d6e4acc6941ecea8f0cfb30c******\/ck3n3koe200003h6zf******.zip"}
+     *
      * @var string
      */
     public $sourceConfig;
@@ -72,9 +90,6 @@ class UpdateEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('driverVersion', $this->driverVersion, true);
-        Model::validateRequired('edgeVersion', $this->edgeVersion, true);
     }
 
     public function toMap()

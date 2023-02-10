@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class multiFiles extends Model
 {
     /**
+     * @example 3d04ab6462633508606e5f3d****
+     *
      * @var string
      */
     public $fileMd5;
 
     /**
+     * @example firmware1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 3d04ab6462633508606e5f3d****
+     *
      * @var string
      */
     public $signValue;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example https://ota-***.aliyuncs.com/ota/572ef2fd12ca4791a5b21a9eb948****\/5E962CF83DB1495E8337E9C8A4D1****.bin?Expires=1577587360&OSSAccessKeyId=cS8uRRy54Rsz****&Signature=farzC8%2FVMN4HYdEtXvdiC2OevH****
+     *
      * @var string
      */
     public $url;

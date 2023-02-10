@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,6 +28,8 @@ class QueryEdgeInstanceRequest extends Model
     public $name;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
@@ -36,8 +42,6 @@ class QueryEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

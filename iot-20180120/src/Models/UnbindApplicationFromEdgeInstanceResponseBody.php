@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnbindApplicationFromEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 5CA3B4EE-D865-47B0-91FD-BA7C2BC6BCC4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

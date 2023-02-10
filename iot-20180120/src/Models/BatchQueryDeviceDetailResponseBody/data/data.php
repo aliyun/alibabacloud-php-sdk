@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @example V1.0.0.0
+     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
+     * @example 2019-06-21 20:33:00
+     *
      * @var string
      */
     public $gmtActive;
 
     /**
+     * @example 2019-06-21 20:31:42
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
@@ -44,11 +56,15 @@ class data extends Model
     public $nickname;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -59,21 +75,29 @@ class data extends Model
     public $productName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2019-06-21T12:31:42.000Z
+     *
      * @var string
      */
     public $utcActive;
 
     /**
+     * @example 2019-06-21T12:31:42.000Z
+     *
      * @var string
      */
     public $utcCreate;

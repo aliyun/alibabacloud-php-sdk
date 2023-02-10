@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class driverList extends Model
 {
     /**
+     * @example x86-64
+     *
      * @var string
      */
     public $cpuArch;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example MyLedDriver
+     *
      * @var string
      */
     public $driverName;
 
     /**
+     * @example customize
+     *
      * @var string
      */
     public $driverProtocol;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isApply;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isBuiltIn;
 
     /**
+     * @example c
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

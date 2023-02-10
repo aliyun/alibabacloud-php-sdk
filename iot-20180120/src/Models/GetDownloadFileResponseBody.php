@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadFileResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetDownloadFileResponseBody extends Model
     public $data;
 
     /**
+     * @example no authorization.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example BB71E443-4447-4024-A000-EDE09934****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

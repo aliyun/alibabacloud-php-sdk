@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class firmwareInfo extends Model
 {
     /**
+     * @example 4.0.0
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example modified-WiFi-module
+     *
      * @var string
      */
     public $firmwareDesc;
 
     /**
+     * @example UfuxnwygsuSkVE0VCN****0100
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example t3q5rkNm
+     *
      * @var string
      */
     public $firmwareName;
 
     /**
+     * @example 3d04ab6462633508606e5f3daac8****
+     *
      * @var string
      */
     public $firmwareSign;
 
     /**
+     * @example 924
+     *
      * @var int
      */
     public $firmwareSize;
 
     /**
+     * @example https://ota-***.aliyuncs.com/ota/572ef2fd12ca4791a5b21a9eb948****\/5E962CF83DB1495E8337E9C8A4D1****.bin?Expires=1577587360&OSSAccessKeyId=cS8uRRy54Rsz****&Signature=farzC8%2FVMN4HYdEtXvdiC2OevH****
+     *
      * @var string
      */
     public $firmwareUrl;
 
     /**
+     * @example WifiConfigModify
+     *
      * @var string
      */
     public $moduleName;
@@ -55,31 +71,43 @@ class firmwareInfo extends Model
     public $multiFiles;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example MyProduct
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $signMethod;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $srcVersion;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
@@ -90,16 +118,22 @@ class firmwareInfo extends Model
     public $udi;
 
     /**
+     * @example 2019-12-28T02:42:22.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2019-12-28T02:42:41.000Z
+     *
      * @var string
      */
     public $utcModified;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $verifyProgress;

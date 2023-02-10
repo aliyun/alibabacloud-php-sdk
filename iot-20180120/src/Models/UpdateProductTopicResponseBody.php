@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateProductTopicResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class UpdateProductTopicResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example FCC27691-9151-4B93-9622-9C90F30542EC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

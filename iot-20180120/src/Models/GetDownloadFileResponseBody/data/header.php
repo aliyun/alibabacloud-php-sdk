@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class header extends Model
 {
     /**
+     * @example user_name_alias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example DAY
+     *
      * @var string
      */
     public $dimDateClass;
 
     /**
+     * @example user_name
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example INTEGER
+     *
      * @var string
      */
     public $fieldType;
 
     /**
+     * @example {xxx:xxxx}
+     *
      * @var string
      */
     public $geoClass;
 
     /**
+     * @example HOUR/DAY/MONTH
+     *
      * @var string
      */
     public $timeClass;
 
     /**
+     * @example date
+     *
      * @var string
      */
     public $typeClass;

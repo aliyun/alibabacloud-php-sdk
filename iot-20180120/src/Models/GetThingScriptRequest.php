@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetThingScriptRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
@@ -24,7 +28,6 @@ class GetThingScriptRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

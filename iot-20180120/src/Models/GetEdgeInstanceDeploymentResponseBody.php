@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeInstanceDeploymentResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetEdgeInstanceDeploymentResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 6B72291A-9492-445E-81D9-335D2D3E44C0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnbindRoleFromEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 270097AC-FFC3-4D2F-B48D-384BA1EA9962
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

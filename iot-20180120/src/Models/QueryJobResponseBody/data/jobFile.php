@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class jobFile extends Model
 {
     /**
+     * @example https://iotx-***.oss-cn-shanghai.aliyuncs.com/job***\/7u***.sh?Expires=16***&OSSAccessKeyId=LTA***&Signature=TTTejn***
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example TTTejn***
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @example SHA256
+     *
      * @var string
      */
     public $signMethod;

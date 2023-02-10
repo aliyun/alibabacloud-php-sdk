@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example JavaScript
+     *
      * @var string
      */
     public $scriptType;
 
     /**
+     * @example http://***
+     *
      * @var string
      */
     public $scriptUrl;

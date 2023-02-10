@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicRouteTableRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example /x7aWKW94bb8/testDataToDataHub/user/update
+     *
      * @var string
      */
     public $topic;
@@ -24,7 +28,6 @@ class QueryTopicRouteTableRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

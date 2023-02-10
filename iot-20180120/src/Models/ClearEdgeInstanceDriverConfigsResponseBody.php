@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ClearEdgeInstanceDriverConfigsResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example DF6B728B-ADD7-4C41-88C3-D21B4CA82CF1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

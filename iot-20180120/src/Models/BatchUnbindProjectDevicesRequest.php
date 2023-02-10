@@ -15,11 +15,15 @@ class BatchUnbindProjectDevicesRequest extends Model
     public $devices;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $projectId;
@@ -31,8 +35,6 @@ class BatchUnbindProjectDevicesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('devices', $this->devices, true);
-        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

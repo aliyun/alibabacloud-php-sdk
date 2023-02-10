@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $asyncExecute;
 
     /**
+     * @example 1658406464534
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example test_download_flie
+     *
      * @var string
      */
     public $csvFileName;
 
     /**
+     * @example https://xxxxx-data-download-sh.oss-cn-shanghai.aliyuncs.com/data/download/6B761BxxxxxxxxAAA0BF03D32C80E/62da39b9xxxxxx5a7b953376/download_file_name.csv?Expires=1658469132&amp;OSSAccessKeyId=xxxxxxxxx&amp;Signature=rRL%xxxxxxx%3D
+     *
      * @var string
      */
     public $csvUrl;
 
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example 1658406465000
+     *
      * @var int
      */
     public $endTime;
@@ -46,21 +58,29 @@ class data extends Model
     public $header;
 
     /**
+     * @example 62d949808bc742187xxxxxx
+     *
      * @var string
      */
     public $longJobId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $previewSize;
@@ -76,16 +96,22 @@ class data extends Model
     public $result;
 
     /**
+     * @example {"a":123}
+     *
      * @var string
      */
     public $resultDataInString;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

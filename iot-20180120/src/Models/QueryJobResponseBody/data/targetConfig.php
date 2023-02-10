@@ -15,16 +15,22 @@ class targetConfig extends Model
     public $targetDevices;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $targetGroup;
 
     /**
+     * @example nCwfSBzc***
+     *
      * @var string
      */
     public $targetProduct;
 
     /**
+     * @example DEVICE_LIST
+     *
      * @var string
      */
     public $targetType;

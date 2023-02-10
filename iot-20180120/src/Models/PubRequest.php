@@ -15,21 +15,29 @@ class PubRequest extends Model
     public $contentType;
 
     /**
+     * @example aGVsbG8****
+     *
      * @var string
      */
     public $correlationData;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example eyJ0ZXN0IjoidGFzayBwdWIgYnJvYWRjYXN0In0=
+     *
      * @var string
      */
     public $messageContent;
@@ -37,34 +45,32 @@ class PubRequest extends Model
     /**
      * @var int
      */
-    public $messageExpiryInterval;
-
-    /**
-     * @var int
-     */
     public $payloadFormatIndicator;
 
     /**
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qos;
 
     /**
+     * @example /a1Q5XoY****\/device1/user/update
+     *
      * @var string
      */
     public $responseTopic;
 
     /**
-     * @var bool
-     */
-    public $retained;
-
-    /**
+     * @example /a1Q5XoY****\/device1/user/get
+     *
      * @var string
      */
     public $topicFullName;
@@ -79,21 +85,16 @@ class PubRequest extends Model
         'deviceName'             => 'DeviceName',
         'iotInstanceId'          => 'IotInstanceId',
         'messageContent'         => 'MessageContent',
-        'messageExpiryInterval'  => 'MessageExpiryInterval',
         'payloadFormatIndicator' => 'PayloadFormatIndicator',
         'productKey'             => 'ProductKey',
         'qos'                    => 'Qos',
         'responseTopic'          => 'ResponseTopic',
-        'retained'               => 'Retained',
         'topicFullName'          => 'TopicFullName',
         'userProp'               => 'UserProp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('messageContent', $this->messageContent, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicFullName', $this->topicFullName, true);
     }
 
     public function toMap()
@@ -114,9 +115,6 @@ class PubRequest extends Model
         if (null !== $this->messageContent) {
             $res['MessageContent'] = $this->messageContent;
         }
-        if (null !== $this->messageExpiryInterval) {
-            $res['MessageExpiryInterval'] = $this->messageExpiryInterval;
-        }
         if (null !== $this->payloadFormatIndicator) {
             $res['PayloadFormatIndicator'] = $this->payloadFormatIndicator;
         }
@@ -128,9 +126,6 @@ class PubRequest extends Model
         }
         if (null !== $this->responseTopic) {
             $res['ResponseTopic'] = $this->responseTopic;
-        }
-        if (null !== $this->retained) {
-            $res['Retained'] = $this->retained;
         }
         if (null !== $this->topicFullName) {
             $res['TopicFullName'] = $this->topicFullName;
@@ -171,9 +166,6 @@ class PubRequest extends Model
         if (isset($map['MessageContent'])) {
             $model->messageContent = $map['MessageContent'];
         }
-        if (isset($map['MessageExpiryInterval'])) {
-            $model->messageExpiryInterval = $map['MessageExpiryInterval'];
-        }
         if (isset($map['PayloadFormatIndicator'])) {
             $model->payloadFormatIndicator = $map['PayloadFormatIndicator'];
         }
@@ -185,9 +177,6 @@ class PubRequest extends Model
         }
         if (isset($map['ResponseTopic'])) {
             $model->responseTopic = $map['ResponseTopic'];
-        }
-        if (isset($map['Retained'])) {
-            $model->retained = $map['Retained'];
         }
         if (isset($map['TopicFullName'])) {
             $model->topicFullName = $map['TopicFullName'];

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example a12*******
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example webApp
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $isEnable;
 
     /**
+     * @example cf245ddebd******
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;

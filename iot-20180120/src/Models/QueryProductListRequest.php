@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryProductListRequest extends Model
 {
     /**
+     * @example iothub_senior
+     *
      * @var string
      */
     public $aliyunCommodityCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -42,8 +52,6 @@ class QueryProductListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

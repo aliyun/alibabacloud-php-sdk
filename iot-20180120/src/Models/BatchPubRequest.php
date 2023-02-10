@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class BatchPubRequest extends Model
 {
     /**
+     * @example newdevice1
+     *
      * @var string[]
      */
     public $deviceName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example eyJ0ZXN0IjoidGFzayBiYXRjaHB1YiBicm9hZGNhc3QifQ==
+     *
      * @var string
      */
     public $messageContent;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qos;
 
     /**
+     * @example get
+     *
      * @var string
      */
     public $topicShortName;
@@ -48,10 +60,6 @@ class BatchPubRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('messageContent', $this->messageContent, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
     }
 
     public function toMap()

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetLoraNodesTaskRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 623***
+     *
      * @var string
      */
     public $taskId;
@@ -24,7 +28,6 @@ class GetLoraNodesTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

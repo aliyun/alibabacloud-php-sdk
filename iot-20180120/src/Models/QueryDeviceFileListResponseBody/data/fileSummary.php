@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class fileSummary extends Model
 {
     /**
+     * @example xL0G67MBLBDtkR7GCfT******
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example testFile2.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1024000
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @example 2019-03-21T08:45:42.000Z
+     *
      * @var string
      */
     public $utcCreatedOn;

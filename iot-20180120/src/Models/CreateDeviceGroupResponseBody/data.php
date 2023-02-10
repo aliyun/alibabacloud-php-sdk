@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Group test
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example HtMLECKbdJQL****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example grouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 2018-10-17T11:19:31.000Z
+     *
      * @var string
      */
     public $utcCreate;

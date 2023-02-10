@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicReverseRouteTableResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example FCC27691-9151-4B93-9622-9C90F30542EC"
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +34,8 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public $srcTopics;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

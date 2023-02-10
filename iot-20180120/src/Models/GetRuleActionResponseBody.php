@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleActionResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class GetRuleActionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example F2D0755D-F350-40FE-9A6D-491859DB5E5F
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +34,8 @@ class GetRuleActionResponseBody extends Model
     public $ruleActionInfo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

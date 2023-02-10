@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleActionRequest extends Model
 {
     /**
+     * @example 100001
+     *
      * @var int
      */
     public $actionId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class DeleteRuleActionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('actionId', $this->actionId, true);
     }
 
     public function toMap()

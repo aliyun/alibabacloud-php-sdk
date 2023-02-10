@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 5443123
+     *
      * @var string
      */
     public $messageId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceDistributeJobRequest extends Model
 {
     /**
+     * @example UbmsMHmkqv0PiAG****010001
+     *
      * @var string
      */
     public $jobId;
@@ -18,7 +20,6 @@ class QueryDeviceDistributeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

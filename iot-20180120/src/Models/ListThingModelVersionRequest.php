@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListThingModelVersionRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -24,7 +28,6 @@ class ListThingModelVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

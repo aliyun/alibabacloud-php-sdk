@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class soundCodeConfig extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $additionalDuration;
 
     /**
+     * @example www.taobao.com
+     *
      * @var string
      */
     public $soundCodeContent;

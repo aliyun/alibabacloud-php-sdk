@@ -15,6 +15,8 @@ class data extends Model
     public $dynamicRegClientIds;
 
     /**
+     * @example y4u2weAI********HMle1234
+     *
      * @var string
      */
     public $iotId;

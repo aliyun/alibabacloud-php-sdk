@@ -10,91 +10,127 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAStaticUpgradeJobRequest extends Model
 {
     /**
+     * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com/ota/65dfcda0473be29836dfde585472****\/ck2nfzljo00023g7kysg0****.bin
+     *
      * @var string
      */
     public $dnListFileUrl;
 
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $downloadProtocol;
 
     /**
+     * @example nx3xxVvFdwvn6dim50PY03****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example 33.33
+     *
      * @var string
      */
     public $grayPercent;
 
     /**
+     * @example CtjzCkNuOx***
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example LINK_PLATFORM
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maximumPerMinute;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $multiModuleMode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needConfirm;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needPush;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $overwriteMode;
 
     /**
+     * @example a1Le6d0****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @example 1577909000000
+     *
      * @var int
      */
     public $scheduleFinishTime;
 
     /**
+     * @example 1577808000000
+     *
      * @var int
      */
     public $scheduleTime;
 
     /**
+     * @example V1.0.1
+     *
      * @var string[]
      */
     public $srcVersion;
@@ -105,16 +141,22 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     public $tag;
 
     /**
+     * @example deviceName1
+     *
      * @var string[]
      */
     public $targetDeviceName;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $targetSelection;
 
     /**
+     * @example 1440
+     *
      * @var int
      */
     public $timeoutInMinutes;
@@ -145,9 +187,6 @@ class CreateOTAStaticUpgradeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('targetSelection', $this->targetSelection, true);
     }
 
     public function toMap()

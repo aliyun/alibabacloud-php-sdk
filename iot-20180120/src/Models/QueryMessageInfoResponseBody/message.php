@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class message extends Model
 {
     /**
+     * @example 1624419431000
+     *
      * @var int
      */
     public $generateTime;
 
     /**
+     * @example eyJsYXN0VGltZSI6IjIwMjEtMDYtMjQgMTY6Mj**
+     *
      * @var string
      */
     public $messageContent;
 
     /**
+     * @example /a1Q5XoY****\/device1/user/get
+     *
      * @var string
      */
     public $topicFullName;
 
     /**
+     * @example 323455***
+     *
      * @var string
      */
     public $uniMsgId;

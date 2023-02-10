@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProductDistributeJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class CreateProductDistributeJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example UbmsMHmkqv0PiAG****010001
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

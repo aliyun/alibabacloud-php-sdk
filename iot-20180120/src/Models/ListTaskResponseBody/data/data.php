@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example mydevice
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example BDjhIC***i000101
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example sGWotg***010001
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example MyTestJobIax6Eq
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example a1S0OM***
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example MSnT9wl***q010101
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 2019-05-21T13:03:56.000Z
+     *
      * @var string
      */
     public $utcModified;
 
     /**
+     * @example 2019-05-21T13:03:53.000Z
+     *
      * @var string
      */
     public $utcQueueTime;

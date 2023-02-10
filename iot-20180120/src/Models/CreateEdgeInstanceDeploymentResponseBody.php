@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceDeploymentResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 38d544b1222d45b4b425240167bf****
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C8293A57-6BBC-42FB-B093-BF304D5BF09C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

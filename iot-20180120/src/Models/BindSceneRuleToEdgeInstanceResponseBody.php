@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindSceneRuleToEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C9D9C91B-1B3B-4D84-AE58-68E7BAA909EK
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

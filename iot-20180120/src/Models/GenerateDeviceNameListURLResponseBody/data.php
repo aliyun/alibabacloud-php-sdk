@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example cS8uRRy54Rsz****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com/ota/65dfcda0473be29836dfde585472****\/ck2nfzljo00023g7kysg0****.csv
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example ota/65dfcda0473be29836dfde585472****\/ck2nfzljo00023g7kysg0****.csv
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $objectStorage;
 
     /**
+     * @example eyJleHBpcmF****
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example v6lViO4FBvfquajQjg20K5hK****
+     *
      * @var string
      */
     public $signature;
 
     /**
+     * @example 2019-11-04T06:21:54.607Z
+     *
      * @var string
      */
     public $utcCreate;

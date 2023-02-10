@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLoraNodesTaskResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetLoraNodesTaskResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $successCount;
@@ -40,16 +48,22 @@ class GetLoraNodesTaskResponseBody extends Model
     public $successDevEuis;
 
     /**
+     * @example 625***
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $taskState;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

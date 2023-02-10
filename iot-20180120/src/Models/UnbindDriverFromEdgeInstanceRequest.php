@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UnbindDriverFromEdgeInstanceRequest extends Model
 {
     /**
+     * @example 9c1ae7bd59f1469abbdccc959228****
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class UnbindDriverFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

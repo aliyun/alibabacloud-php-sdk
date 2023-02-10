@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UnbindApplicationFromEdgeInstanceRequest extends Model
 {
     /**
+     * @example 361368ba5a094da9bf5625d092******
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @example Tb4r9k3GWHJFWv******
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applicationId', $this->applicationId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

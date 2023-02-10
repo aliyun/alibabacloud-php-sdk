@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryImportedDeviceByApplyIdResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,31 +27,43 @@ class QueryImportedDeviceByApplyIdResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example E4C0FF92-2A86-41DB-92D3-73B60310D25E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalPage;

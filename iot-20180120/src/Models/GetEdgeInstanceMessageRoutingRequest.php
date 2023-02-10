@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeInstanceMessageRoutingRequest extends Model
 {
     /**
+     * @example 8jKxIuMVT9rX********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $routeId;
@@ -30,8 +36,6 @@ class GetEdgeInstanceMessageRoutingRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('routeId', $this->routeId, true);
     }
 
     public function toMap()

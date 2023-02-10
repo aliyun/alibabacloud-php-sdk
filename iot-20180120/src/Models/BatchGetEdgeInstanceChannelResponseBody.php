@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeInstanceChannelResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class BatchGetEdgeInstanceChannelResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 5B86570E-C1A7-4569-BF7B-F7F09EB35BEB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

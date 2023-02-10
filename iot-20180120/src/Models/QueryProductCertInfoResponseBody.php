@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryProductCertInfoResponseBody extends Model
 {
     /**
+     * @example MissingProductKey
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ProductKey is mandatory for this action.
+     *
      * @var string
      */
     public $errorMessage;
@@ -25,11 +29,15 @@ class QueryProductCertInfoResponseBody extends Model
     public $productCertInfo;
 
     /**
+     * @example 57b144cf-09fc-4916-a272-a62902d5b207
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

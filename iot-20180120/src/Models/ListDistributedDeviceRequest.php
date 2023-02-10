@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListDistributedDeviceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example mydevice
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-060***
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;
@@ -48,8 +60,6 @@ class ListDistributedDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

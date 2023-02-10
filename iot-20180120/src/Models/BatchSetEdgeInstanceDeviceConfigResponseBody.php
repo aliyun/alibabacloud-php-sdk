@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchSetEdgeInstanceDeviceConfigResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 748659E2-EDC9-4E3E-BF9D-06F16995CF66
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

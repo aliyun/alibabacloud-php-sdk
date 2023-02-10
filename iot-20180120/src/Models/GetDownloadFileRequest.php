@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadFileRequest extends Model
 {
     /**
+     * @example {"xxx";xxx}
+     *
      * @var mixed[]
      */
     public $context;
 
     /**
+     * @example iot-cn-npk1u******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 62d949808bc742187xxxxxx
+     *
      * @var string
      */
     public $longJobId;
@@ -30,7 +36,6 @@ class GetDownloadFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('longJobId', $this->longJobId, true);
     }
 
     public function toMap()

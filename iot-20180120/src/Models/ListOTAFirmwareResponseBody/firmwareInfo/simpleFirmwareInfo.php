@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class simpleFirmwareInfo extends Model
 {
     /**
+     * @example 4.0.0
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example firmwareDesc
+     *
      * @var string
      */
     public $firmwareDesc;
 
     /**
+     * @example UfuxnwygsuSkVE0VCN****0100
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example t3q5rkNm
+     *
      * @var string
      */
     public $firmwareName;
 
     /**
+     * @example 3d04ab6462633508606e5f3daac8****
+     *
      * @var string
      */
     public $firmwareSign;
 
     /**
+     * @example 924
+     *
      * @var int
      */
     public $firmwareSize;
 
     /**
+     * @example module1234
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example MyProduct
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example MD5
+     *
      * @var string
      */
     public $signMethod;
 
     /**
+     * @example V1.0.0
+     *
      * @var string
      */
     public $srcVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 2019-12-28T02:42:22.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2019-12-28T02:42:22.000Z
+     *
      * @var string
      */
     public $utcModified;

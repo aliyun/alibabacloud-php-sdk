@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class tokenInfo extends Model
 {
     /**
+     * @example a12********
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example webApp
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $isEnable;
 
     /**
+     * @example 25bf576a6c6f**********
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $type;

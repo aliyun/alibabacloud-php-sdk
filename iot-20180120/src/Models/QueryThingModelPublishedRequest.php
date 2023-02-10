@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryThingModelPublishedRequest extends Model
 {
     /**
+     * @example BatteryModule
+     *
      * @var string
      */
     public $functionBlockId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfm4l5tcwd***
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -42,7 +52,6 @@ class QueryThingModelPublishedRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

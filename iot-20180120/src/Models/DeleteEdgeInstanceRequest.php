@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeInstanceRequest extends Model
 {
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class DeleteEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

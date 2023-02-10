@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOTAFirmwareResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -30,26 +34,36 @@ class ListOTAFirmwareResponseBody extends Model
     public $firmwareInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A01829CE-75A1-4920-B775-921146A1AB79
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

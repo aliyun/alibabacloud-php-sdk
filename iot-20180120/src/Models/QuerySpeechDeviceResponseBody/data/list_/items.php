@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 200
+     *
      * @var float
      */
     public $availableSpace;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

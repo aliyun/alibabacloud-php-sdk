@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $activeCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $deviceCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $onlineCount;

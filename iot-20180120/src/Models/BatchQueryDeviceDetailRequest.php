@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchQueryDeviceDetailRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string[]
      */
     public $deviceName;
 
     /**
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +36,6 @@ class BatchQueryDeviceDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

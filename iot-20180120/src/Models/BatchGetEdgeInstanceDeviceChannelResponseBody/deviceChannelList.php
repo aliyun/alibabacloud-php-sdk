@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class deviceChannelList extends Model
 {
     /**
+     * @example BE0BD49EF5EF4D119D09CC1B25******
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example le_name_update
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example Hathoyxglj9jpYPyw3WN0******
+     *
      * @var string
      */
     public $iotId;

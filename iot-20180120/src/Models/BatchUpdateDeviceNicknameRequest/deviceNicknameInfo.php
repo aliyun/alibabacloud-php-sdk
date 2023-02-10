@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class deviceNicknameInfo extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example AliyunDataCenter
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

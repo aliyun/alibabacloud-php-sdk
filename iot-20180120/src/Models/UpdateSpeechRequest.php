@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateSpeechRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableSoundCode;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example {"SoundCodeContent": "www.taobao.com", "AdditionalDuration": 3}
+     *
      * @var mixed[]
      */
     public $soundCodeConfig;
 
     /**
+     * @example VlKzbj3XIZ****CeIHH6vR82JNCSzk**
+     *
      * @var string
      */
     public $speechCode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example Siyue
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;
@@ -60,9 +76,6 @@ class UpdateSpeechRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectCode', $this->projectCode, true);
-        Model::validateRequired('speechCode', $this->speechCode, true);
-        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

@@ -15,11 +15,15 @@ class data extends Model
     public $jobInfo;
 
     /**
+     * @example TGlzdFJlc291***
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $total;

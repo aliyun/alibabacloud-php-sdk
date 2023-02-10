@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class deviceList extends Model
 {
     /**
+     * @example test_tmp_zdy
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 44c090ba7b104641a4b9bcf10241****
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example XSpPdtxzE6ebtCkx****000101
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1p5QfE****
+     *
      * @var string
      */
     public $productKey;

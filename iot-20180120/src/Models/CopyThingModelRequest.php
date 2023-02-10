@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CopyThingModelRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example V1.0.0
+     *
      * @var string
      */
     public $sourceModelVersion;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $sourceProductKey;
 
     /**
+     * @example a1BwwG0****
+     *
      * @var string
      */
     public $targetProductKey;
@@ -42,8 +52,6 @@ class CopyThingModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sourceProductKey', $this->sourceProductKey, true);
-        Model::validateRequired('targetProductKey', $this->targetProductKey, true);
     }
 
     public function toMap()

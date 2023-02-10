@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscribeRelationResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class CreateSubscribeRelationResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 21D327AF-A7DE-4E59-B5D1-ACAC8C024555
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

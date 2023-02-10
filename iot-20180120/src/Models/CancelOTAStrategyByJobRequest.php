@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelOTAStrategyByJobRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example HvKuBpuk3rdk6E92CP****0200
+     *
      * @var string
      */
     public $jobId;
@@ -24,7 +28,6 @@ class CancelOTAStrategyByJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

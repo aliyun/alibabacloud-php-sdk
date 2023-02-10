@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class channel extends Model
 {
     /**
+     * @example BE0BD49EF5EF4D119D09CC1B25******
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example le_name0
+     *
      * @var string
      */
     public $channelName;

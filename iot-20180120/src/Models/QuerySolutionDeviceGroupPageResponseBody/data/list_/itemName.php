@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class itemName extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $deviceCount;
 
     /**
+     * @example 1356565656
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1357865658
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example test***
+     *
      * @var string
      */
     public $groupName;

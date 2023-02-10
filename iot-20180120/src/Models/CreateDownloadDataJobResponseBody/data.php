@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $asyncExecute;
 
     /**
+     * @example 1658406464534
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example test_download_file
+     *
      * @var string
      */
     public $csvFileName;
 
     /**
+     * @example https://oss-xxxx-xxxx.xxxx......
+     *
      * @var string
      */
     public $csvUrl;
 
     /**
+     * @example a23fd23dfaf2
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example 1658406465000
+     *
      * @var int
      */
     public $endTime;
@@ -46,21 +58,29 @@ class data extends Model
     public $header;
 
     /**
+     * @example 62d949808bc742187xxxxxx
+     *
      * @var string
      */
     public $longJobId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $previewSize;
@@ -71,16 +91,22 @@ class data extends Model
     public $querySetting;
 
     /**
+     * @example {["a":1]}
+     *
      * @var string
      */
     public $resultDataInString;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

@@ -36,9 +36,6 @@ class ReBindLicenseDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceNameList', $this->deviceNameList, true);
-        Model::validateRequired('licenseCode', $this->licenseCode, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

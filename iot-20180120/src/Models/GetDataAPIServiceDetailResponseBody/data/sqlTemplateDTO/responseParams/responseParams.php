@@ -14,21 +14,29 @@ class responseParams extends Model
     public $desc;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $example;
 
     /**
+     * @example deviceCount
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example INTEGER
+     *
      * @var string
      */
     public $type;

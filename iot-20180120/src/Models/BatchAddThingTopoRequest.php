@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class BatchAddThingTopoRequest extends Model
 {
     /**
+     * @example gateway
+     *
      * @var string
      */
     public $gwDeviceName;
 
     /**
+     * @example a1vL7cp****
+     *
      * @var string
      */
     public $gwProductKey;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -37,9 +43,6 @@ class BatchAddThingTopoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('gwDeviceName', $this->gwDeviceName, true);
-        Model::validateRequired('gwProductKey', $this->gwProductKey, true);
-        Model::validateRequired('topoAddItem', $this->topoAddItem, true);
     }
 
     public function toMap()

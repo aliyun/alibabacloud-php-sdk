@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDataForApiSourceResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {"count":2,"hasNext":false,"items":[{"key":"value1","ts":1637658286000,"id":1234567890},{"key":"value2","ts":1637658287000,"id":1234567891}],"pageNum":1,"pageSize":2}
+     *
      * @var mixed[]
      */
     public $data;
@@ -24,11 +28,15 @@ class BatchAddDataForApiSourceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example BB71E443-4447-4024-A000-EDE09922891E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

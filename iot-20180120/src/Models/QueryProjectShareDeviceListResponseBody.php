@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryProjectShareDeviceListResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryProjectShareDeviceListResponseBody extends Model
     public $data;
 
     /**
+     * @example An internal error occurred. Try again later.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 671D0F8F-FDC7-4B12-93FA-336C079C965A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

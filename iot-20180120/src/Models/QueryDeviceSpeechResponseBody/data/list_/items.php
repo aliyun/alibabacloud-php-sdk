@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example wav
+     *
      * @var string
      */
     public $audioFormat;
 
     /**
+     * @example ZFDZ
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example 16
+     *
      * @var float
      */
     public $size;

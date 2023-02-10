@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySubscribeRelationRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1fyXVF****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example AMQP
+     *
      * @var string
      */
     public $type;
@@ -30,8 +36,6 @@ class QuerySubscribeRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

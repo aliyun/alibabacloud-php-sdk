@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceFileRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 6UCo1SqbqnQEoh9aK4561****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -42,7 +52,6 @@ class DeleteDeviceFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileId', $this->fileId, true);
     }
 
     public function toMap()

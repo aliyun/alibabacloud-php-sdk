@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAVerifyJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class CreateOTAVerifyJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 29EC7245-0FA4-4BB6-B4F5-5F04818FDFB1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

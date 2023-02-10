@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicReverseRouteTableRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example /x7aWKW9***\/testDataToDataHub/user/update
+     *
      * @var string
      */
     public $topic;
@@ -30,7 +36,6 @@ class QueryTopicReverseRouteTableRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

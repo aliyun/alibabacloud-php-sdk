@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteDevicePropRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example room
+     *
      * @var string
      */
     public $propKey;
@@ -42,7 +52,6 @@ class DeleteDevicePropRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('propKey', $this->propKey, true);
     }
 
     public function toMap()

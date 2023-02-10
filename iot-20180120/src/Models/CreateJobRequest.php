@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
+     * @example jobDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example { "serviceIdentifier": "test_service", "params": { "key1": "value1", "key2": "value2" } }
+     *
      * @var string
      */
     public $jobDocument;
 
     /**
+     * @example {   "fileKey":"5cc34***f9/tazJ***s",   "signMethod":"Sha256",   "sign":"***" }
+     *
      * @var mixed[]
      */
     public $jobFile;
 
     /**
+     * @example oneJob
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example {"maximumPerMinute": 1000}
+     *
      * @var mixed[]
      */
     public $rolloutConfig;
 
     /**
+     * @example 1557062301656
+     *
      * @var int
      */
     public $scheduledTime;
 
     /**
+     * @example {"targetType":"PRODUCT_KEY","targetProduct":"a1j***3d"}
+     *
      * @var mixed[]
      */
     public $targetConfig;
 
     /**
+     * @example {"inProgressTimeoutInMinutes": 60}
+     *
      * @var mixed[]
      */
     public $timeoutConfig;
 
     /**
+     * @example INVOKE_SERVICE
+     *
      * @var string
      */
     public $type;
@@ -72,10 +92,6 @@ class CreateJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobDocument', $this->jobDocument, true);
-        Model::validateRequired('jobName', $this->jobName, true);
-        Model::validateRequired('targetConfig', $this->targetConfig, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

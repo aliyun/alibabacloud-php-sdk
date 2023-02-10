@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example wav
+     *
      * @var string
      */
     public $audioFormat;
 
     /**
+     * @example identifying
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example ws****
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example Siyue
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;

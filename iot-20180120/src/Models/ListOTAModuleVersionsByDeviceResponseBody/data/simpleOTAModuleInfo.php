@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class simpleOTAModuleInfo extends Model
 {
     /**
+     * @example newDevice
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example QjIFT***000101
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example barcodeScanner
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $moduleVersion;
 
     /**
+     * @example aluctKe****
+     *
      * @var string
      */
     public $productKey;

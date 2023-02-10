@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class gatewayList extends Model
 {
     /**
+     * @example gateway_01
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $edgeVersion;
 
     /**
+     * @example LuD9x5hiRUdVemWU****000101
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1mAdeG****
+     *
      * @var string
      */
     public $productKey;

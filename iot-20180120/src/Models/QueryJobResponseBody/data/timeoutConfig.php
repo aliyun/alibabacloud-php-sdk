@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timeoutConfig extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $inProgressTimeoutInMinutes;

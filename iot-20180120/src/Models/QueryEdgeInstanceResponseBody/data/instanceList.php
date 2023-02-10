@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $bizEnable;
 
     /**
+     * @example 2019-07-17 14:34:28
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2019-07-17 14:51:38
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example 9iqyQAKDb2aYGVKa****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $latestDeploymentStatus;
 
     /**
+     * @example deploy
+     *
      * @var string
      */
     public $latestDeploymentType;
 
     /**
+     * @example test_le1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example acs:ram::1473922805******:role/aliyuniotaccessingfcrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example 2020-02-19 11:25:48
+     *
      * @var string
      */
     public $roleAttachTime;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $roleAttachTimestamp;
 
     /**
+     * @example AliyunIOTAccessingFCRole
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $spec;
 
     /**
+     * @example k1:v1,k2:v2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;

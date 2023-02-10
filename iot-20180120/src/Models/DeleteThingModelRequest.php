@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DeleteThingModelRequest extends Model
 {
     /**
+     * @example OfflineAlert
+     *
      * @var string[]
      */
     public $eventIdentifier;
 
     /**
+     * @example BatteryModule
+     *
      * @var string
      */
     public $functionBlockId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example Temperature
+     *
      * @var string[]
      */
     public $propertyIdentifier;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Set
+     *
      * @var string[]
      */
     public $serviceIdentifier;

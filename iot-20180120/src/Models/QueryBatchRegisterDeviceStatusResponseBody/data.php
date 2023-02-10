@@ -16,6 +16,8 @@ class data extends Model
     public $invalidList;
 
     /**
+     * @example CREATE_SUCCESS
+     *
      * @var string
      */
     public $status;

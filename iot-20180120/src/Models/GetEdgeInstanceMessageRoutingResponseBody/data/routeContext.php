@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class routeContext extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $qos;
 
     /**
+     * @example le_object_detector
+     *
      * @var string
      */
     public $sourceApplicationName;
 
     /**
+     * @example object_detector_app
+     *
      * @var string
      */
     public $sourceFcFunctionName;
 
     /**
+     * @example EdgeFC
+     *
      * @var string
      */
     public $sourceFcServiceName;
 
     /**
+     * @example le_object_detector
+     *
      * @var string
      */
     public $targetApplicationName;
 
     /**
+     * @example lightSensorDataFilter
+     *
      * @var string
      */
     public $targetFcFunctionName;
 
     /**
+     * @example EdgeFC
+     *
      * @var string
      */
     public $targetFcServiceName;

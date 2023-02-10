@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteOTAModuleRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example barcodeScanner
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example a1uctKe****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +36,6 @@ class DeleteOTAModuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('moduleName', $this->moduleName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class destinations extends Model
 {
     /**
+     * @example {"topic":"/a1POX0c****\/device1/user/get","topicType":1}
+     *
      * @var string
      */
     public $configuration;
@@ -19,16 +21,22 @@ class destinations extends Model
     public $description;
 
     /**
+     * @example 1003
+     *
      * @var int
      */
     public $destinationId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isFailover;
 
     /**
+     * @example DataPurpose
+     *
      * @var string
      */
     public $name;
@@ -39,11 +47,15 @@ class destinations extends Model
     public $status;
 
     /**
+     * @example REPUBLISH
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2022-03-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcCreated;

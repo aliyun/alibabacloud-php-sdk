@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAnalyticsDataRequest extends Model
 {
     /**
+     * @example /iot-cn-npk1v******\/system/query/hist_dev_cnt_stat
+     *
      * @var string
      */
     public $apiPath;
@@ -20,21 +22,29 @@ class ListAnalyticsDataRequest extends Model
     public $condition;
 
     /**
+     * @example iot-cn-npk1u******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example oxs_iso_id
+     *
      * @var string
      */
     public $isoId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
@@ -49,8 +59,6 @@ class ListAnalyticsDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('apiPath', $this->apiPath, true);
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1690934297000
+     *
      * @var int
      */
     public $expiryTime;
 
     /**
+     * @example 1620634297000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 720P
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @example es****
+     *
      * @var string
      */
     public $productKey;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeDriverVersionResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example J82E857F-T6B9-4FDE-96B8-E4BE97095D1A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

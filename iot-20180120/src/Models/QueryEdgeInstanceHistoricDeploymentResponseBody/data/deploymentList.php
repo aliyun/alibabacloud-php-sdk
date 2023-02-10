@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class deploymentList extends Model
 {
     /**
+     * @example e4803e566b424fa68e7f4b1c747c****
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example deploy_1561694817061
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2019-06-28 12:07:16
+     *
      * @var string
      */
     public $gmtCompleted;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCompletedTimestamp;
 
     /**
+     * @example 2019-06-26 18:12:29
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2019-06-28 12:07:16
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example deploy
+     *
      * @var string
      */
     public $type;

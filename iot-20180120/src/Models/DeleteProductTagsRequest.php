@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteProductTagsRequest extends Model
 {
     /**
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example room
+     *
      * @var string[]
      */
     public $productTagKey;
@@ -30,8 +36,6 @@ class DeleteProductTagsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('productTagKey', $this->productTagKey, true);
     }
 
     public function toMap()

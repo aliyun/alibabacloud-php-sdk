@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class sqlTemplateDTO extends Model
 {
     /**
+     * @example SELECT COUNT(*) FROM ${system.device} WHERE status = 1
+     *
      * @var string
      */
     public $originSql;
@@ -26,6 +28,8 @@ class sqlTemplateDTO extends Model
     public $responseParams;
 
     /**
+     * @example SELECT COUNT(*) as deviceCount FROM ${system.device} WHERE status = ${status}
+     *
      * @var string
      */
     public $templateSql;

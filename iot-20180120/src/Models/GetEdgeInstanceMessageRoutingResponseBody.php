@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeInstanceMessageRoutingResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetEdgeInstanceMessageRoutingResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 8A248DEC-887C-4A37-8DE5-E128FFA3698D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

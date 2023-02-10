@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetThingTemplateRequest extends Model
 {
     /**
+     * @example Lighting
+     *
      * @var string
      */
     public $categoryKey;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;

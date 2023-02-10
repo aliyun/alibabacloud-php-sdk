@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscribeRelationRequest extends Model
 {
     /**
+     * @example nJRaJPn5U1JITGfjBO9l00****
+     *
      * @var string[]
      */
     public $consumerGroupIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceDataFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceLifeCycleFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceStatusChangeFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceTagFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceTopoLifeCycleFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $foundDeviceListFlag;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example {     "queueName": "mns-test-topic1",     "regionName": "cn-shanghai",     "role": {         "roleArn": "acs:ram::5645***:role/aliyuniotaccessingmnsrole",         "roleName": "AliyunIOTAccessingMNSRole"     } }
+     *
      * @var string
      */
     public $mnsConfiguration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaEventFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaJobFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaVersionFlag;
 
     /**
+     * @example a1fyXVF****
+     *
      * @var string
      */
     public $productKey;
@@ -79,11 +105,15 @@ class CreateSubscribeRelationRequest extends Model
     public $subscribeFlags;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $thingHistoryFlag;
 
     /**
+     * @example AMQP
+     *
      * @var string
      */
     public $type;
@@ -108,7 +138,6 @@ class CreateSubscribeRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

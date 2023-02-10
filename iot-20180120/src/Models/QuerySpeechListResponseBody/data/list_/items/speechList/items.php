@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example identifying
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $speechCode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example Siyue
+     *
      * @var string
      */
     public $voice;

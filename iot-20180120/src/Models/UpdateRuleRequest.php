@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class UpdateRuleRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example test_2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example aladaeW****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example deviceName() as deviceName, items.Humidity.value as Humidity, items.Temperature.value as Temperature
+     *
      * @var string
      */
     public $select;
 
     /**
+     * @example +/thing/event/property/post
+     *
      * @var string
      */
     public $shortTopic;
 
     /**
+     * @example /sys/g18l***\/device1/thing/event/property/post
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $topicType;
 
     /**
+     * @example Temperature>35
+     *
      * @var string
      */
     public $where;
@@ -72,7 +92,6 @@ class UpdateRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

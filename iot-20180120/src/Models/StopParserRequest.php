@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopParserRequest extends Model
 {
     /**
+     * @example iot-n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $parserId;
@@ -24,7 +28,6 @@ class StopParserRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ruleActionInfo extends Model
 {
     /**
+     * @example {\"topic\":\"/sys/a1zSA28****\/device/thing/service/property/set\",\"topicType\":0,\"uid\":\"1231579*******\"}
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $errorActionFlag;
 
     /**
+     * @example 100001
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 152323
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example REPUBLISH
+     *
      * @var string
      */
     public $type;

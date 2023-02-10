@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class topicList extends Model
 {
     /**
+     * @example 1662039965873
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example /hf768****\/device1/user/test
+     *
      * @var string
      */
     public $topicName;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeviceGroupRequest extends Model
 {
     /**
+     * @example test2
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example W16X8Tvdosec****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example LINK_PLATFORM_DYNAMIC
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -36,7 +44,6 @@ class UpdateDeviceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

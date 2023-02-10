@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example s8SSHiKjpBfrM3BSN0z803****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example 2019-11-04T06:21:54.607Z
+     *
      * @var string
      */
     public $utcCreate;

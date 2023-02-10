@@ -10,28 +10,31 @@ use AlibabaCloud\Tea\Model;
 class InvokeDataAPIServiceRequest extends Model
 {
     /**
+     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
+     *
      * @var string
      */
     public $apiSrn;
 
     /**
-     * @var param[]
-     */
-    public $param;
-
-    /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
+
+    /**
+     * @var param[]
+     */
+    public $param;
     protected $_name = [
         'apiSrn'        => 'ApiSrn',
-        'param'         => 'Param',
         'iotInstanceId' => 'IotInstanceId',
+        'param'         => 'Param',
     ];
 
     public function validate()
     {
-        Model::validateRequired('apiSrn', $this->apiSrn, true);
     }
 
     public function toMap()
@@ -39,6 +42,9 @@ class InvokeDataAPIServiceRequest extends Model
         $res = [];
         if (null !== $this->apiSrn) {
             $res['ApiSrn'] = $this->apiSrn;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->param) {
             $res['Param'] = [];
@@ -48,9 +54,6 @@ class InvokeDataAPIServiceRequest extends Model
                     $res['Param'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -67,6 +70,9 @@ class InvokeDataAPIServiceRequest extends Model
         if (isset($map['ApiSrn'])) {
             $model->apiSrn = $map['ApiSrn'];
         }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
         if (isset($map['Param'])) {
             if (!empty($map['Param'])) {
                 $model->param = [];
@@ -75,9 +81,6 @@ class InvokeDataAPIServiceRequest extends Model
                     $model->param[$n++] = null !== $item ? param::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

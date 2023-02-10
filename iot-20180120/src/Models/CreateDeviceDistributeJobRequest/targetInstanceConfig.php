@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetInstanceConfig extends Model
 {
     /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $targetInstanceId;
@@ -18,7 +20,6 @@ class targetInstanceConfig extends Model
 
     public function validate()
     {
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

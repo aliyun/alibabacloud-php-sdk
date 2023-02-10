@@ -14,21 +14,29 @@ class requestParams extends Model
     public $desc;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $example;
 
     /**
+     * @example status
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example INTEGER
+     *
      * @var string
      */
     public $type;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DisableDeviceTunnelShareResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 35023CAB-CBED-4A2E-92DF-201C72850B50
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

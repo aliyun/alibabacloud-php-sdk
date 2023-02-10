@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportThingModelTslRequest extends Model
 {
     /**
+     * @example BatteryModule
+     *
      * @var string
      */
     public $functionBlockId;
@@ -19,26 +21,36 @@ class ImportThingModelTslRequest extends Model
     public $functionBlockName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example {"schema":"https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json","profile":{"productKey":"a14TeW****"},"properties":[]}
+     *
      * @var string
      */
     public $tslStr;
 
     /**
+     * @example https://iotx-pop-dsl.oss-cn-shanghai.aliyuncs.com/thing/a14TeWI****\/model.json?Expires=1581947119...
+     *
      * @var string
      */
     public $tslUrl;
@@ -54,7 +66,6 @@ class ImportThingModelTslRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

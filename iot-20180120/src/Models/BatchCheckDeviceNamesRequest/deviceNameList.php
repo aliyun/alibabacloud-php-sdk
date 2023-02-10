@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deviceNameList extends Model
 {
     /**
+     * @example light1
+     *
      * @var string
      */
     public $deviceName;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example GroupName1
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example LINK_PLATFORM_DYNAMIC
+     *
      * @var string[]
      */
     public $groupTypes;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 8vDubXr4nUvZkNgk9mle010200
+     *
      * @var string
      */
     public $superGroupId;

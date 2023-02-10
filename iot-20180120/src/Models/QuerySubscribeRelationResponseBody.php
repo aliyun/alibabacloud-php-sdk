@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySubscribeRelationResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,26 +21,36 @@ class QuerySubscribeRelationResponseBody extends Model
     public $consumerGroupIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceDataFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceLifeCycleFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceStatusChangeFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceTagFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deviceTopoLifeCycleFlag;
@@ -49,51 +61,76 @@ class QuerySubscribeRelationResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $foundDeviceListFlag;
 
     /**
+     * @example {     "queueName": "mns-test-topic1",     "regionName": "cn-shanghai",     "role": {         "roleArn": "acs:ram::5645***:role/aliyuniotaccessingmnsrole",         "roleName": "AliyunIOTAccessingMNSRole"     } }
+     *
      * @var string
      */
     public $mnsConfiguration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaEventFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaJobFlag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $otaVersionFlag;
 
     /**
+     * @example a1fyXVF****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 21D327AF-A7DE-4E59-B5D1-ACAC8C024555
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $subscribeFlags;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $thingHistoryFlag;
 
     /**
+     * @example AMQP
+     *
      * @var string
      */
     public $type;
@@ -113,6 +150,7 @@ class QuerySubscribeRelationResponseBody extends Model
         'otaVersionFlag'          => 'OtaVersionFlag',
         'productKey'              => 'ProductKey',
         'requestId'               => 'RequestId',
+        'subscribeFlags'          => 'SubscribeFlags',
         'success'                 => 'Success',
         'thingHistoryFlag'        => 'ThingHistoryFlag',
         'type'                    => 'Type',
@@ -169,6 +207,9 @@ class QuerySubscribeRelationResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->subscribeFlags) {
+            $res['SubscribeFlags'] = $this->subscribeFlags;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -237,6 +278,9 @@ class QuerySubscribeRelationResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SubscribeFlags'])) {
+            $model->subscribeFlags = $map['SubscribeFlags'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartRuleRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $ruleId;
@@ -24,7 +28,6 @@ class StartRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

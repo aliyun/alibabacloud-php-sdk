@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PrintByTemplateRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $historyPrintTopic;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -34,11 +42,15 @@ class PrintByTemplateRequest extends Model
     public $paramsJsonString;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $templateBizCode;
@@ -54,7 +66,6 @@ class PrintByTemplateRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('templateBizCode', $this->templateBizCode, true);
     }
 
     public function toMap()

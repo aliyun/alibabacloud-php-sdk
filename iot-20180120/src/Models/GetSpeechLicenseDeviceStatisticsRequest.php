@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSpeechLicenseDeviceStatisticsRequest extends Model
 {
     /**
+     * @example iot-e3***
+     *
      * @var string
      */
     public $iotInstanceId;

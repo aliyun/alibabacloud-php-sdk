@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateSoundCodeLabelRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $soundCode;
@@ -30,8 +36,6 @@ class UpdateSoundCodeLabelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('label', $this->label, true);
-        Model::validateRequired('soundCode', $this->soundCode, true);
     }
 
     public function toMap()

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeOssPreSignedAddressRequest extends Model
 {
     /**
+     * @example testfile.zip
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example df9b9f441*********4c90d0c21d14
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $resourceVersion;
 
     /**
+     * @example DRIVER_VERSION_CONTENT
+     *
      * @var string
      */
     public $type;
@@ -48,10 +60,6 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileName', $this->fileName, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('resourceVersion', $this->resourceVersion, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

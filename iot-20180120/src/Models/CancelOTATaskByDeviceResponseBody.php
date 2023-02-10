@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOTATaskByDeviceResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class CancelOTATaskByDeviceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example A01829CE-75A1-4920-B775-921146A1AB79
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

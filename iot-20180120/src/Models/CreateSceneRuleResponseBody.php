@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneRuleResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C9D9C91B-1B3B-4D84-BE58-68E7B2A989EA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example f041397879ad4d89822811d741******
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

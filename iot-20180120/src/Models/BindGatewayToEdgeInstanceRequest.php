@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BindGatewayToEdgeInstanceRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 4z819VQHk6VSLmmBJfrf0010******
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1mAdeG****
+     *
      * @var string
      */
     public $productKey;
@@ -42,7 +52,6 @@ class BindGatewayToEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fuzzy;
@@ -24,11 +28,15 @@ class QueryConsumerGroupListRequest extends Model
     public $groupName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
@@ -42,8 +50,6 @@ class QueryConsumerGroupListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

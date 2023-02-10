@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetDeviceBindStatusResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class BatchGetDeviceBindStatusResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example B1DF865D-2474-4CD5-9B7E-59B06D204CBF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

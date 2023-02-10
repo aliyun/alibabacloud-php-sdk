@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class propertyStatusDataInfo extends Model
 {
     /**
+     * @example Temperture
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 1517553572362
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example 26
+     *
      * @var string
      */
     public $value;

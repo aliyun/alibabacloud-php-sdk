@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSchedulePeriodRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $periodCode;
@@ -24,7 +28,6 @@ class DeleteSchedulePeriodRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('periodCode', $this->periodCode, true);
     }
 
     public function toMap()

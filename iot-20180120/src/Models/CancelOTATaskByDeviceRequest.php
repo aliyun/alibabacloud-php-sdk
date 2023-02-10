@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CancelOTATaskByDeviceRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string[]
      */
     public $deviceName;
 
     /**
+     * @example T0F5b5tpFnHQrgfk****030100
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example wahVIzGkCMuAUE2gDERM02****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example a1V4kde****
+     *
      * @var string
      */
     public $productKey;
@@ -42,9 +52,6 @@ class CancelOTATaskByDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

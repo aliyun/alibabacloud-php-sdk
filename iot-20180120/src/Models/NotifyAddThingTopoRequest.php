@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class NotifyAddThingTopoRequest extends Model
 {
     /**
+     * @example [{"productKey":"a1BwAGV****","deviceName":"device1"},{"IotId":"Q7uOhVRdZRRlDnTLv****00100"}]
+     *
      * @var string
      */
     public $deviceListStr;
 
     /**
+     * @example gateway
+     *
      * @var string
      */
     public $gwDeviceName;
 
     /**
+     * @example vWxNur6BUApsqjv****4000100
+     *
      * @var string
      */
     public $gwIotId;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $gwProductKey;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;

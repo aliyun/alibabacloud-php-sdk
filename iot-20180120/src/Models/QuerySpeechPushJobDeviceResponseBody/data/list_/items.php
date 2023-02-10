@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example device storage limited
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1620624606000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

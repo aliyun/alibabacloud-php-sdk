@@ -19,16 +19,22 @@ class UpdateOTAModuleRequest extends Model
     public $desc;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example barcodeScanner
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example a1Le6d0****
+     *
      * @var string
      */
     public $productKey;
@@ -42,8 +48,6 @@ class UpdateOTAModuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('moduleName', $this->moduleName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

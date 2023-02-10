@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryVehicleDeviceRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1Bw****
+     *
      * @var string
      */
     public $productKey;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RefreshDeviceTunnelSharePasswordResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 5f5c96d7e792af75da33a81dc87982ea********
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 46AF6619-EFF3-4B77-A90B-B9EAA0C6D1AF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

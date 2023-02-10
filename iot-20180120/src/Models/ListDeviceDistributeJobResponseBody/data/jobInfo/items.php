@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 1581595942000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example UbmsMHmkqv0PiAG****010001
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $sourceInstanceId;
@@ -35,21 +43,29 @@ class items extends Model
     public $sourceInstanceName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $sourceRegion;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $sourceUid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $strategy;
@@ -60,11 +76,15 @@ class items extends Model
     public $targetInstanceConfigs;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $total;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetThingTopoRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -48,8 +60,6 @@ class GetThingTopoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

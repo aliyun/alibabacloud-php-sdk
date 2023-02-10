@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleActionResponseBody extends Model
 {
     /**
+     * @example 10003
+     *
      * @var int
      */
     public $actionId;
 
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -24,11 +28,15 @@ class CreateRuleActionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 21D327AF-A7DE-4E59-B5D1-ACAC8C024555
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

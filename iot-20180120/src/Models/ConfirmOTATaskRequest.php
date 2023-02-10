@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConfirmOTATaskRequest extends Model
 {
     /**
+     * @example iot-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example y3tOmCDNgpR8F9jnVEzC01****
+     *
      * @var string[]
      */
     public $taskId;
@@ -24,7 +28,6 @@ class ConfirmOTATaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceGroupRequest extends Model
 {
     /**
+     * @example Group test
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example grouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example SuperGroupId1
+     *
      * @var string
      */
     public $superGroupId;
@@ -36,7 +44,6 @@ class CreateDeviceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()

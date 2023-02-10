@@ -14,6 +14,8 @@ class CreateConsumerGroupRequest extends Model
     public $groupName;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +26,6 @@ class CreateConsumerGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()

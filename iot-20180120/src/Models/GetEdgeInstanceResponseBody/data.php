@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $bizEnable;
 
     /**
+     * @example 2019-06-26 12:33:25
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2019-06-26 12:33:25
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $latestDeploymentStatus;
 
     /**
+     * @example deploy
+     *
      * @var string
      */
     public $latestDeploymentType;
@@ -54,36 +70,50 @@ class data extends Model
     public $name;
 
     /**
+     * @example acs:ram::1473922805******:role/aliyuniotaccessingfcrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example 2020-02-19 11:25:48
+     *
      * @var string
      */
     public $roleAttachTime;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $roleAttachTimestamp;
 
     /**
+     * @example AliyunIOTAccessingFCRole
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $spec;
 
     /**
+     * @example k1:v1,k2:v2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $type;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceSceneRuleResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryEdgeInstanceSceneRuleResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example D4C3331B-0FA8-4A05-AFE2-54F698EDEAF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

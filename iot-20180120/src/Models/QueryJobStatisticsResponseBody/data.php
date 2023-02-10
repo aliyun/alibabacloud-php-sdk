@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $cancelled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failed;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $inProgress;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $queued;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rejected;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $sent;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $succeeded;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeOut;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $total;

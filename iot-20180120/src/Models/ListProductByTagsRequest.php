@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListProductByTagsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -37,7 +43,6 @@ class ListProductByTagsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productTag', $this->productTag, true);
     }
 
     public function toMap()

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDeviceGroupTagsResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class SetDeviceGroupTagsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 12CFDAF1-99D9-42E0-8C2F-F281DA5E8953
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

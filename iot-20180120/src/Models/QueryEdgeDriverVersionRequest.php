@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverVersionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
@@ -24,16 +28,22 @@ class QueryEdgeDriverVersionRequest extends Model
     public $driverVersion;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $versionState;
@@ -48,9 +58,6 @@ class QueryEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

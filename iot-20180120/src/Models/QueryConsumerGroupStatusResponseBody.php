@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupStatusResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $accumulatedConsumeCountPerMinute;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $accumulationCount;
@@ -25,11 +29,15 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $clientConnectionStatusList;
 
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 14
+     *
      * @var int
      */
     public $consumerSpeed;
@@ -40,21 +48,29 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 2020-05-29T03:37:56.000Z
+     *
      * @var string
      */
     public $lastConsumerTime;
 
     /**
+     * @example 14
+     *
      * @var int
      */
     public $realTimeConsumeCountPerMinute;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

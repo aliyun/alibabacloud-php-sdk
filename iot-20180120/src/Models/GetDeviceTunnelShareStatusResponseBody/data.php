@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1617941371000
+     *
      * @var int
      */
     public $gmtOpened;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOpen;
 
     /**
+     * @example 848bbfa0e9a31e579502869920b4d4c********
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 18f72f95cad34ca3aeabeeefcb******
+     *
      * @var string
      */
     public $shareId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListRuleRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -36,8 +44,6 @@ class ListRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

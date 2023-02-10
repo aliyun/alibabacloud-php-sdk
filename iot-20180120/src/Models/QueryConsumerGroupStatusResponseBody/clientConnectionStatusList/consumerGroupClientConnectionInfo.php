@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class consumerGroupClientConnectionInfo extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $accumulatedConsumeCountPerMinute;
 
     /**
+     * @example 868575026******
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example 192.168.1.2:36918
+     *
      * @var string
      */
     public $clientIpPort;
 
     /**
+     * @example 1591240546649
+     *
      * @var int
      */
     public $onlineTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $realTimeConsumeCountPerMinute;

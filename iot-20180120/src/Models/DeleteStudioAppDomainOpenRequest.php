@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteStudioAppDomainOpenRequest extends Model
 {
     /**
+     * @example a12******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a123*******
+     *
      * @var string
      */
     public $projectId;
@@ -36,9 +44,6 @@ class DeleteStudioAppDomainOpenRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('domainId', $this->domainId, true);
-        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

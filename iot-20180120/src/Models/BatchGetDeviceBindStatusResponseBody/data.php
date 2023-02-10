@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bindStatus;
@@ -19,6 +21,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @example sjI0Sd124XFYyjBYMiYO******
+     *
      * @var string
      */
     public $iotId;

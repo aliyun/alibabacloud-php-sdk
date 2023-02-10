@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetThingModelTslPublishedRequest extends Model
 {
     /**
+     * @example BatteryModule
+     *
      * @var string
      */
     public $functionBlockId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $modelVersion;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $simple;
@@ -48,7 +60,6 @@ class GetThingModelTslPublishedRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

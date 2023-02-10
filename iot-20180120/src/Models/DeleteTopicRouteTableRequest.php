@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRouteTableRequest extends Model
 {
     /**
+     * @example /x7aWKW9***\/deviceNameTest1/user/add
+     *
      * @var string[]
      */
     public $dstTopic;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example /x7aWKW9***\/testDataToDataHub/user/update
+     *
      * @var string
      */
     public $srcTopic;
@@ -30,8 +36,6 @@ class DeleteTopicRouteTableRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dstTopic', $this->dstTopic, true);
-        Model::validateRequired('srcTopic', $this->srcTopic, true);
     }
 
     public function toMap()

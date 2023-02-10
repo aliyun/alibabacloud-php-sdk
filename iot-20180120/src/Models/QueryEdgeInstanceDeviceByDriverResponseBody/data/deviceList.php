@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deviceList extends Model
 {
     /**
+     * @example Hathoyxglj9jpYPyw3WN******
+     *
      * @var string
      */
     public $iotId;

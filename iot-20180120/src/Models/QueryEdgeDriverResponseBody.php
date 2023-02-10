@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryEdgeDriverResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E0BD540E-DCFE-4602-B6D1-D208E8594BF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

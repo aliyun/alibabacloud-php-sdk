@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example MyledDriver
+     *
      * @var string
      */
     public $driverName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
@@ -42,9 +52,6 @@ class QueryEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

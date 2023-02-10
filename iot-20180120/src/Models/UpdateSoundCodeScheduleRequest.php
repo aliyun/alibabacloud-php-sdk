@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class UpdateSoundCodeScheduleRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2022-03-31
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 23:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $scheduleCode;
 
     /**
+     * @example 2022-03-31
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example WORKING
+     *
      * @var string
      */
     public $status;
@@ -66,7 +84,6 @@ class UpdateSoundCodeScheduleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

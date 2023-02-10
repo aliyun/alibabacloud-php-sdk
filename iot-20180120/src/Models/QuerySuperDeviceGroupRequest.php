@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySuperDeviceGroupRequest extends Model
 {
     /**
+     * @example DMoI2Kby5m62****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class QuerySuperDeviceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

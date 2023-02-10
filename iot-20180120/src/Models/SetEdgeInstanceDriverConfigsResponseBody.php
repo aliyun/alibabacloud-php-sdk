@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetEdgeInstanceDriverConfigsResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 252C7754-F6A2-454B-9DE2-382A97FC0C3F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

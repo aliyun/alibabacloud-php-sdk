@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteProductTopicRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 798****
+     *
      * @var string
      */
     public $topicId;
@@ -24,7 +28,6 @@ class DeleteProductTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topicId', $this->topicId, true);
     }
 
     public function toMap()

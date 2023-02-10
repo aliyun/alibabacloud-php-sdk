@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryCertUrlByApplyIdRequest extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class QueryCertUrlByApplyIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applyId', $this->applyId, true);
     }
 
     public function toMap()

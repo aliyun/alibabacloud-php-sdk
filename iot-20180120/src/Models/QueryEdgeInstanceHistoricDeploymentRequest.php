@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceHistoricDeploymentRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 1561543998639
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example PgEfYupSn6Pvhfkx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1558951998639
+     *
      * @var int
      */
     public $startTime;
@@ -48,9 +60,6 @@ class QueryEdgeInstanceHistoricDeploymentRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

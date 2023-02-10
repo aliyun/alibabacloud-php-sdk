@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceTunnelShareStatusResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetDeviceTunnelShareStatusResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ACC1D51C-1A58-440E-92A7-71AB61C6595A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

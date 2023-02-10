@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReplaceEdgeInstanceGatewayResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 10E5C856-E0A1-4468-BE01-E540A8BA8819
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

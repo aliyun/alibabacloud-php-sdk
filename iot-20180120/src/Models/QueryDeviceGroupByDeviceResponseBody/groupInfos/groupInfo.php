@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class groupInfo extends Model
 {
     /**
+     * @example father desc
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example 6a3FF2XE2BKa****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example father1543152336554
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example LINK_PLATFORM_DYNAMIC
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example 2018-11-25T13:25:37.000Z
+     *
      * @var string
      */
     public $utcCreate;

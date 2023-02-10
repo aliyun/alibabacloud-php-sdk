@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class deviceCertInfo extends Model
 {
     /**
+     * @example 636217374433****
+     *
      * @var string
      */
     public $certSN;
 
     /**
+     * @example tXHf4ezGEHcwdyMwoCDHGBmk9avi****
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @example CqXL5h5ysRTA4NxjABjj0010fa****
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;

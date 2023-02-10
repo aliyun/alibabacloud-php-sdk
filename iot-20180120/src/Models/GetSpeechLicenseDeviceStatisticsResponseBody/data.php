@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $availableQuota;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $expiredQuota;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $expiringQuota;

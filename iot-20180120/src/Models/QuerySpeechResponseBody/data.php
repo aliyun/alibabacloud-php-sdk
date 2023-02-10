@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example wav
+     *
      * @var string
      */
     public $audioFormat;
 
     /**
+     * @example identifying
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableSoundCode;
@@ -30,31 +36,43 @@ class data extends Model
     public $soundCodeConfig;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $speechCode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $speechType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example Siyue
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;

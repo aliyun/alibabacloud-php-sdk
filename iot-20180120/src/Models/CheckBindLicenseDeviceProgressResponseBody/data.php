@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failSum;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example http://***.oss-***.aliyuncs.com/license_device_***\/***\/d***h/c***.csv?Expires=16***&OSSAccessKeyId=L***&Signature=***
+     *
      * @var string
      */
     public $resultCsvFile;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $successSum;

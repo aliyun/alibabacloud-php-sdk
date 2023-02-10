@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InvokeDataAPIServiceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class InvokeDataAPIServiceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example E68FE5DC-4D7B-4987-B785-DF8C6F191F5D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -14,11 +14,15 @@ class UpdateProductRequest extends Model
     public $description;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -36,8 +40,6 @@ class UpdateProductRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('productName', $this->productName, true);
     }
 
     public function toMap()

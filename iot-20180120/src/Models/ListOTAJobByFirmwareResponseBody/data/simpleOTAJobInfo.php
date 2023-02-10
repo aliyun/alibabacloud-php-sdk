@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class simpleOTAJobInfo extends Model
 {
     /**
+     * @example UfuxnwygsuSkVE0VCN****0100
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example HvKuBpuk3rdk6E92CP****0200
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example IN_PROGRESS
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @example UPGRADE_FIRMWARE
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example STATIC
+     *
      * @var string
      */
     public $selectionType;
@@ -45,26 +57,36 @@ class simpleOTAJobInfo extends Model
     public $tags;
 
     /**
+     * @example SPECIFIC
+     *
      * @var string
      */
     public $targetSelection;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2019-12-29T02:43:10.000Z
+     *
      * @var string
      */
     public $utcEndTime;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcModified;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcStartTime;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListThingTemplatesRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;

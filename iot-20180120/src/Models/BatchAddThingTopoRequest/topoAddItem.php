@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class topoAddItem extends Model
 {
     /**
+     * @example a1BwAGV****device1
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example C1C1606D61884C5F16C9EA6622E5****
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @example hmacMd5
+     *
      * @var string
      */
     public $signMethod;
 
     /**
+     * @example 1579335899000
+     *
      * @var string
      */
     public $timestamp;
@@ -48,10 +60,6 @@ class topoAddItem extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('sign', $this->sign, true);
-        Model::validateRequired('signMethod', $this->signMethod, true);
     }
 
     public function toMap()

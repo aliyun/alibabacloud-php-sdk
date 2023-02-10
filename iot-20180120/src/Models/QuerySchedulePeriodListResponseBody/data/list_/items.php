@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 00:10
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $periodCode;
 
     /**
+     * @example www.taobao.com
+     *
      * @var string
      */
     public $soundCodeContent;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $startTime;

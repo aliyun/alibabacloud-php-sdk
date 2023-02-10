@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CloseEdgeInstanceDeploymentResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 3C969586-3DD1-41A7-9B8E-E8B134CA6600
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

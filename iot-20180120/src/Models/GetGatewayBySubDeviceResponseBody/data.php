@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example gateway
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example dCYdTU3gw5Z77bsHjPk6lPHPVnBT****
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @example V1.0.1
+     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
+     * @example 2019-12-18 23:25:30
+     *
      * @var string
      */
     public $gmtActive;
 
     /**
+     * @example 2019-12-18 16:58:33
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2020-01-20 17:41:04
+     *
      * @var string
      */
     public $gmtOnline;
 
     /**
+     * @example 106.**.1**.**
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example LinkIoT
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2019-12-18T15:25:30.176Z
+     *
      * @var string
      */
     public $utcActive;
 
     /**
+     * @example 2019-12-18T08:58:33.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2020-01-20T09:41:04.879Z
+     *
      * @var string
      */
     public $utcOnline;
 
     /**
+     * @example WuyjPSDQE1L22z1d****000100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

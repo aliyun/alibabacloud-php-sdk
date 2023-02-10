@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListOTAUnfinishedTaskByDeviceRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example TfmUAeJjQQhCPH84UVNn0010c6****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-c3j***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example WifiConfigModify
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example CONFIRM
+     *
      * @var string
      */
     public $taskStatus;
@@ -48,7 +60,6 @@ class ListOTAUnfinishedTaskByDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskStatus', $this->taskStatus, true);
     }
 
     public function toMap()

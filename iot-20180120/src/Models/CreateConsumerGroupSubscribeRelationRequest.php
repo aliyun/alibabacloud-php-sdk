@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupSubscribeRelationRequest extends Model
 {
     /**
+     * @example nJRaJPn5U1JITGfjBO9l00****
+     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1fyXVF****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +36,6 @@ class CreateConsumerGroupSubscribeRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('consumerGroupId', $this->consumerGroupId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

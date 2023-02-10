@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class productTopicInfo extends Model
 {
     /**
+     * @example topicDesc
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example 821****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example HMyB***
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example /HMyB***\/${deviceName}/user/get
+     *
      * @var string
      */
     public $topicShortName;

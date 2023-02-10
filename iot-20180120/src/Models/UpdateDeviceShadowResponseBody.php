@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeviceShadowResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class UpdateDeviceShadowResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 6754C0E7-A35D-4CC8-A684-45EB1F0008D9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

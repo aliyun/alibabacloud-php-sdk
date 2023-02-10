@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class ruleInfo extends Model
 {
     /**
+     * @example 1231579085000000
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example Wed Feb 27 20:45:43 CST 2019
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 151454
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example Wed Feb 27 20:45:43 CST 2019
+     *
      * @var string
      */
     public $modified;
 
     /**
+     * @example test123
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example a1KiV******
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rule1Desc
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @example deviceName() as deviceName
+     *
      * @var string
      */
     public $select;
 
     /**
+     * @example +/thing/event/property/post
+     *
      * @var string
      */
     public $shortTopic;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example /a1T27vz****\/+/thing/event/property/post
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @example 2019-02-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcCreated;
 
     /**
+     * @example 2019-02-27T12:45:43.000Z
+     *
      * @var string
      */
     public $utcModified;
 
     /**
+     * @example Temperature>35
+     *
      * @var string
      */
     public $where;

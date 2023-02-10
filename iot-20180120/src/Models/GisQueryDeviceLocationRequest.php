@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GisQueryDeviceLocationRequest extends Model
 {
     /**
+     * @example iot-a****13l
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -25,7 +27,6 @@ class GisQueryDeviceLocationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('thingList', $this->thingList, true);
     }
 
     public function toMap()

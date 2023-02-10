@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceDynamicGroupResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class CreateDeviceDynamicGroupResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 4D6D7F71-1C94-4160-8511-EFF4B8F0634D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example e8SDdgeIlk3nED****
+     *
      * @var string
      */
     public $devEui;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @example 1O4YPNtRqB2anumz2Canp4GB7q****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example Ede4tde8erth****
+     *
      * @var string
      */
     public $joinEui;
@@ -39,6 +49,8 @@ class data extends Model
     public $nickname;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

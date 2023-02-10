@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopRuleResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class StopRuleResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 9A2F243E-17FE-4846-BAB5-D02A25155AC4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSoundCodeScheduleRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $scheduleCode;
@@ -24,7 +28,6 @@ class GetSoundCodeScheduleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

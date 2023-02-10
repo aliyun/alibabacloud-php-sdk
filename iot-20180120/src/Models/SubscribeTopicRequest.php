@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubscribeTopicRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-06***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1Q5XoY***
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example /a1Q5XoY***\/device1/user/get
+     *
      * @var string[]
      */
     public $topic;
@@ -36,9 +44,6 @@ class SubscribeTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

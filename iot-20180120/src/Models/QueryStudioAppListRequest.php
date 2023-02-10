@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryStudioAppListRequest extends Model
 {
     /**
+     * @example test1
+     *
      * @var string
      */
     public $fuzzyName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a123********
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example ["webApp", "mobileApp"]
+     *
      * @var string[]
      */
     public $types;
@@ -48,8 +60,6 @@ class QueryStudioAppListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('types', $this->types, true);
     }
 
     public function toMap()

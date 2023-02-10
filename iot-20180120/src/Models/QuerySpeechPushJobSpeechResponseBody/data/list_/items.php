@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example ZFDZ
+     *
      * @var string
      */
     public $bizCode;
@@ -20,6 +22,8 @@ class items extends Model
     public $speechList;
 
     /**
+     * @example CUSTOM
+     *
      * @var string
      */
     public $speechType;
@@ -30,6 +34,8 @@ class items extends Model
     public $text;
 
     /**
+     * @example Xiaoyun
+     *
      * @var string
      */
     public $voice;

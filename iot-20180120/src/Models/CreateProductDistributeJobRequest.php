@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateProductDistributeJobRequest extends Model
 {
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-cn-st2***
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @example io****@example.com
+     *
      * @var string
      */
     public $targetAliyunId;
 
     /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;
@@ -42,9 +52,6 @@ class CreateProductDistributeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindRoleToEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 3DE428F8-22AF-4B37-8FEC-E64CFBE4A125
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

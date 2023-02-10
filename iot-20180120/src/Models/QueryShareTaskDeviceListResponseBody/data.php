@@ -15,16 +15,22 @@ class data extends Model
     public $deviceList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $total;

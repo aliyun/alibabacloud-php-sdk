@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateThingScriptRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example "function protocolToRawData(jsonObj) {return rawdata; }function rawDataToProtocol(rawData) {return jsonObj; }"
+     *
      * @var string
      */
     public $scriptContent;
 
     /**
+     * @example JavaScript
+     *
      * @var string
      */
     public $scriptType;
@@ -36,9 +44,6 @@ class UpdateThingScriptRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('scriptContent', $this->scriptContent, true);
-        Model::validateRequired('scriptType', $this->scriptType, true);
     }
 
     public function toMap()

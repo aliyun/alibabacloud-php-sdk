@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2020-05-25 19:54:59
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1590407699000
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2020-05-25 19:54:59
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1590407699000
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $name;
@@ -40,26 +50,36 @@ class data extends Model
     public $routeContext;
 
     /**
+     * @example #
+     *
      * @var string
      */
     public $sourceData;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 58c46749ac934db3925fe5********
+     *
      * @var string
      */
     public $targetData;
 
     /**
+     * @example IotHub
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $topicFilter;

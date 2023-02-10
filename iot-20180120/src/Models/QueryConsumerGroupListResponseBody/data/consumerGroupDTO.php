@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class consumerGroupDTO extends Model
 {
     /**
+     * @example 2020-05-20T00:05:20.000Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example nJRaJPn5U1JITGf******
+     *
      * @var string
      */
     public $groupId;

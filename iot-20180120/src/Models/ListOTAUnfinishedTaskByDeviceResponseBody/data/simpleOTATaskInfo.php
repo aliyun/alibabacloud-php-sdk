@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class simpleOTATaskInfo extends Model
 {
     /**
+     * @example 1.0.1
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example q3j9OYBjUAZMv1hlMgdo03****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example nadRdeffljdEndlfadgadfse****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 7glPHmaDYLAYMD1HHutT02****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example WifiConfigModify
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example a1GUfrM****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example MyProduct
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $srcVersion;
 
     /**
+     * @example y3tOmCDNgpR8F9jnVEzC01****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example CONFIRM
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 2019-11-04T03:38:22.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2021-11-04T03:38:22.000Z
+     *
      * @var string
      */
     public $utcModified;

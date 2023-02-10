@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2022-03-28
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 23:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1620634297000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example INNER
+     *
      * @var string
      */
     public $openType;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $scheduleCode;
 
     /**
+     * @example 2022-03-28
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example WORKING
+     *
      * @var string
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeInstanceDeploymentRequest extends Model
 {
     /**
+     * @example 9261e308a9504fde9b4cf8462b0b****
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example PgEfYupSn6Pvhfkx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class GetEdgeInstanceDeploymentRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deploymentId', $this->deploymentId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

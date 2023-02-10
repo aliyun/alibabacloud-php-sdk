@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @example secret
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataFormat;
 
     /**
+     * @example This is a test product.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 128
+     *
      * @var int
      */
     public $deviceCount;
 
     /**
+     * @example 1581595942000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $productKey;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceStatisticsRequest extends Model
 {
     /**
+     * @example W16X8Tvdosec****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

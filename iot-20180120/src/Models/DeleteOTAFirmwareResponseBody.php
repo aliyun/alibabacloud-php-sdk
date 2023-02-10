@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteOTAFirmwareResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class DeleteOTAFirmwareResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 9B7BF858-7686-496E-B8B0-BF9E5D7F86CE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

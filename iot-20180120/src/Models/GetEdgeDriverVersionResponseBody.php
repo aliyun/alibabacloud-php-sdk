@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeDriverVersionResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetEdgeDriverVersionResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 6ECE664B-E670-47BA-A6AD-62B9F35E3A7B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

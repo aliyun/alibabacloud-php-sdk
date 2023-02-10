@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadDataJobResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class CreateDownloadDataJobResponseBody extends Model
     public $data;
 
     /**
+     * @example no authorization.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 4D6D7F71-1C94-4160-8511-EFF4B8F0643F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class CreateConsumerGroupResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example nJRaJPn5U1JITGf******
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 73B9DF43-7780-47DE-8BED-077729D28BD2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

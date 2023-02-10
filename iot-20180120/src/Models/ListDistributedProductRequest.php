@@ -9,69 +9,79 @@ use AlibabaCloud\Tea\Model;
 class ListDistributedProductRequest extends Model
 {
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $sourceInstanceId;
-
-    /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example iot-060***
+     *
+     * @var string
+     */
+    public $sourceInstanceId;
+
+    /**
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example 198***
+     *
      * @var string
      */
     public $targetUid;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage'      => 'CurrentPage',
         'pageSize'         => 'PageSize',
-        'sourceInstanceId' => 'SourceInstanceId',
         'productKey'       => 'ProductKey',
+        'sourceInstanceId' => 'SourceInstanceId',
         'targetInstanceId' => 'TargetInstanceId',
         'targetUid'        => 'TargetUid',
-        'currentPage'      => 'CurrentPage',
     ];
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->sourceInstanceId) {
-            $res['SourceInstanceId'] = $this->sourceInstanceId;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->sourceInstanceId) {
+            $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
         }
         if (null !== $this->targetUid) {
             $res['TargetUid'] = $this->targetUid;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -85,23 +95,23 @@ class ListDistributedProductRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['SourceInstanceId'])) {
-            $model->sourceInstanceId = $map['SourceInstanceId'];
-        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['SourceInstanceId'])) {
+            $model->sourceInstanceId = $map['SourceInstanceId'];
         }
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
         }
         if (isset($map['TargetUid'])) {
             $model->targetUid = $map['TargetUid'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

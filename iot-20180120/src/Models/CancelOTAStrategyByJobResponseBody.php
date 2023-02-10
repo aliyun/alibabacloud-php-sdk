@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOTAStrategyByJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class CancelOTAStrategyByJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 291438BA-6E10-4C4C-B761-243B9A0D324F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

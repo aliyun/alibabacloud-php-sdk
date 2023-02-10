@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchBindDeviceToEdgeInstanceWithDriverResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example BFFA9519-6AF1-4D15-AFAF-FD412714C1BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

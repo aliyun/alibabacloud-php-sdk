@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AttachParserDataSourceRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $parserId;
@@ -30,8 +36,6 @@ class AttachParserDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
-        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateEdgeInstanceResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 10CA6DAD-EBAF-4D3E-9309-9DB5B0FF48F2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

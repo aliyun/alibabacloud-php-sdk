@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class DeleteRuleResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example A8F48485-44B9-40D8-A56D-F716F384F387
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

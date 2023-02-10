@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceOriginalPropertyStatusRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asc;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Bo***x44Qx
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -54,8 +68,6 @@ class QueryDeviceOriginalPropertyStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('asc', $this->asc, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

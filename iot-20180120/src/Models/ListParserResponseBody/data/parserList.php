@@ -14,26 +14,36 @@ class parserList extends Model
     public $description;
 
     /**
+     * @example DataParser
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $parserId;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2022-03-21T12:45:43.000Z
+     *
      * @var string
      */
     public $utcCreated;
 
     /**
+     * @example 2022-03-25T12:45:43.000Z
+     *
      * @var string
      */
     public $utcModified;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
@@ -24,26 +28,36 @@ class data extends Model
     public $msg;
 
     /**
+     * @example sd34****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example ebed9280_ba25_48df_80c2_****
+     *
      * @var string
      */
     public $shareTaskCode;
 
     /**
+     * @example 42000011392021112380****
+     *
      * @var string
      */
     public $speechId;
 
     /**
+     * @example ["ANC","CDF"]
+     *
      * @var string
      */
     public $speechs;
 
     /**
+     * @example 1663210172207
+     *
      * @var int
      */
     public $startTime;

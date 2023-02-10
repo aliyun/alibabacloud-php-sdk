@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateProductTopicRequest extends Model
 {
     /**
+     * @example resubmit a test topic
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example PUB
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example 821****
+     *
      * @var string
      */
     public $topicId;
 
     /**
+     * @example resubmit
+     *
      * @var string
      */
     public $topicShortName;
@@ -42,9 +52,6 @@ class UpdateProductTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('operation', $this->operation, true);
-        Model::validateRequired('topicId', $this->topicId, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
     }
 
     public function toMap()

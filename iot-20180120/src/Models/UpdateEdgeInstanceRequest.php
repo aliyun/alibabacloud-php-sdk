@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateEdgeInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $bizEnable;
 
     /**
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example LinkIoTEdge_Node
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $spec;
 
     /**
+     * @example k1:v1,k2:v2
+     *
      * @var string
      */
     public $tags;
@@ -48,8 +60,6 @@ class UpdateEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

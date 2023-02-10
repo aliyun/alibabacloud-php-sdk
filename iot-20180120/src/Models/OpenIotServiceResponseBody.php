@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenIotServiceResponseBody extends Model
 {
     /**
+     * @example 20671870***
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 427DB0B3-9436-4A3C-B2BC-B961F95E9488
+     *
      * @var string
      */
     public $requestId;

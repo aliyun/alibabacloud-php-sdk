@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example tBUm***********************QPGT
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1620634297000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1620634297000
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failDeviceNum;
 
     /**
+     * @example test_group
+     *
      * @var string
      */
     public $groupId;
@@ -44,46 +56,64 @@ class items extends Model
     public $groupName;
 
     /**
+     * @example 0iOf*****************n001
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example den0ZLt****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $pushMode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $runningDeviceNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $speechNum;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $speechStatus;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $successDeviceNum;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalDeviceNum;

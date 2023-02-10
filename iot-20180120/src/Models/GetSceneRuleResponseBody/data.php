@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1584085921000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1579493552000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example {\"action\":[{\"params\":{\"productKey\":\"a19luLB****\",\"propertyItems\":{\"LightAdjustLevel\":10},\"deviceName\":\"test01\"},\"uri\":\"action/device/setProperty\"}],\"trigger\":{\"params\":{\"cron\":\"22 13 20 1 *\",\"cronType\":\"linux\"},\"uri\":\"trigger/timer\"},\"type\":\"IFTTT\",\"sid\":\"9df954b33c854d469a507ef8d6******\"}
+     *
      * @var string
      */
     public $ruleContent;
@@ -29,11 +35,15 @@ class data extends Model
     public $ruleDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ruleStatus;

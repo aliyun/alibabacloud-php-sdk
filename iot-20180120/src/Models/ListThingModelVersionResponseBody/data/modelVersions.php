@@ -14,11 +14,15 @@ class modelVersions extends Model
     public $description;
 
     /**
+     * @example 1579235657535
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example V1.0.0
+     *
      * @var string
      */
     public $modelVersion;

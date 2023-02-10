@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupTagListResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class QueryDeviceGroupTagListResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 214154FF-9D47-4E3F-AAAD-F4CE67F41060
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

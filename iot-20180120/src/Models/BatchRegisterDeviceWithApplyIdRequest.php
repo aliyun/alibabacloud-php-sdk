@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchRegisterDeviceWithApplyIdRequest extends Model
 {
     /**
+     * @example 1295006
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +36,6 @@ class BatchRegisterDeviceWithApplyIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applyId', $this->applyId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

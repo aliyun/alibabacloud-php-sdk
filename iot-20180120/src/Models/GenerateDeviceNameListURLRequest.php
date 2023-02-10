@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceNameListURLRequest extends Model
 {
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;

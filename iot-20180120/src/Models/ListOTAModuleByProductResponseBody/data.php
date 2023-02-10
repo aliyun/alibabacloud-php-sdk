@@ -19,21 +19,29 @@ class data extends Model
     public $desc;
 
     /**
+     * @example 2020-10-13T09:46Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2020-10-19T09:46Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example barcodeScanner
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example aluctKe****
+     *
      * @var string
      */
     public $productKey;

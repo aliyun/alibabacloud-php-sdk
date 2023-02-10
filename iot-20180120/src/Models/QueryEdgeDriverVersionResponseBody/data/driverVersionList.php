@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class driverVersionList extends Model
 {
     /**
+     * @example -XX:+PrintGCDetails
+     *
      * @var string
      */
     public $argument;
 
     /**
+     * @example {\"deviceConfig\":{\"required\":false},\"driverConfig\":{\"required\":false}}
+     *
      * @var string
      */
     public $configCheckRule;
 
     /**
+     * @example {\"devMappings\":[],\"hostNetworkMode\":0,\"portMappings\":[],\"privileged\":1,\"volumeMappings\":[]}
+     *
      * @var string
      */
     public $containerConfig;
@@ -29,41 +35,57 @@ class driverVersionList extends Model
     public $description;
 
     /**
+     * @example [{\"content\":\"{\\\"defaultConfig\\\":\\\"this is default driver config demo\\\"}\",\"format\":\"JSON\"}]
+     *
      * @var string
      */
     public $driverConfig;
 
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example 1.2.0
+     *
      * @var string
      */
     public $driverVersion;
 
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $edgeVersion;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
 
     /**
+     * @example {\"ossAddress\":\"http://nova-scene-daily.oss-cn-shanghai.aliyuncs.com/driver/a8d6e4acc6941ecea8f0cfb3******\/ck3n3koe200003h6zf******.zip\",\"temporaryOssAddress\":\"http://nova-scene-daily.oss-cn-shanghai.aliyuncs.com/driver/a8d6e4acc6941ecea8f0cfb3******\/ck3n3koe200003h6zf******.zip?Expires\u003d1575******\u0026OSSAccessKeyId\u003daS4MT0IYr******\u0026Signature\u003dm6cpmcaB8rm3YfbkhTYgb0W******\"}
+     *
      * @var string
      */
     public $sourceConfig;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $versionState;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListJobResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,26 +27,36 @@ class ListJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BF449394-1C7D-4144-B7C4-9C3FA29F8B64
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;

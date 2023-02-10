@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteOTAFirmwareRequest extends Model
 {
     /**
+     * @example s8SSHiKjpBfrM3BSN0z803****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class DeleteOTAFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
     }
 
     public function toMap()

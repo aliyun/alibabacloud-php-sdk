@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $batchCode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1620634297000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $successNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;

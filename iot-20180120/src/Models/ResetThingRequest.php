@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResetThingRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example SR8FiTu1R9tlUR2V1bmi0010a5****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1KiV******
+     *
      * @var string
      */
     public $productKey;

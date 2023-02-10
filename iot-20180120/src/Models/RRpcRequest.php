@@ -14,31 +14,43 @@ class RRpcRequest extends Model
     public $contentType;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example aldfeSe****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example dGhpcyBpcyBhbiBleGFtcGxl
+     *
      * @var string
      */
     public $requestBase64Byte;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @example /a1uZfYb****\/A_Vol****\/user/update
+     *
      * @var string
      */
     public $topic;
@@ -54,10 +66,6 @@ class RRpcRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('requestBase64Byte', $this->requestBase64Byte, true);
-        Model::validateRequired('timeout', $this->timeout, true);
     }
 
     public function toMap()

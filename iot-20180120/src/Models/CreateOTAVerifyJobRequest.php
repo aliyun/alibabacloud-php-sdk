@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAVerifyJobRequest extends Model
 {
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $downloadProtocol;
 
     /**
+     * @example nx3xxVvFdwvn6dim50PY03****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needConfirm;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needPush;
 
     /**
+     * @example a1VJwBw****
+     *
      * @var string
      */
     public $productKey;
@@ -45,11 +57,15 @@ class CreateOTAVerifyJobRequest extends Model
     public $tag;
 
     /**
+     * @example testdevice
+     *
      * @var string[]
      */
     public $targetDeviceName;
 
     /**
+     * @example 1440
+     *
      * @var int
      */
     public $timeoutInMinutes;
@@ -67,9 +83,6 @@ class CreateOTAVerifyJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('targetDeviceName', $this->targetDeviceName, true);
     }
 
     public function toMap()

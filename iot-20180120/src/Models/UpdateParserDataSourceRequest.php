@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateParserDataSourceRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
@@ -19,11 +21,15 @@ class UpdateParserDataSourceRequest extends Model
     public $description;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example DataSource
+     *
      * @var string
      */
     public $name;
@@ -36,8 +42,6 @@ class UpdateParserDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

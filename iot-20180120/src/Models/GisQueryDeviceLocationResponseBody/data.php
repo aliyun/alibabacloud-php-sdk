@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 90000
+     *
      * @var int
      */
     public $adcode;
@@ -19,6 +21,8 @@ class data extends Model
     public $city;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $coordinateSystem;
@@ -29,26 +33,36 @@ class data extends Model
     public $country;
 
     /**
+     * @example mock_device_name
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 30.0
+     *
      * @var float
      */
     public $latitude;
 
     /**
+     * @example 120.0
+     *
      * @var float
      */
     public $longitude;
 
     /**
+     * @example g3r****Vjta
+     *
      * @var string
      */
     public $productKey;

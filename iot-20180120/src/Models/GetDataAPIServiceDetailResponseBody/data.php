@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example /device/getDeviceCountByStatus
+     *
      * @var string
      */
     public $apiPath;
 
     /**
+     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
+     *
      * @var string
      */
     public $apiSrn;
 
     /**
+     * @example 1557839468865
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $dateFormat;
@@ -40,16 +48,22 @@ class data extends Model
     public $displayName;
 
     /**
+     * @example 1557839468865
+     *
      * @var int
      */
     public $lastUpdateTime;
 
     /**
+     * @example GET/POST
+     *
      * @var string
      */
     public $requestMethod;
 
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $requestProtocol;
@@ -60,6 +74,8 @@ class data extends Model
     public $sqlTemplateDTO;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

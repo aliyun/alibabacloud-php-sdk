@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceDistributeDetailResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -19,16 +21,22 @@ class QueryDeviceDistributeDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example https://iotx-***.oss-cn-shanghai.aliyuncs.com/job***\/7u***
+     *
      * @var string
      */
     public $file;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

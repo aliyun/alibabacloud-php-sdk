@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example wav
+     *
      * @var string
      */
     public $audioFormat;
 
     /**
+     * @example identifying
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $speechCode;
@@ -30,16 +36,22 @@ class items extends Model
     public $speechList;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $speechType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example Siyue
+     *
      * @var string
      */
     public $voice;

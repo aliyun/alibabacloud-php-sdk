@@ -15,6 +15,8 @@ class data extends Model
     public $info;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $total;

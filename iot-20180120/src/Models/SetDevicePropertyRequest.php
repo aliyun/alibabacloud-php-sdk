@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SetDevicePropertyRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-v64*****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example {"Switch":1,"Color":"blue"}
+     *
      * @var string
      */
     public $items;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -42,7 +52,6 @@ class SetDevicePropertyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('items', $this->items, true);
     }
 
     public function toMap()

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class joinPermission extends Model
 {
     /**
+     * @example A
+     *
      * @var string
      */
     public $classMode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 80***
+     *
      * @var string
      */
     public $joinPermissionId;
 
     /**
+     * @example ForTest
+     *
      * @var string
      */
     public $joinPermissionName;
 
     /**
+     * @example LOCAL
+     *
      * @var string
      */
     public $joinPermissionType;
 
     /**
+     * @example 1375364789****
+     *
      * @var string
      */
     public $ownerAliyunPk;

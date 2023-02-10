@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeOssPreSignedAddressResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class CreateEdgeOssPreSignedAddressResponseBody extends Model
     public $data;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 91E2BFA2-ECD7-4E11-B36B-66BCC4773922
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeDriverVersionRequest extends Model
 {
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example 1.2.0
+     *
      * @var string
      */
     public $driverVersion;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class DeleteEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('driverVersion', $this->driverVersion, true);
     }
 
     public function toMap()

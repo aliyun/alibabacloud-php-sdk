@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRouteTableResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,16 +27,22 @@ class DeleteTopicRouteTableResponseBody extends Model
     public $failureTopics;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAllSucceed;
 
     /**
+     * @example FCC27691-9151-4B93-9622-9C90F30542EC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

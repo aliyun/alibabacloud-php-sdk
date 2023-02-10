@@ -15,11 +15,15 @@ class CreateLoRaNodesTaskRequest extends Model
     public $deviceInfo;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -31,8 +35,6 @@ class CreateLoRaNodesTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceInfo', $this->deviceInfo, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

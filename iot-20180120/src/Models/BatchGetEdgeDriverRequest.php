@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeDriverRequest extends Model
 {
     /**
+     * @example fec565038d7544978d9aed5c1a******
+     *
      * @var string[]
      */
     public $driverIds;
 
     /**
+     * @example ot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class BatchGetEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverIds', $this->driverIds, true);
     }
 
     public function toMap()

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySchedulePeriodListResponseBody extends Model
 {
     /**
+     * @example iot.soundcodeservice.NotSigned
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QuerySchedulePeriodListResponseBody extends Model
     public $data;
 
     /**
+     * @example sound code service has not been signed
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 66FF51D3-***-49F1-B1A2-***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

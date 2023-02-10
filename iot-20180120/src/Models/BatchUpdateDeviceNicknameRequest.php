@@ -15,6 +15,8 @@ class BatchUpdateDeviceNicknameRequest extends Model
     public $deviceNicknameInfo;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -25,7 +27,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceNicknameInfo', $this->deviceNicknameInfo, true);
     }
 
     public function toMap()

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ruleActionInfo extends Model
 {
     /**
+     * @example {\"endPoint\":\"http://ShanghaiRegion.cn-shanghai.ots.aliyuncs.com\",\"instanceName\":\"ShanghaiRegion\",\"primaryKeys\":[{\"columnName\":\"temperature\",\"columnType\":\"INTEGER\",\"columnValue\":\"${deviceName}\"}],\"regionName\":\"cn-shanghai\",\"role\":{\"roleArn\":\"acs:ram::1231579085******:role/aliyuniotaccessingotsrole\",\"roleName\":\"AliyunIOTAccessingOTSRole\"},\"tableName\":\"iottest\",\"uid\":\"1231579085******\"}
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $errorActionFlag;
 
     /**
+     * @example 139099
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example OTS
+     *
      * @var string
      */
     public $type;

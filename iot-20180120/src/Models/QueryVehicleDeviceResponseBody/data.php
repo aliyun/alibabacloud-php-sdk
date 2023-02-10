@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ******
+     *
      * @var string
      */
     public $authCode;
@@ -19,41 +21,57 @@ class data extends Model
     public $city;
 
     /**
+     * @example 1557062301656
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example di0001
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example dm0001
+     *
      * @var string
      */
     public $deviceModel;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example dm0001
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example mf0001
+     *
      * @var string
      */
     public $manufacturer;
 
     /**
+     * @example 1657062301656
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -64,16 +82,22 @@ class data extends Model
     public $province;
 
     /**
+     * @example 1517062301656
+     *
      * @var int
      */
     public $registerTime;
 
     /**
+     * @example create
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $vehicleColour;

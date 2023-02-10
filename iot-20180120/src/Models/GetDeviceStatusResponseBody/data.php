@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1557062301656
+     *
      * @var int
      */
     public $timestamp;

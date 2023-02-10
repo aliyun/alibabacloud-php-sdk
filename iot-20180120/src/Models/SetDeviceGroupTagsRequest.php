@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetDeviceGroupTagsRequest extends Model
 {
     /**
+     * @example W16X8Tvdosec****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example LINK_PLATFORM_DYNAMIC
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example [{"tagKey":"h1","tagValue":"rr"},{"tagKey":"7h","tagValue":"rr"}]
+     *
      * @var string
      */
     public $tagString;
@@ -36,7 +44,6 @@ class SetDeviceGroupTagsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

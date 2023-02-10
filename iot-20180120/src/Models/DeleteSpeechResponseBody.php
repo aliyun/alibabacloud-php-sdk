@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpeechResponseBody extends Model
 {
     /**
+     * @example iot.speech.InvalidSpeechCodeList
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example invalid SpeechCodeList
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 66FF51D3-***-49F1-B1A2-***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

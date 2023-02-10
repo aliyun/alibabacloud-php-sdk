@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeInstanceMessageRoutingResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E252BC84-EF9A-4F0F-8E73-ADCF9CA3B722
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceMessageRoutingResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example AC786033-00C5-4FD6-8435-F2807740D9FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $routeId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

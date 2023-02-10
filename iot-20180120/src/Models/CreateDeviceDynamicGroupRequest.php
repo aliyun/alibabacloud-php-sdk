@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceDynamicGroupRequest extends Model
 {
     /**
+     * @example product_key = "a1***" and name LIKE "test%"
+     *
      * @var string
      */
     public $dynamicGroupExpression;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $groupDesc;
 
     /**
+     * @example grouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example iot-***
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -36,9 +44,6 @@ class CreateDeviceDynamicGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dynamicGroupExpression', $this->dynamicGroupExpression, true);
-        Model::validateRequired('groupName', $this->groupName, true);
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

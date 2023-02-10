@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example LinkIoTEdge_Node
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $spec;
 
     /**
+     * @example k1:v1,k2:v2
+     *
      * @var string
      */
     public $tags;
@@ -36,7 +44,6 @@ class CreateEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

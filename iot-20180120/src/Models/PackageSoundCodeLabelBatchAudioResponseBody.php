@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class PackageSoundCodeLabelBatchAudioResponseBody extends Model
 {
     /**
+     * @example iot.soundcodeservice.NotSigned
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example http://****.oss-cn-shanghai.aliyuncs.com/speech_test_audio/CPjUL8qUtOMoQmC******.wav?Expires=1620380723
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example sound code service has not been signed
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 66FF51D3-***-49F1-B1A2-***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

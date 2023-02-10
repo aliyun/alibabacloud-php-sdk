@@ -15,11 +15,15 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
     public $device;
 
     /**
+     * @example W16X8Tvdosec****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -31,7 +35,6 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

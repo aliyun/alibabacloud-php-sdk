@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataAPIServiceDetailResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class GetDataAPIServiceDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 57b144cf-09fc-4916-a272-a62902d5b207
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

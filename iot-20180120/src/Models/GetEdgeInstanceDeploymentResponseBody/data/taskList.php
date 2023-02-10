@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @example jQWf3MVgQjMzcwsY****000101
+     *
      * @var string
      */
     public $gatewayId;
 
     /**
+     * @example 2019-06-26 18:12:35
+     *
      * @var string
      */
     public $gmtCompleted;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCompletedTimestamp;
 
     /**
+     * @example 2019-06-26 18:12:29
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtCreateTimestamp;
 
     /**
+     * @example 2019-06-26 18:12:35
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1581912859713
+     *
      * @var int
      */
     public $gmtModifiedTimestamp;
@@ -50,16 +64,22 @@ class taskList extends Model
     public $resourceSnapshotList;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $stage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 49ea651529014bf8b5645d5f9062****
+     *
      * @var string
      */
     public $taskId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteEdgeInstanceChannelResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example request parameter error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example C95D46F1-0B13-46C7-9FA7-FDBFCF2F9F6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

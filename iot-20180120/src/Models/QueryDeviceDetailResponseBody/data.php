@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @example V1.0.0.0
+     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
+     * @example 2018-08-06 10:48:41
+     *
      * @var string
      */
     public $gmtActive;
 
     /**
+     * @example 2018-08-06 10:47:50
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2018-08-06 13:43:12
+     *
      * @var string
      */
     public $gmtOnline;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example detectors_in_beijing
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $owner;
 
     /**
+     * @example a1rYuVF****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2018-08-06T02:48:41.000Z
+     *
      * @var string
      */
     public $utcActive;
 
     /**
+     * @example 2018-08-06T02:47:50.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2018-08-06T05:43:12.000Z
+     *
      * @var string
      */
     public $utcOnline;

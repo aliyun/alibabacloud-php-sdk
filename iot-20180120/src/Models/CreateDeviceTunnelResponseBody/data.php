@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 521c43e4-a6da-***
+     *
      * @var string
      */
     public $sourceAccessToken;
 
     /**
+     * @example wss://secure-tunnel-ws.iot.aliyun.test/tunnel/1834248a-37b7-4fd2-***\/source
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @example d4098041-***
+     *
      * @var string
      */
     public $tunnelId;

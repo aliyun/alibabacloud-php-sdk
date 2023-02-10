@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example jobDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example { "serviceIdentifier": "test_service", "params": { "key1": "value1", "key2": "value2" } } }
+     *
      * @var string
      */
     public $jobDocument;
@@ -28,11 +32,15 @@ class data extends Model
     public $jobFile;
 
     /**
+     * @example 450407b***
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example tes
+     *
      * @var string
      */
     public $jobName;
@@ -43,11 +51,15 @@ class data extends Model
     public $rolloutConfig;
 
     /**
+     * @example 1557062301656
+     *
      * @var int
      */
     public $scheduledTime;
 
     /**
+     * @example CANCELLED
+     *
      * @var string
      */
     public $status;
@@ -63,16 +75,22 @@ class data extends Model
     public $timeoutConfig;
 
     /**
+     * @example SET_PROPERTY
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2020-12-13T04:09:51.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2020-12-13T04:10:00.000Z
+     *
      * @var string
      */
     public $utcModified;

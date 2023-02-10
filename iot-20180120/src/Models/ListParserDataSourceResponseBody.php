@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListParserDataSourceResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,26 +27,36 @@ class ListParserDataSourceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E4C0FF92-2A86-41DB-92D3-73B60310D25E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $total;

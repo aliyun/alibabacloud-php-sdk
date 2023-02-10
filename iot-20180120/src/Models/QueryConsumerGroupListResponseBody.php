@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupListResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -30,26 +34,36 @@ class QueryConsumerGroupListResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 73B9DF43-7780-47DE-8BED-077729D28BD2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $total;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetThingScriptResponseBody extends Model
 {
     /**
+     * @example iot.system.SystemException
+     *
      * @var string
      */
     public $code;
@@ -25,11 +27,15 @@ class GetThingScriptResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example BB71E443-4447-4024-A000-EDE09922891E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

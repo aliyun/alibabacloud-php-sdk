@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeDriverRequest extends Model
 {
     /**
+     * @example x86-64
+     *
      * @var string
      */
     public $cpuArch;
 
     /**
+     * @example MyLedDriver
+     *
      * @var string
      */
     public $driverName;
 
     /**
+     * @example customize
+     *
      * @var string
      */
     public $driverProtocol;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isBuiltIn;
 
     /**
+     * @example c
+     *
      * @var string
      */
     public $runtime;
@@ -48,9 +60,6 @@ class CreateEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverName', $this->driverName, true);
-        Model::validateRequired('driverProtocol', $this->driverProtocol, true);
-        Model::validateRequired('runtime', $this->runtime, true);
     }
 
     public function toMap()

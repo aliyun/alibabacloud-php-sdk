@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @example 1545355537000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example This is a test product.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

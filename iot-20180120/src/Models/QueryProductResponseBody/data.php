@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example iothub_senior
+     *
      * @var string
      */
     public $aliyunCommodityCode;
 
     /**
+     * @example secret
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @example Lighting
+     *
      * @var string
      */
     public $categoryKey;
@@ -29,6 +35,8 @@ class data extends Model
     public $categoryName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataFormat;
@@ -39,36 +47,50 @@ class data extends Model
     public $description;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $deviceCount;
 
     /**
+     * @example 1581595942000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $id2;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $netType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nodeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $owner;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $productKey;
@@ -79,21 +101,29 @@ class data extends Model
     public $productName;
 
     /**
+     * @example U5tW7i44uilc****
+     *
      * @var string
      */
     public $productSecret;
 
     /**
+     * @example DEVELOPMENT_STATUS
+     *
      * @var string
      */
     public $productStatus;
 
     /**
+     * @example modbus
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $validateType;

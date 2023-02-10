@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListOTAJobByDeviceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example light1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example FJFx8JzpnhpIsKftRjjm03****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
@@ -48,11 +60,6 @@ class ListOTAJobByDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

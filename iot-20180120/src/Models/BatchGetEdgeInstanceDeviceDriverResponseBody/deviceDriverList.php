@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deviceDriverList extends Model
 {
     /**
+     * @example 9c1ae7bd59f1469abbdccc9592******
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @example Hathoyxglj9jpYPyw3WN******
+     *
      * @var string
      */
     public $iotId;

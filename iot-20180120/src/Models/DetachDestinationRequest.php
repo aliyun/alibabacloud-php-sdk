@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DetachDestinationRequest extends Model
 {
     /**
+     * @example 1002
+     *
      * @var int
      */
     public $destinationId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $parserId;
@@ -30,8 +36,6 @@ class DetachDestinationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('destinationId', $this->destinationId, true);
-        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

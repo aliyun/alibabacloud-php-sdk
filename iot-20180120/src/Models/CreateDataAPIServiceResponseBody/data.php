@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
+     *
      * @var string
      */
     public $apiSrn;
 
     /**
+     * @example 1557839468865
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1557839468865
+     *
      * @var int
      */
     public $lastUpdateTime;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Bat_Pt:99 RSSI: -92
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $deviceErrorCode;
 
     /**
+     * @example speech model not found
+     *
      * @var string
      */
     public $deviceErrorMessage;
 
     /**
+     * @example 42000011392021112380********
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxRetryCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

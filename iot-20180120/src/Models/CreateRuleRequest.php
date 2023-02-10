@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleRequest extends Model
 {
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example iot_test1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example a1T27vz****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example rule test
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @example deviceName() as deviceName, items.Humidity.value as Humidity, items.Temperature.value as Temperature
+     *
      * @var string
      */
     public $select;
 
     /**
+     * @example +/thing/event/property/post
+     *
      * @var string
      */
     public $shortTopic;
 
     /**
+     * @example /sys/g18l***\/device1/thing/event/property/post
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $topicType;
 
     /**
+     * @example Temperature>35
+     *
      * @var string
      */
     public $where;
@@ -78,7 +100,6 @@ class CreateRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @example 1582004185000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1582098176000
+     *
      * @var int
      */
     public $gmtModified;
@@ -24,16 +28,22 @@ class ruleList extends Model
     public $ruleDescription;
 
     /**
+     * @example f041397879ad4d89822811d741******
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleStatus;

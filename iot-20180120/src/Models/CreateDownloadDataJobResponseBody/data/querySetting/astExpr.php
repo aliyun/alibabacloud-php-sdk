@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class astExpr extends Model
 {
     /**
+     * @example {"header":{"fieldName":"xxx"},"operator":"GreaterThanOrEqual","value":12345}
+     *
      * @var string
      */
     public $expr;
 
     /**
+     * @example binaryOp
+     *
      * @var string
      */
     public $exprType;

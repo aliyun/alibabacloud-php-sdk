@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://iotx-file-store.oss-cn-shanghai.aliyuncs.com/device_file/A849E4E5CFF64804A18D9384AC9D****\/aGEKIpp5NAGxdP2oo90000****\/testFile3.txt?Expires=1553162075&OSSAccessKeyId=LTAIYLScbHiV****&Signature=%2F88xdEFPukJ****%2F8****%2Bdv3io%3D
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example 6UCo1SqbqnQEoh9aKqDQ01****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example testFile3.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 102400
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @example 2019-03-21T08:45:42.000Z
+     *
      * @var string
      */
     public $utcCreatedOn;

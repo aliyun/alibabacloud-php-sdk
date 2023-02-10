@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TransformClientIdRequest extends Model
 {
     /**
+     * @example 9rSz********UNMWj33f000112
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example BXPV9Ks3bxwM9fD****0000101
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-02****43
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class TransformClientIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clientId', $this->clientId, true);
-        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

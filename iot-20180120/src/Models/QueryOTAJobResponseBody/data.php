@@ -11,106 +11,148 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1.0.1
+     *
      * @var string
      */
     public $destVersion;
 
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $downloadProtocol;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dynamicMode;
 
     /**
+     * @example UfuxnwygsuSkVE0VCN****0100
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example 50.00
+     *
      * @var string
      */
     public $grayPercent;
 
     /**
+     * @example CtjzCkNuOxUR***
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example batch upgrade
+     *
      * @var string
      */
     public $jobDesc;
 
     /**
+     * @example HvKuBpuk3rdk6E92CP****0200
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example IN_PROGRESS
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @example UPGRADE_FIRMWARE
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maximumPerMinute;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $multiModuleMode;
 
     /**
+     * @example Firmware2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needConfirm;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needPush;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $overwriteMode;
 
     /**
+     * @example a19mzPZ****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $retryCount;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @example STATIC
+     *
      * @var string
      */
     public $selectionType;
@@ -126,41 +168,57 @@ class data extends Model
     public $tags;
 
     /**
+     * @example SPECIFIC
+     *
      * @var string
      */
     public $targetSelection;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeoutInMinutes;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcCreate;
 
     /**
+     * @example 2019-12-29T02:43:10.000Z
+     *
      * @var string
      */
     public $utcEndTime;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcModified;
 
     /**
+     * @example 2019-12-30T02:43:10.000Z
+     *
      * @var string
      */
     public $utcScheduleFinishTime;
 
     /**
+     * @example 2019-12-29T02:43:10.000Z
+     *
      * @var string
      */
     public $utcScheduleTime;
 
     /**
+     * @example 2019-12-28T02:43:10.000Z
+     *
      * @var string
      */
     public $utcStartTime;

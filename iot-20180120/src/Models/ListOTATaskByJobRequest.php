@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListOTATaskByJobRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example device1
+     *
      * @var string[]
      */
     public $deviceNames;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 7glPHmaDYLAYMD1HHutT02****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $taskStatus;
@@ -48,7 +60,6 @@ class ListOTATaskByJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

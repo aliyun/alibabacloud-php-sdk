@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListDestinationRequest extends Model
 {
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DataPurpose
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @example ["REPUBLISH", "OTS"]
+     *
      * @var string[]
      */
     public $types;
@@ -42,8 +52,6 @@ class ListDestinationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('page', $this->page, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

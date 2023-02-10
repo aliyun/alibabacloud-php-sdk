@@ -15,6 +15,8 @@ class deviceConfigList extends Model
     public $config;
 
     /**
+     * @example sjI0Sd124XFYyjBY****000101
+     *
      * @var string
      */
     public $iotId;

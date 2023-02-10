@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddDataForApiSourceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1234567890
+     *
      * @var int
      */
     public $data;
@@ -24,11 +28,15 @@ class AddDataForApiSourceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example BB71E443-4447-4024-A000-EDE09934561E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOTAJobByDeviceResponseBody extends Model
 {
     /**
+     * @example MissingFirmwareId
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -25,31 +29,43 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $data;
 
     /**
+     * @example FirmwareId is mandatory for this action
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A01829CE-75A1-4920-B775-921146A1AB79
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

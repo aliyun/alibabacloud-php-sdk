@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleActionRequest extends Model
 {
     /**
+     * @example {"topic":"/a1POX0c****\/device1/user/get","topicType":1}
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $errorActionFlag;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example REPUBLISH
+     *
      * @var string
      */
     public $type;
@@ -42,9 +52,6 @@ class CreateRuleActionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('configuration', $this->configuration, true);
-        Model::validateRequired('ruleId', $this->ruleId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

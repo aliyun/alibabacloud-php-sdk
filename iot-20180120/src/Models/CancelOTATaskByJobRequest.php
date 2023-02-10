@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CancelOTATaskByJobRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cancelInProgressTask;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cancelNotifiedTask;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cancelQueuedTask;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cancelScheduledTask;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cancelUnconfirmedTask;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 7glPHmaDYLAYMD1HHutT02****
+     *
      * @var string
      */
     public $jobId;
@@ -54,7 +68,6 @@ class CancelOTATaskByJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

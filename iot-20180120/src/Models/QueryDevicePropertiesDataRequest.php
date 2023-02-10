@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropertiesDataRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asc;
 
     /**
+     * @example airconditioning
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example temperature
+     *
      * @var string[]
      */
     public $identifier;
 
     /**
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 1579249499000
+     *
      * @var int
      */
     public $startTime;
@@ -66,11 +84,6 @@ class QueryDevicePropertiesDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('asc', $this->asc, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('identifier', $this->identifier, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

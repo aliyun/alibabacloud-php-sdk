@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryPageByApplyIdRequest extends Model
 {
     /**
+     * @example 1295006
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -36,7 +44,6 @@ class QueryPageByApplyIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applyId', $this->applyId, true);
     }
 
     public function toMap()
