@@ -88,11 +88,6 @@ class DescribeDomainUsageDataRequest extends Model
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The beginning of the time range to query.
      *
      * >  The data is collected every 5 minutes.
@@ -121,7 +116,6 @@ class DescribeDomainUsageDataRequest extends Model
         'endTime'      => 'EndTime',
         'field'        => 'Field',
         'interval'     => 'Interval',
-        'ownerId'      => 'OwnerId',
         'startTime'    => 'StartTime',
         'type'         => 'Type',
     ];
@@ -150,9 +144,6 @@ class DescribeDomainUsageDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -189,9 +180,6 @@ class DescribeDomainUsageDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

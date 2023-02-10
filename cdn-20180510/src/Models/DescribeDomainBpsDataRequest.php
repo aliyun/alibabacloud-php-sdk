@@ -59,11 +59,6 @@ class DescribeDomainBpsDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-05-14T09:50:00Z
@@ -77,7 +72,6 @@ class DescribeDomainBpsDataRequest extends Model
         'interval'       => 'Interval',
         'ispNameEn'      => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -102,9 +96,6 @@ class DescribeDomainBpsDataRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -135,9 +126,6 @@ class DescribeDomainBpsDataRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

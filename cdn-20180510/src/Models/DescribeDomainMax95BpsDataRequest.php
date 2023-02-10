@@ -30,11 +30,6 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @example 2017-12-21T08:00:00Z
      *
      * @var string
@@ -51,7 +46,6 @@ class DescribeDomainMax95BpsDataRequest extends Model
         'cycle'      => 'Cycle',
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
         'timePoint'  => 'TimePoint',
     ];
@@ -71,9 +65,6 @@ class DescribeDomainMax95BpsDataRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -101,9 +92,6 @@ class DescribeDomainMax95BpsDataRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

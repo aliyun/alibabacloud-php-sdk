@@ -10,12 +10,12 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @description The type of workload accelerated by Alibaba Cloud CDN. Valid values:
+     * @description The type of the workload accelerated by Alibaba Cloud CDN. Valid values:
      *
-     *   **web**: image and small file distribution
-     *   **download**: large file distribution
-     *   **video**: on-demand video and audio streaming
-     *   **liveStream**: live streaming
+     *   **web:** image and small file distribution
+     *   **download:** large file distribution
+     *   **video:** on-demand video and audio streaming
+     *   **liveStream:** live streaming
      *
      * @example web
      *
@@ -53,14 +53,14 @@ class pageData extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: The domain name is enabled.
-     *   **offline**: The domain is disabled.
-     *   **configuring**: The endpoint group is being configured.
-     *   **configure_failed**: The domain failed to be configured.
-     *   **checking**: The domain name is under review.
-     *   **check_failed**: The domain name failed the review.
-     *   **stopping**: The domain name is be disabled.
-     *   **deleting**: being deleted
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed**: failed the review
+     *   **stopping**: being disabled
+     *   **deleting**: deleting
      *
      * @example configure_failed
      *
@@ -78,7 +78,7 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
-     * @description The last time when the accelerated domain was modified.
+     * @description The time when the accelerated domain name was modified.
      *
      * @example 2015-10-29T10:15:31Z
      *
@@ -96,7 +96,7 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
-     * @description The information about the origin server.
+     * @description Information about the origin server.
      *
      * @var sources
      */
@@ -105,8 +105,9 @@ class pageData extends Model
     /**
      * @description The status of HTTPS. Valid values:
      *
-     * - **on**: enabled
-     * - **off**: disabled
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string

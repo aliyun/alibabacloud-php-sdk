@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchAddCdnDomainRequest extends Model
 {
     /**
-     * @description The workload type of the domain name to be accelerated. Valid values:
+     * @description The workload type of the domain name to accelerate. Valid values:
      *
-     *   **web**: images and small files.
-     *   **download**: large files.
-     *   **video**: on-demand video and audio streaming.
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
      *
      * @example web
      *
@@ -50,7 +50,7 @@ class BatchAddCdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. If you do not set this parameter, the system uses the ID of the default resource group.
+     * @description The ID of the resource group. If you do not specify a value for this parameter, the system uses the ID of the default resource group.
      *
      * @example rg-acfmyuji4b6r4**
      *
@@ -59,10 +59,10 @@ class BatchAddCdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The accelerated region. Valid values:
+     * @description The acceleration region. Default value: domestic. Valid values:
      *
-     *   **domestic**: mainland China only
-     *   **overseas**: global (excluding mainland China)
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
      *   **global**: global
      *
      * @example domestic
@@ -77,16 +77,16 @@ class BatchAddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of the origin servers.
+     * @description The information about the addresses of origin servers.
      *
-     * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
-     *
+     * @example [
+     * ]
      * @var string
      */
     public $sources;
 
     /**
-     * @description The top-level domain name.
+     * @description The top-level domain.
      *
      * @example example.com
      *

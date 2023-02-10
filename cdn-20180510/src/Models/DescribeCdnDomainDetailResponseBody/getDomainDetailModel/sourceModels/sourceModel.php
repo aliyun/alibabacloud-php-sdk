@@ -18,7 +18,7 @@ class sourceModel extends Model
     public $content;
 
     /**
-     * @description The status of the origin server.
+     * @description The status.
      *
      * @example online
      *
@@ -36,7 +36,7 @@ class sourceModel extends Model
     public $port;
 
     /**
-     * @description The priority of the origin server if multiple origin servers are specified.
+     * @description The priority.
      *
      * @example 20
      *
@@ -47,9 +47,10 @@ class sourceModel extends Model
     /**
      * @description The type of the origin server. Valid values:
      *
-     *   **ipaddr**: IP address
-     *   **domain**: domain name
-     *   **oss**: Object Storage Service (OSS) bucket endpoint
+     *   **ipaddr:** an IP address.
+     *   **domain:** a domain name
+     *   **oss:** the OSS domain of an Object Storage Service (OSS) bucket
+     *   **fc_domain:** a Function Compute domain name
      *
      * @example domain
      *
@@ -58,7 +59,7 @@ class sourceModel extends Model
     public $type;
 
     /**
-     * @description The weight of the origin server if multiple origin servers are specified.
+     * @description The weight of the origin server if multiple origin servers have been specified.
      *
      * @example 10
      *

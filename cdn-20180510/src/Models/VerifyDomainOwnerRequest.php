@@ -18,11 +18,6 @@ class VerifyDomainOwnerRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The verification method. Valid values:
      *
      *   **dnsCheck**: by DNS record
@@ -35,7 +30,6 @@ class VerifyDomainOwnerRequest extends Model
     public $verifyType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
         'verifyType' => 'VerifyType',
     ];
 
@@ -48,9 +42,6 @@ class VerifyDomainOwnerRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -69,9 +60,6 @@ class VerifyDomainOwnerRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];

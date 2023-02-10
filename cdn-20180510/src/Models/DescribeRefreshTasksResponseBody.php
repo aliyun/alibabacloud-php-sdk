@@ -37,7 +37,7 @@ class DescribeRefreshTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the task.
+     * @description Details about tasks.
      *
      * @var tasks
      */

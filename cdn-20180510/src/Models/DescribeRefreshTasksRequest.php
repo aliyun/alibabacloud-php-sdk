@@ -18,9 +18,9 @@ class DescribeRefreshTasksRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2017-12-22T08:00:00Z
      *
      * @var string
@@ -40,11 +40,11 @@ class DescribeRefreshTasksRequest extends Model
      * @description The type of the task. Valid values:
      *
      *   **file**: refreshes one or more files.
-     *   **directory**: refreshes files under the specified directories.
+     *   **directory**: refreshes files in the specified directories.
      *   **regex**: refreshes content based on a regular expression.
      *   **preload**: prefetches one or more files.
      *
-     * >  If you set the **DomainName** or **Status** parameter, you must also set the **ObjectType** parameter.
+     * > If you set the **DomainName** or **Status** parameter, you must also set the **ObjectType** parameter.
      * @example file
      *
      * @var string
@@ -89,7 +89,7 @@ class DescribeRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-12-21T08:00:00Z
      *
@@ -101,7 +101,7 @@ class DescribeRefreshTasksRequest extends Model
      * @description The status of the task. Valid values:
      *
      *   **Complete**: The task has completed.
-     *   **Refreshing**: The task is running.
+     *   **Refreshing**: The task is in progress.
      *   **Failed**: The task failed.
      *
      * @example Complete

@@ -39,9 +39,14 @@ class DescribeDomainHttpCodeDataRequest extends Model
     public $interval;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $ispNameEn;
+
+    /**
+     * @var string
+     */
+    public $locationNameEn;
 
     /**
      * @description The start of the time range to query.
@@ -53,11 +58,12 @@ class DescribeDomainHttpCodeDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
+        'domainName'     => 'DomainName',
+        'endTime'        => 'EndTime',
+        'interval'       => 'Interval',
+        'ispNameEn'      => 'IspNameEn',
+        'locationNameEn' => 'LocationNameEn',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -76,8 +82,11 @@ class DescribeDomainHttpCodeDataRequest extends Model
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->ispNameEn) {
+            $res['IspNameEn'] = $this->ispNameEn;
+        }
+        if (null !== $this->locationNameEn) {
+            $res['LocationNameEn'] = $this->locationNameEn;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -103,8 +112,11 @@ class DescribeDomainHttpCodeDataRequest extends Model
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['IspNameEn'])) {
+            $model->ispNameEn = $map['IspNameEn'];
+        }
+        if (isset($map['LocationNameEn'])) {
+            $model->locationNameEn = $map['LocationNameEn'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

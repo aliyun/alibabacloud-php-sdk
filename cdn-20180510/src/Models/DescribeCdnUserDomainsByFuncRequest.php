@@ -9,19 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserDomainsByFuncRequest extends Model
 {
     /**
-     * @description The ID of the feature.
+     * @description The ID of the feature. For more information about how to query feature IDs, see [Feature settings for a domain name](~~388460~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
      *
-     * For example, the ID of the origin host feature (set_req_host_header) is 18.
      * @example 7
      *
      * @var int
      */
     public $funcId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
 
     /**
      * @description The number of the page to return. Default value: **1**.
@@ -53,7 +47,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'funcId'          => 'FuncId',
-        'ownerId'         => 'OwnerId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -68,9 +61,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
         $res = [];
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,9 +85,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
         $model = new self();
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

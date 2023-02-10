@@ -359,10 +359,10 @@ class Cdn extends OpenApiClient
 
     /**
      * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-     *   * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
-     *   * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
-     *   * *   The maximum number of times that each user can call this operation per second is 30.
+     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   For more information, see [Add a domain name](~~122181~~).
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param AddCdnDomainRequest $request AddCdnDomainRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -426,10 +426,10 @@ class Cdn extends OpenApiClient
 
     /**
      * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-     *   * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
-     *   * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
-     *   * *   The maximum number of times that each user can call this operation per second is 30.
+     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   For more information, see [Add a domain name](~~122181~~).
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param AddCdnDomainRequest $request AddCdnDomainRequest
      *
@@ -506,11 +506,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * - The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-     *   * - If the content from the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be completed by the end of the next business day after you submit the application.
-     *   * - You can specify multiple domain names (no more than 50) and separate them with commas (,).
-     *   * - The maximum number of times that each user can call this operation per second is 30.
+     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
+     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   For more information, see [Add a domain name](~~122181~~).
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchAddCdnDomainRequest $request BatchAddCdnDomainRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -570,11 +570,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * - The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-     *   * - If the content from the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be completed by the end of the next business day after you submit the application.
-     *   * - You can specify multiple domain names (no more than 50) and separate them with commas (,).
-     *   * - The maximum number of times that each user can call this operation per second is 30.
+     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
+     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   For more information, see [Add a domain name](~~122181~~).
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchAddCdnDomainRequest $request BatchAddCdnDomainRequest
      *
@@ -2062,9 +2062,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->deliverId)) {
             $query['DeliverId'] = $request->deliverId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2109,9 +2106,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->SSLPub)) {
             $query['SSLPub'] = $request->SSLPub;
         }
@@ -2210,7 +2204,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The maximum number of times that each user can call this operation per second is 30.
      *   *
      * @param DescribeCdnDomainDetailRequest $request DescribeCdnDomainDetailRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2249,7 +2243,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The maximum number of times that each user can call this operation per second is 30.
      *   *
      * @param DescribeCdnDomainDetailRequest $request DescribeCdnDomainDetailRequest
      *
@@ -2281,9 +2275,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -3022,9 +3013,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->functionName)) {
             $query['FunctionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3058,7 +3046,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnUserDomainsByFuncRequest $request DescribeCdnUserDomainsByFuncRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3071,9 +3059,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->funcId)) {
             $query['FuncId'] = $request->funcId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -3103,7 +3088,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnUserDomainsByFuncRequest $request DescribeCdnUserDomainsByFuncRequest
      *
@@ -3391,9 +3376,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3469,9 +3451,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3554,9 +3533,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3623,9 +3599,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNames)) {
             $query['LocationNames'] = $request->locationNames;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->timePoint)) {
             $query['TimePoint'] = $request->timePoint;
@@ -3754,9 +3727,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3801,9 +3771,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3968,9 +3935,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4043,8 +4007,11 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4127,9 +4094,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4194,9 +4158,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4253,9 +4214,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4314,9 +4272,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4433,9 +4388,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4507,9 +4459,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4591,9 +4540,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4838,9 +4784,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5034,9 +4977,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5112,9 +5052,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5183,9 +5120,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5261,9 +5195,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5373,9 +5304,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5442,9 +5370,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5518,9 +5443,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5593,9 +5515,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5667,9 +5586,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5802,9 +5718,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -6000,9 +5913,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -6078,9 +5988,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -6163,9 +6070,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -6232,9 +6136,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -6345,9 +6246,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -6794,9 +6692,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNames)) {
             $query['LocationNames'] = $request->locationNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -6994,9 +6889,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can query the status of tasks by task ID or URL.
-     *   * * You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected within the last three days are returned.
-     *   * *   You can query data collected within the last three days.
+     * *   You can query the status of tasks by task ID or URL.
+     *   * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
+     *   * *   You can query data collected in the last 3 days.
      *   * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
      *   * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
      *   *
@@ -7064,9 +6959,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can query the status of tasks by task ID or URL.
-     *   * * You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected within the last three days are returned.
-     *   * *   You can query data collected within the last three days.
+     * *   You can query the status of tasks by task ID or URL.
+     *   * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
+     *   * *   You can query data collected in the last 3 days.
      *   * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
      *   * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
      *   *
@@ -7119,7 +7014,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 10.
+     * > You can call this operation up to 10 times per second per account.
      *   *
      * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7130,9 +7025,6 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -7161,7 +7053,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 10.
+     * > You can call this operation up to 10 times per second per account.
      *   *
      * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
      *
@@ -9165,9 +9057,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->verifyType)) {
             $query['VerifyType'] = $request->verifyType;

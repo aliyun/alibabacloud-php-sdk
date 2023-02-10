@@ -26,7 +26,7 @@ class DescribeCdnUserDomainsByFuncResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of domain names returned per page.
      *
      * @example 5
      *
@@ -44,7 +44,7 @@ class DescribeCdnUserDomainsByFuncResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of domain names returned.
      *
      * @example 16
      *

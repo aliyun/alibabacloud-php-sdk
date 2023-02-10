@@ -19,7 +19,7 @@ class DescribeTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tags that are attached to the specified resource.
+     * @description The details about the tag.
      *
      * @var tagResources[]
      */

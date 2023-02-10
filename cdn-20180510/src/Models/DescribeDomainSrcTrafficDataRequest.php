@@ -39,11 +39,6 @@ class DescribeDomainSrcTrafficDataRequest extends Model
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The start of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
@@ -56,7 +51,6 @@ class DescribeDomainSrcTrafficDataRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
 
@@ -75,9 +69,6 @@ class DescribeDomainSrcTrafficDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -102,9 +93,6 @@ class DescribeDomainSrcTrafficDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

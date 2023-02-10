@@ -10,12 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagResourcesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @description The list of resource ID.
+     * @description A list of resource IDs. Maximum number of elements: 50.
      *
      * @example 1
      *
@@ -24,7 +19,7 @@ class DescribeTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Set the value to **DOMAIN**.
+     * @description The resource type. Set this value to **DOMAIN**.
      *
      * @example DOMAIN
      *
@@ -33,13 +28,12 @@ class DescribeTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description A list of tag combinations. Maximum number of elements: 20.
      *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
@@ -52,9 +46,6 @@ class DescribeTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -82,9 +73,6 @@ class DescribeTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];

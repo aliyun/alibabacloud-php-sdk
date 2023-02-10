@@ -16,14 +16,8 @@ class DescribeDomainCertificateInfoRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeDomainCertificateInfoRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeDomainCertificateInfoRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

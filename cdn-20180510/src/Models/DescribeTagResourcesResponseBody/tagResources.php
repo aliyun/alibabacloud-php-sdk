@@ -19,7 +19,7 @@ class tagResources extends Model
     public $resourceId;
 
     /**
-     * @description The key-value pair of the tag.
+     * @description A list of tags.
      *
      * @var tag[]
      */

@@ -22,7 +22,7 @@ class CDNTask extends Model
      *
      *   **InternalError**: An internal error occurred.
      *   **OriginTimeout**: The response from the origin server timed out.
-     *   **OriginReturn StatusCode 5XX**: The origin server returned a 5XX error.
+     *   **OriginReturnStatusCode 5XX**: The origin server returned a 5XX error.
      *
      * @example Internal Error
      *
@@ -31,7 +31,7 @@ class CDNTask extends Model
     public $description;
 
     /**
-     * @description The URL of the object to be refreshed.
+     * @description The URL of the object refreshed.
      *
      * @example http://example.com/1.txt
      *
@@ -43,7 +43,7 @@ class CDNTask extends Model
      * @description The type of the task.
      *
      *   **file**: refreshes one or more files.
-     *   **directory**: refreshes files under the specified directories.
+     *   **directory**: refreshes files in the specified directories.
      *   **regex**: refreshes content based on a regular expression.
      *   **preload**: prefetches one or more files.
      *
@@ -63,12 +63,11 @@ class CDNTask extends Model
     public $process;
 
     /**
-     * @description The status. Valid values:
+     * @description The status of the task. Valid values:
      *
      *   **Complete**: The task has completed.
-     *   **Refreshing**: The task is running.
+     *   **Refreshing**: The task is in progress.
      *   **Failed**: The task failed.
-     *   **Pending**: The task is pending.
      *
      * @example Complete
      *

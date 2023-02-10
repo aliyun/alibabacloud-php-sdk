@@ -19,14 +19,8 @@ class DescribeCdnUserConfigsRequest extends Model
      * @var string
      */
     public $functionName;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'functionName' => 'FunctionName',
-        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -38,9 +32,6 @@ class DescribeCdnUserConfigsRequest extends Model
         $res = [];
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,9 +47,6 @@ class DescribeCdnUserConfigsRequest extends Model
         $model = new self();
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

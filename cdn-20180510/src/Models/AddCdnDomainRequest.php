@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddCdnDomainRequest extends Model
 {
     /**
-     * @description The workload type of the domain name. Valid values:
+     * @description The workload type of the domain name to accelerate. Valid values:
      *
-     *   **web**: images and small files.
-     *   **download**: large files.
-     *   **video**: on-demand video and audio streaming.
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
      *
      * @example web
      *
@@ -32,9 +32,9 @@ class AddCdnDomainRequest extends Model
     public $checkUrl;
 
     /**
-     * @description The domain names that you want to add to Alibaba Cloud CDN.
+     * @description The domain name that you want to add to Alibaba Cloud CDN.
      *
-     * Wildcard domain names are supported.A wildcard domain name must start with a period (.), such as .example.com.
+     * A wildcard domain that starts with a period (.) is supported, such as .example.com.
      * @example .example.com
      *
      * @var string
@@ -62,13 +62,12 @@ class AddCdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The accelerated region. Valid values:
+     * @description The acceleration region. Default value: domestic. Valid values:
      *
-     *   **domestic**: regions in mainland China.
-     *   **overseas**: regions outside mainland China.
-     *   **global**: regions inside and outside mainland China.
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
      *
-     * Default value: **domestic**.
      * @example domestic
      *
      * @var string
@@ -81,23 +80,23 @@ class AddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the origin address.
+     * @description The information about the addresses of origin servers.
      *
-     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
-     *
+     * @example [
+     * ]
      * @var string
      */
     public $sources;
 
     /**
-     * @description The tags.
+     * @description Details about the tags. You can specify up to 20 tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The top-level domain name.
+     * @description The top-level domain.
      *
      * @example example.com
      *

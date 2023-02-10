@@ -38,11 +38,6 @@ class DescribeDomainBpsDataByTimeStampRequest extends Model
     public $locationNames;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @description The beginning of the time range that was queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
      * The data is collected at an interval of five minutes.
@@ -55,7 +50,6 @@ class DescribeDomainBpsDataByTimeStampRequest extends Model
         'domainName'    => 'DomainName',
         'ispNames'      => 'IspNames',
         'locationNames' => 'LocationNames',
-        'ownerId'       => 'OwnerId',
         'timePoint'     => 'TimePoint',
     ];
 
@@ -74,9 +68,6 @@ class DescribeDomainBpsDataByTimeStampRequest extends Model
         }
         if (null !== $this->locationNames) {
             $res['LocationNames'] = $this->locationNames;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->timePoint) {
             $res['TimePoint'] = $this->timePoint;
@@ -101,9 +92,6 @@ class DescribeDomainBpsDataByTimeStampRequest extends Model
         }
         if (isset($map['LocationNames'])) {
             $model->locationNames = $map['LocationNames'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['TimePoint'])) {
             $model->timePoint = $map['TimePoint'];

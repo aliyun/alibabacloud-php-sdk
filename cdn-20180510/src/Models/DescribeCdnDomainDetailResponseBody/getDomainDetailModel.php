@@ -12,9 +12,9 @@ class getDomainDetailModel extends Model
     /**
      * @description The workload type of the accelerated domain name. Valid values:
      *
-     *   **web**: images and small files.
-     *   **download**: large files.
-     *   **video**: on-demand video and audio streaming.
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
      *
      * @example web
      *
@@ -23,7 +23,7 @@ class getDomainDetailModel extends Model
     public $cdnType;
 
     /**
-     * @description The Canonical Name (CNAME) that is assigned to the accelerated domain name. You must add a CNAME record in the system of your DNS service provider to map the accelerated domain name to the CNAME.
+     * @description The CNAME that is assigned to the accelerated domain name. You must add the CNAME record in the system of your DNS service provider to map the accelerated domain name to the CNAME.
      *
      * @example example.com.w.kunlunle.com
      *
@@ -32,9 +32,9 @@ class getDomainDetailModel extends Model
     public $cname;
 
     /**
-     * @description The remarks of the accelerated domain name.
+     * @description The description of the request.
      *
-     * @example The live domain
+     * @example Streaming domains
      *
      * @var string
      */
@@ -52,12 +52,12 @@ class getDomainDetailModel extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: The domain name is enabled.
-     *   **offline**: The domain is disabled.
-     *   **configuring**: The domain is being configured.
-     *   **configure_failed**: The domain failed to be configured.
-     *   **checking**: The domain name is under review.
-     *   **check_failed**: The domain name failed the review.
+     *   **online:** enabled
+     *   **offline:** disabled
+     *   **configuring:** configuring
+     *   **configure_failed:** configuration failed
+     *   **checking:** reviewing
+     *   **check_failed:** review failed
      *
      * @example online
      *
@@ -66,7 +66,7 @@ class getDomainDetailModel extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added to Alibaba Cloud CDN.
+     * @description The time when the audio or video file was created.
      *
      * @example 2015-06-25T03:30:50Z
      *
@@ -75,7 +75,7 @@ class getDomainDetailModel extends Model
     public $gmtCreated;
 
     /**
-     * @description The last time when the accelerated domain name was modified.
+     * @description The time when the domain name was last modified.
      *
      * @example 2017-06-25T03:30:50Z
      *
@@ -102,7 +102,7 @@ class getDomainDetailModel extends Model
     public $resourceGroupId;
 
     /**
-     * @description The accelerated region.
+     * @description The acceleration region.
      *
      * @example domestic
      *
@@ -111,10 +111,10 @@ class getDomainDetailModel extends Model
     public $scope;
 
     /**
-     * @description Specifies whether to enable the Security Socket Layer (SSL) certificate. Valid values:
+     * @description Indicates whether the Security Socket Layer (SSL) certificate is enabled. Valid values:
      *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate.
+     *   **on**
+     *   **off**
      *
      * @example on
      *
