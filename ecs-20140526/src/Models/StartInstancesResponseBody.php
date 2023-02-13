@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class StartInstancesResponseBody extends Model
 {
     /**
-     * @description Details about the responses returned for the instances, which contains the state of each instance before and after the operation is called and the operation results.
-     *
      * @var instanceResponses
      */
     public $instanceResponses;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;

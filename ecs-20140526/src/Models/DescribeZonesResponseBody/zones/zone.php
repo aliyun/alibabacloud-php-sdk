@@ -16,91 +16,51 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
-     * @description The supported dedicated host types.
-     *
      * @var availableDedicatedHostTypes
      */
     public $availableDedicatedHostTypes;
 
     /**
-     * @description The supported disk categories. Valid values:
-     *
-     *   cloud: basic disk
-     *   cloud_ssd: standard SSD
-     *   cloud_efficiency: ultra disk
-     *   cloud_essd: ESSD
-     *
      * @var availableDiskCategories
      */
     public $availableDiskCategories;
 
     /**
-     * @description The supported instance types.
-     *
      * @var availableInstanceTypes
      */
     public $availableInstanceTypes;
 
     /**
-     * @description The types of resources that can be created. Valid values:
-     *
-     *   VSwitch: vSwitch
-     *   IoOptimized: I/O optimized instance
-     *   Instance: instance
-     *   DedicatedHost: dedicated host
-     *   disk: disk
-     *
      * @var availableResourceCreation
      */
     public $availableResourceCreation;
 
     /**
-     * @description Details about the resources that can be created in the zone.
-     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The supported Shared Block Storage device categories.
-     *
      * @var availableVolumeCategories
      */
     public $availableVolumeCategories;
 
     /**
-     * @description The supported generations of dedicated hosts.
-     *
      * @var dedicatedHostGenerations
      */
     public $dedicatedHostGenerations;
 
     /**
-     * @description The name of the zone in the local language.
-     *
-     * @example Hangzhou Zone G
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-hangzhou-g
-     *
      * @var string
      */
     public $zoneId;
 
     /**
-     * @description The type of the zone. Valid values:
-     *
-     *   AvailabilityZone: zone for the Alibaba Cloud public cloud
-     *   CloudBoxZone: zone for CloudBox
-     *
-     * @example AvailabilityZone
-     *
      * @var string
      */
     public $zoneType;

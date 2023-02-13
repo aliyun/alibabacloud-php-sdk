@@ -10,43 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintenanceAttributesRequest extends Model
 {
     /**
-     * @description The maintenance action. Valid values:
-     *
-     *   Stop: stops the instance.
-     *   AutoRecover: automatically recovers the instance.
-     *   AutoRedeploy: fails the instance over, which may cause damage to the data disks attached to the instance.
-     *
-     * @example AutoRecover
-     *
      * @var string
      */
     public $actionOnMaintenance;
 
     /**
-     * @description The IDs of the instances. You can specify up to 100 IDs.
-     *
-     * @example i-bp67acfmxazb4ph****
-     *
      * @var string[]
      */
     public $instanceId;
 
     /**
-     * @description The list of maintenance windows.
-     *
      * @var maintenanceWindow[]
      */
     public $maintenanceWindow;
 
     /**
-     * @description Specifies whether to send an event notification before instance shutdown. Valid values:
-     *
-     *   True: sends an event notification.
-     *   False: does not send an event notification.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $notifyOnMaintenance;
@@ -62,10 +40,6 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

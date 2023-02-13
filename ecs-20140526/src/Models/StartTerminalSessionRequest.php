@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionRequest extends Model
 {
     /**
-     * @description The list of the instance ID.
-     *
      * @var string[]
      */
     public $instanceId;
@@ -26,20 +24,11 @@ class StartTerminalSessionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The port number of the ECS instance, which is used to forward data. After this parameter is specified, the Cloud Assistant client forwards data to the specified port for port forwarding. Example: 22.
-     *
-     * This parameter is empty by default, which indicates that no port number is configured to forward data.
-     * @example 22
-     *
      * @var int
      */
     public $portNumber;
 
     /**
-     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

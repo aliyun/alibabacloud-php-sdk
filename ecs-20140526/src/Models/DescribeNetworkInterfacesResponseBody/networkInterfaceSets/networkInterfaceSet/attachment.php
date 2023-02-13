@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable to the public.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class attachment extends Model
     public $deviceIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable to the public.
      *
      * @example null
      *
@@ -27,8 +27,6 @@ class attachment extends Model
     public $instanceId;
 
     /**
-     * @description 网卡挂载指定的物理网卡索引。
-     * - 如果网卡是已挂载（InUse）状态且挂载时指定，此值表示网卡挂载指定的物理网卡索引。
      * @example 0
      *
      * @var int
@@ -36,7 +34,7 @@ class attachment extends Model
     public $networkCardIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable to the public.
      *
      * @example null
      *

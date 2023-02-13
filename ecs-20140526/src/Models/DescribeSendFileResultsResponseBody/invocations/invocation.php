@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSendFileResultsResponseBody\invocations;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSendFileResultsResponseBody\invocations\invocation\invokeInstances;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSendFileResultsResponseBody\invocations\invocation\tags;
 use AlibabaCloud\Tea\Model;
 
 class invocation extends Model
@@ -135,6 +136,11 @@ class invocation extends Model
     public $overwrite;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The destination directory.
      *
      * @example /root
@@ -164,6 +170,7 @@ class invocation extends Model
         'invokeInstances'  => 'InvokeInstances',
         'name'             => 'Name',
         'overwrite'        => 'Overwrite',
+        'tags'             => 'Tags',
         'targetDir'        => 'TargetDir',
         'vmCount'          => 'VmCount',
     ];
@@ -210,6 +217,9 @@ class invocation extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->targetDir) {
             $res['TargetDir'] = $this->targetDir;
@@ -264,6 +274,9 @@ class invocation extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TargetDir'])) {
             $model->targetDir = $map['TargetDir'];

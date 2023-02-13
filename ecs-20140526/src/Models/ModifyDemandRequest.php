@@ -9,78 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyDemandRequest extends Model
 {
     /**
-     * @description The number of instances. Valid values: 1 to 100000.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The description of the demand. The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
-     *
-     * @example testDemandDescription
-     *
      * @var string
      */
     public $demandDescription;
 
     /**
-     * @description The ID of the demand that you want to modify.
-     *
-     * @example ed-bp11n21kq00sl71p****
-     *
      * @var string
      */
     public $demandId;
 
     /**
-     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
-     *
-     * The default value is the instance type name.
-     * @example testDemandName
-     *
      * @var string
      */
     public $demandName;
 
     /**
-     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
-     *
-     * Typically, the interval between the two times cannot be more than 10 days.
-     * @example 2019-12-10 12:05:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The billing method of the instance. Default value: PostPaid. Valid values:
-     *
-     *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The instance type. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the filed instance type, or see [Select instance types](~~58291~~) to learn how to select instance types.
-     *
-     * @example ecs.c6.large
-     *
      * @var string
      */
     public $instanceType;
@@ -96,35 +59,16 @@ class ModifyDemandRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the resource. Unit: month. You must specify the parameter. This parameter is valid only when `InstanceChargeType` is set to PrePaid. Valid values:
-     *
-     *   Valid values when PeriodUnit is set to Week: 1, 2, 3, and 4.
-     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the subscription period of the resource. Default value: Month. Valid values:
-     *
-     *   Day
-     *   Week
-     *   Month
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -140,21 +84,11 @@ class ModifyDemandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
-     *
-     * Typically, the interval between the two times cannot be more than 10 days.
-     * @example 2019-12-01 12:05:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
-     *
-     * This parameter is empty by default. If you leave this parameter empty, the system randomly selects a zone.
-     * @example cn-hangzhou-g
-     *
      * @var string
      */
     public $zoneId;

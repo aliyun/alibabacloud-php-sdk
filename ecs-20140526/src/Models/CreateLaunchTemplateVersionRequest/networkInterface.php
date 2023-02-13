@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
-     * @description The description of secondary ENI N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The description of the secondary ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example testNetworkInterfaceDescription
      *
@@ -18,7 +18,7 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example ecs.g5.large
      *
@@ -27,7 +27,7 @@ class networkInterface extends Model
     public $instanceType;
 
     /**
-     * @description The name of secondary ENI N. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The name of the secondary ENI. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example testNetworkInterfaceName
      *
@@ -36,15 +36,10 @@ class networkInterface extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of primary ENI N. Valid values:
+     * @description The communication mode of the primary ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
-     *   HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
-     *
-     * Take note of the following items:
-     *
-     *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you cannot set this parameter.
-     *   If you set this parameter to HighPerformance, you can create instances only of the c7re RDMA-enhanced instance family. The maximum number of ENIs in RDMA mode that can be bound to a c7re instance is determined based on the instance type. The c7re instance family is in invitational preview in Beijing Zone K. For more information, see [Instance family](~~25378~~).
+     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
      *
      * @example Standard
      *
@@ -53,7 +48,7 @@ class networkInterface extends Model
     public $networkInterfaceTrafficMode;
 
     /**
-     * @description The primary private IP address of secondary ENI N. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The primary private IP address of the secondary ENI. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example 192.168.**.**
      *
@@ -62,9 +57,9 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description The ID of the security group to which to assign secondary ENI N. The security groups of secondary ENI N and of the instance must belong to the same VPC. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The ID of the security group to which to assign the secondary ENI. The security groups of the secondary ENI and of the instance must belong to the same VPC. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
-     * >  You cannot specify both the `NetworkInterface.N.SecurityGroupId` and `NetworkInterface.N.SecurityGroupIds.N` parameters.
+     * > The `NetworkInterface.N.SecurityGroupId` parameter and the `NetworkInterface.N.SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp15ed6xe1yxeycg****
      *
      * @var string
@@ -72,8 +67,9 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which the ENI belongs.
+     * @description The ID of security group N to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` depend on the maximum number of security groups to which the secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
+     * > The `NetworkInterface.N.SecurityGroupId` parameter and the `NetworkInterface.N.SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string[]
@@ -81,7 +77,7 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect secondary ENI N. The instance and the ENI must be located within the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The ID of the vSwitch to which to connect the secondary ENI. The instance and the ENI must be located within the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example vsw-bp1s5fnvk4gn2tws0****
      *

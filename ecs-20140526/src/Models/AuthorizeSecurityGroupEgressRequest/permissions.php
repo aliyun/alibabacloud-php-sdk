@@ -29,16 +29,16 @@ class permissions extends Model
     public $destCidrIp;
 
     /**
-     * @description The ID of the destination security group to be referenced in security group rule N.
+     * @description The ID of the security group to be referenced as the destination in security group rule N.
      *
      *   At least one of `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId` must be specified.
-     *   If `DestGroupId` is specified but `DestCidrIp` is not specified, the `NicType` parameter must be set to intranet.
+     *   If `DestGroupId` is specified but `DestCidrIp` is not, the `NicType` parameter must be set to intranet.
      *   If both `DestGroupId` and `DestCidrIp` are specified, `DestCidrIp` takes precedence.
      *
      * Take note of the following items:
      *
-     *   For advanced security groups, security groups cannot be used as authorization objects.
-     *   For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+     *   Security groups cannot be referenced as destinations or sources in rules of advanced security groups.
+     *   Up to 20 security groups can be referenced as destinations or sources in rules of each basic security group.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -73,11 +73,11 @@ class permissions extends Model
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list to be referenced in security group rule N. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the prefix list to be referenced as the destination in security group rule N. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
      *
      * Take note of the following items:
      *
-     *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   If a security group is in the classic network, you cannot reference prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
      *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, Permissions.N.DestPrefixListId is ignored.
      *
      * Valid values of N: 1 to 100.
@@ -107,7 +107,7 @@ class permissions extends Model
     /**
      * @description The destination IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
      *
-     * >  The Permissions.N.Ipv6DestCidrIp parameter is valid only when the destination is ECS instances that reside in VPCs and that support IPv6 CIDR blocks. You cannot specify both this parameter and the`DestCidrIp` parameter.
+     * > This parameter is valid only when the destination is ECS instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
      * @example 2001:db8:1233:1a00::***
      *
      * @var string
@@ -117,7 +117,7 @@ class permissions extends Model
     /**
      * @description The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
      *
-     * >  The Permissions.N.Ipv6SourceCidrIp parameter is valid only when the source is ECS instances that reside in VPCs and that support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
+     * > This parameter is valid only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
      * @example 2001:db8:1234:1a00::***
      *
      * @var string
@@ -125,11 +125,11 @@ class permissions extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The network interface controller (NIC) type of security group rule N when the security group is in the classic network. Valid values:
+     * @description The network interface type of the security group rule when the security group is in the classic network. Valid values:
      *
-     *   internet: public NIC
+     *   internet: public network interface
      *
-     *   intranet: internal NIC
+     *   intranet: internal network interface
      *
      *   If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
      *   If you specify only DestGroupId when you configure access between security groups, this parameter must be set to intranet.

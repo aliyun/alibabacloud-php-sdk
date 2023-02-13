@@ -15,7 +15,7 @@ class AddTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the ECS resource belongs. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the resource on which you want to add or overwrite tags. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -24,7 +24,7 @@ class AddTagsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource. When the resources are instances, this parameter can be interpreted as InstanceId.
+     * @description The ID of the resource. When ResourceType is set to instance, this parameter can be interpreted as InstanceId.
      *
      * @example i-bp1gtjxuuvwj17zr****
      *
@@ -45,13 +45,20 @@ class AddTagsRequest extends Model
     /**
      * @description The type of the resource. Valid values:
      *
-     *   disk
-     *   instance
-     *   image
-     *   securitygroup
-     *   snapshot
+     *   instance: ECS instance
+     *   disk: disk
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   volume: storage volume
+     *   eni: elastic network interface (ENI)
+     *   ddh: dedicated host
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *   reservedinstance: reserved instance
+     *   snapshotpolicy: automatic snapshot policy
      *
-     * All values must be lowercase.
+     * All these values are lowercase.
      * @example instance
      *
      * @var string

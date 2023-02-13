@@ -22,7 +22,7 @@ class DescribeCommandsRequest extends Model
      * @description The encoding mode of the `CommandContent` and `Output` response parameters. Valid values:
      *
      *   PlainText: returns the original command content and command output.
-     *   Base64: returns the Base64-encoded command content and command output.
+     *   Base64: returns the Base64-encoded command content and command output
      *
      * Default value: Base64.
      * @example PlainText
@@ -32,7 +32,7 @@ class DescribeCommandsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description >  This parameter is deprecated and does not take effect.
+     * @description > This parameter is deprecated and does not take effect.
      *
      * @example testDescription
      *
@@ -73,7 +73,7 @@ class DescribeCommandsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
      * Default value: 1.
      * @example 1
@@ -83,7 +83,7 @@ class DescribeCommandsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page.
+     * @description The number of entries to return on each page.
      *
      * Default value: 10.
      * @example 10
@@ -111,7 +111,7 @@ class DescribeCommandsRequest extends Model
     public $provider;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -130,6 +130,8 @@ class DescribeCommandsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the command.
+     *
      * @var tag[]
      */
     public $tag;

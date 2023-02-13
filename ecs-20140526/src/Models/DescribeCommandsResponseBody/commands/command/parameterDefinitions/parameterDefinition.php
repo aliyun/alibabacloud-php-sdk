@@ -21,6 +21,8 @@ class parameterDefinition extends Model
     /**
      * @description The description of the custom parameter.
      *
+     * @example Download path of the Cloud Assistant client installation package
+     *
      * @var string
      */
     public $description;

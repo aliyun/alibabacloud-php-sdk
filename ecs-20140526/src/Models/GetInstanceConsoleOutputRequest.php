@@ -18,21 +18,17 @@ class GetInstanceConsoleOutputRequest extends Model
     public $instanceId;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -54,15 +50,11 @@ class GetInstanceConsoleOutputRequest extends Model
     public $removeSymbols;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

@@ -28,7 +28,7 @@ class DescribeNetworkInterfacesResponseBody extends Model
     /**
      * @description The page number of the returned page.
      *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters to perform a paged query.
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 1
      *
      * @var int
@@ -36,9 +36,9 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters to perform a paged query.
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 1
      *
      * @var int

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\capacity\socketCapacities;
 use AlibabaCloud\Tea\Model;
 
 class capacity extends Model
@@ -54,6 +55,11 @@ class capacity extends Model
     public $localStorageCategory;
 
     /**
+     * @var socketCapacities
+     */
+    public $socketCapacities;
+
+    /**
      * @description The total capacity of the local disks. Unit: GiB.
      *
      * @example 512
@@ -94,6 +100,7 @@ class capacity extends Model
         'availableVcpus'        => 'AvailableVcpus',
         'availableVgpus'        => 'AvailableVgpus',
         'localStorageCategory'  => 'LocalStorageCategory',
+        'socketCapacities'      => 'SocketCapacities',
         'totalLocalStorage'     => 'TotalLocalStorage',
         'totalMemory'           => 'TotalMemory',
         'totalVcpus'            => 'TotalVcpus',
@@ -121,6 +128,9 @@ class capacity extends Model
         }
         if (null !== $this->localStorageCategory) {
             $res['LocalStorageCategory'] = $this->localStorageCategory;
+        }
+        if (null !== $this->socketCapacities) {
+            $res['SocketCapacities'] = null !== $this->socketCapacities ? $this->socketCapacities->toMap() : null;
         }
         if (null !== $this->totalLocalStorage) {
             $res['TotalLocalStorage'] = $this->totalLocalStorage;
@@ -160,6 +170,9 @@ class capacity extends Model
         }
         if (isset($map['LocalStorageCategory'])) {
             $model->localStorageCategory = $map['LocalStorageCategory'];
+        }
+        if (isset($map['SocketCapacities'])) {
+            $model->socketCapacities = socketCapacities::fromMap($map['SocketCapacities']);
         }
         if (isset($map['TotalLocalStorage'])) {
             $model->totalLocalStorage = $map['TotalLocalStorage'];

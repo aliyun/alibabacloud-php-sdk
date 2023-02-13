@@ -100,7 +100,7 @@ class command extends Model
     public $parameterDefinitions;
 
     /**
-     * @description A list of custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is not enabled, an empty list is returned.
+     * @description The custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is not enabled, an empty list is returned.
      *
      * @var parameterNames
      */
@@ -116,7 +116,7 @@ class command extends Model
     public $provider;
 
     /**
-     * @description The list of tags added to the command.
+     * @description The tags added to the command.
      *
      * @var tags
      */

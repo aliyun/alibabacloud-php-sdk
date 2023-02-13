@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EB5173B0-8E80-564E-AAD1-3135412*****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-     *
-     * @example d86c2df2-d19c-4bd8-b817-a19ef123****
-     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The ID of the session.
-     *
-     * @example s-hz023od0x9****
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @description The URL of the WebSocket session that is used to connect to the instance. The URL includes the session ID (`SessionId`) and the authentication token (`SecurityToken`).
-     *
-     * @example wss://cn-hangzhou.axt.aliyuncs.com/session?sessionId=s-hz023od0x9****&token=d86c2df2-d19c-4bd8-b817-a19ef123****
-     *
      * @var string
      */
     public $webSocketUrl;

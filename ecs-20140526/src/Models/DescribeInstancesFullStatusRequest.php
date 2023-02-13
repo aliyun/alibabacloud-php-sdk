@@ -21,62 +21,26 @@ class DescribeInstancesFullStatusRequest extends Model
     public $notBefore;
 
     /**
-     * @description The IDs of the event. You can specify up to 100 event IDs in a single request.
-     *
-     * @example e-bp1hygp5b04o56l0****
-     *
      * @var string[]
      */
     public $eventId;
 
     /**
-     * @description The type of the system event. This parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values:
-     *
-     *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-     *   SystemFailure.Reboot: The instance is restarted due to a system failure.
-     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
-     *   InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
-     *   InstanceExpiration.Delete: The subscription instance is released due to expiration.
-     *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
-     *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
-     *
-     * @example InstanceExpiration.Stop
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description The health state of the instance. Valid values:
-     *
-     *   Impaired: The instance is impaired.
-     *   Warning: The performance of the instance is degraded.
-     *   Maintaining: The instance is being maintained.
-     *   Initializing: The instance is being initialized.
-     *   InsufficientData: The state cannot be determined due to insufficient data.
-     *   NotApplicable: The state is not applicable.
-     *
-     * All these values are case-sensitive.
-     * @example Maintaining
-     *
      * @var string
      */
     public $healthStatus;
 
     /**
-     * @description The types of system events. You can specify up to 30 event types in a single request.
-     *
-     * @example InstanceExpiration.Stop
-     *
      * @var string[]
      */
     public $instanceEventType;
 
     /**
-     * @description The IDs of the instances. You can specify up to 100 instance IDs in a single request.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string[]
      */
     public $instanceId;
@@ -92,30 +56,16 @@ class DescribeInstancesFullStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be a positive integer.
-     *
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -131,14 +81,6 @@ class DescribeInstancesFullStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The lifecycle state of the instance. Valid values:
-     *
-     *   Starting: The instance is being started.
-     *   Running: The instance is running.
-     *   Stopped: The instance is stopped.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;

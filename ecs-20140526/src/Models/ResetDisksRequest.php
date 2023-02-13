@@ -10,21 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ResetDisksRequest extends Model
 {
     /**
-     * @description 云盘列表。
-     *
      * @var disk[]
      */
     public $disk;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
-     *
-     *   true: The validity of the request is checked but the request is not made. Check items include the required parameters, request format, and resource status limits. If the check fails, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, the request is made.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
@@ -40,10 +30,6 @@ class ResetDisksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

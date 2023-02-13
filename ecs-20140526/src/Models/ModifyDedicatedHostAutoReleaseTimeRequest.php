@@ -9,24 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAutoReleaseTimeRequest extends Model
 {
     /**
-     * @description The automatic release time of the dedicated host. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
-     *
-     *   The automatic release time must be at least 30 minutes from the current time.
-     *   The automatic release time must be at most three years from the current time.
-     *   If the value of seconds (ss) is not 00, it is automatically set to 00.
-     *   If you do not specify the `AutoReleaseTime` parameter, the automatic release time is canceled the dedicated host is automatically released.
-     *
-     * @example 2019-06-04T13:35:00Z
-     *
      * @var string
      */
     public $autoReleaseTime;
 
     /**
-     * @description The ID of the dedicated host.
-     *
-     * @example dh-bp165p6xk2tlw61e****
-     *
      * @var string
      */
     public $dedicatedHostId;
@@ -42,10 +29,6 @@ class ModifyDedicatedHostAutoReleaseTimeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

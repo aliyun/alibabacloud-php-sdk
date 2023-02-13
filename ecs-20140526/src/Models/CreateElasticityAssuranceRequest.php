@@ -26,7 +26,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $assuranceTimes;
 
     /**
-     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate a client token. Make sure that a unique client token is used for different requests. The value of the `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -35,7 +35,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example This is description.
@@ -55,7 +55,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description > The parameter was deprecated.
+     * @description > This parameter is no longer used.
      *
      * @example null
      *
@@ -64,7 +64,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $instanceCpuCoreCount;
 
     /**
-     * @description Instance types. Currently, an elasticity assurance can be created to reserve the capacity of a single instance type.
+     * @description The instance type of the instance. An elasticity assurance can be created to reserve the capacity of a single instance type.
      *
      * @example ecs.c6.xlarge
      *
@@ -83,12 +83,12 @@ class CreateElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The effective duration of the elasticity assurance. The unit of the duration is determined by the `PeriodUnit` value. Valid values:
+     * @description The effective duration of the elasticity assurance. The unit of the effective duration is determined by the `PeriodUnit` value. Valid values:
      *
-     *   When the value of the `PeriodUnit` parameter is set to `Month`, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
-     *   When the value of the `PeriodUnit` parameter is set to `Year`, valid values are: 1, 2, 3, 4, and 5.
+     *   When the `PeriodUnit` parameter is set to `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   When the `PeriodUnit` parameter is set to `Year`, the valid values are 1, 2, 3, 4, and 5.
      *
-     * Default: 1.
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -109,7 +109,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the current list of regions.
+     * @description The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -146,14 +146,14 @@ class CreateElasticityAssuranceRequest extends Model
     public $startTime;
 
     /**
-     * @description The tags.
+     * @description The tags to add to the elasticity assurance.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The IDs of the zones.
+     * @description The zone ID of the elasticity assurance. An elasticity assurance can be used to reserve resources within a single zone.
      *
      * @example cn-hangzhou-h
      *

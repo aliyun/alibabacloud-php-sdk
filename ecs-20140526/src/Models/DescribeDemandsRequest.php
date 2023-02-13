@@ -19,13 +19,13 @@ class DescribeDemandsRequest extends Model
     public $demandId;
 
     /**
-     * @description The status of the filing ticket or resource usage. Valid values:
+     * @description The status of the filing ticket or resource consumption. Valid values:
      *
      *   Creating: The filing ticket is being created.
      *   Active: The filed resources are being supplied.
      *   Expired: The filing ticket expires.
      *   Finished: The filed resources are consumed.
-     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` response parameter.
+     *   Refused: The filing request is denied. To view the reason for denial, see the `Comment` parameter in the response.
      *   Cancelled: The filing request is canceled.
      *
      * @example Active
@@ -47,10 +47,10 @@ class DescribeDemandsRequest extends Model
     public $demandType;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
      *
-     *   true: sends a check request, without querying the status of the filing ticket. The system checks whether your AccessKey pair is valid, whether RAM users are authorized, and whether the required parameters are set. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-     *   false: sends an API request. If the request succeeds, a 2XX HTTP status code is returned and the status of the filing ticket is queried.
+     *   true: performs a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and sends the request . If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -99,7 +99,7 @@ class DescribeDemandsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number of the page to return. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -109,7 +109,7 @@ class DescribeDemandsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries to return on each page. Maximum value: 100.
      *
      * Default value: 10.
      * @example 10
@@ -119,7 +119,7 @@ class DescribeDemandsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region for which to query resources. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -138,14 +138,14 @@ class DescribeDemandsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The tags that are attached to the resources.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone for which to query resources. You can call the [DescribeZones](~~25610~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou-g
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDemandRequest extends Model
 {
     /**
-     * @description The required quantity of instances of the filed instance type. Valid values: 1 to 100000.
+     * @description The number of instances. Valid values: 1 to 100000.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class CreateDemandRequest extends Model
     public $amount;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value that is unique among different requests. The `ClientToken` value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -27,7 +27,7 @@ class CreateDemandRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the requirement. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     * @description The description of the demand. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
      *
      * @example k8s-node-demand-desc
      *
@@ -36,7 +36,7 @@ class CreateDemandRequest extends Model
     public $demandDescription;
 
     /**
-     * @description The name of the requirement. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * The default value is the instance type name.
      * @example k8s-node-demand
@@ -48,7 +48,7 @@ class CreateDemandRequest extends Model
     /**
      * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
-     * Typically, the interval between the two time cannot be more than 10 days.
+     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. Typically, the interval between the two times cannot be more than 10 days.
      * @example 2019-12-10 12:05:00
      *
      * @var string
@@ -56,7 +56,7 @@ class CreateDemandRequest extends Model
     public $endTime;
 
     /**
-     * @description The billing method of the filed instance. Default value: PostPaid. Valid values:
+     * @description The billing method of the instance. Default value: PostPaid. Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -68,7 +68,7 @@ class CreateDemandRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type of the filed instance. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the target instance type, or see [Select instance types](~~58291~~) to learn how to select instance types.
+     * @description The instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Select instance types](~~58291~~) to learn about how to select instance types.
      *
      * @example ecs.c6.large
      *
@@ -100,7 +100,7 @@ class CreateDemandRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription period. Default value: Month. Valid values:
+     * @description The unit of the subscription period of the resource. Default value: Month. Valid values:
      *
      *   Day
      *   Week
@@ -134,7 +134,7 @@ class CreateDemandRequest extends Model
     /**
      * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
-     * Typically, the interval between the two time cannot be more than 10 days.
+     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. Typically, the interval between the two times cannot be more than 10 days.
      * @example 2019-12-01 12:05:00
      *
      * @var string
@@ -142,9 +142,9 @@ class CreateDemandRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the zone to which the filed instance belongs. For more information, call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
-     * This parameter is empty by default. If you do not specify a zone, the system randomly selects a zone.
+     * This parameter is empty by default. If you do not specify a zone, the system randomly selects one.
      * @example cn-hangzhou-g
      *
      * @var string

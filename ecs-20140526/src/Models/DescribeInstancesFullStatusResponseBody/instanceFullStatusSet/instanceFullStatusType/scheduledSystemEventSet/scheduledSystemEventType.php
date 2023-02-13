@@ -12,67 +12,41 @@ use AlibabaCloud\Tea\Model;
 class scheduledSystemEventType extends Model
 {
     /**
-     * @description The state of the event. Valid values:
-     *
      * @var eventCycleStatus
      */
     public $eventCycleStatus;
 
     /**
-     * @description The ID of the event.
-     *
-     * @example e-bp1hygp5b04o56l0****
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description The time when the event was published. The time is displayed in UTC.
-     *
-     * @example 2017-11-30T06:32:31Z
-     *
      * @var string
      */
     public $eventPublishTime;
 
     /**
-     * @description The type of the event.
-     *
      * @var eventType
      */
     public $eventType;
 
     /**
-     * @description The extended attributes of system events generated for instances that have local disks attached.
-     *
      * @var extendedAttribute
      */
     public $extendedAttribute;
 
     /**
-     * @description The impact level of the event.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $impactLevel;
 
     /**
-     * @description The scheduled time when to execute the O\&M task related to the event. The time is displayed in UTC.
-     *
-     * @example 2017-12-07T00:00:00Z
-     *
      * @var string
      */
     public $notBefore;
 
     /**
-     * @description The reason why the event was scheduled.
-     *
-     * @example A simulated event.
-     *
      * @var string
      */
     public $reason;

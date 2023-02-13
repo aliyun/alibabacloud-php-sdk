@@ -9,121 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupEgressRuleRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The description of the security group rule. The description must be 1 to 512 characters in length.
-     *
-     * @example This is a new securitygroup rule.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
-     *
-     * This parameter is empty by default.
-     * @example 10.0.0.0/8
-     *
      * @var string
      */
     public $destCidrIp;
 
     /**
-     * @description The ID of the destination security group. You must specify at least one of the `DestGroupId` and `DestCidrIp` parameters.
-     *
-     *   If `DestGroupId` is specified but `DestCidrIp` is not specified, the `NicType` parameter must be set to intranet.
-     *   If both `DestGroupId` and `DestCidrIp` are specified, `DestCidrIp` takes precedence.
-     *
-     * @example sg-bp67acfmxa123b****
-     *
      * @var string
      */
     public $destGroupId;
 
     /**
-     * @description The logon name of the Alibaba Cloud account that manages the destination security group.
-     *
-     * @example EcsforCloud@Alibaba.com
-     *
      * @var string
      */
     public $destGroupOwnerAccount;
 
     /**
-     * @description The ID of the Alibaba Cloud account (UID) that manages the destination security group.
-     *
-     * @example 1234567890
-     *
      * @var int
      */
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
-     *
-     * If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, this parameter is ignored.
-     * @example pl-x1j1k5ykzqlixdcy****
-     *
      * @var string
      */
     public $destPrefixListId;
 
     /**
-     * @description The transport layer protocol. The values of this parameter are case-insensitive. Valid values:
-     *
-     *   icmp
-     *   gre
-     *   tcp
-     *   udp
-     *   all: All protocols are supported.
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $ipProtocol;
 
     /**
-     * @description The destination IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
-     *
-     * This parameter is empty by default.
-     * @example 2001:db8:1233:1a00::***
-     *
      * @var string
      */
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
-     *
-     * This parameter is empty by default.
-     * @example 2001:db8:1234:1a00::***
-     *
      * @var string
      */
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The network interface controller (NIC) type of the security group rule when the security group is in the classic network. Valid values:
-     *
-     *   internet: public NIC
-     *   intranet: private NIC
-     *
-     * The NicType parameter must be set to intranet in the following cases:
-     *
-     *   If the security group is in a VPC, this parameter is required and must be set to intranet.
-     *   If you specify only `DestGroupId` when you configure access between security groups, this parameter must be set to intranet.
-     *
-     * @example intranet
-     *
      * @var string
      */
     public $nicType;
@@ -139,47 +74,21 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The authorization policy. Valid values:
-     *
-     *   accept: allows access.
-     *   drop: denies access and returns no responses.
-     *
-     * Default value: accept.
-     * @example accept
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description The range of destination ports that correspond to the transport layer protocol. Valid values:
-     *
-     *   When the IpProtocol parameter is set to tcp or udp, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   When the IpProtocol parameter is set to icmp, the port number range is -1/-1, which indicates all ports.
-     *   When the IpProtocol parameter is set to gre, the port number range is -1/-1, which indicates all ports.
-     *   When the IpProtocol parameter is set to all, the port number range is -1/-1, which indicates all ports.
-     *
-     * @example 80/80
-     *
      * @var string
      */
     public $portRange;
 
     /**
-     * @description The priority of the security group rule. Valid values: 1 to 100.
-     *
-     * Default: 1.
-     * @example 1
-     *
      * @var string
      */
     public $priority;
 
     /**
-     * @description The region ID of the source security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -195,10 +104,6 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the source security group.
-     *
-     * @example sg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -209,25 +114,11 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $securityGroupRuleId;
 
     /**
-     * @description The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
-     *
-     * This parameter is empty by default.
-     * @example 10.0.0.0/8
-     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
-     * @description The range of source ports that correspond to the transport layer protocol. Valid values:
-     *
-     *   When the IpProtocol parameter is set to tcp or udp, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   When the IpProtocol parameter is set to icmp, the port number range is -1/-1, which indicates all ports.
-     *   When the IpProtocol parameter is set to gre, the port number range is -1/-1, which indicates all ports.
-     *   When the IpProtocol parameter is set to all, the port number range is -1/-1, which indicates all ports.
-     *
-     * @example 80/80
-     *
      * @var string
      */
     public $sourcePortRange;

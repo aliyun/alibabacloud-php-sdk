@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ResetDiskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F3CD6886-D8D0-4FEE-B93E-1B732396****
-     *
      * @var string
      */
     public $requestId;

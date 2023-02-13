@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class eventCycleStatus extends Model
 {
     /**
-     * @description The code of the event state.
-     *
-     * @example 24
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The name of the event state.
-     *
-     * @example Scheduled
-     *
      * @var string
      */
     public $name;

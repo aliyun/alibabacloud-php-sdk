@@ -9,28 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
-     * @description The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
-     *
-     *   zh-CN
-     *   en-US
-     *   ja
-     *
-     * Default value: zh-CN.
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The billing method of resources. For more information, see [Billing overview](~~25398~~). Valid values:
-     *
-     *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
-     *
-     * Default value: PostPaid.
-     * @example PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
@@ -46,10 +29,6 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -65,28 +44,11 @@ class DescribeZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The bidding policy for pay-as-you-go instances. You can specify this parameter when the `InstanceChargeType` parameter is set to PostPaid. For more information, see [Preemptible instances](~~52088~~). Valid values:
-     *
-     *   NoSpot: The instances are regular pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instances are preemptible instances with user-defined maximum hourly prices.
-     *   SpotAsPriceGo: The instances are preemptible instances for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
-     *
-     * Default value: NoSpot.
-     * @example NoSpot
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description Specifies whether to display detailed information.
-     *
-     *   true: displays detailed information.
-     *   false: does not display detailed information.
-     *
-     * Default value: true.
-     * @example false
-     *
      * @var bool
      */
     public $verbose;

@@ -20,9 +20,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
+     *   If the value of `ss` is not `00`, the time is automatically rounded to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
-     *   The specified time must be at most three years from the current time.
+     *   The specified time can be at most three years from the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -31,14 +31,14 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $autoReleaseTime;
 
     /**
-     * @description The list of data disks.
+     * @description The data disks.
      *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @description The ID of the deployment set.
+     * @description The ID of the deployment set to which to deploy the instance.
      *
      * @example ds-bp1brhwhoqinyjd6****
      *
@@ -89,7 +89,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The source of the image.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example system
      *
      * @var string
@@ -99,8 +99,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account supports payment by credit. Otherwise, an `InvalidPayMethod` error is returned.
-     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
+     *   PostPaid: pay-as-you-go
      *
      * @example PrePaid
      *
@@ -132,7 +132,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      *   PayByBandwidth: pay-by-bandwidth
      *   PayByTraffic: pay-by-traffic
      *
-     * >  When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -142,8 +142,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
      *
-     *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of InternetMaxBandwidthIn are 1 to 10, and the default value is 10.
-     *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value, and the default value is the `InternetMaxBandwidthOut` value.
+     *   When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
+     *   When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
      *
      * @example 50
      *
@@ -161,10 +161,10 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Specifies whether the instance is I/O optimized. Valid values:
+     * @description Specifies whether to create an I/O optimized instance. Valid values:
      *
-     *   none: The instance is not I/O optimized.
-     *   optimized: The instance is I/O optimized.
+     *   none: creates a non-I/O optimized instance.
+     *   optimized: creates an I/O optimized instance.
      *
      * @example optimized
      *
@@ -173,7 +173,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ioOptimized;
 
     /**
-     * @description The number of IPv6 addresses to be randomly generated for the primary elastic network interface (ENI). Valid values: 1 to 10.
+     * @description The number of IPv6 addresses to randomly generate for the primary elastic network interface (ENI). Valid values: 1 to 10.
      *
      * @example 1
      *
@@ -184,7 +184,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The name of the key pair.
      *
-     *   For Windows instances, this parameter is ignored. The `Password` parameter takes effect even if the KeyPairName parameter is specified.
+     *   For Windows instances, this parameter is ignored The `Password` parameter is valid even if the KeyPairName parameter is specified.
      *   For Linux instances, the password-based logon method is disabled by default.
      *
      * @example testKeyPairName
@@ -194,7 +194,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~). You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine a launch template.
+     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~). You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      *
      * @example lt-m5eiaupmvm2op9d****
      *
@@ -212,6 +212,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $launchTemplateName;
 
     /**
+     * @description The information of the ENI.
+     *
      * @var networkInterface[]
      */
     public $networkInterface;
@@ -239,9 +241,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to use the password preset in the image.
+     * @description Specifies whether to use the password that is preconfigured in the image. Valid values:
      *
-     * >  When you use this parameter, leave Password empty and make sure that the selected image has a password preset.
+     *   true: uses the password that is preconfigured in the mage.
+     *   false: does not use the password that is preconfigured in the image.
+     *
+     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty and make sure that the selected image has a password preconfigured.
      * @example false
      *
      * @var bool
@@ -258,7 +263,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $period;
 
     /**
-     * @description The private IP address of the instance.
+     * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
      * @example 10.1.**.**
@@ -277,7 +282,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -286,7 +291,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which to assign the instance.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -319,7 +324,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The ID of the security group to which to assign the instance. Instances within the same security group can access each other.
      *
-     * >  You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
+     * > The `SecurityGroupId` parameter and the `SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp15ed6xe1yxeycg****
      *
      * @var string
@@ -327,8 +332,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to assign the instance.
+     * @description The ID of security group N to which to assign the instance. The valid values of N depend on the maximum number of security groups to which the instance can belong. For more information, see [Quantity limits](~~25412~~).
      *
+     * > The `SecurityGroupId` parameter and the `SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp15ed6xe1yxeycg7****
      *
      * @var string[]
@@ -336,10 +342,10 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6
      *
-     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
+     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
      *
      * Default value: 1.
      * @example 1
@@ -349,7 +355,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The maximum hourly price of the instance. A maximum of three decimal places are allowed.
+     * @description The maximum hourly price of the preemptible instance. A maximum of three decimal places are allowed.
      *
      * @example 0.97
      *
@@ -358,11 +364,11 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+     * @description The preemption policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot: The instance is a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -371,7 +377,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags.
+     * @description The tags to add to the instance.
      *
      * @var tag[]
      */

@@ -12,8 +12,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
      *
-     *   \-1: The snapshot copy is permanently retained.
-     *   1 to 65535: The snapshot copy is retained for the specified number of days.
+     *   \-1: The snapshot is permanently retained.
+     *   1 to 65535: The automatic snapshot is retained for the specified number of days.
      *
      * Default value: -1.
      * @example 30
@@ -23,7 +23,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
-     * @description Specifies whether to enable cross-region replication for snapshots.
+     * @description Specifies whether to enable cross-region replication for the automatic snapshot.
      *
      *   true: enables cross-region replication for snapshots.
      *   false: disables cross-region replication for snapshots.
@@ -40,7 +40,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the automatic snapshot policy belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-aek2kkmhmhs****
      *
@@ -59,7 +59,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *
@@ -68,14 +68,14 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The tags.
+     * @description The tags to add to the automatic snapshot policy.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The destination region to which to copy snapshots. You can set only a single destination region.
+     * @description The destination region to which to copy the snapshot. You can specify only a single destination region.
      *
      * @example ["cn-hangzhou"]
      *
@@ -84,7 +84,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $targetCopyRegions;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example TestName
@@ -128,7 +128,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values are 0 to 23, which correspond to the 24 points in time on the hour from 00:00:00 to 23:00:00. 1 indicates 01:00:00.
+     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values are 0 to 23, which correspond to the 24 on-the-hour points in time from 00:00:00 to 23:00:00. 1 indicates 01:00:00. Format description:
      *
      *   You must set this parameter to a JSON-formatted array. For example, a value of \["1"] specifies automatic snapshots to be created at 01:00:00.
      *   To schedule multiple automatic snapshots to be created in a day, you can specify multiple values. Separate the values with commas (,). You can specify a maximum of 24 points in time. For example, a value of \["1","3","5"] specifies automatic snapshots to be created at 01:00:00, 03:00:00, and 05:00:00.

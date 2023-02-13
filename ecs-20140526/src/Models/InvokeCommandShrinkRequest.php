@@ -12,7 +12,7 @@ class InvokeCommandShrinkRequest extends Model
     /**
      * @description The ID of the command. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
      *
-     * >  Common Cloud Assistant commands can be run based on their names. For more information, see [View and run common Cloud Assistant commands](~~429635~~).
+     * > Common Cloud Assistant commands can be run based on their names. For more information, see [View and run common Cloud Assistant commands](~~429635~~).
      * @example c-e996287206324975b5fbe1d****
      *
      * @var string
@@ -26,7 +26,7 @@ class InvokeCommandShrinkRequest extends Model
      *
      *   If this parameter is specified, Cloud Assistant runs scripts in the specified container of the instance.
      *
-     *   If this parameter is specified, scripts can be run only on Linux instances on which Cloud Assistant client versions not earlier than 2.2.3.44 are installed.
+     *   If this parameter is specified, scripts can be run only on Linux instances on which Cloud Assistant client versions not earlier than 2.2.3.344 are installed.
      *
      *   For information about how to view the version of the Cloud Assistant client, see [Install the Cloud Assistant client](~~64921~~).
      *   For information about how to upgrade the version of the Cloud Assistant client, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
@@ -48,7 +48,7 @@ class InvokeCommandShrinkRequest extends Model
      *
      *   If this parameter is specified, Cloud Assistant runs scripts in the specified container of the instance.
      *
-     *   If this parameter is specified, scripts can be run only on Linux instances on which Cloud Assistant client versions not earlier than 2.2.3.44 are installed.
+     *   If this parameter is specified, scripts can be run only on Linux instances on which Cloud Assistant client versions not earlier than 2.2.3.344 are installed.
      *
      *   For information about how to view the version of the Cloud Assistant client, see [Install the Cloud Assistant client](~~64921~~).
      *   For information about how to upgrade the version of the Cloud Assistant client, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
@@ -64,35 +64,34 @@ class InvokeCommandShrinkRequest extends Model
     public $containerName;
 
     /**
-     * @description The schedule on which to run the command. You must specify this parameter when you set `Timed` to `true`. You can specify a schedule to run the command at a fixed interval based on a rate expression, only once at a specified time, or at designated times based on a cron expression.
+     * @description The schedule on which to run the command. You must specify this parameter when you set `Timed` to `true`. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression.
      *
-     *   Run at Fixed Interval: To run the command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is applicable when tasks need to be executed at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value><Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. Take note of the following limits when you set an interval:
+     *   To run a command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is applicable when tasks need to be executed at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value><Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. Take note of the following limits when you set an interval:
      *
      *   The specified interval can be anywhere from 60 seconds to 7 days and must be longer than the timeout period of the scheduled task.
-     *   The interval is the duration between two consecutive executions. The interval is irrelevant to the amount of time required to run the command once. For example, assume that you set the interval to 5 minutes and that it takes 2 minutes to run the command each time. Each time the command is run, the system waits 3 minutes before it runs the command again.
-     *   A task is not executed immediately after it is created. For example, assume that you set the interval to 5 minutes for a task. The task begins to be executed 5 minutes after it is created.
+     *   The interval is the amount of time elapsed between two consecutive executions. The interval is irrelevant to the amount of time required to run the command once. For example, assume that you set the interval to 5 minutes and that it takes 2 minutes to run the command each time. Each time the command is run, the system waits 3 minutes before it runs the command again.
+     *   A task is not executed immediately after it is created. For example, assume that you set the interval to 5 minutes and create a task to run the command. The task begins to run 5 minutes after it is created.
      *
-     *   Run Only Once at Specified Time: To run the command only once at a specified time, specify a point in time and a time zone. Specify the time in the following format: `at(yyyy-MM-dd HH:mm:ss <Time zone>)`, which indicates `at(Year-Month-Day Hour:Minute:Second <Time zone>)`. If you do not specify a time zone, the UTC time zone is used by default. The time zone supports the following forms:
+     *   To run a command only once at a specified time, specify a point in time and a time zone. Specify the point in time in the following format: `at(yyyy-MM-dd HH:mm:ss <Time zone>)`, which indicates `at(Year-Month-Day Hour:Minute:Second <Time zone>)`. If you do not specify a time zone, the default time zone is UTC. You can specify the time zone in the following forms:
      *
      *   The time zone name. Examples: `Asia/Shanghai` and `America/Los_Angeles`.
-     *
-     *   The time offset from Greenwich Mean Time (GMT). Example: `GMT+8:00` (UTC+8) and `GMT-7:00` (UTC-7). If you use the GMT format, do not pad leading zeros to the hour value.
-     *
-     *   The time zone abbreviation: Only UTC is supported.
-     *
-     * To specify a command to run only once at 13:15:30 on June 06, 2022 (Shanghai time), set the time to `at(2022-06-06 13:15:30 Asia/Shanghai)`. To specify a command to run only once at 13:15:30 on June 06, 2022 (UTC-7), set the time to `at(2022-06-06 13:15:30 GMT-7:00)`.
-     *
-     *   Run on Clock-based Schedule: To run the command at designated times, specify a cron expression. Specify the time in the following format: `<Cron expression> <Time zone>`, where the cron expression is in the format of `<seconds> <minutes> <hours> <day of the month> <month> <day of the week> <year (optional)> <time zone>`. The system calculates the execution times of the command based on the specified cron expression and time zone and runs the command as scheduled. If you do not specify a time zone, the system time zone of the instance on which to run the command is used by default. For more information about cron expressions, see [Cron expressions](~~64769~~). The time zone supports the following forms:
-     *
-     *   The time zone name. Examples: `Asia/Shanghai` and `sAmerica/Los_Angeles`.
-     *
      *   The time offset from GMT. Examples: `GMT+8:00` (UTC+8) and `GMT-7:00` (UTC-7). If you use the GMT format, do not pad leading zeros to the hour value.
+     *   The time zone abbreviation. Only UTC is supported.
      *
-     *   The time zone abbreviation: Only UTC is supported.
+     * For example, to specify a command to run only once at 13:15:30 on June 06, 2022 (Shanghai time), set the time to `at(2022-06-06 13:15:30 Asia/Shanghai)`. To specify a command to run only once at 13:15:30 on June 06, 2022 (UTC-7), set the time to `at(2022-06-06 13:15:30 GMT-7:00)`.
      *
-     * For example, to specify a command to run at 10:15:00 every day in 2022 (Shanghai time), set the time to `0 15 10 ? * * 2022 Asia/Shanghai`. To specify a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the time to `0 0/30 10-11 * ? 2022 GMT +8:00`. To specify a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years from 2022 (UTC), set the time to `0 0/5 14 * 10 ? 2022/2 UTC`.
+     *   To run a command at designated times, specify a cron expression. Specify the time in the following format: `<Cron expression> <Time zone>`, where the cron expression is in the format of `<seconds> <minutes> <hours> <day of the month> <month> <day of the week> <year (optional)>`. The system calculates the execution times of the command based on the specified cron expression and time zone and runs the command as scheduled. If you do not specify a time zone, the system time zone of the instance on which to run the command is used by default. For more information about cron expressions, see [Cron expressions](~~64769~~). You can specify the time zone in the following forms:
      *
-     * > The minimum interval must be 10 seconds or more and cannot be shorter than the timeout period of scheduled executions.
+     *   The time zone name. Examples: `Asia/Shanghai` and `America/Los_Angeles`.
+     *   The time offset from GMT. Examples: `GMT+8:00` (UTC+8) and `GMT-7:00` (UTC-7). If you use the GMT format, do not pad leading zeros to the hour value.
+     *   The time zone abbreviation. Only UTC is supported.
+     *
+     * For example, to specify a command to run at 10:15:00 every day in 2022 (Shanghai time), set the time to `0 15 10 ? * * 2022 Asia/Shanghai`. To specify a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the time to `0 0/30 10-11 * * ? 2022 GMT +8:00`. To specify a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years since 2022 (UTC), set the time to `0 0/5 14 * 10 ? 2022/2 UTC`.
+     *
+     **
+     *
+     **Note**The minimum interval must be 10 seconds or more and cannot be shorter than the timeout period of scheduled executions.
+     *
      * @example 0 *\/20 * * * ?
      *
      * @var string
@@ -100,7 +99,7 @@ class InvokeCommandShrinkRequest extends Model
     public $frequency;
 
     /**
-     * @description The IDs of instances on which to run the command. You can specify up to 50 instance IDs in each request.
+     * @description The ID of instance N on which to run the command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
      *
      * @example i-bp185dy2o3o6n****
      *
@@ -124,7 +123,7 @@ class InvokeCommandShrinkRequest extends Model
      *   Each key in a Map collection cannot be an empty string and can be up to 64 characters in length.
      *   Values in a Map collection can be empty strings.
      *   The size of the command (including custom parameters and original command content) after Base64 encoding cannot exceed 18 KB.
-     *   The custom parameter names specified in the value of Parameters must be included in the custom parameters specified when you created the command. You can use empty strings to represent the parameters that are not passed in.
+     *   The custom parameter names specified in the value of Parameters must all be included in the custom parameter names specified when you created the command. You can use empty strings to represent the parameters that are not passed in.
      *
      * You can leave this parameter empty to disable the custom parameter feature.
      * @example {"name":"Jack", "accessKey":"LTAIdyv******aRY"}
@@ -143,9 +142,9 @@ class InvokeCommandShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The execution mode of the command. Valid values:
+     * @description Specifies how to run the command. Valid values:
      *
-     *   Once: runs the command instantly.
+     *   Once: immediately runs the command.
      *   Period: runs the command on a schedule. If you set this parameter to `Period`, you must set `Timed` to true and specify `Frequency`.
      *   NextRebootOnly: automatically runs the command the next time the instance starts.
      *   EveryReboot: automatically runs the command every time the instance starts.
@@ -157,7 +156,7 @@ class InvokeCommandShrinkRequest extends Model
      *
      * Take note of the following items:
      *
-     *   When this parameter is set to `Period`, `NextRebootOnly`, or `EveryReboot`, you can call the [StopInvocation](~~64838~~) operation to stop the pending or scheduled executions of the command.
+     *   When this parameter is set to `Period`, `NextRebootOnly`, or `EveryReboot`, you can call the [StopInvocation](~~64838~~) operation to stop the pending or scheduled execution of the command.
      *   When this parameter is set to `Period` or `EveryReboot`, you can call the [DescribeInvocationResults](~~64845~~) operation and set `IncludeHistory` to true to view the results of historical scheduled executions.
      *
      * @example Once
@@ -167,7 +166,10 @@ class InvokeCommandShrinkRequest extends Model
     public $repeatMode;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which to assign the command executions. When you set this parameter, take note of the following items:
+     *
+     *   The instances specified by the InstanceId.N parameter must belong to the specified resource group.
+     *   You can set this parameter to call the [DescribeInvocations](~~64840~~) or [DescribeInvocationResults](~~64845~~) operation to query execution results in the specified resource group.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -186,7 +188,7 @@ class InvokeCommandShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The tags of the command.
      *
      * @var tag[]
      */
@@ -206,9 +208,13 @@ class InvokeCommandShrinkRequest extends Model
     public $timed;
 
     /**
-     * @description The maximum timeout period for the command execution on the instance. Unit: seconds. When a command cannot be run, a timeout error occurs. After that, the command process is forcefully terminated by canceling the PID of the command.
+     * @description The timeout period for the command execution. Unit: seconds.
      *
-     * Default value: 60.
+     *   The timeout period cannot be less than 10 seconds.
+     *   A timeout error occurs when a command cannot be run because the process slows down or because a specific module or the Cloud Assistant client does not exist. When an execution times out, the command process is forcefully terminated.
+     *   If this parameter is not specified, the timeout period specified when the command is created prevails and
+     *   is used only as the timeout period for this execution. The timeout period of the command is not modified.
+     *
      * @example 60
      *
      * @var int
@@ -216,12 +222,12 @@ class InvokeCommandShrinkRequest extends Model
     public $timeout;
 
     /**
-     * @description The username to use to run the command on ECS instances.
+     * @description The username to use to run the command on instances.
      *
-     *   For Linux instances, the root user is used.
-     *   For Windows instances, the System user is used.
+     *   For Linux instances, the root username is used.
+     *   For Windows instances, the System username is used.
      *
-     * You can also specify other usernames that already exist in the ECS instance to run the command. For security purposes, we recommend that you run Cloud Assistant commands as a regular user. For more information, see [Configure a regular user to run Cloud Assistant commands](~~203771~~).
+     * You can also specify other usernames that already exist in the instances to run the command. For security purposes, we recommend that you run Cloud Assistant commands as a regular user. For more information, see [Run Cloud Assistant commands as a regular user](~~203771~~).
      * @example root
      *
      * @var string
@@ -229,9 +235,9 @@ class InvokeCommandShrinkRequest extends Model
     public $username;
 
     /**
-     * @description The name of the password to use to run the command on a Windows instance.
+     * @description The name of the password to use to run the command on Windows instances.
      *
-     * >  When you use the root username for Linux instances or the System username for Windows instances to run the command, you do not need to specify the WindowsPasswordName parameter.
+     * > If you use the root username for Linux instances or the System username for Windows instances to run the command, you do not need to specify the WindowsPasswordName parameter.
      * @example axtSecretPassword
      *
      * @var string

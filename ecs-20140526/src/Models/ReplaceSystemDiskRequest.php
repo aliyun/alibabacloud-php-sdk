@@ -16,7 +16,7 @@ class ReplaceSystemDiskRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The system architecture. Valid values:
+     * @description The operating system architecture. Valid values:
      *
      *   i386
      *   x86\_64
@@ -35,7 +35,7 @@ class ReplaceSystemDiskRequest extends Model
     public $arn;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -44,7 +44,7 @@ class ReplaceSystemDiskRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the disk.
+     * @description The ID of the disk to be used to replace the operating system.
      *
      * > This feature is in invitational preview. To use this feature, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
      * @example d-bp67acfmxazb4ph****
@@ -76,7 +76,7 @@ class ReplaceSystemDiskRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the image.
+     * @description The ID of the image to be used to replace the system disk.
      *
      * If the `DiskId` parameter is not specified, this parameter is required.
      * @example m-bp67acfmxazb4ph****
@@ -106,7 +106,7 @@ class ReplaceSystemDiskRequest extends Model
     /**
      * @description The name of the key pair.
      *
-     * > This parameter is applicable only to Linux instances. You can bind an SSH key pair to the instance as a logon credential. After the SSH key pair is bound, the username and password-based logon method is disabled for the instance.
+     * > This parameter is applicable only to Linux instances. You can bind an SSH key pair to the instance as a logon credential. After the key pair is bound, the username and password logon method is disabled for the instance.
      * @example testKeyPairName
      *
      * @var string
@@ -136,9 +136,9 @@ class ReplaceSystemDiskRequest extends Model
     public $password;
 
     /**
-     * @description Specifies whether to use the password preset in the image.
+     * @description Specifies whether to use the preset password of the image.
      *
-     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty and make sure that the selected image has a password preset.
+     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty. Before you use this parameter, make sure that a password is preset for the image.
      * @example false
      *
      * @var bool
@@ -168,10 +168,10 @@ class ReplaceSystemDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to activate Security Center for free after the system disk is replaced. Valid values:
+     * @description Specifies whether to use Security Center Basic after the system disk is replaced. Valid values:
      *
-     *   Active: Security Center is activated for free after the system disk is replaced. This value supports only public images.
-     *   Deactive: Security Center is not activated for free after the system disk is replaced. This value supports all images.
+     *   Active: uses Security Center Basic after the system disk is replaced. This value is applicable only to public images.
+     *   Deactive: does not use Security Center Basic after the system disk is replaced. This value is applicable to all images.
      *
      * Default value: Deactive.
      * @example Active

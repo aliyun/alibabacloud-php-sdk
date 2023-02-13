@@ -9,38 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
-     * @description The format to export the custom image. Valid values:
-     *
-     * Default value: raw.
-     * @example raw
-     *
      * @var string
      */
     public $imageFormat;
 
     /**
-     * @description The ID of the custom image.
-     *
-     * @example m-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The OSS bucket to which to export the custom image.
-     *
-     * @example testexportImage
-     *
      * @var string
      */
     public $OSSBucket;
 
     /**
-     * @description The prefix of the object as which to store the custom image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
-     *
-     * @example EcsExport
-     *
      * @var string
      */
     public $OSSPrefix;
@@ -51,10 +34,6 @@ class ExportImageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -70,10 +49,6 @@ class ExportImageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the RAM role used to export the custom image.
-     *
-     * @example AliyunECSImageExportDefaultRole
-     *
      * @var string
      */
     public $roleName;

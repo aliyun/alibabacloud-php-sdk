@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DisableActivationResponseBody extends Model
 {
     /**
-     * @description Details about the activation code and its usage information.
-     *
      * @var activation
      */
     public $activation;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4ECEEE12-56F1-4FBC-9AB1-890F74942176
-     *
      * @var string
      */
     public $requestId;

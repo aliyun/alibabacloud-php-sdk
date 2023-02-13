@@ -35,7 +35,7 @@ class CreateCapacityReservationRequest extends Model
     public $description;
 
     /**
-     * @description The expiration time of the capacity reservation. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the capacity reservation expires. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](~~25696~~).
      *
      * @example 2021-10-30T06:32:00Z
      *
@@ -46,8 +46,8 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The release mode of the capacity reservation. Valid values:
      *
-     *   Limited: The capacity reservation is released at the specified time. If you specify this parameter, you must also specify the `EndTime` parameter.
-     *   Unlimited: The capacity reservation must be manually released. You can release it at any time.
+     *   Limited: The capacity reservation is automatically released at the specified time. If you specify this parameter, you must also specify the `EndTime` parameter.
+     *   Unlimited: The capacity reservation must be manually released. You can release it anytime.
      *
      * @example Unlimited
      *
@@ -56,7 +56,7 @@ class CreateCapacityReservationRequest extends Model
     public $endTimeType;
 
     /**
-     * @description The total number of instances for which to reserve capacity of an instance type.
+     * @description The total number of instances for which capacity of an instance type is reserved.
      *
      * @example 2
      *
@@ -65,7 +65,7 @@ class CreateCapacityReservationRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The instance type. A capacity reservation can be created to reserve the capacity of a single instance type.
+     * @description The instance type. A capacity reservation can be created to reserve the capacity of only a single instance type. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the instance types provided by ECS.
      *
      * @example ecs.g6.xlarge
      *
@@ -86,10 +86,10 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system of a capacity reservation matches that of a regional reserved instance, the regional reserved instance can be applied to offset bills of the unused capacity of the capacity reservation. Valid values:
      *
-     *   Windows: Windows Server operating systems
-     *   Linux: Linux and Unix-like operating systems
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
      *
-     * >  This parameter is unavailable.
+     * > This parameter is unavailable.
      * @example Linux
      *
      * @var string
@@ -97,7 +97,7 @@ class CreateCapacityReservationRequest extends Model
     public $platform;
 
     /**
-     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -125,9 +125,9 @@ class CreateCapacityReservationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The mode in which the capacity reservation takes effect. You can specify a time value for this parameter to create the capacity reservation as a scheduled capacity reservation that takes effect at the specified time. Only immediate capacity reservations are supported. You do not need to specify this parameter.
+     * @description The time when the capacity reservation takes effect. The CreateCapacityReservation operation can be called to create only immediate capacity reservations.
      *
-     * >  If this parameter is empty, the capacity reservation is created as an immediate capacity reservation.
+     * >  If you do not specify this parameter, the capacity reservation takes effect immediately.
      * @example 2021-10-30T05:32:00Z
      *
      * @var string
@@ -135,14 +135,14 @@ class CreateCapacityReservationRequest extends Model
     public $startTime;
 
     /**
-     * @description The tags to add to the capacity reservation. You can specify up to 20 tags.
+     * @description The tags to add to the capacity reservation.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The IDs of zones within the region in which to create the capacity reservation. A capacity reservation can reserve resources within a single zone.
+     * @description The ID of the zone in which to create the capacity reservation. A capacity reservation can reserve resources within only a single zone.
      *
      * @example cn-hangzhou-h
      *

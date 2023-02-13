@@ -19,10 +19,6 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

@@ -38,7 +38,7 @@ class DeleteSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group. You can call the [DescribeSecurityGroups](~~25556~~) to query the most recent list of security group IDs.
+     * @description The ID of the security group. You can call the [DescribeSecurityGroups](~~25556~~) to query the security group ID.
      *
      * @example sg-bp1fg655nh68xyz9****
      *

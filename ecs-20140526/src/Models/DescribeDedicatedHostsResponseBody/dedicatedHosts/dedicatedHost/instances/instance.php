@@ -25,9 +25,15 @@ class instance extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $socketId;
     protected $_name = [
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'socketId'     => 'SocketId',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class instance extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->socketId) {
+            $res['SocketId'] = $this->socketId;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class instance extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['SocketId'])) {
+            $model->socketId = $map['SocketId'];
         }
 
         return $model;

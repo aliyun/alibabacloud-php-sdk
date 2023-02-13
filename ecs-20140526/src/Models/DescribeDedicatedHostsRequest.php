@@ -117,6 +117,11 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $socketDetails;
+
+    /**
      * @description The service state of the dedicated host. Valid values:
      *
      *   Available: The dedicated host is running normally.
@@ -161,6 +166,7 @@ class DescribeDedicatedHostsRequest extends Model
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
+        'socketDetails'          => 'SocketDetails',
         'status'                 => 'Status',
         'tag'                    => 'Tag',
         'zoneId'                 => 'ZoneId',
@@ -211,6 +217,9 @@ class DescribeDedicatedHostsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->socketDetails) {
+            $res['SocketDetails'] = $this->socketDetails;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -277,6 +286,9 @@ class DescribeDedicatedHostsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SocketDetails'])) {
+            $model->socketDetails = $map['SocketDetails'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

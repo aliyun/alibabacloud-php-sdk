@@ -9,21 +9,11 @@ use AlibabaCloud\Tea\Model;
 class maintenanceWindow extends Model
 {
     /**
-     * @description The end time of maintenance window.
-     *
-     * The time must be in UTC+8.
-     * @example 18:00:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The start time of maintenance window.
-     *
-     * The time must be in UTC+8.
-     * @example 02:00:00
-     *
      * @var string
      */
     public $startTime;

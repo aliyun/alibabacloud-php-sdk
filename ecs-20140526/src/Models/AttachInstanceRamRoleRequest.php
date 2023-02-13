@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleRequest extends Model
 {
     /**
-     * @description The IDs of instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     * @description The ID of the instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
      *
      * @example [“i-bp14ss25xca5ex1u****”, “i-bp154z5o1qjalfse****”, “i-bp10ws62o04ubhvi****”…]
      *
@@ -41,7 +41,7 @@ class AttachInstanceRamRoleRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

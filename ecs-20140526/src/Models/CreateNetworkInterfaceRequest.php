@@ -47,14 +47,14 @@ class CreateNetworkInterfaceRequest extends Model
     public $instanceType;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example hide
      *
@@ -75,7 +75,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
+     * @description The number of IPv6 addresses to generate at random for the ENI. Valid values: 1 to 10.
      *
      * > To assign IPv6 addresses to the ENI, you must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but not both.
      * @example 1
@@ -85,14 +85,14 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var string[]
      */
     public $ipv6Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example hide
      *
@@ -111,7 +111,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of the ENI. Valid values:
+     * @description The communication model of the ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
      *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
@@ -134,9 +134,9 @@ class CreateNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The primary private IP address of the ENI.
+     * @description The primary private IP address to assign to the ENI.
      *
-     * The specified IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. If this parameter is not specified, an idle IP address is assigned from within the CIDR block of the vSwitch at random.
+     * The specified IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. If this parameter is not specified, an idle IP address is randomly assigned from within the CIDR block of the vSwitch.
      * @example 172.17.**.**
      *
      * @var string
@@ -146,7 +146,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description Secondary private IP address N to assign to the ENI. The IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
      *
-     * > To assign secondary private IP addresses to the ENI, you cannot specify the `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` parameters at the same time.
+     * > To assign secondary private IP addresses to the ENI, you cannot specify both the `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` parameters.
      * @example 172.17.**.**
      *
      * @var string[]
@@ -164,7 +164,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example 22
      *

@@ -9,33 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the instance.
-     *
-     * Default value: false.
-     * @example true
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period for the instance.
-     *
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Year` (year): 1, 2, 3, 4, and 5.
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Month` (month): 1, 2, 3, 6, 12, 24, 36, 48, and 60.
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Week` (week): 1, 2, 3, and 4.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description The ID of the instance. You can specify IDs of up to 100 subscription instances. Separate the instance IDs with commas (,).
-     *
-     * @example i-bp67acfmxazb4ph****,i-bp67acfmxazb4pi****
-     *
      * @var string
      */
     public $instanceId;
@@ -51,37 +34,16 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The unit of the renewal period (`Duration`). Default value: Month. Valid values:
-     *
-     *   Week
-     *   Month
-     *   Year
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The auto-renewal state of the instance. Valid values:
-     *
-     *   AutoRenewal: Auto-renewal is enabled for the instance.
-     *   Normal: Auto-renewal is disabled for the instance.
-     *   NotRenewal: The instance is not renewed. The system no longer sends an expiration notification. Notifications for renewal are sent three days before the expiration time of the instance. You can change the value of this parameter from NotRenewal to `Normal` for an instance, and then manually renew the instance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
-     *
-     * > `RenewalStatus` takes precedence over `AutoRenew`. If you do not specify `RenewalStatus`, the `AutoRenew` parameter is used by default.
-     * @example AutoRenewal
-     *
      * @var string
      */
     public $renewalStatus;

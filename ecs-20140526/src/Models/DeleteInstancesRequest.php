@@ -18,10 +18,10 @@ class DeleteInstancesRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, DRYRUN.SUCCESS is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned and the request is made.
+     *   true: perform a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DRYRUN.SUCCESS error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -61,7 +61,7 @@ class DeleteInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

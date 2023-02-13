@@ -17,14 +17,14 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceSet extends Model
 {
     /**
-     * @description The EIP that is associated with the secondary private IP address of the ENI.
+     * @description Details about the EIP that is associated with the secondary private IP address of the ENI.
      *
      * @var associatedPublicIp
      */
     public $associatedPublicIp;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable to the public.
      *
      * @var attachment
      */
@@ -49,7 +49,7 @@ class networkInterfaceSet extends Model
     public $description;
 
     /**
-     * @description The ID of the instance to which the ENI is attached.
+     * @description The ID of the ECS instance to which the ENI is bound.
      *
      * > If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
      * @example i-bp1e2l6djkndyuli****
@@ -69,7 +69,7 @@ class networkInterfaceSet extends Model
     public $ipv6PrefixSets;
 
     /**
-     * @description The IPv6 addresses of the ENI.
+     * @description The IPv6 addresses assigned to the ENI.
      *
      * @var ipv6Sets
      */
@@ -105,10 +105,10 @@ class networkInterfaceSet extends Model
     /**
      * @description The communication mode of the ENI. Valid values:
      *
-     *   Standard: The TCP communication mode is used.
-     *   HighPerformance: Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *   Standard: the TCP communication mode is used.
+     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
      *
-     * > This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
+     * > The NetworkInterfaceTrafficMode parameter can be set to HighPerformance only when the instance to which the ENI is bound belongs to the c7re RDMA-enhanced instance family and is located within Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -155,7 +155,7 @@ class networkInterfaceSet extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable to the public.
      *
      * @example 0
      *
@@ -164,7 +164,7 @@ class networkInterfaceSet extends Model
     public $queuePairNumber;
 
     /**
-     * @description The ID of the resource group to which the ENI belongs.
+     * @description The ID of your Alibaba Cloud resource group.
      *
      * @example rg-2ze88m67qx5z****
      *
@@ -241,7 +241,7 @@ class networkInterfaceSet extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the ENI.
+     * @description The ID of the zone in which the instance resides.
      *
      * @example cn-hangzhou-e
      *

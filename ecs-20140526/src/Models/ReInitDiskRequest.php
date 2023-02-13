@@ -9,30 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically start the instance after the disk is re-initialized.
-     *
-     * Default value: false.
-     * @example true
-     *
      * @var bool
      */
     public $autoStartInstance;
 
     /**
-     * @description The ID of the disk.
-     *
-     * @example d-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description The name of the key pair.
-     *
-     * > The parameter is applicable only to Linux instances. You can bind an SSH key pair to an instance as the logon credential when you re-initialize the system disk of the instance. After the SSH key pair is bound, the username and password-based logon method is disabled for the instance.
-     * @example testKeyPairName
-     *
      * @var string
      */
     public $keyPairName;
@@ -48,13 +34,6 @@ class ReInitDiskRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to reset the password of the instance when you re-initialize its system disk. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
-     *
-     * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
-     *
-     * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
-     * @example EcsV587!
-     *
      * @var string
      */
     public $password;
@@ -70,14 +49,6 @@ class ReInitDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to use Security Center for free after the system disk is re-initialized. Valid values:
-     *
-     *   Active: uses Security Center for free after the system disk is re-initialized. This value is applicable only to public images.
-     *   Deactive: does not use Security Center for free after the system disk is re-initialized. This value is applicable to all images.
-     *
-     * Default value: Deactive.
-     * @example Active
-     *
      * @var string
      */
     public $securityEnhancementStrategy;

@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ImportImageResponseBody extends Model
 {
     /**
-     * @description The ID of the custom image.
-     *
-     * @example m-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The region ID of the image.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the image import task.
-     *
-     * @example t-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $taskId;

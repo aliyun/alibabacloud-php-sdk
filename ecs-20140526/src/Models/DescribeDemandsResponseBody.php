@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsResponseBody extends Model
 {
     /**
-     * @description Details about the filing tickets whose regions meet the filter condition.
+     * @description The filing tickets whose regions meet the filter condition.
      *
      * @var demands
      */
@@ -35,7 +35,7 @@ class DescribeDemandsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

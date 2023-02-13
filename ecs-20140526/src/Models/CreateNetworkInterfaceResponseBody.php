@@ -24,14 +24,14 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $description;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var ipv6PrefixSets
      */
@@ -90,7 +90,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $privateIpAddress;
 
     /**
-     * @description Details about the private IP addresses.
+     * @description Details about the private IP addresses of the ENI.
      *
      * @var privateIpSets
      */

@@ -44,7 +44,7 @@ class DescribeCommandsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of commands.
+     * @description The total number of the commands.
      *
      * @example 5
      *

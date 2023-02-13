@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RedeployDedicatedHostResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example FCED4B7A-53D5-4C04-ABE3-26D4F3890D57
-     *
      * @var string
      */
     public $requestId;

@@ -64,13 +64,13 @@ class demand extends Model
     public $demandName;
 
     /**
-     * @description The status of the filing ticket or resource usage. Valid values:
+     * @description The status of the filing ticket or resource consumption. Valid values:
      *
      *   Creating: The filing ticket is being created.
      *   Active: The filed resources are being supplied.
      *   Expired: The filing ticket expires.
      *   Finished: The filed resources are consumed.
-     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` response parameter.
+     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` parameter in the response.
      *   Cancelled: The filing request is canceled. After the filing request is canceled, the delivery status of the resources becomes invalid.
      *
      * @example Active
@@ -141,6 +141,7 @@ class demand extends Model
      *
      *   Hour
      *   Day
+     *   Week
      *   Month
      *
      * @example Month
@@ -166,7 +167,7 @@ class demand extends Model
     public $supplyInfos;
 
     /**
-     * @description The amount of total instances.
+     * @description The number of filed instances.
      *
      * @example 50
      *
@@ -175,7 +176,7 @@ class demand extends Model
     public $totalAmount;
 
     /**
-     * @description The amount of instances that have been used.
+     * @description The number of consumed instances.
      *
      * @example 20
      *
@@ -184,9 +185,8 @@ class demand extends Model
     public $usedAmount;
 
     /**
-     * @description The ID of the zone for which to query resources.
+     * @description The ID of the zone where the filed resource resides.
      *
-     * This parameter is empty by default. When this parameter is empty, the system returns resources that match the other criteria in all zones within the region specified by `RegionId`.
      * @example cn-hangzhou-g
      *
      * @var string

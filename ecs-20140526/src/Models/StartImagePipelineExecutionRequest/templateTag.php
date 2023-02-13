@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class templateTag extends Model
 {
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @example null
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @example null
-     *
      * @var string
      */
     public $value;

@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the capacity reservation.
-     *
-     * @example TestKey
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The tag value of the capacity reservation.
-     *
-     * @example TestValue
-     *
      * @var string
      */
     public $tagValue;

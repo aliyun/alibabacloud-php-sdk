@@ -9,74 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyStorageSetAttributeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The description of the storage set.
-     *
-     * @example testStorageSetDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example hide
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region ID of the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example hide
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the storage set.
-     *
-     * @example ss-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $storageSetId;
 
     /**
-     * @description The name of the storage set.
-     *
-     * @example testStorageSetName
-     *
      * @var string
      */
     public $storageSetName;

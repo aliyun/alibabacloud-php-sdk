@@ -18,7 +18,10 @@ class systemDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description This parameter is unavailable.
+     * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
+     *
+     *   true: enables the performance burst feature.
+     *   false: does not enable the performance burst feature.
      *
      * @example true
      *
@@ -29,12 +32,12 @@ class systemDisk extends Model
     /**
      * @description The category of the system disk. Valid values:
      *
-     *   cloud: basic disk.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD used as the system disk.
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk.
      *
-     * For non-I/O optimized instances of retired instance types, the default value is cloud. For other instances, the default value is cloud_efficiency.
+     * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string
@@ -64,7 +67,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example cloud_ssdSystem
      *
@@ -73,11 +76,18 @@ class systemDisk extends Model
     public $diskName;
 
     /**
+     * @description 系统盘是否加密。取值范围：
+     *
+     * >中国香港D可用区、新加坡A可用区暂不支持在创建实例时加密系统盘。
+     * @example false
+     *
      * @var string
      */
     public $encrypted;
 
     /**
+     * @description > This parameter is unavailable.
+     *
      * @example 30000
      *
      * @var int
@@ -85,7 +95,7 @@ class systemDisk extends Model
     public $iops;
 
     /**
-     * @description The performance level of the ESSD used as the system disk. Default value: PL0. Valid values:
+     * @description The performance level of the ESSD to be used as the system disk. Default value: PL0. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -100,8 +110,9 @@ class systemDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description This parameter is unavailable.
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
+     * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int
@@ -111,7 +122,7 @@ class systemDisk extends Model
     /**
      * @description The size of the system disk. Unit: GiB. Valid values: 20 to 500.
      *
-     * The value of this parameter must be at least 20 and greater than or equal to the image size.
+     * The value of this parameter must be at least 20 and greater than or equal to the size of the specified image.
      * @example 40
      *
      * @var int

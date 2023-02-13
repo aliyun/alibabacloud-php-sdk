@@ -9,46 +9,26 @@ use AlibabaCloud\Tea\Model;
 class instanceResponse extends Model
 {
     /**
-     * @description The error code of the instance operation result. The return value 200 indicates success. For more information, see the "Error codes" section in this topic.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The current state of the instance.
-     *
-     * @example Stopping
-     *
      * @var string
      */
     public $currentStatus;
 
     /**
-     * @description The ID of instance N.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The error message for instance operation. The return value Success indicates operation success. For more information, see the "Error codes" section in this topic.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The state of the instance before the operation is called.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $previousStatus;

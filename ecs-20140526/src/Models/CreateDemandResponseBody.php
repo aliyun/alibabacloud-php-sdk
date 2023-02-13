@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDemandResponseBody extends Model
 {
     /**
-     * @description The ID of the requirement.
+     * @description The ID of the demand.
      *
      * @example ed-bp11n21kq00sl71p****
      *

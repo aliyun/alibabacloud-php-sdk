@@ -12,7 +12,7 @@ class ModifyInstanceDeploymentRequest extends Model
      * @description Specifies whether to associate the instance with a dedicated host. Valid values:
      *
      *   host: associates the instance with a dedicated host. When you start a stopped instance in economical mode, the instance remains on its original dedicated host.
-     *   default: does not associate the instance with a dedicated host. When you start a stopped instance in economical mode, the instance can be automatically deployed to another dedicated host in the automatic deployment resource pool if resources of the original dedicated host are insufficient.
+     *   default: does not associate the instance with a dedicated host. When you start a stopped instance in economical mode, the instance can be automatically deployed to another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
      *
      * If you want to migrate the instance from a shared host to a dedicated host, use the default value. Default value: default.
      * @example host
@@ -93,7 +93,7 @@ class ModifyInstanceDeploymentRequest extends Model
     public $instanceId;
 
     /**
-     * @description The instance type to which to change the instance. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent list of instance types.
+     * @description The instance type to which the instance is changed. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent list of instance types.
      *
      * You can change the instance type of an instance when you migrate the instance to a dedicated host. The new instance type must match the type of the specified dedicated host. For more information, see [Dedicated host types](~~68564~~).
      *
@@ -130,7 +130,7 @@ class ModifyInstanceDeploymentRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -139,7 +139,7 @@ class ModifyInstanceDeploymentRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to remove the selected instance from the selected deployment set. Valid values:
+     * @description Specifies whether to remove the specified instance from the specified deployment set. Valid values:
      *
      *   true: removes the instance from the deployment set.
      *   false: does not remove the instance from the deployment set.
