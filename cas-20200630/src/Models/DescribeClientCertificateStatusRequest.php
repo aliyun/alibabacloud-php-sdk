@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientCertificateStatusRequest extends Model
 {
     /**
+     * @description The unique identifiers of the client certificates or server certificates that you want to query. Separate multiple unique identifiers with commas (,).
+     *
+     * >  You can call the [ListClientCertificate](~~330884~~) operation to query the unique identifiers of all client certificates and server certificates.
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;

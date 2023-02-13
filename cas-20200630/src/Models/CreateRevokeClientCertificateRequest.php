@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateRevokeClientCertificateRequest extends Model
 {
     /**
+     * @description The unique identifier of the client certificate or server certificate that you want to revoke.
+     *
+     * >  You can call the [ListClientCertificate](~~330884~~) operation to query the unique identifiers of all client certificates and server certificates.
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;

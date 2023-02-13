@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCACertificateRequest extends Model
 {
     /**
+     * @description The unique identifier of the CA certificate that you want to query.
+     *
+     * >  You can call the [DescribeCACertificateList](~~328095~~) operation to query the unique identifiers of all CA certificates.
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;

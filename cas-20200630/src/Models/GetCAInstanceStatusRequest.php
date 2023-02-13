@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCAInstanceStatusRequest extends Model
 {
     /**
+     * @description The ID of the private CA instance.
+     *
+     * >  After you purchase a private CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist), you can click **Details** for the private CA instance on the **Private Certificates** page to obtain the ID of the private CA instance.
+     * @example cas-member-0hmi****
+     *
      * @var string
      */
     public $instanceId;

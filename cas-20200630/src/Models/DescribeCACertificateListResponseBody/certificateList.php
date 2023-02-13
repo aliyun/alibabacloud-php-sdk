@@ -9,111 +9,220 @@ use AlibabaCloud\Tea\Model;
 class certificateList extends Model
 {
     /**
+     * @description The expiration date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1665819958000
+     *
      * @var int
      */
     public $afterDate;
 
     /**
+     * @description The encryption algorithm of the CA certificate. Valid values:
+     *
+     *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
+     *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
+     *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+     *
+     * @example RSA
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The issuance date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1634283958000
+     *
      * @var int
      */
     public $beforeDate;
 
     /**
+     * @description The type of the CA certificate. Valid values:
+     *
+     *   **ROOT**: root CA certificate
+     *   **SUB_ROOT**: intermediate CA certificate
+     *
+     * @example SUB_ROOT
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @description The common name or abbreviation of the organization that is associated with the CA certificate.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The code of the country in which the organization is located.
+     *
+     * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](~~198289~~) topic.
+     * @example CN
+     *
      * @var string
      */
     public $countryCode;
 
     /**
+     * @description The unique identifier of the CA certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The key length of the CA certificate.
+     *
+     * @example 2048
+     *
      * @var int
      */
     public $keySize;
 
     /**
+     * @description The name of the city in which the organization is located.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $locality;
 
     /**
+     * @description The MD5 fingerprint of the CA certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The name of the organization that is associated with the CA certificate.
+     *
+     * @example Alibaba Cloud Computing Co., Ltd.
+     *
      * @var string
      */
     public $organization;
 
     /**
+     * @description The name of the department or branch in the organization that is associated with the CA certificate.
+     *
+     * @example Security
+     *
      * @var string
      */
     public $organizationUnit;
 
     /**
+     * @description The unique identifier of the root CA certificate from which the CA certificate is issued.
+     *
+     * >  This parameter is returned only if the value of the **CertificateType** parameter is **SUB_ROOT**. The value SUB_ROOT indicates an intermediate CA certificate.
+     * @example 1a83bcbb89e562885e40aa0108f5****
+     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The serial number of the CA certificate.
+     *
+     * @example 70e3b2566d92805173767869727fb92e****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The SHA-256 fingerprint of the CA certificate.
+     *
+     * @example 14dcc8afc7578e1fcec36d658f7e20de18f6957bbac42b373a66bc9de4e9****
+     *
      * @var string
      */
     public $sha2;
 
     /**
+     * @description The signature algorithm of the CA certificate.
+     *
+     * @example SHA256WITHRSA
+     *
      * @var string
      */
     public $signAlgorithm;
 
     /**
+     * @description The name of the province, municipality, or autonomous region in which the organization is located.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The status of the CA certificate. Valid values:
+     *
+     *   **ISSUE**: The CA certificate is issued.
+     *   **REVOKE**: The CA certificate is revoked.
+     *
+     * @example ISSUE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The Distinguished Name (DN) attribute of the CA certificate, which indicates the user information of the certificate. The DN attribute contains the following information:
+     *
+     *   **C**: the country code in which the organization is located
+     *   **O**: the name of the organization
+     *   **OU**: the name of the department or branch in the organization
+     *   **L**: the name of the city in which the organization is located
+     *
+     * \<props="china">- **ST**: the name of the province, municipality, or autonomous region in which the organization is located \<props="intl">- **ST**: the name of the province or state in which the organization is located
+     *
+     *   **CN**: the common name or abbreviation of the organization
+     *
+     * @example C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+     *
      * @var string
      */
     public $subjectDN;
 
     /**
+     * @description The content of the CA certificate.
+     *
+     * @example -----BEGIN CERTIFICATE----- …… -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $x509Certificate;
 
     /**
+     * @description The validity period of the CA certificate. Unit: years.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $years;

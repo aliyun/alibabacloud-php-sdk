@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientCertificateStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the status information about the certificates.
+     *
      * @var certificateStatus[]
      */
     public $certificateStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;

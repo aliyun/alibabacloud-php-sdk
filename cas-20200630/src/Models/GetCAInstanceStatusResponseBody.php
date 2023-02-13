@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetCAInstanceStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the status information about the private CA instance.
+     *
      * @var instanceStatusList[]
      */
     public $instanceStatusList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25589516-2A56-5159-AB88-4A1D9824E183
+     *
      * @var string
      */
     public $requestId;

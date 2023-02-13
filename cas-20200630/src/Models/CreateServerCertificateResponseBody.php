@@ -9,21 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateServerCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate chain of the server certificate.
+     *
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n
+     *
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @description The unique identifier of the server certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @var string
-     */
-    public $parentX509Certificate;
-
-    /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
@@ -31,19 +38,22 @@ class CreateServerCertificateResponseBody extends Model
     /**
      * @var string
      */
-    public $rootX509Certificate;
+    public $serialNumber;
 
     /**
+     * @description The content of the server certificate.
+     *
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $x509Certificate;
     protected $_name = [
-        'certificateChain'      => 'CertificateChain',
-        'identifier'            => 'Identifier',
-        'parentX509Certificate' => 'ParentX509Certificate',
-        'requestId'             => 'RequestId',
-        'rootX509Certificate'   => 'RootX509Certificate',
-        'x509Certificate'       => 'X509Certificate',
+        'certificateChain' => 'CertificateChain',
+        'identifier'       => 'Identifier',
+        'requestId'        => 'RequestId',
+        'serialNumber'     => 'SerialNumber',
+        'x509Certificate'  => 'X509Certificate',
     ];
 
     public function validate()
@@ -59,14 +69,11 @@ class CreateServerCertificateResponseBody extends Model
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-        if (null !== $this->parentX509Certificate) {
-            $res['ParentX509Certificate'] = $this->parentX509Certificate;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->rootX509Certificate) {
-            $res['RootX509Certificate'] = $this->rootX509Certificate;
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
         }
         if (null !== $this->x509Certificate) {
             $res['X509Certificate'] = $this->x509Certificate;
@@ -89,14 +96,11 @@ class CreateServerCertificateResponseBody extends Model
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-        if (isset($map['ParentX509Certificate'])) {
-            $model->parentX509Certificate = $map['ParentX509Certificate'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RootX509Certificate'])) {
-            $model->rootX509Certificate = $map['RootX509Certificate'];
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
         }
         if (isset($map['X509Certificate'])) {
             $model->x509Certificate = $map['X509Certificate'];

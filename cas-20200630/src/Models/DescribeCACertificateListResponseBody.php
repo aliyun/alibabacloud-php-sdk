@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeCACertificateListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the CA certificate.
+     *
      * @var certificateList[]
      */
     public $certificateList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of returned pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of CA certificates returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @description The total number of root CA certificates and intermediate CA certificates that are returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

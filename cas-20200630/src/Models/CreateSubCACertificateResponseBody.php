@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateSubCACertificateResponseBody extends Model
 {
     /**
+     * @description The intermediate CA certificate in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @description The certificate chain of the intermediate CA certificate.
+     *
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n
+     *
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @description The unique identifier of the intermediate CA certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;

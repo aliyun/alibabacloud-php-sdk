@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCACertificateListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of CA certificates to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $showSize;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCertificatePrivateKeyResponseBody extends Model
 {
     /**
+     * @description The content of the encrypted private key.
+     *
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY----- …… -----END ENCRYPTED PRIVATE KEY-----
+     *
      * @var string
      */
     public $encryptedData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 09470F19-CEE8-5C63-BF2C-02B5E3F07A17
+     *
      * @var string
      */
     public $requestId;

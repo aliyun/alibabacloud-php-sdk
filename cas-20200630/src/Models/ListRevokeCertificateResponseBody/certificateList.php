@@ -9,106 +9,213 @@ use AlibabaCloud\Tea\Model;
 class certificateList extends Model
 {
     /**
+     * @description The expiration date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-12-31T00:00Z` indicates December 31, 2021.
+     *
+     * @example 2021-12-31T00:00Z
+     *
      * @var string
      */
     public $afterDate;
 
     /**
+     * @description The type of the encryption algorithm of the certificate. Valid values:
+     *
+     *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
+     *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
+     *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+     *
+     * @example RSA
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The issuance date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-01-01T00:00Z` indicates January 1, 2021.
+     *
+     * @example 2021-01-01T00:00Z
+     *
      * @var string
      */
     public $beforeDate;
 
     /**
+     * @description The type of the certificate.
+     *
+     * @example SERVER
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @description The common name of the certificate.
+     *
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+     *
+     * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](~~198289~~) topic.
+     * @example CN
+     *
      * @var string
      */
     public $countryCode;
 
     /**
+     * @description The unique identifier of the certificate.
+     *
+     * @example 05e148d8d3ecc9976d9ecd2b2f25****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The key length of the certificate.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $keySize;
 
     /**
+     * @description The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $locality;
 
     /**
+     * @description The MD5 fingerprint of the certificate.
+     *
+     * @example 05e148d8d3ecc9976d9ecd2b2f25****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+     *
+     * @example Alibaba Cloud Computing Co., Ltd.
+     *
      * @var string
      */
     public $organization;
 
     /**
+     * @description The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+     *
+     * @example Security
+     *
      * @var string
      */
     public $organizationUnit;
 
     /**
+     * @description The identifier of the root certificate.
+     *
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
+     * @description The date on which the certificate was revoked. The value is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-09-01T00:00Z` indicates September 1, 2021.
+     *
+     * @example 2021-09-01T00:00Z
+     *
      * @var string
      */
     public $revokeDate;
 
     /**
+     * @description The subject alternative name (SAN) extension of the certificate.
+     *
+     * The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+     *
+     *   **Type**: the type of the extension. Data type: integer. Valid values:
+     *
+     *   **1**: an email address
+     *   **2**: a domain name
+     *   **6**: a Uniform Resource Identifier (URI)
+     *   **7**: an IP address
+     *
+     *   **Value**: the value of the extension. Data type: string.
+     *
+     * @example [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The serial number of the certificate.
+     *
+     * @example 168b12c42e62339f8d2340ff530f9365****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The SHA-256 fingerprint of the certificate.
+     *
+     * @example b60eff7e04323ff662f9ab5e6986f849f626a9c7bf2c59dcc752fa23779a****
+     *
      * @var string
      */
     public $sha2;
 
     /**
+     * @description The signature algorithm of the certificate.
+     *
+     * @example SHA256WITHRSA
+     *
      * @var string
      */
     public $signAlgorithm;
 
     /**
+     * @description The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The status.
+     *
+     * @example ISSUE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+     *
+     *   **C**: the country
+     *   **O**: the organization
+     *   **OU**: the department
+     *   **L**: the city
+     *   **ST**: the province, municipality, or autonomous region
+     *   **CN**: the common name
+     *
+     * @example C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=ZheJiang,ST=HangZhou,CN=aliyundoc.com
+     *
      * @var string
      */
     public $subjectDN;

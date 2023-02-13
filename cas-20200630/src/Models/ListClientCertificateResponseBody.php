@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListClientCertificateResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about all client certificates and server certificates.
+     *
      * @var certificateList[]
      */
     public $certificateList;
 
     /**
+     * @description The page number of the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of certificates that are returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @description The number of client certificates and server certificates that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

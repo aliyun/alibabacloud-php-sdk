@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeCACertificateResponseBody extends Model
 {
     /**
+     * @description The details about the CA certificate.
+     *
      * @var certificate
      */
     public $certificate;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The validity period of the CA certificate. Unit: years.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $years;
