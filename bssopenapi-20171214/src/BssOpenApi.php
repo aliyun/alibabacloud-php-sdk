@@ -5593,6 +5593,9 @@ class BssOpenApi extends OpenApiClient
         if (!Utils::isUnset($request->multAccountRelSubscribe)) {
             $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
         }
+        if (!Utils::isUnset($request->rowLimitPerFile)) {
+            $query['RowLimitPerFile'] = $request->rowLimitPerFile;
+        }
         if (!Utils::isUnset($request->subscribeBucket)) {
             $query['SubscribeBucket'] = $request->subscribeBucket;
         }

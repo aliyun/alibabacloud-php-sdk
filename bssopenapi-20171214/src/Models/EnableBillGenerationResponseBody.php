@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EnableBillGenerationResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class EnableBillGenerationResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class EnableBillGenerationResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5F2648ED-170B-5882-BFF4-98BE522A60F2
      *
      * @var string
@@ -36,6 +44,8 @@ class EnableBillGenerationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

@@ -23,6 +23,11 @@ class item extends Model
     public $bucketPath;
 
     /**
+     * @var int
+     */
+    public $rowLimitPerFile;
+
+    /**
      * @example billingtestbucket
      *
      * @var string
@@ -52,6 +57,7 @@ class item extends Model
     protected $_name = [
         'bucketOwnerId'     => 'BucketOwnerId',
         'bucketPath'        => 'BucketPath',
+        'rowLimitPerFile'   => 'RowLimitPerFile',
         'subscribeBucket'   => 'SubscribeBucket',
         'subscribeLanguage' => 'SubscribeLanguage',
         'subscribeTime'     => 'SubscribeTime',
@@ -70,6 +76,9 @@ class item extends Model
         }
         if (null !== $this->bucketPath) {
             $res['BucketPath'] = $this->bucketPath;
+        }
+        if (null !== $this->rowLimitPerFile) {
+            $res['RowLimitPerFile'] = $this->rowLimitPerFile;
         }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
@@ -100,6 +109,9 @@ class item extends Model
         }
         if (isset($map['BucketPath'])) {
             $model->bucketPath = $map['BucketPath'];
+        }
+        if (isset($map['RowLimitPerFile'])) {
+            $model->rowLimitPerFile = $map['RowLimitPerFile'];
         }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];

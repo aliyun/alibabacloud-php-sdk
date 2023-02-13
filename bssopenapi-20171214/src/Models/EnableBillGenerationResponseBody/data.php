@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $boolean;

@@ -37,6 +37,11 @@ class SubscribeBillToOSSRequest extends Model
     public $multAccountRelSubscribe;
 
     /**
+     * @var int
+     */
+    public $rowLimitPerFile;
+
+    /**
      * @example xxxxxx-bucket
      *
      * @var string
@@ -54,6 +59,7 @@ class SubscribeBillToOSSRequest extends Model
         'bucketOwnerId'           => 'BucketOwnerId',
         'bucketPath'              => 'BucketPath',
         'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
+        'rowLimitPerFile'         => 'RowLimitPerFile',
         'subscribeBucket'         => 'SubscribeBucket',
         'subscribeType'           => 'SubscribeType',
     ];
@@ -76,6 +82,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (null !== $this->multAccountRelSubscribe) {
             $res['MultAccountRelSubscribe'] = $this->multAccountRelSubscribe;
+        }
+        if (null !== $this->rowLimitPerFile) {
+            $res['RowLimitPerFile'] = $this->rowLimitPerFile;
         }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
@@ -106,6 +115,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (isset($map['MultAccountRelSubscribe'])) {
             $model->multAccountRelSubscribe = $map['MultAccountRelSubscribe'];
+        }
+        if (isset($map['RowLimitPerFile'])) {
+            $model->rowLimitPerFile = $map['RowLimitPerFile'];
         }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];
