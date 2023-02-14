@@ -65,11 +65,31 @@ class elements extends Model
     public $lung;
 
     /**
+     * @var float[]
+     */
+    public $majorAxis;
+
+    /**
      * @example 261.37589112119247
      *
      * @var float
      */
     public $meanValue;
+
+    /**
+     * @var float[]
+     */
+    public $minorAxis;
+
+    /**
+     * @var string
+     */
+    public $recistSOPInstanceUID;
+
+    /**
+     * @var float
+     */
+    public $risk;
 
     /**
      * @example 1.3.6.1.4.1.14519.5.2.1.6279.6001.261151233960269013402330853013
@@ -106,20 +126,24 @@ class elements extends Model
      */
     public $z;
     protected $_name = [
-        'category'       => 'Category',
-        'confidence'     => 'Confidence',
-        'diameter'       => 'Diameter',
-        'imageX'         => 'ImageX',
-        'imageY'         => 'ImageY',
-        'imageZ'         => 'ImageZ',
-        'lobe'           => 'Lobe',
-        'lung'           => 'Lung',
-        'meanValue'      => 'MeanValue',
-        'SOPInstanceUID' => 'SOPInstanceUID',
-        'volume'         => 'Volume',
-        'x'              => 'X',
-        'y'              => 'Y',
-        'z'              => 'Z',
+        'category'             => 'Category',
+        'confidence'           => 'Confidence',
+        'diameter'             => 'Diameter',
+        'imageX'               => 'ImageX',
+        'imageY'               => 'ImageY',
+        'imageZ'               => 'ImageZ',
+        'lobe'                 => 'Lobe',
+        'lung'                 => 'Lung',
+        'majorAxis'            => 'MajorAxis',
+        'meanValue'            => 'MeanValue',
+        'minorAxis'            => 'MinorAxis',
+        'recistSOPInstanceUID' => 'RecistSOPInstanceUID',
+        'risk'                 => 'Risk',
+        'SOPInstanceUID'       => 'SOPInstanceUID',
+        'volume'               => 'Volume',
+        'x'                    => 'X',
+        'y'                    => 'Y',
+        'z'                    => 'Z',
     ];
 
     public function validate()
@@ -153,8 +177,20 @@ class elements extends Model
         if (null !== $this->lung) {
             $res['Lung'] = $this->lung;
         }
+        if (null !== $this->majorAxis) {
+            $res['MajorAxis'] = $this->majorAxis;
+        }
         if (null !== $this->meanValue) {
             $res['MeanValue'] = $this->meanValue;
+        }
+        if (null !== $this->minorAxis) {
+            $res['MinorAxis'] = $this->minorAxis;
+        }
+        if (null !== $this->recistSOPInstanceUID) {
+            $res['RecistSOPInstanceUID'] = $this->recistSOPInstanceUID;
+        }
+        if (null !== $this->risk) {
+            $res['Risk'] = $this->risk;
         }
         if (null !== $this->SOPInstanceUID) {
             $res['SOPInstanceUID'] = $this->SOPInstanceUID;
@@ -207,8 +243,24 @@ class elements extends Model
         if (isset($map['Lung'])) {
             $model->lung = $map['Lung'];
         }
+        if (isset($map['MajorAxis'])) {
+            if (!empty($map['MajorAxis'])) {
+                $model->majorAxis = $map['MajorAxis'];
+            }
+        }
         if (isset($map['MeanValue'])) {
             $model->meanValue = $map['MeanValue'];
+        }
+        if (isset($map['MinorAxis'])) {
+            if (!empty($map['MinorAxis'])) {
+                $model->minorAxis = $map['MinorAxis'];
+            }
+        }
+        if (isset($map['RecistSOPInstanceUID'])) {
+            $model->recistSOPInstanceUID = $map['RecistSOPInstanceUID'];
+        }
+        if (isset($map['Risk'])) {
+            $model->risk = $map['Risk'];
         }
         if (isset($map['SOPInstanceUID'])) {
             $model->SOPInstanceUID = $map['SOPInstanceUID'];

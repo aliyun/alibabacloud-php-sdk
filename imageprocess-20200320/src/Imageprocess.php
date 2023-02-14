@@ -245,15 +245,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$analyzeChestVesselReq->URLList[${$i0}];
+                    $tmp      = @$analyzeChestVesselReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $analyzeChestVesselResp = $this->analyzeChestVesselWithOptions($analyzeChestVesselReq, $runtime);
 
-        return $analyzeChestVesselResp;
+        return $this->analyzeChestVesselWithOptions($analyzeChestVesselReq, $runtime);
     }
 
     /**
@@ -386,15 +385,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$calcCACSReq->URLList[${$i0}];
+                    $tmp      = @$calcCACSReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $calcCACSResp = $this->calcCACSWithOptions($calcCACSReq, $runtime);
 
-        return $calcCACSResp;
+        return $this->calcCACSWithOptions($calcCACSReq, $runtime);
     }
 
     /**
@@ -657,15 +655,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectCovid19CadReq->URLList[${$i0}];
+                    $tmp      = @$detectCovid19CadReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectCovid19CadResp = $this->detectCovid19CadWithOptions($detectCovid19CadReq, $runtime);
 
-        return $detectCovid19CadResp;
+        return $this->detectCovid19CadWithOptions($detectCovid19CadReq, $runtime);
     }
 
     /**
@@ -1194,15 +1191,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectLungNoduleReq->URLList[${$i0}];
+                    $tmp      = @$detectLungNoduleReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectLungNoduleResp = $this->detectLungNoduleWithOptions($detectLungNoduleReq, $runtime);
 
-        return $detectLungNoduleResp;
+        return $this->detectLungNoduleWithOptions($detectLungNoduleReq, $runtime);
     }
 
     /**
@@ -1326,15 +1322,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectLymphReq->URLList[${$i0}];
+                    $tmp      = @$detectLymphReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectLymphResp = $this->detectLymphWithOptions($detectLymphReq, $runtime);
 
-        return $detectLymphResp;
+        return $this->detectLymphWithOptions($detectLymphReq, $runtime);
     }
 
     /**
@@ -1458,15 +1453,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectPancReq->URLList[${$i0}];
+                    $tmp      = @$detectPancReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectPancResp = $this->detectPancWithOptions($detectPancReq, $runtime);
 
-        return $detectPancResp;
+        return $this->detectPancWithOptions($detectPancReq, $runtime);
     }
 
     /**
@@ -1599,15 +1593,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectRibFractureReq->URLList[${$i0}];
+                    $tmp      = @$detectRibFractureReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectRibFractureResp = $this->detectRibFractureWithOptions($detectRibFractureReq, $runtime);
 
-        return $detectRibFractureResp;
+        return $this->detectRibFractureWithOptions($detectRibFractureReq, $runtime);
     }
 
     /**
@@ -1864,15 +1857,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$detectSpineMRIReq->URLList[${$i0}];
+                    $tmp      = @$detectSpineMRIReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $detectSpineMRIResp = $this->detectSpineMRIWithOptions($detectSpineMRIReq, $runtime);
 
-        return $detectSpineMRIResp;
+        return $this->detectSpineMRIWithOptions($detectSpineMRIReq, $runtime);
     }
 
     /**
@@ -2097,7 +2089,7 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp              = @$runCTRegistrationReq->floatingList[${$i0}];
+                    $tmp              = @$runCTRegistrationReq->floatingList[$i0];
                     $tmp->floatingURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0               = $i0 + 1;
                 }
@@ -2129,15 +2121,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp               = @$runCTRegistrationReq->referenceList[${$i1}];
+                    $tmp               = @$runCTRegistrationReq->referenceList[$i1];
                     $tmp->referenceURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i1                = $i1 + 1;
                 }
             }
         }
-        $runCTRegistrationResp = $this->runCTRegistrationWithOptions($runCTRegistrationReq, $runtime);
 
-        return $runCTRegistrationResp;
+        return $this->runCTRegistrationWithOptions($runCTRegistrationReq, $runtime);
     }
 
     /**
@@ -2279,15 +2270,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp                 = @$runMedQAReq->answerImageURLList[${$i0}];
+                    $tmp                 = @$runMedQAReq->answerImageURLList[$i0];
                     $tmp->answerImageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0                  = $i0 + 1;
                 }
             }
         }
-        $runMedQAResp = $this->runMedQAWithOptions($runMedQAReq, $runtime);
 
-        return $runMedQAResp;
+        return $this->runMedQAWithOptions($runMedQAReq, $runtime);
     }
 
     /**
@@ -2423,15 +2413,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$screenChestCTReq->URLList[${$i0}];
+                    $tmp      = @$screenChestCTReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $screenChestCTResp = $this->screenChestCTWithOptions($screenChestCTReq, $runtime);
 
-        return $screenChestCTResp;
+        return $this->screenChestCTWithOptions($screenChestCTReq, $runtime);
     }
 
     /**
@@ -2616,15 +2605,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$segmentOARReq->URLList[${$i0}];
+                    $tmp      = @$segmentOARReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $segmentOARResp = $this->segmentOARWithOptions($segmentOARReq, $runtime);
 
-        return $segmentOARResp;
+        return $this->segmentOARWithOptions($segmentOARReq, $runtime);
     }
 
     /**
@@ -2760,15 +2748,14 @@ class Imageprocess extends OpenApiClient
                         'header'     => $ossHeader,
                     ]);
                     $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp      = @$targetVolumeSegmentReq->URLList[${$i0}];
+                    $tmp      = @$targetVolumeSegmentReq->URLList[$i0];
                     $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
                     $i0       = $i0 + 1;
                 }
             }
         }
-        $targetVolumeSegmentResp = $this->targetVolumeSegmentWithOptions($targetVolumeSegmentReq, $runtime);
 
-        return $targetVolumeSegmentResp;
+        return $this->targetVolumeSegmentWithOptions($targetVolumeSegmentReq, $runtime);
     }
 
     /**

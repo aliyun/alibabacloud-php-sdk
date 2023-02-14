@@ -15,29 +15,21 @@ class CACS extends Model
     public $detections;
 
     /**
-     * @example http://vibktprfx-prod-prod-aic-med-cn-shanghai.oss-cn-shanghai.aliyuncs.com/calc-cacs/2020-09-29/2020-09-29-11%3A07%3A41-D74FE0DF-8F80-41EB-B08B-2E67053587EC.tar.gz?Expires=1601350661&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=iB16ms28Y5mzB11ghYUd7upCi4****
-     *
      * @var string
      */
     public $resultUrl;
 
     /**
-     * @example 4.83
-     *
      * @var string
      */
     public $score;
 
     /**
-     * @example 1.2.392.489642.9116.2.6.1.44063.1986736248.1658817546.650139
-     *
      * @var string
      */
     public $seriesInstanceUID;
 
     /**
-     * @example 111.96
-     *
      * @var string
      */
     public $volumeScore;

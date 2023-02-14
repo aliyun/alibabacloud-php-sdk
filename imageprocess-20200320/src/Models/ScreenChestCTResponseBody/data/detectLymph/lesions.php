@@ -19,8 +19,6 @@ class lesions extends Model
     public $diametermm;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $keySlice;
@@ -31,8 +29,6 @@ class lesions extends Model
     public $recist;
 
     /**
-     * @example 0.6298
-     *
      * @var float
      */
     public $score;

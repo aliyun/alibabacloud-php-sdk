@@ -14,22 +14,16 @@ class detections extends Model
     public $calciumCenter;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $calciumId;
 
     /**
-     * @example 19.22474
-     *
      * @var float
      */
     public $calciumScore;
 
     /**
-     * @example 28.837109
-     *
      * @var float
      */
     public $calciumVolume;

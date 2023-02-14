@@ -1,3 +1,6 @@
+2023-02-14 Version: 2.0.22
+- Update ScreenChestCT and DetectLungNodule.
+
 2023-02-02 Version: 2.0.21
 - Release TargetVolumeSegment.
 

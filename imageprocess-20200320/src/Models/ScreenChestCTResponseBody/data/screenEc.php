@@ -17,10 +17,10 @@ class screenEc extends Model
     /**
      * @var string
      */
-    public $seriesInsanceUid;
+    public $seriesInstanceUid;
     protected $_name = [
-        'lesion'           => 'Lesion',
-        'seriesInsanceUid' => 'SeriesInsanceUid',
+        'lesion'            => 'Lesion',
+        'seriesInstanceUid' => 'SeriesInstanceUid',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class screenEc extends Model
         if (null !== $this->lesion) {
             $res['Lesion'] = null !== $this->lesion ? $this->lesion->toMap() : null;
         }
-        if (null !== $this->seriesInsanceUid) {
-            $res['SeriesInsanceUid'] = $this->seriesInsanceUid;
+        if (null !== $this->seriesInstanceUid) {
+            $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
         }
 
         return $res;
@@ -51,8 +51,8 @@ class screenEc extends Model
         if (isset($map['Lesion'])) {
             $model->lesion = lesion::fromMap($map['Lesion']);
         }
-        if (isset($map['SeriesInsanceUid'])) {
-            $model->seriesInsanceUid = $map['SeriesInsanceUid'];
+        if (isset($map['SeriesInstanceUid'])) {
+            $model->seriesInstanceUid = $map['SeriesInstanceUid'];
         }
 
         return $model;

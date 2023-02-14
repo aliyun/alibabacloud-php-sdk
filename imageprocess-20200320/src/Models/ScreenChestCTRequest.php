@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ScreenChestCTRequest extends Model
 {
     /**
-     * @example DICOM
-     *
      * @var string
      */
     public $dataFormat;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $mask;
 
     /**
-     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
-     *
      * @var string
      */
     public $orgId;
 
     /**
-     * @example weiyi
-     *
      * @var string
      */
     public $orgName;
@@ -43,8 +35,6 @@ class ScreenChestCTRequest extends Model
     public $URLList;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $verbose;

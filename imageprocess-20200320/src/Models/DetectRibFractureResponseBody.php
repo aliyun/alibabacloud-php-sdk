@@ -20,8 +20,6 @@ class DetectRibFractureResponseBody extends Model
     public $message;
 
     /**
-     * @example 5C695B5D-41A6-4202-8BF7-E647698678DF
-     *
      * @var string
      */
     public $requestId;

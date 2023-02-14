@@ -47,8 +47,6 @@ class data extends Model
     public $detectRibFracture;
 
     /**
-     * @example Failed to execute [cacs,covid]
-     *
      * @var string
      */
     public $errorMessage;
@@ -59,8 +57,6 @@ class data extends Model
     public $lungNodule;
 
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
-     *
      * @var mixed[]
      */
     public $nestedUrlList;
@@ -71,8 +67,6 @@ class data extends Model
     public $screenEc;
 
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
-     *
      * @var mixed[]
      */
     public $URLList;
