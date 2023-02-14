@@ -14,6 +14,10 @@ class GetAddressDivisionCodeResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example F726DC5F-67A1-4FBF-B216-758D1A681B8A
+     *
      * @var string
      */
     public $requestId;

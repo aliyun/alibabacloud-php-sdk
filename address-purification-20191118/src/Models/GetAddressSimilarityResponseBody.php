@@ -14,6 +14,10 @@ class GetAddressSimilarityResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example F1BD3BD6-3510-4144-996A-B7FCA70A5F81
+     *
      * @var string
      */
     public $requestId;

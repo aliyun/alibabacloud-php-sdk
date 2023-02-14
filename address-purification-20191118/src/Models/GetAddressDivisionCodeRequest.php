@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAddressDivisionCodeRequest extends Model
 {
     /**
+     * @example Axqwerasdf1a
+     *
      * @var string
      */
     public $appKey;
@@ -29,6 +31,8 @@ class GetAddressDivisionCodeRequest extends Model
     public $defaultProvince;
 
     /**
+     * @example addrp
+     *
      * @var string
      */
     public $serviceCode;

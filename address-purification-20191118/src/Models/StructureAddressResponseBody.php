@@ -14,6 +14,10 @@ class StructureAddressResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example 3542CCCD-A58D-4D46-9772-CC214D2D1E32
+     *
      * @var string
      */
     public $requestId;

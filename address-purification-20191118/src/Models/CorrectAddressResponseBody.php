@@ -14,6 +14,10 @@ class CorrectAddressResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example 226BD68D-6208-4140-A6EC-2F2BF434B601
+     *
      * @var string
      */
     public $requestId;

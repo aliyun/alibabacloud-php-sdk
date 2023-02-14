@@ -14,6 +14,10 @@ class ExtractNameResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example 3A9AB010-AC38-4E53-9D25-6B97238C2897
+     *
      * @var string
      */
     public $requestId;

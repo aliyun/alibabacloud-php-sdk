@@ -14,6 +14,10 @@ class ExtractAddressResponseBody extends Model
     public $data;
 
     /**
+     * @description RequestId
+     *
+     * @example E0627DDE-28D7-4C00-A611-E047DF81AF05
+     *
      * @var string
      */
     public $requestId;
