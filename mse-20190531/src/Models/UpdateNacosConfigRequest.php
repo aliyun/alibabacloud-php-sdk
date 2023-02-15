@@ -59,7 +59,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The description of the configuration.
      *
-     * @example Basic Settings
+     * @example Basic configurations
      *
      * @var string
      */
@@ -75,7 +75,7 @@ class UpdateNacosConfigRequest extends Model
     public $encryptedDataKey;
 
     /**
-     * @description The group.
+     * @description The name of the group.
      *
      * @example resource
      *

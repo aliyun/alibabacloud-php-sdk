@@ -27,6 +27,13 @@ class UpdateClusterSpecResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed. Take note of the following rules:
+     *
+     *   The **ErrorCode** parameter is not returned if the request succeeds.
+     *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;

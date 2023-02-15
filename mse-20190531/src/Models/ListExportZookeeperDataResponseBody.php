@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListUserInstancesResponseBody\data;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListUserInstancesResponseBody extends Model
+class ListExportZookeeperDataResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $code;
-
     /**
      * @var data[]
      */
     public $data;
 
     /**
-     * @var int
+     * @example The specified parameter is invalid.
+     *
+     * @var string
+     */
+    public $dynamicMessage;
+
+    /**
+     * @example mse-100-000
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @example 200
+     *
+     * @var string
      */
     public $httpStatusCode;
 
@@ -30,17 +41,22 @@ class ListUserInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @example 8BD1E58D-0755-42AC-A599-E6B55112****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
         'data'           => 'Data',
+        'dynamicMessage' => 'DynamicMessage',
+        'errorCode'      => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -54,9 +70,6 @@ class ListUserInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -65,6 +78,12 @@ class ListUserInstancesResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dynamicMessage) {
+            $res['DynamicMessage'] = $this->dynamicMessage;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -85,14 +104,11 @@ class ListUserInstancesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListUserInstancesResponseBody
+     * @return ListExportZookeeperDataResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -101,6 +117,12 @@ class ListUserInstancesResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DynamicMessage'])) {
+            $model->dynamicMessage = $map['DynamicMessage'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

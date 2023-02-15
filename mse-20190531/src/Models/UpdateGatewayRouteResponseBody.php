@@ -27,6 +27,11 @@ class UpdateGatewayRouteResponseBody extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @description The HTTP status code returned.
      *
      * @example 200
@@ -67,6 +72,7 @@ class UpdateGatewayRouteResponseBody extends Model
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -85,6 +91,9 @@ class UpdateGatewayRouteResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -115,6 +124,9 @@ class UpdateGatewayRouteResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListVgroupsResponseBody\data;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListVgroupsResponseBody extends Model
+class ExportZookeeperDataResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
     /**
-     * @var int
+     * @example The specified parameter is invalid.
+     *
+     * @var string
+     */
+    public $dynamicMessage;
+
+    /**
+     * @example mse-100-000
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @example 200
+     *
+     * @var string
      */
     public $httpStatusCode;
 
@@ -30,17 +41,22 @@ class ListVgroupsResponseBody extends Model
     public $message;
 
     /**
+     * @example 25EA0A83-9007-4E87-808C-637BE1A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
         'data'           => 'Data',
+        'dynamicMessage' => 'DynamicMessage',
+        'errorCode'      => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -54,17 +70,14 @@ class ListVgroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->dynamicMessage) {
+            $res['DynamicMessage'] = $this->dynamicMessage;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -85,22 +98,19 @@ class ListVgroupsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListVgroupsResponseBody
+     * @return ExportZookeeperDataResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['DynamicMessage'])) {
+            $model->dynamicMessage = $map['DynamicMessage'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

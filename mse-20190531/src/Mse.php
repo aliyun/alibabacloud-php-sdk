@@ -100,6 +100,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsRequest;
@@ -185,6 +189,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRequest;
@@ -3236,6 +3242,101 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ExportZookeeperDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExportZookeeperDataResponse
+     */
+    public function exportZookeeperDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportZookeeperData',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportZookeeperDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportZookeeperDataRequest $request
+     *
+     * @return ExportZookeeperDataResponse
+     */
+    public function exportZookeeperData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportZookeeperDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FetchLosslessRuleListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FetchLosslessRuleListResponse
+     */
+    public function fetchLosslessRuleListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FetchLosslessRuleList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FetchLosslessRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FetchLosslessRuleListRequest $request
+     *
+     * @return FetchLosslessRuleListResponse
+     */
+    public function fetchLosslessRuleList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fetchLosslessRuleListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAppMessageQueueRouteRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -5366,6 +5467,58 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEurekaServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListExportZookeeperDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListExportZookeeperDataResponse
+     */
+    public function listExportZookeeperDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExportZookeeperData',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExportZookeeperDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListExportZookeeperDataRequest $request
+     *
+     * @return ListExportZookeeperDataResponse
+     */
+    public function listExportZookeeperData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExportZookeeperDataWithOptions($request, $runtime);
     }
 
     /**

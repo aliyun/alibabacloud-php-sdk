@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class QueryInstancesInfoResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 202
      *
      * @var string
@@ -27,11 +35,20 @@ class QueryInstancesInfoResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54973C90-F379-4372-9AA5-053A3F7****
      *
      * @var string
@@ -39,6 +56,11 @@ class QueryInstancesInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -63,6 +63,10 @@ class data extends Model
     public $serviceCount;
 
     /**
+     * @description The source from which the namespace was created.
+     *
+     * @example mse
+     *
      * @var string
      */
     public $sourceType;

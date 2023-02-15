@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryInstancesInfoRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class QueryInstancesInfoRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example mse-09k1q11****
      *
      * @var string
@@ -23,6 +30,8 @@ class QueryInstancesInfoRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse_prepaid_public_cn-tl32g1u9k01
      *
      * @var string
@@ -30,6 +39,8 @@ class QueryInstancesInfoRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 20574710974****
      *
      * @var string
@@ -37,11 +48,17 @@ class QueryInstancesInfoRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the region where the instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

@@ -48,7 +48,7 @@ class UpdateClusterSpecRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example mse-cn-st21ri2****
      *
@@ -57,6 +57,10 @@ class UpdateClusterSpecRequest extends Model
     public $instanceId;
 
     /**
+     * @description The MSE version.
+     *
+     * @example mse_pro
+     *
      * @var string
      */
     public $mseVersion;

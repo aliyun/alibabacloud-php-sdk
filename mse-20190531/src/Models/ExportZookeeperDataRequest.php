@@ -6,14 +6,9 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListEngineNamespacesRequest extends Model
+class ExportZookeeperDataRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
      * @example zh
      *
      * @var string
@@ -21,16 +16,38 @@ class ListEngineNamespacesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the instance.
+     * @example snapshot
      *
-     * @example mse-cn-st21ri2****
+     * @var string
+     */
+    public $exportType;
+
+    /**
+     * @example mse-cn-78v1l83****
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example {}
+     *
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'exportType'     => 'ExportType',
         'instanceId'     => 'InstanceId',
+        'regionId'       => 'RegionId',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -43,8 +60,17 @@ class ListEngineNamespacesRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->exportType) {
+            $res['ExportType'] = $this->exportType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -53,7 +79,7 @@ class ListEngineNamespacesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListEngineNamespacesRequest
+     * @return ExportZookeeperDataRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,8 +87,17 @@ class ListEngineNamespacesRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['ExportType'])) {
+            $model->exportType = $map['ExportType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

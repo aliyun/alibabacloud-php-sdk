@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListUserInstancesResponse extends Model
+class FetchLosslessRuleListResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListUserInstancesResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListUserInstancesResponseBody
+     * @var FetchLosslessRuleListResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListUserInstancesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListUserInstancesResponse
+     * @return FetchLosslessRuleListResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListUserInstancesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListUserInstancesResponseBody::fromMap($map['body']);
+            $model->body = FetchLosslessRuleListResponseBody::fromMap($map['body']);
         }
 
         return $model;

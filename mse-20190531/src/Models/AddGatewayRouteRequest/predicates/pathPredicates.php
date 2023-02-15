@@ -31,7 +31,7 @@ class pathPredicates extends Model
      *
      *   PRE: prefix matching
      *   EQUAL: exact matching
-     *   ERGULAR: regular expression matching
+     *   REGULAR: regular expression matching
      *
      * @example PRE
      *

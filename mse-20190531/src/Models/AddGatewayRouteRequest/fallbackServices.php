@@ -27,7 +27,7 @@ class fallbackServices extends Model
     public $groupName;
 
     /**
-     * @description The name of the application.
+     * @description The name.
      *
      * @example user
      *
@@ -72,7 +72,7 @@ class fallbackServices extends Model
     public $servicePort;
 
     /**
-     * @description The type of the service source.
+     * @description The source type.
      *
      * @example MSE
      *

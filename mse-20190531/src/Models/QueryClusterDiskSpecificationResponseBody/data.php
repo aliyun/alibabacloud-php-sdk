@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The maximum capacity of the disk.
+     * @description The maximum disk capacity. Unit: GB.
      *
      * @example 500
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $max;
 
     /**
-     * @description The minimum capacity of the disk.
+     * @description The minimum disk capacity. Unit: GB.
      *
      * @example 1
      *

@@ -4,47 +4,57 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesResponseBody\data;
+use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesResponseBody extends Model
+class FetchLosslessRuleListResponseBody extends Model
 {
     /**
-     * @var int
+     * @example 200
+     *
+     * @var string
      */
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
     /**
-     * @var int
+     * @example 200
+     *
+     * @var string
      */
-    public $httpStatusCode;
+    public $httpCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 56D9E600-6348-4260-B35F-583413F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'httpCode'  => 'HttpCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -58,16 +68,10 @@ class ListInstancesResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->httpCode) {
+            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -85,7 +89,7 @@ class ListInstancesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesResponseBody
+     * @return FetchLosslessRuleListResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -94,16 +98,10 @@ class ListInstancesResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['HttpCode'])) {
+            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

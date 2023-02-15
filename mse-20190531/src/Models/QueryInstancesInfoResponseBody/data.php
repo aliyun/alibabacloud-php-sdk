@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The enabled port.
+     *
      * @example 8848
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $clientPort;
 
     /**
+     * @description The creation time of the TIMESTAMP type.
+     *
      * @example 2022-12-15T02:02:15Z
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $creationTimestamp;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $healthStatus;
 
     /**
+     * @description The public IP address.
+     *
      * @example 120.55.71.x
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @description The IP address of the pod.
+     *
      * @example 25.24.91.x
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $ip;
 
     /**
+     * @description The name of the pod.
+     *
      * @example mse-xxxxx-xxxxx-reg-center-0-1
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $podName;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example null
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $role;
 
     /**
+     * @description The internal IP address.
+     *
      * @example 172.16.66.x
      *
      * @var string
@@ -65,6 +81,8 @@ class data extends Model
     public $singleTunnelVip;
 
     /**
+     * @description The zone.
+     *
      * @example cn-hangzhou-k
      *
      * @var string
