@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetJobInstanceRequest extends Model
 {
     /**
+     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The ID of the job instance.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $jobInstanceId;
 
     /**
+     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;

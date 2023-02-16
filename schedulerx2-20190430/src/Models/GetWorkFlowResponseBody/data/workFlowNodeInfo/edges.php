@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
+     * @description The ID of the source job.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @description The ID of the target job.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $target;

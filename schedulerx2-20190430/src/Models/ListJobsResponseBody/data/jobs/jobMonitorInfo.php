@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class jobMonitorInfo extends Model
 {
     /**
+     * @description The contact information.
+     *
      * @var contactInfo[]
      */
     public $contactInfo;
 
     /**
+     * @description The configurations of the alerting feature and the alert threshold.
+     *
      * @var monitorConfig
      */
     public $monitorConfig;

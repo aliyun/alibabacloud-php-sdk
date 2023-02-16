@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetWorkerListRequest extends Model
 {
     /**
+     * @description The ID of the permission group.
+     *
+     * @example usercenter
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

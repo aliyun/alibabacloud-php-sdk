@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ExecuteJobResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the job instance that is returned if the call is successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned if an error occurs.
+     *
+     * @example groupid not exist groupId: testSchedulerx.defaultGroup namespace: adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F68ABED-AC31-4412-9297-D9A8F0401108****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   `true`: The call is successful.
+     *   `false`: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

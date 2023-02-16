@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetWorkFlowResponseBody extends Model
 {
     /**
+     * @description The error code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data of the workflow.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example workflow is not existed
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 45678xxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the API call.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class monitorConfig extends Model
 {
     /**
+     * @description Indicates whether the feature of generating an alert upon a failure is enabled. Valid values:
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $failEnable;
 
     /**
+     * @description Indicates whether the feature of generating an alert when no machine is available for running the job is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $missWorkerEnable;
 
     /**
+     * @description The method that is used to send an alert notification. Only Short Message Service (SMS) is supported.
+     *
+     * @example sms
+     *
      * @var string
      */
     public $sendChannel;
 
     /**
+     * @description The timeout threshold. Unit: seconds. Default value: 7200.
+     *
+     * @example 12300
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description Indicates whether the feature of generating an alert upon a timeout is enabled. Valid values:
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $timeoutEnable;
 
     /**
+     * @description Indicates whether the feature of stopping job triggering upon a timeout is enabled. By default, the feature is disabled.
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $timeoutKillEnable;

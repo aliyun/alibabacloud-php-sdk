@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the job.
+     *
+     * @example 123456xxx
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the job.
+     *
+     * @example job_111
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The status of the job.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

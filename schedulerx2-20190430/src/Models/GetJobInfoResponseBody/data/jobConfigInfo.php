@@ -12,86 +12,159 @@ use AlibabaCloud\Tea\Model;
 class jobConfigInfo extends Model
 {
     /**
+     * @description The interval at which the system retries to run the job after a job failure. Unit: seconds. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $attemptInterval;
 
     /**
+     * @description The full path of the job interface class. This parameter is returned only for jobs whose job type is Java.
+     *
+     * @example com.alibaba.test.helloword
+     *
      * @var string
      */
     public $className;
 
     /**
+     * @description The script of a script job.
+     *
+     * @example echo "clear" > /home/admin/edas-container/logs/catalina.out
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The description of the job.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The execution mode of the job. Valid values:
+     *
+     *   **standalone**
+     *   **broadcast**
+     *   **parallel**
+     *   **grid**
+     *   **batch**
+     *   **shard**
+     *
+     * @example standalone
+     *
      * @var string
      */
     public $executeMode;
 
     /**
+     * @description The full path that is used to upload files to Object Storage Service (OSS).
+     *
+     * If you use a JAR package, you can upload the JAR package to this OSS path.
+     * @example https://test.oss-cn-hangzhou.aliyuncs.com/schedulerX/test.jar
+     *
      * @var string
      */
     public $jarUrl;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 538039
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The monitoring information of the job.
+     *
      * @var jobMonitorInfo
      */
     public $jobMonitorInfo;
 
     /**
+     * @description The type of the job.
+     *
+     * @example java
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description The advanced configurations of the job. The parameters are returned only if the execution mode of the job is parallel, grid, or batch.
+     *
      * @var mapTaskXAttrs
      */
     public $mapTaskXAttrs;
 
     /**
+     * @description The maximum number of retries after a job failure. This parameter is specified based on your business requirements. Default value: 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $maxAttempt;
 
     /**
+     * @description The maximum number of concurrent instances. Default value: 1. A value of 1 indicates that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the next instance is reached.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $maxConcurrency;
 
     /**
+     * @description The name of the job.
+     *
+     * @example helloworld
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The user-defined parameters. These parameters can be obtained when the job is running.
+     *
+     * @example test
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **1**: The job is enabled and can be triggered.
+     *   **0**: The job is disabled and cannot be triggered.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The time configurations.
+     *
      * @var timeConfig
      */
     public $timeConfig;
 
     /**
+     * @description The extended fields.
+     *
+     * @example {"pageSize":5,"queueSize":10,"consumerSize":5,"dispatcherSize":5,"taskMaxAttempt":0,"taskAttemptInterval":0,"globalConsumerSize":1000,"taskDispatchMode":"push"}
+     *
      * @var string
      */
     public $XAttrs;

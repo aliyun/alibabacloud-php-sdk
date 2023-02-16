@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @description The description of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example doc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
+     *
      * @var string
      */
     public $UId;

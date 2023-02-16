@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configurations of the job.
+     *
      * @var jobConfigInfo
      */
     public $jobConfigInfo;

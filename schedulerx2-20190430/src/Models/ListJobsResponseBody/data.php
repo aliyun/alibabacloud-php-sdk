@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The jobs and their details.
+     *
      * @var jobs[]
      */
     public $jobs;

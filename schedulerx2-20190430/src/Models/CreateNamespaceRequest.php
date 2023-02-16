@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceRequest extends Model
 {
     /**
+     * @description The description of the namespace.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test-env
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The UID of the namespace, which is globally unique. We recommend that you use the UUID to generate the UID.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $uid;

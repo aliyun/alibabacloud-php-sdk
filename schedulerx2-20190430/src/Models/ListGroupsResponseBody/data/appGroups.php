@@ -9,25 +9,51 @@ use AlibabaCloud\Tea\Model;
 class appGroups extends Model
 {
     /**
+     * @description 应用分组ID
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
+     * @description The key for the application.
+     *
+     * @example a3G77O6NZxq/lyo1NC****==
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @description The name of the application.
+     *
+     * @example DocTest
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The application description.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application ID.
+     *
+     * @example DocTest.Group
+     *
      * @var string
      */
     public $groupId;
     protected $_name = [
+        'appGroupId'  => 'AppGroupId',
         'appKey'      => 'AppKey',
         'appName'     => 'AppName',
         'description' => 'Description',
@@ -41,6 +67,9 @@ class appGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -65,6 +94,9 @@ class appGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }

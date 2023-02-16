@@ -9,35 +9,73 @@ use AlibabaCloud\Tea\Model;
 class GetJobInstanceListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTimestamp;
+
+    /**
+     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region in which the application resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $startTimestamp;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
+        'endTimestamp'    => 'EndTimestamp',
         'groupId'         => 'GroupId',
         'jobId'           => 'JobId',
         'namespace'       => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
         'regionId'        => 'RegionId',
+        'startTimestamp'  => 'StartTimestamp',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -47,6 +85,9 @@ class GetJobInstanceListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -62,6 +103,12 @@ class GetJobInstanceListRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
 
         return $res;
     }
@@ -74,6 +121,9 @@ class GetJobInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -88,6 +138,12 @@ class GetJobInstanceListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

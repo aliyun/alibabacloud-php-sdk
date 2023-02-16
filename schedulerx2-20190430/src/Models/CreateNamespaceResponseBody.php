@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information of the namespace.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned only if the error occurs.
+     *
+     * @example namespace=test3 is existed, noting update
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether an application is created. Valid values:
+     *
+     *   **true**: The application is created.
+     *   **false**: Failed to create the application.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

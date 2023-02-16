@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteJobResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the job is deleted.
+     *
+     *   **true**: The job is deleted.
+     *   **false**: Failed to delete the job.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

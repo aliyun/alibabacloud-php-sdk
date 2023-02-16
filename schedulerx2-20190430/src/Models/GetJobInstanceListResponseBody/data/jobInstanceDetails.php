@@ -9,66 +9,138 @@ use AlibabaCloud\Tea\Model;
 class jobInstanceDetails extends Model
 {
     /**
+     * @description The data time.
+     *
+     * @example 2020-07-27 11:52:10
+     *
      * @var string
      */
     public $dataTime;
 
     /**
+     * @description The end time of the job execution.
+     *
+     * @example 2020-07-27 11:52:10
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The user who executes the job.
+     *
+     * @example A
+     *
      * @var string
      */
     public $executor;
 
     /**
+     * @description The ID of the job instance.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The progress of the job instance.
+     *
+     * @example complete
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The execution results of the job instance.
+     *
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description The scheduled time of the job.
+     *
+     * @example 2020-07-27 11:52:10
+     *
      * @var string
      */
     public $scheduleTime;
 
     /**
+     * @description The start time of the job execution.
+     *
+     * @example 2020-07-27 11:52:10
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the job instance. Valid values:
+     *
+     *   **1**: The job instance is waiting for execution.
+     *   **3**: The job instance is running.
+     *   **4**: The job instance is successful.
+     *   **5**: The job instance fails.
+     *   **9**: The job instance is rejected.
+     *
+     * Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
+     * @example 4
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The method that is used to specify the time when to schedule the job instance. Valid values:
+     *
+     *   **1**: cron
+     *   **3**: fix_rate
+     *   **4**: second_delay
+     *   **100**: api
+     *
+     * Enumeration class: com.alibaba.schedulerx.common.domain.TimeType
+     * @example 1
+     *
      * @var int
      */
     public $timeType;
 
     /**
+     * @description The trigger type of the job instance. Valid values:
+     *
+     *   **1**: The job instance is triggered at the scheduled time.
+     *   **2**: The job instance is triggered due to data update.
+     *   **3**: The job instance is triggered by an API call.
+     *   **4**: The job instance is triggered because it is manually rerun.
+     *   **5**: The job instance is triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
+     *
+     * Enumeration class: com.alibaba.schedulerx.common.domain.TriggerType
+     * @example 3
+     *
      * @var int
      */
     public $triggerType;
 
     /**
+     * @description The endpoint of the triggered client. The value is in the IP address:Port number format.
+     *
+     * @example 192.168.0.0:16
+     *
      * @var string
      */
     public $workAddr;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceRequest extends Model
 {
     /**
+     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the job instance in the running state.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region in which the application resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListJobsRequest extends Model
 {
     /**
+     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+     *
+     * @example DocTest.Group
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the job.
+     *
+     * @example helloword
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The ID of the namespace. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+     *
+     * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region in which the job resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to enable the job. Valid values:
+     *
+     *   **0**: disables the job.
+     *   **1**: enables the job.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;

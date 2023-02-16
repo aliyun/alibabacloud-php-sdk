@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class ExecuteJobRequest extends Model
 {
     /**
+     * @description Specifies whether to check the job status. Valid values: -**true**: The job can be run only if the job is enabled. -**false**: The job can be run even if the job is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $checkJobStatus;
 
     /**
+     * @description The type of the designated machine. Valid values: -**1**: worker. -**2**: label.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $designateType;
 
     /**
+     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     *
+     * @example testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The parameters that are passed to trigger the job to run. The input value can be any string. The parameters that are passed are obtained by calling the `context.getInstanceParameters()` class in the `processor` code. The parameters are different from custom parameters for creating jobs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $instanceParameters;
 
     /**
+     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     *
+     * @example 92583
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The label of the worker.
+     *
+     * @example gray
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The worker address of the application. To query the worker address, call the GetWokerList operation.
+     *
+     * @example xxxxxxx@127.0.0.1:222
+     *
      * @var string
      */
     public $worker;

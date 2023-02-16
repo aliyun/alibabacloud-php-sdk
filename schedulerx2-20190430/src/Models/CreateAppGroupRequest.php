@@ -9,73 +9,115 @@ use AlibabaCloud\Tea\Model;
 class CreateAppGroupRequest extends Model
 {
     /**
+     * @description The AppKey for the application.
+     *
+     * @example adcExHZviLcl****
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @description The name of the application.
+     *
+     * @example DocTest
+     *
      * @var string
      */
     public $appName;
 
     /**
-     * @var int
-     */
-    public $appType;
-
-    /**
+     * @description The description of the application.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the application. You can obtain the application ID on the Application Management page in Distributed Task Scheduling Platform.
+     *
+     * @example TestSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The maximum number of jobs.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxJobs;
 
     /**
+     * @description The configuration of the alert. The value is a JSON string. For more information about this parameter, see **Additional information about request parameters**.
+     *
+     * @example {"sendChannel":"sms,ding"}
+     *
      * @var string
      */
     public $monitorConfigJson;
 
     /**
+     * @description The configuration of alert contacts. The value is a JSON string.
+     *
+     * @example \[{"userName":"Tom","userPhone":"89756\*\*\*\*\*\*"},{"userName":"Bob","ding":"http://www.example.com"}]
+     *
      * @var string
      */
     public $monitorContactsJson;
 
     /**
+     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     *
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description This parameter is not supported. You do not need to specify this parameter.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to schedule a busy worker.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $scheduleBusyWorkers;
     protected $_name = [
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
-        'appType'             => 'AppType',
         'description'         => 'Description',
         'groupId'             => 'GroupId',
         'maxJobs'             => 'MaxJobs',
@@ -100,9 +142,6 @@ class CreateAppGroupRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->appType) {
-            $res['AppType'] = $this->appType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -151,9 +190,6 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['AppType'])) {
-            $model->appType = $map['AppType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the job group.
+     *
+     * @example 6607
+     *
      * @var int
      */
     public $appGroupId;
 
     /**
+     * @description The AppKey for the application.
+     *
+     * @example adcExHZviL******
+     *
      * @var string
      */
     public $appKey;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
+     * @description The namespace. You can obtain the namespace on the **Namespace** page in Distributed Task Scheduling Platform.
+     *
+     * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description Required only for a special third party.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region in which the application is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetJobInfoResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the job.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned only when an error occurs.
+     *
+     * @example jobid: 92583 not match groupId: testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the job details are obtained. Valid values:
+     *
+     *   **true**: The job details are obtained.
+     *   **false**: Failed to obtain the job details.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

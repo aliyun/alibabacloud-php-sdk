@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The basic information of the workflow.
+     *
      * @var workFlowInfo
      */
     public $workFlowInfo;
 
     /**
+     * @description The node information of the workflow.
+     *
      * @var workFlowNodeInfo
      */
     public $workFlowNodeInfo;

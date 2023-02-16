@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class mapTaskXAttrs extends Model
 {
     /**
+     * @description The number of threads that are triggered by an instance. Default value: 5.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $consumerSize;
 
     /**
+     * @description The number of task distribution threads. Default value: 5.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $dispatcherSize;
 
     /**
+     * @description The number of tasks that are returned for a parallel job at a time. Default value: 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The maximum number of tasks that can be queued. Default value: 10000.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $queueSize;
 
     /**
+     * @description The retry interval of the task after a task failure.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $taskAttemptInterval;
 
     /**
+     * @description The number of retries after a task failure.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $taskMaxAttempt;

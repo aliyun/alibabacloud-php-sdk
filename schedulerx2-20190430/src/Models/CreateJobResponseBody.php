@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class CreateJobResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the job.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 39090022-1F3B-4797-8518-6B61095F1AF0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the job is created. Valid values:
+     *
+     *   **true**: The job is created.
+     *   **false**: Failed to create the job.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

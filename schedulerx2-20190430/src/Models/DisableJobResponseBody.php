@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DisableJobResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message. The error message is returned only when an error occurs.
+     *
+     * @example jobid: 92583 not match groupId: testSchedulerx.defaultGroup
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C8E5FB4A-6D8D-424D-9AAA-4FE06BB74FF9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   **true**: The call is successful.
+     *   **false**: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

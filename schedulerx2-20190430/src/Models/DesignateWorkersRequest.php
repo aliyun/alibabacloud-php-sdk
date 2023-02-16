@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class DesignateWorkersRequest extends Model
 {
     /**
+     * @description The type of the designated machines. Valid values: 1: worker. 2: label.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $designateType;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example hxm.test
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 144153
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The designated `labels`. The value is a `JSON` string.
+     *
+     * @example ["gray"]
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 4a06d5ea-f576-4326-842c-fb14ea043d8d
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the namespace.
+     *
+     * @example schedulerx
+     *
      * @var string
      */
     public $namespaceSource;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example public
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to allow a failover.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $transferable;
 
     /**
+     * @description The designated workers. The value is a JSON string.
+     *
+     * @example ["127.0.0.1","127.0.0.2"]
+     *
      * @var string
      */
     public $workers;

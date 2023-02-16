@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the job instance.
+     *
+     * @example 11111111
+     *
      * @var int
      */
     public $jobInstanceId;

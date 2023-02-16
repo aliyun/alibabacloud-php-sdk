@@ -9,21 +9,47 @@ use AlibabaCloud\Tea\Model;
 class timeConfig extends Model
 {
     /**
+     * @description If the TimeType parameter is set to **1** (cron), you can customize the calendar.
+     *
+     * @example Business days
+     *
      * @var string
      */
     public $calendar;
 
     /**
+     * @description If the TimeType parameter is set to **1** (cron), you can configure the time offset. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataOffset;
 
     /**
+     * @description The time expression. The time expression varies with the time type:
+     *
+     *   **api**: No time expression exists.
+     *   **fix_rate**: a specific fixed frequency. For example, a value of 30 indicates that the job is triggered every 30 seconds.
+     *   **cron**: a standard Cron expression.
+     *   **second_delay**: a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+     *
+     * @example 0 0/10 * * * ?
+     *
      * @var string
      */
     public $timeExpression;
 
     /**
+     * @description The time type. Valid values:
+     *
+     *   **1**: cron
+     *   **3**: fix_rate
+     *   **4**: second_delay
+     *   **100**: api
+     *
+     * @example 1
+     *
      * @var int
      */
     public $timeType;
