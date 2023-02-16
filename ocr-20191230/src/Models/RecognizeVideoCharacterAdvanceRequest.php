@@ -7,14 +7,16 @@ namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeMalaysiaIdentityCardAdvanceRequest extends Model
+class RecognizeVideoCharacterAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/RecognizeVideoCharacter/xxxx.mp4
+     *
      * @var Stream
      */
-    public $imageUrlObject;
+    public $videoURLObject;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrl',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
@@ -24,8 +26,8 @@ class RecognizeMalaysiaIdentityCardAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrl'] = $this->imageUrlObject;
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -34,13 +36,13 @@ class RecognizeMalaysiaIdentityCardAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeMalaysiaIdentityCardAdvanceRequest
+     * @return RecognizeVideoCharacterAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrlObject = $map['ImageUrl'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

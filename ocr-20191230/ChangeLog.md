@@ -1,3 +1,6 @@
+2023-02-16 Version: 2.0.17
+- Update RecognizeVideoCharacter.
+
 2023-01-13 Version: 2.0.16
 - Update sdk.
 
