@@ -36,7 +36,7 @@ class shardAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The type of the shard node.
+     * @description The instance type of the shard node.
      *
      * @example dds.shard.mid
      *

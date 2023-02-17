@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @description The I/O throughput consumed by the instance.
+     * @description The read and write throughput consumed by the instance.
      *
      * @example 100
      *
@@ -35,15 +35,15 @@ class DBInstance extends Model
     public $chargeType;
 
     /**
-     * @description Details of the Configserver nodes.
+     * @description Details about Configserver nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var configserverList
      */
     public $configserverList;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the instance was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-02T07:43:59Z
      *
@@ -61,7 +61,7 @@ class DBInstance extends Model
     public $currentKernelVersion;
 
     /**
-     * @description The instance type.
+     * @description The edition of the instance.
      *
      * @example dds.mongo.mid
      *
@@ -72,7 +72,7 @@ class DBInstance extends Model
     /**
      * @description The name of the instance.
      *
-     * @example my mongodb.
+     * @example Test database
      *
      * @var string
      */
@@ -88,10 +88,15 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $DBInstanceOrderStatus;
+
+    /**
      * @description Indicates whether release protection is enabled for the instance. Valid values:
      *
      *   **true**: Release protection is enabled.
-     *   **false**: Release protection is disabled.
+     *   **false**: disabled
      *
      * @example false
      *
@@ -122,6 +127,7 @@ class DBInstance extends Model
      *
      *   **replicate**: replica set instance
      *   **sharding**: sharded cluster instance
+     *   **serverless**: serverless instance
      *
      * @example replicate
      *
@@ -130,9 +136,8 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The time when the instance data was destroyed. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description 实例数据销毁时间，格式为yyyy-MM-ddTHH:mm:ssZ（UTC时间）。
      *
-     * > - Pay-as-you-go instances are locked after the payments have been overdue for longer than 24 hours. The instances are released after the payments have been overdue for longer than 15 days. The data of released instances is deleted and cannot be restored.
      * @example 2021-12-10T16:00:00Z
      *
      * @var string
@@ -140,7 +145,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description The database engine of the instance.
+     * @description The engine of the instance.
      *
      * @example MongoDB
      *
@@ -149,13 +154,13 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance. Valid values:
+     * @description The engine version of the instance.
      *
+     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
      *   **4.0**
-     *   **3.4**
      *
      * @example 4.4
      *
@@ -166,7 +171,7 @@ class DBInstance extends Model
     /**
      * @description The time when the subscription instance expires. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
-     * >  This parameter is returned if the instance is a subscription instance.
+     * > This parameter is returned if the instance is a subscription instance.
      * @example 2022-02-05T16:00Z
      *
      * @var string
@@ -196,7 +201,9 @@ class DBInstance extends Model
      *   **eu-central-1c**: Frankfurt Zone C
      *
      * >
+     *
      *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
      *   This parameter is returned only if you use the Chine site (aliyun.com).
      *
      * @example cn-hangzhou-h
@@ -245,7 +252,7 @@ class DBInstance extends Model
     public $lockMode;
 
     /**
-     * @description The end time of the maintenance window of the instance.
+     * @description The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 03:00Z
      *
@@ -281,9 +288,9 @@ class DBInstance extends Model
     public $maxIOPS;
 
     /**
-     * @description Details of the mongos nodes.
+     * @description Details about mongos nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var mongosList
      */
     public $mongosList;
@@ -291,8 +298,8 @@ class DBInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network
-     *   **VPC**: VPC
+     *   **Classic**
+     *   **VPC**
      *
      * @example VPC
      *
@@ -303,10 +310,10 @@ class DBInstance extends Model
     /**
      * @description The access protocol type of the instance. Valid values:
      *
-     * - **mongodb**: the MongoDB protocol
-     * - **dynamodb**: the DynamoDB protocol
+     *   **mongodb**: the MongoDB protocol
+     *   **dynamodb**: the DynamoDB protocol
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @example mongodb
      *
      * @var string
@@ -334,7 +341,7 @@ class DBInstance extends Model
     /**
      * @description The logical ID of the replica instance.
      *
-     * >  ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica instances.
+     * > ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica instances.
      * @example bls-m****
      *
      * @var string
@@ -344,7 +351,7 @@ class DBInstance extends Model
     /**
      * @description The name of the replica set instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @example mgset-10ace****
      *
      * @var string
@@ -352,9 +359,9 @@ class DBInstance extends Model
     public $replicaSetName;
 
     /**
-     * @description Details of the replica set instance.
+     * @description Details about replica set instances.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @var replicaSets
      */
     public $replicaSets;
@@ -362,7 +369,7 @@ class DBInstance extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @example 3
      *
      * @var string
@@ -372,7 +379,7 @@ class DBInstance extends Model
     /**
      * @description The ID of the resource group.
      *
-     * >  This parameter is returned only if you use the Chine site (aliyun.com).
+     * > This parameter is returned only if you use the China site (aliyun.com).
      * @example rg-acfmyiu4ekp****
      *
      * @var string
@@ -402,7 +409,9 @@ class DBInstance extends Model
      *   **eu-central-1c**: Frankfurt Zone C
      *
      * >
+     *
      *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
      *   This parameter is returned only if you use the Chine site (aliyun.com).
      *
      * @example cn-hangzhou-i
@@ -412,9 +421,9 @@ class DBInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description Details of the shard nodes.
+     * @description Details about shard nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var shardList
      */
     public $shardList;
@@ -431,8 +440,7 @@ class DBInstance extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     *   **cloud_essd**: enhanced SSD (ESSD)
-     *   **local_ssd**: local SSD
+     **cloud_essd1** :ESSD PL1. **cloud_essd2**: ESSD of PL2. **cloud_essd3**: ESSD of PL3. **local_ssd**: local SSD.
      *
      * @example cloud_essd1
      *
@@ -441,7 +449,7 @@ class DBInstance extends Model
     public $storageType;
 
     /**
-     * @description Details of the instance tags.
+     * @description Details about instance tags.
      *
      * @var tags
      */
@@ -450,7 +458,7 @@ class DBInstance extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -458,9 +466,9 @@ class DBInstance extends Model
     public $VPCCloudInstanceIds;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID of the instance.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1n3i15v90el48nx****
      *
      * @var string
@@ -468,9 +476,9 @@ class DBInstance extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID of the instance.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vsw-bp1oo2a7isyrb8igf****
      *
      * @var string
@@ -480,9 +488,10 @@ class DBInstance extends Model
     /**
      * @description Indicates whether password-free access within the VPC is enabled. Valid values:
      *
-     * - **Open**: Password-free access is enabled.
-     * - **Close**: Password-free access is disabled, and you must use a password for access.
-     * - **NotSupport**: Password-free access is not supported.
+     *   **Open**: Password-free access is enabled.
+     *   **Close**: Password-free access is disabled, and you must use a password for access.
+     *   **NotSupport**: Password-free access is not supported.
+     *
      * @example Open
      *
      * @var string
@@ -506,6 +515,7 @@ class DBInstance extends Model
         'DBInstanceClass'             => 'DBInstanceClass',
         'DBInstanceDescription'       => 'DBInstanceDescription',
         'DBInstanceId'                => 'DBInstanceId',
+        'DBInstanceOrderStatus'       => 'DBInstanceOrderStatus',
         'DBInstanceReleaseProtection' => 'DBInstanceReleaseProtection',
         'DBInstanceStatus'            => 'DBInstanceStatus',
         'DBInstanceStorage'           => 'DBInstanceStorage',
@@ -574,6 +584,9 @@ class DBInstance extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBInstanceOrderStatus) {
+            $res['DBInstanceOrderStatus'] = $this->DBInstanceOrderStatus;
         }
         if (null !== $this->DBInstanceReleaseProtection) {
             $res['DBInstanceReleaseProtection'] = $this->DBInstanceReleaseProtection;
@@ -718,6 +731,9 @@ class DBInstance extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBInstanceOrderStatus'])) {
+            $model->DBInstanceOrderStatus = $map['DBInstanceOrderStatus'];
         }
         if (isset($map['DBInstanceReleaseProtection'])) {
             $model->DBInstanceReleaseProtection = $map['DBInstanceReleaseProtection'];

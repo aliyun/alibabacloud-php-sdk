@@ -30,7 +30,7 @@ class EvaluateResourceResponseBody extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The major engine version of the instance.
      *
      * @example 4.0
      *

@@ -11,8 +11,9 @@ class mongos extends Model
     /**
      * @description The instance type of the mongos node. For more information, see [Instance types](~~311414~~).
      *
-     * > * **N** specifies the serial number of the mongos node for which the instance type is specified. For example, **Mongos.2.Class** specifies the instance type of the second mongos node.
-     * > * Valid values for **N**: **2** to **32**.
+     * > *   **N** specifies the serial number of the mongos node for which the instance type is specified. For example, **Mongos.2.Class** specifies the instance type of the second mongos node.
+     *   Valid values for **N**: **2** to **32**.
+     *
      * @example mdb.shard.2x.xlarge.d
      *
      * @var string

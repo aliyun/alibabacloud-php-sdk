@@ -18,13 +18,18 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The database engine of the instance. The value is set to **MongoDB**.
+     * @description The engine of the instance. The value is set to **MongoDB**.
      *
      * @example MongoDB
      *
      * @var string
      */
     public $engine;
+
+    /**
+     * @var bool
+     */
+    public $isDelete;
 
     /**
      * @var string
@@ -39,7 +44,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
      *
-     * >  This parameter is available only if you use the China site (aliyun.com).
+     * > This parameter is available only if you use the China site (aliyun.com).
      * @example rg-acfmyiu4ekp****
      *
      * @var string
@@ -63,6 +68,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'engine'               => 'Engine',
+        'isDelete'             => 'IsDelete',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -83,6 +89,9 @@ class DescribeDBInstanceAttributeRequest extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->isDelete) {
+            $res['IsDelete'] = $this->isDelete;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -119,6 +128,9 @@ class DescribeDBInstanceAttributeRequest extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['IsDelete'])) {
+            $model->isDelete = $map['IsDelete'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

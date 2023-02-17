@@ -11,7 +11,7 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The instance type.
      *
-     * >  This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
+     * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
      * @example dds.mongo.mid
      *
      * @var string
@@ -37,15 +37,15 @@ class EvaluateResourceRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance. Valid values:
+     * @description The major engine version of the instance. Valid values:
      *
+     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
      *   **4.0**
-     *   **3.4**
      *
-     * @example 4.0
+     * @example 4.2
      *
      * @var string
      */
@@ -64,6 +64,7 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The number of read-only nodes. Valid values: **1** to **5**.
      *
+     * > This parameter is not required for standalone or serverless instances.
      * @example 1
      *
      * @var string
@@ -71,7 +72,7 @@ class EvaluateResourceRequest extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -85,6 +86,7 @@ class EvaluateResourceRequest extends Model
      *   Valid values for standalone instances: **1**
      *   Valid values for replica set instances: **3**, **5**, and **7**
      *
+     * > This parameter is not required for serverless instances.
      * @example 3
      *
      * @var string
@@ -109,24 +111,20 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The node information. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
      *
-     *   To check whether resources are sufficient for creating a sharded cluster instance, specify the specifications of each node in the instance. The value must be a JSON string. Example:
-     *
      * Parameters in the example:
      *
      *   ConfigSvrs: the Configserver node.
      *   Mongos: the mongos node.
      *   Shards: the shard node.
      *   Storage: the storage space of the node.
-     *   DBInstanceClass: the instance type of the node. For more information, see [Instance types](~~57141~~).
-     *
-     *   To check whether resources are sufficient for upgrading a node of a sharded cluster instance, specify only the information of the node to be upgraded. The value must be a JSON string. Example:
+     *   DBInstanceClass: the instance type of the node. For more information, see [Sharded cluster instance types](~~311414~~).
      *
      * {
      * "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
      * Parameters in the example:
      *
-     *   NodeId: the ID of the node. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the node ID.
-     *   NodeClass: the instance type of the node. For more information, see [Instance types](~~57141~~).
+     *   NodeId: the ID of the node.
+     *   NodeClass: the instance type of the node. For more information, see [Sharded cluster instance types](~~311414~~).
      *
      * @example {"NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"}
      *
@@ -135,6 +133,11 @@ class EvaluateResourceRequest extends Model
     public $shardsInfo;
 
     /**
+     * @description The storage capacity of the replica set instance. Unit: GB.
+     *
+     * > This parameter is required for the instances that use cloud disks.
+     * @example 10
+     *
      * @var string
      */
     public $storage;

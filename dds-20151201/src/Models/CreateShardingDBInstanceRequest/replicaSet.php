@@ -11,8 +11,9 @@ class replicaSet extends Model
     /**
      * @description The instance type of the shard node. For more information, see [Instance types](~~311414~~).
      *
-     * > * **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
-     * > * Valid values for **N**: **2** to **32**.
+     * > *   **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
+     *   Valid values for **N**: **2** to **32**.
+     *
      * @example dds.shard.standard
      *
      * @var string
@@ -22,9 +23,9 @@ class replicaSet extends Model
     /**
      * @description The number of read-only nodes in shard node N.
      *
-     * Valid values: **0** to **5**. The value must be an integer. Default value: **0**.
+     * Valid values: **0** to **5**. Default value: **0**.
      *
-     * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+     * > **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
      * @example 0
      *
      * @var int
@@ -34,11 +35,9 @@ class replicaSet extends Model
     /**
      * @description The storage capacity of the shard node. Unit: GB.
      *
-     * Valid values: **10** to **2000**.
+     * > *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Instance types](~~311414~~).
+     *   **N** specifies the serial number of the shard node for which the storage capacity is specified. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
      *
-     * > * The value must be a multiple of 10.
-     * > * The values that can be specified for this parameter are subject to the instance types. For more information, see [Instance types](~~311414~~).
-     * > * **N** specifies the serial number of the shard node for which the storage capacity is specified. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
      * @example 10
      *
      * @var int

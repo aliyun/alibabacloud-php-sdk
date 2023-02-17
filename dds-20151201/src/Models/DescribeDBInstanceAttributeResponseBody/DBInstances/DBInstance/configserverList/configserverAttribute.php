@@ -36,7 +36,7 @@ class configserverAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The type of the Configserver node.
+     * @description The instance type of the Configserver node.
      *
      * @example dds.cs.mid
      *
