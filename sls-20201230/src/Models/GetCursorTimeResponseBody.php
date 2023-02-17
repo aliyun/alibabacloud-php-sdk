@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorTimeResponseBody extends Model
 {
     /**
+     * @example 1554260243
+     *
      * @var string
      */
     public $cursorTime;

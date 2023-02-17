@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetHistogramsRequest extends Model
 {
     /**
+     * @example 1409529600
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example * | with_pack_meta
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example 1409569200
+     *
      * @var int
      */
     public $to;
 
     /**
+     * @example topic
+     *
      * @var string
      */
     public $topic;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateSavedSearchRequest extends Model
 {
     /**
+     * @example displayname
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example aliyun-test-logstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @example savedsearch-name
+     *
      * @var string
      */
     public $savedsearchName;
 
     /**
+     * @example *|select date_format(__time__-__time__%60, \"%H:%i:%s\") as time, COUNT(*) as pv group by time
+     *
      * @var string
      */
     public $searchQuery;
 
     /**
+     * @example theme
+     *
      * @var string
      */
     public $topic;

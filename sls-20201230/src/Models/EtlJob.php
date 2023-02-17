@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class EtlJob extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;

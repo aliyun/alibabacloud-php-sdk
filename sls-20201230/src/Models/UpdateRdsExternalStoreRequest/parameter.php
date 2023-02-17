@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @example meta
+     *
      * @var string
      */
     public $db;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example i-bp1b6c719dfa08exf****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sfdsfldsfksfls****
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example join_meta
+     *
      * @var string
      */
     public $table;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example vpc-bp1aevy8sofi8mh1q****
+     *
      * @var string
      */
     public $vpcId;

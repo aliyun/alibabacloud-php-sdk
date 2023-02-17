@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorResponseBody extends Model
 {
     /**
+     * @example MTQ0NzI5OTYwNjg5NjYzMjM1Ng==
+     *
      * @var string
      */
     public $cursor;

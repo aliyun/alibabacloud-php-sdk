@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class IndexKeysValue extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $chn;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $caseSensitive;
@@ -24,16 +28,22 @@ class IndexKeysValue extends Model
     public $token;
 
     /**
+     * @example myAlias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $docValue;

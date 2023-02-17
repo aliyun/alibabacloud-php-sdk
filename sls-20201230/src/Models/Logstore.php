@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Logstore extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $appendMeta;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoSplit;
@@ -24,6 +28,8 @@ class Logstore extends Model
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableTracking;
@@ -44,21 +50,34 @@ class Logstore extends Model
     public $lastModifyTime;
 
     /**
+     * @example my-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxSplitShard;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @var string
+     */
+    public $productType;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $shardCount;
@@ -69,6 +88,8 @@ class Logstore extends Model
     public $telemetryType;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ttl;
@@ -83,6 +104,7 @@ class Logstore extends Model
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
         'mode'           => 'mode',
+        'productType'    => 'productType',
         'shardCount'     => 'shardCount',
         'telemetryType'  => 'telemetryType',
         'ttl'            => 'ttl',
@@ -124,6 +146,9 @@ class Logstore extends Model
         }
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
+        }
+        if (null !== $this->productType) {
+            $res['productType'] = $this->productType;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -175,6 +200,9 @@ class Logstore extends Model
         }
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+        if (isset($map['productType'])) {
+            $model->productType = $map['productType'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

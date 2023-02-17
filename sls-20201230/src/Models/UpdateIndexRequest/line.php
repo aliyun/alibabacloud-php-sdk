@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $caseSensitive;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $chn;

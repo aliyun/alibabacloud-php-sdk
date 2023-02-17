@@ -14,6 +14,8 @@ class ListTagResourcesShrinkRequest extends Model
     public $resourceIdShrink;
 
     /**
+     * @example project
+     *
      * @var string
      */
     public $resourceType;

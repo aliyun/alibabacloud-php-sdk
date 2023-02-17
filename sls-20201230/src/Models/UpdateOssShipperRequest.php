@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateOssShipperRequest extends Model
 {
     /**
+     * @example test-shipper
+     *
      * @var string
      */
     public $shipperName;
@@ -20,6 +22,8 @@ class UpdateOssShipperRequest extends Model
     public $targetConfiguration;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $targetType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class outputDetail extends Model
 {
     /**
+     * @example cn-hangzhou-intranet.log.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example test-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

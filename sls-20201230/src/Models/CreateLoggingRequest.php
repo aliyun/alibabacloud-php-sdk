@@ -15,6 +15,8 @@ class CreateLoggingRequest extends Model
     public $loggingDetails;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $loggingProject;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 1409529600
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 1409569200
+     *
      * @var int
      */
     public $to;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example Complete
+     *
      * @var string
      */
     public $progress;

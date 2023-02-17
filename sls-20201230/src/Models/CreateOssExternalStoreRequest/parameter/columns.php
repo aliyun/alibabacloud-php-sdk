@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @example auto-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example sls
+     *
      * @var string
      */
     public $type;

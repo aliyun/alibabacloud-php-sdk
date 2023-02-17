@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListSavedSearchResponseBody extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example [ "test-1", "test-2" ]
+     *
      * @var SavedSearch[]
      */
     public $savedsearchItems;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $total;

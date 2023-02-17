@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateLogStoreRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $appendMeta;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoSplit;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableTracking;
@@ -29,36 +35,50 @@ class CreateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $hotTtl;
 
     /**
+     * @example my-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $maxSplitShard;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $shardCount;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $telemetryType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ttl;

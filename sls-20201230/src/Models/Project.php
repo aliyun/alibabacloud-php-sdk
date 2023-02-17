@@ -16,17 +16,12 @@ class Project extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $lastModifyTime;
 
     /**
      * @var string
      */
-    public $owner;
+    public $projectDesc;
 
     /**
      * @var string
@@ -36,20 +31,25 @@ class Project extends Model
     /**
      * @var string
      */
-    public $region;
+    public $projectOwner;
 
     /**
      * @var string
      */
-    public $status;
+    public $projectStatus;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
         'createTime'     => 'createTime',
-        'description'    => 'description',
         'lastModifyTime' => 'lastModifyTime',
-        'owner'          => 'owner',
+        'projectDesc'    => 'projectDesc',
         'projectName'    => 'projectName',
+        'projectOwner'   => 'projectOwner',
+        'projectStatus'  => 'projectStatus',
         'region'         => 'region',
-        'status'         => 'status',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class Project extends Model
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
         }
-        if (null !== $this->owner) {
-            $res['owner'] = $this->owner;
+        if (null !== $this->projectDesc) {
+            $res['projectDesc'] = $this->projectDesc;
         }
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
         }
+        if (null !== $this->projectOwner) {
+            $res['projectOwner'] = $this->projectOwner;
+        }
+        if (null !== $this->projectStatus) {
+            $res['projectStatus'] = $this->projectStatus;
+        }
         if (null !== $this->region) {
             $res['region'] = $this->region;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class Project extends Model
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
         }
-        if (isset($map['owner'])) {
-            $model->owner = $map['owner'];
+        if (isset($map['projectDesc'])) {
+            $model->projectDesc = $map['projectDesc'];
         }
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
         }
+        if (isset($map['projectOwner'])) {
+            $model->projectOwner = $map['projectOwner'];
+        }
+        if (isset($map['projectStatus'])) {
+            $model->projectStatus = $map['projectStatus'];
+        }
         if (isset($map['region'])) {
             $model->region = $map['region'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
         }
 
         return $model;

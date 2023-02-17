@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @example LTAI5tFsHGGeYry*****1Sz
+     *
      * @var string
      */
     public $accessid;
 
     /**
+     * @example GyviCLDVHkHrOztdkxuE6******Rp6
+     *
      * @var string
      */
     public $accesskey;
 
     /**
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucket;
@@ -30,6 +36,8 @@ class parameter extends Model
     public $columns;
 
     /**
+     * @example oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListLogStoresRequest extends Model
 {
     /**
+     * @example my-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $telemetryType;

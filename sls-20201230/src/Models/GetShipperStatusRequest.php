@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetShipperStatusRequest extends Model
 {
     /**
+     * @example 1409529600
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1627269085
+     *
      * @var int
      */
     public $to;

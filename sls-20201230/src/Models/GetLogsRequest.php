@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GetLogsRequest extends Model
 {
     /**
+     * @example 1627268185
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $line;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $powerSql;
 
     /**
+     * @example status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @example 1627269085
+     *
      * @var int
      */
     public $to;
 
     /**
+     * @example topic
+     *
      * @var string
      */
     public $topic;

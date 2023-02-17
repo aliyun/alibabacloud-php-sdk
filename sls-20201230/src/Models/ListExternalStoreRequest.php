@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListExternalStoreRequest extends Model
 {
     /**
+     * @example store
+     *
      * @var string
      */
     public $externalStoreName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $sizs;

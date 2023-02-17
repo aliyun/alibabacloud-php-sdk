@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateMachineGroupMachineRequest extends Model
 {
     /**
+     * @example add
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example add
+     *
      * @var string[]
      */
     public $body;

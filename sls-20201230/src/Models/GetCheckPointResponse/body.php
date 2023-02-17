@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description Shard ID。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $shard;
 
     /**
+     * @example MTUyNDE1NTM3OTM3MzkwODQ5Ng==
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @example 1524224984800922
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example consumer_1
+     *
      * @var string
      */
     public $consumer;

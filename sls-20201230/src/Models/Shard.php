@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class Shard extends Model
 {
     /**
+     * @example 1453949705
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 8000000000000000000000000000000
+     *
      * @var string
      */
     public $exclusiveEndKey;
 
     /**
+     * @example 00000000000000000000000000000000
+     *
      * @var string
      */
     public $inclusiveBeginKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $shardID;
 
     /**
+     * @example readwrite
+     *
      * @var string
      */
     public $status;

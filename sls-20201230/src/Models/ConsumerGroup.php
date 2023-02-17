@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ConsumerGroup extends Model
 {
     /**
+     * @example test-group
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $order;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $timeout;

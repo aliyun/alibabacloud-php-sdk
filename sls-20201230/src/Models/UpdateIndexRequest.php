@@ -20,6 +20,8 @@ class UpdateIndexRequest extends Model
     public $line;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logReduce;
@@ -35,11 +37,15 @@ class UpdateIndexRequest extends Model
     public $logReduceWhiteList;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $maxTextLen;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

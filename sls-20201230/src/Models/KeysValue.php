@@ -19,6 +19,8 @@ class KeysValue extends Model
     public $chn;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;

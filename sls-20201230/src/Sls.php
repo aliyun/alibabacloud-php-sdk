@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\Sls\V20201230;
 
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ApplyConfigToMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateJobResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateJobTestRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateJobTestResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreRequest;
@@ -30,17 +40,22 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteETLJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
@@ -51,10 +66,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
@@ -63,15 +80,19 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLJobsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
@@ -100,10 +121,17 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateJobResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateJobShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
@@ -144,21 +172,6 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $machineGroup
-     * @param string $configName
-     *
-     * @return ApplyConfigToMachineGroupResponse
-     */
-    public function applyConfigToMachineGroup($project, $machineGroup, $configName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
-    }
-
-    /**
      * @param string         $project
      * @param string         $machineGroup
      * @param string         $configName
@@ -191,18 +204,117 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                     $project
-     * @param string                     $logstore
-     * @param CreateConsumerGroupRequest $request
+     * @param string $project
+     * @param string $machineGroup
+     * @param string $configName
      *
-     * @return CreateConsumerGroupResponse
+     * @return ApplyConfigToMachineGroupResponse
      */
-    public function createConsumerGroup($project, $logstore, $request)
+    public function applyConfigToMachineGroup($project, $machineGroup, $configName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createConsumerGroupWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['resourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/resourcegroup',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $project
+     * @param CreateAlertRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAlertResponse
+     */
+    public function createAlertWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAlert',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateAlertResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $project
+     * @param CreateAlertRequest $request
+     *
+     * @return CreateAlertResponse
+     */
+    public function createAlert($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -250,17 +362,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string              $project
-     * @param CreateDomainRequest $request
+     * @param string                     $project
+     * @param string                     $logstore
+     * @param CreateConsumerGroupRequest $request
      *
-     * @return CreateDomainResponse
+     * @return CreateConsumerGroupResponse
      */
-    public function createDomain($project, $request)
+    public function createConsumerGroup($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createDomainWithOptions($project, $request, $headers, $runtime);
+        return $this->createConsumerGroupWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -301,18 +414,64 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $project
-     * @param string             $logstore
-     * @param CreateIndexRequest $request
+     * @param string              $project
+     * @param CreateDomainRequest $request
      *
-     * @return CreateIndexResponse
+     * @return CreateDomainResponse
      */
-    public function createIndex($project, $logstore, $request)
+    public function createDomain($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIndexWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->createDomainWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateETLJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateETLJobResponse
+     */
+    public function createETLJobWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateETLJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateETLJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateETLJobRequest $request
+     *
+     * @return CreateETLJobResponse
+     */
+    public function createETLJob($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createETLJobWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -372,17 +531,169 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                $project
-     * @param CreateLogStoreRequest $request
+     * @param string             $project
+     * @param string             $logstore
+     * @param CreateIndexRequest $request
      *
-     * @return CreateLogStoreResponse
+     * @return CreateIndexResponse
      */
-    public function createLogStore($project, $request)
+    public function createIndex($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createLogStoreWithOptions($project, $request, $headers, $runtime);
+        return $this->createIndexWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $project
+     * @param CreateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
+     */
+    public function createJobWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->functionConfig)) {
+            $body['functionConfig'] = $request->functionConfig;
+        }
+        if (!Utils::isUnset($request->functionParameter)) {
+            $body['functionParameter'] = $request->functionParameter;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $body['jobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->logConfig)) {
+            $body['logConfig'] = $request->logConfig;
+        }
+        if (!Utils::isUnset($request->sourceConfig)) {
+            $body['sourceConfig'] = $request->sourceConfig;
+        }
+        if (!Utils::isUnset($request->triggerConfig)) {
+            $body['triggerConfig'] = $request->triggerConfig;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $project
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
+     */
+    public function createJob($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createJobWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateJobTestRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateJobTestResponse
+     */
+    public function createJobTestWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessKeyId)) {
+            $query['accessKeyId'] = $request->accessKeyId;
+        }
+        if (!Utils::isUnset($request->accessKeySecret)) {
+            $query['accessKeySecret'] = $request->accessKeySecret;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->fromTime)) {
+            $query['fromTime'] = $request->fromTime;
+        }
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['projectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['projectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['roleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->script)) {
+            $query['script'] = $request->script;
+        }
+        if (!Utils::isUnset($request->sinks)) {
+            $query['sinks'] = $request->sinks;
+        }
+        if (!Utils::isUnset($request->toTime)) {
+            $query['toTime'] = $request->toTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJobTest',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJobTestResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateJobTestRequest $request
+     *
+     * @return CreateJobTestResponse
+     */
+    public function createJobTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createJobTestWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -453,17 +764,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param CreateLoggingRequest $request
+     * @param string                $project
+     * @param CreateLogStoreRequest $request
      *
-     * @return CreateLoggingResponse
+     * @return CreateLogStoreResponse
      */
-    public function createLogging($project, $request)
+    public function createLogStore($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createLoggingWithOptions($project, $request, $headers, $runtime);
+        return $this->createLogStoreWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -507,17 +818,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                    $project
-     * @param CreateMachineGroupRequest $request
+     * @param string               $project
+     * @param CreateLoggingRequest $request
      *
-     * @return CreateMachineGroupResponse
+     * @return CreateLoggingResponse
      */
-    public function createMachineGroup($project, $request)
+    public function createLogging($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createMachineGroupWithOptions($project, $request, $headers, $runtime);
+        return $this->createLoggingWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -570,18 +881,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                   $project
-     * @param string                   $logstore
-     * @param CreateOdpsShipperRequest $request
+     * @param string                    $project
+     * @param CreateMachineGroupRequest $request
      *
-     * @return CreateOdpsShipperResponse
+     * @return CreateMachineGroupResponse
      */
-    public function createOdpsShipper($project, $logstore, $request)
+    public function createMachineGroup($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createOdpsShipperWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->createMachineGroupWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -629,17 +939,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                        $project
-     * @param CreateOssExternalStoreRequest $request
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param CreateOdpsShipperRequest $request
      *
-     * @return CreateOssExternalStoreResponse
+     * @return CreateOdpsShipperResponse
      */
-    public function createOssExternalStore($project, $request)
+    public function createOdpsShipper($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createOssExternalStoreWithOptions($project, $request, $headers, $runtime);
+        return $this->createOdpsShipperWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -686,18 +997,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param CreateOssShipperRequest $request
+     * @param string                        $project
+     * @param CreateOssExternalStoreRequest $request
      *
-     * @return CreateOssShipperResponse
+     * @return CreateOssExternalStoreResponse
      */
-    public function createOssShipper($project, $logstore, $request)
+    public function createOssExternalStore($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createOssShipperWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->createOssExternalStoreWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -745,16 +1055,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param CreateOssShipperRequest $request
      *
-     * @return CreateProjectResponse
+     * @return CreateOssShipperResponse
      */
-    public function createProject($request)
+    public function createOssShipper($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createProjectWithOptions($request, $headers, $runtime);
+        return $this->createOssShipperWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -773,6 +1085,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['projectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -794,17 +1109,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                        $project
-     * @param CreateRdsExternalStoreRequest $request
+     * @param CreateProjectRequest $request
      *
-     * @return CreateRdsExternalStoreResponse
+     * @return CreateProjectResponse
      */
-    public function createRdsExternalStore($project, $request)
+    public function createProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createRdsExternalStoreWithOptions($project, $request, $headers, $runtime);
+        return $this->createProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -851,17 +1165,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                   $project
-     * @param CreateSavedSearchRequest $request
+     * @param string                        $project
+     * @param CreateRdsExternalStoreRequest $request
      *
-     * @return CreateSavedSearchResponse
+     * @return CreateRdsExternalStoreResponse
      */
-    public function createSavedSearch($project, $request)
+    public function createRdsExternalStore($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSavedSearchWithOptions($project, $request, $headers, $runtime);
+        return $this->createRdsExternalStoreWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -914,18 +1228,62 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $logstore
-     * @param string $consumerGroup
+     * @param string                   $project
+     * @param CreateSavedSearchRequest $request
      *
-     * @return DeleteConsumerGroupResponse
+     * @return CreateSavedSearchResponse
      */
-    public function deleteConsumerGroup($project, $logstore, $consumerGroup)
+    public function createSavedSearch($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConsumerGroupWithOptions($project, $logstore, $consumerGroup, $headers, $runtime);
+        return $this->createSavedSearchWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $alert
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlertResponse
+     */
+    public function deleteAlertWithOptions($project, $alert, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlert',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $alert . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAlertResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $alert
+     *
+     * @return DeleteAlertResponse
+     */
+    public function deleteAlert($project, $alert)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertWithOptions($project, $alert, $headers, $runtime);
     }
 
     /**
@@ -962,16 +1320,17 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $domainName
+     * @param string $logstore
+     * @param string $consumerGroup
      *
-     * @return DeleteDomainResponse
+     * @return DeleteConsumerGroupResponse
      */
-    public function deleteDomain($project, $domainName)
+    public function deleteConsumerGroup($project, $logstore, $consumerGroup)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDomainWithOptions($project, $domainName, $headers, $runtime);
+        return $this->deleteConsumerGroupWithOptions($project, $logstore, $consumerGroup, $headers, $runtime);
     }
 
     /**
@@ -1007,16 +1366,61 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $externalStoreName
+     * @param string $domainName
      *
-     * @return DeleteExternalStoreResponse
+     * @return DeleteDomainResponse
      */
-    public function deleteExternalStore($project, $externalStoreName)
+    public function deleteDomain($project, $domainName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
+        return $this->deleteDomainWithOptions($project, $domainName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteETLJobResponse
+     */
+    public function deleteETLJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteETLJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJobName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'any',
+        ]);
+
+        return DeleteETLJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return DeleteETLJobResponse
+     */
+    public function deleteETLJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteETLJobWithOptions($project, $etlJobName, $headers, $runtime);
     }
 
     /**
@@ -1052,16 +1456,16 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $logstore
+     * @param string $externalStoreName
      *
-     * @return DeleteIndexResponse
+     * @return DeleteExternalStoreResponse
      */
-    public function deleteIndex($project, $logstore)
+    public function deleteExternalStore($project, $externalStoreName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIndexWithOptions($project, $logstore, $headers, $runtime);
+        return $this->deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
     }
 
     /**
@@ -1099,14 +1503,59 @@ class Sls extends OpenApiClient
      * @param string $project
      * @param string $logstore
      *
-     * @return DeleteLogStoreResponse
+     * @return DeleteIndexResponse
      */
-    public function deleteLogStore($project, $logstore)
+    public function deleteIndex($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLogStoreWithOptions($project, $logstore, $headers, $runtime);
+        return $this->deleteIndexWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteJobResponse
+     */
+    public function deleteJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJobName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'any',
+        ]);
+
+        return DeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return DeleteJobResponse
+     */
+    public function deleteJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteJobWithOptions($project, $etlJobName, $headers, $runtime);
     }
 
     /**
@@ -1142,15 +1591,16 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     * @param string $logstore
      *
-     * @return DeleteLoggingResponse
+     * @return DeleteLogStoreResponse
      */
-    public function deleteLogging($project)
+    public function deleteLogStore($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLoggingWithOptions($project, $headers, $runtime);
+        return $this->deleteLogStoreWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -1185,16 +1635,15 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $machineGroup
      *
-     * @return DeleteMachineGroupResponse
+     * @return DeleteLoggingResponse
      */
-    public function deleteMachineGroup($project, $machineGroup)
+    public function deleteLogging($project)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+        return $this->deleteLoggingWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -1230,31 +1679,35 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     * @param string $machineGroup
      *
-     * @return DeleteProjectResponse
+     * @return DeleteMachineGroupResponse
      */
-    public function deleteProject($project)
+    public function deleteMachineGroup($project, $machineGroup)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectWithOptions($project, $headers, $runtime);
+        return $this->deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
     }
 
     /**
-     * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DeleteProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteProjectResponse
      */
-    public function deleteProjectWithOptions($project, $headers, $runtime)
+    public function deleteProjectWithOptions($request, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['project'] = $request->project;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
@@ -1272,16 +1725,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
+     * @param DeleteProjectRequest $request
      *
-     * @return DeleteProjectPolicyResponse
+     * @return DeleteProjectResponse
      */
-    public function deleteProjectPolicy($project)
+    public function deleteProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectPolicyWithOptions($project, $headers, $runtime);
+        return $this->deleteProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1316,16 +1769,15 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $savedsearchName
      *
-     * @return DeleteSavedSearchResponse
+     * @return DeleteProjectPolicyResponse
      */
-    public function deleteSavedSearch($project, $savedsearchName)
+    public function deleteProjectPolicy($project)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime);
+        return $this->deleteProjectPolicyWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -1361,17 +1813,16 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $logstore
-     * @param string $shipperName
+     * @param string $savedsearchName
      *
-     * @return DeleteShipperResponse
+     * @return DeleteSavedSearchResponse
      */
-    public function deleteShipper($project, $logstore, $shipperName)
+    public function deleteSavedSearch($project, $savedsearchName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime);
+        return $this->deleteSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime);
     }
 
     /**
@@ -1408,16 +1859,62 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $machineGroup
+     * @param string $logstore
+     * @param string $shipperName
      *
-     * @return GetAppliedConfigsResponse
+     * @return DeleteShipperResponse
      */
-    public function getAppliedConfigs($project, $machineGroup)
+    public function deleteShipper($project, $logstore, $shipperName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime);
+        return $this->deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $alert
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAlertResponse
+     */
+    public function getAlertWithOptions($project, $alert, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlert',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $alert . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlertResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $alert
+     *
+     * @return GetAlertResponse
+     */
+    public function getAlert($project, $alert)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlertWithOptions($project, $alert, $headers, $runtime);
     }
 
     /**
@@ -1453,16 +1950,16 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $configName
+     * @param string $machineGroup
      *
-     * @return GetAppliedMachineGroupsResponse
+     * @return GetAppliedConfigsResponse
      */
-    public function getAppliedMachineGroups($project, $configName)
+    public function getAppliedConfigs($project, $machineGroup)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime);
+        return $this->getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime);
     }
 
     /**
@@ -1497,19 +1994,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param string               $logstore
-     * @param string               $consumerGroup
-     * @param GetCheckPointRequest $request
+     * @param string $project
+     * @param string $configName
      *
-     * @return GetCheckPointResponse
+     * @return GetAppliedMachineGroupsResponse
      */
-    public function getCheckPoint($project, $logstore, $consumerGroup, $request)
+    public function getAppliedMachineGroups($project, $configName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+        return $this->getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime);
     }
 
     /**
@@ -1552,18 +2047,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                $project
-     * @param string                $logstore
-     * @param GetContextLogsRequest $request
+     * @param string               $project
+     * @param string               $logstore
+     * @param string               $consumerGroup
+     * @param GetCheckPointRequest $request
      *
-     * @return GetContextLogsResponse
+     * @return GetCheckPointResponse
      */
-    public function getContextLogs($project, $logstore, $request)
+    public function getCheckPoint($project, $logstore, $consumerGroup, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getContextLogsWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
     }
 
     /**
@@ -1617,19 +2113,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string           $project
-     * @param string           $logstore
-     * @param string           $shardId
-     * @param GetCursorRequest $request
+     * @param string                $project
+     * @param string                $logstore
+     * @param GetContextLogsRequest $request
      *
-     * @return GetCursorResponse
+     * @return GetContextLogsResponse
      */
-    public function getCursor($project, $logstore, $shardId, $request)
+    public function getContextLogs($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCursorWithOptions($project, $logstore, $shardId, $request, $headers, $runtime);
+        return $this->getContextLogsWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -1672,19 +2167,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param string               $logstore
-     * @param string               $shardId
-     * @param GetCursorTimeRequest $request
+     * @param string           $project
+     * @param string           $logstore
+     * @param string           $shardId
+     * @param GetCursorRequest $request
      *
-     * @return GetCursorTimeResponse
+     * @return GetCursorResponse
      */
-    public function getCursorTime($project, $logstore, $shardId, $request)
+    public function getCursor($project, $logstore, $shardId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCursorTimeWithOptions($project, $logstore, $shardId, $request, $headers, $runtime);
+        return $this->getCursorWithOptions($project, $logstore, $shardId, $request, $headers, $runtime);
     }
 
     /**
@@ -1727,17 +2222,64 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $externalStoreName
+     * @param string               $project
+     * @param string               $logstore
+     * @param string               $shardId
+     * @param GetCursorTimeRequest $request
      *
-     * @return GetExternalStoreResponse
+     * @return GetCursorTimeResponse
      */
-    public function getExternalStore($project, $externalStoreName)
+    public function getCursorTime($project, $logstore, $shardId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
+        return $this->getCursorTimeWithOptions($project, $logstore, $shardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetEtlJobResponse
+     */
+    public function getEtlJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJobName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return GetEtlJobResponse
+     */
+    public function getEtlJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEtlJobWithOptions($project, $etlJobName, $headers, $runtime);
     }
 
     /**
@@ -1772,18 +2314,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param string               $logstore
-     * @param GetHistogramsRequest $request
+     * @param string $project
+     * @param string $externalStoreName
      *
-     * @return GetHistogramsResponse
+     * @return GetExternalStoreResponse
      */
-    public function getHistograms($project, $logstore, $request)
+    public function getExternalStore($project, $externalStoreName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getHistogramsWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
     }
 
     /**
@@ -1834,17 +2375,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $logstore
+     * @param string               $project
+     * @param string               $logstore
+     * @param GetHistogramsRequest $request
      *
-     * @return GetIndexResponse
+     * @return GetHistogramsResponse
      */
-    public function getIndex($project, $logstore)
+    public function getHistograms($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIndexWithOptions($project, $logstore, $headers, $runtime);
+        return $this->getHistogramsWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -1882,14 +2424,59 @@ class Sls extends OpenApiClient
      * @param string $project
      * @param string $logstore
      *
-     * @return GetLogStoreResponse
+     * @return GetIndexResponse
      */
-    public function getLogStore($project, $logstore)
+    public function getIndex($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLogStoreWithOptions($project, $logstore, $headers, $runtime);
+        return $this->getIndexWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
+     */
+    public function getJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJobName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'any',
+        ]);
+
+        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return GetJobResponse
+     */
+    public function getJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getJobWithOptions($project, $etlJobName, $headers, $runtime);
     }
 
     /**
@@ -1925,15 +2512,16 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     * @param string $logstore
      *
-     * @return GetLoggingResponse
+     * @return GetLogStoreResponse
      */
-    public function getLogging($project)
+    public function getLogStore($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLoggingWithOptions($project, $headers, $runtime);
+        return $this->getLogStoreWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -1967,18 +2555,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string         $project
-     * @param string         $logstore
-     * @param GetLogsRequest $request
+     * @param string $project
      *
-     * @return GetLogsResponse
+     * @return GetLoggingResponse
      */
-    public function getLogs($project, $logstore, $request)
+    public function getLogging($project)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLogsWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->getLoggingWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2041,17 +2627,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $machineGroup
+     * @param string         $project
+     * @param string         $logstore
+     * @param GetLogsRequest $request
      *
-     * @return GetMachineGroupResponse
+     * @return GetLogsResponse
      */
-    public function getMachineGroup($project, $machineGroup)
+    public function getLogs($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+        return $this->getLogsWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -2087,31 +2674,35 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     * @param string $machineGroup
      *
-     * @return GetProjectResponse
+     * @return GetMachineGroupResponse
      */
-    public function getProject($project)
+    public function getMachineGroup($project, $machineGroup)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectWithOptions($project, $headers, $runtime);
+        return $this->getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
     }
 
     /**
-     * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetProjectRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetProjectResponse
      */
-    public function getProjectWithOptions($project, $headers, $runtime)
+    public function getProjectWithOptions($request, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['project'] = $request->project;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -2129,17 +2720,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                $project
-     * @param GetProjectLogsRequest $request
+     * @param GetProjectRequest $request
      *
-     * @return GetProjectLogsResponse
+     * @return GetProjectResponse
      */
-    public function getProjectLogs($project, $request)
+    public function getProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectLogsWithOptions($project, $request, $headers, $runtime);
+        return $this->getProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2183,16 +2773,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
+     * @param string                $project
+     * @param GetProjectLogsRequest $request
      *
-     * @return GetProjectPolicyResponse
+     * @return GetProjectLogsResponse
      */
-    public function getProjectPolicy($project)
+    public function getProjectLogs($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectPolicyWithOptions($project, $headers, $runtime);
+        return $this->getProjectLogsWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -2219,7 +2810,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'string',
         ]);
 
         return GetProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2227,16 +2818,15 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $savedsearchName
      *
-     * @return GetSavedSearchResponse
+     * @return GetProjectPolicyResponse
      */
-    public function getSavedSearch($project, $savedsearchName)
+    public function getProjectPolicy($project)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime);
+        return $this->getProjectPolicyWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2271,19 +2861,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $shipperName
-     * @param GetShipperStatusRequest $request
+     * @param string $project
+     * @param string $savedsearchName
      *
-     * @return GetShipperStatusResponse
+     * @return GetSavedSearchResponse
      */
-    public function getShipperStatus($project, $logstore, $shipperName, $request)
+    public function getSavedSearch($project, $savedsearchName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+        return $this->getSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime);
     }
 
     /**
@@ -2338,17 +2926,62 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $logstore
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param GetShipperStatusRequest $request
      *
-     * @return ListConsumerGroupResponse
+     * @return GetShipperStatusResponse
      */
-    public function listConsumerGroup($project, $logstore)
+    public function getShipperStatus($project, $logstore, $shipperName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumerGroupWithOptions($project, $logstore, $headers, $runtime);
+        return $this->getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAlertResponse
+     */
+    public function listAlertWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlert',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAlertResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
+     * @return ListAlertResponse
+     */
+    public function listAlert($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2383,17 +3016,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $project
-     * @param ListDomainsRequest $request
+     * @param string $project
+     * @param string $logstore
      *
-     * @return ListDomainsResponse
+     * @return ListConsumerGroupResponse
      */
-    public function listDomains($project, $request)
+    public function listConsumerGroup($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDomainsWithOptions($project, $request, $headers, $runtime);
+        return $this->listConsumerGroupWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -2440,17 +3073,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                   $project
-     * @param ListExternalStoreRequest $request
+     * @param string             $project
+     * @param ListDomainsRequest $request
      *
-     * @return ListExternalStoreResponse
+     * @return ListDomainsResponse
      */
-    public function listExternalStore($project, $request)
+    public function listDomains($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listExternalStoreWithOptions($project, $request, $headers, $runtime);
+        return $this->listDomainsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListETLJobsResponse
+     */
+    public function listETLJobsWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListETLJobs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListETLJobsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
+     * @return ListETLJobsResponse
+     */
+    public function listETLJobs($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listETLJobsWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2497,17 +3173,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param ListLogStoresRequest $request
+     * @param string                   $project
+     * @param ListExternalStoreRequest $request
      *
-     * @return ListLogStoresResponse
+     * @return ListExternalStoreResponse
      */
-    public function listLogStores($project, $request)
+    public function listExternalStore($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listLogStoresWithOptions($project, $request, $headers, $runtime);
+        return $this->listExternalStoreWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListJobsResponse
+     */
+    public function listJobsWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
+     * @return ListJobsResponse
+     */
+    public function listJobs($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobsWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2560,17 +3279,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                  $project
-     * @param ListMachineGroupRequest $request
+     * @param string               $project
+     * @param ListLogStoresRequest $request
      *
-     * @return ListMachineGroupResponse
+     * @return ListLogStoresResponse
      */
-    public function listMachineGroup($project, $request)
+    public function listLogStores($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMachineGroupWithOptions($project, $request, $headers, $runtime);
+        return $this->listLogStoresWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -2617,18 +3336,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string              $project
-     * @param string              $machineGroup
-     * @param ListMachinesRequest $request
+     * @param string                  $project
+     * @param ListMachineGroupRequest $request
      *
-     * @return ListMachinesResponse
+     * @return ListMachineGroupResponse
      */
-    public function listMachines($project, $machineGroup, $request)
+    public function listMachineGroup($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime);
+        return $this->listMachineGroupWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -2673,16 +3391,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param ListProjectRequest $request
+     * @param string              $project
+     * @param string              $machineGroup
+     * @param ListMachinesRequest $request
      *
-     * @return ListProjectResponse
+     * @return ListMachinesResponse
      */
-    public function listProject($request)
+    public function listMachines($project, $machineGroup, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectWithOptions($request, $headers, $runtime);
+        return $this->listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime);
     }
 
     /**
@@ -2725,17 +3445,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                 $project
-     * @param ListSavedSearchRequest $request
+     * @param ListProjectRequest $request
      *
-     * @return ListSavedSearchResponse
+     * @return ListProjectResponse
      */
-    public function listSavedSearch($project, $request)
+    public function listProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSavedSearchWithOptions($project, $request, $headers, $runtime);
+        return $this->listProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2779,17 +3498,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $logstore
+     * @param string                 $project
+     * @param ListSavedSearchRequest $request
      *
-     * @return ListShardsResponse
+     * @return ListSavedSearchResponse
      */
-    public function listShards($project, $logstore)
+    public function listSavedSearch($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listShardsWithOptions($project, $logstore, $headers, $runtime);
+        return $this->listSavedSearchWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -2827,14 +3546,14 @@ class Sls extends OpenApiClient
      * @param string $project
      * @param string $logstore
      *
-     * @return ListShipperResponse
+     * @return ListShardsResponse
      */
-    public function listShipper($project, $logstore)
+    public function listShards($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listShipperWithOptions($project, $logstore, $headers, $runtime);
+        return $this->listShardsWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -2869,16 +3588,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param string $project
+     * @param string $logstore
      *
-     * @return ListTagResourcesResponse
+     * @return ListShipperResponse
      */
-    public function listTagResources($request)
+    public function listShipper($project, $logstore)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->listShipperWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -2929,19 +3649,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string          $project
-     * @param string          $logstore
-     * @param string          $shard
-     * @param PullDataRequest $request
+     * @param ListTagResourcesRequest $request
      *
-     * @return PullDataResponse
+     * @return ListTagResourcesResponse
      */
-    public function pullData($project, $logstore, $shard, $request)
+    public function listTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pullDataWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2990,17 +3707,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                  $project
-     * @param PutProjectPolicyRequest $request
+     * @param string          $project
+     * @param string          $logstore
+     * @param string          $shard
+     * @param PullDataRequest $request
      *
-     * @return PutProjectPolicyResponse
+     * @return PullDataResponse
      */
-    public function putProjectPolicy($project, $request)
+    public function pullData($project, $logstore, $shard, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putProjectPolicyWithOptions($project, $request, $headers, $runtime);
+        return $this->pullDataWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
     }
 
     /**
@@ -3037,18 +3756,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                $project
-     * @param string                $logstoreName
-     * @param PutWebtrackingRequest $request
+     * @param string                  $project
+     * @param PutProjectPolicyRequest $request
      *
-     * @return PutWebtrackingResponse
+     * @return PutProjectPolicyResponse
      */
-    public function putWebtracking($project, $logstoreName, $request)
+    public function putProjectPolicy($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime);
+        return $this->putProjectPolicyWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -3099,18 +3817,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string $project
-     * @param string $machineGroup
-     * @param string $configName
+     * @param string                $project
+     * @param string                $logstoreName
+     * @param PutWebtrackingRequest $request
      *
-     * @return RemoveConfigFromMachineGroupResponse
+     * @return PutWebtrackingResponse
      */
-    public function removeConfigFromMachineGroup($project, $machineGroup, $configName)
+    public function putWebtracking($project, $logstoreName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
+        return $this->putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -3146,19 +3864,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string            $project
-     * @param string            $logstore
-     * @param string            $shard
-     * @param SplitShardRequest $request
+     * @param string $project
+     * @param string $machineGroup
+     * @param string $configName
      *
-     * @return SplitShardResponse
+     * @return RemoveConfigFromMachineGroupResponse
      */
-    public function splitShard($project, $logstore, $shard, $request)
+    public function removeConfigFromMachineGroup($project, $machineGroup, $configName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
+        return $this->removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime);
     }
 
     /**
@@ -3204,16 +3921,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param string            $project
+     * @param string            $logstore
+     * @param string            $shard
+     * @param SplitShardRequest $request
      *
-     * @return TagResourcesResponse
+     * @return SplitShardResponse
      */
-    public function tagResources($request)
+    public function splitShard($project, $logstore, $shard, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+        return $this->splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
     }
 
     /**
@@ -3256,16 +3976,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return TagResourcesResponse
      */
-    public function untagResources($request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3311,19 +4031,65 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                     $project
-     * @param string                     $logstore
-     * @param string                     $consumerGroup
-     * @param UpdateConsumerGroupRequest $request
+     * @param UntagResourcesRequest $request
      *
-     * @return UpdateConsumerGroupResponse
+     * @return UntagResourcesResponse
      */
-    public function updateConsumerGroup($project, $logstore, $consumerGroup, $request)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateConsumerGroupWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $project
+     * @param string             $alert
+     * @param UpdateAlertRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAlertResponse
+     */
+    public function updateAlertWithOptions($project, $alert, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->alert),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAlert',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $alert . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAlertResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $project
+     * @param string             $alert
+     * @param UpdateAlertRequest $request
+     *
+     * @return UpdateAlertResponse
+     */
+    public function updateAlert($project, $alert, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertWithOptions($project, $alert, $request, $headers, $runtime);
     }
 
     /**
@@ -3369,18 +4135,68 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $project
-     * @param string             $logstore
-     * @param UpdateIndexRequest $request
+     * @param string                     $project
+     * @param string                     $logstore
+     * @param string                     $consumerGroup
+     * @param UpdateConsumerGroupRequest $request
      *
-     * @return UpdateIndexResponse
+     * @return UpdateConsumerGroupResponse
      */
-    public function updateIndex($project, $logstore, $request)
+    public function updateConsumerGroup($project, $logstore, $consumerGroup, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateIndexWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->updateConsumerGroupWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $etlJob
+     * @param UpdateEtlJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateEtlJobResponse
+     */
+    public function updateEtlJobWithOptions($project, $etlJob, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJob . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $etlJob
+     * @param UpdateEtlJobRequest $request
+     *
+     * @return UpdateEtlJobResponse
+     */
+    public function updateEtlJob($project, $etlJob, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEtlJobWithOptions($project, $etlJob, $request, $headers, $runtime);
     }
 
     /**
@@ -3440,18 +4256,76 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                $project
-     * @param string                $logstore
-     * @param UpdateLogStoreRequest $request
+     * @param string             $project
+     * @param string             $logstore
+     * @param UpdateIndexRequest $request
      *
-     * @return UpdateLogStoreResponse
+     * @return UpdateIndexResponse
      */
-    public function updateLogStore($project, $logstore, $request)
+    public function updateIndex($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime);
+        return $this->updateIndexWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $project
+     * @param string           $etlJob
+     * @param UpdateJobRequest $tmpReq
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateJobResponse
+     */
+    public function updateJobWithOptions($project, $etlJob, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $request            = new UpdateJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->body)) {
+            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bodyShrink)) {
+            $query['body'] = $request->bodyShrink;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/jobs/' . $etlJob . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $project
+     * @param string           $etlJob
+     * @param UpdateJobRequest $request
+     *
+     * @return UpdateJobResponse
+     */
+    public function updateJob($project, $etlJob, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateJobWithOptions($project, $etlJob, $request, $headers, $runtime);
     }
 
     /**
@@ -3523,17 +4397,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param UpdateLoggingRequest $request
+     * @param string                $project
+     * @param string                $logstore
+     * @param UpdateLogStoreRequest $request
      *
-     * @return UpdateLoggingResponse
+     * @return UpdateLogStoreResponse
      */
-    public function updateLogging($project, $request)
+    public function updateLogStore($project, $logstore, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateLoggingWithOptions($project, $request, $headers, $runtime);
+        return $this->updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -3577,18 +4452,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                    $project
-     * @param string                    $groupName
-     * @param UpdateMachineGroupRequest $request
+     * @param string               $project
+     * @param UpdateLoggingRequest $request
      *
-     * @return UpdateMachineGroupResponse
+     * @return UpdateLoggingResponse
      */
-    public function updateMachineGroup($project, $groupName, $request)
+    public function updateLogging($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateMachineGroupWithOptions($project, $groupName, $request, $headers, $runtime);
+        return $this->updateLoggingWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -3642,18 +4516,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                           $project
-     * @param string                           $machineGroup
-     * @param UpdateMachineGroupMachineRequest $request
+     * @param string                    $project
+     * @param string                    $groupName
+     * @param UpdateMachineGroupRequest $request
      *
-     * @return UpdateMachineGroupMachineResponse
+     * @return UpdateMachineGroupResponse
      */
-    public function updateMachineGroupMachine($project, $machineGroup, $request)
+    public function updateMachineGroup($project, $groupName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime);
+        return $this->updateMachineGroupWithOptions($project, $groupName, $request, $headers, $runtime);
     }
 
     /**
@@ -3696,19 +4570,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                   $project
-     * @param string                   $logstore
-     * @param string                   $shipperName
-     * @param UpdateOdpsShipperRequest $request
+     * @param string                           $project
+     * @param string                           $machineGroup
+     * @param UpdateMachineGroupMachineRequest $request
      *
-     * @return UpdateOdpsShipperResponse
+     * @return UpdateMachineGroupMachineResponse
      */
-    public function updateOdpsShipper($project, $logstore, $shipperName, $request)
+    public function updateMachineGroupMachine($project, $machineGroup, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateOdpsShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+        return $this->updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime);
     }
 
     /**
@@ -3757,18 +4630,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateOssExternalStoreRequest $request
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param string                   $shipperName
+     * @param UpdateOdpsShipperRequest $request
      *
-     * @return UpdateOssExternalStoreResponse
+     * @return UpdateOdpsShipperResponse
      */
-    public function updateOssExternalStore($project, $externalStoreName, $request)
+    public function updateOdpsShipper($project, $logstore, $shipperName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
+        return $this->updateOdpsShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
     }
 
     /**
@@ -3816,19 +4690,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $shipperName
-     * @param UpdateOssShipperRequest $request
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateOssExternalStoreRequest $request
      *
-     * @return UpdateOssShipperResponse
+     * @return UpdateOssExternalStoreResponse
      */
-    public function updateOssShipper($project, $logstore, $shipperName, $request)
+    public function updateOssExternalStore($project, $externalStoreName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateOssShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+        return $this->updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -3877,39 +4750,42 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string               $project
-     * @param UpdateProjectRequest $request
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param UpdateOssShipperRequest $request
      *
-     * @return UpdateProjectResponse
+     * @return UpdateOssShipperResponse
      */
-    public function updateProject($project, $request)
+    public function updateOssShipper($project, $logstore, $shipperName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateProjectWithOptions($project, $request, $headers, $runtime);
+        return $this->updateOssShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
     }
 
     /**
-     * @param string               $project
      * @param UpdateProjectRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return UpdateProjectResponse
      */
-    public function updateProjectWithOptions($project, $request, $headers, $runtime)
+    public function updateProjectWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
+        $query = [];
+        if (!Utils::isUnset($request->project)) {
+            $query['project'] = $request->project;
+        }
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -3928,18 +4804,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateRdsExternalStoreRequest $request
+     * @param UpdateProjectRequest $request
      *
-     * @return UpdateRdsExternalStoreResponse
+     * @return UpdateProjectResponse
      */
-    public function updateRdsExternalStore($project, $externalStoreName, $request)
+    public function updateProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
+        return $this->updateProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3987,18 +4861,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                   $project
-     * @param string                   $savedsearchName
-     * @param UpdateSavedSearchRequest $request
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateRdsExternalStoreRequest $request
      *
-     * @return UpdateSavedSearchResponse
+     * @return UpdateRdsExternalStoreResponse
      */
-    public function updateSavedSearch($project, $savedsearchName, $request)
+    public function updateRdsExternalStore($project, $externalStoreName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSavedSearchWithOptions($project, $savedsearchName, $request, $headers, $runtime);
+        return $this->updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -4049,5 +4923,20 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param string                   $savedsearchName
+     * @param UpdateSavedSearchRequest $request
+     *
+     * @return UpdateSavedSearchResponse
+     */
+    public function updateSavedSearch($project, $savedsearchName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSavedSearchWithOptions($project, $savedsearchName, $request, $headers, $runtime);
     }
 }

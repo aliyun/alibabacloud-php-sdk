@@ -19,16 +19,22 @@ class Dashboard extends Model
     public $charts;
 
     /**
+     * @example dashboard-1609294922657-434834
+     *
      * @var string
      */
     public $dashboardName;
 
     /**
+     * @example 这是一个仪表盘。
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test-alert
+     *
      * @var string
      */
     public $displayName;

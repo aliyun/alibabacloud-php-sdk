@@ -19,11 +19,15 @@ class triggerConfig extends Model
     public $roleArn;
 
     /**
+     * @example at-unixtime
+     *
      * @var string
      */
     public $startingPosition;
 
     /**
+     * @example 当 strtingPosition 为 at-unixtime 时生效
+     *
      * @var int
      */
     public $startingUnixtime;

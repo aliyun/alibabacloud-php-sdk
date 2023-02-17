@@ -15,6 +15,8 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @example project
+     *
      * @var string
      */
     public $resourceType;

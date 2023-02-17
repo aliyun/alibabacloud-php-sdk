@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupRequest extends Model
 {
     /**
+     * @example consumerGroupX
+     *
      * @var string
      */
     public $consumerGroup;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $order;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $timeout;

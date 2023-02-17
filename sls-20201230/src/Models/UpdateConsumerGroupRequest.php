@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerGroupRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $order;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $timeout;

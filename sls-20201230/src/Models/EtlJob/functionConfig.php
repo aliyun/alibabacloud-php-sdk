@@ -19,16 +19,22 @@ class functionConfig extends Model
     public $endpoint;
 
     /**
+     * @example hello-wrold
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example FunctionCompute
+     *
      * @var string
      */
     public $functionProvider;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionName;
@@ -39,6 +45,8 @@ class functionConfig extends Model
     public $roleArn;
 
     /**
+     * @example my-service
+     *
      * @var string
      */
     public $serviceName;

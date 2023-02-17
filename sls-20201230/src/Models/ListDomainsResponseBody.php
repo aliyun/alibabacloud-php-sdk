@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
@@ -19,6 +21,8 @@ class ListDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

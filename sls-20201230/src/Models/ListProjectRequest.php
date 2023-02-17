@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example ali-test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

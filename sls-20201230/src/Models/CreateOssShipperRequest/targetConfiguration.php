@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class targetConfiguration extends Model
 {
     /**
+     * @example 300
+     *
      * @var int
      */
     public $bufferInterval;
 
     /**
+     * @example 256
+     *
      * @var int
      */
     public $bufferSize;
 
     /**
+     * @example snappy
+     *
      * @var string
      */
     public $compressType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example test-bucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example test-prefix/hello-prefix
+     *
      * @var string
      */
     public $ossPrefix;
 
     /**
+     * @example 2022/01/01/00/59
+     *
      * @var string
      */
     public $pathFormat;
 
     /**
+     * @example acs:ram::16542189**343050:role/aliyunlogdefaultrole
+     *
      * @var string
      */
     public $roleArn;
@@ -55,6 +71,8 @@ class targetConfiguration extends Model
     public $storage;
 
     /**
+     * @example +8
+     *
      * @var string
      */
     public $timeZone;

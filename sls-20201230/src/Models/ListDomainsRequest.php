@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

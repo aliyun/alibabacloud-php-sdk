@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class LogtailConfig extends Model
 {
     /**
+     * @example test-config
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @example 1655176807
+     *
      * @var int
      */
     public $createTime;
@@ -25,16 +29,22 @@ class LogtailConfig extends Model
     public $inputDetail;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $inputType;
 
     /**
+     * @example 1655176807
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example 2022-06-14 11:13:29.796 | DEBUG    | __main__:<module>:1 - hello world
+     *
      * @var string
      */
     public $logSample;
@@ -45,6 +55,8 @@ class LogtailConfig extends Model
     public $outputDetail;
 
     /**
+     * @example LogService
+     *
      * @var string
      */
     public $outputType;

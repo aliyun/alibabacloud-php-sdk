@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @example abcdefghijk
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example UnAuthorized
+     *
      * @var string
      */
     public $taskCode;
 
     /**
+     * @example 1448925013
+     *
      * @var int
      */
     public $taskCreateTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskDataLines;
 
     /**
+     * @example 1448926013
+     *
      * @var int
      */
     public $taskFinishTime;
 
     /**
+     * @example 1448915013
+     *
      * @var int
      */
     public $taskLastDataReceiveTime;
 
     /**
+     * @example AccessDenied: You have no right to access this object because of bucket acl.
+     *
      * @var string
      */
     public $taskMessage;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $taskStatus;

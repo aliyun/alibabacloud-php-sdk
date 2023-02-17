@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListLogStoresResponseBody extends Model
 {
     /**
+     * @example ["test-1","test-2"]
+     *
      * @var string[]
      */
     public $logstores;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

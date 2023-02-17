@@ -24,11 +24,15 @@ class Chart extends Model
     public $search;
 
     /**
+     * @example my-chart
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example linepro
+     *
      * @var string
      */
     public $type;

@@ -14,6 +14,8 @@ class EncryptConf extends Model
     public $enable;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $encryptType;

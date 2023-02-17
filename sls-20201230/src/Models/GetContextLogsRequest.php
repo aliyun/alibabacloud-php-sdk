@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $backLines;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $forwardLines;
 
     /**
+     * @example 85C897C740352DC6-808
+     *
      * @var string
      */
     public $packId;
 
     /**
+     * @example 2|MTY1NTcwNTUzODY5MTY0MDk1Mg==|3|0
+     *
      * @var string
      */
     public $packMeta;
 
     /**
+     * @example context_log
+     *
      * @var string
      */
     public $type;

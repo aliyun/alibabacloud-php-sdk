@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListMachineGroupRequest extends Model
 {
     /**
+     * @example test-machine-group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

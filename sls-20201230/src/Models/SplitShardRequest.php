@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SplitShardRequest extends Model
 {
     /**
+     * @example ef000000000000000000000000000000
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $shardCount;

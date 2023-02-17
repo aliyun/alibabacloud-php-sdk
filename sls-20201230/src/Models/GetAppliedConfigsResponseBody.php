@@ -14,6 +14,8 @@ class GetAppliedConfigsResponseBody extends Model
     public $configs;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;

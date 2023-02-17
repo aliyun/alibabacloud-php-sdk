@@ -15,21 +15,29 @@ class UpdateMachineGroupRequest extends Model
     public $groupAttribute;
 
     /**
+     * @example test-machine-group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example userdefined
+     *
      * @var string
      */
     public $machineIdentifyType;
 
     /**
+     * @example [uu_id_1，uu_id_2]
+     *
      * @var string[]
      */
     public $machineList;

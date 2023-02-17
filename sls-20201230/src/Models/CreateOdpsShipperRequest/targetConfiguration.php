@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class targetConfiguration extends Model
 {
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $bufferInterval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -24,16 +28,22 @@ class targetConfiguration extends Model
     public $fields;
 
     /**
+     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+     *
      * @var string
      */
     public $odpsEndpoint;
 
     /**
+     * @example ali-odps-project
+     *
      * @var string
      */
     public $odpsProject;
 
     /**
+     * @example test-table
+     *
      * @var string
      */
     public $odpsTable;
@@ -44,6 +54,8 @@ class targetConfiguration extends Model
     public $partitionColumn;
 
     /**
+     * @example yyyy_MM_dd_hh_mm
+     *
      * @var string
      */
     public $partitionTimeFormat;

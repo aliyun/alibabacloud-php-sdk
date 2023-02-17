@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @example this is test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'description' => 'description',
-        'projectName' => 'projectName',
+        'description'     => 'description',
+        'projectName'     => 'projectName',
+        'resourceGroupId' => 'resourceGroupId',
     ];
 
     public function validate()
@@ -34,6 +44,9 @@ class CreateProjectRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class CreateProjectRequest extends Model
         }
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         return $model;

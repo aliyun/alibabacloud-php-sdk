@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSavedSearchRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

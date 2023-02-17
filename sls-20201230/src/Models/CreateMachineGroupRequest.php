@@ -15,16 +15,22 @@ class CreateMachineGroupRequest extends Model
     public $groupAttribute;
 
     /**
+     * @example test-machine-group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example ip
+     *
      * @var string
      */
     public $machineIdentifyType;

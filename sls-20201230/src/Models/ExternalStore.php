@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExternalStore extends Model
 {
     /**
+     * @example rds_store
+     *
      * @var string
      */
     public $externalStoreName;
@@ -19,6 +21,8 @@ class ExternalStore extends Model
     public $parameter;
 
     /**
+     * @example rds-vpc
+     *
      * @var string
      */
     public $storeType;

@@ -15,6 +15,8 @@ class Logging extends Model
     public $loggingDetails;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $loggingProject;

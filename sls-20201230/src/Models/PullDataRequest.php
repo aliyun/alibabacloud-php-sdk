@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PullDataRequest extends Model
 {
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example MTQ0NzMyOTQwMTEwMjEzMDkwNA
+     *
      * @var string
      */
     public $cursor;
 
     /**
+     * @example MTU1NzA1NzQwMTEwMjEzMDkwCg
+     *
      * @var string
      */
     public $endCursor;

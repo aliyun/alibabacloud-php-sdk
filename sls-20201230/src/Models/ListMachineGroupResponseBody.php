@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListMachineGroupResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example [ "test-machine-group-1", "test-machine-group-2" ]
+     *
      * @var string[]
      */
     public $machinegroups;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

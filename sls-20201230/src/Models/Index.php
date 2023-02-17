@@ -15,6 +15,8 @@ class Index extends Model
     public $keys;
 
     /**
+     * @example 1622186280
+     *
      * @var int
      */
     public $lastModifyTime;
@@ -25,6 +27,8 @@ class Index extends Model
     public $line;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logReduce;
@@ -40,11 +44,15 @@ class Index extends Model
     public $logReduceWhiteList;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $maxTextLen;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

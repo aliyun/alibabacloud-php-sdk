@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogStoreRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $appendMeta;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoSplit;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableTracking;
@@ -29,36 +35,50 @@ class UpdateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $hotTtl;
 
     /**
+     * @example test-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $maxSplitShard;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $shardCount;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $telemetryType;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

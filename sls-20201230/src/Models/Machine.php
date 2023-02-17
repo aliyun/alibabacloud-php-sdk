@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Machine extends Model
 {
     /**
+     * @example 192.168.x.x
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 1657509674
+     *
      * @var int
      */
     public $lastHeartbeatTime;
 
     /**
+     * @example 3B70F4F1-80F7-46C4-A6C1-100D66C***47
+     *
      * @var string
      */
     public $machineUniqueid;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $userdefinedId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOssShipperRequest extends Model
 {
     /**
+     * @example test-shipper
+     *
      * @var string
      */
     public $shipperName;
@@ -20,6 +22,8 @@ class CreateOssShipperRequest extends Model
     public $targetConfiguration;
 
     /**
+     * @example odps
+     *
      * @var string
      */
     public $targetType;

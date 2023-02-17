@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class storage extends Model
 {
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $detail;
 
     /**
+     * @example parquet
+     *
      * @var string
      */
     public $format;

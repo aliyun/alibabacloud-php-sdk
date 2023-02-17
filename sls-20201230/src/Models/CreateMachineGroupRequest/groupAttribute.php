@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class groupAttribute extends Model
 {
     /**
+     * @example testgroup
+     *
      * @var string
      */
     public $externalName;
 
     /**
+     * @example testtopic
+     *
      * @var string
      */
     public $groupTopic;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetIndexResponseBody extends Model
 {
     /**
+     * @example v2
+     *
      * @var string
      */
     public $indexMode;
@@ -20,6 +22,8 @@ class GetIndexResponseBody extends Model
     public $keys;
 
     /**
+     * @example 1524155379
+     *
      * @var int
      */
     public $lastModifyTime;
@@ -30,6 +34,8 @@ class GetIndexResponseBody extends Model
     public $line;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logReduce;
@@ -45,16 +51,22 @@ class GetIndexResponseBody extends Model
     public $logReduceWhiteList;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $maxTextLen;
 
     /**
+     * @example pg
+     *
      * @var string
      */
     public $storage;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

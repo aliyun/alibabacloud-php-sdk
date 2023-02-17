@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetShipperStatusResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
@@ -26,6 +28,8 @@ class GetShipperStatusResponseBody extends Model
     public $tasks;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;

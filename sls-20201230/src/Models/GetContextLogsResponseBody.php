@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $backLines;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $forwardLines;
@@ -24,11 +28,15 @@ class GetContextLogsResponseBody extends Model
     public $logs;
 
     /**
+     * @example Complete
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example 201
+     *
      * @var int
      */
     public $totalLines;

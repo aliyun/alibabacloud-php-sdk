@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorRequest extends Model
 {
     /**
+     * @example begin
+     *
      * @var string
      */
     public $from;
