@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LockCardsRequest extends Model
 {
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
@@ -24,6 +28,8 @@ class LockCardsRequest extends Model
     public $iccids;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

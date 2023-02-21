@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateBatchOperateCardsTaskRequest extends Model
 {
     /**
+     * @example boct-xxxx
+     *
      * @var string
      */
     public $batchOperateCardsTaskId;
 
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example task-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example CurrentMonth
+     *
      * @var string
      */
     public $effectType;
@@ -39,26 +49,36 @@ class UpdateBatchOperateCardsTaskRequest extends Model
     public $iccids;
 
     /**
+     * @example cciot-cn-hangzhou/127859184306****\/***.csv
+     *
      * @var string
      */
     public $iccidsOssFilePath;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example BreakNetwork
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $threshold;

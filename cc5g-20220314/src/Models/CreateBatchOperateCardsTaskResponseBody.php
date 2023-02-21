@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchOperateCardsTaskResponseBody extends Model
 {
     /**
+     * @example boct-xxxx
+     *
      * @var string
      */
     public $batchOperateCardsTaskId;
 
     /**
+     * @example https://examplebucket.oss-eu-central-1.aliyuncs.com/***
+     *
      * @var string
      */
     public $operateResultOssFilePath;
 
     /**
+     * @example 1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6
+     *
      * @var string
      */
     public $requestId;

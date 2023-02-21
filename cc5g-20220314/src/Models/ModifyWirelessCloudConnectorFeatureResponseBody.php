@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWirelessCloudConnectorFeatureResponseBody extends Model
 {
     /**
+     * @example 999E0F64-9A10-567B-BB84-B7C46023BA3B
+     *
      * @var string
      */
     public $requestId;

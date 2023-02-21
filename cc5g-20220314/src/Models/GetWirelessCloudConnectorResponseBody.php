@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class GetWirelessCloudConnectorResponseBody extends Model
 {
     /**
+     * @example Business
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 20000
+     *
      * @var string
      */
     public $cardCount;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example dp-xxxx
+     *
      * @var string
      */
     public $dataPackageId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $dataPackageType;
 
     /**
+     * @example cc5g-test
+     *
      * @var string
      */
     public $description;
@@ -45,6 +57,8 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $features;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -55,21 +69,29 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $netLinks;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example CC5GCCIoT
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -80,11 +102,15 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $useCase;
 
     /**
+     * @example cc5gg-****
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

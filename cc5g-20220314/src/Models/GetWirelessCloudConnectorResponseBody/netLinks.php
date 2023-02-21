@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class netLinks extends Model
 {
     /**
+     * @example bjaliyun01s.5gbj.bjiot
+     *
      * @var string
      */
     public $APN;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $createTime;
@@ -24,31 +28,47 @@ class netLinks extends Model
     public $description;
 
     /**
+     * @example 11111111111
+     *
      * @var string
      */
     public $grantAliUid;
 
     /**
+     * @example Telecom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example cciot-xxxx
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Attached
+     *
      * @var string
      */
     public $status;
@@ -59,6 +79,8 @@ class netLinks extends Model
     public $vSwitchs;
 
     /**
+     * @example vpc-xxxx
+     *
      * @var string
      */
     public $vpcId;

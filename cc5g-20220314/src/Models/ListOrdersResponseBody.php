@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOrdersResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,15 @@ class ListOrdersResponseBody extends Model
     public $orders;
 
     /**
+     * @example 88C2F32F-B641-5980-B7A5-6907050ABCD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

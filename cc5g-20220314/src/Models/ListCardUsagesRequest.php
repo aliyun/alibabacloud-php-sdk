@@ -2,18 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksResponseBody\batchOperateCardsTasks;
+namespace AlibabaCloud\SDK\CC5G\V20220314\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class wirelessCloudConnectors extends Model
+class ListCardUsagesRequest extends Model
 {
     /**
-     * @example Deleted
-     *
-     * @var string
+     * @var string[]
      */
-    public $status;
+    public $iccids;
 
     /**
      * @example cc5g-xxxx
@@ -22,7 +20,7 @@ class wirelessCloudConnectors extends Model
      */
     public $wirelessCloudConnectorId;
     protected $_name = [
-        'status'                   => 'Status',
+        'iccids'                   => 'Iccids',
         'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
     ];
 
@@ -33,8 +31,8 @@ class wirelessCloudConnectors extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->iccids) {
+            $res['Iccids'] = $this->iccids;
         }
         if (null !== $this->wirelessCloudConnectorId) {
             $res['WirelessCloudConnectorId'] = $this->wirelessCloudConnectorId;
@@ -46,13 +44,15 @@ class wirelessCloudConnectors extends Model
     /**
      * @param array $map
      *
-     * @return wirelessCloudConnectors
+     * @return ListCardUsagesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Iccids'])) {
+            if (!empty($map['Iccids'])) {
+                $model->iccids = $map['Iccids'];
+            }
         }
         if (isset($map['WirelessCloudConnectorId'])) {
             $model->wirelessCloudConnectorId = $map['WirelessCloudConnectorId'];

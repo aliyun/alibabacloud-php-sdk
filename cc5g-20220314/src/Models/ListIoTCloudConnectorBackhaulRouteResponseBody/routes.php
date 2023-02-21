@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class routes extends Model
 {
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example full cidr block route
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example 10.33.190.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example eni-uf677iw3xihqxiz2ssir
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example NetworkInterface
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example published
+     *
      * @var string
      */
     public $status;

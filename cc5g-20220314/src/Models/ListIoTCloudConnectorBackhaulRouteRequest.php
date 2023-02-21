@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListIoTCloudConnectorBackhaulRouteRequest extends Model
 {
     /**
+     * @example cciot-xxxx
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetWirelessCloudConnectorRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

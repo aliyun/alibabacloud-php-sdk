@@ -15,21 +15,29 @@ class ListAuthorizationRulesResponseBody extends Model
     public $authorizationRules;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 207F9929-806E-5622-8E4F-8484F7000C22
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

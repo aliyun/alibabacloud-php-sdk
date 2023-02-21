@@ -15,21 +15,29 @@ class ListDataPackagesResponseBody extends Model
     public $dataPackages;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 8734B5B2-FC84-54C4-8038-D40228CF01FE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

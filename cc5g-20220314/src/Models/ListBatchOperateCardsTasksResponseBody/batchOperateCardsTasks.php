@@ -10,51 +10,75 @@ use AlibabaCloud\Tea\Model;
 class batchOperateCardsTasks extends Model
 {
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example boct-xxxx
+     *
      * @var string
      */
     public $batchOperateCardsTaskId;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example task-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example CurrentMonth
+     *
      * @var string
      */
     public $effectType;
 
     /**
+     * @example https://examplebucket.oss-eu-central-1.aliyuncs.com/***
+     *
      * @var string
      */
     public $iccidsOssFilePath;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example https://examplebucket.oss-eu-central-1.aliyuncs.com/***
+     *
      * @var string
      */
     public $operateResultOssFilePath;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example BreakNetwork
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $threshold;

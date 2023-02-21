@@ -14,6 +14,8 @@ class ListBatchOperateCardsTasksRequest extends Model
     public $batchOperateCardsTaskIds;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
@@ -24,11 +26,15 @@ class ListBatchOperateCardsTasksRequest extends Model
     public $names;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

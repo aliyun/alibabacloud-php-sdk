@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CC5G\V20220314\Models;
 
-use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsResponseBody\cards;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardUsagesResponseBody\cards;
 use AlibabaCloud\Tea\Model;
 
-class ListCardsResponseBody extends Model
+class ListCardUsagesResponseBody extends Model
 {
     /**
      * @var cards[]
@@ -15,21 +15,7 @@ class ListCardsResponseBody extends Model
     public $cards;
 
     /**
-     * @example 10
-     *
-     * @var string
-     */
-    public $maxResults;
-
-    /**
-     * @example iou001238joojjaere
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @example 88C2F32F-B641-5980-B7A5-6907050ABCD1
+     * @example 186B6E37-D9D1-5E64-ACDE-E89F7E68A37B
      *
      * @var string
      */
@@ -43,8 +29,6 @@ class ListCardsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'cards'      => 'Cards',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
@@ -65,12 +49,6 @@ class ListCardsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -84,7 +62,7 @@ class ListCardsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListCardsResponseBody
+     * @return ListCardUsagesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -97,12 +75,6 @@ class ListCardsResponseBody extends Model
                     $model->cards[$n++] = null !== $item ? cards::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

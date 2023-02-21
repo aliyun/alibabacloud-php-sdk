@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCardLockReasonRequest extends Model
 {
     /**
+     * @example *********11111
+     *
      * @var string
      */
     public $iccid;

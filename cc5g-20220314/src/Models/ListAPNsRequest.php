@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListAPNsRequest extends Model
 {
     /**
+     * @example CMWAP
+     *
      * @var string
      */
     public $APN;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

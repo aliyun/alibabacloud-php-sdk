@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListWirelessCloudConnectorGroupsRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

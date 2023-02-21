@@ -14,26 +14,36 @@ class ListAuthorizationRulesRequest extends Model
     public $authorizationRuleIds;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $destinationPort;
 
     /**
+     * @example Cidr
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dns;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
@@ -44,16 +54,22 @@ class ListAuthorizationRulesRequest extends Model
     public $names;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example Permit
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $protocol;
@@ -64,11 +80,15 @@ class ListAuthorizationRulesRequest extends Model
     public $statuses;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

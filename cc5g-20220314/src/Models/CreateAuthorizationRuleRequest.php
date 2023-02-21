@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthorizationRuleRequest extends Model
 {
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ar5g-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example -1/-1
+     *
      * @var string
      */
     public $destinationPort;
 
     /**
+     * @example Cidr
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Permit
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidr;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

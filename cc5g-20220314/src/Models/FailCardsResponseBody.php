@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FailCardsResponseBody extends Model
 {
     /**
+     * @example 186B6E37-D9D1-5E64-ACDE-E89F7E68A37B
+     *
      * @var string
      */
     public $requestId;

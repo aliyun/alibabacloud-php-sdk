@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class diagnoseInfo extends Model
 {
     /**
+     * @example 1662307200000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 10.176.78.61
+     *
      * @var string
      */
     public $cardIp;
 
     /**
+     * @example www.xxx.com
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example Domain
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example diagnoseTask-bp2x7tzkdl655liw3mhbg
+     *
      * @var string
      */
     public $diagnoseTaskId;
 
     /**
+     * @example 1662307202400
+     *
      * @var int
      */
     public $diagnoseTime;
 
     /**
+     * @example 1662307201200
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 89860477102170127555
+     *
      * @var string
      */
     public $iccId;
 
     /**
+     * @example 89860477102170127555
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Iccid
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example failed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

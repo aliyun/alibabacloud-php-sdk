@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupAuthorizationRuleRequest extends Model
 {
     /**
+     * @example ar5gg-12fnojjtkkre28t08j
+     *
      * @var string
      */
     public $authorizationRuleId;
 
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example cc5gg-****
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddWirelessCloudConnectorToGroupRequest extends Model
 {
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cc5gg-****
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;

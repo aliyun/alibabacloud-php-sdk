@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardUsagesRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardUsagesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDiagnoseInfoForSingleCardRequest;
@@ -1575,6 +1577,46 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBatchOperateCardsTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCardUsagesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCardUsagesResponse
+     */
+    public function listCardUsagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCardUsages',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCardUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCardUsagesRequest $request
+     *
+     * @return ListCardUsagesResponse
+     */
+    public function listCardUsages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCardUsagesWithOptions($request, $runtime);
     }
 
     /**

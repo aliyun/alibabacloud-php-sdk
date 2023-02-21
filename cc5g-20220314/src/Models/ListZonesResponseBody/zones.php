@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description 代表创建时间的资源属性字段
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

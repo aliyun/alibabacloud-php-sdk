@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyWirelessCloudConnectorFeatureRequest extends Model
 {
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example DirectMode
+     *
      * @var string
      */
     public $featureName;
 
     /**
+     * @example On
+     *
      * @var string
      */
     public $featureValue;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

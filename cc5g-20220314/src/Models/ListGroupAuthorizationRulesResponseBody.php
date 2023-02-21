@@ -15,21 +15,29 @@ class ListGroupAuthorizationRulesResponseBody extends Model
     public $groupAuthorizationRules;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

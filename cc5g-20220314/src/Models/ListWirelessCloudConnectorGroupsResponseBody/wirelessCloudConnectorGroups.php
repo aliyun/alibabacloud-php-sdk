@@ -10,31 +10,49 @@ use AlibabaCloud\Tea\Model;
 class wirelessCloudConnectorGroups extends Model
 {
     /**
+     * @example 2022-07-04 19:19:14
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example cc5gg-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example cc5gg-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;

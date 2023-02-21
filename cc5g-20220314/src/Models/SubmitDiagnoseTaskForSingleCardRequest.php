@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SubmitDiagnoseTaskForSingleCardRequest extends Model
 {
     /**
+     * @example 1662307201200
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 106.14.175.4
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example 1662307201200
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $resourceUid;
 
     /**
+     * @example 89860477102170127555
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class orders extends Model
 {
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example NewBuy
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 20000
+     *
      * @var string
      */
     public $cardCount;
 
     /**
+     * @example 5G
+     *
      * @var string
      */
     public $cardNetType;
 
     /**
+     * @example CONSUMER_THREE_IN_ONE
+     *
      * @var string
      */
     public $cardType;
@@ -34,46 +44,64 @@ class orders extends Model
     public $contactName;
 
     /**
+     * @example 139000*******
+     *
      * @var string
      */
     public $contactPhone;
 
     /**
+     * @example 2022-3-15 21:20:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example order-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example SF14*********
+     *
      * @var string
      */
     public $logisticsId;
 
     /**
+     * @example Signed
+     *
      * @var string
      */
     public $logisticsStatus;
 
     /**
+     * @example SF
+     *
      * @var string
      */
     public $logisticsType;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $logisticsUpdateTime;
 
     /**
+     * @example 89************
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 2022-3-15 21:30:00
+     *
      * @var string
      */
     public $payTime;
@@ -84,11 +112,17 @@ class orders extends Model
     public $postAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example Pending
+     *
      * @var string
      */
     public $status;

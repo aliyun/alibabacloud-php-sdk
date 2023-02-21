@@ -14,6 +14,8 @@ class ListDataPackagesRequest extends Model
     public $dataPackageIds;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
@@ -24,6 +26,8 @@ class ListDataPackagesRequest extends Model
     public $names;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
@@ -34,6 +38,8 @@ class ListDataPackagesRequest extends Model
     public $statuses;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

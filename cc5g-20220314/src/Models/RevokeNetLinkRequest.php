@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RevokeNetLinkRequest extends Model
 {
     /**
+     * @example 8278082c-0b8c-412c-b0ad-876a3cf0d0f8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example iotcc-ua6xy4vpmi24y114ws
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

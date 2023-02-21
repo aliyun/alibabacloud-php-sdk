@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCardResponseBody extends Model
 {
     /**
+     * @example 8734B5B2-FC84-54C4-8038-D40228CF01FE
+     *
      * @var string
      */
     public $requestId;

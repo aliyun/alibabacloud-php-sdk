@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class CreateWirelessCloudConnectorRequest extends Model
 {
     /**
+     * @example Business
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -45,11 +57,15 @@ class CreateWirelessCloudConnectorRequest extends Model
     public $netLinks;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $useCase;

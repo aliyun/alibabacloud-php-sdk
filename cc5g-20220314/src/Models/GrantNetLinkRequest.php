@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GrantNetLinkRequest extends Model
 {
     /**
+     * @example f0ba469f-de7f-4dde-8390-0966a1a0ef9a
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example 11111111111
+     *
      * @var int
      */
     public $grantAliUid;
 
     /**
+     * @example cciot-xxxx
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

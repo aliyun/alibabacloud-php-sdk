@@ -9,23 +9,23 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description 代表资源名称的资源属性字段
+     *
      * @var string
      */
     public $localName;
 
     /**
-     * @var string
-     */
-    public $regionEndpoint;
-
-    /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'localName'      => 'LocalName',
-        'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'localName' => 'LocalName',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -37,9 +37,6 @@ class regions extends Model
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -58,9 +55,6 @@ class regions extends Model
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
-        }
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

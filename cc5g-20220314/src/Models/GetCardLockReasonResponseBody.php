@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCardLockReasonResponseBody extends Model
 {
     /**
+     * @example ForceTwoWayStop
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example F32C0BBE-5025-5561-8976-7BD096BA21FB
+     *
      * @var string
      */
     public $requestId;

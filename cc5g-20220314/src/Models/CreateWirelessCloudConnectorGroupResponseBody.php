@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateWirelessCloudConnectorGroupResponseBody extends Model
 {
     /**
+     * @example 88C2F32F-B641-5980-B7A5-6907050ABCD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example cc5gg-****
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;

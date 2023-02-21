@@ -15,21 +15,29 @@ class ListDiagnoseInfoForSingleCardResponseBody extends Model
     public $diagnoseInfo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example E1E237B1-EED7-55D5-AE5F-671E642DB3B5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $totalCount;

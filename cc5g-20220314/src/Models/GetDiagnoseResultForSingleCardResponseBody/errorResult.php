@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorResult extends Model
 {
     /**
+     * @example Terminal abnormal
+     *
      * @var string
      */
     public $errorDesc;
@@ -16,19 +18,31 @@ class errorResult extends Model
     /**
      * @var string
      */
+    public $errorItem;
+
+    /**
+     * @example Warning
+     *
+     * @var string
+     */
     public $errorLevel;
 
     /**
+     * @example Terminal
+     *
      * @var string
      */
     public $errorPart;
 
     /**
+     * @example Please check whether the terminal and card are compatible or whether the terminal can send messages
+     *
      * @var string
      */
     public $errorSuggestion;
     protected $_name = [
         'errorDesc'       => 'ErrorDesc',
+        'errorItem'       => 'ErrorItem',
         'errorLevel'      => 'ErrorLevel',
         'errorPart'       => 'ErrorPart',
         'errorSuggestion' => 'ErrorSuggestion',
@@ -43,6 +57,9 @@ class errorResult extends Model
         $res = [];
         if (null !== $this->errorDesc) {
             $res['ErrorDesc'] = $this->errorDesc;
+        }
+        if (null !== $this->errorItem) {
+            $res['ErrorItem'] = $this->errorItem;
         }
         if (null !== $this->errorLevel) {
             $res['ErrorLevel'] = $this->errorLevel;
@@ -67,6 +84,9 @@ class errorResult extends Model
         $model = new self();
         if (isset($map['ErrorDesc'])) {
             $model->errorDesc = $map['ErrorDesc'];
+        }
+        if (isset($map['ErrorItem'])) {
+            $model->errorItem = $map['ErrorItem'];
         }
         if (isset($map['ErrorLevel'])) {
             $model->errorLevel = $map['ErrorLevel'];

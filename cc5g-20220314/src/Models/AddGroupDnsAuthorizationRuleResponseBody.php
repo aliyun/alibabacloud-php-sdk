@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddGroupDnsAuthorizationRuleResponseBody extends Model
 {
     /**
+     * @example ar5gg-12fnojjtkkre28t08j
+     *
      * @var string
      */
     public $authorizationRuleId;
 
     /**
+     * @example D3BAFE75-C670-52DB-9739-03133E5FC914
+     *
      * @var string
      */
     public $requestId;

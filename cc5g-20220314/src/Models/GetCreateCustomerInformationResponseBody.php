@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCreateCustomerInformationResponseBody extends Model
 {
     /**
+     * @example True
+     *
      * @var string
      */
     public $canBuyCard;
 
     /**
+     * @example AE0BA8E5-1E0C-5171-852F-826301C76BBE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example https://*******
+     *
      * @var string
      */
     public $URL;

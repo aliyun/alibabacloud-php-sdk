@@ -9,121 +9,169 @@ use AlibabaCloud\Tea\Model;
 class GetCardResponseBody extends Model
 {
     /**
+     * @example zjalyjs01s.5gjs.njiot
+     *
      * @var string
      */
     public $APN;
 
     /**
+     * @example 2022-08-25 17:34:57
+     *
      * @var string
      */
     public $activatedTime;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $alarmThreshold;
 
     /**
+     * @example iotcc-xxxxxxxx
+     *
      * @var string
      */
     public $cloudConnectorId;
 
     /**
+     * @example task-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Unicom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @example 111111111
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example 23412313513512
+     *
      * @var string
      */
     public $imei;
 
     /**
+     * @example 12123123
+     *
      * @var string
      */
     public $imsi;
 
     /**
+     * @example 172.24.2.121
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limitThreshold;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $lock;
 
     /**
+     * @example 2312341231235
+     *
      * @var string
      */
     public $msisdn;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 5G
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 12312341234124
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 0B28B72A-BD16-51F7-AAEE-55247FE02729
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Deactivated
+     *
      * @var string
      */
     public $simStatus;
 
     /**
+     * @example CONSUMER_THREE_IN_ONE
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 4096
+     *
      * @var int
      */
     public $stopThreshold;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $usageDataMonth;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $usageDataTotal;
 
     /**
+     * @example cc5g-xxxxxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

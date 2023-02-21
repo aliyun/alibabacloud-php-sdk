@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenCc5gServiceResponseBody extends Model
 {
     /**
+     * @example 2DCFA69E-A161-512D-99A7-108022580719
+     *
      * @var string
      */
     public $requestId;

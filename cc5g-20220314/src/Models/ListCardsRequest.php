@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListCardsRequest extends Model
 {
     /**
+     * @example bjaliyun01s.5gbj.bjiot
+     *
      * @var string
      */
     public $apn;
 
     /**
+     * @example 8909123123121912
+     *
      * @var string
      */
     public $iccid;
@@ -24,36 +28,50 @@ class ListCardsRequest extends Model
     public $iccids;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $lock;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 1441204374591
+     *
      * @var string
      */
     public $msisdn;
 
     /**
+     * @example cciot-xxxx
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $online;
@@ -64,6 +82,8 @@ class ListCardsRequest extends Model
     public $statuses;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

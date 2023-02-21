@@ -9,91 +9,133 @@ use AlibabaCloud\Tea\Model;
 class cards extends Model
 {
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example bjaliyun01s.5gbj.bjiot
+     *
      * @var string
      */
     public $APN;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $activatedTime;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Telecom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example 89091231231219123
+     *
      * @var string
      */
     public $iccid;
 
     /**
+     * @example 7896129300
+     *
      * @var string
      */
     public $imei;
 
     /**
+     * @example 8912039123
+     *
      * @var string
      */
     public $imsi;
 
     /**
+     * @example 10.0.0.118
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $lock;
 
     /**
+     * @example 1441204374591
+     *
      * @var string
      */
     public $msisdn;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example 5G
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 89099123012
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example CONSUMER_THREE_IN_ONE
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $usageDataMonth;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $usageDataTotal;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWirelessCloudConnectorGroupResponseBody extends Model
 {
     /**
+     * @example 2E759287-F208-589B-82D8-6D7A30F417E3
+     *
      * @var string
      */
     public $requestId;

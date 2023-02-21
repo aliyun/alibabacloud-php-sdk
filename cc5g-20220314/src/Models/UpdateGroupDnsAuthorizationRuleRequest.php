@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupDnsAuthorizationRuleRequest extends Model
 {
     /**
+     * @example ar5gg-xxxx
+     *
      * @var string
      */
     public $authorizationRuleId;
 
     /**
+     * @example TF-******-1633255280-43c94bf7-2dd3-4c14-8
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 192.168.0.2
+     *
      * @var string
      */
     public $destinationIp;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 100.100.2.136
+     *
      * @var string
      */
     public $sourceDNSIp;
 
     /**
+     * @example cc5gg-****
+     *
      * @var string
      */
     public $wirelessCloudConnectorGroupId;

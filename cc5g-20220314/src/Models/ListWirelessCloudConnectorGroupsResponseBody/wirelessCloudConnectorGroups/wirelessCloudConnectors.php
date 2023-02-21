@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class wirelessCloudConnectors extends Model
 {
     /**
+     * @example Business
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @example 115
+     *
      * @var string
      */
     public $cardCount;
 
     /**
+     * @example 2022-04-28 17:40:53
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example dp-xxxx
+     *
      * @var string
      */
     public $dataPackageId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $dataPackageType;
 
     /**
+     * @example cc5g-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example CC5G
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -64,6 +84,8 @@ class wirelessCloudConnectors extends Model
     public $useCase;
 
     /**
+     * @example cc5g-62eb02o7lz1w5aurl3
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

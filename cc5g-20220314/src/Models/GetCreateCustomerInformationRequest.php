@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCreateCustomerInformationRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cc5g-xxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

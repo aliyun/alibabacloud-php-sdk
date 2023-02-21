@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SwitchWirelessCloudConnectorToBusinessResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 74ADDCF3-E3FE-5200-9290-1320125D71DC
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class dataPackages extends Model
 {
     /**
+     * @example 20000
+     *
      * @var string
      */
     public $cardCount;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example dp-xxxx
+     *
      * @var string
      */
     public $dataPackageId;
 
     /**
+     * @example 2099-3-15 22:20:00
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example Telecom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;

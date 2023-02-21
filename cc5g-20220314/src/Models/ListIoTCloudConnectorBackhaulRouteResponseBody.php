@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListIoTCloudConnectorBackhaulRouteResponseBody extends Model
 {
     /**
+     * @example cciot-xxxx
+     *
      * @var string
      */
     public $netLinkId;
 
     /**
+     * @example 94032572-8758-575E-B306-86F59D1B826E
+     *
      * @var string
      */
     public $requestId;

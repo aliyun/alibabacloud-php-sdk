@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDiagnoseResultForSingleCardRequest extends Model
 {
     /**
+     * @example diagnoseTask-bp2qhwdp2n9x6zkvq****
+     *
      * @var string
      */
     public $diagnoseTaskId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;

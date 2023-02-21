@@ -9,66 +9,98 @@ use AlibabaCloud\Tea\Model;
 class authorizationRules extends Model
 {
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example ar5g-xxxx
+     *
      * @var string
      */
     public $authorizationRuleId;
 
     /**
+     * @example 2022-3-15 22:20:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example ar5g-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example 0-65535
+     *
      * @var string
      */
     public $destinationPort;
 
     /**
+     * @example Cidr
+     *
      * @var string
      */
     public $destinationType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dns;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Permit
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidr;
 
     /**
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example Pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $type;

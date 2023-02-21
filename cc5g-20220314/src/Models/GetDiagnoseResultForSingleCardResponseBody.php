@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class GetDiagnoseResultForSingleCardResponseBody extends Model
 {
     /**
+     * @example 1646100223024
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 10.176.78.61
+     *
      * @var string
      */
     public $cardIp;
 
     /**
+     * @example 106.14.175.4
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example Domain
+     *
      * @var string
      */
     public $destinationType;
@@ -36,6 +44,8 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
     public $diagnoseItem;
 
     /**
+     * @example 1646100223264
+     *
      * @var int
      */
     public $endTime;
@@ -46,21 +56,29 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
     public $errorResult;
 
     /**
+     * @example 89860477102170127555
+     *
      * @var string
      */
     public $iccId;
 
     /**
+     * @example 94032572-8758-575E-B306-86F59D1B826E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example failed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

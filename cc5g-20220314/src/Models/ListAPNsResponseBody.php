@@ -15,21 +15,31 @@ class ListAPNsResponseBody extends Model
     public $APNs;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @example vhNxI+jwQfkLCUChCQ+iOoiRkyUbtAilGSvWuwktFBxF+bar2HpV0efI6n1+GkMv
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Id of the request
+     *
+     * @example A175C091-3910-51AF-8D84-D5717B9B8D38
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

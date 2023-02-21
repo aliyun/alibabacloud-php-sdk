@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class APNs extends Model
 {
     /**
+     * @description apn
+     *
+     * @example zjhzaliyun01s.5gjs.njiot
+     *
      * @var string
      */
     public $APN;
 
     /**
+     * @example uis
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 代表资源一级ID的资源属性字段
+     *
+     * @example unicom
+     *
      * @var string
      */
     public $ISP;
 
     /**
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;

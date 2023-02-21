@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FailCardsRequest extends Model
 {
     /**
+     * @example TF-CreateServerlessDBInstance-1639649079-51d933f6-0251-4057-9276
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -24,6 +28,8 @@ class FailCardsRequest extends Model
     public $iccids;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListOrdersRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example iou001238joojjaere
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example NewBuy
+     *
      * @var string
      */
     public $orderAction;
@@ -34,6 +40,8 @@ class ListOrdersRequest extends Model
     public $statuses;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;

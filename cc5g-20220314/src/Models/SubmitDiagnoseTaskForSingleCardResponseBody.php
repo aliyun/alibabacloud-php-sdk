@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitDiagnoseTaskForSingleCardResponseBody extends Model
 {
     /**
+     * @example diagnoseTask-bp2n6rgaj49qcs34jyzo8
+     *
      * @var string
      */
     public $diagnoseTaskId;
 
     /**
+     * @example 1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6
+     *
      * @var string
      */
     public $requestId;

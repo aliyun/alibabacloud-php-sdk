@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeNetLinkResponseBody extends Model
 {
     /**
+     * @example 1E781588-69D4-56C3-93BA-DEFECF2596B8
+     *
      * @var string
      */
     public $requestId;

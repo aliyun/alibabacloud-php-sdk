@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseInfoForSingleCardRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @example 89860477102170127555
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Iccid
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cc5g-xxxx
+     *
      * @var string
      */
     public $wirelessCloudConnectorId;
