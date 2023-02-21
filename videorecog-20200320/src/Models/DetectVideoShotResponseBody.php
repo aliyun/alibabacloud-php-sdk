@@ -20,6 +20,8 @@ class DetectVideoShotResponseBody extends Model
     public $message;
 
     /**
+     * @example 0033B795-09C7-4EB9-A33C-EBA325192B0D
+     *
      * @var string
      */
     public $requestId;

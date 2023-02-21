@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnderstandVideoContentRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videorecog/UnderstandVideoContent/UnderstandVideoContent1.mp4
+     *
      * @var string
      */
     public $videoURL;

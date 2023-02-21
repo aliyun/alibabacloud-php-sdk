@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
+     * @example 6.1819260887924425
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example http://algo-app-aic-vd-cn-shanghai-prod.oss-cn-shanghai.aliyuncs.com/video-cover/2020-05-11-07/pic_lOyxGGAqQYSANGxP.mp4_202_544_960_c9f88b2a5f75e17c093d1a65f5edff4d_beautified.png?Expires=1589185385&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=PAalKsfeZC4UQzYDTU%2F3D1G7Xt****
+     *
      * @var string
      */
     public $imageURL;

@@ -15,11 +15,15 @@ class videoOcrResults extends Model
     public $detailInfo;
 
     /**
+     * @example 0.92
+     *
      * @var float
      */
     public $endTime;
 
     /**
+     * @example 0.92
+     *
      * @var float
      */
     public $startTime;

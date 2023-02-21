@@ -20,6 +20,8 @@ class GenerateVideoCoverResponseBody extends Model
     public $message;
 
     /**
+     * @example 5B95B724-C5B9-4F77-A743-0CA4EA95CC82
+     *
      * @var string
      */
     public $requestId;

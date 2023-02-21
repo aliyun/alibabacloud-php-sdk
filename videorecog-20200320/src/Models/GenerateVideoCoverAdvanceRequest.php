@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateVideoCoverAdvanceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isGif;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videorecog/videorecog/videorecog1.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;

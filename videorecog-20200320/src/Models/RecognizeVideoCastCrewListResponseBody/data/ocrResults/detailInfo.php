@@ -20,6 +20,8 @@ class detailInfo extends Model
     public $charProbs;
 
     /**
+     * @example 17
+     *
      * @var int
      */
     public $frameIndex;
@@ -30,6 +32,8 @@ class detailInfo extends Model
     public $position;
 
     /**
+     * @example 92.07685702563117
+     *
      * @var float
      */
     public $score;
@@ -40,16 +44,22 @@ class detailInfo extends Model
     public $text;
 
     /**
+     * @example 0.9207685702563116
+     *
      * @var float
      */
     public $textProb;
 
     /**
+     * @example 0.28
+     *
      * @var float
      */
     public $timeStamp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $trackId;

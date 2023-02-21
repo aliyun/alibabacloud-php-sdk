@@ -14,6 +14,8 @@ class subtitlesResults extends Model
     public $subtitlesAllResults;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $subtitlesAllResultsUrl;
@@ -24,16 +26,22 @@ class subtitlesResults extends Model
     public $subtitlesChineseResults;
 
     /**
+     * @example url1
+     *
      * @var string
      */
     public $subtitlesChineseResultsUrl;
 
     /**
+     * @example hello
+     *
      * @var mixed[]
      */
     public $subtitlesEnglishResults;
 
     /**
+     * @example url2
+     *
      * @var string
      */
     public $subtitlesEnglishResultsUrl;

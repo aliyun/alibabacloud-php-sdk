@@ -14,11 +14,15 @@ class castResults extends Model
     public $detailInfo;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $endTime;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $startTime;

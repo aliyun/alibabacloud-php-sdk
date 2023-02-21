@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class params extends Model
 {
     /**
+     * @example cast
+     *
      * @var string
      */
     public $type;

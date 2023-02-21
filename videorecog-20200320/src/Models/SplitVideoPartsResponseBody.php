@@ -20,6 +20,8 @@ class SplitVideoPartsResponseBody extends Model
     public $message;
 
     /**
+     * @example A00A3C17-61D5-1489-860D-B709F83A7C40
+     *
      * @var string
      */
     public $requestId;

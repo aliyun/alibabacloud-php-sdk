@@ -20,6 +20,8 @@ class detailInfo extends Model
     public $position;
 
     /**
+     * @example 92.07685702563117
+     *
      * @var float
      */
     public $score;
@@ -30,6 +32,8 @@ class detailInfo extends Model
     public $text;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $textType;

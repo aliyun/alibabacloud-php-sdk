@@ -20,6 +20,8 @@ class RecognizeVideoCastCrewListResponseBody extends Model
     public $message;
 
     /**
+     * @example EE5B1A95-064F-1C5E-A6FE-FEE0D734A632
+     *
      * @var string
      */
     public $requestId;

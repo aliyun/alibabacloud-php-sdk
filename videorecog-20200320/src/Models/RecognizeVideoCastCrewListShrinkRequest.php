@@ -14,17 +14,13 @@ class RecognizeVideoCastCrewListShrinkRequest extends Model
     public $paramsShrink;
 
     /**
-     * @var string
-     */
-    public $registerUrl;
-
-    /**
+     * @example https://shanghai.oss-cn-shanghai.aliyuncs.com/download/xxxx.mp4
+     *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
         'paramsShrink' => 'Params',
-        'registerUrl'  => 'RegisterUrl',
         'videoUrl'     => 'VideoUrl',
     ];
 
@@ -37,9 +33,6 @@ class RecognizeVideoCastCrewListShrinkRequest extends Model
         $res = [];
         if (null !== $this->paramsShrink) {
             $res['Params'] = $this->paramsShrink;
-        }
-        if (null !== $this->registerUrl) {
-            $res['RegisterUrl'] = $this->registerUrl;
         }
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
@@ -58,9 +51,6 @@ class RecognizeVideoCastCrewListShrinkRequest extends Model
         $model = new self();
         if (isset($map['Params'])) {
             $model->paramsShrink = $map['Params'];
-        }
-        if (isset($map['RegisterUrl'])) {
-            $model->registerUrl = $map['RegisterUrl'];
         }
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];

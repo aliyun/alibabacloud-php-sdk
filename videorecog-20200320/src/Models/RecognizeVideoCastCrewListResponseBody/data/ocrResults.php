@@ -15,11 +15,15 @@ class ocrResults extends Model
     public $detailInfo;
 
     /**
+     * @example 0.28
+     *
      * @var float
      */
     public $endTime;
 
     /**
+     * @example 0.28
+     *
      * @var float
      */
     public $startTime;

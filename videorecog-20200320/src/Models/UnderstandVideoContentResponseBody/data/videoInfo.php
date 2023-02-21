@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class videoInfo extends Model
 {
     /**
+     * @example 43380
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 25.0
+     *
      * @var float
      */
     public $fps;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $width;

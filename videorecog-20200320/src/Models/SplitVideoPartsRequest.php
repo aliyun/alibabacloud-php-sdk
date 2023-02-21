@@ -11,8 +11,16 @@ class SplitVideoPartsRequest extends Model
     /**
      * @var string
      */
+    public $template;
+
+    /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/ocr/xxxx.mp4
+     *
+     * @var string
+     */
     public $videoUrl;
     protected $_name = [
+        'template' => 'Template',
         'videoUrl' => 'VideoUrl',
     ];
 
@@ -23,6 +31,9 @@ class SplitVideoPartsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
+        }
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
         }
@@ -38,6 +49,9 @@ class SplitVideoPartsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
+        }
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
         }

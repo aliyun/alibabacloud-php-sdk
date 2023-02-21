@@ -377,9 +377,6 @@ class Videorecog extends OpenApiClient
         if (!Utils::isUnset($request->paramsShrink)) {
             $body['Params'] = $request->paramsShrink;
         }
-        if (!Utils::isUnset($request->registerUrl)) {
-            $body['RegisterUrl'] = $request->registerUrl;
-        }
         if (!Utils::isUnset($request->videoUrl)) {
             $body['VideoUrl'] = $request->videoUrl;
         }
@@ -462,31 +459,6 @@ class Videorecog extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $recognizeVideoCastCrewListReq = new RecognizeVideoCastCrewListRequest([]);
         OpenApiUtilClient::convert($request, $recognizeVideoCastCrewListReq);
-        if (!Utils::isUnset($request->registerUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->registerUrlObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVideoCastCrewListReq->registerUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
         if (!Utils::isUnset($request->videoUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
@@ -526,6 +498,9 @@ class Videorecog extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->template)) {
+            $body['Template'] = $request->template;
+        }
         if (!Utils::isUnset($request->videoUrl)) {
             $body['VideoUrl'] = $request->videoUrl;
         }

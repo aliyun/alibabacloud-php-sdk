@@ -15,18 +15,14 @@ class RecognizeVideoCastCrewListRequest extends Model
     public $params;
 
     /**
-     * @var string
-     */
-    public $registerUrl;
-
-    /**
+     * @example https://shanghai.oss-cn-shanghai.aliyuncs.com/download/xxxx.mp4
+     *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
-        'params'      => 'Params',
-        'registerUrl' => 'RegisterUrl',
-        'videoUrl'    => 'VideoUrl',
+        'params'   => 'Params',
+        'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
@@ -44,9 +40,6 @@ class RecognizeVideoCastCrewListRequest extends Model
                     $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->registerUrl) {
-            $res['RegisterUrl'] = $this->registerUrl;
         }
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
@@ -71,9 +64,6 @@ class RecognizeVideoCastCrewListRequest extends Model
                     $model->params[$n++] = null !== $item ? params::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RegisterUrl'])) {
-            $model->registerUrl = $map['RegisterUrl'];
         }
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];

@@ -20,6 +20,8 @@ class UnderstandVideoContentResponseBody extends Model
     public $message;
 
     /**
+     * @example 71EC3F13-F0CA-4558-AC7F-A351106F59F2
+     *
      * @var string
      */
     public $requestId;

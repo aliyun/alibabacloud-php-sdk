@@ -10,10 +10,18 @@ use GuzzleHttp\Psr7\Stream;
 class SplitVideoPartsAdvanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $template;
+
+    /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/ocr/xxxx.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
+        'template'       => 'Template',
         'videoUrlObject' => 'VideoUrl',
     ];
 
@@ -24,6 +32,9 @@ class SplitVideoPartsAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
+        }
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -39,6 +50,9 @@ class SplitVideoPartsAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
+        }
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }

@@ -16,18 +16,14 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
     public $params;
 
     /**
-     * @var Stream
-     */
-    public $registerUrlObject;
-
-    /**
+     * @example https://shanghai.oss-cn-shanghai.aliyuncs.com/download/xxxx.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'params'            => 'Params',
-        'registerUrlObject' => 'RegisterUrl',
-        'videoUrlObject'    => 'VideoUrl',
+        'params'         => 'Params',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
@@ -45,9 +41,6 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
                     $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->registerUrlObject) {
-            $res['RegisterUrl'] = $this->registerUrlObject;
         }
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
@@ -72,9 +65,6 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
                     $model->params[$n++] = null !== $item ? params::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RegisterUrl'])) {
-            $model->registerUrlObject = $map['RegisterUrl'];
         }
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];

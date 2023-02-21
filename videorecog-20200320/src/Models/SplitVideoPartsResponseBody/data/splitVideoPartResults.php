@@ -6,32 +6,38 @@ namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\SplitVideoPartsResponseBo
 
 use AlibabaCloud\Tea\Model;
 
-class elements extends Model
+class splitVideoPartResults extends Model
 {
     /**
-     * @example 10.06
-     *
      * @var float
      */
     public $beginTime;
 
     /**
-     * @example 17.3
-     *
+     * @var string
+     */
+    public $by;
+
+    /**
      * @var float
      */
     public $endTime;
 
     /**
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
-    public $index;
+    public $theme;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'beginTime' => 'BeginTime',
+        'by'        => 'By',
         'endTime'   => 'EndTime',
-        'index'     => 'Index',
+        'theme'     => 'Theme',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -44,11 +50,17 @@ class elements extends Model
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+        if (null !== $this->by) {
+            $res['By'] = $this->by;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
+        if (null !== $this->theme) {
+            $res['Theme'] = $this->theme;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -57,7 +69,7 @@ class elements extends Model
     /**
      * @param array $map
      *
-     * @return elements
+     * @return splitVideoPartResults
      */
     public static function fromMap($map = [])
     {
@@ -65,11 +77,17 @@ class elements extends Model
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+        if (isset($map['By'])) {
+            $model->by = $map['By'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
+        if (isset($map['Theme'])) {
+            $model->theme = $map['Theme'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
