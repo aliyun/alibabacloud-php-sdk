@@ -14,8 +14,14 @@ class accessKeyLastUsed extends Model
      * @var string
      */
     public $lastUsedDate;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
         'lastUsedDate' => 'LastUsedDate',
+        'serviceName'  => 'ServiceName',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class accessKeyLastUsed extends Model
         $res = [];
         if (null !== $this->lastUsedDate) {
             $res['LastUsedDate'] = $this->lastUsedDate;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class accessKeyLastUsed extends Model
         $model = new self();
         if (isset($map['LastUsedDate'])) {
             $model->lastUsedDate = $map['LastUsedDate'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;
