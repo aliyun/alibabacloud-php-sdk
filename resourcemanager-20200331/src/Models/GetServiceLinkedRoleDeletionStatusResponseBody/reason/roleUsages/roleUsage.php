@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class roleUsage extends Model
 {
     /**
+     * @example global
+     *
      * @var string
      */
     public $region;

@@ -15,21 +15,29 @@ class ListControlPoliciesResponseBody extends Model
     public $controlPolicies;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9424A34C-3471-45AD-B6AB-924BBDFE42F9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

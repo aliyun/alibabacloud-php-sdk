@@ -14,6 +14,8 @@ class DeleteAccountRequest extends Model
     public $abandonableCheckId;
 
     /**
+     * @example 169946124551****
+     *
      * @var string
      */
     public $accountId;

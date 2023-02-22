@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsRequest extends Model
 {
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeTags;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -45,6 +57,8 @@ class ListResourceGroupsRequest extends Model
     public $resourceGroupIds;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $status;

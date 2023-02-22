@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListControlPolicyAttachmentsForTargetRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example fd-ZDNPiT****
+     *
      * @var string
      */
     public $targetId;

@@ -15,21 +15,29 @@ class ListDelegatedAdministratorsResponseBody extends Model
     public $accounts;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 009C3A02-7D4B-416C-9CE7-548C91508F1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

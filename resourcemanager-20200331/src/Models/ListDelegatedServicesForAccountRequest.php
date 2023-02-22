@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedServicesForAccountRequest extends Model
 {
     /**
+     * @example 138660628348****
+     *
      * @var string
      */
     public $accountId;

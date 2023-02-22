@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class folder extends Model
 {
     /**
+     * @example 2021-06-15T06:39:08.521Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example fd-Jyl5U7****
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example Applications
+     *
      * @var string
      */
     public $folderName;
 
     /**
+     * @example r-Wm****
+     *
      * @var string
      */
     public $parentFolderId;
 
     /**
+     * @example rd-3G****\/r-Wm****\/fd-Jyl5U7****
+     *
      * @var string
      */
     public $resourceDirectoryPath;

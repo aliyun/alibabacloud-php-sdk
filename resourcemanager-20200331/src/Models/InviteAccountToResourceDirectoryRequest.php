@@ -20,11 +20,15 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $tag;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $targetEntity;
 
     /**
+     * @example Email
+     *
      * @var string
      */
     public $targetType;

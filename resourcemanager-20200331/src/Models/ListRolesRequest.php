@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListRolesRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

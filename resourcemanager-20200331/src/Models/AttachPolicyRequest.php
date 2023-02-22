@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AttachPolicyRequest extends Model
 {
     /**
+     * @example AdministratorAccess
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example alice@demo.onaliyun.com
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @example IMSUser
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class controlPolicy extends Model
 {
     /**
+     * @example 44
+     *
      * @var string
      */
     public $attachmentCount;
 
     /**
+     * @example 2020-08-05T06:32:24Z
+     *
      * @var string
      */
     public $createDate;
@@ -24,26 +28,36 @@ class controlPolicy extends Model
     public $description;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $effectScope;
 
     /**
+     * @example cp-FullAliyunAccess
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example FullAliyunAccess
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example 2020-08-05T06:32:24Z
+     *
      * @var string
      */
     public $updateDate;

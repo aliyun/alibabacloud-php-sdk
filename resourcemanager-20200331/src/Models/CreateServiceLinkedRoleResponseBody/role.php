@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @example acs:ram::177242285274****:role/aliyunserviceroleforpolardb
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example {\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"polardb.aliyuncs.com\"]}}],\"Version\":\"1\"}
+     *
      * @var string
      */
     public $assumeRolePolicyDocument;
 
     /**
+     * @example 2020-06-30T08:14:16Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example Service Linked Role for PolarDB. PolarDB will use this role to access your resources in other services.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isServiceLinkedRole;
 
     /**
+     * @example 32833240981067****
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example AliyunServiceRoleForPolarDB
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example AliyunServiceRoleForPolarDB@role.test.onaliyunservice.com
+     *
      * @var string
      */
     public $rolePrincipalName;

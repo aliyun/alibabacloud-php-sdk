@@ -15,6 +15,8 @@ class GetAccountDeletionCheckResultResponseBody extends Model
     public $accountDeletionCheckResultInfo;
 
     /**
+     * @example 54AC391D-4F7F-5F08-B8D3-0AECDE6EC5BD
+     *
      * @var string
      */
     public $requestId;

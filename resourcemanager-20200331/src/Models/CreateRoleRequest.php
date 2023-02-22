@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoleRequest extends Model
 {
     /**
+     * @example { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::12345678901234****:root" } } ], "Version": "1" }
+     *
      * @var string
      */
     public $assumeRolePolicyDocument;
@@ -19,11 +21,15 @@ class CreateRoleRequest extends Model
     public $description;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $maxSessionDuration;
 
     /**
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceLinkedRoleRequest extends Model
 {
     /**
+     * @example Example
+     *
      * @var string
      */
     public $customSuffix;
 
     /**
+     * @example Service Linked Role for PolarDB. PolarDB will use this role to access your resources in other services.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example polardb.aliyuncs.com
+     *
      * @var string
      */
     public $serviceName;

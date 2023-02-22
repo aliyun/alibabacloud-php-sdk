@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFolderRequest extends Model
 {
     /**
+     * @example rdFolder
+     *
      * @var string
      */
     public $folderName;
 
     /**
+     * @example r-b1****
+     *
      * @var string
      */
     public $parentFolderId;

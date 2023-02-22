@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class handshake extends Model
 {
     /**
+     * @example 2018-08-10T09:55:41Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2018-08-10T09:55:41Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example h-ycm4rp****
+     *
      * @var string
      */
     public $handshakeId;
 
     /**
+     * @example 172841235500****
+     *
      * @var string
      */
     public $masterAccountId;
 
     /**
+     * @example Alice
+     *
      * @var string
      */
     public $masterAccountName;
 
     /**
+     * @example 2018-08-10T09:55:41Z
+     *
      * @var string
      */
     public $modifyTime;
@@ -44,21 +56,29 @@ class handshake extends Model
     public $note;
 
     /**
+     * @example rd-abcdef****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @example Declined
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $targetEntity;
 
     /**
+     * @example Email
+     *
      * @var string
      */
     public $targetType;

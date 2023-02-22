@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsForParentRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeTags;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example fd-bVaRIG****
+     *
      * @var string
      */
     public $parentFolderId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $queryKeyword;

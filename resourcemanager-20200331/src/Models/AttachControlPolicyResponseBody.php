@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachControlPolicyResponseBody extends Model
 {
     /**
+     * @example 95060F1D-6990-4645-8920-A81D1BBFE992
+     *
      * @var string
      */
     public $requestId;

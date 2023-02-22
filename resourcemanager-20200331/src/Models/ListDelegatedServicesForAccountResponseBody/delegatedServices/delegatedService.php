@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class delegatedService extends Model
 {
     /**
+     * @example 1616652684164
+     *
      * @var string
      */
     public $delegationEnabledTime;
 
     /**
+     * @example cloudfw.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;
 
     /**
+     * @example ENABLED
+     *
      * @var string
      */
     public $status;

@@ -16,6 +16,8 @@ class accountDeletionCheckResultInfo extends Model
     public $abandonableChecks;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $allowDelete;
@@ -26,6 +28,8 @@ class accountDeletionCheckResultInfo extends Model
     public $notAllowReason;
 
     /**
+     * @example PreCheckComplete
+     *
      * @var string
      */
     public $status;

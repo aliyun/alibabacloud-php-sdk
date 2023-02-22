@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-uPJpP****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example i-23v38****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $service;

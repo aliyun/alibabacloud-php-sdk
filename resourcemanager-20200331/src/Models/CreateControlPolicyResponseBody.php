@@ -15,6 +15,8 @@ class CreateControlPolicyResponseBody extends Model
     public $controlPolicy;
 
     /**
+     * @example 776B05B3-A0B0-464B-A191-F4E1119A94B2
+     *
      * @var string
      */
     public $requestId;

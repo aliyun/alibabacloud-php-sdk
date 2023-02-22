@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTrustedServiceStatusRequest extends Model
 {
     /**
+     * @example 177242285274****
+     *
      * @var string
      */
     public $adminAccountId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

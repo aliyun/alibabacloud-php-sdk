@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHandshakeRequest extends Model
 {
     /**
+     * @example h-ycm4rp****
+     *
      * @var string
      */
     public $handshakeId;

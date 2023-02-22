@@ -15,6 +15,8 @@ class AcceptHandshakeResponseBody extends Model
     public $handshake;
 
     /**
+     * @example 5828C836-3286-49A6-9006-15231BB19342
+     *
      * @var string
      */
     public $requestId;

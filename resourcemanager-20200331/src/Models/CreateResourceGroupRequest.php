@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceGroupRequest extends Model
 {
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $name;

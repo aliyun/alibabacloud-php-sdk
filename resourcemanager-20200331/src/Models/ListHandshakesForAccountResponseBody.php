@@ -15,21 +15,29 @@ class ListHandshakesForAccountResponseBody extends Model
     public $handshakes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

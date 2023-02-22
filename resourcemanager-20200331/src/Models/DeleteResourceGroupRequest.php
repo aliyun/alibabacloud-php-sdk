@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceGroupRequest extends Model
 {
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;

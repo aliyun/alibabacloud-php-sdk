@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateControlPolicyRequest extends Model
 {
     /**
+     * @example ExampleControlPolicy
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example RAM
+     *
      * @var string
      */
     public $effectScope;
 
     /**
+     * @example {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example ExampleControlPolicy
+     *
      * @var string
      */
     public $policyName;

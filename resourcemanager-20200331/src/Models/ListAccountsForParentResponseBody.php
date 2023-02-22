@@ -15,21 +15,29 @@ class ListAccountsForParentResponseBody extends Model
     public $accounts;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

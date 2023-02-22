@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeregisterDelegatedAdministratorResponseBody extends Model
 {
     /**
+     * @example DF5D5C52-7BD0-40E7-94C6-23A1505038A2
+     *
      * @var string
      */
     public $requestId;

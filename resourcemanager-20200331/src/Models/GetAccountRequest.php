@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAccountRequest extends Model
 {
     /**
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeTags;

@@ -15,6 +15,8 @@ class ListPolicyVersionsResponseBody extends Model
     public $policyVersions;
 
     /**
+     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+     *
      * @var string
      */
     public $requestId;

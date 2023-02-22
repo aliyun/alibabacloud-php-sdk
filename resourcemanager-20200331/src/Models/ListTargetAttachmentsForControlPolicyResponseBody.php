@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListTargetAttachmentsForControlPolicyResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B32BD3D6-1089-41F3-8E70-E0079BC7D760
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
     public $targetAttachments;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

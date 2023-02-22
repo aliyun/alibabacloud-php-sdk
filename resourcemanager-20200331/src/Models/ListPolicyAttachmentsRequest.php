@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyAttachmentsRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example AdministratorAccess
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example alice@demo.onaliyun.com
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @example IMSUser
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @example rg-001
+     *
      * @var string
      */
     public $resourceGroupId;

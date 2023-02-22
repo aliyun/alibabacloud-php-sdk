@@ -14,11 +14,15 @@ class CreatePolicyRequest extends Model
     public $description;
 
     /**
+     * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;

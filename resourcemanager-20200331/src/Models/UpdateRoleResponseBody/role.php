@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @example acs:ram::123456789012****:role/ECSAdmin
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example { \"Statement\": [ { \"Action\": \"sts:AssumeRole\", \"Effect\": \"Allow\", \"Principal\": { \"RAM\": \"acs:ram::12345678901234****:root\" } } ], \"Version\": \"1\" }
+     *
      * @var string
      */
     public $assumeRolePolicyDocument;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
@@ -29,26 +35,36 @@ class role extends Model
     public $description;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $maxSessionDuration;
 
     /**
+     * @example 90123456789****
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example ECSAdmin@role.123456.onaliyunservice.com
+     *
      * @var string
      */
     public $rolePrincipalName;
 
     /**
+     * @example 2016-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

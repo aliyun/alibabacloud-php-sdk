@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetControlPolicyRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example cp-SImPt8GCEwiq****
+     *
      * @var string
      */
     public $policyId;

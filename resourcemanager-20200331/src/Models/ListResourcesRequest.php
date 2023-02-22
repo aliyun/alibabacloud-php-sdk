@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example rg-uPJpP****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example i-23v38****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $service;

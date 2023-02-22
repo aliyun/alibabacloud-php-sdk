@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAncestorsRequest extends Model
 {
     /**
+     * @example fd-i1c9nr****
+     *
      * @var string
      */
     public $childId;

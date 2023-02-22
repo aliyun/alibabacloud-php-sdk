@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeregisterDelegatedAdministratorRequest extends Model
 {
     /**
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example cloudfw.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;

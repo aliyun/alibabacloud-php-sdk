@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class controlPolicy extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $attachmentCount;
 
     /**
+     * @example 2021-03-18T08:51:33Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example ExampleControlPolicy
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example RAM
+     *
      * @var string
      */
     public $effectScope;
 
     /**
+     * @example {\"Version\":\"1\",\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"ram:UpdateRole\",\"ram:DeleteRole\",\"ram:AttachPolicyToRole\",\"ram:DetachPolicyFromRole\"],\"Resource\":\"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole\"}]}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example cp-SImPt8GCEwiq****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example 2021-03-18T08:51:33Z
+     *
      * @var string
      */
     public $updateDate;

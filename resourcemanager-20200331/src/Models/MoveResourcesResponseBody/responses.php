@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responses extends Model
 {
     /**
+     * @example NoPermission
+     *
      * @var string
      */
     public $errorCode;
@@ -19,31 +21,43 @@ class responses extends Model
     public $errorMsg;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vpc-bp1sig0mjktx5ewx1****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @example FAIL
+     *
      * @var string
      */
     public $status;

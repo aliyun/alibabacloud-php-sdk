@@ -15,21 +15,29 @@ class ListTrustedServiceStatusResponseBody extends Model
     public $enabledServicePrincipals;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CD76D376-2517-4924-92C5-DBC52262F93A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

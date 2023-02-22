@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
 {
     /**
+     * @example 2021-12-17T07:38:41.747Z
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example DCD43660-75DD-5D15-B342-1B83FCA5B913
+     *
      * @var string
      */
     public $requestId;

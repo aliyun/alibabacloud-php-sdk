@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class resourceDirectory extends Model
 {
     /**
+     * @example 2021-12-08T02:15:31.744Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 507408460615****
+     *
      * @var string
      */
     public $masterAccountId;
 
     /**
+     * @example alice@example.com
+     *
      * @var string
      */
     public $masterAccountName;
 
     /**
+     * @example rd-54****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @example r-G9****
+     *
      * @var string
      */
     public $rootFolderId;

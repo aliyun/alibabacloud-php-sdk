@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetMemberDeletionPermissionRequest extends Model
 {
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;

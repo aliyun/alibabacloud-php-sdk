@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPayerForAccountRequest extends Model
 {
     /**
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;

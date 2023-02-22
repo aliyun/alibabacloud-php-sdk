@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PromoteResourceAccountRequest extends Model
 {
     /**
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;

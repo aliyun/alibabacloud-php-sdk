@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class EnableResourceDirectoryRequest extends Model
 {
     /**
+     * @example CurrentAccount
+     *
      * @var string
      */
     public $enableMode;
 
     /**
+     * @example user01@rdadmin.aliyunid.com
+     *
      * @var string
      */
     public $MAName;
 
     /**
+     * @example xx-13900001234
+     *
      * @var string
      */
     public $MASecureMobilePhone;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $verificationCode;

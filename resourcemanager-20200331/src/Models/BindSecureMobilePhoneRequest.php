@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BindSecureMobilePhoneRequest extends Model
 {
     /**
+     * @example 138660628348****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example xx-13900001234
+     *
      * @var string
      */
     public $secureMobilePhone;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $verificationCode;

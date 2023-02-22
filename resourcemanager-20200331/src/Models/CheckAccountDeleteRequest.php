@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountDeleteRequest extends Model
 {
     /**
+     * @example 179855839641****
+     *
      * @var string
      */
     public $accountId;

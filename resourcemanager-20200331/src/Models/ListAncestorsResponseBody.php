@@ -15,6 +15,8 @@ class ListAncestorsResponseBody extends Model
     public $folders;
 
     /**
+     * @example 83AFBEB6-DC03-406E-9686-867461FF6698
+     *
      * @var string
      */
     public $requestId;

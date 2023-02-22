@@ -10,24 +10,37 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceAccountRequest extends Model
 {
     /**
+     * @example alice
+     *
      * @var string
      */
     public $accountNamePrefix;
 
     /**
+     * @example Dev
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example fd-r23M55****
+     *
      * @var string
      */
     public $parentFolderId;
 
     /**
+     * @example 12323344****
+     *
      * @var string
      */
     public $payerAccountId;
+
+    /**
+     * @var string
+     */
+    public $resellAccountType;
 
     /**
      * @var tag[]
@@ -38,6 +51,7 @@ class CreateResourceAccountRequest extends Model
         'displayName'       => 'DisplayName',
         'parentFolderId'    => 'ParentFolderId',
         'payerAccountId'    => 'PayerAccountId',
+        'resellAccountType' => 'ResellAccountType',
         'tag'               => 'Tag',
     ];
 
@@ -59,6 +73,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
+        }
+        if (null !== $this->resellAccountType) {
+            $res['ResellAccountType'] = $this->resellAccountType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -92,6 +109,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
+        }
+        if (isset($map['ResellAccountType'])) {
+            $model->resellAccountType = $map['ResellAccountType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

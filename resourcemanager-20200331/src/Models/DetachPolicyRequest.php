@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DetachPolicyRequest extends Model
 {
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example alice@demo.onaliyun.com
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @example IMSUser
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @example task/acs-service-role/polardb.aliyuncs.com/AliyunServiceRoleForPolarDB/64c4f9cc-fac2-4692-ae1b-804ae4b9****
+     *
      * @var string
      */
     public $deletionTaskId;
 
     /**
+     * @example B595E5BF-FF5F-4E7F-B95A-B90FE242FEB6
+     *
      * @var string
      */
     public $requestId;

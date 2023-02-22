@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetachControlPolicyRequest extends Model
 {
     /**
+     * @example cp-jExXAqIYkwHN****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example fd-ZDNPiT****
+     *
      * @var string
      */
     public $targetId;

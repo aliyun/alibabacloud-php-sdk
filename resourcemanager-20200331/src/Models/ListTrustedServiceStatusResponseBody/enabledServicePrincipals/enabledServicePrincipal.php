@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class enabledServicePrincipal extends Model
 {
     /**
+     * @example 2019-02-18T15:32:10.473Z
+     *
      * @var string
      */
     public $enableTime;
 
     /**
+     * @example config.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;

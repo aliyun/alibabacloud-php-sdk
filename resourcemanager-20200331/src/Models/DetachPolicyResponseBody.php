@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachPolicyResponseBody extends Model
 {
     /**
+     * @example 697852FB-50D7-44D9-9774-530C31EAC572
+     *
      * @var string
      */
     public $requestId;

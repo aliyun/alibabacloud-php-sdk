@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetMemberDeletionPermissionResponseBody extends Model
 {
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $managementAccountId;
 
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $memberDeletionStatus;
 
     /**
+     * @example C55A4CAA-9039-1DDF-91CE-FCC134513D29
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rd-3G****
+     *
      * @var string
      */
     public $resourceDirectoryId;

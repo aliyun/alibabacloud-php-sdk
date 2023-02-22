@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $attachmentCount;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $defaultVersion;
@@ -29,21 +35,29 @@ class policy extends Model
     public $description;
 
     /**
+     * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example 2016-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

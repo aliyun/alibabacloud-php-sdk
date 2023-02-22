@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;

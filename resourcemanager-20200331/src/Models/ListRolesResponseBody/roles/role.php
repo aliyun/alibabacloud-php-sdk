@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @example acs:ram::123456789012****:role/ECSAdmin
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
@@ -25,6 +29,8 @@ class role extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isServiceLinkedRole;
@@ -35,26 +41,36 @@ class role extends Model
     public $latestDeletionTask;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $maxSessionDuration;
 
     /**
+     * @example 90123456789****
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example ECSAdmin@role.123456.onaliyunservice.com
+     *
      * @var string
      */
     public $rolePrincipalName;
 
     /**
+     * @example 2016-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

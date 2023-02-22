@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @example 138660628348****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 1616652684164
+     *
      * @var string
      */
     public $delegationEnabledTime;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $joinMethod;
 
     /**
+     * @example cloudfw.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;

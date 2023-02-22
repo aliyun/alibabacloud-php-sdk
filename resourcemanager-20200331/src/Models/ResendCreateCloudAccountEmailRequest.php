@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResendCreateCloudAccountEmailRequest extends Model
 {
     /**
+     * @example 06950264-3f0d-4ca9-82dd-6ee7a3d33d6b
+     *
      * @var string
      */
     public $recordId;

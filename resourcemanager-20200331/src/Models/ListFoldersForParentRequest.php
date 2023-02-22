@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersForParentRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example r-b1****
+     *
      * @var string
      */
     public $parentFolderId;
 
     /**
+     * @example rdFolder
+     *
      * @var string
      */
     public $queryKeyword;

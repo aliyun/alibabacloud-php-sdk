@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateControlPolicyRequest extends Model
 {
     /**
+     * @example ExampleControlPolicy
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @example {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
+     *
      * @var string
      */
     public $newPolicyDocument;
 
     /**
+     * @example NewControlPolicy
+     *
      * @var string
      */
     public $newPolicyName;
 
     /**
+     * @example cp-jExXAqIYkwHN****
+     *
      * @var string
      */
     public $policyId;

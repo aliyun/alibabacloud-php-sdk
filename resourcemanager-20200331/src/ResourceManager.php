@@ -14,12 +14,16 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\BindSecureMobilePhoneRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\BindSecureMobilePhoneResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelChangeAccountEmailRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelCreateCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelCreateCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelHandshakeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ChangeAccountEmailRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountRequest;
@@ -156,6 +160,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendCreateCloudAccountEm
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendCreateCloudAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendPromoteResourceAccountEmailRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendPromoteResourceAccountEmailResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RetryChangeAccountEmailRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RetryChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForBindSecureMobilePhoneRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForBindSecureMobilePhoneResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForEnableRDRequest;
@@ -436,6 +442,49 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param CancelChangeAccountEmailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelChangeAccountEmailResponse
+     */
+    public function cancelChangeAccountEmailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelChangeAccountEmail',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelChangeAccountEmailRequest $request
+     *
+     * @return CancelChangeAccountEmailResponse
+     */
+    public function cancelChangeAccountEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelChangeAccountEmailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelCreateCloudAccountRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -562,6 +611,52 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelPromoteResourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeAccountEmailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ChangeAccountEmailResponse
+     */
+    public function changeAccountEmailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeAccountEmail',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeAccountEmailRequest $request
+     *
+     * @return ChangeAccountEmailResponse
+     */
+    public function changeAccountEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeAccountEmailWithOptions($request, $runtime);
     }
 
     /**
@@ -876,6 +971,9 @@ class ResourceManager extends OpenApiClient
         }
         if (!Utils::isUnset($request->payerAccountId)) {
             $query['PayerAccountId'] = $request->payerAccountId;
+        }
+        if (!Utils::isUnset($request->resellAccountType)) {
+            $query['ResellAccountType'] = $request->resellAccountType;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -3874,6 +3972,49 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resendPromoteResourceAccountEmailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetryChangeAccountEmailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RetryChangeAccountEmailResponse
+     */
+    public function retryChangeAccountEmailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryChangeAccountEmail',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryChangeAccountEmailRequest $request
+     *
+     * @return RetryChangeAccountEmailResponse
+     */
+    public function retryChangeAccountEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryChangeAccountEmailWithOptions($request, $runtime);
     }
 
     /**

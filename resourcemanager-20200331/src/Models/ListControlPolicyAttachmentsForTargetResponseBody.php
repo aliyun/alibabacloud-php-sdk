@@ -15,6 +15,8 @@ class ListControlPolicyAttachmentsForTargetResponseBody extends Model
     public $controlPolicyAttachments;
 
     /**
+     * @example C276B600-7B7A-49E8-938C-E16CFA955A82
+     *
      * @var string
      */
     public $requestId;

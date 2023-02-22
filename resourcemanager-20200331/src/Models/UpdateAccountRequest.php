@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountRequest extends Model
 {
     /**
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example ResourceAccount
+     *
      * @var string
      */
     public $newAccountType;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $newDisplayName;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class reason extends Model
 {
     /**
+     * @example Service-Linked Role acs:ram::196813227629****:role/aliyunserviceroleforhdr cannot be deleted as it is in use by hdr.aliyuncs.com.
+     *
      * @var string
      */
     public $message;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EnableControlPolicyResponseBody extends Model
 {
     /**
+     * @example PendingEnable
+     *
      * @var string
      */
     public $enablementStatus;
 
     /**
+     * @example 8CE7BD95-EFFA-4911-A1E0-BD4412697FEB
+     *
      * @var string
      */
     public $requestId;

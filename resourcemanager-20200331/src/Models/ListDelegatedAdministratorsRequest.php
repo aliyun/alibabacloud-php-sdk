@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedAdministratorsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cloudfw.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;

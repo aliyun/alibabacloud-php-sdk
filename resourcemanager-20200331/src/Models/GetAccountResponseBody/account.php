@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $displayName;
@@ -27,44 +33,67 @@ class account extends Model
     /**
      * @var string
      */
+    public $emailStatus;
+
+    /**
+     * @example fd-bVaRIG****
+     *
+     * @var string
+     */
     public $folderId;
 
     /**
+     * @example aliyun-admin
+     *
      * @var string
      */
     public $identityInformation;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $joinMethod;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $joinTime;
 
     /**
+     * @example root/AlRd****\/Z5Aa****
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example rd-k3****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @example rd-k3****\/r-Wm****\/fd-bVaRIG****\/181761095690****
+     *
      * @var string
      */
     public $resourceDirectoryPath;
 
     /**
+     * @example CreateSuccess
+     *
      * @var string
      */
     public $status;
@@ -75,6 +104,8 @@ class account extends Model
     public $tags;
 
     /**
+     * @example ResourceAccount
+     *
      * @var string
      */
     public $type;
@@ -82,6 +113,7 @@ class account extends Model
         'accountId'             => 'AccountId',
         'accountName'           => 'AccountName',
         'displayName'           => 'DisplayName',
+        'emailStatus'           => 'EmailStatus',
         'folderId'              => 'FolderId',
         'identityInformation'   => 'IdentityInformation',
         'joinMethod'            => 'JoinMethod',
@@ -110,6 +142,9 @@ class account extends Model
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->emailStatus) {
+            $res['EmailStatus'] = $this->emailStatus;
         }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
@@ -170,6 +205,9 @@ class account extends Model
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['EmailStatus'])) {
+            $model->emailStatus = $map['EmailStatus'];
         }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];

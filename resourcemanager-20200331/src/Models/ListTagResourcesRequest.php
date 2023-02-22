@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -25,6 +29,8 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @example ResourceGroup
+     *
      * @var string
      */
     public $resourceType;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class regionStatus extends Model
 {
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example PendingDelete
+     *
      * @var string
      */
     public $status;

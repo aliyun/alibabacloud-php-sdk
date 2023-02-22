@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationCodeForEnableRDRequest extends Model
 {
     /**
+     * @example xx-13900001234
+     *
      * @var string
      */
     public $secureMobilePhone;

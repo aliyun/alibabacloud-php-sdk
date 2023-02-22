@@ -15,6 +15,8 @@ class UpdateControlPolicyResponseBody extends Model
     public $controlPolicy;
 
     /**
+     * @example 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
+     *
      * @var string
      */
     public $requestId;

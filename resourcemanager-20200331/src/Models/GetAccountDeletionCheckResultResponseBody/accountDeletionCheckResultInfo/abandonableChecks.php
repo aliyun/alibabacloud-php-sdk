@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class abandonableChecks extends Model
 {
     /**
+     * @example NON_SP_cs
+     *
      * @var string
      */
     public $checkId;

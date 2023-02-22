@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteControlPolicyRequest extends Model
 {
     /**
+     * @example cp-SImPt8GCEwiq****
+     *
      * @var string
      */
     public $policyId;

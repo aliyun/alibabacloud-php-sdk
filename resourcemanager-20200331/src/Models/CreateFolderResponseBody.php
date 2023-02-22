@@ -15,6 +15,8 @@ class CreateFolderResponseBody extends Model
     public $folder;
 
     /**
+     * @example C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
+     *
      * @var string
      */
     public $requestId;

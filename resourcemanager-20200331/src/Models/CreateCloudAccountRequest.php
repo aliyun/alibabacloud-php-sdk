@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudAccountRequest extends Model
 {
     /**
+     * @example admin-****
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example fd-bVaRIG****
+     *
      * @var string
      */
     public $parentFolderId;
 
     /**
+     * @example 12323344****
+     *
      * @var string
      */
     public $payerAccountId;

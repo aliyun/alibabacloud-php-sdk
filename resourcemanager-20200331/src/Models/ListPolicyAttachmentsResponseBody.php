@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyAttachmentsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class ListPolicyAttachmentsResponseBody extends Model
     public $policyAttachments;
 
     /**
+     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

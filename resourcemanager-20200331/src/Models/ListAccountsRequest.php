@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeTags;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

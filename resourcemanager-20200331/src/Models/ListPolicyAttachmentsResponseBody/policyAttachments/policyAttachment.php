@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policyAttachment extends Model
 {
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $attachDate;
@@ -19,26 +21,36 @@ class policyAttachment extends Model
     public $description;
 
     /**
+     * @example AdministratorAccess
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example alice@demo.onaliyun.com
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @example IMSUser
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;

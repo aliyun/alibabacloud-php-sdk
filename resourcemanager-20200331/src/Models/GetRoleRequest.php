@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetRoleRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;

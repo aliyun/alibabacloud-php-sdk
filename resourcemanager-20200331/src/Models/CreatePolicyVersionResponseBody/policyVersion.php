@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class policyVersion extends Model
 {
     /**
+     * @example 2015-01-23T12:33:18
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefaultVersion;
 
     /**
+     * @example v3
+     *
      * @var string
      */
     public $versionId;

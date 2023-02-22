@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @example 184311716100****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example fd-bVaRIG****
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $joinMethod;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $joinTime;
 
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example rd-k4****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @example CreateSuccess
+     *
      * @var string
      */
     public $status;
@@ -55,6 +71,8 @@ class account extends Model
     public $tags;
 
     /**
+     * @example ResourceAccount
+     *
      * @var string
      */
     public $type;

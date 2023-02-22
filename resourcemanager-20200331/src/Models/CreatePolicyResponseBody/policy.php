@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $defaultVersion;
@@ -24,11 +28,15 @@ class policy extends Model
     public $description;
 
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;

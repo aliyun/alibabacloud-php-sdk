@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class resourceGroup extends Model
 {
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 2021-06-05T14:39:13+08:00
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example my-project
+     *
      * @var string
      */
     public $name;
@@ -40,6 +50,8 @@ class resourceGroup extends Model
     public $regionStatuses;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;

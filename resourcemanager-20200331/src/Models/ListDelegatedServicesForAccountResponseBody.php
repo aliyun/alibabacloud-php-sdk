@@ -15,6 +15,8 @@ class ListDelegatedServicesForAccountResponseBody extends Model
     public $delegatedServices;
 
     /**
+     * @example D9C03B94-9396-4794-A74B-13DC437556A6
+     *
      * @var string
      */
     public $requestId;

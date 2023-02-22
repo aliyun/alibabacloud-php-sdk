@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyVersionRequest extends Model
 {
     /**
+     * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $setAsDefault;

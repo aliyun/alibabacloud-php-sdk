@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class targetAttachment extends Model
 {
     /**
+     * @example 2021-03-19T02:56:24Z
+     *
      * @var string
      */
     public $attachDate;
 
     /**
+     * @example fd-ZDNPiT****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @example Dev_Department
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example Folder
+     *
      * @var string
      */
     public $targetType;

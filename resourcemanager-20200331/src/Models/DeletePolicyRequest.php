@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyRequest extends Model
 {
     /**
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;

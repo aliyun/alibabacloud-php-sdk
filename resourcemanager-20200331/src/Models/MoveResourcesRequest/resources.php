@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-bp1sig0mjktx5ewx1****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $service;

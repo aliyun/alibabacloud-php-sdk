@@ -10,46 +10,64 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example fd-QRzuim****
+     *
      * @var string
      */
     public $folderId;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $joinMethod;
 
     /**
+     * @example 2021-01-18T08:01:50.522Z
+     *
      * @var string
      */
     public $joinTime;
 
     /**
+     * @example 2021-01-18T08:04:37.668Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example rd-3G****
+     *
      * @var string
      */
     public $resourceDirectoryId;
 
     /**
+     * @example rd-3G****\/r-Wm****\/fd-QRzuim****\/181761095690****
+     *
      * @var string
      */
     public $resourceDirectoryPath;
 
     /**
+     * @example CreateSuccess
+     *
      * @var string
      */
     public $status;
@@ -60,6 +78,8 @@ class account extends Model
     public $tags;
 
     /**
+     * @example ResourceAccount
+     *
      * @var string
      */
     public $type;

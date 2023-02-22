@@ -14,6 +14,8 @@ class DeleteAccountShrinkRequest extends Model
     public $abandonableCheckIdShrink;
 
     /**
+     * @example 169946124551****
+     *
      * @var string
      */
     public $accountId;

@@ -15,11 +15,15 @@ class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
     public $reason;
 
     /**
+     * @example 07194EB1-DB50-4513-A51D-99B30D635AEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $status;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupRequest extends Model
 {
     /**
+     * @example project
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;

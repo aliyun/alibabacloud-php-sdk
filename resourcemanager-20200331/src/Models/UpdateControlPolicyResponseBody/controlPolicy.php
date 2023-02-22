@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class controlPolicy extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $attachmentCount;
 
     /**
+     * @example 2021-03-18T09:24:19Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example ExampleControlPolicy
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example RAM
+     *
      * @var string
      */
     public $effectScope;
 
     /**
+     * @example cp-jExXAqIYkwHN****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example NewControlPolicy
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @example 2021-03-18T10:04:55Z
+     *
      * @var string
      */
     public $updateDate;

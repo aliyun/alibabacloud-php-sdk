@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFolderRequest extends Model
 {
     /**
+     * @example fd-Jyl5U7****
+     *
      * @var string
      */
     public $folderId;

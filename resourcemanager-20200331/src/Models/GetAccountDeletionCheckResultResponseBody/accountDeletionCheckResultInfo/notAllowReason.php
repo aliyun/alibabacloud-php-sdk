@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class notAllowReason extends Model
 {
     /**
+     * @example NON_SP_efc
+     *
      * @var string
      */
     public $checkId;
 
     /**
+     * @example Enterprise finance
+     *
      * @var string
      */
     public $checkName;
 
     /**
+     * @example This account is an Enterprise Finance associated account. Please remove the financial association of this account before deleting it.
+     *
      * @var string
      */
     public $description;

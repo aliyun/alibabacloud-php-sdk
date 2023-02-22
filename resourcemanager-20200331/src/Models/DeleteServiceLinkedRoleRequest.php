@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceLinkedRoleRequest extends Model
 {
     /**
+     * @example AliyunServiceRoleForPolarDB
+     *
      * @var string
      */
     public $roleName;
