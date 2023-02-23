@@ -20,7 +20,7 @@ class IPLocationInfo extends Model
     /**
      * @description The name of the city to which the IP address belongs.
      *
-     * @example Chengdu
+     * @example Chengdu, Sichuan Province
      *
      * @var string
      */

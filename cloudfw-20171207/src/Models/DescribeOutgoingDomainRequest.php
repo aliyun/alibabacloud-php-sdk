@@ -9,13 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDomainRequest extends Model
 {
     /**
-     * @description The ID of the product category. Default value: empty. Valid values:
+     * @description The type of the service. This parameter is empty by default. Valid values:
      *
-     * -  **All**: All categories.
-     * - **RiskDomain**: Risk domain name category.
-     * - **RiskIP**: Risk IP category.
-     * - **AliYun**: Cloud product category.
-     * - **NotAliYun**: Non-Cloud products.
+     *   **All**: all services
+     *   **RiskDomain**: risky domain names
+     *   **RiskIP**: risky IP addresses
+     *   **AliYun**: Alibaba Cloud services
+     *   **NotAliYun**: third-party services
+     *
      * @example All
      *
      * @var string
@@ -25,7 +26,7 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * Pages start from page 1. Default value: 1.
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -63,9 +64,9 @@ class DescribeOutgoingDomainRequest extends Model
     public $lang;
 
     /**
-     * @description The order in which you want to sort the queried information. Valid values:
+     * @description The order in which you want to sort the query results. Valid values:
      *
-     *   **asc**: the ascending order
+     *   **asc**: the ascending order.
      *   **desc**: the descending order. This is the default value.
      *
      * @example desc
@@ -85,7 +86,7 @@ class DescribeOutgoingDomainRequest extends Model
     public $pageSize;
 
     /**
-     * @description The public IP address of the Elastic Compute Service (ECS) instance that initiates the outbound connection.
+     * @description The public IP address of the Elastic Compute Service (ECS) instance that initiates outbound connections.
      *
      * @example 192.0.XX.XX
      *
@@ -94,7 +95,7 @@ class DescribeOutgoingDomainRequest extends Model
     public $publicIP;
 
     /**
-     * @description The field based on which you want to sort the queried information. Valid values:
+     * @description The field based on which you want to sort the query results. Valid values:
      *
      *   **SessionCount**: the number of requests. This is the default value.
      *   **TotalBytes**: the total volume of traffic.
@@ -135,7 +136,7 @@ class DescribeOutgoingDomainRequest extends Model
      *   **Taobao**: Taobao
      *   **Google**: Google
      *   **ThirdPartyService**: third-party service
-     *   **FirstFlow**: the first time
+     *   **FirstFlow**: the first time when an outbound connection is initiated
      *   **Downloader**: malicious download
      *   **Alexa Top1M**: popular website
      *   **Miner**: mining pool
@@ -146,7 +147,7 @@ class DescribeOutgoingDomainRequest extends Model
      *   **Rogue**: rogue software
      *   **Botnet**: botnet
      *   **Suspicious**: suspicious website
-     *   **C&C**: command and control (C&C)
+     *   **C\&C**: command and control (C\&C)
      *   **Gang**: gang
      *   **CVE**: Common Vulnerabilities and Exposures (CVE)
      *   **Backdoor**: webshell

@@ -37,7 +37,7 @@ class tagList extends Model
     /**
      * @description The description of the tag.
      *
-     * @example White list
+     * @example Tag indicating that the domain name is added to the whitelist
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class tagList extends Model
     /**
      * @description The ID of the tag.
      *
-     * @example 123****
+     * @example AliYun
      *
      * @var string
      */
@@ -55,7 +55,7 @@ class tagList extends Model
     /**
      * @description The name of the tag.
      *
-     * @example Whitelist
+     * @example Tag indicating that the domain name is added to the whitelist
      *
      * @var string
      */

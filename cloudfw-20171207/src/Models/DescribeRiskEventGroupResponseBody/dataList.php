@@ -24,19 +24,19 @@ class dataList extends Model
     /**
      * @description The attack type of the intrusion event. Valid values:
      *
-     * **1**: suspicious connection
-     * **2**: command execution
-     * **3**: brute-force attack
-     * **4**: scanning
-     * **5**: others
-     * **6**: information leak
-     * **7**: DoS attack
-     * **8**: buffer overflow attack
-     * **9**: web attack
-     * **10**: trojan backdoor
-     * **11**: computer worm
-     * **12**: mining
-     * **13**: reverse shell
+     *   **1**: suspicious connection
+     *   **2**: command execution
+     *   **3**: brute-force attack
+     *   **4**: scanning
+     *   **5**: others
+     *   **6**: information leak
+     *   **7**: DoS attack
+     *   **8**: buffer overflow attack
+     *   **9**: web attack
+     *   **10**: trojan backdoor
+     *   **11**: computer worm
+     *   **12**: mining
+     *   **13**: reverse shell
      *
      * @example 1
      *
@@ -47,7 +47,7 @@ class dataList extends Model
     /**
      * @description The description of the intrusion event.
      *
-     * @example the test event.
+     * @example Path traversal attacks are detected in the web access requests over HTTP.
      *
      * @var string
      */
@@ -95,7 +95,7 @@ class dataList extends Model
     /**
      * @description The name of the intrusion event.
      *
-     * @example intEventName
+     * @example Path traversal attack
      *
      * @var string
      */
@@ -111,8 +111,8 @@ class dataList extends Model
     public $firstEventTime;
 
     /**
-     * @description The information about the geographical location of the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.
-     *
+     * @description The information about the geographical location of the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\
+     ****************
      * @var IPLocationInfo
      */
     public $IPLocationInfo;
@@ -127,8 +127,8 @@ class dataList extends Model
     public $lastEventTime;
 
     /**
-     * @description The information about the private IP address of the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.
-     *
+     * @description The information about the private IP address of the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\
+     ****************
      * @var resourcePrivateIPList[]
      */
     public $resourcePrivateIPList;
@@ -192,7 +192,7 @@ class dataList extends Model
     public $srcIP;
 
     /**
-     * @description The source IP tag. It is used to identify whether it is the cloud product back to the source IP.
+     * @description The tag added to the source IP address. The tag helps identify whether the source IP address is a back-to-origin IP address for a cloud service.
      *
      * @example WAF Back-to-origin Address
      *
@@ -203,7 +203,6 @@ class dataList extends Model
     /**
      * @description The source private IP addresses of the intrusion event.
      *
-     * >  The value of this parameter is returned only when you set Direction to out.
      * @var string[]
      */
     public $srcPrivateIPList;
@@ -211,22 +210,22 @@ class dataList extends Model
     /**
      * @description The tag added to the threat intelligence that is provided for major events.
      *
-     * @example ScheduleTag
+     * @example Threat intelligence provided for major events
      *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.
-     *
+     * @description The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\
+     ********************
      * @var vpcDstInfo
      */
     public $vpcDstInfo;
 
     /**
-     * @description The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.
-     *
+     * @description The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\
+     ********************
      * @var vpcSrcInfo
      */
     public $vpcSrcInfo;

@@ -12,8 +12,8 @@ class domainList extends Model
     /**
      * @description Indicates whether an access control policy is configured. Valid values:
      *
-     *   **Uncovered**: No access control policies are configured.
-     *   **FullCoverage**: An access control policy is configured.
+     *   **Uncovered**: no
+     *   **FullCoverage**: yes
      *
      * @example Uncovered
      *
@@ -24,7 +24,7 @@ class domainList extends Model
     /**
      * @description The suggestion in an access control policy.
      *
-     * @example suggest discharged
+     * @example Allows the traffic.
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class domainList extends Model
     /**
      * @description The name of the address book.
      *
-     * @example my_address_book
+     * @example The address book for outbound connections
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class domainList extends Model
     /**
      * @description The website service.
      *
-     * @example alibabacloud
+     * @example Alibaba Cloud
      *
      * @var string
      */
@@ -83,7 +83,7 @@ class domainList extends Model
     public $categoryClassId;
 
     /**
-     * @description The ID of the service to which the destination IP address belongs. Valid values:
+     * @description The type ID of the service to which the domain name belongs. Valid values:
      *
      *   **Aliyun**: Alibaba Cloud services
      *   **NotAliyun**: third-party services
@@ -98,7 +98,7 @@ class domainList extends Model
      * @description The type of the service to which the domain name belongs. Valid values:
      *
      *   **Alibaba Cloud services**
-     *   **third-party services**
+     *   **Third-party services**
      *
      * @example Alibaba Cloud services
      *
@@ -118,7 +118,7 @@ class domainList extends Model
     /**
      * @description The name of the group to which the access control policy belongs.
      *
-     * @example my_group
+     * @example Group of addresses in outbound connections
      *
      * @var string
      */
@@ -149,7 +149,7 @@ class domainList extends Model
     public $hasAclRecommend;
 
     /**
-     * @description The inbound traffic.
+     * @description The volume of inbound traffic.
      *
      * @example 3214
      *
@@ -172,14 +172,14 @@ class domainList extends Model
     /**
      * @description The name of the organization.
      *
-     * @example My ORG
+     * @example Alibaba Cloud Computing Co., Ltd.
      *
      * @var string
      */
     public $organization;
 
     /**
-     * @description The outbound traffic.
+     * @description The volume of outbound traffic.
      *
      * @example 4582
      *
@@ -199,7 +199,7 @@ class domainList extends Model
     /**
      * @description The name of the access control policy.
      *
-     * @example default-rule
+     * @example Default rule
      *
      * @var string
      */
@@ -208,7 +208,7 @@ class domainList extends Model
     /**
      * @description The reason why the domain name is secure.
      *
-     * @example Smart strategy: The organization of the destination domain name is Alibaba Cloud Computing Co., Ltd., and its main business is Alibaba Cloud. No security risks have been found, and it can be used to configure the whitelist for outreach.
+     * @example Intelligent policy: The destination domain name belongs to Alibaba Cloud Computing Co., Ltd. The domain name mainly provides services for Alibaba Cloud. No security risks are found, and you can add the domain name to the whitelist.
      *
      * @var string
      */

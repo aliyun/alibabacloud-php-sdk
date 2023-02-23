@@ -37,6 +37,11 @@ class assets extends Model
     public $bindInstanceName;
 
     /**
+     * @var string
+     */
+    public $createTimeStamp;
+
+    /**
      * @description The public IP address of the server.
      *
      * @example 192.0.XX.XX
@@ -85,6 +90,11 @@ class assets extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $newResourceTag;
 
     /**
      * @description The remarks of the asset. Valid values:
@@ -223,11 +233,13 @@ class assets extends Model
         'aliUid'             => 'AliUid',
         'bindInstanceId'     => 'BindInstanceId',
         'bindInstanceName'   => 'BindInstanceName',
+        'createTimeStamp'    => 'CreateTimeStamp',
         'internetAddress'    => 'InternetAddress',
         'intranetAddress'    => 'IntranetAddress',
         'ipVersion'          => 'IpVersion',
         'memberUid'          => 'MemberUid',
         'name'               => 'Name',
+        'newResourceTag'     => 'NewResourceTag',
         'note'               => 'Note',
         'protectStatus'      => 'ProtectStatus',
         'regionID'           => 'RegionID',
@@ -257,6 +269,9 @@ class assets extends Model
         if (null !== $this->bindInstanceName) {
             $res['BindInstanceName'] = $this->bindInstanceName;
         }
+        if (null !== $this->createTimeStamp) {
+            $res['CreateTimeStamp'] = $this->createTimeStamp;
+        }
         if (null !== $this->internetAddress) {
             $res['InternetAddress'] = $this->internetAddress;
         }
@@ -271,6 +286,9 @@ class assets extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->newResourceTag) {
+            $res['NewResourceTag'] = $this->newResourceTag;
         }
         if (null !== $this->note) {
             $res['Note'] = $this->note;
@@ -326,6 +344,9 @@ class assets extends Model
         if (isset($map['BindInstanceName'])) {
             $model->bindInstanceName = $map['BindInstanceName'];
         }
+        if (isset($map['CreateTimeStamp'])) {
+            $model->createTimeStamp = $map['CreateTimeStamp'];
+        }
         if (isset($map['InternetAddress'])) {
             $model->internetAddress = $map['InternetAddress'];
         }
@@ -340,6 +361,9 @@ class assets extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NewResourceTag'])) {
+            $model->newResourceTag = $map['NewResourceTag'];
         }
         if (isset($map['Note'])) {
             $model->note = $map['Note'];

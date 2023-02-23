@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskEventGroupRequest extends Model
 {
     /**
-     * @description The name list of the attacked application.
+     * @description The names of attacked applications. Set the value in the `["AttackApp1","AttackApp2"]` format.
      *
      * @example ["MySql","DNS"]
      *
@@ -20,19 +20,19 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The attack type of the intrusion events. Valid values:
      *
-     * **1**: suspicious connection
-     * **2**: command execution
-     * **3**: brute-force attack
-     * **4**: scanning
-     * **5**: others
-     * **6**: information leak
-     * **7**: DoS attack
-     * **8**: buffer overflow attack
-     * **9**: web attack
-     * **10**: trojan backdoor
-     * **11**: computer worm
-     * **12**: mining
-     * **13**: reverse shell
+     *   **1**: suspicious connection
+     *   **2**: command execution
+     *   **3**: brute-force attack
+     *   **4**: scanning
+     *   **5**: others
+     *   **6**: information leak
+     *   **7**: DoS attack
+     *   **8**: buffer overflow attack
+     *   **9**: web attack
+     *   **10**: trojan backdoor
+     *   **11**: computer worm
+     *   **12**: mining
+     *   **13**: reverse shell
      *
      * > If you do not specify this parameter, the intrusion events of all attack types are queried.
      * @example 1
@@ -44,10 +44,10 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The edition of Cloud Firewall that you purchase. Valid values:
      *
-     * **2**: Premium Edition
-     * **3**: Enterprise Edition
-     * **4**: Ultimate Edition
-     * **10**: pay-as-you-go edition
+     *   **2**: Premium Edition
+     *   **3**: Enterprise Edition
+     *   **4**: Ultimate Edition
+     *   **10**: Cloud Firewall that uses the pay-as-you-go billing method
      *
      * @example 10
      *
@@ -56,9 +56,8 @@ class DescribeRiskEventGroupRequest extends Model
     public $buyVersion;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of the page to return. Default value: **1**.
      *
-     * Default value: **1**.
      * @example 1
      *
      * @var string
@@ -66,8 +65,7 @@ class DescribeRiskEventGroupRequest extends Model
     public $currentPage;
 
     /**
-     * @description The type of the risk events.
-     *
+     * @description The type of the risk events.\
      * Set the value to **session**, which indicates intrusion events.
      * @example session
      *
@@ -78,10 +76,10 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The direction of the traffic for the intrusion events. Valid values:
      *
-     * **in**: inbound
-     * **out**: outbound
+     *   **in**: inbound
+     *   **out**: outbound
      *
-     * >  If you do not specify this parameter, the intrusion events in both inbound and outbound directions are queried.
+     * > If you do not specify this parameter, the intrusion events in both inbound and outbound directions are queried.
      * @example in
      *
      * @var string
@@ -100,7 +98,7 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The ID of the destination VPC.
      *
-     * >  You must specify this parameter when the FirewallType parameter is set to VpcFirewall.
+     * > If the FirewallType parameter is set to VpcFirewall, you must specify this parameter.
      * @example vpc-uf6e9a9zyokj2ywuo****
      *
      * @var string
@@ -119,8 +117,8 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The type of the firewall. Valid values:
      *
-     * **VpcFirewall**: virtual private cloud (VPC) firewall
-     * **InternetFirewall**: Internet firewall (default)
+     *   **VpcFirewall**: virtual private cloud (VPC) firewall
+     *   **InternetFirewall**: Internet firewall (default)
      *
      * @example InternetFirewall
      *
@@ -129,10 +127,10 @@ class DescribeRiskEventGroupRequest extends Model
     public $firewallType;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
+     * @description The language of the content within the request and response. Valid values:
      *
-     * **zh**: Chinese (default)
-     * **en**: English
+     *   **zh**: Chinese (default)
+     *   **en**: English
      *
      * @example zh
      *
@@ -143,8 +141,8 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description Specifies whether to query the information about the geographical locations of IP addresses.
      *
-     * **true**: does not query the information about the geographical locations of IP addresses.
-     * **false**: queries the information about the geographical locations of IP addresses. This is the default value.
+     *   **true**: does not query the information about the geographical locations of IP addresses.
+     *   **false**: queries the information about the geographical locations of IP addresses. This is the default value.
      *
      * @example false
      *
@@ -153,9 +151,9 @@ class DescribeRiskEventGroupRequest extends Model
     public $noLocation;
 
     /**
-     * @description The method that is used to sort the results. Valid values:
+     * @description The order in which you want to sort the query results. Valid values:
      *
-     *   **asc**: the ascending order
+     *   **asc**: the ascending order.
      *   **desc**: the descending order. This is the default value.
      *
      * @example desc
@@ -177,10 +175,10 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The status of the firewall. Valid values:
      *
-     * **1**: alerting
-     * **2**: blocking
+     *   **1**: alerting
+     *   **2**: blocking
      *
-     * > If you do not specify this parameter, the intrusion events that are detected by all firewalls are queried.
+     * > If you do not specify this parameter, the intrusion events that are detected by firewalls in both states are queried.
      * @example 1
      *
      * @var string
@@ -190,9 +188,9 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The module of the rule that is used to detect the intrusion events. Valid values:
      *
-     * **1**: basic protection
-     * **2**: virtual patching
-     * **4**: threat intelligence
+     *   **1**: basic protection
+     *   **2**: virtual patching
+     *   **4**: threat intelligence
      *
      * > If you do not specify this parameter, the intrusion events that are detected by using all rules are queried.
      * @example 1
@@ -214,7 +212,7 @@ class DescribeRiskEventGroupRequest extends Model
     public $sort;
 
     /**
-     * @description The source IP address to query. If you specify this parameter, all intrusion events from the specified source IP address are queried.
+     * @description The source IP address to query. If you specify this parameter, all intrusion events with the specified source IP address are queried.
      *
      * @example 192.0.XX.XX
      *
@@ -225,7 +223,7 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The ID of the source VPC.
      *
-     * >  You must specify this parameter when the FirewallType parameter is set to VpcFirewall.
+     * > If the FirewallType parameter is set to VpcFirewall, you must specify this parameter.
      * @example vpc-uf6e9a9zyokj2ywuo****
      *
      * @var string
@@ -244,9 +242,9 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The risk level of the intrusion events. Valid values:
      *
-     * **1**: low
-     * **2**: medium
-     * **3**: high
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
      *
      * > If you do not specify this parameter, the intrusion events that are at all risk levels are queried.
      * @example 1

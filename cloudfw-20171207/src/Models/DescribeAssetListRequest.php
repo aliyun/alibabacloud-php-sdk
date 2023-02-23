@@ -51,6 +51,11 @@ class DescribeAssetListRequest extends Model
     public $memberUid;
 
     /**
+     * @var string
+     */
+    public $newResourceTag;
+
+    /**
      * @description The number of entries to return on each page.
      *
      * @example 10
@@ -151,18 +156,19 @@ class DescribeAssetListRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'ipVersion'    => 'IpVersion',
-        'lang'         => 'Lang',
-        'memberUid'    => 'MemberUid',
-        'pageSize'     => 'PageSize',
-        'regionNo'     => 'RegionNo',
-        'resourceType' => 'ResourceType',
-        'searchItem'   => 'SearchItem',
-        'sgStatus'     => 'SgStatus',
-        'status'       => 'Status',
-        'type'         => 'Type',
-        'userType'     => 'UserType',
+        'currentPage'    => 'CurrentPage',
+        'ipVersion'      => 'IpVersion',
+        'lang'           => 'Lang',
+        'memberUid'      => 'MemberUid',
+        'newResourceTag' => 'NewResourceTag',
+        'pageSize'       => 'PageSize',
+        'regionNo'       => 'RegionNo',
+        'resourceType'   => 'ResourceType',
+        'searchItem'     => 'SearchItem',
+        'sgStatus'       => 'SgStatus',
+        'status'         => 'Status',
+        'type'           => 'Type',
+        'userType'       => 'UserType',
     ];
 
     public function validate()
@@ -183,6 +189,9 @@ class DescribeAssetListRequest extends Model
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->newResourceTag) {
+            $res['NewResourceTag'] = $this->newResourceTag;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -231,6 +240,9 @@ class DescribeAssetListRequest extends Model
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['NewResourceTag'])) {
+            $model->newResourceTag = $map['NewResourceTag'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
