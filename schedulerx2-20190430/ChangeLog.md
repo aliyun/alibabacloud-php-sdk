@@ -1,3 +1,6 @@
+2023-02-23 Version: 1.1.7
+- Get Job Instance Add RegionId.
+
 2023-02-16 Version: 1.1.6
 - Support Create Workflow.
 - Support Update Workflow DAG.

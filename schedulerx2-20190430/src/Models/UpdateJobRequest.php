@@ -257,6 +257,11 @@ class UpdateJobRequest extends Model
     public $taskAttemptInterval;
 
     /**
+     * @var string
+     */
+    public $taskDispatchMode;
+
+    /**
      * @description The number of retries that the system can perform when the subtask fails. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 0
@@ -353,6 +358,7 @@ class UpdateJobRequest extends Model
         'sendChannel'         => 'SendChannel',
         'successNoticeEnable' => 'SuccessNoticeEnable',
         'taskAttemptInterval' => 'TaskAttemptInterval',
+        'taskDispatchMode'    => 'TaskDispatchMode',
         'taskMaxAttempt'      => 'TaskMaxAttempt',
         'timeExpression'      => 'TimeExpression',
         'timeType'            => 'TimeType',
@@ -454,6 +460,9 @@ class UpdateJobRequest extends Model
         }
         if (null !== $this->taskAttemptInterval) {
             $res['TaskAttemptInterval'] = $this->taskAttemptInterval;
+        }
+        if (null !== $this->taskDispatchMode) {
+            $res['TaskDispatchMode'] = $this->taskDispatchMode;
         }
         if (null !== $this->taskMaxAttempt) {
             $res['TaskMaxAttempt'] = $this->taskMaxAttempt;
@@ -571,6 +580,9 @@ class UpdateJobRequest extends Model
         }
         if (isset($map['TaskAttemptInterval'])) {
             $model->taskAttemptInterval = $map['TaskAttemptInterval'];
+        }
+        if (isset($map['TaskDispatchMode'])) {
+            $model->taskDispatchMode = $map['TaskDispatchMode'];
         }
         if (isset($map['TaskMaxAttempt'])) {
             $model->taskMaxAttempt = $map['TaskMaxAttempt'];

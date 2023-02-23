@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteJobsRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteJobsResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteRouteStrategyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDeleteRouteStrategyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDisableJobsRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchDisableJobsResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\BatchEnableJobsRequest;
@@ -18,10 +20,16 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateRouteStrategyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateRouteStrategyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateWorkflowResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteAppGroupRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteAppGroupResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteJobResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DescribeRegionsResponse;
@@ -39,6 +47,8 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteWorkflowResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetAppGroupRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetAppGroupResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInstanceListRequest;
@@ -75,6 +85,8 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\SetWfInstanceSuccessRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\SetWfInstanceSuccessResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateAppGroupRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateAppGroupResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\UpdateWorkflowDagRequest;
@@ -199,6 +211,60 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeleteJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchDeleteRouteStrategyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchDeleteRouteStrategyResponse
+     */
+    public function batchDeleteRouteStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->jobIdList)) {
+            $body['JobIdList'] = $request->jobIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteRouteStrategy',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteRouteStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteRouteStrategyRequest $request
+     *
+     * @return BatchDeleteRouteStrategyResponse
+     */
+    public function batchDeleteRouteStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteRouteStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -591,6 +657,70 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * @param CreateRouteStrategyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateRouteStrategyResponse
+     */
+    public function createRouteStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->strategyContent)) {
+            $query['StrategyContent'] = $request->strategyContent;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRouteStrategy',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRouteStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRouteStrategyRequest $request
+     *
+     * @return CreateRouteStrategyResponse
+     */
+    public function createRouteStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateWorkflowRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -661,6 +791,58 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * @param DeleteAppGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAppGroupResponse
+     */
+    public function deleteAppGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deleteJobs)) {
+            $query['DeleteJobs'] = $request->deleteJobs;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppGroup',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppGroupRequest $request
+     *
+     * @return DeleteAppGroupResponse
+     */
+    public function deleteAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteJobRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -698,6 +880,58 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRouteStrategyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRouteStrategyResponse
+     */
+    public function deleteRouteStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRouteStrategy',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRouteStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRouteStrategyRequest $request
+     *
+     * @return DeleteRouteStrategyResponse
+     */
+    public function deleteRouteStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -1055,6 +1289,55 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAppGroupResponse
+     */
+    public function getAppGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppGroup',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppGroupRequest $request
+     *
+     * @return GetAppGroupResponse
+     */
+    public function getAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1930,6 +2213,61 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * @param UpdateAppGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAppGroupResponse
+     */
+    public function updateAppGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $query['MaxConcurrency'] = $request->maxConcurrency;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppGroup',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppGroupRequest $request
+     *
+     * @return UpdateAppGroupResponse
+     */
+    public function updateAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateJobRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2020,6 +2358,9 @@ class Schedulerx2 extends OpenApiClient
         }
         if (!Utils::isUnset($request->taskAttemptInterval)) {
             $body['TaskAttemptInterval'] = $request->taskAttemptInterval;
+        }
+        if (!Utils::isUnset($request->taskDispatchMode)) {
+            $body['TaskDispatchMode'] = $request->taskDispatchMode;
         }
         if (!Utils::isUnset($request->taskMaxAttempt)) {
             $body['TaskMaxAttempt'] = $request->taskMaxAttempt;

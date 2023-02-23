@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetJobInstanceRequest extends Model
+class CreateRouteStrategyRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
-     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -18,26 +16,20 @@ class GetJobInstanceRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job.
-     *
-     * @example 92583
+     * @example 54978
      *
      * @var int
      */
     public $jobId;
 
     /**
-     * @description The ID of the job instance.
+     * @example test-strategy
      *
-     * @example 11111111
-     *
-     * @var int
+     * @var string
      */
-    public $jobInstanceId;
+    public $name;
 
     /**
-     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
-     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -45,27 +37,41 @@ class GetJobInstanceRequest extends Model
     public $namespace;
 
     /**
-     * @description The source of the namespace. This parameter is required only for a special third party.
-     *
-     * @example schedulerx
-     *
-     * @var string
-     */
-    public $namespaceSource;
-
-    /**
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @example [{"percentage":20,"target":"[\"version1\"]","targetType":"label"}]
+     *
+     * @var string
+     */
+    public $strategyContent;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $type;
     protected $_name = [
         'groupId'         => 'GroupId',
         'jobId'           => 'JobId',
-        'jobInstanceId'   => 'JobInstanceId',
+        'name'            => 'Name',
         'namespace'       => 'Namespace',
-        'namespaceSource' => 'NamespaceSource',
         'regionId'        => 'RegionId',
+        'status'          => 'Status',
+        'strategyContent' => 'StrategyContent',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -81,17 +87,23 @@ class GetJobInstanceRequest extends Model
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->jobInstanceId) {
-            $res['JobInstanceId'] = $this->jobInstanceId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->namespaceSource) {
-            $res['NamespaceSource'] = $this->namespaceSource;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->strategyContent) {
+            $res['StrategyContent'] = $this->strategyContent;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -100,7 +112,7 @@ class GetJobInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetJobInstanceRequest
+     * @return CreateRouteStrategyRequest
      */
     public static function fromMap($map = [])
     {
@@ -111,17 +123,23 @@ class GetJobInstanceRequest extends Model
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['JobInstanceId'])) {
-            $model->jobInstanceId = $map['JobInstanceId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['NamespaceSource'])) {
-            $model->namespaceSource = $map['NamespaceSource'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StrategyContent'])) {
+            $model->strategyContent = $map['StrategyContent'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

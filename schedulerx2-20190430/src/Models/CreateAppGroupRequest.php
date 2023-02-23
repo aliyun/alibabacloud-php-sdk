@@ -27,6 +27,11 @@ class CreateAppGroupRequest extends Model
     public $appName;
 
     /**
+     * @var int
+     */
+    public $appType;
+
+    /**
      * @description The description of the application.
      *
      * @example Test
@@ -34,6 +39,11 @@ class CreateAppGroupRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableLog;
 
     /**
      * @description The ID of the application. You can obtain the application ID on the Application Management page in Distributed Task Scheduling Platform.
@@ -118,7 +128,9 @@ class CreateAppGroupRequest extends Model
     protected $_name = [
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
+        'appType'             => 'AppType',
         'description'         => 'Description',
+        'enableLog'           => 'EnableLog',
         'groupId'             => 'GroupId',
         'maxJobs'             => 'MaxJobs',
         'monitorConfigJson'   => 'MonitorConfigJson',
@@ -143,8 +155,14 @@ class CreateAppGroupRequest extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableLog) {
+            $res['EnableLog'] = $this->enableLog;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -191,8 +209,14 @@ class CreateAppGroupRequest extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableLog'])) {
+            $model->enableLog = $map['EnableLog'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
