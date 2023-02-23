@@ -18,8 +18,8 @@ class signature extends Model
      */
     public $verificationStatus;
     protected $_name = [
-        'gpgKeyId'           => 'GpgKeyId',
-        'verificationStatus' => 'VerificationStatus',
+        'gpgKeyId'           => 'gpgKeyId',
+        'verificationStatus' => 'verificationStatus',
     ];
 
     public function validate()
@@ -30,10 +30,10 @@ class signature extends Model
     {
         $res = [];
         if (null !== $this->gpgKeyId) {
-            $res['GpgKeyId'] = $this->gpgKeyId;
+            $res['gpgKeyId'] = $this->gpgKeyId;
         }
         if (null !== $this->verificationStatus) {
-            $res['VerificationStatus'] = $this->verificationStatus;
+            $res['verificationStatus'] = $this->verificationStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class signature extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GpgKeyId'])) {
-            $model->gpgKeyId = $map['GpgKeyId'];
+        if (isset($map['gpgKeyId'])) {
+            $model->gpgKeyId = $map['gpgKeyId'];
         }
-        if (isset($map['VerificationStatus'])) {
-            $model->verificationStatus = $map['VerificationStatus'];
+        if (isset($map['verificationStatus'])) {
+            $model->verificationStatus = $map['verificationStatus'];
         }
 
         return $model;

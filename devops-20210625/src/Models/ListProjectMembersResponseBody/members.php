@@ -126,6 +126,11 @@ class members extends Model
     public $realNamePinyin;
 
     /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
      * @example User
      *
      * @var string
@@ -156,6 +161,7 @@ class members extends Model
         'organizationUserInfo' => 'organizationUserInfo',
         'realName'             => 'realName',
         'realNamePinyin'       => 'realNamePinyin',
+        'roleName'             => 'roleName',
         'stamp'                => 'stamp',
         'tbRoleId'             => 'tbRoleId',
     ];
@@ -217,6 +223,9 @@ class members extends Model
         }
         if (null !== $this->realNamePinyin) {
             $res['realNamePinyin'] = $this->realNamePinyin;
+        }
+        if (null !== $this->roleName) {
+            $res['roleName'] = $this->roleName;
         }
         if (null !== $this->stamp) {
             $res['stamp'] = $this->stamp;
@@ -286,6 +295,9 @@ class members extends Model
         }
         if (isset($map['realNamePinyin'])) {
             $model->realNamePinyin = $map['realNamePinyin'];
+        }
+        if (isset($map['roleName'])) {
+            $model->roleName = $map['roleName'];
         }
         if (isset($map['stamp'])) {
             $model->stamp = $map['stamp'];

@@ -65,6 +65,11 @@ class sprint extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $owners;
+
+    /**
      * @example public
      *
      * @var string
@@ -100,6 +105,7 @@ class sprint extends Model
         'identifier'      => 'identifier',
         'modifier'        => 'modifier',
         'name'            => 'name',
+        'owners'          => 'owners',
         'scope'           => 'scope',
         'spaceIdentifier' => 'spaceIdentifier',
         'startDate'       => 'startDate',
@@ -136,6 +142,9 @@ class sprint extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->owners) {
+            $res['owners'] = $this->owners;
         }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
@@ -184,6 +193,11 @@ class sprint extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['owners'])) {
+            if (!empty($map['owners'])) {
+                $model->owners = $map['owners'];
+            }
         }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
