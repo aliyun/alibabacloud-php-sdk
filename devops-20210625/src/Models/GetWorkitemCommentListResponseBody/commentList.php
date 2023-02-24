@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponseBody;
 
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponseBody\commentList\user;
 use AlibabaCloud\Tea\Model;
 
 class commentList extends Model
@@ -77,6 +78,11 @@ class commentList extends Model
      * @var int
      */
     public $topTime;
+
+    /**
+     * @var user
+     */
+    public $user;
     protected $_name = [
         'content'          => 'content',
         'createTime'       => 'createTime',
@@ -88,6 +94,7 @@ class commentList extends Model
         'targetIdentifier' => 'targetIdentifier',
         'targetType'       => 'targetType',
         'topTime'          => 'topTime',
+        'user'             => 'user',
     ];
 
     public function validate()
@@ -126,6 +133,9 @@ class commentList extends Model
         }
         if (null !== $this->topTime) {
             $res['topTime'] = $this->topTime;
+        }
+        if (null !== $this->user) {
+            $res['user'] = null !== $this->user ? $this->user->toMap() : null;
         }
 
         return $res;
@@ -168,6 +178,9 @@ class commentList extends Model
         }
         if (isset($map['topTime'])) {
             $model->topTime = $map['topTime'];
+        }
+        if (isset($map['user'])) {
+            $model->user = user::fromMap($map['user']);
         }
 
         return $model;

@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
@@ -270,6 +272,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemCommentResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemFieldRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemFieldResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -2853,6 +2857,54 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param DeleteWorkitemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWorkitemResponse
+     */
+    public function deleteWorkitemWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWorkitem',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/delete',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param DeleteWorkitemRequest $request
+     *
+     * @return DeleteWorkitemResponse
+     */
+    public function deleteWorkitem($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkitemWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -8749,5 +8801,56 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $organizationId
+     * @param UpdateWorkitemFieldRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWorkitemFieldResponse
+     */
+    public function updateWorkitemFieldWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->updateWorkitemPropertyRequest)) {
+            $body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
+        }
+        if (!Utils::isUnset($request->workitemIdentifier)) {
+            $body['workitemIdentifier'] = $request->workitemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWorkitemField',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/updateWorkitemField',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWorkitemFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $organizationId
+     * @param UpdateWorkitemFieldRequest $request
+     *
+     * @return UpdateWorkitemFieldResponse
+     */
+    public function updateWorkitemField($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkitemFieldWithOptions($organizationId, $request, $headers, $runtime);
     }
 }
