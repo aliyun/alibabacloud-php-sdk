@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListImagesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var data
      */
     public $data;
+
+    /**
+     * @example 2B93C43A-F824-40C8-AF79-844342B0F43A
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'data'      => 'Data',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +32,11 @@ class ListImagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +50,11 @@ class ListImagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

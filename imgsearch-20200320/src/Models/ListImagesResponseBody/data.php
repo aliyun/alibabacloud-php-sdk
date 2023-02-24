@@ -15,11 +15,15 @@ class data extends Model
     public $imageList;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

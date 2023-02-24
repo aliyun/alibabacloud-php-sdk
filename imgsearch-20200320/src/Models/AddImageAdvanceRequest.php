@@ -10,14 +10,18 @@ use GuzzleHttp\Psr7\Stream;
 class AddImageAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageUrlObject;
-
-    /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
+
+    /**
+     * @example 001
+     *
+     * @var string
+     */
+    public $entityId;
 
     /**
      * @var string
@@ -25,35 +29,36 @@ class AddImageAdvanceRequest extends Model
     public $extraData;
 
     /**
-     * @var string
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/xxxx.png
+     *
+     * @var Stream
      */
-    public $entityId;
+    public $imageUrlObject;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
         'dbName'         => 'DbName',
-        'extraData'      => 'ExtraData',
         'entityId'       => 'EntityId',
+        'extraData'      => 'ExtraData',
+        'imageUrlObject' => 'ImageUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
+        if (null !== $this->imageUrlObject) {
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
 
         return $res;
@@ -67,17 +72,17 @@ class AddImageAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
 
         return $model;

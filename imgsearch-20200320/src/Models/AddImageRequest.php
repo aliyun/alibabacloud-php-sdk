@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AddImageRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example 001
+     *
      * @var string
      */
-    public $imageUrl;
+    public $entityId;
 
     /**
      * @var string
@@ -24,14 +28,16 @@ class AddImageRequest extends Model
     public $extraData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/xxxx.png
+     *
      * @var string
      */
-    public $entityId;
+    public $imageUrl;
     protected $_name = [
         'dbName'    => 'DbName',
-        'imageUrl'  => 'ImageUrl',
-        'extraData' => 'ExtraData',
         'entityId'  => 'EntityId',
+        'extraData' => 'ExtraData',
+        'imageUrl'  => 'ImageUrl',
     ];
 
     public function validate()
@@ -44,14 +50,14 @@ class AddImageRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         return $res;
@@ -68,14 +74,14 @@ class AddImageRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         return $model;

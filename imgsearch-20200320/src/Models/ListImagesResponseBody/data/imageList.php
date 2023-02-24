@@ -9,35 +9,43 @@ use AlibabaCloud\Tea\Model;
 class imageList extends Model
 {
     /**
-     * @var string
-     */
-    public $entityId;
-
-    /**
+     * @example 1582838489213
+     *
      * @var int
      */
     public $createdAt;
 
     /**
-     * @var int
-     */
-    public $updatedAt;
-
-    /**
+     * @example 001
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @example 5
+     *
+     * @var string
+     */
+    public $entityId;
+
+    /**
      * @var string
      */
     public $extraData;
+
+    /**
+     * @example 1582838489213
+     *
+     * @var int
+     */
+    public $updatedAt;
     protected $_name = [
-        'entityId'  => 'EntityId',
         'createdAt' => 'CreatedAt',
-        'updatedAt' => 'UpdatedAt',
         'dataId'    => 'DataId',
+        'entityId'  => 'EntityId',
         'extraData' => 'ExtraData',
+        'updatedAt' => 'UpdatedAt',
     ];
 
     public function validate()
@@ -47,20 +55,20 @@ class imageList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
-        }
-        if (null !== $this->updatedAt) {
-            $res['UpdatedAt'] = $this->updatedAt;
         }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
+        }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
+        }
+        if (null !== $this->updatedAt) {
+            $res['UpdatedAt'] = $this->updatedAt;
         }
 
         return $res;
@@ -74,20 +82,20 @@ class imageList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
-        }
-        if (isset($map['UpdatedAt'])) {
-            $model->updatedAt = $map['UpdatedAt'];
         }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
+        }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
+        }
+        if (isset($map['UpdatedAt'])) {
+            $model->updatedAt = $map['UpdatedAt'];
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SearchImageRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imgsearch/SearchImage/SearchImage-ku8.png
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $limit;

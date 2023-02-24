@@ -28,10 +28,11 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Imgsearch extends OpenApiClient
@@ -76,11 +77,35 @@ class Imgsearch extends OpenApiClient
     public function addImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->extraData)) {
+            $body['ExtraData'] = $request->extraData;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddImage',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddImageResponse::fromMap($this->doRPCRequest('AddImage', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -104,13 +129,23 @@ class Imgsearch extends OpenApiClient
     public function addImageAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -134,29 +169,31 @@ class Imgsearch extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $addImageReq = new AddImageRequest([]);
         OpenApiUtilClient::convert($request, $addImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $addImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $addImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
 
         return $this->addImageWithOptions($addImageReq, $runtime);
     }
@@ -170,11 +207,26 @@ class Imgsearch extends OpenApiClient
     public function createImageDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageDb',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateImageDbResponse::fromMap($this->doRPCRequest('CreateImageDb', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateImageDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,11 +250,29 @@ class Imgsearch extends OpenApiClient
     public function deleteImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteImageResponse::fromMap($this->doRPCRequest('DeleteImage', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,11 +296,26 @@ class Imgsearch extends OpenApiClient
     public function deleteImageDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImageDb',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteImageDbResponse::fromMap($this->doRPCRequest('DeleteImageDb', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImageDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -252,9 +337,20 @@ class Imgsearch extends OpenApiClient
      */
     public function listImageDbsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListImageDbs',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListImageDbsResponse::fromMap($this->doRPCRequest('ListImageDbs', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListImageDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -276,11 +372,41 @@ class Imgsearch extends OpenApiClient
     public function listImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityIdPrefix)) {
+            $body['EntityIdPrefix'] = $request->entityIdPrefix;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $body['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImages',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListImagesResponse::fromMap($this->doRPCRequest('ListImages', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -304,11 +430,32 @@ class Imgsearch extends OpenApiClient
     public function searchImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchImage',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchImageResponse::fromMap($this->doRPCRequest('SearchImage', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -332,13 +479,23 @@ class Imgsearch extends OpenApiClient
     public function searchImageAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -362,29 +519,31 @@ class Imgsearch extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $searchImageReq = new SearchImageRequest([]);
         OpenApiUtilClient::convert($request, $searchImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $searchImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $searchImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
 
         return $this->searchImageWithOptions($searchImageReq, $runtime);
     }

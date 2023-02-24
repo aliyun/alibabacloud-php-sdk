@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example U1
+     *
      * @var string
      */
-    public $token;
+    public $entityIdPrefix;
 
     /**
-     * @var int
-     */
-    public $offset;
-
-    /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $offset;
+
+    /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 2
+     *
      * @var string
      */
-    public $entityIdPrefix;
+    public $token;
     protected $_name = [
         'dbName'         => 'DbName',
-        'token'          => 'Token',
-        'offset'         => 'Offset',
-        'limit'          => 'Limit',
-        'order'          => 'Order',
         'entityIdPrefix' => 'EntityIdPrefix',
+        'limit'          => 'Limit',
+        'offset'         => 'Offset',
+        'order'          => 'Order',
+        'token'          => 'Token',
     ];
 
     public function validate()
@@ -56,20 +68,20 @@ class ListImagesRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
+        if (null !== $this->entityIdPrefix) {
+            $res['EntityIdPrefix'] = $this->entityIdPrefix;
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-        if (null !== $this->entityIdPrefix) {
-            $res['EntityIdPrefix'] = $this->entityIdPrefix;
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -86,20 +98,20 @@ class ListImagesRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
+        if (isset($map['EntityIdPrefix'])) {
+            $model->entityIdPrefix = $map['EntityIdPrefix'];
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-        if (isset($map['EntityIdPrefix'])) {
-            $model->entityIdPrefix = $map['EntityIdPrefix'];
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

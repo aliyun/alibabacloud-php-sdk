@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageDbRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $name;
