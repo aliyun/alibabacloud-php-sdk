@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddAxnTrackNoResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class AddAxnTrackNoResponseBody extends Model
     public $message;
 
     /**
+     * @example 8906582E-6722
+     *
      * @var string
      */
     public $requestId;

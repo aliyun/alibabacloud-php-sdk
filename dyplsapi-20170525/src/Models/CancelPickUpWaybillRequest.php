@@ -14,6 +14,8 @@ class CancelPickUpWaybillRequest extends Model
     public $cancelDesc;
 
     /**
+     * @example 1145678823****
+     *
      * @var string
      */
     public $outerOrderCode;

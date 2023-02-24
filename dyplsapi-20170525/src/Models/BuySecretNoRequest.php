@@ -14,6 +14,8 @@ class BuySecretNoRequest extends Model
     public $city;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $displayPool;
@@ -24,6 +26,8 @@ class BuySecretNoRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
@@ -39,11 +43,15 @@ class BuySecretNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 130
+     *
      * @var string
      */
     public $secretNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $specId;

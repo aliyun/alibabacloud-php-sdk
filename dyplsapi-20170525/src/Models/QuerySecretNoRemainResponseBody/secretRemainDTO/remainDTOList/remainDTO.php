@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class remainDTO extends Model
 {
     /**
+     * @example 120
+     *
      * @var int
      */
     public $amount;

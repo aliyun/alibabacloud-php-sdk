@@ -14,6 +14,8 @@ class QuerySecretNoDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC2258****
+     *
      * @var string
      */
     public $poolKey;
@@ -29,6 +31,8 @@ class QuerySecretNoDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $secretNo;

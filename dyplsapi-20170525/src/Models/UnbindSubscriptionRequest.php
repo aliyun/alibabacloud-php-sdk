@@ -14,11 +14,15 @@ class UnbindSubscriptionRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
 
     /**
+     * @example AXB_170
+     *
      * @var string
      */
     public $productType;
@@ -34,11 +38,15 @@ class UnbindSubscriptionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $secretNo;
 
     /**
+     * @example 1************2
+     *
      * @var string
      */
     public $subsId;

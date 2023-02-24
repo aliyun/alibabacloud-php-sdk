@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class appointTimes extends Model
 {
     /**
+     * @example 2022-04-28
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dateSelectable;

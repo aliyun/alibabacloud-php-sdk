@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class secretNoInfoDTO extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $certifyStatus;
@@ -24,16 +26,22 @@ class secretNoInfoDTO extends Model
     public $province;
 
     /**
+     * @example 2021-12-03 15:19:27
+     *
      * @var string
      */
     public $purchaseTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $secretStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $vendor;

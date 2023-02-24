@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSecretAsrDetailResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class GetSecretAsrDetailResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F655A8D5-B967-440B-8683-DAD6FF8DE990
+     *
      * @var string
      */
     public $requestId;

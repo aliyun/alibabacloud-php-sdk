@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BindAxbRequest extends Model
 {
     /**
+     * @example 7ee372834d2f4cc7ac0d0ab****
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callDisplayType;
 
     /**
+     * @example CONTROL_AX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $callTimeout;
@@ -36,24 +46,37 @@ class BindAxbRequest extends Model
     /**
      * @var string
      */
+    public $dtmfConfig;
+
+    /**
+     * @var string
+     */
     public $expectCity;
 
     /**
+     * @example 2021-09-05 12:00:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRecordingEnabled;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example 34553330****
+     *
      * @var string
      */
     public $outOrderId;
@@ -64,21 +87,29 @@ class BindAxbRequest extends Model
     public $ownerId;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC5526*****
+     *
      * @var string
      */
     public $poolKey;
@@ -94,6 +125,8 @@ class BindAxbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"AXBRing_B":"1000****1","AXBRing_A":"1000****1"}
+     *
      * @var string
      */
     public $ringConfig;
@@ -103,6 +136,7 @@ class BindAxbRequest extends Model
         'callDisplayType'      => 'CallDisplayType',
         'callRestrict'         => 'CallRestrict',
         'callTimeout'          => 'CallTimeout',
+        'dtmfConfig'           => 'DtmfConfig',
         'expectCity'           => 'ExpectCity',
         'expiration'           => 'Expiration',
         'isRecordingEnabled'   => 'IsRecordingEnabled',
@@ -139,6 +173,9 @@ class BindAxbRequest extends Model
         }
         if (null !== $this->callTimeout) {
             $res['CallTimeout'] = $this->callTimeout;
+        }
+        if (null !== $this->dtmfConfig) {
+            $res['DtmfConfig'] = $this->dtmfConfig;
         }
         if (null !== $this->expectCity) {
             $res['ExpectCity'] = $this->expectCity;
@@ -205,6 +242,9 @@ class BindAxbRequest extends Model
         }
         if (isset($map['CallTimeout'])) {
             $model->callTimeout = $map['CallTimeout'];
+        }
+        if (isset($map['DtmfConfig'])) {
+            $model->dtmfConfig = $map['DtmfConfig'];
         }
         if (isset($map['ExpectCity'])) {
             $model->expectCity = $map['ExpectCity'];

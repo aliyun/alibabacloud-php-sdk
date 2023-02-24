@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OperateBlackNoRequest extends Model
 {
     /**
+     * @example 150****0000
+     *
      * @var string
      */
     public $blackNo;
 
     /**
+     * @example AddBlack
+     *
      * @var string
      */
     public $operateType;
@@ -24,6 +28,8 @@ class OperateBlackNoRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456****
+     *
      * @var string
      */
     public $poolKey;
@@ -39,6 +45,8 @@ class OperateBlackNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $tips;

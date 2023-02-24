@@ -24,6 +24,8 @@ class data extends Model
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

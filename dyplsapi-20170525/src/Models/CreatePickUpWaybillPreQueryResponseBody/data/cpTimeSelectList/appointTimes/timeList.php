@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timeList extends Model
 {
     /**
+     * @example 12:00:00
+     *
      * @var string
      */
     public $endTime;
@@ -19,11 +21,15 @@ class timeList extends Model
     public $selectDisableTip;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $selectable;
 
     /**
+     * @example 10:00:00
+     *
      * @var string
      */
     public $startTime;

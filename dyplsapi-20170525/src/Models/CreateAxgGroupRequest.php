@@ -14,6 +14,8 @@ class CreateAxgGroupRequest extends Model
     public $name;
 
     /**
+     * @example 1390000****,1380000****
+     *
      * @var string
      */
     public $numbers;
@@ -24,6 +26,8 @@ class CreateAxgGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;

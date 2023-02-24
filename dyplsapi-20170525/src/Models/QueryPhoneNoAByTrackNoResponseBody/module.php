@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example 130
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 1310000****
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 1710000****
+     *
      * @var string
      */
     public $phoneNoX;

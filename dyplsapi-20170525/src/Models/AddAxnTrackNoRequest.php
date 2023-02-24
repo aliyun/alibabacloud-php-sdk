@@ -14,11 +14,15 @@ class AddAxnTrackNoRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1700000****
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC2235****
+     *
      * @var string
      */
     public $poolKey;
@@ -34,11 +38,15 @@ class AddAxnTrackNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 15678890****
+     *
      * @var string
      */
     public $subsId;
 
     /**
+     * @example abcde*****
+     *
      * @var string
      */
     public $trackNo;

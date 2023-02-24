@@ -22,8 +22,6 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillResponse;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsRequest;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfirmSendSmsResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryRequest;
@@ -36,8 +34,6 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailResponse;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSubscriptionDetailRequest;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSubscriptionDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetTotalPublicUrlRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetTotalPublicUrlResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\LockSecretNoRequest;
@@ -46,8 +42,6 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateBlackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateBlackNoResponse;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryCallStatusRequest;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryCallStatusResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryRecordFileDownloadUrlRequest;
@@ -68,7 +62,6 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -249,6 +242,9 @@ class Dyplsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->callTimeout)) {
             $query['CallTimeout'] = $request->callTimeout;
+        }
+        if (!Utils::isUnset($request->dtmfConfig)) {
+            $query['DtmfConfig'] = $request->dtmfConfig;
         }
         if (!Utils::isUnset($request->expectCity)) {
             $query['ExpectCity'] = $request->expectCity;
@@ -724,64 +720,6 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param ConfirmSendSmsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ConfirmSendSmsResponse
-     */
-    public function confirmSendSmsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ConfirmSendSms',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ConfirmSendSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ConfirmSendSmsRequest $request
-     *
-     * @return ConfirmSendSmsResponse
-     */
-    public function confirmSendSms($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->confirmSendSmsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateAxgGroupRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -854,13 +792,13 @@ class Dyplsapi extends OpenApiClient
         $request = new CreatePickUpWaybillShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->consigneeAddress)) {
-            $request->consigneeAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->consigneeAddress), 'ConsigneeAddress', 'json');
+            $request->consigneeAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->consigneeAddress, 'ConsigneeAddress', 'json');
         }
         if (!Utils::isUnset($tmpReq->goodsInfos)) {
             $request->goodsInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->goodsInfos, 'GoodsInfos', 'json');
         }
         if (!Utils::isUnset($tmpReq->sendAddress)) {
-            $request->sendAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sendAddress), 'SendAddress', 'json');
+            $request->sendAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sendAddress, 'SendAddress', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appointGotEndTime)) {
@@ -953,10 +891,10 @@ class Dyplsapi extends OpenApiClient
         $request = new CreatePickUpWaybillPreQueryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->consigneeInfo)) {
-            $request->consigneeInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->consigneeInfo), 'ConsigneeInfo', 'json');
+            $request->consigneeInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->consigneeInfo, 'ConsigneeInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->senderInfo)) {
-            $request->senderInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->senderInfo), 'SenderInfo', 'json');
+            $request->senderInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->senderInfo, 'SenderInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->consigneeInfoShrink)) {
@@ -1109,64 +1047,6 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecretAsrDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSubscriptionDetailRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetSubscriptionDetailResponse
-     */
-    public function getSubscriptionDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
-        }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSubscriptionDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetSubscriptionDetailRequest $request
-     *
-     * @return GetSubscriptionDetailResponse
-     */
-    public function getSubscriptionDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSubscriptionDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1405,64 +1285,6 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateBlackNoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryCallStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return QueryCallStatusResponse
-     */
-    public function queryCallStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->callNo)) {
-            $query['CallNo'] = $request->callNo;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryCallStatus',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryCallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryCallStatusRequest $request
-     *
-     * @return QueryCallStatusResponse
-     */
-    public function queryCallStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCallStatusWithOptions($request, $runtime);
     }
 
     /**

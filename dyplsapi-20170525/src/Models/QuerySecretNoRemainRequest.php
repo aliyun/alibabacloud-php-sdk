@@ -29,11 +29,15 @@ class QuerySecretNoRemainRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 130
+     *
      * @var string
      */
     public $secretNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $specId;

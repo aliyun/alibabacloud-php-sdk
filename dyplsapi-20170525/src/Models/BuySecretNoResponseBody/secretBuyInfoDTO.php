@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class secretBuyInfoDTO extends Model
 {
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $secretNo;

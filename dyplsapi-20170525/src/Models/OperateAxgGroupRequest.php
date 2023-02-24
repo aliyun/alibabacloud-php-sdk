@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class OperateAxgGroupRequest extends Model
 {
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 1390000****,1380000****
+     *
      * @var string
      */
     public $numbers;
 
     /**
+     * @example addNumbers
+     *
      * @var string
      */
     public $operateType;
@@ -29,6 +35,8 @@ class OperateAxgGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;

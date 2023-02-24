@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubscriptionRequest extends Model
 {
     /**
+     * @example 980abddb908f48e8b987cb2cd303****
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callDisplayType;
 
     /**
+     * @example CONTROL_BX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
 
     /**
+     * @example 2019-09-05 12:00:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRecordingEnabled;
 
     /**
+     * @example updateNoA
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $outId;
@@ -59,26 +77,36 @@ class UpdateSubscriptionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC122356****
+     *
      * @var string
      */
     public $poolKey;
 
     /**
+     * @example AXB_170
+     *
      * @var string
      */
     public $productType;
@@ -94,11 +122,15 @@ class UpdateSubscriptionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"AXBRing_B":"100000001","AXBRing_A":"100000001"}
+     *
      * @var string
      */
     public $ringConfig;
 
     /**
+     * @example 100000076879****
+     *
      * @var string
      */
     public $subsId;

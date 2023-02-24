@@ -14,6 +14,8 @@ class ReleaseSecretNoRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
@@ -29,6 +31,8 @@ class ReleaseSecretNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 130
+     *
      * @var string
      */
     public $secretNo;

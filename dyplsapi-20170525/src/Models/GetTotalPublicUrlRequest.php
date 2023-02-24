@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetTotalPublicUrlRequest extends Model
 {
     /**
+     * @example 2568900****
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 2019-03-05 12:00:00
+     *
      * @var string
      */
     public $callTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $checkSubs;
@@ -29,6 +35,8 @@ class GetTotalPublicUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC12256****
+     *
      * @var string
      */
     public $partnerKey;

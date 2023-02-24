@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySecretNoDetailResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 066E6E47-04CB-4774-A976-4F73CB76D4A3
+     *
      * @var string
      */
     public $requestId;

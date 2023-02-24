@@ -14,11 +14,15 @@ class goodsInfos extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quantity;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $weight;

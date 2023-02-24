@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QuerySubsIdResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E7F99446-8191-43C0-99B5-F58A6AEAD779
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 11111111****
+     *
      * @var string
      */
     public $subsId;

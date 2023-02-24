@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReleaseSecretNoResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 986BCB6D-C9BF-42F9-91CE-3A990121232
+     *
      * @var string
      */
     public $requestId;

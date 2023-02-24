@@ -19,6 +19,8 @@ class realTime extends Model
     public $selectDisableTip;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $selectable;

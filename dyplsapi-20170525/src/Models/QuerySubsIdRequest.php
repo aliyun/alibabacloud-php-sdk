@@ -14,11 +14,15 @@ class QuerySubsIdRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;

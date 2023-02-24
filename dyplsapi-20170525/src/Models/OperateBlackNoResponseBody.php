@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class OperateBlackNoResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2D1AEB96-96D0-454E-B0DC-AE2A8DF08020
+     *
      * @var string
      */
     public $requestId;

@@ -15,17 +15,21 @@ class CreatePickUpWaybillResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @example 9FC30594-3841-43AD-9008-03393BCB5CD2
      *
      * @var string
      */

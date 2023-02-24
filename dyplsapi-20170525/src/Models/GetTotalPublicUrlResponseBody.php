@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTotalPublicUrlResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class GetTotalPublicUrlResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1AB3CEF7-DCBE-488C-9C33-D180982CE031
+     *
      * @var string
      */
     public $requestId;

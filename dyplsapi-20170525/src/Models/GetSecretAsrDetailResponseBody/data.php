@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 10944
+     *
      * @var int
      */
     public $bizDuration;
 
     /**
+     * @example 435ee78c7a019650@!FC100000074672458@!2020061522****
+     *
      * @var string
      */
     public $businessId;
 
     /**
+     * @example JCGTncltuNao****
+     *
      * @var string
      */
     public $businessKey;
 
     /**
+     * @example 21050000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example 8d2329d407a83447a83be441681f4872ac74nE
+     *
      * @var string
      */
     public $requestId;
@@ -45,6 +57,8 @@ class data extends Model
     public $sentences;
 
     /**
+     * @example asrResult
+     *
      * @var string
      */
     public $type;

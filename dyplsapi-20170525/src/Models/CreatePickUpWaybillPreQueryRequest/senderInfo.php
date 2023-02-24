@@ -15,6 +15,8 @@ class senderInfo extends Model
     public $addressInfo;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mobile;

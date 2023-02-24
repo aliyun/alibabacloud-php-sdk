@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSecretAsrDetailRequest extends Model
 {
     /**
+     * @example 225625****
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 2019-03-05 12:00:00
+     *
      * @var string
      */
     public $callTime;
 
     /**
+     * @example FC2267****
+     *
      * @var string
      */
     public $poolKey;

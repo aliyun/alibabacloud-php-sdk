@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class sentences extends Model
 {
     /**
+     * @example 1020
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $channelId;
 
     /**
+     * @example 5.7
+     *
      * @var string
      */
     public $emotionValue;
 
     /**
+     * @example 1770
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $silenceDuration;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $speechRate;

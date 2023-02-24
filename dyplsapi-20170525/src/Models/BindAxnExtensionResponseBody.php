@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class BindAxnExtensionResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9297B722-A016-43FB-B51A-E54050D9369D
+     *
      * @var string
      */
     public $requestId;

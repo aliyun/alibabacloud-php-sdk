@@ -14,21 +14,29 @@ class CreatePickUpWaybillPreQueryShrinkRequest extends Model
     public $consigneeInfoShrink;
 
     /**
+     * @example YTO
+     *
      * @var string
      */
     public $cpCode;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $orderChannels;
 
     /**
+     * @example 787DFHHDS989****
+     *
      * @var string
      */
     public $outerOrderCode;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $preWeight;

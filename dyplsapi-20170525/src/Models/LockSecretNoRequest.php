@@ -14,6 +14,8 @@ class LockSecretNoRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123****
+     *
      * @var string
      */
     public $poolKey;
@@ -29,6 +31,8 @@ class LockSecretNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1300000****
+     *
      * @var string
      */
     public $secretNo;

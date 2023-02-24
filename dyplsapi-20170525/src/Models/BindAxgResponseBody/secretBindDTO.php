@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class secretBindDTO extends Model
 {
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $secretNo;
 
     /**
+     * @example 1************3
+     *
      * @var string
      */
     public $subsId;

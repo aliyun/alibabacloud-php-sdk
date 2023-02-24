@@ -16,6 +16,8 @@ class cpTimeSelectList extends Model
     public $appointTimes;
 
     /**
+     * @example 12.50
+     *
      * @var string
      */
     public $prePrice;

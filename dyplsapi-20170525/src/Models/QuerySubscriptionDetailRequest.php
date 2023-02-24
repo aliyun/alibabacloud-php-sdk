@@ -14,16 +14,22 @@ class QuerySubscriptionDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @example 13900001234
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
 
     /**
+     * @example AXB_170
+     *
      * @var string
      */
     public $productType;
@@ -39,6 +45,8 @@ class QuerySubscriptionDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 100000076879****
+     *
      * @var string
      */
     public $subsId;

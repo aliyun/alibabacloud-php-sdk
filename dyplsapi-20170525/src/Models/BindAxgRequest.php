@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindAxgRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callDisplayType;
 
     /**
+     * @example CONTROL_AX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
@@ -34,26 +42,36 @@ class BindAxgRequest extends Model
     public $expectCity;
 
     /**
+     * @example 2019-09-05 12:00:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRecordingEnabled;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $outOrderId;
@@ -64,21 +82,29 @@ class BindAxgRequest extends Model
     public $ownerId;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
@@ -94,6 +120,8 @@ class BindAxgRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"AXGRing_AB":"100000001","AXGRing_A":"100000002","AXGRing_G":"100000003"}
+     *
      * @var string
      */
     public $ringConfig;

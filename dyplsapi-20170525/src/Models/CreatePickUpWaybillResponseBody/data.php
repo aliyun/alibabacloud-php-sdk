@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example YTO
+     *
      * @var string
      */
     public $cpCode;
@@ -24,16 +26,22 @@ class data extends Model
     public $errorMsg;
 
     /**
+     * @example 3524
+     *
      * @var string
      */
     public $gotCode;
 
     /**
+     * @example 77312345629****
+     *
      * @var string
      */
     public $mailNo;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

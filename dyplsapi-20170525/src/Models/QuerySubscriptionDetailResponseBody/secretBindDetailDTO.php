@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class secretBindDetailDTO extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example CONTROL_BX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
 
     /**
+     * @example 2019-09-05 12:00:00
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @example 130
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 2019-03-05 12:00:00
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2000000130001
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needRecord;
 
     /**
+     * @example 13900001111
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 13900002222
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 13900001234
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 100000076879****
+     *
      * @var string
      */
     public $subsId;

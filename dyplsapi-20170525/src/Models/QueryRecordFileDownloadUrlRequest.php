@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordFileDownloadUrlRequest extends Model
 {
     /**
+     * @example abcedf1234
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 2019-03-05 12:00:00
+     *
      * @var string
      */
     public $callTime;
@@ -24,11 +28,15 @@ class QueryRecordFileDownloadUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC123456
+     *
      * @var string
      */
     public $poolKey;
 
     /**
+     * @example AXB_170
+     *
      * @var string
      */
     public $productType;

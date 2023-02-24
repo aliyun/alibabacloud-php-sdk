@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddSecretBlacklistRequest extends Model
 {
     /**
+     * @example 1825638****:1825248****
+     *
      * @var string
      */
     public $blackNo;
 
     /**
+     * @example POINT_TO_POINT_BLACK
+     *
      * @var string
      */
     public $blackType;
 
     /**
+     * @example FC2235****
+     *
      * @var string
      */
     public $poolKey;
@@ -29,6 +35,8 @@ class AddSecretBlacklistRequest extends Model
     public $remark;
 
     /**
+     * @example PHONEA_REJECT
+     *
      * @var string
      */
     public $wayControl;

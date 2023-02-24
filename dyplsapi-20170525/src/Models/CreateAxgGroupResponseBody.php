@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAxgGroupResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2000000000001
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 635C0FDA-9EBC-43D7-B368-9F583C08A126
+     *
      * @var string
      */
     public $requestId;

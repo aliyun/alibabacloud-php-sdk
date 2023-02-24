@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BindAxnRequest extends Model
 {
     /**
+     * @example 980abddb908f48e8b987cb2cd303****
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callDisplayType;
 
     /**
+     * @example CONTROL_AX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $callTimeout;
@@ -39,26 +49,36 @@ class BindAxnRequest extends Model
     public $expectCity;
 
     /**
+     * @example 2021-09-05 12:00:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRecordingEnabled;
 
     /**
+     * @example AXB_170
+     *
      * @var string
      */
     public $noType;
 
     /**
+     * @example abcdef
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example 34553330****
+     *
      * @var string
      */
     public $outOrderId;
@@ -69,21 +89,29 @@ class BindAxnRequest extends Model
     public $ownerId;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 138****0000
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 139****0000
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example FC2256****
+     *
      * @var string
      */
     public $poolKey;
@@ -99,6 +127,8 @@ class BindAxnRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"AXNRing_N":"100000001","AXNRing_A":"100000001"}
+     *
      * @var string
      */
     public $ringConfig;

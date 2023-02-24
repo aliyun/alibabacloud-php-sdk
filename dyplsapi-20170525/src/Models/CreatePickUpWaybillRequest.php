@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class CreatePickUpWaybillRequest extends Model
 {
     /**
+     * @example 2021-01-01 12:00:00
+     *
      * @var string
      */
     public $appointGotEndTime;
 
     /**
+     * @example 2021-01-01 10:00:00
+     *
      * @var string
      */
     public $appointGotStartTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $bizType;
@@ -32,6 +38,8 @@ class CreatePickUpWaybillRequest extends Model
     public $consigneeAddress;
 
     /**
+     * @example 1580000****
+     *
      * @var string
      */
     public $consigneeMobile;
@@ -42,11 +50,15 @@ class CreatePickUpWaybillRequest extends Model
     public $consigneeName;
 
     /**
+     * @example 0570000****
+     *
      * @var string
      */
     public $consigneePhone;
 
     /**
+     * @example YTO
+     *
      * @var string
      */
     public $cpCode;
@@ -57,11 +69,15 @@ class CreatePickUpWaybillRequest extends Model
     public $goodsInfos;
 
     /**
+     * @example YUN_DIAN_SHANG
+     *
      * @var string
      */
     public $orderChannels;
 
     /**
+     * @example 143234234266****
+     *
      * @var string
      */
     public $outerOrderCode;
@@ -77,6 +93,8 @@ class CreatePickUpWaybillRequest extends Model
     public $sendAddress;
 
     /**
+     * @example 1596714****
+     *
      * @var string
      */
     public $sendMobile;
@@ -87,6 +105,8 @@ class CreatePickUpWaybillRequest extends Model
     public $sendName;
 
     /**
+     * @example 05718845****
+     *
      * @var string
      */
     public $sendPhone;
