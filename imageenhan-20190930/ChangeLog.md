@@ -1,3 +1,6 @@
+2023-02-24 Version: 1.0.11
+- Release GenerateSuperResolutionImage.
+
 2023-02-21 Version: 1.0.10
 - Release GenerateSuperResolutionImage.
 
