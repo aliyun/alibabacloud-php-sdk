@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class AsymmetricEncryptRequest extends Model
 {
     /**
+     * @description The encryption algorithm.
+     *
+     * @example RSAES_OAEP_SHA_1
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The ID of the CMK. The ID must be globally unique.
+     *
+     * >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](~~68522~~).
+     * @example 5c438b18-05be-40ad-b6c2-3be6752c****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The version ID of the CMK. The ID must be globally unique.
+     *
+     * >  You can call the [ListKeyVersions](~~133966~~) operation to query the versions of a CMK. The ID of a version is specified by the KeyVersionId parameter.
+     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
+     *
      * @var string
      */
     public $keyVersionId;
 
     /**
+     * @description The plaintext that you want to encrypt. The plaintext must be Base64-encoded.
+     *
+     * @example SGVsbG8gd29ybGQ=
+     *
      * @var string
      */
     public $plaintext;

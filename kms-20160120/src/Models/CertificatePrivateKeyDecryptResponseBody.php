@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CertificatePrivateKeyDecryptResponseBody extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The plaintext after data is decrypted.
+     *
+     * The value is encoded in Base64.
+     * @example VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4
+     *
      * @var string
      */
     public $plaintext;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5979d897-d69f-4fc9-87dd-f3bb73c40b80
+     *
      * @var string
      */
     public $requestId;

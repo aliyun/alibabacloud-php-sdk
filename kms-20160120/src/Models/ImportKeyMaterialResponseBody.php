@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyMaterialResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ec1017cf-ead4-f3ca-babc-c3b34f3dbecb
+     *
      * @var string
      */
     public $requestId;

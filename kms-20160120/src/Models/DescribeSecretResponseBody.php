@@ -10,76 +10,158 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecretResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the secret.
+     *
+     * @example acs:kms:cn-hangzhou:154035569884****:secret/secret001
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description Indicates whether automatic rotation is enabled. Valid values:
+     *
+     *   Enabled: indicates that automatic rotation is enabled.
+     *   Disabled: indicates that automatic rotation is disabled.
+     *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
+     *
+     * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+     * @example Enabled
+     *
      * @var string
      */
     public $automaticRotation;
 
     /**
+     * @description The time when the secret was created.
+     *
+     * @example 2022-02-21T15:39:26Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the dedicated KMS instance.
+     *
+     * @example kst-bjj62d8f5e0sgtx8h****
+     *
+     * @var string
+     */
+    public $DKMSInstanceId;
+
+    /**
+     * @description The description of the secret.
+     *
+     * @example userinfo
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the customer master key (CMK) that is used to encrypt the secret value.
+     *
+     * @example 00aa68af-2c02-4f68-95fe-3435d330****
+     *
      * @var string
      */
     public $encryptionKeyId;
 
     /**
+     * @description The extended configuration of the secret.
+     *
+     * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed Resource Access Management (RAM) secret, or a managed Elastic Compute Service (ECS) secret.
+     * @example {\"SecretSubType\":\"SingleUser\", \"DBInstanceId\":\"rm-uf667446pc955****\",  \"CustomData\":{} }
+     *
      * @var string
      */
     public $extendedConfig;
 
     /**
+     * @description The time when the last rotation was performed.
+     *
+     * >  This parameter is returned if the secret was rotated.
+     * @example 2022-07-05T08:22:03Z
+     *
      * @var string
      */
     public $lastRotationDate;
 
     /**
+     * @description The time when the next rotation will be performed.
+     *
+     * >  This parameter is returned when automatic rotation is enabled.
+     * @example 2022-07-06T18:22:03Z
+     *
      * @var string
      */
     public $nextRotationDate;
 
     /**
+     * @description The time when the secret is scheduled to be deleted.
+     *
+     * @example 2022-03-21T15:45:12Z
+     *
      * @var string
      */
     public $plannedDeleteTime;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 93348dfb-3627-4417-8d90-487a76a909c9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The interval for automatic rotation.
+     *
+     * >  This parameter is returned when automatic rotation is enabled.
+     * @example 3153600s
+     *
      * @var string
      */
     public $rotationInterval;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The type of the secret. Valid values:
+     *
+     *   Generic: indicates a generic secret.
+     *   Rds: indicates a managed ApsaraDB RDS secret.
+     *   RAMCredentials: indicates a managed RAM secret.
+     *   ECS: indicates a managed ECS secret.
+     *
+     * @example Rds
+     *
      * @var string
      */
     public $secretType;
 
     /**
+     * @description The resource tags of the secret.
+     *
+     * This parameter is not returned if you set the FetchTags parameter to false or you do not specify the FetchTags parameter.
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The time when the secret was updated.
+     *
+     * @example 2022-02-21T15:39:26Z
+     *
      * @var string
      */
     public $updateTime;
@@ -87,6 +169,7 @@ class DescribeSecretResponseBody extends Model
         'arn'               => 'Arn',
         'automaticRotation' => 'AutomaticRotation',
         'createTime'        => 'CreateTime',
+        'DKMSInstanceId'    => 'DKMSInstanceId',
         'description'       => 'Description',
         'encryptionKeyId'   => 'EncryptionKeyId',
         'extendedConfig'    => 'ExtendedConfig',
@@ -116,6 +199,9 @@ class DescribeSecretResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->DKMSInstanceId) {
+            $res['DKMSInstanceId'] = $this->DKMSInstanceId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -173,6 +259,9 @@ class DescribeSecretResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DKMSInstanceId'])) {
+            $model->DKMSInstanceId = $map['DKMSInstanceId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

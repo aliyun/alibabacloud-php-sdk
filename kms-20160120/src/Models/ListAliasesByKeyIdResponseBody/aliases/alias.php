@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class alias extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the alias.
+     *
+     * @example acs:kms:cn-hangzhou:123456:alias/ExampleAlias1
+     *
      * @var string
      */
     public $aliasArn;
 
     /**
+     * @description The ID of the alias.
+     *
+     * @example alias/ExampleAlias1
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The CMK to which an alias is bound.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $keyId;

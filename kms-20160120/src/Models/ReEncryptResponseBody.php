@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ReEncryptResponseBody extends Model
 {
     /**
+     * @description The ciphertext re-encrypted.
+     *
+     * @example DZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmaaSl+TztSIMe43nbTH/Z1Wr4XfLftKhAciUmDQXuMRl4WTvKhxjMThjK****
+     *
      * @var string
      */
     public $ciphertextBlob;
 
     /**
+     * @description The ID of the CMK that is used to decrypt the original ciphertext.
+     *
+     * This parameter is the globally unique ID of the CMK.
+     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The ID of the CMK version that is used to decrypt the original ciphertext.
+     *
+     * @example 202b9877-5a25-46e3-a763-e20791b5****
+     *
      * @var string
      */
     public $keyVersionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 207596a2-36d3-4840-b1bd-f87044699bd7
+     *
      * @var string
      */
     public $requestId;

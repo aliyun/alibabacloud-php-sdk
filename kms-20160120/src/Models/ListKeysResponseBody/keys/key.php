@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class key extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the CMK.
+     *
+     * @example acs:kms:cn-hangzhou:123456:key/80e9409f-78fa-42ab-84bd-83f40c81****
+     *
      * @var string
      */
     public $keyArn;
 
     /**
+     * @description The ID of the CMK. The ID must be globally unique.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $keyId;

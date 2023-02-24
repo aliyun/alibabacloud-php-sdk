@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecretRequest extends Model
 {
     /**
+     * @description Specifies whether to forcibly delete the secret. If this parameter is set to true, the secret cannot be recovered.
+     *
+     * Valid values:
+     *
+     *   **true**
+     *   **false** (default value)
+     *
+     * @example false
+     *
      * @var string
      */
     public $forceDeleteWithoutRecovery;
 
     /**
+     * @description Specifies the recovery period of the secret if you do not forcibly delete it. Default value: 30. Unit: Days.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $recoveryWindowInDays;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

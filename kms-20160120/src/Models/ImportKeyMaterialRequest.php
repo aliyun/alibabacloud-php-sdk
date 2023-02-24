@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyMaterialRequest extends Model
 {
     /**
+     * @description Use** GetParametersForImport** the Returned public key and the base64-encoded key material.
+     *
+     * @example bCPZx7I6v6KXsqEpr2OXKxuj2CCRtKdwp75Bw+BGncYqBdfjFBYRtOE6HRlT0oeiRDWzwnw9OA54OL36smDJrq4Lo9x0CyYDiuKnRkcKtMtlzW0din7Pd7IlZWWRdVueiw2qpzl7PkUWQGTdsdbzpfJJQ+qj/cRIrk/E83UGyeyytSpgnb+lu0xEYcPajRyWNsbi98N3pqqQzHXNNHO2NJqHlnQgglqTiBEjkGeKFhfKmTc3vjulIdVa3EaVIN6lwWfgx+UUYSrvbA77WDYKlDsZ4SbK2/T7za9Tp1qU7Ynqba7OKGVVj7PMbiaO80AxWZnjUMYCgEp5w7V+seOXqw==
+     *
      * @var string
      */
     public $encryptedKeyMaterial;
 
     /**
+     * @description By calling** GetParametersForImport** the import token.
+     *
+     * @example Base64String
+     *
      * @var string
      */
     public $importToken;
 
     /**
+     * @description The ID of the CMK to be imported.
+     *
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The time when the key material expires.
+     *
+     * >  The value cannot be earlier than the time when the API is called (based on the server time).
+     * @example 0
+     *
      * @var int
      */
     public $keyMaterialExpireUnix;

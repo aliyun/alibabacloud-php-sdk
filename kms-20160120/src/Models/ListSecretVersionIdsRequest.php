@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListSecretVersionIdsRequest extends Model
 {
     /**
+     * @description Specifies whether to return deprecated secret versions.
+     *
+     * Valid values:
+     *
+     *   false: no
+     *   true: yes
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var string
      */
     public $includeDeprecated;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

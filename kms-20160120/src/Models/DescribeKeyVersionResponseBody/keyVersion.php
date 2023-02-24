@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class keyVersion extends Model
 {
     /**
+     * @description The date and time when the CMK version was created. The time is displayed in UTC.
+     *
+     * @example 2016-03-25T10:42:40Z
+     *
      * @var string
      */
     public $creationDate;
 
     /**
+     * @description The globally unique ID of the CMK.
+     *
+     * >  If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The globally unique ID of the CMK version.
+     *
+     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
+     *
      * @var string
      */
     public $keyVersionId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The globally unique ID of the CMK.
+     *
+     * @example 33caea95-c3e5-4b3e-a9c6-cec76e4e****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The tag key.
+     *
+     * @example Project
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $tagValue;

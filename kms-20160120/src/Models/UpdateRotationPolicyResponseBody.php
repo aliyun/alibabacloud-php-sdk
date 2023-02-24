@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateRotationPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example efb1cbbd-a093-4278-bc03-639dd4fcc207
+     *
      * @var string
      */
     public $requestId;

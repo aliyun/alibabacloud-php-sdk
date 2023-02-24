@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class SetDeletionProtectionRequest extends Model
 {
     /**
+     * @description The description of deletion protection.
+     *
+     * >  This parameter takes effect only when you set the EnableDeletionProtection parameter to true.
+     * @example This key is being used by XXX service. You are protected from deletion.
+     *
      * @var string
      */
     public $deletionProtectionDescription;
 
     /**
+     * @description Specifies whether to enable deletion protection. Valid values:
+     *
+     *   true: enables deletion protection.
+     *   false: disables deletion protection.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableDeletionProtection;
 
     /**
+     * @description The ARN of the CMK for which you want to set deletion protection.
+     *
+     * You can call the [DescribeKey](~~28952~~) operation to query the CMK ARN.
+     * @example acs:kms:cn-hangzhou:123213123****:key/0225f411-b21d-46d1-be5b-93931c82****
+     *
      * @var string
      */
     public $protectedResourceArn;

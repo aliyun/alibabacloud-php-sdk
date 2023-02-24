@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesResponseBody extends Model
 {
     /**
+     * @description The alias of the user.
+     *
      * @var aliases
      */
     public $aliases;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1b57992c-834b-4811-a889-f8bac1ba0353
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned aliases.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

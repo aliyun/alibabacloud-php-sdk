@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UploadCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15a735a1-8fe6-45cc-a64c-3c4ff839334e
+     *
      * @var string
      */
     public $requestId;

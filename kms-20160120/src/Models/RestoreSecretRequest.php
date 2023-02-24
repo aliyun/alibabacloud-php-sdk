@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RestoreSecretRequest extends Model
 {
     /**
+     * @description The name of the secret you want to restore.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

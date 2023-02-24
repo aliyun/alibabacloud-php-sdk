@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateCertificateStatusRequest extends Model
 {
     /**
+     * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
+     *
+     * @example 9a28de48-8d8b-484d-a766-dec4****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The status of the certificate. Valid values:
+     *
+     *   INACTIVE: The certificate is disabled.
+     *
+     *   ACTIVE: The certificate is enabled.
+     *
+     *   REVOKED: The certificate is revoked.
+     *
+     * > If the certificate is in the REVOKED state, you can use the certificate only to verify a signature, but not to generate a signature.
+     * @example INACTIVE
+     *
      * @var string
      */
     public $status;

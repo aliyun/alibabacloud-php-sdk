@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesByKeyIdRequest extends Model
 {
     /**
+     * @description The globally unique ID of the CMK.
+     *
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

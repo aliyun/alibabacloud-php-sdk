@@ -9,86 +9,177 @@ use AlibabaCloud\Tea\Model;
 class keyMetadata extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the CMK.
+     *
+     * @example acs:kms:cn-qingdao:154035569884****:key/d6bee1cb-2e14-4277-ba6b-73786b21****
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description Indicates whether automatic key rotation is enabled. Valid values:
+     *
+     *   Enabled: Automatic key rotation is enabled.
+     *   Disabled: Automatic key rotation is disabled.
+     *   Suspended: Automatic key rotation is suspended. For more information, see [Automatic key rotation](~~134270~~).
+     *
+     * >  Automatic key rotation is available only for symmetric CMKs.
+     * @example Disabled
+     *
      * @var string
      */
     public $automaticRotation;
 
     /**
+     * @description The date and time when the CMK was created. The time is displayed in UTC.
+     *
+     * @example 2022-03-25T10:42:40Z
+     *
      * @var string
      */
     public $creationDate;
 
     /**
+     * @description The creator of the CMK.
+     *
+     * @example 154035569884****
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The ID of the dedicated KMS instance.
+     *
+     * @example kst-bjj62d8f5e0sgtx8h****
+     *
+     * @var string
+     */
+    public $DKMSInstanceId;
+
+    /**
+     * @description The time when the CMK is scheduled for deletion.
+     *
+     * >  This value is returned only when the value of the KeyState parameter is PendingDeletion.
+     * @example 2022-07-06T18:22:03Z
+     *
      * @var string
      */
     public $deleteDate;
 
     /**
+     * @description The description of the CMK.
+     *
+     * @example key description example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the CMK. The ID must be globally unique.
+     *
+     * @example d6bee1cb-2e14-4277-ba6b-73786b21****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The type of the CMK.
+     *
+     * @example Aliyun_AES_256
+     *
      * @var string
      */
     public $keySpec;
 
     /**
+     * @description The status of the CMK.
+     *
+     * For more information, see [Impact of CMK status on API operations](~~44211~~).
+     * @example Enabled
+     *
      * @var string
      */
     public $keyState;
 
     /**
+     * @description The usage of the CMK.
+     *
+     * @example ENCRYPT/DECRYPT
+     *
      * @var string
      */
     public $keyUsage;
 
     /**
+     * @description The time when the last rotation was performed. The time is displayed in UTC.
+     *
+     * For a new CMK, this parameter value is the time when the initial version of the CMK was generated.
+     * @example 2022-06-06T18:22:03Z
+     *
      * @var string
      */
     public $lastRotationDate;
 
     /**
+     * @description The time when the key material expires. The time is displayed in UTC.
+     *
+     * If this parameter value is empty, the key material does not expire.
+     * @example 2022-07-06T18:22:03Z
+     *
      * @var string
      */
     public $materialExpireTime;
 
     /**
+     * @description The time when the next rotation will be performed.
+     *
+     * >  This value is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+     * @example 2022-07-06T18:22:03Z
+     *
      * @var string
      */
     public $nextRotationDate;
 
     /**
+     * @description The source of the key material for the CMK.
+     *
+     * @example Aliyun_KMS
+     *
      * @var string
      */
     public $origin;
 
     /**
+     * @description The ID of the current primary key version of the symmetric CMK.
+     *
+     * >
+     *   The primary key version of a symmetric CMK is an active encryption key. KMS uses the primary key version of a specified CMK to encrypt data.
+     *   This parameter is unavailable for asymmetric CMKs.
+     *
+     * @example 7ce1d081-06cb-42e6-aab6-5c5de030****
+     *
      * @var string
      */
     public $primaryKeyVersion;
 
     /**
+     * @description The protection level of the CMK.
+     *
+     * @example SOFTWARE
+     *
      * @var string
      */
     public $protectionLevel;
 
     /**
+     * @description The period of automatic key rotation. Unit: seconds. The value is in the format of an integer followed by the letter s. For example, if the rotation period is seven days, this parameter is set to 604800s. This value is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+     *
+     * @example 31536000s
+     *
      * @var string
      */
     public $rotationInterval;
@@ -97,6 +188,7 @@ class keyMetadata extends Model
         'automaticRotation'  => 'AutomaticRotation',
         'creationDate'       => 'CreationDate',
         'creator'            => 'Creator',
+        'DKMSInstanceId'     => 'DKMSInstanceId',
         'deleteDate'         => 'DeleteDate',
         'description'        => 'Description',
         'keyId'              => 'KeyId',
@@ -130,6 +222,9 @@ class keyMetadata extends Model
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+        if (null !== $this->DKMSInstanceId) {
+            $res['DKMSInstanceId'] = $this->DKMSInstanceId;
         }
         if (null !== $this->deleteDate) {
             $res['DeleteDate'] = $this->deleteDate;
@@ -193,6 +288,9 @@ class keyMetadata extends Model
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+        if (isset($map['DKMSInstanceId'])) {
+            $model->DKMSInstanceId = $map['DKMSInstanceId'];
         }
         if (isset($map['DeleteDate'])) {
             $model->deleteDate = $map['DeleteDate'];

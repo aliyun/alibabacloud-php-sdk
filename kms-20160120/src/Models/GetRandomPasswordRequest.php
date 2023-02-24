@@ -9,36 +9,95 @@ use AlibabaCloud\Tea\Model;
 class GetRandomPasswordRequest extends Model
 {
     /**
+     * @description The characters that are not included in the password to be generated.
+     *
+     * Valid values:
+     *
+     * ` Valid characters: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ! \"#$%&\"()*+,-. /:;<=>? @[\] your_project_id} ~  `.
+     *
+     * This parameter is empty by default.
+     * @example ABCabc
+     *
      * @var string
      */
     public $excludeCharacters;
 
     /**
+     * @description Specifies whether to exclude lowercase letters.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $excludeLowercase;
 
     /**
+     * @description Specifies whether to exclude digits.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $excludeNumbers;
 
     /**
+     * @description Specifies whether to exclude special characters.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $excludePunctuation;
 
     /**
+     * @description Specifies whether to exclude uppercase letters.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $excludeUppercase;
 
     /**
+     * @description The number of bytes that the password to be generated contains.
+     *
+     * Default value: 32
+     * @example 32
+     *
      * @var string
      */
     public $passwordLength;
 
     /**
+     * @description Specifies whether to include all the preceding character types.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $requireEachIncludedType;

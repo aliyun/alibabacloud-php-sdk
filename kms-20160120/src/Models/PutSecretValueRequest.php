@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class PutSecretValueRequest extends Model
 {
     /**
+     * @description The secret value. The value is encrypted and then stored in the new version.
+     *
+     * @example importantdata
+     *
      * @var string
      */
     public $secretData;
 
     /**
+     * @description The type of the secret value. Valid values:
+     *
+     *   text: This is the default value.
+     *   binary
+     *
+     * @example text
+     *
      * @var string
      */
     public $secretDataType;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The new version of the secret value. Version numbers must be unique in each secret.
+     *
+     * @example 00000000000000000000000000000000203
+     *
      * @var string
      */
     public $versionId;
 
     /**
+     * @description The stage labels that are used to mark the new version. If you do not specify this parameter, Secrets Manager marks the new version with ACSCurrent.
+     *
+     * @example ["ACSCurrent","ACSNext"]
+     *
      * @var string
      */
     public $versionStages;

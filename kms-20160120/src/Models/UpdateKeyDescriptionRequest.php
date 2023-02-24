@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateKeyDescriptionRequest extends Model
 {
     /**
+     * @description The description of the CMK. This description includes the purpose of the CMK, such as the types of data that you want to protect and applications that can use the CMK.
+     *
+     * @example key description example
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the CMK. The ID must be globally unique.
+     *
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;

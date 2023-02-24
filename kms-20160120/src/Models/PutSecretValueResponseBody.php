@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class PutSecretValueResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example f94ec9d3-2d10-4922-9a5c-5dcd5ebcb5e8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The new version of the secret value.
+     *
+     * @example 00000000000000000000000000000000203
+     *
      * @var string
      */
     public $versionId;
 
     /**
+     * @description The stage labels that are used to mark the new version.
+     *
      * @var versionStages
      */
     public $versionStages;

@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class AsymmetricSignRequest extends Model
 {
     /**
+     * @description The signature algorithm.
+     *
+     * @example RSA_PSS_SHA_256
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The digest that is generated for the original message by using a hash algorithm. The hash algorithm is specified by the Algorithm parameter.
+     *
+     * >
+     *   The value is encoded in Base64.
+     *   For more information about how to calculate message digests, see the **Preprocess signature: compute a message digest** section of the [Generate and verify a signature by using an asymmetric CMK](~~148146~~) topic.
+     *
+     * @example ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiu****=
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The ID of the customer master key (CMK). The ID must be globally unique.
+     *
+     * >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Alias overview](~~68522~~).
+     * @example 5c438b18-05be-40ad-b6c2-3be6752c****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The version ID of the CMK. The ID must be globally unique.
+     *
+     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
+     *
      * @var string
      */
     public $keyVersionId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class versionId extends Model
 {
     /**
+     * @description The time when the secret version was created.
+     *
+     * @example 2020-02-21T15:39:26Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The version number.
+     *
+     * @example 00000000000000000000000000000000203
+     *
      * @var string
      */
     public $versionId;
 
     /**
+     * @description The stage labels that mark the secret version.
+     *
      * @var versionStages
      */
     public $versionStages;

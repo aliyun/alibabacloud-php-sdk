@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyResponseBody extends Model
 {
     /**
+     * @description The metadata of the CMK.
+     *
      * @var keyMetadata
      */
     public $keyMetadata;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example f1fdfa9d-bd49-418b-942f-8f3e3ec00a4f
+     *
      * @var string
      */
     public $requestId;

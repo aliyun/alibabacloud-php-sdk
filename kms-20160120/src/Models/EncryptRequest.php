@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class EncryptRequest extends Model
 {
     /**
+     * @description A JSON string that consists of key-value pairs. If you specify this parameter, an equivalent value is required when you call the Decrypt operation. For more information, see [EncryptionContext](~~42975~~).
+     *
+     * @example {"Example":"Example"}
+     *
      * @var mixed[]
      */
     public $encryptionContext;
 
     /**
+     * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](~~68522~~).
+     *
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The plaintext to be encrypted. The plaintext must be Base64 encoded.
+     *
+     * @example SGVsbG8gd29y****
+     *
      * @var string
      */
     public $plaintext;

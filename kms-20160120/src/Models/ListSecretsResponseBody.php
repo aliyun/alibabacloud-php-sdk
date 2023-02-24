@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListSecretsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6a6287a0-ff34-4780-a790-fdfca900557f
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of secrets.
+     *
      * @var secretList
      */
     public $secretList;
 
     /**
+     * @description The number of returned secrets.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $totalCount;

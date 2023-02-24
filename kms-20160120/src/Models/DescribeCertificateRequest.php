@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
+     *
+     * @example 9a28de48-8d8b-484d-a766-dec4****
+     *
      * @var string
      */
     public $certificateId;

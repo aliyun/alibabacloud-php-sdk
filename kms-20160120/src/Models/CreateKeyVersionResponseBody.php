@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyVersionResponseBody extends Model
 {
     /**
+     * @description The metadata of the version.
+     *
      * @var keyVersion
      */
     public $keyVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example b96f250a-4b75-498c-91be-22c6928f85be
+     *
      * @var string
      */
     public $requestId;

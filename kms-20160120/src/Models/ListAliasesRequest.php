@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

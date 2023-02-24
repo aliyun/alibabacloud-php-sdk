@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretVersionStageRequest extends Model
 {
     /**
+     * @description The version to which you want to apply the specified stage label.
+     *
+     * >
+     *   You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
+     *   If the VersionStage parameter is set to ACSCurrent or ACSPrevious, this parameter is required.
+     *
+     * @example 002
+     *
      * @var string
      */
     public $moveToVersion;
 
     /**
+     * @description The version from which you want to remove the specified stage label.
+     *
+     * >  You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
+     * @example 001
+     *
      * @var string
      */
     public $removeFromVersion;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The specified stage label. Valid values:
+     *
+     *   ACSCurrent
+     *   ACSPrevious
+     *   Custom stage label
+     *
+     * @example ACSCurrent
+     *
      * @var string
      */
     public $versionStage;

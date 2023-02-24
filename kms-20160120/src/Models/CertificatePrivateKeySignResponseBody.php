@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CertificatePrivateKeySignResponseBody extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5979d897-d69f-4fc9-87dd-f3bb73c40b80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The signature value.
+     *
+     * The value is encoded in Base64.
+     * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
+     *
      * @var string
      */
     public $signatureValue;

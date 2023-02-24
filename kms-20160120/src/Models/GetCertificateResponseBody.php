@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate in the Privacy Enhanced Mail (PEM) format.
+     *
+     * @example -----BEGIN CERTIFICATE-----  (X.509 Certificate PEM Content)  -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @description The certificate chain in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----  (Sub CA Certificate PEM Content)  -----END CERTIFICATE-----  -----BEGIN CERTIFICATE-----  (Sub CA Certificate PEM Content)  -----END CERTIFICATE-----  -----BEGIN CERTIFICATE-----  (Root CA Certificate PEM Content)  -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 9a28de48-8d8b-484d-a766-dec4****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The CSR in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE REQUEST-----MIICxjCCAa4CAQAwPzELMAkGA1UEBhMCQ04xDzANBgNVBAoTBmFsaXl1bjEMMAoGA1UECxMDa21zMREwDwY****-----END CERTIFICATE REQUEST-----
+     *
      * @var string
      */
     public $csr;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example b3e104b4-0319-4a20-ab7f-9fef6****
+     *
      * @var string
      */
     public $requestId;

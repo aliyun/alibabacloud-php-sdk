@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecretResponseBody extends Model
 {
     /**
+     * @description The time when the secret is scheduled to be deleted.
+     *
+     * @example 2022-09-15T07:02:14Z
+     *
      * @var string
      */
     public $plannedDeleteTime;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 38bbed2a-15e0-45ad-98d4-816ad2ccf4ea
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

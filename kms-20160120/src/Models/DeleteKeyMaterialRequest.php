@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeyMaterialRequest extends Model
 {
     /**
+     * @description The globally unique ID of the CMK.
+     *
+     * @example 1234abcd-12ab-34cd-56ef-12345678****
+     *
      * @var string
      */
     public $keyId;

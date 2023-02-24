@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OpenKmsServiceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3455b9b4-95c1-419d-b310-db6a53b09a39
+     *
      * @var string
      */
     public $requestId;

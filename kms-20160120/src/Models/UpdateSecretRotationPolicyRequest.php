@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretRotationPolicyRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic rotation. Valid values:
+     *
+     *   true: enables automatic rotation.
+     *   false: does not enable automatic rotation. This is the default value.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAutomaticRotation;
 
     /**
+     * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
+     *
+     * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or does not specify the EnableAutomaticRotation parameter.
+     * @example 30d
+     *
      * @var string
      */
     public $rotationInterval;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example RdsSecret/Mysql5.4/MyCred
+     *
      * @var string
      */
     public $secretName;

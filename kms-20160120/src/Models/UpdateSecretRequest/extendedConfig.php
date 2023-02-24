@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class extendedConfig extends Model
 {
     /**
+     * @description The custom data in the extended configuration of the secret.
+     *
+     * >
+     *   If this parameter is specified, the existing extended configuration of the secret is updated.
+     *   This parameter is unavailable for generic secrets.
+     *
+     * @example {"DBName":"app1","Port":"3306"}
+     *
      * @var mixed[]
      */
     public $customData;

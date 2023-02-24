@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyVersionRequest extends Model
 {
     /**
+     * @description The ID of the CMK. The ID must be globally unique.
+     *
+     * >  You can also set the value to an alias that is bound to the CMK. For more information, see [Overview of aliases](~~68522~~).
+     * @example 0b30658a-ed1a-4922-b8f7-a673ca9c****
+     *
      * @var string
      */
     public $keyId;

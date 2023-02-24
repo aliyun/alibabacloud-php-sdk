@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListKeyVersionsResponseBody extends Model
 {
     /**
+     * @description An array that consists of key versions.
+     *
      * @var keyVersions
      */
     public $keyVersions;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example f71204c4-53cd-4eea-b405-653ba2db7e86
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned key versions.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

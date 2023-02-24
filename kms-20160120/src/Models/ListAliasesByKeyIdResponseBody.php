@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesByKeyIdResponseBody extends Model
 {
     /**
+     * @description An array that consists of aliases.
+     *
      * @var aliases
      */
     public $aliases;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 1b57992c-834b-4811-a889-f8bac1ba0353
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned CMKs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

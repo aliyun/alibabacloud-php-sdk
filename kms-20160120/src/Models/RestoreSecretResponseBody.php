@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RestoreSecretResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example e4885adf-548f-4ca5-8075-f540bbd3a55f
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

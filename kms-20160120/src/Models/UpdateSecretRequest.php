@@ -15,11 +15,19 @@ class UpdateSecretRequest extends Model
     public $extendedConfig;
 
     /**
+     * @description The description of the secret.
+     *
+     * @example datainfo
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

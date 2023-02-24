@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate. It is the globally unique identifier (GUID) of the certificate in Alibaba Cloud Certificate Manager.
+     *
+     * @example 9a28de48-8d8b-484d-a766-dec4****
+     *
      * @var string
      */
     public $certificateId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetRandomPasswordResponseBody extends Model
 {
     /**
+     * @description The generated random password.
+     *
+     * @example IxGn>NMmNB(y?iZ<Yc,_H/{2GC\"U****
+     *
      * @var string
      */
     public $randomPassword;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6b0cbe25-5e33-467e-972e-7a83c6c97604
+     *
      * @var string
      */
     public $requestId;

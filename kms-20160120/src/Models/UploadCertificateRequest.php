@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UploadCertificateRequest extends Model
 {
     /**
+     * @description The certificate issued by the CA, which is in the Privacy Enhanced Mail (PEM) format.
+     *
+     * @example -----BEGIN CERTIFICATE-----  (X.509 Certificate PEM Content)  -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @description The certificate chain issued by the CA, which is in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----  (Sub CA Certificate PEM Content)  -----END CERTIFICATE-----  -----BEGIN CERTIFICATE-----  (Sub CA Certificate PEM Content)  -----END CERTIFICATE-----  -----BEGIN CERTIFICATE-----  (Root CA Certificate PEM Content)  -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
+     *
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certificateId;

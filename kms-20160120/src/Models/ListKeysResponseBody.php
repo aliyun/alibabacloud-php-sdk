@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListKeysResponseBody extends Model
 {
     /**
+     * @description An array that consists of the CMKs of the current Alibaba Cloud account in the current region.
+     *
      * @var keys
      */
     public $keys;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8252db58-2036-408c-a3d5-56e656dc2551
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of CMKs.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

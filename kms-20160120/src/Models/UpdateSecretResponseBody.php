@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5b75d8b1-5b6a-4ec0-8e0c-c08befdfad47
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

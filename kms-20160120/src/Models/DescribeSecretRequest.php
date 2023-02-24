@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecretRequest extends Model
 {
     /**
+     * @description Specifies whether to return the resource tags of the secret. Valid values:
+     *
+     *   true: The resource tags are returned.
+     *   false: The resource tags are not returned. This is the default value.
+     *
+     * @example true
+     *
      * @var string
      */
     public $fetchTags;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;

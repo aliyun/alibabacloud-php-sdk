@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class secret extends Model
 {
     /**
+     * @description The time when the secret was created.
+     *
+     * @example 2022-07-17T07:59:05Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the secret is scheduled to be deleted.
+     *
+     * @example 2022-08-17T07:59:05Z
+     *
      * @var string
      */
     public $plannedDeleteTime;
 
     /**
+     * @description The secret name.
+     *
+     * @example secret001
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The type of the secret. Valid values:
+     *
+     *   Generic: indicates a generic secret.
+     *   Rds: indicates a managed ApsaraDB RDS secret.
+     *
+     * @example Generic
+     *
      * @var string
      */
     public $secretType;
 
     /**
+     * @description The resource tags of the secret.
+     *
+     * This parameter is not returned if you set the FetchTags parameter to false or do not specify the FetchTags parameter.
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The time when the secret was updated.
+     *
+     * @example 2022-07-17T07:59:05Z
+     *
      * @var string
      */
     public $updateTime;

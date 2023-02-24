@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DecryptResponseBody extends Model
 {
     /**
+     * @description The ID of the customer master key (CMK) that is used to decrypt the ciphertext.
+     *
+     * It is the GUID of the CMK.
+     * @example 202b9877-5a25-46e3-a763-e20791b5****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The ID of the CMK version that is used to decrypt the ciphertext.
+     *
+     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
+     *
      * @var string
      */
     public $keyVersionId;
 
     /**
+     * @description The plaintext that is generated after decryption.
+     *
+     * @example tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****
+     *
      * @var string
      */
     public $plaintext;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 207596a2-36d3-4840-b1bd-f87044699bd7
+     *
      * @var string
      */
     public $requestId;
