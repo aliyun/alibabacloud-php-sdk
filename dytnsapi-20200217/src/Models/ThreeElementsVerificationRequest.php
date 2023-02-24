@@ -55,6 +55,11 @@ class ThreeElementsVerificationRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $routeName;
     protected $_name = [
         'authCode'             => 'AuthCode',
         'certCode'             => 'CertCode',
@@ -64,6 +69,7 @@ class ThreeElementsVerificationRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'routeName'            => 'RouteName',
     ];
 
     public function validate()
@@ -96,6 +102,9 @@ class ThreeElementsVerificationRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->routeName) {
+            $res['RouteName'] = $this->routeName;
         }
 
         return $res;
@@ -132,6 +141,9 @@ class ThreeElementsVerificationRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RouteName'])) {
+            $model->routeName = $map['RouteName'];
         }
 
         return $model;
