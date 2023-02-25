@@ -12,10 +12,10 @@ class pageData extends Model
     /**
      * @description The type of the workload accelerated by Alibaba Cloud CDN. Valid values:
      *
-     *   **web:** image and small file distribution
-     *   **download:** large file distribution
-     *   **video:** on-demand video and audio streaming
-     *   **liveStream:** live streaming
+     *   **web**: image and small file distribution
+     *   **download**: large file distribution
+     *   **video**: on-demand video and audio streaming
+     *   **liveStream**: live streaming
      *
      * @example web
      *
@@ -33,7 +33,7 @@ class pageData extends Model
     public $cname;
 
     /**
-     * @description The description of the status.
+     * @description The description of the accelerated domain name.
      *
      * @example audit failed
      *
@@ -53,11 +53,11 @@ class pageData extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: configuring
-     *   **configure_failed**: configuration failed
-     *   **checking**: reviewing
+     *   **online:** enabled
+     *   **offline:** disabled
+     *   **configuring:** configuring
+     *   **configure_failed:** configuration failed
+     *   **checking:** reviewing
      *   **check_failed**: failed the review
      *   **stopping**: being disabled
      *   **deleting**: deleting
@@ -69,7 +69,7 @@ class pageData extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added to Alibaba Cloud CDN.
+     * @description The time when the accelerated domain name was added.
      *
      * @example 2015-10-28T11:05:52Z
      *
@@ -96,14 +96,14 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
-     * @description Information about the origin server.
+     * @description The information about the origin server.
      *
      * @var sources
      */
     public $sources;
 
     /**
-     * @description The status of HTTPS. Valid values:
+     * @description Indicates whether HTTPS is enabled. Valid values:
      *
      *   **on**
      *   **off**

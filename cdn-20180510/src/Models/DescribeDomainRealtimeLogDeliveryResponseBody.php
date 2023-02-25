@@ -45,7 +45,7 @@ class DescribeDomainRealtimeLogDeliveryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the real-time log delivery feature. Valid values:
+     * @description The status of real-time log delivery. Valid values:
      *
      *   **online**
      *   **offline**

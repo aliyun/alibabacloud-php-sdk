@@ -11,7 +11,7 @@ class VerifyDomainOwnerResponseBody extends Model
     /**
      * @description The verification result.
      *
-     * >  This parameter is returned if the operation fails. The verification result is returned if the operation succeeds.
+     * > This parameter is returned only if the operation fails.
      * @example verify_dffeb6610035dcb77b413a59c32c****
      *
      * @var string

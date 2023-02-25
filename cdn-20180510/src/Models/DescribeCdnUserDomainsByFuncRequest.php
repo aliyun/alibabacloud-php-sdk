@@ -28,7 +28,7 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return on each page. Default value: **20**.
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * Valid values: **1** to **50**.
      * @example 20

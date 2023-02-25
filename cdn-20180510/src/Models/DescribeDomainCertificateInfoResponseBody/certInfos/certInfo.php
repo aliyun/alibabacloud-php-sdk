@@ -27,6 +27,11 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @var string
+     */
+    public $certId;
+
+    /**
      * @description The unit of the validity period of the SSL certificate.
      *
      *   **months**: The validity period is measured in months.
@@ -55,6 +60,11 @@ class certInfo extends Model
      * @var string
      */
     public $certOrg;
+
+    /**
+     * @var string
+     */
+    public $certRegion;
 
     /**
      * @description The time when the SSL certificate became effective.
@@ -154,9 +164,11 @@ class certInfo extends Model
     protected $_name = [
         'certDomainName'          => 'CertDomainName',
         'certExpireTime'          => 'CertExpireTime',
+        'certId'                  => 'CertId',
         'certLife'                => 'CertLife',
         'certName'                => 'CertName',
         'certOrg'                 => 'CertOrg',
+        'certRegion'              => 'CertRegion',
         'certStartTime'           => 'CertStartTime',
         'certType'                => 'CertType',
         'certUpdateTime'          => 'CertUpdateTime',
@@ -180,6 +192,9 @@ class certInfo extends Model
         if (null !== $this->certExpireTime) {
             $res['CertExpireTime'] = $this->certExpireTime;
         }
+        if (null !== $this->certId) {
+            $res['CertId'] = $this->certId;
+        }
         if (null !== $this->certLife) {
             $res['CertLife'] = $this->certLife;
         }
@@ -188,6 +203,9 @@ class certInfo extends Model
         }
         if (null !== $this->certOrg) {
             $res['CertOrg'] = $this->certOrg;
+        }
+        if (null !== $this->certRegion) {
+            $res['CertRegion'] = $this->certRegion;
         }
         if (null !== $this->certStartTime) {
             $res['CertStartTime'] = $this->certStartTime;
@@ -231,6 +249,9 @@ class certInfo extends Model
         if (isset($map['CertExpireTime'])) {
             $model->certExpireTime = $map['CertExpireTime'];
         }
+        if (isset($map['CertId'])) {
+            $model->certId = $map['CertId'];
+        }
         if (isset($map['CertLife'])) {
             $model->certLife = $map['CertLife'];
         }
@@ -239,6 +260,9 @@ class certInfo extends Model
         }
         if (isset($map['CertOrg'])) {
             $model->certOrg = $map['CertOrg'];
+        }
+        if (isset($map['CertRegion'])) {
+            $model->certRegion = $map['CertRegion'];
         }
         if (isset($map['CertStartTime'])) {
             $model->certStartTime = $map['CertStartTime'];

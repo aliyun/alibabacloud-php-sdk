@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeL2VipsByDomainResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeL2VipsByDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of virtual IP addresses.
+     * @description The list of VIPs.
      *
      * @var vips
      */

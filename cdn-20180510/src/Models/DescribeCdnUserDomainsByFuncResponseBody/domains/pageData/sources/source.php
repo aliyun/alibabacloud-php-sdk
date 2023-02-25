@@ -39,9 +39,9 @@ class source extends Model
      * @description The type of the origin server. Valid values:
      *
      *   **ipaddr**: an origin IP address
-     *   **domain**: an origin domain name
-     *   **oss**: the domain name of an Object Storage Service (OSS) bucket
-     *   **fc_domain**: a Function Compute domain name
+     *   **domain:** a domain name
+     *   **oss:** the OSS domain of an Object Storage Service (OSS) bucket
+     *   **fc_domain:** a Function Compute domain name
      *
      * @example ipaddr
      *

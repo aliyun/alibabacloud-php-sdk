@@ -2794,8 +2794,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
-     *   * - You can call this API operation up to three times per second per account.
+     * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+     *   * *   You can call this operation up to three times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2820,8 +2820,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
-     *   * - You can call this API operation up to three times per second per account.
+     * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+     *   * *   You can call this operation up to three times per second per account.
      *   *
      * @return DescribeCdnSubListResponse DescribeCdnSubListResponse
      */
@@ -5240,7 +5240,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this API operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -5270,7 +5270,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this API operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      *
@@ -6570,8 +6570,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
-     *   * *   The maximum number of times that each user can call this operation per second is 40.
+     * *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+     *   * *   You can call this operation up to 40 times per second per account.
      *   *
      * @param DescribeL2VipsByDomainRequest $request DescribeL2VipsByDomainRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6610,8 +6610,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
-     *   * *   The maximum number of times that each user can call this operation per second is 40.
+     * *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+     *   * *   You can call this operation up to 40 times per second per account.
      *   *
      * @param DescribeL2VipsByDomainRequest $request DescribeL2VipsByDomainRequest
      *
@@ -7124,7 +7124,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -7149,7 +7149,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @return DescribeUserCertificateExpireCountResponse DescribeUserCertificateExpireCountResponse
      */
@@ -7492,7 +7492,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeVerifyContentRequest $request DescribeVerifyContentRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7525,7 +7525,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeVerifyContentRequest $request DescribeVerifyContentRequest
      *
@@ -9044,7 +9044,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param VerifyDomainOwnerRequest $request VerifyDomainOwnerRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -9080,7 +9080,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param VerifyDomainOwnerRequest $request VerifyDomainOwnerRequest
      *
