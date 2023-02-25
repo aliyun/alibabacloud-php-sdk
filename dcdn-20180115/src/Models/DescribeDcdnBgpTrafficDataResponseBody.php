@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpTrafficDataResponseBody extends Model
 {
     /**
+     * @description The BGP traffic data that is collected for each interval.
+     *
      * @var bgpDataInterval[]
      */
     public $bgpDataInterval;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2018-11-30T00:00:00Z
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDcdnBgpTrafficDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDcdnBgpTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2018-11-29T00:00:00Z
      *
      * @var string

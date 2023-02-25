@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRequest extends Model
 {
     /**
+     * @description The description of the routine.
+     *
      * @example the description of this routine
      *
      * @var string
@@ -16,13 +18,17 @@ class CreateRoutineRequest extends Model
     public $description;
 
     /**
-     * @example {"Staging":{"SpecName":"50ms"},"Production":{"SpecName":"50ms"}}
+     * @description The configurations of the specified environment.
+     *
+     * @example {"staging":{"pecName":"50ms"},"production":{"SpecName":"50ms"}}
      *
      * @var mixed[]
      */
     public $envConf;
 
     /**
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     *
      * @example test
      *
      * @var string

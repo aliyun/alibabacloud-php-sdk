@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description The description of the field.
+     *
+     * @example interview time
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the field.
+     *
      * @example unixtime
      *
      * @var string
@@ -21,6 +27,11 @@ class fields extends Model
     public $fieldName;
 
     /**
+     * @description Indicates whether a field was selected.
+     *
+     *   **true**: The field was selected.
+     *   **false**: The field was not selected.
+     *
      * @example true
      *
      * @var bool

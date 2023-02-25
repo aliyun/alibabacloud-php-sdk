@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class isp extends Model
 {
     /**
+     * @description The English name of the ISP.
+     *
      * @example unicom
      *
      * @var string
@@ -16,6 +18,8 @@ class isp extends Model
     public $nameEn;
 
     /**
+     * @description The Chinese name of the ISP.
+     *
      * @var string
      */
     public $nameZh;

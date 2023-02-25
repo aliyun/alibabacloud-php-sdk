@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpInfoRequest extends Model
 {
     /**
+     * @description The IP address. You can specify only one IP address.
+     *
      * @example 10.10.10.10
      *
      * @var string

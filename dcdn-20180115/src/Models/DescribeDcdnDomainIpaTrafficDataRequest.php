@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIpaTrafficDataRequest extends Model
 {
     /**
+     * @description The name of the accelerated domain name.
+     *
+     * You can specify one or more accelerated domain names. Separate them with commas (,). By default, all accelerated domain names that belong to your Alibaba Cloud account are queried.
      * @example example.com
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -23,6 +29,11 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $endTime;
 
     /**
+     * @description Specify whether to implement padding with zeros. Valid values:
+     *
+     *   **true**: Yes
+     *   **false**: No
+     *
      * @example false
      *
      * @var string
@@ -30,6 +41,14 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $fixTimeGap;
 
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * The valid values vary based on the values of the **StartTime** and **EndTime** parameters. Valid values:
+     *
+     *   If the time range between StartTime and EndTime is less than 3 days, valid values are **300**, **3600**, and **86400**. Default value: **300**.
+     *   If the time range between StartTime and EndTime is from 3 to 31 days (31 days excluded), valid values are **3600** and **86400**. Default value: **3600**.
+     *   If the time range between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
+     *
      * @example 300
      *
      * @var string
@@ -37,6 +56,9 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $interval;
 
     /**
+     * @description The name of the Internet service provider (ISP) for Dynamic Route for CDN (DCDN).
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~207199~~) operation to query the most recent ISP list. If you do not specify an ISP, all ISPs are queried.
      * @example unicom
      *
      * @var string
@@ -44,6 +66,9 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeCdnRegionAndIsp](~~207199~~) operation to query the most recent region list. If you do not specify a region, all regions are queried.
      * @example beijing
      *
      * @var string
@@ -51,6 +76,9 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC+0.
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -58,6 +86,8 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
     public $startTime;
 
     /**
+     * @description Specify whether to automatically calculate the value of the **Interval** parameter. If you set the **TimeMerge** parameter to **1**, the value of the **Interval** parameter is automatically assigned based on the **StartTime** and **EndTime** parameters. You can set this parameter or the **Interval** parameter.
+     *
      * @example 1
      *
      * @var string

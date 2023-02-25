@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
 {
     /**
+     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
+     *
+     *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) points of presence (POPs)
+     *   **cdn_log_origin**: back-to-origin logs
+     *   **cdn_log_er**: EdgeRoutine logs
+     *
      * @example cdn_log_access_l1
      *
      * @var string
@@ -16,6 +22,14 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $businessType;
 
     /**
+     * @description The data center. Valid values:
+     *
+     *   cn: China
+     *   sg: Singapore
+     *   in: India
+     *   eu: Europe
+     *   us: United States
+     *
      * @example cn
      *
      * @var string
@@ -23,6 +37,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $dataCenter;
 
     /**
+     * @description The domain names from which logs were collected. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +46,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $domainName;
 
     /**
+     * @description The name of a real-time log delivery project.
+     *
      * @example example
      *
      * @var string
@@ -37,6 +55,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the Log Service Logstore.
+     *
      * @example demo
      *
      * @var string
@@ -44,6 +64,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $SLSLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
      * @example aliyundoc
      *
      * @var string
@@ -51,6 +73,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $SLSProject;
 
     /**
+     * @description The region to which real-time logs are delivered.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +82,8 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $SLSRegion;
 
     /**
+     * @description The sampling rate.
+     *
      * @example 1.0
      *
      * @var string

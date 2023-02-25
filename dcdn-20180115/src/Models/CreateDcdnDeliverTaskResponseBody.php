@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnDeliverTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the change tracking task.
+     *
      * @example 92
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDcdnDeliverTaskResponseBody extends Model
     public $deliverId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

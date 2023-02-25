@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleConfigs extends Model
 {
     /**
+     * @description The configuration code of the security rule.
+     *
      * @example custom_****_number
      *
      * @var string
@@ -16,6 +18,8 @@ class ruleConfigs extends Model
     public $code;
 
     /**
+     * @description The configuration expression of the security rule.
+     *
      * @example equal
      *
      * @var string
@@ -23,6 +27,8 @@ class ruleConfigs extends Model
     public $expr;
 
     /**
+     * @description The value of the configuration expression of the security rule.
+     *
      * @example 20
      *
      * @var string

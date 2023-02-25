@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * The time granularity varies with the maximum time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600(1 hour). For more information, see **Usage notes**.
      * @example 60
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +29,8 @@ class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2015-12-10T20:01:00Z
      *
      * @var string
@@ -31,11 +38,15 @@ class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The amount of origin traffic returned at each time interval. Unit: bytes.
+     *
      * @var realTimeSrcTrafficDataPerInterval
      */
     public $realTimeSrcTrafficDataPerInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A666D44F-19D6-490E-97CF-1A64AB962C57
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

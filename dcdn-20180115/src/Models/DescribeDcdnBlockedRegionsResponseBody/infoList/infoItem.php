@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class infoItem extends Model
 {
     /**
+     * @description The district to which the country or region belongs.
+     *
+     * @example middle East
+     *
      * @var string
      */
     public $continent;
 
     /**
+     * @description The abbreviation of the name of the country or region.
+     *
      * @example AE
      *
      * @var string
@@ -21,6 +27,10 @@ class infoItem extends Model
     public $countriesAndRegions;
 
     /**
+     * @description The name of the country or region.
+     *
+     * @example united arab emirates
+     *
      * @var string
      */
     public $countriesAndRegionsName;

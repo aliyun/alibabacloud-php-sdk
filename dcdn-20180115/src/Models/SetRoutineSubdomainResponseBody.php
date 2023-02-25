@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRoutineSubdomainResponseBody extends Model
 {
     /**
+     * @description The message returned, such as ""Status": "OK"".
+     *
      * @example "Status": "OK"
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class SetRoutineSubdomainResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

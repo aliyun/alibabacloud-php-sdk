@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The accelerated domain name that was protected by the specified protection policy.
+     *
      * @example example.com
      *
      * @var string

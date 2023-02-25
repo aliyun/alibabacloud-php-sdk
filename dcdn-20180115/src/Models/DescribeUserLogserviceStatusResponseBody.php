@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserLogserviceStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether Log Service is activated.
+     *
+     *   true: activated
+     *   false: not activated
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description Indicates whether your Log Service has overdue payments.
+     *
+     *   true: Your Log Service has overdue payments.
+     *   false: Your Log Service does not have overdue payments.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,11 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public $inDebt;
 
     /**
+     * @description Indicates whether the overdue payments of Log Service have passed the grace period.
+     *
+     *   true: The overdue payments of Log Service have passed the grace period.
+     *   false: The overdue payments of Log Service have not passed the grace period.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +45,11 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public $inDebtOverdue;
 
     /**
+     * @description Indicates whether Log Service is available.
+     *
+     *   true: available
+     *   false: unavailable
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +57,8 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public $onService;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4F51E9C3-728F-4E35-952D-0ED87A06A8A1
      *
      * @var string

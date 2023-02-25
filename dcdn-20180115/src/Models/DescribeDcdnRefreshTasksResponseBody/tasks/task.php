@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The time when the task was created. The time is displayed in UTC.
+     *
      * @example 2014-11-27T08:23:22Z
      *
      * @var string
@@ -16,6 +18,12 @@ class task extends Model
     public $creationTime;
 
     /**
+     * @description The type of error returned when the refresh or prefetch task has failed.
+     *
+     *   **InternalError**: An internal error occurred.
+     *   **OriginTimeout**: The response from the origin server timed out.
+     *   **OriginReturn StatusCode 5XX**: The origin server returned a 5XX error.
+     *
      * @example Internal Error
      *
      * @var string
@@ -23,6 +31,8 @@ class task extends Model
     public $description;
 
     /**
+     * @description The URL of the object to be refreshed.
+     *
      * @example http://example.com/examplefile.txt
      *
      * @var string
@@ -30,6 +40,12 @@ class task extends Model
     public $objectPath;
 
     /**
+     * @description The type of the task.
+     *
+     *   **file**: URL-based refresh
+     *   **path**: directory-based refresh
+     *   **preload**: URL-based prefetch
+     *
      * @example file
      *
      * @var string
@@ -37,6 +53,8 @@ class task extends Model
     public $objectType;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
      * @example 10
      *
      * @var string
@@ -44,6 +62,12 @@ class task extends Model
     public $process;
 
     /**
+     * @description The status of the task.
+     *
+     *   **Complete**: The task has completed.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -51,6 +75,8 @@ class task extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 123
      *
      * @var string

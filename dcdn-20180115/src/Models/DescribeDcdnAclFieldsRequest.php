@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnAclFieldsRequest extends Model
 {
     /**
+     * @description The access language. Default value: en. Valid values:
+     *
+     *   **en**: English
+     *   **zh**: Chinese
+     *
      * @example en
      *
      * @var string

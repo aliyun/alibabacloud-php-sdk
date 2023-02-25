@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class activityLog extends Model
 {
     /**
+     * @description The action that was triggered.
+     *
      * @example deny
      *
      * @var string
@@ -16,6 +18,8 @@ class activityLog extends Model
     public $action;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class activityLog extends Model
     public $domainName;
 
     /**
+     * @description The name of the rule that was triggered.
+     *
      * @example test2
      *
      * @var string
@@ -30,6 +36,8 @@ class activityLog extends Model
     public $ruleName;
 
     /**
+     * @description The timestamp of the data.
+     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class activityLog extends Model
     public $timeStamp;
 
     /**
+     * @description The object that triggered rate limiting.
+     *
      * @example IP
      *
      * @var string
@@ -44,6 +54,8 @@ class activityLog extends Model
     public $triggerObject;
 
     /**
+     * @description The period of time during which rate limiting remains effective.
+     *
      * @example 300
      *
      * @var int
@@ -51,6 +63,8 @@ class activityLog extends Model
     public $ttl;
 
     /**
+     * @description The value of the object that triggered rate limiting.
+     *
      * @example 10.10.10.10
      *
      * @var string

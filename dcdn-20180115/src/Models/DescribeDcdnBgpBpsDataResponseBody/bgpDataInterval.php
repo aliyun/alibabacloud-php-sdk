@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bgpDataInterval extends Model
 {
     /**
+     * @description The inbound bandwidth. Unit: bit/s.
+     *
      * @example 318
      *
      * @var float
@@ -16,6 +18,8 @@ class bgpDataInterval extends Model
     public $in;
 
     /**
+     * @description The outbound bandwidth. Unit: bit/s.
+     *
      * @example 183
      *
      * @var float
@@ -23,6 +27,8 @@ class bgpDataInterval extends Model
     public $out;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2018-11-29T20:00:00Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnWafDomainConfigsRequest extends Model
 {
     /**
+     * @description Specifies the header that records the IP address to be obtained. If the default header is selected, the value of this parameter is empty. If a custom header is selected, the value of this parameter is the value specified by the user. Separate multiple values with commas (,). You can specify a maximum of five values.
+     *
      * @example X-Forwarded-For
      *
      * @var string
@@ -16,6 +18,12 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     public $clientIpTag;
 
     /**
+     * @description The protection status of the domain name. Valid values: on, off, and empty string.
+     *
+     *   When you add a domain name, the value of this parameter is **on**, and the value of ClientIpTag takes effect.
+     *   When you delete a domain name, the value of this parameter is **off**, and the value of ClientIpTag does not take effect.
+     *   When you only modify the value of ClientIpTag, the value of DefenseStatus is an empty string.
+     *
      * @example on
      *
      * @var string
@@ -23,6 +31,8 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     public $defenseStatus;
 
     /**
+     * @description The protected domain names for which you want to change the protection status. You can specify up to 50 domain names. Separate multiple domain names with commas (,).
+     *
      * @example example.com,example2.com
      *
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
 {
     /**
+     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
+     *
+     *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) points of presence (POPs)
+     *   **cdn_log_origin**: back-to-origin logs
+     *   **cdn_log_er**: EdgeRoutine logs
+     *
      * @example cdn_log_access_l1
      *
      * @var string
@@ -16,6 +22,8 @@ class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
     public $businessType;
 
     /**
+     * @description The list of fields. Separate multiple fields with commas (,). For more information, see [Fields in a real-time log](~~324199~~).
+     *
      * @example body_bytes_sent,client_ip,content_type
      *
      * @var string

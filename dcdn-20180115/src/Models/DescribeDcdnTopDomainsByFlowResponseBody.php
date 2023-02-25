@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnTopDomainsByFlowResponseBody extends Model
 {
     /**
+     * @description The total number of accelerated domains under your account.
+     *
      * @example 68
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $domainCount;
 
     /**
+     * @description The total number of accelerated domains that are in the **Enabled** state under your account.
+     *
      * @example 68
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $domainOnlineCount;
 
     /**
+     * @description The end of the time range during which the data was collected.
+     *
      * @example 2016-03-14T07:34:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E09C5D7-E1CF-4CAA-A45E-8727F4C8FD70
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was collected.
+     *
      * @example 2016-03-14T06:34:00Z
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The top N domain names ranked by network traffic.
+     *
      * @var topDomains
      */
     public $topDomains;

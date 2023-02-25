@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSecSpecInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 32f6cbb7-13e5-403a-9941-4d4e978dd227
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDcdnSecSpecInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The code and configurations of the security rules.
+     *
      * @var specInfos[]
      */
     public $specInfos;
 
     /**
+     * @description The version of secure DCDN.
+     *
      * @example enterprise
      *
      * @var string

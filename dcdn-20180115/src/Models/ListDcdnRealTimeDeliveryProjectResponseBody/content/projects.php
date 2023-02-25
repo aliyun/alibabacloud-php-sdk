@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
+     *
+     *   **cdn_log_access_l1**: access logs of DCDN POPs
+     *   **cdn_log_origin**: back-to-origin logs
+     *   **cdn_log_er**: EdgeRoutine logs
+     *
      * @example cdn_log_access_l1
      *
      * @var string
@@ -16,6 +22,8 @@ class projects extends Model
     public $businessType;
 
     /**
+     * @description The region from which logs were collected.
+     *
      * @example cn
      *
      * @var string
@@ -23,6 +31,8 @@ class projects extends Model
     public $dataCenter;
 
     /**
+     * @description The domain names from which logs were collected. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     *
      * @example example.com,example.org
      *
      * @var string
@@ -30,6 +40,8 @@ class projects extends Model
     public $domainName;
 
     /**
+     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
+     *
      * @example field1,field2
      *
      * @var string
@@ -37,6 +49,8 @@ class projects extends Model
     public $fieldName;
 
     /**
+     * @description The name of the Log Service project
+     *
      * @example example
      *
      * @var string
@@ -44,6 +58,8 @@ class projects extends Model
     public $projectName;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example example-cn
      *
      * @var string
@@ -51,6 +67,8 @@ class projects extends Model
     public $SLSLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
      * @example example-cn
      *
      * @var string
@@ -58,6 +76,8 @@ class projects extends Model
     public $SLSProject;
 
     /**
+     * @description The region to which logs were delivered.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +85,8 @@ class projects extends Model
     public $SLSRegion;
 
     /**
+     * @description The sampling rate.
+     *
      * @example 1
      *
      * @var float
@@ -72,6 +94,8 @@ class projects extends Model
     public $samplingRate;
 
     /**
+     * @description The type of log delivery. Only **SLS_POST** is supported.
+     *
      * @example SLS_POST
      *
      * @var string

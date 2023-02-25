@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPoliciesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page. Valid values: **1** to **100000**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDcdnWafPoliciesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of protection policies returned per page. Valid values: an integer from **1** to **500**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeDcdnWafPoliciesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The protection policies.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 153ca2cd-3c01-44be-2e83-64dbc6c88630
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDcdnWafPoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of protection policies.
+     *
      * @example 15
      *
      * @var int

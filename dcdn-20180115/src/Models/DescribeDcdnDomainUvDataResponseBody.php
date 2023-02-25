@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUvDataResponseBody extends Model
 {
     /**
+     * @description The data collection interval. Unit: second.
+     *
      * @example 3600
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The name of the accelerated domain for which the data was returned.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was collected.
+     *
      * @example 2015-11-30T00:00:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was collected.
+     *
      * @example 2015-11-29T00:00:00Z
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The number of UVs at each interval.
+     *
      * @var uvDataInterval
      */
     public $uvDataInterval;

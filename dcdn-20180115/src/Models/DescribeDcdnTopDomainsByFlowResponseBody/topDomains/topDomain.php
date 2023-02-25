@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topDomain extends Model
 {
     /**
+     * @description The name of the accelerated domain.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class topDomain extends Model
     public $domainName;
 
     /**
+     * @description The peak bandwidth.
+     *
      * @example 22139626
      *
      * @var int
@@ -23,6 +27,8 @@ class topDomain extends Model
     public $maxBps;
 
     /**
+     * @description The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-11-01T08:10:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class topDomain extends Model
     public $maxBpsTime;
 
     /**
+     * @description The ranking of the domains.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class topDomain extends Model
     public $rank;
 
     /**
+     * @description The number of visits to the URL that was queried.
+     *
      * @example 3
      *
      * @var int
@@ -44,6 +54,8 @@ class topDomain extends Model
     public $totalAccess;
 
     /**
+     * @description The total amount of network traffic.
+     *
      * @example 123
      *
      * @var string
@@ -51,6 +63,8 @@ class topDomain extends Model
     public $totalTraffic;
 
     /**
+     * @description The proportion of the network traffic that was consumed for accessing the URL.
+     *
      * @example 21.686305274906182
      *
      * @var string

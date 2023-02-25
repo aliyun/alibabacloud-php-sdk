@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrAndSlsProjectResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example fe33a379-5053-4f22-a73c-826e2b44355d
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateSlrAndSlsProjectResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about Log Service.
+     *
      * @var slsInfo
      */
     public $slsInfo;

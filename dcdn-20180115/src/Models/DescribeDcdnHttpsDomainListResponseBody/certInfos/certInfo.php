@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @description The returned primary domain name of the certificate.
+     *
      * @example *.com
      *
      * @var string
@@ -16,6 +18,8 @@ class certInfo extends Model
     public $certCommonName;
 
     /**
+     * @description The time when the certificate expires.
+     *
      * @example 2018-12-26 14:45:09
      *
      * @var string
@@ -23,6 +27,8 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example cert
      *
      * @var string
@@ -30,6 +36,8 @@ class certInfo extends Model
     public $certName;
 
     /**
+     * @description The time when the certificate became effective.
+     *
      * @example 2018-11-26 14:45:09
      *
      * @var string
@@ -37,6 +45,13 @@ class certInfo extends Model
     public $certStartTime;
 
     /**
+     * @description The status of the certificate. Valid values:
+     *
+     *   **ok**: The certificate is working as expected.
+     *   **mismatch**: The certificate does not match the specified domain name.
+     *   **expired**: The certificate has expired.
+     *   **expire_soon**: The certificate is about to expire.
+     *
      * @example mismatch
      *
      * @var string
@@ -44,6 +59,12 @@ class certInfo extends Model
     public $certStatus;
 
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **free**: A free certificate.
+     *   **cas**: A certificate that is purchased through Alibaba Cloud SSL Certificates Service.
+     *   **upload**: A user-uploaded certificate.
+     *
      * @example upload
      *
      * @var string
@@ -51,6 +72,8 @@ class certInfo extends Model
     public $certType;
 
     /**
+     * @description The time when the certificate was updated.
+     *
      * @example 2019-01-08 18:33:16
      *
      * @var string
@@ -58,6 +81,8 @@ class certInfo extends Model
     public $certUpdateTime;
 
     /**
+     * @description The accelerated domain name for which the certificate information was queried.
+     *
      * @example *.com
      *
      * @var string

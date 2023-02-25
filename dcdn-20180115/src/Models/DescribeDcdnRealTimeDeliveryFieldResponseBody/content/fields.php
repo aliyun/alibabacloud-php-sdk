@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description The description of the field.
+     *
+     * @example interview time
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the field. For more information about the fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
+     *
      * @example unixtime
      *
      * @var string

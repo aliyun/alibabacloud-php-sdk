@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCachesResponseBody extends Model
 {
     /**
+     * @description The ID of the refresh task. Multiple IDs are separated by commas (,).
+     *
      * @example 95248880
      *
      * @var string
@@ -16,6 +18,8 @@ class RefreshDcdnObjectCachesResponseBody extends Model
     public $refreshTaskId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E5BD4B50-7A02-493A-AE0B-97B9024B4135
      *
      * @var string

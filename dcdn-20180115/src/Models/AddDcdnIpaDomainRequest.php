@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnIpaDomainRequest extends Model
 {
     /**
+     * @description The URL that is used to check the accessibility of the origin server.
+     *
      * @example example.com/image_01.png
      *
      * @var string
@@ -16,6 +18,9 @@ class AddDcdnIpaDomainRequest extends Model
     public $checkUrl;
 
     /**
+     * @description The domain name to be added to IPA.
+     *
+     * A wildcard domain that starts with a period (.) is supported, such as .example.com.
      * @example example.com
      *
      * @var string
@@ -33,6 +38,12 @@ class AddDcdnIpaDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **udp**
+     *   **tcp**
+     *
+     * >  Example: `{"protocol":"udp"}`.
      * @example udp
      *
      * @var string
@@ -40,6 +51,8 @@ class AddDcdnIpaDomainRequest extends Model
     public $protocol;
 
     /**
+     * @description The ID of the resource group. If you do not specify a value for this parameter, the system automatically assigns the ID of the default resource group.
+     *
      * @example rg
      *
      * @var string
@@ -47,6 +60,12 @@ class AddDcdnIpaDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The acceleration region. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
+     *
      * @example domestic
      *
      * @var string
@@ -59,6 +78,8 @@ class AddDcdnIpaDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the addresses of origin servers.
+     *
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string
@@ -66,6 +87,8 @@ class AddDcdnIpaDomainRequest extends Model
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
      * @example *.com
      *
      * @var string

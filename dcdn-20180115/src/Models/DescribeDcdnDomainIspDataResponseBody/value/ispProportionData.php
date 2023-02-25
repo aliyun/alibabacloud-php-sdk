@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ispProportionData extends Model
 {
     /**
+     * @description The average response size. Unit: bytes.
+     *
      * @example 800019.0
      *
      * @var string
@@ -16,6 +18,8 @@ class ispProportionData extends Model
     public $avgObjectSize;
 
     /**
+     * @description The average response speed. Unit: byte/ms.
+     *
      * @example 154.3345765545624
      *
      * @var string
@@ -23,6 +27,8 @@ class ispProportionData extends Model
     public $avgResponseRate;
 
     /**
+     * @description The average response time. Unit: milliseconds.
+     *
      * @example 5183.666666666667
      *
      * @var string
@@ -30,6 +36,8 @@ class ispProportionData extends Model
     public $avgResponseTime;
 
     /**
+     * @description The bandwidth.
+     *
      * @example 380.9614285714286
      *
      * @var string
@@ -37,6 +45,8 @@ class ispProportionData extends Model
     public $bps;
 
     /**
+     * @description The proportion of network traffic. For example, a value of 90 indicates that 90% of network traffic was coming from the specified ISP.
+     *
      * @example 0.003544181046236794
      *
      * @var string
@@ -44,11 +54,15 @@ class ispProportionData extends Model
     public $bytesProportion;
 
     /**
+     * @description The information about the ISP.
+     *
      * @var string
      */
     public $isp;
 
     /**
+     * @description The name of the ISP.
+     *
      * @example unicom
      *
      * @var string
@@ -56,6 +70,8 @@ class ispProportionData extends Model
     public $ispEname;
 
     /**
+     * @description The proportion of requests.
+     *
      * @example 0.01155980271270037
      *
      * @var string
@@ -63,6 +79,8 @@ class ispProportionData extends Model
     public $proportion;
 
     /**
+     * @description The number of queries per second.
+     *
      * @example 5.9523809523809524E-5
      *
      * @var string
@@ -70,6 +88,8 @@ class ispProportionData extends Model
     public $qps;
 
     /**
+     * @description The total amount of network traffic.
+     *
      * @example 2400057
      *
      * @var string
@@ -77,6 +97,8 @@ class ispProportionData extends Model
     public $totalBytes;
 
     /**
+     * @description The total number of requests.
+     *
      * @example 3
      *
      * @var string

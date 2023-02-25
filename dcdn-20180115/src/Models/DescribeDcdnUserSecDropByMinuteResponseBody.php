@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
 {
     /**
+     * @description The description of HTTP responses.
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $description;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $len;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 2
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8143fA8A-B2B2-4915-538D-546B538D25FA
      *
      * @var string
@@ -45,11 +55,15 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The array returned.
+     *
      * @var rows[]
      */
     public $rows;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5738
      *
      * @var int

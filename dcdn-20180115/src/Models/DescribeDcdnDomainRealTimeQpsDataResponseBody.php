@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeQpsDataResponseBody extends Model
 {
     /**
+     * @description The list of the data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 32DC9806-E9F9-4490-BBDC-B3A9E32FCC1D
      *
      * @var string

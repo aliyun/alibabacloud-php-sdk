@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnHttpsDomainListRequest extends Model
 {
     /**
+     * @description The keyword used for search.
+     *
      * @example cert
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnHttpsDomainListRequest extends Model
     public $keyword;
 
     /**
+     * @description The number of pages to return. Valid values: **1 to 100000**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeDcdnHttpsDomainListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1 to 500**. Default value: **20**.
+     *
      * @example 2
      *
      * @var int

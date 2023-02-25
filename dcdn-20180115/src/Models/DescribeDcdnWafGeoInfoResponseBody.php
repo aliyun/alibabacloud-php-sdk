@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGeoInfoResponseBody extends Model
 {
     /**
+     * @description The type of information about the country or region.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
      *
      * @var string

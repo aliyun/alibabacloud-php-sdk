@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTopReferVisitRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $domainName;
 
     /**
+     * @description The method that is used to sort the web pages. Valid values:
+     *
+     *   **traf**: by network traffic.
+     *   **pv**: by the number of visits.
+     *
+     * Default value**: pv**.
      * @example pv
      *
      * @var string
@@ -23,6 +31,9 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $sortBy;
 
     /**
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * If you do not specify this parameter, data collected within the last 24 hours is queried by default.
      * @example 2018-10-03T16:00:00Z
      *
      * @var string

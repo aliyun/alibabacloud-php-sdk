@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnSpecificStagingConfigRequest extends Model
 {
     /**
+     * @description The ID of the configuration to be deleted. You can specify multiple configuration IDs and separate them with commas (,).
+     *
+     * You can call the DescribeDcdnDomainStagingConfig operation to query the environment configuration.
      * @example 2317
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteDcdnSpecificStagingConfigRequest extends Model
     public $configId;
 
     /**
+     * @description The name of the accelerated domain. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string

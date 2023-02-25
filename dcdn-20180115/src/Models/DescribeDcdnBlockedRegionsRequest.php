@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBlockedRegionsRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh, en, and jp.
+     *
      * @example zh
      *
      * @var string

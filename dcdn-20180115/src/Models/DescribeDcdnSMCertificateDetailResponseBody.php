@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSMCertificateDetailResponseBody extends Model
 {
     /**
+     * @description The time when the certificate expires. The time is displayed in UTC.
+     *
      * @example 2022-08-31T09:42:28Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $certExpireTime;
 
     /**
+     * @description The ID of the certificate.
+     *
      * @example 648****-cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $certIdentifier;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example yourCertName
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $certName;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
      * @example DigiCert Inc
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $certOrg;
 
     /**
+     * @description The top-level domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $commonName;
 
     /**
+     * @description The content of the encryption certificate.
+     *
      * @example --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $encryptCertificate;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A7C69682-7F88-40DD-A198-10D0309E439D
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The subdomain name.
+     *
      * @example ***.example.com
      *
      * @var string
@@ -65,6 +81,8 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $sans;
 
     /**
+     * @description The content of the signature certificate.
+     *
      * @example --BEGIN CERTIFICATE-----***-----END CERTIFICATE--
      *
      * @var string

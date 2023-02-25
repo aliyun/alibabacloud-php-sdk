@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTasksRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
      * @example 2017-01-01T12:13:20Z
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $endTime;
 
     /**
+     * @description The path of the object. The path is used as a condition for exact matching.
+     *
      * @example http://example.com/examplefile.txt
      *
      * @var string
@@ -30,6 +37,13 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $objectPath;
 
     /**
+     * @description The type of the task.
+     *
+     *   **file**: URL-based refresh
+     *   **directory**: directory-based refresh
+     *   **preload**: URL-based prefetch
+     *
+     * If you set the **DomainName** or **Status** parameter, you must also set this parameter.
      * @example file
      *
      * @var string
@@ -42,6 +56,8 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
      * @example 2
      *
      * @var int
@@ -49,6 +65,8 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**. Valid values: **1** to **50**.
+     *
      * @example 20
      *
      * @var int
@@ -61,6 +79,8 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-01-01T12:12:20Z
      *
      * @var string
@@ -68,6 +88,12 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the task.
+     *
+     *   **Complete**: The task has completed.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -75,6 +101,8 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $status;
 
     /**
+     * @description The ID of the task. A task ID is assigned when you create a refresh or prefetch task.
+     *
      * @example 704225667
      *
      * @var string

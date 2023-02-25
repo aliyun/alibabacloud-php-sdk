@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineSpecResponseBody extends Model
 {
     /**
+     * @description The specification of the CPU time slice. Valid values: 5 ms, 50 ms, and 100 ms.
+     *
      * @example 5ms、50ms、100ms
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class DescribeRoutineSpecResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AE4E1B80-D5F3-47DB-824A-DA98A21854C8
      *
      * @var string

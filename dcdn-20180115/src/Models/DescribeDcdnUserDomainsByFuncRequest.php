@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsByFuncRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $domainName;
 
     /**
+     * @description Specifies whether the feature that is specified by the FuncId parameter is enabled. Valid values:
+     *
+     *   **config**: enabled
+     *   **unconfig**: not enabled
+     *
      * @example config
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcFilter;
 
     /**
+     * @description The ID of the feature. For more information about how to query feature IDs, see [Feature settings for a domain name](~~410622~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
+     *
      * @example 7
      *
      * @var int
@@ -30,6 +39,8 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcId;
 
     /**
+     * @description The number of the page to return. Default value: **1**. Valid values: **1 to 100000**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,8 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Valid values: **1 to 500**.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string

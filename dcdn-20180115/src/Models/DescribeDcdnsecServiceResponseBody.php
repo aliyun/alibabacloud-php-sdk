@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnsecServiceResponseBody extends Model
 {
     /**
+     * @description The time when the renewed secure DCDN takes effect. The time is displayed in UTC.
+     *
      * @example 2021-09-30T16:00:00Z
      *
      * @var string
@@ -17,6 +19,16 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
+     * @description The new metering method for the renewed secure DCDN. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -24,6 +36,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $changingChargeType;
 
     /**
+     * @description The number of accelerated domain names that use secure DCDN.
+     *
      * @example 130
      *
      * @var string
@@ -31,6 +45,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $domainNum;
 
     /**
+     * @description The time when secure DCDN expires.
+     *
      * @example 2021-09-26T16:00:00Z
      *
      * @var string
@@ -38,6 +54,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The metering method for traffic.
+     *
      * @example PayBySecTraffic
      *
      * @var string
@@ -45,6 +63,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $flowType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example dcdn_dcdnsec_public_cn-123***
      *
      * @var string
@@ -52,6 +72,16 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The current metering method. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
+     *
      * @example PayByTraffic
      *
      * @var string
@@ -59,11 +89,15 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $internetChargeType;
 
     /**
+     * @description The lock status of secure DCDN.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E20B46E1-9BCD-10E5-AAEF-6D7B737467A1
      *
      * @var string
@@ -71,6 +105,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The metering method for requests.
+     *
      * @example PayBySecRequest
      *
      * @var string
@@ -78,6 +114,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $requestType;
 
     /**
+     * @description The time when secure DCDN was enabled.
+     *
      * @example 2021-08-26T02:52:08Z
      *
      * @var string
@@ -85,6 +123,8 @@ class DescribeDcdnsecServiceResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The version of secure DCDN.
+     *
      * @example enterprise
      *
      * @var string

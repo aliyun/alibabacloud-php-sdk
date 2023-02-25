@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHttpCodeDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDcdnDomainHttpCodeDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * > The end time must be later than the start time.
      * @example 2019-03-02T00:00:00Z
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeDcdnDomainHttpCodeDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The time granularity for a query. Unit: seconds.
+     *
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -30,6 +38,9 @@ class DescribeDcdnDomainHttpCodeDataRequest extends Model
     public $interval;
 
     /**
+     * @description The name of the ISP.
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example unicom
      *
      * @var string
@@ -37,6 +48,9 @@ class DescribeDcdnDomainHttpCodeDataRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -44,6 +58,9 @@ class DescribeDcdnDomainHttpCodeDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-03-01T00:00:00Z
      *
      * @var string

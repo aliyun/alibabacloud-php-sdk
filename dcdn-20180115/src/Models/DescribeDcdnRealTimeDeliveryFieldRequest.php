@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRealTimeDeliveryFieldRequest extends Model
 {
     /**
+     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
+     *
+     *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) nodes
+     *   **cdn_log_origin**: back-to-origin logs
+     *   **cdn_log_er**: EdgeRoutine logs
+     *
      * @example cdn_log_access_l1
      *
      * @var string

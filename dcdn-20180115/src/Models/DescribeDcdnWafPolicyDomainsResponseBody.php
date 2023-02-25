@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyDomainsResponseBody extends Model
 {
     /**
+     * @description The accelerated domain names.
+     *
      * @var domains[]
      */
     public $domains;
 
     /**
+     * @description The page number of the returned page, which is the same as the PageNumber parameter in request parameters.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of domain names returned per page, which is the same as the PageSize parameter in request parameters.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 153ca2cd-3c01-44be-b480-64dbc6c88630
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of domain names returned.
+     *
      * @example 2
      *
      * @var int

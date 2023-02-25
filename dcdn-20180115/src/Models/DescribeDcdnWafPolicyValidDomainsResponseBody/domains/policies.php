@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
+     * @example 10000002
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example test2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the policy.
+     *
+     * @example custom
+     *
      * @var string
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EditRoutineConfResponseBody extends Model
 {
     /**
+     * @description The description of the execution errors and the version number of the latest environment configurations.
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BAECB354-6D42-42C1-87DA-C9992EF1E7C8
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainCertificateRequest extends Model
 {
     /**
+     * @description The name of the certificate.
+     *
      * @example cert-te**.com
      *
      * @var string
@@ -16,6 +18,11 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $certName;
 
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **upload**: a custom certificate that you upload.
+     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service
+     *
      * @example cas
      *
      * @var string
@@ -23,6 +30,9 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $certType;
 
     /**
+     * @description The name of the accelerated domain for which you want to configure the HTTPS certificate. The accelerated domain must have HTTPS acceleration enabled. You can specify multiple domain names and separate them with commas (,).
+     *
+     * >  You can configure up to 10 domain names at a time.
      * @example **example**.com
      *
      * @var string
@@ -35,6 +45,8 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +54,8 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $region;
 
     /**
+     * @description The private key. This parameter is required only if you enable the certificate.
+     *
      * @example y****
      *
      * @var string
@@ -49,6 +63,12 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $SSLPri;
 
     /**
+     * @description Specifies whether to enable the HTTPS certificate. Valid values:
+     *
+     *   **on:**
+     *   **off**
+     *
+     * The default value is **off**.
      * @example on
      *
      * @var string
@@ -56,6 +76,8 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
+     * @description The content of the certificate. This parameter is required only if you enable the certificate.
+     *
      * @example x****
      *
      * @var string

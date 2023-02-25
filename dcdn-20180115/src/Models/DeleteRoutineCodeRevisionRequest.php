@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineCodeRevisionRequest extends Model
 {
     /**
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRoutineCodeRevisionRequest extends Model
     public $name;
 
     /**
+     * @description The number of the version that you want to delete.
+     *
      * @example 123456
      *
      * @var string

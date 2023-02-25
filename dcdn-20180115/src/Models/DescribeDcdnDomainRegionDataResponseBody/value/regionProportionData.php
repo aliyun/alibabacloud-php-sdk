@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
+     * @description The average response size. Unit: bytes.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class regionProportionData extends Model
     public $avgObjectSize;
 
     /**
+     * @description The average response speed. Unit: byte/s.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class regionProportionData extends Model
     public $avgResponseRate;
 
     /**
+     * @description The average response time. Unit: milliseconds.
+     *
      * @example 0
      *
      * @var string
@@ -30,6 +36,8 @@ class regionProportionData extends Model
     public $avgResponseTime;
 
     /**
+     * @description The bandwidth.
+     *
      * @example 0
      *
      * @var string
@@ -37,6 +45,8 @@ class regionProportionData extends Model
     public $bps;
 
     /**
+     * @description The proportion of network traffic occupied by the specified region based on the total amount of network traffic in percentile. For example, a value of 90 indicates that 90% of the network traffic was coming from the specified region.
+     *
      * @example 0.003544181046236794
      *
      * @var string
@@ -44,6 +54,8 @@ class regionProportionData extends Model
     public $bytesProportion;
 
     /**
+     * @description The proportion of requests from the specified region based on the total number of requests in percentile. For example, a value of 90 indicates that 90% of the requests were coming from the specified region.
+     *
      * @example 0
      *
      * @var string
@@ -51,6 +63,8 @@ class regionProportionData extends Model
     public $proportion;
 
     /**
+     * @description The number of queries per second.
+     *
      * @example 0
      *
      * @var string
@@ -58,11 +72,15 @@ class regionProportionData extends Model
     public $qps;
 
     /**
+     * @description The region.
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The name of the region.
+     *
      * @example chongqing
      *
      * @var string
@@ -70,6 +88,8 @@ class regionProportionData extends Model
     public $regionEname;
 
     /**
+     * @description The total amount of network traffic.
+     *
      * @example 0
      *
      * @var string
@@ -77,6 +97,8 @@ class regionProportionData extends Model
     public $totalBytes;
 
     /**
+     * @description The total number of requests.
+     *
      * @example 0
      *
      * @var string

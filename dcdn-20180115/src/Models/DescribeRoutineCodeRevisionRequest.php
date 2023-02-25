@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCodeRevisionRequest extends Model
 {
     /**
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRoutineCodeRevisionRequest extends Model
     public $name;
 
     /**
+     * @description The version of the JavaScript code that you want to query.
+     *
      * @example 1611151912787121550
      *
      * @var string

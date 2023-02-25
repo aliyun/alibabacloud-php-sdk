@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUsageDataResponseBody extends Model
 {
     /**
+     * @description The billable region where the usage data was collected.
+     *
      * @example CN
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $area;
 
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
      * @example /
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B955107D-E658-4E77-B913-E0AC3D31693E
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -52,6 +64,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The type of the content returned.
+     *
      * @example static
      *
      * @var string
@@ -59,6 +73,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $type;
 
     /**
+     * @description The network traffic that was collected at each interval.
+     *
      * @var usageDataPerInterval
      */
     public $usageDataPerInterval;

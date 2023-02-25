@@ -9,13 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PublishRoutineCodeRevisionShrinkRequest extends Model
 {
     /**
-     * @example ["Production","Preset_Canary_Zhejiang"]
+     * @description The environment to which you want to publish the code.
+     *
+     * >
+     *   production: the name of the environment, including the environment name (SpecName) and the domain name whitelist (AllowedHosts).
+     *   presetCanary: **You can add canary release environments based on your business requirements. This parameter is optional.
+     *
+     * @example ["production","presetCanaryZhejiang"]
      *
      * @var string
      */
     public $envsShrink;
 
     /**
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +31,8 @@ class PublishRoutineCodeRevisionShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The version of the routine code that you want to publish.
+     *
      * @example 1620876959997924701
      *
      * @var string

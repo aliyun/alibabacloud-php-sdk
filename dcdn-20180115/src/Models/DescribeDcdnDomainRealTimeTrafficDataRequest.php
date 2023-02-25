@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeTrafficDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify one or more domain names and separate them with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDcdnDomainRealTimeTrafficDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The end time must be later than the start time.
+     *
+     * >  If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * @example 2015-12-10T20:01:00Z
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeDcdnDomainRealTimeTrafficDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

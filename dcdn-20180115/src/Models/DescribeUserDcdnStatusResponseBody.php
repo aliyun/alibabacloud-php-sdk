@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDcdnStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the DCDN service is activated.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description Indicates whether the DCDN service has overdue payments.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $inDebt;
 
     /**
+     * @description Indicates whether an overdue bill has been paid within the specified period.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $inDebtOverdue;
 
     /**
+     * @description Indicates whether the service is available.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $onService;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4F51E9C3-728F-4E35-952D-0ED87A06A8A1
      *
      * @var string

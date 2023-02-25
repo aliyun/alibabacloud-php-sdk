@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainPvDataRequest extends Model
 {
     /**
+     * @description The name of the accelerated domain. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnDomainPvDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-11-29T00:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDcdnDomainPvDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-11-28T00:00:00Z
      *
      * @var string

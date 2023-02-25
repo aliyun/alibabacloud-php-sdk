@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
+     * @description The information returned.
+     *
      * @example { 			"time_stp": "2020-01-06T04:17:00Z", 			"bps": "297.29333333333335", 			"domain_name": "example.com" 		}
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnDomainRealTimeDetailDataResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A603F324-7A05-4FB3-ADF3-2563233D26CC
      *
      * @var string

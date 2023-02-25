@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnHttpsDomainListResponseBody extends Model
 {
     /**
+     * @description The certificate information about the domain name.
+     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F5E8DF64-7175-4186-9B06-F002C0BBD0C5
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDcdnHttpsDomainListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 16
      *
      * @var int

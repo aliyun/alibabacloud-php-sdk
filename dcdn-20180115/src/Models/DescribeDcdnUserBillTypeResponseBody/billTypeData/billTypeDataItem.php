@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class billTypeDataItem extends Model
 {
     /**
+     * @description The metering method. Valid values:
+     *
+     *   **hour_flow**: pay by data transfer per hour
+     *   **day_bandwidth**: pay by bandwidth per day
+     *   **month\_95**: pay by 95th percentile
+     *   **month_avg_day_bandwidth**: pay by average daily peak bandwidth per month
+     *   **month\_4th_day_bandwidth**: pay by 4th peak bandwidth per month
+     *   **month_avg_day\_95**: pay by average daily 95th percentile per month
+     *   **month\_95\_night_half**: pay by 95th percentile (50 % off during nighttime)
+     *   **hour_vas**: pay by value-added service per month
+     *   **quic_hour_count**: pay by QUIC request per hour
+     *   **hour_count**: pay by request per hour
+     *   **rtlog_count_day**: pay by real-time log entry
+     *
      * @example month_avg_day_bandwidth_overseas
      *
      * @var string
@@ -16,6 +30,8 @@ class billTypeDataItem extends Model
     public $billType;
 
     /**
+     * @description The billing cycle.
+     *
      * @example month
      *
      * @var string
@@ -23,6 +39,14 @@ class billTypeDataItem extends Model
     public $billingCycle;
 
     /**
+     * @description The dimension. Valid values:
+     *
+     *   **flow**: network traffic and bandwidth
+     *   **vas**: value-added services (HTTPS and requests for dynamic content)
+     *   **websocket**: WebSocket
+     *   **quic**: the number of QUIC requests
+     *   **rtlog2sls**: log entries delivered to Log Service in real time
+     *
      * @example flow
      *
      * @var string
@@ -30,6 +54,8 @@ class billTypeDataItem extends Model
     public $dimension;
 
     /**
+     * @description The time when the metering method ends.
+     *
      * @example 2018-10-31T16:00:00Z
      *
      * @var string
@@ -37,6 +63,8 @@ class billTypeDataItem extends Model
     public $endTime;
 
     /**
+     * @description The name of the service.
+     *
      * @example dcdn
      *
      * @var string
@@ -44,6 +72,8 @@ class billTypeDataItem extends Model
     public $product;
 
     /**
+     * @description The time when the metering method takes effect.
+     *
      * @example 2018-10-30T16:00:00Z
      *
      * @var string

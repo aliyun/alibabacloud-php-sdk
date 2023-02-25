@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PreloadDcdnObjectCachesRequest extends Model
 {
     /**
+     * @description The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
+     *
      * @example domestic
      *
      * @var string
@@ -16,6 +21,11 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $area;
 
     /**
+     * @description Specifies whether to prefetch content to POPs. Default value: false. Valid values:
+     *
+     *   **true**: prefetches content to POPs that include L2 POPs.
+     *   **false**: prefetches content to L2 POPs or L3 POPs.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,8 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $l2Preload;
 
     /**
+     * @description The path of the content that you want to prefetch. Separate multiple URLs with line feed characters (\n) or a pair of carriage return and line feed characters (\r\n).
+     *
      * @example example.com/examplefile.txt
      *
      * @var string
@@ -40,6 +52,10 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The custom header for prefetch in JSON format.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $withHeader;

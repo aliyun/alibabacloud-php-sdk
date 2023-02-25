@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaDomainDetailResponseBody extends Model
 {
     /**
+     * @description The details about the accelerated domain name.
+     *
      * @var domainDetail
      */
     public $domainDetail;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 09ABE829-6CD3-4FE0-AFEE-556113E29727
      *
      * @var string

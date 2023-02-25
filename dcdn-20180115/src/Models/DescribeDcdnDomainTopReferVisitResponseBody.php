@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTopReferVisitResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnDomainTopReferVisitResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 95994621-8382-464B-8762-C708E73568D1
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnDomainTopReferVisitResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which the data is collected.
+     *
      * @example 2018-10-03T16:00:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnDomainTopReferVisitResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The list of frequently referenced URLs returned.
+     *
      * @var topReferList
      */
     public $topReferList;

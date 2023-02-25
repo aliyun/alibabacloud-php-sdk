@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rows extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example example.aliyundoc.com
      *
      * @var string
@@ -16,6 +18,8 @@ class rows extends Model
     public $domain;
 
     /**
+     * @description The number of packets blocked within 5 minutes.
+     *
      * @example 264
      *
      * @var int
@@ -23,16 +27,22 @@ class rows extends Model
     public $drops;
 
     /**
+     * @description The object that triggered the rule.
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The rule that is triggered.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The security feature that blocked the packets.
+     *
      * @example robot
      *
      * @var string
@@ -40,6 +50,8 @@ class rows extends Model
     public $secFunc;
 
     /**
+     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+     *
      * @example 2021-01-31T15:04:04Z
      *
      * @var string

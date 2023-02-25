@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaUserDomainsRequest extends Model
 {
     /**
+     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,8 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $checkDomainShow;
 
     /**
+     * @description The domain name that is used as a keyword to filter domain names. Fuzzy match is supported.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +31,13 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainName;
 
     /**
+     * @description The search method. Default value: full_match. Valid values:
+     *
+     *   **fuzzy_match**: fuzzy match
+     *   **pre_match**: prefix match
+     *   **suf_match**: suffix match
+     *   **full_match**: exact match
+     *
      * @example fuzzy_match
      *
      * @var string
@@ -31,6 +45,15 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed**: review failed
+     *
      * @example online
      *
      * @var string
@@ -38,6 +61,11 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainStatus;
 
     /**
+     * @description The status of the feature.
+     *
+     *   config: The feature is enabled.
+     *   unconfig: The feature is not enabled.
+     *
      * @example config
      *
      * @var string
@@ -45,6 +73,8 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $funcFilter;
 
     /**
+     * @description The ID of the feature. For example, a value of 7 specifies the feature of configuring an expiration rule for a specific directory. For more information about feature IDs, see [Parameters for configuring features for domain names](~~410622~~).
+     *
      * @example 7
      *
      * @var string
@@ -57,6 +87,9 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -64,6 +97,9 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of domain names to return on each page. Default value: **20**. Maximum value: **500**.
+     *
+     * Valid values: an integer from **1** to **500**.
      * @example 5
      *
      * @var int
@@ -71,6 +107,8 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example ResourceGroupId
      *
      * @var string

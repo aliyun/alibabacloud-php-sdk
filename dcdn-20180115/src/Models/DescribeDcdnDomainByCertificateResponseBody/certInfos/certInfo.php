@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @description Indicates whether the CA certificate has been revoked. Valid values:
+     *
+     *   **yes**: The certificate has been revoked.
+     *   **no**: The certificate is normal.
+     *
      * @example yes
      *
      * @var string
@@ -16,6 +21,8 @@ class certInfo extends Model
     public $certCaIsLegacy;
 
     /**
+     * @description The time when the certificate expires.
+     *
      * @example Nov 29 00:00:00 2016 GMT
      *
      * @var string
@@ -23,6 +30,11 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @description Indicates whether the certificate is expired. Valid values:
+     *
+     *   **yes**: The certificate is expired.
+     *   **no**: The certificate is not expired.
+     *
      * @example yes
      *
      * @var string
@@ -30,6 +42,8 @@ class certInfo extends Model
     public $certExpired;
 
     /**
+     * @description The time at which the certificate started to take effect.
+     *
      * @example Nov 29 23:59:59 2017 GMT
      *
      * @var string
@@ -37,6 +51,8 @@ class certInfo extends Model
     public $certStartTime;
 
     /**
+     * @description The name of the SSL certificate owner.
+     *
      * @example example.aliyundoc.com
      *
      * @var string
@@ -44,6 +60,8 @@ class certInfo extends Model
     public $certSubjectCommonName;
 
     /**
+     * @description The type of the certificate. **RSA**, **DSA**, and **ECDSA**.
+     *
      * @example RSA
      *
      * @var string
@@ -51,6 +69,9 @@ class certInfo extends Model
     public $certType;
 
     /**
+     * @description The list of domain names that use the certificate.
+     *
+     * If one or more domain names are returned, the domain names are matched with the specified certificate. Multiple domain names are separated with commas (,).
      * @example example.com,example.org
      *
      * @var string
@@ -58,6 +79,8 @@ class certInfo extends Model
     public $domainList;
 
     /**
+     * @description The domain names (DNS fields) that match the certificate. Multiple domain names are separated with commas (,).
+     *
      * @example *.example.com,example.org
      *
      * @var string
@@ -65,6 +88,8 @@ class certInfo extends Model
     public $domainNames;
 
     /**
+     * @description The certificate authority CA that issued the certificate.
+     *
      * @example C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
      *
      * @var string

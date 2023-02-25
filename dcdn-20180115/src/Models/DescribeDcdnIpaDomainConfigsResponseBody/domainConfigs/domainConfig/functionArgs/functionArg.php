@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class functionArg extends Model
 {
     /**
+     * @description The name of the configuration.
+     *
      * @example file_type
      *
      * @var string
@@ -16,6 +18,8 @@ class functionArg extends Model
     public $argName;
 
     /**
+     * @description The value of the configuration.
+     *
      * @example txt
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRealTimeDeliveryFieldResponseBody extends Model
 {
     /**
+     * @description The returned results.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3EACD23C-F49F-4BF7-B9AD-C2CD3BA888C4
      *
      * @var string

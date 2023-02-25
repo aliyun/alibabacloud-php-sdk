@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class defenseScenes extends Model
 {
     /**
+     * @description The type of the protection policy. Valid values:
+     *
+     *   waf_group: basic web protection
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
+     *
      * @example waf_group
      *
      * @var string
@@ -16,6 +22,8 @@ class defenseScenes extends Model
     public $defenseScene;
 
     /**
+     * @description The ID of the protection policy. If multiple IDs exist, only one ID is returned.
+     *
      * @example 10000002
      *
      * @var int
@@ -23,6 +31,10 @@ class defenseScenes extends Model
     public $policyId;
 
     /**
+     * @description The IDs of the protection policies. Multiple IDs are separated by commas (,).
+     *
+     * @example 10000001,10000004
+     *
      * @var string
      */
     public $policyIds;

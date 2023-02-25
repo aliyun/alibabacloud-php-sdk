@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class continents extends Model
 {
     /**
+     * @description The district to which the country or region belongs.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region information.
+     *
      * @var regions[]
      */
     public $regions;

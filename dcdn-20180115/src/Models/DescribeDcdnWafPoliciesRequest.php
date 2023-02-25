@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPoliciesRequest extends Model
 {
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeDcdnWafPoliciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of protection policies to return per page. Valid values: an integer from **1** to **500**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,9 @@ class DescribeDcdnWafPoliciesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query conditions. The value is a string in the JSON format.
+     *
+     * >  If you do not set this parameter, all protection policies are queried.
      * @example {"PolicyNameLIike":"test_policy"}
      *
      * @var string

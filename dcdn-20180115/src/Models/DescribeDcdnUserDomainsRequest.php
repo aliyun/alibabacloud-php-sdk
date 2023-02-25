@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     *
+     * > The end time must be later than the start time.
      * @example 2018-05-10T14:00:00Z
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $changeEndTime;
 
     /**
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     *
      * @example 2018-05-10T12:00:00Z
      *
      * @var string
@@ -24,6 +29,11 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $changeStartTime;
 
     /**
+     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
+     *
+     *   true: displays domain names.
+     *   false: does not display domain names.
+     *
      * @example false
      *
      * @var bool
@@ -31,6 +41,12 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $checkDomainShow;
 
     /**
+     * @description The acceleration region. By default, all acceleration regions are queried.
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
+     *
      * @example domestic
      *
      * @var string
@@ -38,6 +54,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $coverage;
 
     /**
+     * @description The accelerated domain names. If you do not set this parameter, configurations of all domain names that match the conditions are returned.
+     *
      * @example example.com
      *
      * @var string
@@ -45,6 +63,14 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $domainName;
 
     /**
+     * @description The search method. Default value: full_match. Valid values:
+     *
+     *   **fuzzy_match**: fuzzy match
+     *   **pre_match**: prefix match
+     *   **suf_match**: suffix match
+     *   **full_match**: exact match
+     *
+     * > If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
      * @example fuzzy_match
      *
      * @var string
@@ -52,6 +78,15 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed:** review failed
+     *
      * @example online
      *
      * @var string
@@ -64,6 +99,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
      * @example 1
      *
      * @var int
@@ -71,6 +108,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Valid values: **1** to **500**.
+     *
      * @example 20
      *
      * @var int
@@ -78,6 +117,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmv6jutt**
      *
      * @var string
@@ -90,6 +131,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tags of the domain names.
+     *
      * @var tag[]
      */
     public $tag;

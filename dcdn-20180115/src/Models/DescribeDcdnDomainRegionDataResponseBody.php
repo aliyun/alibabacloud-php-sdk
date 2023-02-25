@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRegionDataResponseBody extends Model
 {
     /**
+     * @description The data collection interval. Unit: seconds.
+     *
      * @example 86400
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was queried.
+     *
      * @example 2015-12-07T12:00:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2E5AD83F-BD7B-462E-8319-2E30E305519A
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was queried.
+     *
      * @example 2015-12-05T12:00:00Z
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The proportions of requests that were initiated from each region.
+     *
      * @var value
      */
     public $value;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The type of the protection policy, which is the same as the DefenseScenes field in the QueryArgs parameter in request parameters.
+     *
      * @example custom_acl
      *
      * @var string
@@ -16,6 +18,8 @@ class policies extends Model
     public $defenseScene;
 
     /**
+     * @description The number of domain names that use this protection policy.
+     *
      * @example 22
      *
      * @var int
@@ -23,6 +27,8 @@ class policies extends Model
     public $domainCount;
 
     /**
+     * @description The time when the protection policy was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-12-29T17:08:45Z
      *
      * @var string
@@ -30,6 +36,8 @@ class policies extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the protection policy.
+     *
      * @example 100001
      *
      * @var int
@@ -37,6 +45,8 @@ class policies extends Model
     public $policyId;
 
     /**
+     * @description The name of the protection policy.
+     *
      * @example policy_test
      *
      * @var string
@@ -44,6 +54,8 @@ class policies extends Model
     public $policyName;
 
     /**
+     * @description The status of the protection policy, which is the same as the PolicyStatus field in the QueryArgs parameter in request parameters.
+     *
      * @example on
      *
      * @var string
@@ -51,6 +63,8 @@ class policies extends Model
     public $policyStatus;
 
     /**
+     * @description Indicates whether this protection policy is the default policy, which is the same as the PolicyType field in the QueryArgs parameter in request parameters.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +72,8 @@ class policies extends Model
     public $policyType;
 
     /**
+     * @description The number of protection rules in this protection policy.
+     *
      * @example 9
      *
      * @var int

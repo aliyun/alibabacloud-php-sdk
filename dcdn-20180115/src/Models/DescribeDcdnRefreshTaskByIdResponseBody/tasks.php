@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-05-10T08:54:23Z
      *
      * @var string
@@ -16,6 +18,12 @@ class tasks extends Model
     public $creationTime;
 
     /**
+     * @description The error returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **Internal Error**: An internal error occurred.
+     *   **Origin Timeout**: The response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: The origin server returned an HTTP 5xx status code.
+     *
      * @example Internal Error
      *
      * @var string
@@ -23,6 +31,8 @@ class tasks extends Model
     public $description;
 
     /**
+     * @description The path of the refresh or prefetch object.
+     *
      * @example http://example.com/image_01.png
      *
      * @var string
@@ -30,6 +40,12 @@ class tasks extends Model
     public $objectPath;
 
     /**
+     * @description The type of the refresh or prefetch task. Valid values:
+     *
+     *   **file**: refreshes an individual file.
+     *   **directory**: refreshes files under a specified directory.
+     *   **preload**: prefetches an individual file.
+     *
      * @example file
      *
      * @var string
@@ -37,6 +53,8 @@ class tasks extends Model
     public $objectType;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
      * @example 100%
      *
      * @var string
@@ -44,6 +62,13 @@ class tasks extends Model
     public $process;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: The task has completed.
+     *   **Pending**: The task is pending.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task has failed.
+     *
      * @example Complete
      *
      * @var string
@@ -51,6 +76,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 113681**
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainStagingConfigRequest extends Model
 {
     /**
+     * @description The name of the accelerated domain.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     public $domainName;
 
     /**
+     * @description The names of the features to query. You can specify multiple features and separate them with commas (,).
+     *
      * @example aliauth
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyResponseBody extends Model
 {
     /**
+     * @description The information about the protection policy.
+     *
      * @var policy
      */
     public $policy;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
      *
      * @var string

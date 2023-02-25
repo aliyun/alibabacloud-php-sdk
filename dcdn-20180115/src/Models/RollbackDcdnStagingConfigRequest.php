@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackDcdnStagingConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
      * @example example.com
      *
      * @var string

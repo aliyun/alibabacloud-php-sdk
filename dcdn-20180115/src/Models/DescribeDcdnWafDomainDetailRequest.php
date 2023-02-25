@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainDetailRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each request. Exact match is supported.
+     *
      * @example example.com
      *
      * @var string

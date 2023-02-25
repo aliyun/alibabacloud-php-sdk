@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListDcdnRealTimeDeliveryProjectRequest extends Model
 {
     /**
+     * @description The type of the collected logs. Valid values:
+     *
+     *   **cdn_log_access_l1**: access logs of Dynamic Route for CDN (DCDN) points of presence (POP)
+     *   **cdn_log_origin**: back-to-origin logs
+     *   **cdn_log_er**: EdgeRoutine logs
+     *   By default, this parameter is left empty, and all logs are returned.
+     *
      * @example cdn_log_access_l1
      *
      * @var string
@@ -16,6 +23,8 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
     public $businessType;
 
     /**
+     * @description The domain name. You can specify only one domain name in each request. If this parameter is not specified, all domain names are queried.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +32,8 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
     public $domainName;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +41,8 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. The default value is 20.
+     *
      * @example 20
      *
      * @var int

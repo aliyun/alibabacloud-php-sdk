@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
+     * @description The public key of the certificate.
+     *
+     * You must use Base64 encoding schemes and then the encodeURIComponent method to encode the public key. PEM files are supported.
      * @example xxx
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeDcdnDomainByCertificateRequest extends Model
     public $SSLPub;
 
     /**
+     * @description Indicates the returned domain name list contains only domain names with HTTPS enabled or disabled.
+     *
+     *   true: The list contains only domain names with HTTPS enabled.
+     *   false: The list contains only domain names with HTTPS disabled..
+     *
      * @example true
      *
      * @var bool

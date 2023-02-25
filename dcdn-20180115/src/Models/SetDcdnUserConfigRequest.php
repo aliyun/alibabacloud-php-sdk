@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnUserConfigRequest extends Model
 {
     /**
+     * @description The configuration parameters of the features.
+     *
      * @example \"argId\":12,\"argValue\":\"on\"
      *
      * @var string
@@ -16,6 +18,8 @@ class SetDcdnUserConfigRequest extends Model
     public $configs;
 
     /**
+     * @description The ID of the feature.
+     *
      * @example 6
      *
      * @var int

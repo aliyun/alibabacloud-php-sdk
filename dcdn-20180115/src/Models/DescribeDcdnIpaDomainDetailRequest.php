@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaDomainDetailRequest extends Model
 {
     /**
+     * @description The accelerated domain names for which you want to query basic information. You can specify only one domain name in each request.
+     *
      * @example example.com
      *
      * @var string

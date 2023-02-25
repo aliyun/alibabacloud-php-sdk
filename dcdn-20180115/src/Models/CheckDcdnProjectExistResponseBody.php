@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CheckDcdnProjectExistResponseBody extends Model
 {
     /**
+     * @description The returned results.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example b021e538-9dde-46ed-a1f2-9469da8f3e77
      *
      * @var string

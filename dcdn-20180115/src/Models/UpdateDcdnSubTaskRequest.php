@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnSubTaskRequest extends Model
 {
     /**
+     * @description The domain names that you want to include in the operations report. If you do not specify a domain name, all domain names that belong to your Alibaba Cloud account are included.
+     *
      * @example www.example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDcdnSubTaskRequest extends Model
     public $domainName;
 
     /**
+     * @description The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2021-06-17T00:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateDcdnSubTaskRequest extends Model
     public $endTime;
 
     /**
+     * @description The IDs of operations reports that you want to update. Separate IDs with commas (,). You can call the [DescribeDcdnSubList](~~270075~~) operation to query report IDs.
+     *
      * @example 2,4,6
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateDcdnSubTaskRequest extends Model
     public $reportIds;
 
     /**
+     * @description The start time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2021-04-17T00:00:00Z
      *
      * @var string

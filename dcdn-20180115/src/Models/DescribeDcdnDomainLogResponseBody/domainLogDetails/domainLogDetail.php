@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
+     * @description The total number of entries returned on the current page.
+     *
      * @example 4
      *
      * @var int
@@ -18,11 +20,15 @@ class domainLogDetail extends Model
     public $logCount;
 
     /**
+     * @description The log information. The log information is indicated by the LogInfoDetail parameter.
+     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The page information. The page information is indicated by the PageInfoDetail parameter.
+     *
      * @var pageInfos
      */
     public $pageInfos;

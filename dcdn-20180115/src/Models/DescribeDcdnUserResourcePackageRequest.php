@@ -19,6 +19,12 @@ class DescribeDcdnUserResourcePackageRequest extends Model
     public $securityToken;
 
     /**
+     * @description The status of the resource plan. Valid values:
+     *
+     *   **valid**: The resource plan is valid.
+     *   **closed**: The resource plan is expired.
+     *   If you leave this parameter empty, all resource plans are queried.
+     *
      * @example valid
      *
      * @var string

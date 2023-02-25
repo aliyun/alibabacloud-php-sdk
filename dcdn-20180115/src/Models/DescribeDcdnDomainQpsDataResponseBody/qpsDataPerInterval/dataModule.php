@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The total number of requests.
+     *
      * @example 100
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $acc;
 
     /**
+     * @description The number of requests for dynamic content delivery over HTTP.
+     *
      * @example 0
      *
      * @var float
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $dynamicHttpAcc;
 
     /**
+     * @description The QPS for dynamic content delivery over HTTP.
+     *
      * @example 0
      *
      * @var float
@@ -30,6 +36,8 @@ class dataModule extends Model
     public $dynamicHttpQps;
 
     /**
+     * @description The number of requests for dynamic content delivery over HTTPS.
+     *
      * @example 0
      *
      * @var float
@@ -37,6 +45,8 @@ class dataModule extends Model
     public $dynamicHttpsAcc;
 
     /**
+     * @description The QPS for dynamic content delivery over HTTPS.
+     *
      * @example 0
      *
      * @var float
@@ -44,6 +54,8 @@ class dataModule extends Model
     public $dynamicHttpsQps;
 
     /**
+     * @description The total QPS.
+     *
      * @example 0.56
      *
      * @var float
@@ -51,6 +63,8 @@ class dataModule extends Model
     public $qps;
 
     /**
+     * @description The number of requests for static content delivery over HTTP.
+     *
      * @example 0
      *
      * @var float
@@ -58,6 +72,8 @@ class dataModule extends Model
     public $staticHttpAcc;
 
     /**
+     * @description The QPS for static content delivery over HTTP.
+     *
      * @example 0
      *
      * @var float
@@ -65,6 +81,8 @@ class dataModule extends Model
     public $staticHttpQps;
 
     /**
+     * @description The number of requests for static content delivery over HTTPS.
+     *
      * @example 0
      *
      * @var float
@@ -72,6 +90,8 @@ class dataModule extends Model
     public $staticHttpsAcc;
 
     /**
+     * @description The QPS for static content delivery over HTTPS.
+     *
      * @example 0
      *
      * @var float
@@ -79,6 +99,8 @@ class dataModule extends Model
     public $staticHttpsQps;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2017-12-10T21:00:00Z
      *
      * @var string

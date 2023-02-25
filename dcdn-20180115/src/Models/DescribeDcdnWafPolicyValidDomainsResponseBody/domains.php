@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The protected domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -17,11 +19,15 @@ class domains extends Model
     public $domainName;
 
     /**
+     * @description The policy that is bound to the domain name.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The ID of the protection policy.
+     *
      * @example 1000001
      *
      * @var int
@@ -29,6 +35,8 @@ class domains extends Model
     public $policyId;
 
     /**
+     * @description The name of the protection policy.
+     *
      * @example test1
      *
      * @var string
@@ -36,6 +44,11 @@ class domains extends Model
     public $policyName;
 
     /**
+     * @description Indicates whether the protection policy is the default policy. Valid values:
+     *
+     *   default: The protection policy is the default policy.
+     *   custom: The protection policy is not the default policy.
+     *
      * @example default
      *
      * @var string

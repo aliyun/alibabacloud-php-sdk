@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The header of IP address of the client that is connected to the point of presence (POP).
+     *
      * @example X-Forwarded-For
      *
      * @var string
@@ -16,6 +18,8 @@ class domains extends Model
     public $clientIpTag;
 
     /**
+     * @description The protected domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class domains extends Model
     public $domainName;
 
     /**
+     * @description The number of protection policies that were configured for the protected domain name.
+     *
      * @example 3
      *
      * @var int

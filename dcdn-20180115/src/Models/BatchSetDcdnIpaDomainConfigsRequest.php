@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnIpaDomainConfigsRequest extends Model
 {
     /**
+     * @description The domain names accelerated by IPA. Separate multiple domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
     public $domainNames;
 
     /**
+     * @description The list of features.
+     *
+     * [{"functionArgs":[{"argName":"Parameter name","argValue":"Parameter value"}],"functionName":"Feature name"}]
      * @example [{"functionArgs":[{"argName":"domain_name","argValue":"api.*com"}],"functionName":"protogw"}]
      *
      * @var string

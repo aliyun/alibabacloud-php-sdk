@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnVerifyContentRequest extends Model
 {
     /**
+     * @description The domain name for which you want to query the ownership verification content. You can specify only one domain name in one request.
+     *
      * @example **example**.com
      *
      * @var string

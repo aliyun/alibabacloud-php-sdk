@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class defenseScenes extends Model
 {
     /**
+     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
+     *
      * @example waf_group
      *
      * @var string
@@ -16,6 +18,8 @@ class defenseScenes extends Model
     public $defenseScene;
 
     /**
+     * @description The total number of policies of this type that were configured.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class defenseScenes extends Model
     public $policyCount;
 
     /**
+     * @description The total number of protection rules that were configured in this type of the policy.
+     *
      * @example 12
      *
      * @var int

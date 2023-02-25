@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafServiceResponseBody extends Model
 {
     /**
+     * @description The edition of WAF.
+     *
      * @example dcdnwaf_afterpay
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $edition;
 
     /**
+     * @description The activation status of WAF. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The time when WAF was enabled.
+     *
      * @example 2021-09-26T16:00:00Z
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $openingTime;
 
     /**
+     * @description The billing method for requests.
+     *
      * @example dcdn_waf_req
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $requestBillingType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4A95CA90-E0F2-1BF6-99E0-8C1510CAF649
      *
      * @var string
@@ -44,6 +57,8 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The billing method for rules. You are charged for the number of SeCUs.
+     *
      * @example dcdn_waf_rule
      *
      * @var string
@@ -51,6 +66,13 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $ruleBillingType;
 
     /**
+     * @description The status of WAF. Valid values:
+     *
+     *   Normal
+     *   WaitForExpire
+     *   Expired
+     *   Released
+     *
      * @example Normal
      *
      * @var string

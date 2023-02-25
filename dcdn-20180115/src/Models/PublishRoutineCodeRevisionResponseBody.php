@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishRoutineCodeRevisionResponseBody extends Model
 {
     /**
+     * @description The version of the routine code that is published to the specified environment.
+     *
      * @example "CodeRevision": "1620876959997924701"
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class PublishRoutineCodeRevisionResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the region.
+     *
      * @example A513734D-D17B-411E-864D-XXXX
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnErUsageDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
      * @example 2018-10-31T16:00:00Z
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the ER.
+     *
      * @example routine1.test
      *
      * @var string
@@ -23,6 +28,12 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $routineID;
 
     /**
+     * @description The specification of the ER. Valid values:
+     *
+     *   5ms
+     *   50ms
+     *   100ms
+     *
      * @example 50ms
      *
      * @var string
@@ -30,6 +41,9 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $spec;
 
     /**
+     * @description Specifies how the results are grouped. If you set this parameter to routine, the returned results are grouped based on the ER ID. If you set this parameter to spec, the returned results are grouped based on the ER specification.
+     *
+     * >  If you leave this parameter empty, the returned results are not grouped.
      * @example routine
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $splitBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2018-10-30T16:00:00Z
      *
      * @var string

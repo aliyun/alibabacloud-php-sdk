@@ -17,6 +17,8 @@ class DescribeDcdnTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to **DOMAIN**.
+     *
      * @example DOMAIN
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceRequest extends Model
 {
     /**
+     * @description The metering method of DCDN. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-traffic
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *
      * @example PayByTraffic
      *
      * @var string
@@ -26,6 +31,11 @@ class OpenDcdnServiceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The metering method of WebSocket. Default value: off. Valid values:
+     *
+     *   **websockettraffic**: pay-by-data-transfer
+     *   **websocketbps**: pay-by-bandwidth
+     *
      * @example websockettraffic
      *
      * @var string

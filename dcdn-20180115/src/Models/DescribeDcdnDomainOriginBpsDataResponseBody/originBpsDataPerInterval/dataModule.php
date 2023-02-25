@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth that was consumed for fetching dynamic content from the origin over HTTP.
+     *
      * @example 100
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $dynamicHttpOriginBps;
 
     /**
+     * @description The bandwidth that was consumed for fetching dynamic content from the origin over HTTPS.
+     *
      * @example 100
      *
      * @var float
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $dynamicHttpsOriginBps;
 
     /**
+     * @description The bandwidth that was consumed for fetching content from the origin.
+     *
      * @example 100
      *
      * @var float
@@ -30,6 +36,8 @@ class dataModule extends Model
     public $originBps;
 
     /**
+     * @description The bandwidth that was consumed for fetching static content from the origin over HTTP.
+     *
      * @example 100
      *
      * @var float
@@ -37,6 +45,8 @@ class dataModule extends Model
     public $staticHttpOriginBps;
 
     /**
+     * @description The bandwidth that was consumed for fetching static content from the origin over HTTPS.
+     *
      * @example 100
      *
      * @var float
@@ -44,6 +54,8 @@ class dataModule extends Model
     public $staticHttpsOriginBps;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2019-12-10T00:00:00Z
      *
      * @var string

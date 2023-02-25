@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnWafPolicyRequest extends Model
 {
     /**
+     * @description The ID of the protection policy that you want to delete. You can specify only one ID in each request.
+     *
      * @example 1000001
      *
      * @var int

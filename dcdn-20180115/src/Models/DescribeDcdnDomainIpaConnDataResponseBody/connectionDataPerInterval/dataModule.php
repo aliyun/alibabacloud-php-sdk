@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The number of IPA user connections.
+     *
      * @example 189095
      *
      * @var int
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $connections;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example1.com
      *
      * @var string
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $domain;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2022-02-21T15:00:00+08:00
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafScenesResponseBody extends Model
 {
     /**
+     * @description The types of the protection policies.
+     *
      * @var defenseScenes[]
      */
     public $defenseScenes;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3D7BB13C-DD84-5654-A835-B8E1385DE274
      *
      * @var string

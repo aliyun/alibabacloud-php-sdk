@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIpaConnDataResponseBody extends Model
 {
     /**
+     * @description The number of user connections at each time interval.
+     *
      * @var connectionDataPerInterval
      */
     public $connectionDataPerInterval;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2015-02-22T15:00:00Z
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDcdnDomainIpaConnDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A2A1EEF8-043E-43A1-807C-BEAC18EA1807
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDcdnDomainIpaConnDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2015-02-21T15:00:00Z
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domainDetail extends Model
 {
     /**
+     * @description The CNAME that is assigned to the accelerated domain name. You must add the CNAME record to the system of your Domain Name System (DNS) provider to map the accelerated domain name to the CNAME.
+     *
      * @example example.aliyundoc.com
      *
      * @var string
@@ -17,11 +19,17 @@ class domainDetail extends Model
     public $cname;
 
     /**
+     * @description The information about the Internet content provider (ICP) filing of the domain name.
+     *
+     * @example Beijing ICP No. 1703xxxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -29,6 +37,15 @@ class domainDetail extends Model
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **online**: The domain name is enabled.
+     *   **offline**: The domain name is disabled.
+     *   **configuring**: The domain name is being configured.
+     *   **configure_failed**: The domain name has failed to be configured.
+     *   **checking**: The domain name is under review.
+     *   **check_failed**: The domain name has failed the review.
+     *
      * @example online
      *
      * @var string
@@ -36,6 +53,8 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
+     * @description The time when the accelerated domain name was created.
+     *
      * @example 2017-11-27T06:51:26Z
      *
      * @var string
@@ -43,6 +62,8 @@ class domainDetail extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the accelerated domain name was last modified.
+     *
      * @example 2017-11-27T06:51:25Z
      *
      * @var string
@@ -50,6 +71,8 @@ class domainDetail extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -57,6 +80,11 @@ class domainDetail extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the Security Socket Layer (SSL) certificate is enabled. Valid values:
+     *
+     *   **on**: **enabled**.
+     *   **off**: **disabled**.
+     *
      * @example on
      *
      * @var string
@@ -64,6 +92,8 @@ class domainDetail extends Model
     public $SSLProtocol;
 
     /**
+     * @description Indicates the public key of the certificate if the HTTPS protocol is enabled.
+     *
      * @example xxx
      *
      * @var string
@@ -71,6 +101,12 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
+     * @description The region where your acceleration service is deployed.
+     *
+     *   **domestic**: Chinese mainland. This is the default value.
+     *   **overseas**: outside the Chinese mainland.
+     *   **global**: all the countries in the world.
+     *
      * @example overseas
      *
      * @var string
@@ -78,6 +114,8 @@ class domainDetail extends Model
     public $scope;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;

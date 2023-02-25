@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyDcdnDomainOwnerRequest extends Model
 {
     /**
+     * @description The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
+     *
      * @example **example**.com
      *
      * @var string
@@ -16,6 +18,11 @@ class VerifyDcdnDomainOwnerRequest extends Model
     public $domainName;
 
     /**
+     * @description The verification method, value:
+     *
+     *   dnsCheck: DNS verification
+     *   fileCheck: File verification
+     *
      * @example dnsCheck
      *
      * @var string

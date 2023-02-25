@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
      * @example 2018-03-01T06:00:00Z
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The time interval between the data entries to return. Unit: seconds.
+     *
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
      * @example 300
      *
      * @var string
@@ -30,6 +38,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $interval;
 
     /**
+     * @description The name of the Internet service provider (ISP).
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example unicom
      *
      * @var string
@@ -37,6 +48,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -44,6 +58,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2018-03-01T05:00:00Z
      *
      * @var string

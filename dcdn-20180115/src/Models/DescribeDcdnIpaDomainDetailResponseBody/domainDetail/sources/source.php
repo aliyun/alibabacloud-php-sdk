@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
      * @example xxx.oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class source extends Model
     public $content;
 
     /**
+     * @description The status of the origin server.
+     *
      * @example online
      *
      * @var string
@@ -23,6 +27,8 @@ class source extends Model
     public $enabled;
 
     /**
+     * @description The custom port. Valid values: **0** to **65535**.
+     *
      * @example 80
      *
      * @var int
@@ -30,6 +36,8 @@ class source extends Model
     public $port;
 
     /**
+     * @description The priority of the origin server if multiple origin servers are specified.
+     *
      * @example 50
      *
      * @var string
@@ -37,6 +45,12 @@ class source extends Model
     public $priority;
 
     /**
+     * @description The type of the origin server. Valid values:
+     *
+     *   **ipaddr**: an IP address.
+     *   **domain**: a domain name.
+     *   **oss**: Object Storage Service (OSS) buckets are not supported.
+     *
      * @example oss
      *
      * @var string
@@ -44,6 +58,8 @@ class source extends Model
     public $type;
 
     /**
+     * @description The weight of the origin server if multiple origin servers are specified.
+     *
      * @example 10
      *
      * @var string

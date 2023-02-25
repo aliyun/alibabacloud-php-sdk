@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainCcActivityLogRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     *
+     * If you leave this parameter empty, the data of all domain names is queried.
      * @example example.com
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * The end time must be later than the start time.
      * @example 2015-12-10T21:05:00Z
      *
      * @var string
@@ -23,6 +29,8 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +38,8 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **30**.
+     *
      * @example 30
      *
      * @var int
@@ -37,6 +47,13 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the rule. Valid values
+     *
+     *   default_normal in normal mode
+     *   default_attack in emergency mode
+     *   A custom rule name in custom mode. Example: test2.
+     *
+     * If you leave this parameter empty, all events that triggered rate limiting are queried.
      * @example test2
      *
      * @var string
@@ -44,6 +61,9 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $ruleName;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * If you leave this parameter empty, the data collected over the last 24 hours is queried.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -51,6 +71,9 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $startTime;
 
     /**
+     * @description The object that triggered rate limiting.
+     *
+     * If you leave this parameter empty, all events that triggered rate limiting are queried.
      * @example IP
      *
      * @var string
@@ -58,6 +81,9 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $triggerObject;
 
     /**
+     * @description The value of the object that triggered rate limiting.
+     *
+     * If you leave this parameter empty, all events that triggered rate limiting are queried.
      * @example 10.10.10.10
      *
      * @var string

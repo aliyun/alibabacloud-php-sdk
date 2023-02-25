@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSecFuncInfoRequest extends Model
 {
     /**
+     * @description The language. Valid values: en and zh. Default value: en.
+     *
      * @example en
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnSecFuncInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The type of the drop-down list. Valid values: RobotRuleName and RobotObject.
+     *
      * @example RobotRuleName
      *
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The type of the protection policy. Valid values:
+     *
+     *   waf_group: basic web protection
+     *   custom_acl: custom
+     *   whitelist: whitelist
+     *
      * @example waf_group
      *
      * @var string
@@ -16,6 +22,8 @@ class policy extends Model
     public $defenseScene;
 
     /**
+     * @description The number of domain names that use the protection policy.
+     *
      * @example 22
      *
      * @var int
@@ -23,6 +31,8 @@ class policy extends Model
     public $domainCount;
 
     /**
+     * @description The time when the protection policy was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-12-29T17:08:45Z
      *
      * @var string
@@ -30,6 +40,8 @@ class policy extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the protection policy.
+     *
      * @example 100001
      *
      * @var int
@@ -37,6 +49,8 @@ class policy extends Model
     public $policyId;
 
     /**
+     * @description The name of the protection policy.
+     *
      * @example policy_test
      *
      * @var string
@@ -44,6 +58,11 @@ class policy extends Model
     public $policyName;
 
     /**
+     * @description The status of the protection policy. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -51,6 +70,11 @@ class policy extends Model
     public $policyStatus;
 
     /**
+     * @description Indicates whether the current policy is the default policy. Valid values:
+     *
+     *   default: The current policy is the default policy.
+     *   custom: The current policy is not the default policy.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +82,8 @@ class policy extends Model
     public $policyType;
 
     /**
+     * @description The protection rule configurations corresponding to the protection policy. The configurations only support Bot management. For more information, see [Configure protection rules](~~423350~~).
+     *
      * @example {     "type":"target_type",     "status":"on",     "config":{"target":"app"},     "action":""   }
      *
      * @var string
@@ -65,6 +91,8 @@ class policy extends Model
     public $ruleConfigs;
 
     /**
+     * @description The number of protection rules in the protection policy.
+     *
      * @example 9
      *
      * @var int

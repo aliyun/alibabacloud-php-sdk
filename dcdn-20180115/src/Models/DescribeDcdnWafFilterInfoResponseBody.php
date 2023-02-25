@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafFilterInfoResponseBody extends Model
 {
     /**
+     * @description The returned information.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 153ca2cd-3c01-44be-204c-64dbc6c88630
      *
      * @var string

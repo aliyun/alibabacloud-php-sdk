@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSMCertificateListResponseBody extends Model
 {
     /**
+     * @description The type of the certificate information.
+     *
      * @var certificateListModel
      */
     public $certificateListModel;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC0E34AC-0239-44A7-AB0E-800DE522C8DC
      *
      * @var string

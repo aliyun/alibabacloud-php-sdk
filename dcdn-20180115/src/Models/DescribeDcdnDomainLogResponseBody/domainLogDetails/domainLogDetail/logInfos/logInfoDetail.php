@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2021-11-07T18:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class logInfoDetail extends Model
     public $endTime;
 
     /**
+     * @description The name of the log file.
+     *
      * @example example.com_2021_11_08_010000_020000.gz
      *
      * @var string
@@ -23,6 +27,9 @@ class logInfoDetail extends Model
     public $logName;
 
     /**
+     * @description The path of the log file.
+     *
+     * Take note of the Expires field (expiration timestamp) in the response parameter LogPath. If the log download URL expires, you must obtain it again. For more information, see [LogPath field](~~31952~~).
      * @example example.aliyundoc.com /v1.l1cache/105252530/example.com/2021_11_08/example.com_2021_11_08_010000_020000.gz?Expires=1636963354&OSSAccessKeyId=LTAIviCc6zy8****&Signature=u0V6foRfZniHE8i%2BHUdxGOhZsK****
      *
      * @var string
@@ -30,6 +37,8 @@ class logInfoDetail extends Model
     public $logPath;
 
     /**
+     * @description The size of the log file. Unit: bytes.
+     *
      * @example 192
      *
      * @var int
@@ -37,6 +46,8 @@ class logInfoDetail extends Model
     public $logSize;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2021-11-07T17:00:00Z
      *
      * @var string

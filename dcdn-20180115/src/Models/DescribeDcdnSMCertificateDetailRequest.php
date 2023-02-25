@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSMCertificateDetailRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
      * @example 648****-cn-hangzhou
      *
      * @var string

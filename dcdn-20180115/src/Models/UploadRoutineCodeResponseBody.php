@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadRoutineCodeResponseBody extends Model
 {
     /**
+     * @description The content returned that includes the code version number and information about code upload.
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DFA2027F-86C0-4421-9593-581A7993696C
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domainDetail extends Model
 {
     /**
+     * @description Indicates the name of the certificate if the HTTPS protocol is enabled.
+     *
      * @example yourCertName
      *
      * @var string
@@ -17,7 +19,7 @@ class domainDetail extends Model
     public $certName;
 
     /**
-     * @description CNAME。
+     * @description The CNAME assigned to the domain name.
      *
      * @example example.com
      *
@@ -26,6 +28,8 @@ class domainDetail extends Model
     public $cname;
 
     /**
+     * @description The description.
+     *
      * @example audit failed
      *
      * @var string
@@ -33,6 +37,8 @@ class domainDetail extends Model
     public $description;
 
     /**
+     * @description The accelerated domain names.
+     *
      * @example example.com
      *
      * @var string
@@ -40,6 +46,15 @@ class domainDetail extends Model
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **online**: The domain name is enabled.
+     *   **offline**: The domain name is disabled.
+     *   **configuring**: The domain name is being configured.
+     *   **configure_failed**: The domain name failed to be configured.
+     *   **checking**: The domain name is under review.
+     *   **check_failed**: The domain name failed the review.
+     *
      * @example online
      *
      * @var string
@@ -47,6 +62,8 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
+     * @description The time when the accelerated domain name was created.
+     *
      * @example 2017-11-27T06:51:26Z
      *
      * @var string
@@ -54,6 +71,8 @@ class domainDetail extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the accelerated domain name was last modified.
+     *
      * @example 2017-11-27T06:51:26Z
      *
      * @var string
@@ -61,6 +80,8 @@ class domainDetail extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyuji4b6xxxx
      *
      * @var string
@@ -68,6 +89,11 @@ class domainDetail extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the Security Socket Layer (SSL) certificate is enabled. Valid values:
+     *
+     *   **on**: The SSL certificate is enabled.
+     *   **off**: The SSL certificate is disabled.
+     *
      * @example on
      *
      * @var string
@@ -75,6 +101,8 @@ class domainDetail extends Model
     public $SSLProtocol;
 
     /**
+     * @description Indicates the public key of the certificate if the HTTPS protocol is enabled.
+     *
      * @example SSLPub
      *
      * @var string
@@ -82,6 +110,12 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
+     * @description The accelerated region. Valid values:
+     *
+     *   domestic: Chinese mainland
+     *   overseas: global (excluding the Chinese mainland)
+     *   global: global
+     *
      * @example overseas
      *
      * @var string
@@ -89,6 +123,8 @@ class domainDetail extends Model
     public $scope;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;

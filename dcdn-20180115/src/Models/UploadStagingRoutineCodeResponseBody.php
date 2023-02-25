@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadStagingRoutineCodeResponseBody extends Model
 {
     /**
+     * @description The parameters required by the code.
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DFA2027F-86C0-4421-9593-581A7993696C
      *
      * @var string

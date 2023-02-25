@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIpaBpsDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * Separate multiple domain names with commas (,). If you do not specify a value for this parameter, all accelerated domain names are queried.
      * @example example.com
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * >  The end time must be later than the start time.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -23,6 +29,11 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $endTime;
 
     /**
+     * @description Specify whether to implement padding with zeros. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var string
@@ -30,6 +41,14 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $fixTimeGap;
 
     /**
+     * @description The time granularity for a query. Unit: seconds.
+     *
+     * The value varies based on the values of the **StartTime** and **EndTime** parameters. Valid values:
+     *
+     *   If the time range between StartTime and EndTime is less than 3 days, the valid values are **300**, **3600**, and **86400**. If you do not specify a value for this parameter, **300** is used.
+     *   If the time range between StartTime and EndTime is from 3 to 31 days (31 days excluded), the valid values are **3600** and **86400**. Default value: **3600**.
+     *   If the time range between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
+     *
      * @example 300
      *
      * @var string
@@ -37,6 +56,9 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $interval;
 
     /**
+     * @description The name of the Internet service provider (ISP).
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example Unicom
      *
      * @var string
@@ -44,6 +66,9 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -51,6 +76,9 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -58,6 +86,8 @@ class DescribeDcdnDomainIpaBpsDataRequest extends Model
     public $startTime;
 
     /**
+     * @description Specifies whether to automatically set the interval. If you set **TimeMerge** to **1**, the value of the **Interval** parameter is automatically assigned based on the **startTime** and **endTime** parameters. You can set either this parameter or the **Interval** parameter.
+     *
      * @example 1
      *
      * @var string

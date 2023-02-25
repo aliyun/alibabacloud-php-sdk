@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCanaryEnvsResponseBody extends Model
 {
     /**
-     * @example Preset_Canary_***
+     * @description The canary release environments that are supported by the edge routine.
+     *
+     * @example presetCanaryShanghai
      *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the region.
+     *
      * @example CDCD94C0-F7FE-412F-B8F8-7E3C610C78E5
      *
      * @var string

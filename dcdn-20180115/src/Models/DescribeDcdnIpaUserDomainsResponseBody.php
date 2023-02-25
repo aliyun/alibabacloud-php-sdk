@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaUserDomainsResponseBody extends Model
 {
     /**
+     * @description The array that consists of multiple PageData parameters. The details about each accelerated domain name are included in a separate PageData parameter.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of domain names returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AA75AADB-5E25-4970-B480-EAA1F5658483
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of domain names returned.
+     *
      * @example 1
      *
      * @var int

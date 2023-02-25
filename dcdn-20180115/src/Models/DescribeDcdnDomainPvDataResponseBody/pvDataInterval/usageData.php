@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2015-11-28T03:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class usageData extends Model
     public $timeStamp;
 
     /**
+     * @description The consumed network traffic.
+     *
      * @example 9292
      *
      * @var string

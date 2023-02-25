@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The byte hit ratio.
+     *
      * @example 0
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $byteHitRate;
 
     /**
+     * @description The request hit ratio.
+     *
      * @example 0
      *
      * @var float
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $reqHitRate;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2018-03-02T13:00:00Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
+     * @description The reason why the service was locked. For example, a value of financial indicates that an overdue payment exists.
+     *
      * @example financial
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trafficDataModule extends Model
 {
     /**
+     * @description The name of the district.
+     *
      * @example CN
      *
      * @var string
@@ -16,6 +18,8 @@ class trafficDataModule extends Model
     public $area;
 
     /**
+     * @description The number of bits per second.
+     *
      * @example 11288111.1
      *
      * @var float
@@ -23,6 +27,8 @@ class trafficDataModule extends Model
     public $bps;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +36,8 @@ class trafficDataModule extends Model
     public $domain;
 
     /**
+     * @description The timestamp of the data entry.
+     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class trafficDataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The type of the network traffic. Valid values: Simple, IPA, and WebSocket.
+     *
      * @example Simple
      *
      * @var string

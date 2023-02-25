@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainOriginBpsDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnDomainOriginBpsDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnDomainOriginBpsDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2019-12-11T00:00:00Z
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeDcdnDomainOriginBpsDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The origin bandwidth data returned at each time interval. Unit: bit/s.
+     *
      * @var originBpsDataPerInterval
      */
     public $originBpsDataPerInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeDcdnDomainOriginBpsDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2019-12-10T00:00:00Z
      *
      * @var string

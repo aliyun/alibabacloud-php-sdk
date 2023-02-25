@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The proportions of the HTTP status codes.
+     *
      * @var httpCodeDataPerInterval
      */
     public $httpCodeDataPerInterval;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2019-03-01T13:00:00Z
      *
      * @var string

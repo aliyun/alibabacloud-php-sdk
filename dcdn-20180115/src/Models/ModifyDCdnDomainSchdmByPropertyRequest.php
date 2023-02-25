@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDCdnDomainSchdmByPropertyRequest extends Model
 {
     /**
+     * @description The name of the accelerated domain for which you want to change the acceleration region. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,12 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
     public $domainName;
 
     /**
+     * @description The region where the acceleration service is deployed. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: outside the Chinese mainland
+     *   **global**: all the countries around the world
+     *
      * @example {"coverage":"overseas"}
      *
      * @var string

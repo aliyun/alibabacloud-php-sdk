@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class regexp extends Model
 {
     /**
+     * @description The error message returned because no items match the regular expression.
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description The regular expression.
+     *
      * @example ^\S+$
      *
      * @var string

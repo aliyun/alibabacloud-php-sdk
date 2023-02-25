@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnErUsageDataResponseBody extends Model
 {
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2018-10-31T16:00:00Z
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDcdnErUsageDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The list of the returned data.
+     *
      * @var erAccData
      */
     public $erAccData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDcdnErUsageDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2018-10-30T16:00:00Z
      *
      * @var string

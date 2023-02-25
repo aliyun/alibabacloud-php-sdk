@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnWafRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the protection rule.
+     *
      * @var rule
      */
     public $rule;

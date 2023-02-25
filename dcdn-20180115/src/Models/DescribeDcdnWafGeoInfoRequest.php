@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGeoInfoRequest extends Model
 {
     /**
+     * @description The language of the information to return. Valid values:
+     *
+     *   cn: Chinese
+     *   en: English
+     *
      * @example cn
      *
      * @var string

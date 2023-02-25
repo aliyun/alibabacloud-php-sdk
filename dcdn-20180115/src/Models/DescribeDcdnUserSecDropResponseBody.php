@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropResponseBody extends Model
 {
     /**
+     * @description The number of packets that are blocked.
+     *
      * @example 233023208
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public $drops;
 
     /**
+     * @description Indicates whether the information is found.
+     *
+     *   Found: yes
+     *   Not Found: no
+     *
      * @example Found
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public $msg;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4A1295C0-7A5C-4F27-8D70-C3A648E7037F
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The character string that is concatenated based on the request parameters and is used to locate causes when data is not found.
+     *
      * @example 1day10811******6429wafDCDN
      *
      * @var string

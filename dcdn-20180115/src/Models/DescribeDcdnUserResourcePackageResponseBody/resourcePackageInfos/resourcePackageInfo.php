@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourcePackageInfo extends Model
 {
     /**
+     * @description The commodity code of the resource plan.
+     *
      * @example dcdnpaybag
      *
      * @var string
@@ -16,6 +18,11 @@ class resourcePackageInfo extends Model
     public $commodityCode;
 
     /**
+     * @description The remaining quota of the resource plan.
+     *
+     *   The unit for traffic: bytes.
+     *   The unit for requests: count.
+     *
      * @example 10000000
      *
      * @var string
@@ -23,11 +30,17 @@ class resourcePackageInfo extends Model
     public $currCapacity;
 
     /**
+     * @description The name of the resource plan.
+     *
+     * @example HTTPS requests for static content
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the resource plan expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-08-24T16:00:00Z
      *
      * @var string
@@ -35,6 +48,11 @@ class resourcePackageInfo extends Model
     public $endTime;
 
     /**
+     * @description The total quota of the resource plan.
+     *
+     *   The unit for traffic: bytes.
+     *   The unit for requests: count.
+     *
      * @example 10000000
      *
      * @var string
@@ -42,6 +60,8 @@ class resourcePackageInfo extends Model
     public $initCapacity;
 
     /**
+     * @description The ID of the resource plan.
+     *
      * @example CDNFLOWBAG-cn-7pp2bihrb01ii0
      *
      * @var string
@@ -49,6 +69,8 @@ class resourcePackageInfo extends Model
     public $instanceId;
 
     /**
+     * @description The time when the resource plan takes effect. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-08-24T04:09:22Z
      *
      * @var string
@@ -56,6 +78,11 @@ class resourcePackageInfo extends Model
     public $startTime;
 
     /**
+     * @description The status of the resource plan. Valid values:
+     *
+     *   **valid**: The resource plan is valid.
+     *   **closed**: The resource package is expired.
+     *
      * @example valid
      *
      * @var string
@@ -63,6 +90,8 @@ class resourcePackageInfo extends Model
     public $status;
 
     /**
+     * @description The name of the template.
+     *
      * @example FPT_dcdnpaybag_deadlineAcc_1541151058
      *
      * @var string

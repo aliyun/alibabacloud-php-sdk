@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth value. Unit: bit/s.
+     *
      * @example 11288111
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $ipaBps;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string

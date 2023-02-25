@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHttpCodeDataByLayerResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDcdnDomainHttpCodeDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The distribution of HTTP status codes at each time interval.
+     *
      * @var httpCodeDataInterval
      */
     public $httpCodeDataInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class outPutDomains extends Model
 {
     /**
+     * @description The status of the ACL. Valid values:
+     *
+     *   0: disabled
+     *   1: enabled
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class outPutDomains extends Model
     public $aclStatus;
 
     /**
+     * @description The status of protection against HTTP flood attacks. Valid values:
+     *
+     *   0: disabled
+     *   1: enabled
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +33,8 @@ class outPutDomains extends Model
     public $ccStatus;
 
     /**
+     * @description The domain name that has WAF enabled.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +42,12 @@ class outPutDomains extends Model
     public $domain;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   1: The domain name is added to WAF, or the domain name is valid.
+     *   10: The domain name is being added to WAF.
+     *   11: The domain name failed to be added to WAF.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +55,11 @@ class outPutDomains extends Model
     public $status;
 
     /**
+     * @description The status of WAF. Valid values:
+     *
+     *   0: disabled
+     *   1: enabled
+     *
      * @example 1
      *
      * @var int

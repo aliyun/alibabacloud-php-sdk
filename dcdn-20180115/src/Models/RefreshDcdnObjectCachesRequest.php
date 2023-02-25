@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCachesRequest extends Model
 {
     /**
+     * @description The path of the objects that you want to refresh. Separate multiple URLs with line feed characters (\n) or a pair of carriage return and line feed characters (\r\n).
+     *
      * @example example.com/example.txt
      *
      * @var string
@@ -16,6 +18,11 @@ class RefreshDcdnObjectCachesRequest extends Model
     public $objectPath;
 
     /**
+     * @description The refresh type. Default value: File. Valid values:
+     *
+     *   **File**: URL
+     *   **Directory**: directory
+     *
      * @example File
      *
      * @var string

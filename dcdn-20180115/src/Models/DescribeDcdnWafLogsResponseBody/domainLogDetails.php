@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetails extends Model
 {
     /**
+     * @description The WAF domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -18,6 +20,8 @@ class domainLogDetails extends Model
     public $domainName;
 
     /**
+     * @description The total number of entries returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -25,11 +29,15 @@ class domainLogDetails extends Model
     public $logCount;
 
     /**
+     * @description The log information.
+     *
      * @var logInfos[]
      */
     public $logInfos;
 
     /**
+     * @description The page information. The page information is indicated by the PageInfoDetail parameter.
+     *
      * @var pageInfos
      */
     public $pageInfos;

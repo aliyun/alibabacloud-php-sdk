@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTaskByIdRequest extends Model
 {
     /**
+     * @description The ID of the task that you want to query. You can query task IDs by performing the following operations:
+     *
+     *   Perform the [RefreshDcdnObjectCaches](~~130620~~) operation to query refresh task IDs.
+     *   Perform the [PreloadDcdnObjectCaches](~~130636~~) operation to query prefetch task IDs.
+     *
+     * >  You can specify at most 10 task IDs in each call. Separate IDs with commas (,).
      * @example 113681**
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafUsageDataRequest extends Model
 {
     /**
+     * @description The domain name that you want to query. If you do not specify an accelerated domain name, all accelerated domain names are queried by default.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
      * @example 2018-10-01T16:00:00Z
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The time granularity for a query. Unit: seconds.
+     *
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day).
      * @example 300
      *
      * @var string
@@ -30,6 +38,11 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $interval;
 
     /**
+     * @description Specifies how query results are grouped. By default, this parameter is empty. Valid values:
+     *
+     *   domain: Query results are grouped by accelerated domain name.
+     *   An empty string: Query results are not grouped.
+     *
      * @example domain
      *
      * @var string
@@ -37,6 +50,8 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $splitBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2018-09-30T16:00:00Z
      *
      * @var string

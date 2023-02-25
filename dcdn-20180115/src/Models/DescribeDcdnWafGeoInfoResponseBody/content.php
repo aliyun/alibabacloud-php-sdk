@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The information about the country or region.
+     *
      * @var continents[]
      */
     public $continents;
 
     /**
+     * @description The type of the region.
+     *
+     *   CN: China
+     *   Other: outside China
+     *
      * @example CN
      *
      * @var string

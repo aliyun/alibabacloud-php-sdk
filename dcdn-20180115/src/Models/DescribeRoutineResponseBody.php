@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineResponseBody extends Model
 {
     /**
+     * @description The metadata of the routine. The next table describes the fields.
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4DBA68F5-04A9-406B-B1E4-F2CB635E103F
      *
      * @var string

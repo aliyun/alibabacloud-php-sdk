@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCodeRevisionResponseBody extends Model
 {
     /**
+     * @description The JavaScript code returned.
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D24F0C48-1B27-4C58-8B84-1A0C001A514E
      *
      * @var string

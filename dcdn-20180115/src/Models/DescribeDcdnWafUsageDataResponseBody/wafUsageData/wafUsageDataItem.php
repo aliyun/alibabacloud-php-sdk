@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wafUsageDataItem extends Model
 {
     /**
+     * @description The number of allowed requests.
+     *
      * @example 600
      *
      * @var int
@@ -16,6 +18,8 @@ class wafUsageDataItem extends Model
     public $accessCnt;
 
     /**
+     * @description The number of blocked requests.
+     *
      * @example 300
      *
      * @var int
@@ -23,6 +27,8 @@ class wafUsageDataItem extends Model
     public $blockCnt;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +36,8 @@ class wafUsageDataItem extends Model
     public $domain;
 
     /**
+     * @description The number of monitored requests.
+     *
      * @example 300
      *
      * @var int
@@ -37,6 +45,8 @@ class wafUsageDataItem extends Model
     public $observeCnt;
 
     /**
+     * @description The number of used SeCUs.
+     *
      * @example 50
      *
      * @var int
@@ -44,6 +54,8 @@ class wafUsageDataItem extends Model
     public $secCu;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2018-09-30T16:00:00Z
      *
      * @var string

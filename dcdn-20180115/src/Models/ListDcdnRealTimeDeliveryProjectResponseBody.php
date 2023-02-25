@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDcdnRealTimeDeliveryProjectResponseBody extends Model
 {
     /**
+     * @description The configuration results of the domain name.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3EACD23C-F49F-4BF7-B9AD-C2CD3BA888C4
      *
      * @var string
@@ -22,6 +26,8 @@ class ListDcdnRealTimeDeliveryProjectResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 2
      *
      * @var int

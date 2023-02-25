@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafLogsResponseBody extends Model
 {
     /**
+     * @description Details about domain logs.
+     *
      * @var domainLogDetails[]
      */
     public $domainLogDetails;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0985A362-C81E-5A56-891D-90226BEECA7C
      *
      * @var string

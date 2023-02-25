@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainPropertyResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name that is queried.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The name of the protocol. Valid values:
+     *
+     *   **udp**: User Datagram Protocol (UDP)
+     *   **tcp**: Transmission Control Protocol (TCP)
+     *
      * @example udp
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public $protocol;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
      *
      * @var string

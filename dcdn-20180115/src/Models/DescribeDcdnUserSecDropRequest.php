@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropRequest extends Model
 {
     /**
+     * @description The date or month that you want to query.
+     *
+     *   If data is collected every day, set the date in the format of yyyymmdd, such as 20201203.
+     *   If data is collected every month, set the month in the format of yyyymm, such as 202012.
+     *
      * @example 20201203
      *
      * @var string
@@ -16,6 +21,11 @@ class DescribeDcdnUserSecDropRequest extends Model
     public $data;
 
     /**
+     * @description The time interval at which data is collected.
+     *
+     *   If data is collected every day, the number of blocked packets on the specified day is calculated.
+     *   If data is collected every month, the number of blocked packets in the specified month is calculated.
+     *
      * @example 1day
      *
      * @var string
@@ -23,6 +33,13 @@ class DescribeDcdnUserSecDropRequest extends Model
     public $metric;
 
     /**
+     * @description The security feature. Valid values:
+     *
+     *   waf: WAF
+     *   tmd: rate limiting
+     *   robot: bot traffic recognition
+     *   l4\_dm_drop: domain name blocking on Layer 4
+     *
      * @example waf
      *
      * @var string

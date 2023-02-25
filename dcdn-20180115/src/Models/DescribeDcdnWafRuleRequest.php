@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafRuleRequest extends Model
 {
     /**
+     * @description The ID of the protection rule. You can specify only one ID in each request.
+     *
      * @example 1000001
      *
      * @var int

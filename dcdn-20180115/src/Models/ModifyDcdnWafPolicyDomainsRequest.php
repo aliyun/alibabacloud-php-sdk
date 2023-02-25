@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDcdnWafPolicyDomainsRequest extends Model
 {
     /**
+     * @description The domain names that you want to bind to the protection policy. You can specify up to 50 domain names. Separate multiple domain names with commas (,).
+     *
+     * > You can configure only one of the **BindDomains** and **UnbindDomains** parameters.
      * @example example.com,example2.com
      *
      * @var string
@@ -21,6 +24,8 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
     public $method;
 
     /**
+     * @description The ID of the protection policy. You can specify only one ID in each request.
+     *
      * @example 1000001
      *
      * @var int
@@ -28,6 +33,9 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
     public $policyId;
 
     /**
+     * @description The domain names that you want to unbind from the protection policy. You can specify up to 50 domain names. Separate multiple domain names with commas (,).
+     *
+     * > You can configure only one of the **BindDomains** and **UnbindDomains** parameters.
      * @example example3.com
      *
      * @var string

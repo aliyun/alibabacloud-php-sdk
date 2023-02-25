@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The language (Chinese or English).
+     *
      * @example ai_defense
      *
      * @var string
@@ -16,6 +18,8 @@ class content extends Model
     public $label;
 
     /**
+     * @description The options in the drop-down list.
+     *
      * @example ai_defense
      *
      * @var string

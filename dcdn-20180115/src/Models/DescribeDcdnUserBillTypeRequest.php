@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserBillTypeRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2018-10-31T16:00:00Z
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeDcdnUserBillTypeRequest extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2018-09-30T16:00:00Z
      *
      * @var string

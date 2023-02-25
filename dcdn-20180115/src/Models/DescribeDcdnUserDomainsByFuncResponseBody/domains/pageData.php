@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The CNAME assigned to the accelerated domain name.
+     *
      * @example example.com.w.alikunlun.net
      *
      * @var string
@@ -17,6 +19,8 @@ class pageData extends Model
     public $cname;
 
     /**
+     * @description The reason why the accelerated domain name failed the review.
+     *
      * @example audit failed
      *
      * @var string
@@ -24,6 +28,8 @@ class pageData extends Model
     public $description;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -31,6 +37,15 @@ class pageData extends Model
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed**: failed the review
+     *
      * @example configure_failed
      *
      * @var string
@@ -38,6 +53,8 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @description The time when the accelerated domain name was added.
+     *
      * @example 2015-10-28T09:32:51Z
      *
      * @var string
@@ -45,6 +62,8 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the accelerated domain name was modified.
+     *
      * @example 2015-10-28T11:05:50Z
      *
      * @var string
@@ -52,6 +71,8 @@ class pageData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -59,6 +80,8 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the accelerated domain name was in a sandbox.
+     *
      * @example normal
      *
      * @var string
@@ -66,11 +89,18 @@ class pageData extends Model
     public $sandbox;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;
 
     /**
+     * @description Indicates whether HTTPS is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string

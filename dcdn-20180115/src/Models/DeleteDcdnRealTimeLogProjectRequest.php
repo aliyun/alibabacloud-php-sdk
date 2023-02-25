@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnRealTimeLogProjectRequest extends Model
 {
     /**
+     * @description The name of a real-time log delivery project.
+     *
      * @example example
      *
      * @var string

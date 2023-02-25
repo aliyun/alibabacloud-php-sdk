@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainResponseBody extends Model
 {
     /**
+     * @description Details about the accelerated domain names.
+     *
      * @var outPutDomains[]
      */
     public $outPutDomains;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CB1A380B-09F0-41BB-802B-72F8FD6DA2FE
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDcdnWafDomainResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of accelerated domain names returned.
+     *
      * @example 1
      *
      * @var int

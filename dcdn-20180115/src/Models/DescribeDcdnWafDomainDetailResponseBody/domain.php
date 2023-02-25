@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @description The types of the protection policies.
+     *
      * @var defenseScenes[]
      */
     public $defenseScenes;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string

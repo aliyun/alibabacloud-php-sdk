@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The description of the returned result.
+     *
      * @example created
      *
      * @var string
@@ -16,6 +18,8 @@ class domains extends Model
     public $desc;
 
     /**
+     * @description The domain name for which the real-time log delivery project was updated.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class domains extends Model
     public $domainName;
 
     /**
+     * @description The region from which logs were collected.
+     *
      * @example cn
      *
      * @var string
@@ -30,6 +36,11 @@ class domains extends Model
     public $region;
 
     /**
+     * @description Indicates whether the real-time log delivery project was successfully updated. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

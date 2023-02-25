@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaServiceResponseBody extends Model
 {
     /**
+     * @description The time when the change of the billing method starts to take effect. The time is in GMT. This time appears on the frontend only when it is later than the current time.
+     *
      * @example 2018-03-31T16:00:00Z
      *
      * @var string
@@ -17,6 +19,16 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
+     * @description The new billing method to take effect. Valid values:
+     *
+     *   **PayByTraffic**
+     *   **PayByBandwidth**
+     *   **PayByBandwidth95**
+     *   **PayByBandwidth_monthavg**
+     *   **PayByBandwidth_month4th**
+     *   **PayByBandwidth_monthday95avg**
+     *   **PayByBandwidth_nighthalf95**
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -24,6 +36,8 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $changingChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 1883927335936173
      *
      * @var string
@@ -31,6 +45,16 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The current billing method. Valid values:
+     *
+     *   **PayByTraffic**
+     *   **PayByBandwidth**
+     *   **PayByBandwidth95**
+     *   **PayByBandwidth_monthavg**
+     *   **PayByBandwidth_month4th**
+     *   **PayByBandwidth_monthday95avg**
+     *   **PayByBandwidth_nighthalf95**
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -38,6 +62,8 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $internetChargeType;
 
     /**
+     * @description The time when the IPA service was activated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format.
+     *
      * @example 2018-03-19T11:16:11Z
      *
      * @var string
@@ -45,11 +71,15 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $openingTime;
 
     /**
+     * @description The lock status of the IPA service.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EF2AEBC2-EDBD-41CF-BF64-7E095D42D6EF
      *
      * @var string

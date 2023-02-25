@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CommitStagingRoutineCodeResponseBody extends Model
 {
     /**
+     * @description The version number of the code.
+     *
      * @example 1620876959997924701
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class CommitStagingRoutineCodeResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5CC228B4-7A67-4016-9C9F-4A4133494A91
      *
      * @var string

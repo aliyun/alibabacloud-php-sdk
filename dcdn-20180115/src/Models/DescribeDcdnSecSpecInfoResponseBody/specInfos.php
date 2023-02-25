@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class specInfos extends Model
 {
     /**
+     * @description The code of the security rule.
+     *
      * @example accurate_***
      *
      * @var string
@@ -17,6 +19,8 @@ class specInfos extends Model
     public $ruleCode;
 
     /**
+     * @description The configurations of the security rule.
+     *
      * @var ruleConfigs[]
      */
     public $ruleConfigs;

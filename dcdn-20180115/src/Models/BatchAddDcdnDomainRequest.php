@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDcdnDomainRequest extends Model
 {
     /**
+     * @description The URL that is used to check whether the origin server can be accessed.
+     *
      * @example www.example.com/test.html
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchAddDcdnDomainRequest extends Model
     public $checkUrl;
 
     /**
+     * @description You can add up to 50 domain names to DCDN for each of your Alibaba Cloud account. Separate multiple domain names with commas (,).
+     *
      * @example example.com,example.org
      *
      * @var string
@@ -33,6 +37,8 @@ class BatchAddDcdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. If you do not specify a value for this parameter, the system automatically assigns the ID of the default resource group.
+     *
      * @example testID
      *
      * @var string
@@ -40,6 +46,12 @@ class BatchAddDcdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The accelerated region. Default value: domestic. Valid values:
+     *
+     *   domestic: Chinese mainland
+     *   overseas: global (excluding the Chinese mainland)
+     *   global: global
+     *
      * @example domestic
      *
      * @var string
@@ -52,6 +64,8 @@ class BatchAddDcdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the addresses of origin servers.
+     *
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string
@@ -59,6 +73,8 @@ class BatchAddDcdnDomainRequest extends Model
     public $sources;
 
     /**
+     * @description The top-level domain name.
+     *
      * @example example.com
      *
      * @var string

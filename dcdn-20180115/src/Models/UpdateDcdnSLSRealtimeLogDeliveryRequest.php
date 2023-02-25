@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
 {
     /**
+     * @description The region from which logs are collected.
+     *
+     *   **cn**: Chinese mainland
+     *   **sg**: Singapore
+     *   **in**: India
+     *   **eu**: Europe
+     *   **us**: United States
+     *
      * @example cn
      *
      * @var string
@@ -16,6 +24,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $dataCenter;
 
     /**
+     * @description The domain names. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +33,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $domainName;
 
     /**
+     * @description The name of the real-time log delivery project.
+     *
      * @example example
      *
      * @var string
@@ -30,6 +42,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example example-cn
      *
      * @var string
@@ -37,6 +51,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $SLSLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
      * @example example-cn
      *
      * @var string
@@ -44,6 +60,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $SLSProject;
 
     /**
+     * @description The region to which logs are delivered.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +69,8 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $SLSRegion;
 
     /**
+     * @description The sampling rate.
+     *
      * @example 1.0
      *
      * @var string

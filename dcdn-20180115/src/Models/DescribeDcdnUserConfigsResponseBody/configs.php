@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The name of the configuration.
+     *
+     * The configuration that is specified by enterprise users and public service sectors.
      * @example allow_function
      *
      * @var string
@@ -16,6 +19,16 @@ class configs extends Model
     public $argName;
 
     /**
+     * @description The value of the configuration. Valid values:
+     *
+     *   cc_rule: HTTP flood protection
+     *   ddos_dispatch: DDoS mitigation
+     *   edge_safe: application security on edge nodes
+     *   blocked_regions: region blacklist
+     *   http_acl_policy: precise access control
+     *   bot_manager: bot traffic management
+     *   ip_reputation: IP reputation library
+     *
      * @example {\"dcdn_allow\":[\"cc_rule\",\"ddos_dispatch\"]}
      *
      * @var string
@@ -23,6 +36,8 @@ class configs extends Model
     public $argValue;
 
     /**
+     * @description The configuration returned.
+     *
      * @example domain_business_control
      *
      * @var string

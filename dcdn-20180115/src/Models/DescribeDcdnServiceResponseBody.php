@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnServiceResponseBody extends Model
 {
     /**
+     * @description The start time when the next billing method takes effect. The time is displayed in UTC.
+     *
      * @example 2018-03-31T16:00:00Z
      *
      * @var string
@@ -17,6 +19,16 @@ class DescribeDcdnServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
+     * @description The next billing method that takes effect. Valid values:
+     *
+     *   **PayByTraffic**: traffic
+     *   **PayByBandwidth**: bandwidth
+     *   **PayByBandwidth95**: 95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: monthly average bandwidth
+     *   **PayByBandwidth_month4th**: the fourth peak bandwidth in each month
+     *   **PayByBandwidth_monthday95avg**: monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: 95th percentile bandwidth of half idle bandwidth in the nighttime
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -24,6 +36,8 @@ class DescribeDcdnServiceResponseBody extends Model
     public $changingChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example FP-mkqgwxxxx
      *
      * @var string
@@ -31,6 +45,16 @@ class DescribeDcdnServiceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The current billing method. Valid values:
+     *
+     *   **PayByTraffic**: traffic
+     *   **PayByBandwidth**: bandwidth
+     *   **PayByBandwidth95**: 95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: monthly average bandwidth
+     *   **PayByBandwidth_month4th**: the fourth peak bandwidth in each month
+     *   **PayByBandwidth_monthday95avg**: monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: 95th percentile bandwidth of half idle bandwidth in the nighttime
+     *
      * @example PayByTraffic
      *
      * @var string
@@ -38,6 +62,8 @@ class DescribeDcdnServiceResponseBody extends Model
     public $internetChargeType;
 
     /**
+     * @description The time when the DCDN service was activated. The time follows the ISO 8601 standard.
+     *
      * @example 2018-03-19T11:16:11Z
      *
      * @var string
@@ -45,11 +71,15 @@ class DescribeDcdnServiceResponseBody extends Model
     public $openingTime;
 
     /**
+     * @description The lock status of the DCDN service.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EF2AEBC2-EDBD-41CF-BF64-7E095D42D6EF
      *
      * @var string
@@ -57,6 +87,8 @@ class DescribeDcdnServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the changes of the WebSocket configuration take effect. The value is the same as that of the ChangingAffectTime parameter. This parameter can be displayed in the console only if the specified time is later than the current time.
+     *
      * @example 2018-03-19T11:16:11Z
      *
      * @var string
@@ -64,6 +96,8 @@ class DescribeDcdnServiceResponseBody extends Model
     public $websocketChangingTime;
 
     /**
+     * @description The next effective billing method of WebSocket. Valid values: **websockettraffic** and **websocketbps**. A value of websockettraffic indicates that you are billed based on the traffic volume. A value of websocketbps indicates that you are billed based on the bandwidth.
+     *
      * @example websocketbps
      *
      * @var string
@@ -71,6 +105,8 @@ class DescribeDcdnServiceResponseBody extends Model
     public $websocketChangingType;
 
     /**
+     * @description The current billing method of WebSocket. Valid values: **websockettraffic** and **websocketbps**. A value of websockettraffic indicates that you are billed based on the traffic volume. A value of websocketbps indicates that you are billed based on the bandwidth.
+     *
      * @example websocketbps
      *
      * @var string

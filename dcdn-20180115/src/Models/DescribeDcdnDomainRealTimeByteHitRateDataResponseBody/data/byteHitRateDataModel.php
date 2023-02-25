@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class byteHitRateDataModel extends Model
 {
     /**
+     * @description The byte hit ratio.
+     *
      * @example 0.8956940476262277
      *
      * @var float
@@ -16,6 +18,8 @@ class byteHitRateDataModel extends Model
     public $byteHitRate;
 
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
+     *
      * @example 2016-10-20T04:00:00Z
      *
      * @var string

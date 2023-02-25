@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class referList extends Model
 {
     /**
+     * @description The network traffic. Unit: bytes.
+     *
      * @example 460486880
      *
      * @var string
@@ -16,6 +18,8 @@ class referList extends Model
     public $flow;
 
     /**
+     * @description The proportion of the network traffic.
+     *
      * @example 0.35
      *
      * @var float
@@ -23,6 +27,8 @@ class referList extends Model
     public $flowProportion;
 
     /**
+     * @description The complete referenced URL.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -30,6 +36,8 @@ class referList extends Model
     public $referDetail;
 
     /**
+     * @description The number of visits to the URL.
+     *
      * @example 229567
      *
      * @var string
@@ -37,6 +45,8 @@ class referList extends Model
     public $visitData;
 
     /**
+     * @description The proportion of the visits.
+     *
      * @example 0.35
      *
      * @var float

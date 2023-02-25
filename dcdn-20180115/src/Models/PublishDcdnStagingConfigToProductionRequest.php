@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishDcdnStagingConfigToProductionRequest extends Model
 {
     /**
+     * @description The name of the accelerated domain. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
     public $domainName;
 
     /**
+     * @description The name of the feature.
+     *
      * @example aliauth
      *
      * @var string

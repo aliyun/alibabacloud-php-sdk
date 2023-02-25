@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnUserRealTimeDeliveryFieldResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 3EACD23C-F49F-4BF7-B9AD-C2CD3BA888C4
      *
      * @var string

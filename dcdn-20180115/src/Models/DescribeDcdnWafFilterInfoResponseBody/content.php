@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
+     *
      * @example custom_acl
      *
      * @var string
@@ -17,6 +19,8 @@ class content extends Model
     public $defenseScene;
 
     /**
+     * @description The information about the match condition.
+     *
      * @var fields[]
      */
     public $fields;

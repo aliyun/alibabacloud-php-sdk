@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The amount of back-to-origin traffic that was consumed to deliver dynamic content over HTTP.
+     *
      * @example 1000
      *
      * @var float
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $dynamicHttpOriginTraffic;
 
     /**
+     * @description The amount of back-to-origin traffic that was consumed to deliver dynamic content over HTTPS.
+     *
      * @example 500
      *
      * @var float
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $dynamicHttpsOriginTraffic;
 
     /**
+     * @description The amount of back-to-origin traffic.
+     *
      * @example 100
      *
      * @var float
@@ -30,6 +36,8 @@ class dataModule extends Model
     public $originTraffic;
 
     /**
+     * @description The amount of back-to-origin traffic that was consumed to deliver static content over HTTP.
+     *
      * @example 0
      *
      * @var float
@@ -37,6 +45,8 @@ class dataModule extends Model
     public $staticHttpOriginTraffic;
 
     /**
+     * @description The amount of back-to-origin traffic that was consumed to deliver static content over HTTPS.
+     *
      * @example 100
      *
      * @var float
@@ -44,6 +54,8 @@ class dataModule extends Model
     public $staticHttpsOriginTraffic;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2017-12-10T21:00:00Z
      *
      * @var string

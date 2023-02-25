@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logInfos extends Model
 {
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2015-05-23T14:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class logInfos extends Model
     public $endTime;
 
     /**
+     * @description The name of the log file.
+     *
      * @example demo.aliyundoc.com_2015_05_23_2100_2200.xxxxxx.gz
      *
      * @var string
@@ -23,6 +27,8 @@ class logInfos extends Model
     public $logName;
 
     /**
+     * @description The path of the log file.
+     *
      * @example guide.aliyundoc.com-hangzhou.xxx
      *
      * @var string
@@ -30,6 +36,8 @@ class logInfos extends Model
     public $logPath;
 
     /**
+     * @description The size of the log file. Unit: bytes.
+     *
      * @example 258
      *
      * @var int
@@ -37,6 +45,8 @@ class logInfos extends Model
     public $logSize;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2015-05-23T13:00:00Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDcdnWafPolicyRequest extends Model
 {
     /**
+     * @description The ID of the protection policy that you want to modify. You can specify only one ID in each request.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,6 +18,9 @@ class ModifyDcdnWafPolicyRequest extends Model
     public $policyId;
 
     /**
+     * @description The new name of the protection policy.
+     *
+     * >  You must specify PolicyName or PolicyStatus.
      * @example policy_test
      *
      * @var string
@@ -23,6 +28,12 @@ class ModifyDcdnWafPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description The new status of the protection policy. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * >  You must specify PolicyName or PolicyStatus.
      * @example on
      *
      * @var string

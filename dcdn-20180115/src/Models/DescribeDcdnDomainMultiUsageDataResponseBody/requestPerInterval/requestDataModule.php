@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class requestDataModule extends Model
     public $domain;
 
     /**
+     * @description The number of requests.
+     *
      * @example 1128
      *
      * @var int
@@ -23,6 +27,8 @@ class requestDataModule extends Model
     public $request;
 
     /**
+     * @description The timestamp of the data entry.
+     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class requestDataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The type of the requests. Valid values: StaticHttps, DynamicHttps, DynamicHttp, StaticQuic, and DynamicQuic.
+     *
      * @example DynamicHttp
      *
      * @var string

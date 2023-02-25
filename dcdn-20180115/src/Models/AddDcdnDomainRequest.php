@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnDomainRequest extends Model
 {
     /**
+     * @description The URL that is used to check the accessibility of the origin server.
+     *
      * @example example.com
      *
      * @var string
@@ -17,6 +19,9 @@ class AddDcdnDomainRequest extends Model
     public $checkUrl;
 
     /**
+     * @description The domain name that you want to add. You can specify only one domain name in each request.
+     *
+     * Wildcard domain names are supported. A wildcard domain name must start with a period (.), such as .example.com.
      * @example example.com
      *
      * @var string
@@ -34,6 +39,8 @@ class AddDcdnDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. If you do not specify a value for this parameter, the system automatically assigns the ID of the default resource group.
+     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -41,6 +48,13 @@ class AddDcdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The acceleration region. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
+     *
+     * Default value: **domestic**.
      * @example domestic
      *
      * @var string
@@ -53,6 +67,8 @@ class AddDcdnDomainRequest extends Model
     public $securityToken;
 
     /**
+     * @description The information about the addresses of origin servers.
+     *
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80}]
      *
      * @var string
@@ -60,11 +76,15 @@ class AddDcdnDomainRequest extends Model
     public $sources;
 
     /**
+     * @description The information about the tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The top-level domain.
+     *
      * @example yourTopLevelDomain
      *
      * @var string

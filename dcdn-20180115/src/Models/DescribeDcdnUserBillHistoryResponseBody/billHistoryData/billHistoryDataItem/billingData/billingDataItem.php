@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class billingDataItem extends Model
 {
     /**
+     * @description The bandwidth. Unit: bit/s.
+     *
      * @example 4839
      *
      * @var float
@@ -16,6 +18,8 @@ class billingDataItem extends Model
     public $bandwidth;
 
     /**
+     * @description The region for which the billing records are generated. Valid values: **CN**, **OverSeas**, **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
+     *
      * @example AP1
      *
      * @var string
@@ -23,6 +27,8 @@ class billingDataItem extends Model
     public $cdnRegion;
 
     /**
+     * @description The billing type. Valid values: **StaticHttp**, **DynamicHttp**, and **DynamicHttps**.
+     *
      * @example DynamicHttp
      *
      * @var string
@@ -30,6 +36,8 @@ class billingDataItem extends Model
     public $chargeType;
 
     /**
+     * @description The number of billing entries.
+     *
      * @example 205624
      *
      * @var float
@@ -37,6 +45,8 @@ class billingDataItem extends Model
     public $count;
 
     /**
+     * @description The traffic. Unit: byte.
+     *
      * @example 2456
      *
      * @var float

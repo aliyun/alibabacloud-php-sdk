@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnIpaSpecificConfigRequest extends Model
 {
     /**
+     * @description The ID of the configuration. You can call the [DescribeDcdnDomainConfigs](~~130625~~) operation to query configuration IDs.
+     *
      * @example 50035**
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
     public $configId;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each call.
+     *
      * @example example.com
      *
      * @var string
