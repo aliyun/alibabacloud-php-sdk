@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InsertCustomResponse extends Model
+class RequestTableQAOnlineResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class InsertCustomResponse extends Model
     public $statusCode;
 
     /**
-     * @var InsertCustomResponseBody
+     * @var RequestTableQAOnlineResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class InsertCustomResponse extends Model
     /**
      * @param array $map
      *
-     * @return InsertCustomResponse
+     * @return RequestTableQAOnlineResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class InsertCustomResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = InsertCustomResponseBody::fromMap($map['body']);
+            $model->body = RequestTableQAOnlineResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetWsCustomizedChGeneralResponseBody extends Model
+class ADMiniCogResponseBody extends Model
 {
     /**
-     * @example a
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @example a
-     *
      * @var string
      */
     public $requestId;
@@ -46,7 +42,7 @@ class GetWsCustomizedChGeneralResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetWsCustomizedChGeneralResponseBody
+     * @return ADMiniCogResponseBody
      */
     public static function fromMap($map = [])
     {

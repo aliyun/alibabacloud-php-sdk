@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InsertCustomResponseBody extends Model
+class RequestTableQARequest extends Model
 {
     /**
      * @var string
      */
-    public $data;
+    public $params;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $serviceCode;
     protected $_name = [
-        'data'      => 'Data',
-        'requestId' => 'RequestId',
+        'params'      => 'Params',
+        'serviceCode' => 'ServiceCode',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class InsertCustomResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class InsertCustomResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InsertCustomResponseBody
+     * @return RequestTableQARequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
         }
 
         return $model;

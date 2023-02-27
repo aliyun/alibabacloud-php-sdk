@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetWsCustomizedChGeneralRequest extends Model
 {
     /**
+     * @example a
+     *
      * @var string
      */
     public $outType;
 
     /**
+     * @example a
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @example a
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example a
+     *
      * @var string
      */
     public $tokenizerId;

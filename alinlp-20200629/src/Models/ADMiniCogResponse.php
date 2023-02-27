@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateCustomResponse extends Model
+class ADMiniCogResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateCustomResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateCustomResponseBody
+     * @var ADMiniCogResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class UpdateCustomResponse extends Model
     /**
      * @param array $map
      *
-     * @return UpdateCustomResponse
+     * @return ADMiniCogResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class UpdateCustomResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UpdateCustomResponseBody::fromMap($map['body']);
+            $model->body = ADMiniCogResponseBody::fromMap($map['body']);
         }
 
         return $model;

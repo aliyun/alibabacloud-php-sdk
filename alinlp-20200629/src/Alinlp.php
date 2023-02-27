@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADClockRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADClockResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogResultRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogResultResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMMURequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMMUResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetBrandChEcomRequest;
@@ -60,6 +64,8 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSimilarityChMedicalRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSimilarityChMedicalResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSummaryChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSummaryChEcomResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTableQAServiceInfoByIdRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTableQAServiceInfoByIdResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTcChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTcChEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTcChGeneralRequest;
@@ -95,6 +101,10 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQARequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -224,6 +234,98 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->aDMMUWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ADMiniCogRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ADMiniCogResponse
+     */
+    public function aDMiniCogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ADMiniCog',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ADMiniCogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ADMiniCogRequest $request
+     *
+     * @return ADMiniCogResponse
+     */
+    public function aDMiniCog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->aDMiniCogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ADMiniCogResultRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ADMiniCogResultResponse
+     */
+    public function aDMiniCogResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ADMiniCogResult',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ADMiniCogResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ADMiniCogResultRequest $request
+     *
+     * @return ADMiniCogResultResponse
+     */
+    public function aDMiniCogResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->aDMiniCogResultWithOptions($request, $runtime);
     }
 
     /**
@@ -1428,6 +1530,52 @@ class Alinlp extends OpenApiClient
     }
 
     /**
+     * @param GetTableQAServiceInfoByIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTableQAServiceInfoByIdResponse
+     */
+    public function getTableQAServiceInfoByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTableQAServiceInfoById',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableQAServiceInfoByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTableQAServiceInfoByIdRequest $request
+     *
+     * @return GetTableQAServiceInfoByIdResponse
+     */
+    public function getTableQAServiceInfoById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableQAServiceInfoByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTcChEcomRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2351,5 +2499,103 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openAlinlpServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param RequestTableQARequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RequestTableQAResponse
+     */
+    public function requestTableQAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RequestTableQA',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RequestTableQAResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RequestTableQARequest $request
+     *
+     * @return RequestTableQAResponse
+     */
+    public function requestTableQA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestTableQAWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RequestTableQAOnlineRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RequestTableQAOnlineResponse
+     */
+    public function requestTableQAOnlineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->botId)) {
+            $body['BotId'] = $request->botId;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->question)) {
+            $body['Question'] = $request->question;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RequestTableQAOnline',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RequestTableQAOnlineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RequestTableQAOnlineRequest $request
+     *
+     * @return RequestTableQAOnlineResponse
+     */
+    public function requestTableQAOnline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestTableQAOnlineWithOptions($request, $runtime);
     }
 }

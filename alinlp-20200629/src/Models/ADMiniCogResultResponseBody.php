@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateCustomResponseBody extends Model
+class ADMiniCogResultResponseBody extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class UpdateCustomResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateCustomResponseBody
+     * @return ADMiniCogResultResponseBody
      */
     public static function fromMap($map = [])
     {
