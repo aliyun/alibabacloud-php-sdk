@@ -570,6 +570,9 @@ class Schedulerx2 extends OpenApiClient
         if (!Utils::isUnset($request->timeoutKillEnable)) {
             $body['TimeoutKillEnable'] = $request->timeoutKillEnable;
         }
+        if (!Utils::isUnset($request->timezone)) {
+            $body['Timezone'] = $request->timezone;
+        }
         if (!Utils::isUnset($request->XAttrs)) {
             $body['XAttrs'] = $request->XAttrs;
         }
@@ -2379,6 +2382,9 @@ class Schedulerx2 extends OpenApiClient
         }
         if (!Utils::isUnset($request->timeoutKillEnable)) {
             $body['TimeoutKillEnable'] = $request->timeoutKillEnable;
+        }
+        if (!Utils::isUnset($request->timezone)) {
+            $body['Timezone'] = $request->timezone;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

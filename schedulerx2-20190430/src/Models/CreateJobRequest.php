@@ -348,6 +348,13 @@ class CreateJobRequest extends Model
     public $timeoutKillEnable;
 
     /**
+     * @example GMT+8
+     *
+     * @var string
+     */
+    public $timezone;
+
+    /**
      * @description If the Task type parameter is set to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
      *
      * @example {"resource":"job"}
@@ -390,6 +397,7 @@ class CreateJobRequest extends Model
         'timeout'             => 'Timeout',
         'timeoutEnable'       => 'TimeoutEnable',
         'timeoutKillEnable'   => 'TimeoutKillEnable',
+        'timezone'            => 'Timezone',
         'XAttrs'              => 'XAttrs',
     ];
 
@@ -507,6 +515,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->timeoutKillEnable) {
             $res['TimeoutKillEnable'] = $this->timeoutKillEnable;
+        }
+        if (null !== $this->timezone) {
+            $res['Timezone'] = $this->timezone;
         }
         if (null !== $this->XAttrs) {
             $res['XAttrs'] = $this->XAttrs;
@@ -630,6 +641,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['TimeoutKillEnable'])) {
             $model->timeoutKillEnable = $map['TimeoutKillEnable'];
+        }
+        if (isset($map['Timezone'])) {
+            $model->timezone = $map['Timezone'];
         }
         if (isset($map['XAttrs'])) {
             $model->XAttrs = $map['XAttrs'];

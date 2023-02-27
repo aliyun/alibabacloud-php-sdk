@@ -330,6 +330,13 @@ class UpdateJobRequest extends Model
      * @var bool
      */
     public $timeoutKillEnable;
+
+    /**
+     * @example GMT+8
+     *
+     * @var string
+     */
+    public $timezone;
     protected $_name = [
         'attemptInterval'     => 'AttemptInterval',
         'calendar'            => 'Calendar',
@@ -365,6 +372,7 @@ class UpdateJobRequest extends Model
         'timeout'             => 'Timeout',
         'timeoutEnable'       => 'TimeoutEnable',
         'timeoutKillEnable'   => 'TimeoutKillEnable',
+        'timezone'            => 'Timezone',
     ];
 
     public function validate()
@@ -481,6 +489,9 @@ class UpdateJobRequest extends Model
         }
         if (null !== $this->timeoutKillEnable) {
             $res['TimeoutKillEnable'] = $this->timeoutKillEnable;
+        }
+        if (null !== $this->timezone) {
+            $res['Timezone'] = $this->timezone;
         }
 
         return $res;
@@ -601,6 +612,9 @@ class UpdateJobRequest extends Model
         }
         if (isset($map['TimeoutKillEnable'])) {
             $model->timeoutKillEnable = $map['TimeoutKillEnable'];
+        }
+        if (isset($map['Timezone'])) {
+            $model->timezone = $map['Timezone'];
         }
 
         return $model;
