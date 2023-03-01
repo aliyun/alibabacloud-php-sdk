@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody\jobResult;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody\smartJobInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -15,6 +16,11 @@ class GetSmartHandleJobResponseBody extends Model
      * @var string
      */
     public $jobId;
+
+    /**
+     * @var jobResult
+     */
+    public $jobResult;
 
     /**
      * @example {}
@@ -50,6 +56,7 @@ class GetSmartHandleJobResponseBody extends Model
     public $userData;
     protected $_name = [
         'jobId'        => 'JobId',
+        'jobResult'    => 'JobResult',
         'output'       => 'Output',
         'requestId'    => 'RequestId',
         'smartJobInfo' => 'SmartJobInfo',
@@ -66,6 +73,9 @@ class GetSmartHandleJobResponseBody extends Model
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->jobResult) {
+            $res['JobResult'] = null !== $this->jobResult ? $this->jobResult->toMap() : null;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -96,6 +106,9 @@ class GetSmartHandleJobResponseBody extends Model
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['JobResult'])) {
+            $model->jobResult = jobResult::fromMap($map['JobResult']);
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];

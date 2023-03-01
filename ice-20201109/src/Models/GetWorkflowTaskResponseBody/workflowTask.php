@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class workflowTask extends Model
 {
     /**
+     * @var string
+     */
+    public $activityResults;
+
+    /**
      * @example 2023-01-04T02:05:17Z
      *
      * @var string
@@ -47,16 +52,23 @@ class workflowTask extends Model
     public $taskInput;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @var workflow
      */
     public $workflow;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'finishTime' => 'FinishTime',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
-        'taskInput'  => 'TaskInput',
-        'workflow'   => 'Workflow',
+        'activityResults' => 'ActivityResults',
+        'createTime'      => 'CreateTime',
+        'finishTime'      => 'FinishTime',
+        'status'          => 'Status',
+        'taskId'          => 'TaskId',
+        'taskInput'       => 'TaskInput',
+        'userData'        => 'UserData',
+        'workflow'        => 'Workflow',
     ];
 
     public function validate()
@@ -66,6 +78,9 @@ class workflowTask extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityResults) {
+            $res['ActivityResults'] = $this->activityResults;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -80,6 +95,9 @@ class workflowTask extends Model
         }
         if (null !== $this->taskInput) {
             $res['TaskInput'] = $this->taskInput;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->workflow) {
             $res['Workflow'] = null !== $this->workflow ? $this->workflow->toMap() : null;
@@ -96,6 +114,9 @@ class workflowTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityResults'])) {
+            $model->activityResults = $map['ActivityResults'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -110,6 +131,9 @@ class workflowTask extends Model
         }
         if (isset($map['TaskInput'])) {
             $model->taskInput = $map['TaskInput'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['Workflow'])) {
             $model->workflow = workflow::fromMap($map['Workflow']);
