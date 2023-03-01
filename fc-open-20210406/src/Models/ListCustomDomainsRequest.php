@@ -18,7 +18,7 @@ class ListCustomDomainsRequest extends Model
     public $limit;
 
     /**
-     * @description The token that is required for pagination. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
+     * @description The pagination token to use to request the next page of results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
      *
      * @example fc-thinkphp-demo.functioncompute.com
      *
@@ -36,7 +36,7 @@ class ListCustomDomainsRequest extends Model
     public $prefix;
 
     /**
-     * @description The starting position of the result list. The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
      *
      * @example next_service
      *

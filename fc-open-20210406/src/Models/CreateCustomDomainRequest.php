@@ -17,7 +17,7 @@ class CreateCustomDomainRequest extends Model
 
     /**
      * @description The domain name.
-     *
+     * Enter a custom domain name that has obtained an ICP filing in the Alibaba Cloud ICP Filing system, or a custom domain name whose ICP filing information includes Alibaba Cloud as a service provider.
      * @example example.com
      *
      * @var string

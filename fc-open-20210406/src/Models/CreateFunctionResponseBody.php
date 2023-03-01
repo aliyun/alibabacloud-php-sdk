@@ -125,6 +125,8 @@ class CreateFunctionResponseBody extends Model
     public $functionName;
 
     /**
+     * @description GPU instance memory specifications of the function. Unit: MB. The value is a multiple of 1024.
+     *
      * @example 2048
      *
      * @var int

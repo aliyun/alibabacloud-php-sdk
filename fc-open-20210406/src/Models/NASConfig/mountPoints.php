@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class mountPoints extends Model
 {
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableTLS;
+
+    /**
      * @example /home/test
      *
      * @var string
@@ -22,6 +29,7 @@ class mountPoints extends Model
      */
     public $serverAddr;
     protected $_name = [
+        'enableTLS'  => 'enableTLS',
         'mountDir'   => 'mountDir',
         'serverAddr' => 'serverAddr',
     ];
@@ -33,6 +41,9 @@ class mountPoints extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableTLS) {
+            $res['enableTLS'] = $this->enableTLS;
+        }
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
         }
@@ -51,6 +62,9 @@ class mountPoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableTLS'])) {
+            $model->enableTLS = $map['enableTLS'];
+        }
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];
         }
