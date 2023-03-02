@@ -56,6 +56,11 @@ class image extends Model
      * @var string
      */
     public $platform;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'architecture'    => 'Architecture',
         'creationTime'    => 'CreationTime',
@@ -64,6 +69,7 @@ class image extends Model
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'imageSize'       => 'ImageSize',
         'platform'        => 'Platform',
+        'snapshotId'      => 'SnapshotId',
     ];
 
     public function validate()
@@ -93,6 +99,9 @@ class image extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -126,6 +135,9 @@ class image extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

@@ -27,11 +27,17 @@ class DescribeSelfImagesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'imageId'    => 'ImageId',
         'imageName'  => 'ImageName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class DescribeSelfImagesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DescribeSelfImagesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

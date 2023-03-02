@@ -35,11 +35,17 @@ class CreateDiskRequest extends Model
      * @var string
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'category'           => 'Category',
         'ensRegionId'        => 'EnsRegionId',
         'instanceChargeType' => 'InstanceChargeType',
         'size'               => 'Size',
+        'snapshotId'         => 'SnapshotId',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class CreateDiskRequest extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class CreateDiskRequest extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

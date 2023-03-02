@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDataDistResultRequest extends Model
+class DescribeDataDistResultShrinkRequest extends Model
 {
     /**
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
@@ -30,9 +30,9 @@ class DescribeDataDistResultRequest extends Model
     public $dataVersions;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $ensRegionIds;
+    public $ensRegionIdsShrink;
 
     /**
      * @example i-7ecpqvkicnchxccozrp,i-6ecpqvkicnchxccozrp
@@ -69,15 +69,15 @@ class DescribeDataDistResultRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appId'        => 'AppId',
-        'dataNames'    => 'DataNames',
-        'dataVersions' => 'DataVersions',
-        'ensRegionIds' => 'EnsRegionIds',
-        'instanceIds'  => 'InstanceIds',
-        'maxDate'      => 'MaxDate',
-        'minDate'      => 'MinDate',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'appId'              => 'AppId',
+        'dataNames'          => 'DataNames',
+        'dataVersions'       => 'DataVersions',
+        'ensRegionIdsShrink' => 'EnsRegionIds',
+        'instanceIds'        => 'InstanceIds',
+        'maxDate'            => 'MaxDate',
+        'minDate'            => 'MinDate',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
     ];
 
     public function validate()
@@ -96,8 +96,8 @@ class DescribeDataDistResultRequest extends Model
         if (null !== $this->dataVersions) {
             $res['DataVersions'] = $this->dataVersions;
         }
-        if (null !== $this->ensRegionIds) {
-            $res['EnsRegionIds'] = $this->ensRegionIds;
+        if (null !== $this->ensRegionIdsShrink) {
+            $res['EnsRegionIds'] = $this->ensRegionIdsShrink;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -121,7 +121,7 @@ class DescribeDataDistResultRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDataDistResultRequest
+     * @return DescribeDataDistResultShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -136,9 +136,7 @@ class DescribeDataDistResultRequest extends Model
             $model->dataVersions = $map['DataVersions'];
         }
         if (isset($map['EnsRegionIds'])) {
-            if (!empty($map['EnsRegionIds'])) {
-                $model->ensRegionIds = $map['EnsRegionIds'];
-            }
+            $model->ensRegionIdsShrink = $map['EnsRegionIds'];
         }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];

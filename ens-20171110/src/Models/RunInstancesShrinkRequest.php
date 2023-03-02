@@ -119,6 +119,11 @@ class RunInstancesShrinkRequest extends Model
     public $password;
 
     /**
+     * @var bool
+     */
+    public $passwordInherit;
+
+    /**
      * @example 1-9，12
      *
      * @var int
@@ -216,6 +221,7 @@ class RunInstancesShrinkRequest extends Model
         'netDistrictCode'         => 'NetDistrictCode',
         'netWorkId'               => 'NetWorkId',
         'password'                => 'Password',
+        'passwordInherit'         => 'PasswordInherit',
         'period'                  => 'Period',
         'periodUnit'              => 'PeriodUnit',
         'privateIpAddress'        => 'PrivateIpAddress',
@@ -284,6 +290,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -380,6 +389,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

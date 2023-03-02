@@ -77,6 +77,11 @@ class disks extends Model
     public $size;
 
     /**
+     * @var string
+     */
+    public $snapshotId;
+
+    /**
      * @example Available
      *
      * @var string
@@ -100,6 +105,7 @@ class disks extends Model
         'instanceName'   => 'InstanceName',
         'portable'       => 'Portable',
         'size'           => 'Size',
+        'snapshotId'     => 'SnapshotId',
         'status'         => 'Status',
         'type'           => 'Type',
     ];
@@ -140,6 +146,9 @@ class disks extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -188,6 +197,9 @@ class disks extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

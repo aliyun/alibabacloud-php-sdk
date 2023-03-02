@@ -16,6 +16,11 @@ class image extends Model
     /**
      * @var string
      */
+    public $computeType;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -56,9 +61,15 @@ class image extends Model
     /**
      * @var string
      */
+    public $snapshotId;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'architecture'    => 'Architecture',
+        'computeType'     => 'ComputeType',
         'creationTime'    => 'CreationTime',
         'imageId'         => 'ImageId',
         'imageName'       => 'ImageName',
@@ -67,6 +78,7 @@ class image extends Model
         'instanceId'      => 'InstanceId',
         'osVersion'       => 'OsVersion',
         'platform'        => 'Platform',
+        'snapshotId'      => 'SnapshotId',
         'status'          => 'Status',
     ];
 
@@ -79,6 +91,9 @@ class image extends Model
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->computeType) {
+            $res['ComputeType'] = $this->computeType;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -104,6 +119,9 @@ class image extends Model
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -121,6 +139,9 @@ class image extends Model
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['ComputeType'])) {
+            $model->computeType = $map['ComputeType'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
@@ -145,6 +166,9 @@ class image extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

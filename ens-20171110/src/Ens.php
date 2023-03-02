@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CleanDistDataRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CleanDistDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesRequest;
@@ -140,6 +142,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultReq
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDownloadURLRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDownloadURLResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataPushResultRequest;
@@ -316,8 +319,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\PreCreateEnsServiceRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\PreCreateEnsServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceRequest;
@@ -329,6 +330,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RecoverAICInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RecoverAICInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceRequest;
@@ -336,6 +339,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstancesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseAICInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseAICInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceRequest;
@@ -363,6 +368,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDiskRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceRequest;
@@ -964,6 +971,58 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CleanDistDataRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CleanDistDataResponse
+     */
+    public function cleanDistDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->dataName)) {
+            $query['DataName'] = $request->dataName;
+        }
+        if (!Utils::isUnset($request->dataVersion)) {
+            $query['DataVersion'] = $request->dataVersion;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CleanDistData',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CleanDistDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CleanDistDataRequest $request
+     *
+     * @return CleanDistDataResponse
+     */
+    public function cleanDistData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cleanDistDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateARMServerInstancesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1158,6 +1217,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->size)) {
             $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3879,14 +3941,19 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataDistResultRequest $request
+     * @param DescribeDataDistResultRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return DescribeDataDistResultResponse
      */
-    public function describeDataDistResultWithOptions($request, $runtime)
+    public function describeDataDistResultWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeDataDistResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ensRegionIds)) {
+            $request->ensRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ensRegionIds, 'EnsRegionIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -3896,6 +3963,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->dataVersions)) {
             $query['DataVersions'] = $request->dataVersions;
+        }
+        if (!Utils::isUnset($request->ensRegionIdsShrink)) {
+            $query['EnsRegionIds'] = $request->ensRegionIdsShrink;
         }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
@@ -4120,6 +4190,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->ensRegionIds)) {
             $query['EnsRegionIds'] = $request->ensRegionIds;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->orderByParams)) {
             $query['OrderByParams'] = $request->orderByParams;
         }
@@ -4128,6 +4201,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
@@ -4268,6 +4344,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->eipAddress)) {
             $query['EipAddress'] = $request->eipAddress;
+        }
+        if (!Utils::isUnset($request->eipName)) {
+            $query['EipName'] = $request->eipName;
         }
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
@@ -5191,9 +5270,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5301,14 +5377,11 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        if (!Utils::isUnset($request->product)) {
-            $query['product'] = $request->product;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6809,6 +6882,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8326,88 +8402,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PreCreateEnsServiceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return PreCreateEnsServiceResponse
-     */
-    public function preCreateEnsServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bandwidthType)) {
-            $query['BandwidthType'] = $request->bandwidthType;
-        }
-        if (!Utils::isUnset($request->buyResourcesDetail)) {
-            $query['BuyResourcesDetail'] = $request->buyResourcesDetail;
-        }
-        if (!Utils::isUnset($request->dataDiskSize)) {
-            $query['DataDiskSize'] = $request->dataDiskSize;
-        }
-        if (!Utils::isUnset($request->ensServiceName)) {
-            $query['EnsServiceName'] = $request->ensServiceName;
-        }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
-        }
-        if (!Utils::isUnset($request->instanceBandwithdLimit)) {
-            $query['InstanceBandwithdLimit'] = $request->instanceBandwithdLimit;
-        }
-        if (!Utils::isUnset($request->instanceSpec)) {
-            $query['InstanceSpec'] = $request->instanceSpec;
-        }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
-        }
-        if (!Utils::isUnset($request->netLevel)) {
-            $query['NetLevel'] = $request->netLevel;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->schedulingPriceStrategy)) {
-            $query['SchedulingPriceStrategy'] = $request->schedulingPriceStrategy;
-        }
-        if (!Utils::isUnset($request->schedulingStrategy)) {
-            $query['SchedulingStrategy'] = $request->schedulingStrategy;
-        }
-        if (!Utils::isUnset($request->systemDiskSize)) {
-            $query['SystemDiskSize'] = $request->systemDiskSize;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PreCreateEnsService',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return PreCreateEnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param PreCreateEnsServiceRequest $request
-     *
-     * @return PreCreateEnsServiceResponse
-     */
-    public function preCreateEnsService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->preCreateEnsServiceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param PushApplicationDataRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -8683,6 +8677,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param RecoverAICInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecoverAICInstanceResponse
+     */
+    public function recoverAICInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecoverAICInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecoverAICInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecoverAICInstanceRequest $request
+     *
+     * @return RecoverAICInstanceResponse
+     */
+    public function recoverAICInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverAICInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReinitInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -8783,6 +8817,49 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reinitInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseAICInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReleaseAICInstanceResponse
+     */
+    public function releaseAICInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serverId)) {
+            $query['ServerId'] = $request->serverId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseAICInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseAICInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseAICInstanceRequest $request
+     *
+     * @return ReleaseAICInstanceResponse
+     */
+    public function releaseAICInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseAICInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9400,6 +9477,52 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param ResetDiskRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ResetDiskResponse
+     */
+    public function resetDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetDisk',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetDiskRequest $request
+     *
+     * @return ResetDiskResponse
+     */
+    public function resetDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetDiskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResizeDiskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -9730,6 +9853,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->passwordInherit)) {
+            $query['PasswordInherit'] = $request->passwordInherit;
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;

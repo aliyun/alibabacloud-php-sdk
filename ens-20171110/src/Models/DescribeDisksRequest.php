@@ -65,6 +65,11 @@ class DescribeDisksRequest extends Model
     public $ensRegionIds;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @example {"EnsRegionId":"desc"}
      *
      * @var string
@@ -84,6 +89,11 @@ class DescribeDisksRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
 
     /**
      * @example Available
@@ -107,9 +117,11 @@ class DescribeDisksRequest extends Model
         'diskType'       => 'DiskType',
         'ensRegionId'    => 'EnsRegionId',
         'ensRegionIds'   => 'EnsRegionIds',
+        'instanceId'     => 'InstanceId',
         'orderByParams'  => 'OrderByParams',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'snapshotId'     => 'SnapshotId',
         'status'         => 'Status',
         'type'           => 'Type',
     ];
@@ -145,6 +157,9 @@ class DescribeDisksRequest extends Model
         if (null !== $this->ensRegionIds) {
             $res['EnsRegionIds'] = $this->ensRegionIds;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->orderByParams) {
             $res['OrderByParams'] = $this->orderByParams;
         }
@@ -153,6 +168,9 @@ class DescribeDisksRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -196,6 +214,9 @@ class DescribeDisksRequest extends Model
         if (isset($map['EnsRegionIds'])) {
             $model->ensRegionIds = $map['EnsRegionIds'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['OrderByParams'])) {
             $model->orderByParams = $map['OrderByParams'];
         }
@@ -204,6 +225,9 @@ class DescribeDisksRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

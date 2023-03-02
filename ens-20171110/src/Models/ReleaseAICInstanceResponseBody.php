@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeImageInfosRequest extends Model
+class ReleaseAICInstanceResponseBody extends Model
 {
     /**
-     * @example linux
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
      */
-    public $osType;
+    public $requestId;
     protected $_name = [
-        'osType' => 'OsType',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class DescribeImageInfosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->osType) {
-            $res['OsType'] = $this->osType;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class DescribeImageInfosRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeImageInfosRequest
+     * @return ReleaseAICInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OsType'])) {
-            $model->osType = $map['OsType'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

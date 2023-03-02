@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @var string
+     */
+    public $computeType;
+
+    /**
      * @example centos_6_08_64_20G_alibase_2017****
      *
      * @var string
@@ -50,6 +55,7 @@ class image extends Model
      */
     public $OSType;
     protected $_name = [
+        'computeType'  => 'ComputeType',
         'description'  => 'Description',
         'imageId'      => 'ImageId',
         'imageSize'    => 'ImageSize',
@@ -65,6 +71,9 @@ class image extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->computeType) {
+            $res['ComputeType'] = $this->computeType;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -95,6 +104,9 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputeType'])) {
+            $model->computeType = $map['ComputeType'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

@@ -46,28 +46,20 @@ class DescribeImagesRequest extends Model
     /**
      * @var string
      */
+    public $snapshotId;
+
+    /**
+     * @var string
+     */
     public $status;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $product;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
         'imageId'     => 'ImageId',
         'imageName'   => 'ImageName',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'snapshotId'  => 'SnapshotId',
         'status'      => 'Status',
-        'version'     => 'Version',
-        'product'     => 'product',
     ];
 
     public function validate()
@@ -92,14 +84,11 @@ class DescribeImagesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->product) {
-            $res['product'] = $this->product;
         }
 
         return $res;
@@ -128,14 +117,11 @@ class DescribeImagesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['product'])) {
-            $model->product = $map['product'];
         }
 
         return $model;

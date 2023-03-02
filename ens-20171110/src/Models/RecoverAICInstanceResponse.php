@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PreCreateEnsServiceResponse extends Model
+class RecoverAICInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PreCreateEnsServiceResponse extends Model
     public $statusCode;
 
     /**
-     * @var PreCreateEnsServiceResponseBody
+     * @var RecoverAICInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class PreCreateEnsServiceResponse extends Model
     /**
      * @param array $map
      *
-     * @return PreCreateEnsServiceResponse
+     * @return RecoverAICInstanceResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class PreCreateEnsServiceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = PreCreateEnsServiceResponseBody::fromMap($map['body']);
+            $model->body = RecoverAICInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;

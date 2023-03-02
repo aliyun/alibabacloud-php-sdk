@@ -37,6 +37,11 @@ class DescribeEnsEipAddressesRequest extends Model
     public $eipAddress;
 
     /**
+     * @var string
+     */
+    public $eipName;
+
+    /**
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -61,6 +66,7 @@ class DescribeEnsEipAddressesRequest extends Model
         'associatedInstanceId'   => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
         'eipAddress'             => 'EipAddress',
+        'eipName'                => 'EipName',
         'ensRegionId'            => 'EnsRegionId',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
@@ -84,6 +90,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = $this->eipAddress;
+        }
+        if (null !== $this->eipName) {
+            $res['EipName'] = $this->eipName;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -117,6 +126,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (isset($map['EipAddress'])) {
             $model->eipAddress = $map['EipAddress'];
+        }
+        if (isset($map['EipName'])) {
+            $model->eipName = $map['EipName'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];

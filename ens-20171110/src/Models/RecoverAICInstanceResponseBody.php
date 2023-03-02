@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAvailableResourceInfoRequest extends Model
+class RecoverAICInstanceResponseBody extends Model
 {
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
-    public $version;
+    public $requestId;
     protected $_name = [
-        'version' => 'Version',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class DescribeAvailableResourceInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class DescribeAvailableResourceInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAvailableResourceInfoRequest
+     * @return RecoverAICInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
