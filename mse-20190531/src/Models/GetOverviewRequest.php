@@ -21,7 +21,7 @@ class GetOverviewRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The subscription period of the instance. Unit: months. Valid values: 1, 2, 3, 6, and 12.
+     * @description The time range for the query. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
      *
      * @example 1
      *
@@ -30,7 +30,7 @@ class GetOverviewRequest extends Model
     public $period;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

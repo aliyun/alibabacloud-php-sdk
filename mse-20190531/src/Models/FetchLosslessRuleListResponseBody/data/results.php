@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description Indicates whether delayed registration is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class results extends Model
     public $aligned;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@24810bf4364aea1
      *
      * @var string
@@ -23,6 +27,8 @@ class results extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example echo-demo
      *
      * @var string
@@ -30,6 +36,8 @@ class results extends Model
     public $appName;
 
     /**
+     * @description The number of instances.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class results extends Model
     public $count;
 
     /**
+     * @description The registration latency.
+     *
      * @example 60
      *
      * @var int
@@ -44,6 +54,11 @@ class results extends Model
     public $delayTime;
 
     /**
+     * @description The status. Valid values:
+     *
+     *   `true`: enabled.
+     *   `false`: disabled.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +66,8 @@ class results extends Model
     public $enable;
 
     /**
+     * @description The slope of the prefetching curve.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +75,8 @@ class results extends Model
     public $funcType;
 
     /**
+     * @description Indicates whether the graceful start and shutdown feature is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +84,8 @@ class results extends Model
     public $lossLessDetail;
 
     /**
+     * @description Indicates whether notification is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -72,6 +93,8 @@ class results extends Model
     public $notice;
 
     /**
+     * @description Indicates whether service prefetching is associated.
+     *
      * @example false
      *
      * @var bool
@@ -79,6 +102,8 @@ class results extends Model
     public $related;
 
     /**
+     * @description The wait time for application shutdown.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +111,8 @@ class results extends Model
     public $shutdownWaitSeconds;
 
     /**
+     * @description The prefetching duration.
+     *
      * @example 60
      *
      * @var int

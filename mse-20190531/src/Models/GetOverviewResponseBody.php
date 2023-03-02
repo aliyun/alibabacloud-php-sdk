@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOverviewResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class GetOverviewResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class httpDubboTranscoder extends Model
 {
     /**
-     * @description The service group.
+     * @description The name of the service group.
      *
      * @example None
      *

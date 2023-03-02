@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class FetchLosslessRuleListRequest extends Model
 {
     /**
+     * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
+     *
+     *   By default, this parameter is left empty.
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,8 @@ class FetchLosslessRuleListRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hyaziyb6sc@86827c61f5ed8fc
      *
      * @var string
@@ -23,6 +31,8 @@ class FetchLosslessRuleListRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example spring-boot-sample
      *
      * @var string
@@ -30,6 +40,8 @@ class FetchLosslessRuleListRequest extends Model
     public $appName;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +49,8 @@ class FetchLosslessRuleListRequest extends Model
     public $namespace;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +58,8 @@ class FetchLosslessRuleListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +67,8 @@ class FetchLosslessRuleListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -58,6 +76,8 @@ class FetchLosslessRuleListRequest extends Model
     public $regionId;
 
     /**
+     * @description The service source that the application accesses.
+     *
      * @example edasmsc
      *
      * @var string

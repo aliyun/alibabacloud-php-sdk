@@ -753,6 +753,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->policies)) {
+            $query['Policies'] = $request->policies;
+        }
         if (!Utils::isUnset($request->predicatesShrink)) {
             $query['Predicates'] = $request->predicatesShrink;
         }
@@ -761,6 +764,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->routeOrder)) {
             $query['RouteOrder'] = $request->routeOrder;
+        }
+        if (!Utils::isUnset($request->routeType)) {
+            $query['RouteType'] = $request->routeType;
         }
         if (!Utils::isUnset($request->servicesShrink)) {
             $query['Services'] = $request->servicesShrink;
@@ -3301,10 +3307,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param FetchLosslessRuleListRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation to query the rules for graceful start and shutdown.
+     *   *
+     * @param FetchLosslessRuleListRequest $request FetchLosslessRuleListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return FetchLosslessRuleListResponse
+     * @return FetchLosslessRuleListResponse FetchLosslessRuleListResponse
      */
     public function fetchLosslessRuleListWithOptions($request, $runtime)
     {
@@ -3329,9 +3337,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param FetchLosslessRuleListRequest $request
+     * You can call this operation to query the rules for graceful start and shutdown.
+     *   *
+     * @param FetchLosslessRuleListRequest $request FetchLosslessRuleListRequest
      *
-     * @return FetchLosslessRuleListResponse
+     * @return FetchLosslessRuleListResponse FetchLosslessRuleListResponse
      */
     public function fetchLosslessRuleList($request)
     {
@@ -4292,10 +4302,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetOverviewRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can call the GetOverview operation to query overview information about service governance.
+     *   *
+     * @param GetOverviewRequest $request GetOverviewRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverviewWithOptions($request, $runtime)
     {
@@ -4329,9 +4341,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetOverviewRequest $request
+     * You can call the GetOverview operation to query overview information about service governance.
+     *   *
+     * @param GetOverviewRequest $request GetOverviewRequest
      *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverview($request)
     {

@@ -194,6 +194,11 @@ class data extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $policies;
+
+    /**
      * @description The matching conditions.
      *
      * @example {}
@@ -292,6 +297,7 @@ class data extends Model
         'headerOp'           => 'HeaderOp',
         'id'                 => 'Id',
         'name'               => 'Name',
+        'policies'           => 'Policies',
         'predicates'         => 'Predicates',
         'redirect'           => 'Redirect',
         'retry'              => 'Retry',
@@ -378,6 +384,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->policies) {
+            $res['Policies'] = $this->policies;
         }
         if (null !== $this->predicates) {
             $res['Predicates'] = $this->predicates;
@@ -496,6 +505,9 @@ class data extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Policies'])) {
+            $model->policies = $map['Policies'];
         }
         if (isset($map['Predicates'])) {
             $model->predicates = $map['Predicates'];

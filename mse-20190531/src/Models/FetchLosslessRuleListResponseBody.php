@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FetchLosslessRuleListResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class FetchLosslessRuleListResponseBody extends Model
     public $code;
 
     /**
+     * @description The response.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -29,6 +35,8 @@ class FetchLosslessRuleListResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
      * @example success
      *
      * @var string
@@ -36,6 +44,8 @@ class FetchLosslessRuleListResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 56D9E600-6348-4260-B35F-583413F****
      *
      * @var string
@@ -43,6 +53,11 @@ class FetchLosslessRuleListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example True
      *
      * @var bool

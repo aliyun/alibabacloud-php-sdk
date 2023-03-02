@@ -46,7 +46,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $domainId;
 
     /**
-     * @description The list of domain names.
+     * @description The IDs of domains.
      *
      * @example [0,94]
      *
@@ -55,7 +55,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $domainIdListJSON;
 
     /**
-     * @description Specifies whether to enable Web Application Firewall (WAF).
+     * @description Specifies whether to activate Web Application Firewall (WAF).
      *
      * @example true
      *
@@ -107,6 +107,11 @@ class AddGatewayRouteShrinkRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $policies;
+
+    /**
      * @description The matching rule.
      *
      * @var string
@@ -130,6 +135,11 @@ class AddGatewayRouteShrinkRequest extends Model
     public $routeOrder;
 
     /**
+     * @var string
+     */
+    public $routeType;
+
+    /**
      * @description The information about services.
      *
      * @var string
@@ -147,9 +157,11 @@ class AddGatewayRouteShrinkRequest extends Model
         'gatewayId'                => 'GatewayId',
         'gatewayUniqueId'          => 'GatewayUniqueId',
         'name'                     => 'Name',
+        'policies'                 => 'Policies',
         'predicatesShrink'         => 'Predicates',
         'redirectJSONShrink'       => 'RedirectJSON',
         'routeOrder'               => 'RouteOrder',
+        'routeType'                => 'RouteType',
         'servicesShrink'           => 'Services',
     ];
 
@@ -193,6 +205,9 @@ class AddGatewayRouteShrinkRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->policies) {
+            $res['Policies'] = $this->policies;
+        }
         if (null !== $this->predicatesShrink) {
             $res['Predicates'] = $this->predicatesShrink;
         }
@@ -201,6 +216,9 @@ class AddGatewayRouteShrinkRequest extends Model
         }
         if (null !== $this->routeOrder) {
             $res['RouteOrder'] = $this->routeOrder;
+        }
+        if (null !== $this->routeType) {
+            $res['RouteType'] = $this->routeType;
         }
         if (null !== $this->servicesShrink) {
             $res['Services'] = $this->servicesShrink;
@@ -250,6 +268,9 @@ class AddGatewayRouteShrinkRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Policies'])) {
+            $model->policies = $map['Policies'];
+        }
         if (isset($map['Predicates'])) {
             $model->predicatesShrink = $map['Predicates'];
         }
@@ -258,6 +279,9 @@ class AddGatewayRouteShrinkRequest extends Model
         }
         if (isset($map['RouteOrder'])) {
             $model->routeOrder = $map['RouteOrder'];
+        }
+        if (isset($map['RouteType'])) {
+            $model->routeType = $map['RouteType'];
         }
         if (isset($map['Services'])) {
             $model->servicesShrink = $map['Services'];

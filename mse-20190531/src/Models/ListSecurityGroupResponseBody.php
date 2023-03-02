@@ -26,7 +26,7 @@ class ListSecurityGroupResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListSecurityGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example success
      *

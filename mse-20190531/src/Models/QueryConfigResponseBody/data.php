@@ -94,6 +94,11 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @var bool
+     */
+    public $eurekaSupported;
+
+    /**
      * @description Indicates whether the time to live (TTL) configuration is enabled. This parameter is valid for ZooKeeper instances.
      *
      * @example true
@@ -300,6 +305,7 @@ class data extends Model
         'configContentLimit'           => 'ConfigContentLimit',
         'configSecretEnabled'          => 'ConfigSecretEnabled',
         'configSecretSupported'        => 'ConfigSecretSupported',
+        'eurekaSupported'              => 'EurekaSupported',
         'extendedTypesEnable'          => 'ExtendedTypesEnable',
         'initLimit'                    => 'InitLimit',
         'juteMaxbuffer'                => 'JuteMaxbuffer',
@@ -352,6 +358,9 @@ class data extends Model
         }
         if (null !== $this->configSecretSupported) {
             $res['ConfigSecretSupported'] = $this->configSecretSupported;
+        }
+        if (null !== $this->eurekaSupported) {
+            $res['EurekaSupported'] = $this->eurekaSupported;
         }
         if (null !== $this->extendedTypesEnable) {
             $res['ExtendedTypesEnable'] = $this->extendedTypesEnable;
@@ -448,6 +457,9 @@ class data extends Model
         }
         if (isset($map['ConfigSecretSupported'])) {
             $model->configSecretSupported = $map['ConfigSecretSupported'];
+        }
+        if (isset($map['EurekaSupported'])) {
+            $model->eurekaSupported = $map['EurekaSupported'];
         }
         if (isset($map['ExtendedTypesEnable'])) {
             $model->extendedTypesEnable = $map['ExtendedTypesEnable'];
