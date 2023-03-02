@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadDataJobRequest extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $context;
-
-    /**
      * @example TABLE
      *
      * @var string
@@ -55,7 +50,6 @@ class CreateDownloadDataJobRequest extends Model
      */
     public $tableName;
     protected $_name = [
-        'context'          => 'Context',
         'downloadDataType' => 'DownloadDataType',
         'endTime'          => 'EndTime',
         'fileConfig'       => 'FileConfig',
@@ -71,9 +65,6 @@ class CreateDownloadDataJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->context) {
-            $res['Context'] = $this->context;
-        }
         if (null !== $this->downloadDataType) {
             $res['DownloadDataType'] = $this->downloadDataType;
         }
@@ -104,9 +95,6 @@ class CreateDownloadDataJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Context'])) {
-            $model->context = $map['Context'];
-        }
         if (isset($map['DownloadDataType'])) {
             $model->downloadDataType = $map['DownloadDataType'];
         }

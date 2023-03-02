@@ -529,6 +529,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertyStatusRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertyStatusResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceProvisioningRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceProvisioningResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataRequest;
@@ -4331,9 +4333,6 @@ class Iot extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateDownloadDataJobShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->context)) {
-            $request->contextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
-        }
         if (!Utils::isUnset($tmpReq->fileConfig)) {
             $request->fileConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileConfig, 'FileConfig', 'json');
         }
@@ -4354,9 +4353,6 @@ class Iot extends OpenApiClient
             $query['TableName'] = $request->tableName;
         }
         $body = [];
-        if (!Utils::isUnset($request->contextShrink)) {
-            $body['Context'] = $request->contextShrink;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $body['IotInstanceId'] = $request->iotInstanceId;
         }
@@ -14600,6 +14596,54 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDevicePropertyStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDeviceProvisioningRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryDeviceProvisioningResponse
+     */
+    public function queryDeviceProvisioningWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceProvisioning',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceProvisioningRequest $request
+     *
+     * @return QueryDeviceProvisioningResponse
+     */
+    public function queryDeviceProvisioning($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceProvisioningWithOptions($request, $runtime);
     }
 
     /**

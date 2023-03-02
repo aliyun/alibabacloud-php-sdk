@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadDataJobShrinkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $contextShrink;
-
-    /**
      * @example TABLE
      *
      * @var string
@@ -55,7 +50,6 @@ class CreateDownloadDataJobShrinkRequest extends Model
      */
     public $tableName;
     protected $_name = [
-        'contextShrink'    => 'Context',
         'downloadDataType' => 'DownloadDataType',
         'endTime'          => 'EndTime',
         'fileConfigShrink' => 'FileConfig',
@@ -71,9 +65,6 @@ class CreateDownloadDataJobShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contextShrink) {
-            $res['Context'] = $this->contextShrink;
-        }
         if (null !== $this->downloadDataType) {
             $res['DownloadDataType'] = $this->downloadDataType;
         }
@@ -104,9 +95,6 @@ class CreateDownloadDataJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Context'])) {
-            $model->contextShrink = $map['Context'];
-        }
         if (isset($map['DownloadDataType'])) {
             $model->downloadDataType = $map['DownloadDataType'];
         }

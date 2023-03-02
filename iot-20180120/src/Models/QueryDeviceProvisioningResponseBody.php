@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceProvisioningResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class UpdateTopicConfigResponseBody extends Model
+class QueryDeviceProvisioningResponseBody extends Model
 {
     /**
      * @example iot.system.SystemException
@@ -14,6 +15,11 @@ class UpdateTopicConfigResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -35,6 +41,7 @@ class UpdateTopicConfigResponseBody extends Model
     public $success;
     protected $_name = [
         'code'         => 'Code',
+        'data'         => 'Data',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
@@ -49,6 +56,9 @@ class UpdateTopicConfigResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -66,13 +76,16 @@ class UpdateTopicConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTopicConfigResponseBody
+     * @return QueryDeviceProvisioningResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];

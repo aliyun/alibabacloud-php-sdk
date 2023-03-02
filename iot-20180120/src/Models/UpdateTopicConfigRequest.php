@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTopicConfigRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBroadcast;
 
     /**
+     * @example iot-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example /broadcast/a1Q5XoY****\/test
+     *
      * @var string
      */
     public $topicFullName;
