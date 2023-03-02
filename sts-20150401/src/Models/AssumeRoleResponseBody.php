@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleResponseBody extends Model
 {
     /**
+     * @description The temporary identity that you use to assume the RAM role.
+     *
      * @var assumedRoleUser
      */
     public $assumedRoleUser;
 
     /**
+     * @description The STS credentials.
+     *
      * @var credentials
      */
     public $credentials;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6894B13B-6D71-4EF5-88FA-F32781734A7F
+     *
      * @var string
      */
     public $requestId;

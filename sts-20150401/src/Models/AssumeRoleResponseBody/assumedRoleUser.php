@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class assumedRoleUser extends Model
 {
     /**
+     * @description The ARN of the temporary identity that you use to assume the RAM role.
+     *
+     * @example acs:ram::123456789012****:role/adminrole/alice
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The ID of the temporary identity that you use to assume the RAM role.
+     *
+     * @example 34458433936495****:alice
+     *
      * @var string
      */
     public $assumedRoleId;

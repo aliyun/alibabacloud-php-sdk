@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithSAMLRequest extends Model
 {
     /**
+     * @description The validity period of the STS token. Unit: seconds.
+     *
+     * You can call the CreateRole or UpdateRole operation to configure the `MaxSessionDuration` parameter. For more information, see [CreateRole](~~28710~~) or [UpdateRole](~~28712~~).
+     * @example 3600
+     *
      * @var int
      */
     public $durationSeconds;
 
     /**
+     * @description The policy that specifies the permissions of the returned STS token. You can use this parameter to grant the STS token fewer permissions than the permissions granted to the RAM role.
+     *
+     * The value must be 1 to 2,048 characters in length.
+     * @example url_encoded_policy
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The ARN of the RAM role.
+     *
+     * - For more information about how to view the ARN by calling operations, see [ListRoles](~~28713~~) or [GetRole](~~28711~~).
+     * @example acs:ram::123456789012****:role/adminrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description The Base64-encoded SAML assertion.
+     *
+     * > A complete SAML response rather than a single SAMLAssertion field must be retrieved from the external IdP.
+     * @example base64_encoded_saml_assertion
+     *
      * @var string
      */
     public $SAMLAssertion;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the SAML IdP that is created in the RAM console.
+     *
+     * - For more information about how to view the ARN by calling operations, see [GetSAMLProvider](~~186833~~) or [ListSAMLProviders](~~186851~~).
+     * @example acs:ram::123456789012****:saml-provider/company1
+     *
      * @var string
      */
     public $SAMLProviderArn;

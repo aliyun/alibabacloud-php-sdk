@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class credentials extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example STS.L4aBSCSJVMuKg5U1****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret.
+     *
+     * @example wyLTSmsyPGP1ohvvw8xYgB29dlGI8KMiH2pK****
+     *
      * @var string
      */
     public $accessKeySecret;
 
     /**
+     * @description The time when the STS token expires. The time is displayed in UTC.
+     *
+     * @example 2015-04-09T11:52:19Z
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @description The STS token.
+     *
+     * @example ********
+     *
      * @var string
      */
     public $securityToken;

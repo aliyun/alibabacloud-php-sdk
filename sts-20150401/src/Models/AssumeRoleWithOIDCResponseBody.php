@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithOIDCResponseBody extends Model
 {
     /**
+     * @description The temporary identity that you use to assume the RAM role.
+     *
      * @var assumedRoleUser
      */
     public $assumedRoleUser;
 
     /**
+     * @description The access credentials.
+     *
      * @var credentials
      */
     public $credentials;
 
     /**
+     * @description The information about the OIDC token.
+     *
      * @var OIDCTokenInfo
      */
     public $OIDCTokenInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3D57EAD2-8723-1F26-B69C-F8707D8B565D
+     *
      * @var string
      */
     public $requestId;

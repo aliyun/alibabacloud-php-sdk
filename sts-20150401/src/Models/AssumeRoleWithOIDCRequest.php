@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleWithOIDCRequest extends Model
 {
     /**
+     * @description The validity period of the STS token. Unit: seconds.
+     *
+     * For more information about how to specify `MaxSessionDuration`, see [CreateRole](~~28710~~) or [UpdateRole](~~28712~~).
+     * @example 3600
+     *
      * @var int
      */
     public $durationSeconds;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
+     *
+     * - For more information about how to view the ARN by calling operations, see [GetOIDCProvider](~~327126~~) or [ListOIDCProviders](~~327127~~).
+     * @example acs:ram::113511544585****:oidc-provider/TestOidcIdp
+     *
      * @var string
      */
     public $OIDCProviderArn;
 
     /**
+     * @description The OIDC token that is issued by the external IdP.
+     *
+     * > You must enter the original OIDC token. You do not need to enter the Base64-encoded OIDC token.
+     * @example eyJraWQiOiJKQzl3eHpyaHFKMGd0****
+     *
      * @var string
      */
     public $OIDCToken;
 
     /**
+     * @description The policy that specifies the permissions of the returned STS token. You can use this parameter to grant the STS token fewer permissions than the permissions granted to the RAM role.
+     *
+     * The value must be 1 to 2,048 characters in length.
+     * @example {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The ARN of the RAM role.
+     *
+     * - For more information about how to view the ARN by calling operations, see [ListRoles](~~28713~~) or [GetRole](~~28711~~).
+     * @example acs:ram::113511544585****:role/testoidc
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description The custom name of the role session.
+     *
+     * The value must be 2 to 64 characters in length.
+     * @example TestOidcAssumedRoleSession
+     *
      * @var string
      */
     public $roleSessionName;
