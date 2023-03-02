@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertImageToWordJobShrinkRequest extends Model
 {
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $imageNameExtension;

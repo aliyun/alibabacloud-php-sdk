@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertPdfToExcelJobResponseBody extends Model
 {
     /**
+     * @example noPermission
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class SubmitConvertPdfToExcelJobResponseBody extends Model
     public $data;
 
     /**
+     * @example You are not authorized to perform this operation.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 43A29C77-405E-4CC0-BC55-EE694AD00655
+     *
      * @var string
      */
     public $requestId;

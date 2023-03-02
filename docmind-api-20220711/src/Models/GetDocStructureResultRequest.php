@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocStructureResultRequest extends Model
 {
     /**
+     * @example docmind-20220816-1e89d65c
+     *
      * @var string
      */
     public $id;

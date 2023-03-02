@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertImageToPdfJobRequest extends Model
 {
     /**
+     * @example JPG
+     *
      * @var string
      */
     public $imageNameExtension;

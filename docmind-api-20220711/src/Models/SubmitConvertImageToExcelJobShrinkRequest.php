@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertImageToExcelJobShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $forceMergeExcel;
+
+    /**
+     * @example jpg
+     *
      * @var string
      */
     public $imageNameExtension;
@@ -23,6 +30,7 @@ class SubmitConvertImageToExcelJobShrinkRequest extends Model
      */
     public $imageUrlsShrink;
     protected $_name = [
+        'forceMergeExcel'    => 'ForceMergeExcel',
         'imageNameExtension' => 'ImageNameExtension',
         'imageNamesShrink'   => 'ImageNames',
         'imageUrlsShrink'    => 'ImageUrls',
@@ -35,6 +43,9 @@ class SubmitConvertImageToExcelJobShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forceMergeExcel) {
+            $res['ForceMergeExcel'] = $this->forceMergeExcel;
+        }
         if (null !== $this->imageNameExtension) {
             $res['ImageNameExtension'] = $this->imageNameExtension;
         }
@@ -56,6 +67,9 @@ class SubmitConvertImageToExcelJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForceMergeExcel'])) {
+            $model->forceMergeExcel = $map['ForceMergeExcel'];
+        }
         if (isset($map['ImageNameExtension'])) {
             $model->imageNameExtension = $map['ImageNameExtension'];
         }

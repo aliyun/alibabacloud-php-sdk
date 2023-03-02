@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertPdfToExcelJobRequest extends Model
 {
     /**
+     * @example convertPdfToExcel.pdf
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+     *
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var bool
+     */
+    public $forceMergeExcel;
     protected $_name = [
-        'fileName' => 'FileName',
-        'fileUrl'  => 'FileUrl',
+        'fileName'        => 'FileName',
+        'fileUrl'         => 'FileUrl',
+        'forceMergeExcel' => 'ForceMergeExcel',
     ];
 
     public function validate()
@@ -34,6 +44,9 @@ class SubmitConvertPdfToExcelJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->forceMergeExcel) {
+            $res['ForceMergeExcel'] = $this->forceMergeExcel;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class SubmitConvertPdfToExcelJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['ForceMergeExcel'])) {
+            $model->forceMergeExcel = $map['ForceMergeExcel'];
         }
 
         return $model;

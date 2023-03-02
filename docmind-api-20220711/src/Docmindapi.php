@@ -383,6 +383,9 @@ class Docmindapi extends OpenApiClient
             $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
         }
         $query = [];
+        if (!Utils::isUnset($request->forceMergeExcel)) {
+            $query['ForceMergeExcel'] = $request->forceMergeExcel;
+        }
         if (!Utils::isUnset($request->imageNameExtension)) {
             $query['ImageNameExtension'] = $request->imageNameExtension;
         }
@@ -551,6 +554,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->forceMergeExcel)) {
+            $query['ForceMergeExcel'] = $request->forceMergeExcel;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

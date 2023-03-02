@@ -15,11 +15,15 @@ class SubmitTableUnderstandingJobAdvanceRequest extends Model
     public $fileName;
 
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $fileNameExtension;
 
     /**
+     * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+     *
      * @var Stream
      */
     public $fileUrlObject;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitConvertImageToWordJobRequest extends Model
 {
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $imageNameExtension;
