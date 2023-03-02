@@ -40,6 +40,16 @@ class CreateRouteRuleRequest extends Model
     /**
      * @var string[]
      */
+    public $convergenceFields;
+
+    /**
+     * @var int
+     */
+    public $convergenceType;
+
+    /**
+     * @var string[]
+     */
     public $coverageProblemLevels;
 
     /**
@@ -129,6 +139,8 @@ class CreateRouteRuleRequest extends Model
         'assignObjectType'         => 'assignObjectType',
         'childRuleRelation'        => 'childRuleRelation',
         'clientToken'              => 'clientToken',
+        'convergenceFields'        => 'convergenceFields',
+        'convergenceType'          => 'convergenceType',
         'coverageProblemLevels'    => 'coverageProblemLevels',
         'effection'                => 'effection',
         'enableStatus'             => 'enableStatus',
@@ -163,6 +175,12 @@ class CreateRouteRuleRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->convergenceFields) {
+            $res['convergenceFields'] = $this->convergenceFields;
+        }
+        if (null !== $this->convergenceType) {
+            $res['convergenceType'] = $this->convergenceType;
         }
         if (null !== $this->coverageProblemLevels) {
             $res['coverageProblemLevels'] = $this->coverageProblemLevels;
@@ -240,6 +258,14 @@ class CreateRouteRuleRequest extends Model
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['convergenceFields'])) {
+            if (!empty($map['convergenceFields'])) {
+                $model->convergenceFields = $map['convergenceFields'];
+            }
+        }
+        if (isset($map['convergenceType'])) {
+            $model->convergenceType = $map['convergenceType'];
         }
         if (isset($map['coverageProblemLevels'])) {
             if (!empty($map['coverageProblemLevels'])) {

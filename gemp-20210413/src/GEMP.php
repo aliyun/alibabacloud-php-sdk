@@ -118,6 +118,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\GetEventRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetEventResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetHomePageGuidanceRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetHomePageGuidanceResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentListByIdListRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentListByIdListResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetIncidentStatisticsRequest;
@@ -238,6 +240,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUserSerivceGroupsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUserSerivceGroupsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUsersRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUsersResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\PushMonitorRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\PushMonitorResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RecoverProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RecoverProblemResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\RefreshIntegrationConfigKeyRequest;
@@ -302,7 +306,8 @@ class GEMP extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gemp', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1265,6 +1270,12 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->convergenceFields)) {
+            $body['convergenceFields'] = $request->convergenceFields;
+        }
+        if (!Utils::isUnset($request->convergenceType)) {
+            $body['convergenceType'] = $request->convergenceType;
         }
         if (!Utils::isUnset($request->coverageProblemLevels)) {
             $body['coverageProblemLevels'] = $request->coverageProblemLevels;
@@ -3428,6 +3439,55 @@ class GEMP extends OpenApiClient
         $headers = [];
 
         return $this->getIncidentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetIncidentListByIdListRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetIncidentListByIdListResponse
+     */
+    public function getIncidentListByIdListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->incidentIdList)) {
+            $body['incidentIdList'] = $request->incidentIdList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIncidentListByIdList',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/getIncidentListByIdList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIncidentListByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIncidentListByIdListRequest $request
+     *
+     * @return GetIncidentListByIdListResponse
+     */
+    public function getIncidentListByIdList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIncidentListByIdListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6632,6 +6692,50 @@ class GEMP extends OpenApiClient
     }
 
     /**
+     * @param string             $apiKey
+     * @param PushMonitorRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PushMonitorResponse
+     */
+    public function pushMonitorWithOptions($apiKey, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'PushMonitor',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/monitor/push/' . OpenApiUtilClient::getEncodeParam($apiKey) . '',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $apiKey
+     * @param PushMonitorRequest $request
+     *
+     * @return PushMonitorResponse
+     */
+    public function pushMonitor($apiKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pushMonitorWithOptions($apiKey, $request, $headers, $runtime);
+    }
+
+    /**
      * @param RecoverProblemRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -7688,6 +7792,12 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->convergenceFields)) {
+            $body['convergenceFields'] = $request->convergenceFields;
+        }
+        if (!Utils::isUnset($request->convergenceType)) {
+            $body['convergenceType'] = $request->convergenceType;
         }
         if (!Utils::isUnset($request->coverageProblemLevels)) {
             $body['coverageProblemLevels'] = $request->coverageProblemLevels;

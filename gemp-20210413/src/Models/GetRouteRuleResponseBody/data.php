@@ -41,6 +41,16 @@ class data extends Model
     /**
      * @var string[]
      */
+    public $convergenceFields;
+
+    /**
+     * @var int
+     */
+    public $convergenceType;
+
+    /**
+     * @var string[]
+     */
     public $coverageProblemLevels;
 
     /**
@@ -161,6 +171,8 @@ class data extends Model
         'assignObjectName'         => 'assignObjectName',
         'assignObjectType'         => 'assignObjectType',
         'childRuleRelation'        => 'childRuleRelation',
+        'convergenceFields'        => 'convergenceFields',
+        'convergenceType'          => 'convergenceType',
         'coverageProblemLevels'    => 'coverageProblemLevels',
         'createTime'               => 'createTime',
         'effection'                => 'effection',
@@ -200,6 +212,12 @@ class data extends Model
         }
         if (null !== $this->childRuleRelation) {
             $res['childRuleRelation'] = $this->childRuleRelation;
+        }
+        if (null !== $this->convergenceFields) {
+            $res['convergenceFields'] = $this->convergenceFields;
+        }
+        if (null !== $this->convergenceType) {
+            $res['convergenceType'] = $this->convergenceType;
         }
         if (null !== $this->coverageProblemLevels) {
             $res['coverageProblemLevels'] = $this->coverageProblemLevels;
@@ -292,6 +310,14 @@ class data extends Model
         }
         if (isset($map['childRuleRelation'])) {
             $model->childRuleRelation = $map['childRuleRelation'];
+        }
+        if (isset($map['convergenceFields'])) {
+            if (!empty($map['convergenceFields'])) {
+                $model->convergenceFields = $map['convergenceFields'];
+            }
+        }
+        if (isset($map['convergenceType'])) {
+            $model->convergenceType = $map['convergenceType'];
         }
         if (isset($map['coverageProblemLevels'])) {
             if (!empty($map['coverageProblemLevels'])) {

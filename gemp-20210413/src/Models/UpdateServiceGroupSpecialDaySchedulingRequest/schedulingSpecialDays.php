@@ -16,6 +16,11 @@ class schedulingSpecialDays extends Model
     public $schedulingEndTime;
 
     /**
+     * @var string
+     */
+    public $schedulingObjectType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -35,11 +40,18 @@ class schedulingSpecialDays extends Model
      * @var int
      */
     public $schedulingUserId;
+
+    /**
+     * @var int[]
+     */
+    public $schedulingUserIdList;
     protected $_name = [
-        'schedulingEndTime'   => 'schedulingEndTime',
-        'schedulingOrder'     => 'schedulingOrder',
-        'schedulingStartTime' => 'schedulingStartTime',
-        'schedulingUserId'    => 'schedulingUserId',
+        'schedulingEndTime'    => 'schedulingEndTime',
+        'schedulingObjectType' => 'schedulingObjectType',
+        'schedulingOrder'      => 'schedulingOrder',
+        'schedulingStartTime'  => 'schedulingStartTime',
+        'schedulingUserId'     => 'schedulingUserId',
+        'schedulingUserIdList' => 'schedulingUserIdList',
     ];
 
     public function validate()
@@ -52,6 +64,9 @@ class schedulingSpecialDays extends Model
         if (null !== $this->schedulingEndTime) {
             $res['schedulingEndTime'] = $this->schedulingEndTime;
         }
+        if (null !== $this->schedulingObjectType) {
+            $res['schedulingObjectType'] = $this->schedulingObjectType;
+        }
         if (null !== $this->schedulingOrder) {
             $res['schedulingOrder'] = $this->schedulingOrder;
         }
@@ -60,6 +75,9 @@ class schedulingSpecialDays extends Model
         }
         if (null !== $this->schedulingUserId) {
             $res['schedulingUserId'] = $this->schedulingUserId;
+        }
+        if (null !== $this->schedulingUserIdList) {
+            $res['schedulingUserIdList'] = $this->schedulingUserIdList;
         }
 
         return $res;
@@ -76,6 +94,9 @@ class schedulingSpecialDays extends Model
         if (isset($map['schedulingEndTime'])) {
             $model->schedulingEndTime = $map['schedulingEndTime'];
         }
+        if (isset($map['schedulingObjectType'])) {
+            $model->schedulingObjectType = $map['schedulingObjectType'];
+        }
         if (isset($map['schedulingOrder'])) {
             $model->schedulingOrder = $map['schedulingOrder'];
         }
@@ -84,6 +105,11 @@ class schedulingSpecialDays extends Model
         }
         if (isset($map['schedulingUserId'])) {
             $model->schedulingUserId = $map['schedulingUserId'];
+        }
+        if (isset($map['schedulingUserIdList'])) {
+            if (!empty($map['schedulingUserIdList'])) {
+                $model->schedulingUserIdList = $map['schedulingUserIdList'];
+            }
         }
 
         return $model;

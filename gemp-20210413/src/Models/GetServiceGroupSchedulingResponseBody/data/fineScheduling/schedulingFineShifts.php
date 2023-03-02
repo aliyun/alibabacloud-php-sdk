@@ -23,6 +23,11 @@ class schedulingFineShifts extends Model
     public $schedulingEndTime;
 
     /**
+     * @var string
+     */
+    public $schedulingObjectType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -42,6 +47,11 @@ class schedulingFineShifts extends Model
      * @var int
      */
     public $schedulingUserId;
+
+    /**
+     * @var int[]
+     */
+    public $schedulingUserIdList;
 
     /**
      * @example 刘德华
@@ -64,14 +74,16 @@ class schedulingFineShifts extends Model
      */
     public $skipOneDay;
     protected $_name = [
-        'cycleOrder'          => 'cycleOrder',
-        'schedulingEndTime'   => 'schedulingEndTime',
-        'schedulingOrder'     => 'schedulingOrder',
-        'schedulingStartTime' => 'schedulingStartTime',
-        'schedulingUserId'    => 'schedulingUserId',
-        'schedulingUserName'  => 'schedulingUserName',
-        'shiftName'           => 'shiftName',
-        'skipOneDay'          => 'skipOneDay',
+        'cycleOrder'           => 'cycleOrder',
+        'schedulingEndTime'    => 'schedulingEndTime',
+        'schedulingObjectType' => 'schedulingObjectType',
+        'schedulingOrder'      => 'schedulingOrder',
+        'schedulingStartTime'  => 'schedulingStartTime',
+        'schedulingUserId'     => 'schedulingUserId',
+        'schedulingUserIdList' => 'schedulingUserIdList',
+        'schedulingUserName'   => 'schedulingUserName',
+        'shiftName'            => 'shiftName',
+        'skipOneDay'           => 'skipOneDay',
     ];
 
     public function validate()
@@ -87,6 +99,9 @@ class schedulingFineShifts extends Model
         if (null !== $this->schedulingEndTime) {
             $res['schedulingEndTime'] = $this->schedulingEndTime;
         }
+        if (null !== $this->schedulingObjectType) {
+            $res['schedulingObjectType'] = $this->schedulingObjectType;
+        }
         if (null !== $this->schedulingOrder) {
             $res['schedulingOrder'] = $this->schedulingOrder;
         }
@@ -95,6 +110,9 @@ class schedulingFineShifts extends Model
         }
         if (null !== $this->schedulingUserId) {
             $res['schedulingUserId'] = $this->schedulingUserId;
+        }
+        if (null !== $this->schedulingUserIdList) {
+            $res['schedulingUserIdList'] = $this->schedulingUserIdList;
         }
         if (null !== $this->schedulingUserName) {
             $res['schedulingUserName'] = $this->schedulingUserName;
@@ -123,6 +141,9 @@ class schedulingFineShifts extends Model
         if (isset($map['schedulingEndTime'])) {
             $model->schedulingEndTime = $map['schedulingEndTime'];
         }
+        if (isset($map['schedulingObjectType'])) {
+            $model->schedulingObjectType = $map['schedulingObjectType'];
+        }
         if (isset($map['schedulingOrder'])) {
             $model->schedulingOrder = $map['schedulingOrder'];
         }
@@ -131,6 +152,11 @@ class schedulingFineShifts extends Model
         }
         if (isset($map['schedulingUserId'])) {
             $model->schedulingUserId = $map['schedulingUserId'];
+        }
+        if (isset($map['schedulingUserIdList'])) {
+            if (!empty($map['schedulingUserIdList'])) {
+                $model->schedulingUserIdList = $map['schedulingUserIdList'];
+            }
         }
         if (isset($map['schedulingUserName'])) {
             $model->schedulingUserName = $map['schedulingUserName'];

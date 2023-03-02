@@ -93,6 +93,11 @@ class data extends Model
     public $incidentNumber;
 
     /**
+     * @var bool
+     */
+    public $isRuleTrigger;
+
+    /**
      * @example 王宇
      *
      * @var int
@@ -236,6 +241,7 @@ class data extends Model
         'handingProblemOperateLogs'   => 'handingProblemOperateLogs',
         'incidentId'                  => 'incidentId',
         'incidentNumber'              => 'incidentNumber',
+        'isRuleTrigger'               => 'isRuleTrigger',
         'mainHandler'                 => 'mainHandler',
         'mainHandlerId'               => 'mainHandlerId',
         'mainHandlerIsValid'          => 'mainHandlerIsValid',
@@ -324,6 +330,9 @@ class data extends Model
         }
         if (null !== $this->incidentNumber) {
             $res['incidentNumber'] = $this->incidentNumber;
+        }
+        if (null !== $this->isRuleTrigger) {
+            $res['isRuleTrigger'] = $this->isRuleTrigger;
         }
         if (null !== $this->mainHandler) {
             $res['mainHandler'] = $this->mainHandler;
@@ -480,6 +489,9 @@ class data extends Model
         }
         if (isset($map['incidentNumber'])) {
             $model->incidentNumber = $map['incidentNumber'];
+        }
+        if (isset($map['isRuleTrigger'])) {
+            $model->isRuleTrigger = $map['isRuleTrigger'];
         }
         if (isset($map['mainHandler'])) {
             $model->mainHandler = $map['mainHandler'];
