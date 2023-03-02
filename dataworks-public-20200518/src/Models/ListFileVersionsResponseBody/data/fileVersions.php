@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileVersions extends Model
 {
     /**
+     * @description The type of the change to the file of the current version. Valid values: CREATE, UPDATE, and DELETE.
+     *
      * @example UPDATE
      *
      * @var string
@@ -16,11 +18,15 @@ class fileVersions extends Model
     public $changeType;
 
     /**
+     * @description The description of the file version.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The time when the file version was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1593881265000
      *
      * @var int
@@ -28,6 +34,8 @@ class fileVersions extends Model
     public $commitTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account used to create the file of the current version.
+     *
      * @example 73842342****
      *
      * @var string
@@ -35,6 +43,8 @@ class fileVersions extends Model
     public $commitUser;
 
     /**
+     * @description The code in the file of the current version.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -42,6 +52,8 @@ class fileVersions extends Model
     public $fileContent;
 
     /**
+     * @description The name of the file of the current version.
+     *
      * @example ods_user_info_d
      *
      * @var string
@@ -49,6 +61,8 @@ class fileVersions extends Model
     public $fileName;
 
     /**
+     * @description The basic information about the file of the current version.
+     *
      * @example {"fileName":"ods_user_info_d","fileType":10}
      *
      * @var string
@@ -56,6 +70,8 @@ class fileVersions extends Model
     public $filePropertyContent;
 
     /**
+     * @description The version of the file.
+     *
      * @example 2
      *
      * @var int
@@ -63,6 +79,8 @@ class fileVersions extends Model
     public $fileVersion;
 
     /**
+     * @description Indicates whether the file version is the same as the latest file version in the production environment.
+     *
      * @example false
      *
      * @var bool
@@ -70,6 +88,8 @@ class fileVersions extends Model
     public $isCurrentProd;
 
     /**
+     * @description The scheduling configurations for the node that corresponds to the file of the current version.
+     *
      * @example {"cycleType":0,"cronExpress":"00 05 00 * * ?"}
      *
      * @var string
@@ -77,6 +97,8 @@ class fileVersions extends Model
     public $nodeContent;
 
     /**
+     * @description The ID of the auto triggered node that corresponds to the file of the current version.
+     *
      * @example 1234
      *
      * @var int
@@ -84,6 +106,8 @@ class fileVersions extends Model
     public $nodeId;
 
     /**
+     * @description The status of the file of the current version. Valid values: COMMITTING, COMMITTED, CHECK_OK, PACKAGED, DEPLOYING, DEPLOYED, and CANCELLED.
+     *
      * @example COMMITTED
      *
      * @var string
@@ -91,6 +115,8 @@ class fileVersions extends Model
     public $status;
 
     /**
+     * @description The functional module to which the file belongs. Valid values: NORMAL, MANUAL, MANUAL_BIZ, SKIP, ADHOCQUERY, and COMPONENT. The value SKIP indicates that the node corresponding to the file is run in dry-run mode.
+     *
      * @example NORMAL
      *
      * @var string

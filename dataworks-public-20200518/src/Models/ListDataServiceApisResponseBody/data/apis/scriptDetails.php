@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class scriptDetails extends Model
 {
     /**
+     * @description Indicates whether the entries are returned by page.
+     *
      * @example true
      *
      * @var bool
@@ -19,6 +21,8 @@ class scriptDetails extends Model
     public $isPagedResponse;
 
     /**
+     * @description The SQL script.
+     *
      * @example select a from t
      *
      * @var string
@@ -26,16 +30,22 @@ class scriptDetails extends Model
     public $script;
 
     /**
+     * @description The data source information of the API generated in script mode.
+     *
      * @var scriptConnection
      */
     public $scriptConnection;
 
     /**
+     * @description The request parameters of the API generated in script mode.
+     *
      * @var scriptRequestParameters[]
      */
     public $scriptRequestParameters;
 
     /**
+     * @description The response parameters of the API generated in script mode.
+     *
      * @var scriptResponseParameters[]
      */
     public $scriptResponseParameters;

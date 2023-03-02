@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDISyncTaskResponseBody extends Model
 {
     /**
+     * @description The information that indicates whether the synchronization node was created.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
+     *
      * @example 0bc1411515937635973****
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

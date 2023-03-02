@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The time when the metatable was created.
+     *
      * @example 1638720736000
      *
      * @var int
@@ -16,6 +18,13 @@ class dataEntityList extends Model
     public $createTimestamp;
 
     /**
+     * @var string
+     */
+    public $databaseName;
+
+    /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.tt.name
      *
      * @var string
@@ -23,6 +32,8 @@ class dataEntityList extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example name
      *
      * @var string
@@ -30,6 +41,7 @@ class dataEntityList extends Model
     public $tableName;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
+        'databaseName'    => 'DatabaseName',
         'tableGuid'       => 'TableGuid',
         'tableName'       => 'TableName',
     ];
@@ -43,6 +55,9 @@ class dataEntityList extends Model
         $res = [];
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
@@ -64,6 +79,9 @@ class dataEntityList extends Model
         $model = new self();
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];

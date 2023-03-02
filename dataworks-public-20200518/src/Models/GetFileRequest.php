@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileRequest extends Model
 {
     /**
+     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
+     *
      * @example 100000001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the node that is scheduled. You can call the [ListFiles](~~173942~~) operation to obtain the node ID.
+     *
      * @example 200000001
      *
      * @var int
@@ -23,6 +27,9 @@ class GetFileRequest extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
+     * You must configure this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -30,6 +37,9 @@ class GetFileRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace name.
+     *
+     * You must configure this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class columnMetaList extends Model
 {
     /**
+     * @description The description of the column on which you request permissions.
+     *
      * @var string
      */
     public $columnComment;
 
     /**
+     * @description The name of the column on which you request permissions.
+     *
      * @example aColumnName
      *
      * @var string

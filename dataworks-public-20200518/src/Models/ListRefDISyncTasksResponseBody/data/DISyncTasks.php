@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DISyncTasks extends Model
 {
     /**
+     * @description The destination data source of the sync node.
+     *
+     * If the RefType parameter is set to to, the sync nodes that use the specified data source as the destination data source are returned. In this case, the value of this parameter indicates the specified data source.
      * @example [\"qcc_polardb2\"]
      *
      * @var string
@@ -16,6 +19,9 @@ class DISyncTasks extends Model
     public $diDestinationDatasource;
 
     /**
+     * @description The source data source of the sync node.
+     *
+     * If the RefType parameter is set to from, the sync nodes that use the specified data source as the source data source are returned. In this case, the value of this parameter indicates the specified data source.
      * @example [\"odps_writer\"]
      *
      * @var string
@@ -23,6 +29,8 @@ class DISyncTasks extends Model
     public $diSourceDatasource;
 
     /**
+     * @description The ID of the sync node.
+     *
      * @example 100000
      *
      * @var int
@@ -30,6 +38,8 @@ class DISyncTasks extends Model
     public $nodeId;
 
     /**
+     * @description The name of the sync node.
+     *
      * @example abcd1234
      *
      * @var string
@@ -37,6 +47,11 @@ class DISyncTasks extends Model
     public $nodeName;
 
     /**
+     * @description The type of the sync node. Valid values:
+     *
+     *   DI_OFFLINE: batch sync node
+     *   DI_REALTIME: real-time sync node
+     *
      * @example DI_OFFLINE
      *
      * @var string

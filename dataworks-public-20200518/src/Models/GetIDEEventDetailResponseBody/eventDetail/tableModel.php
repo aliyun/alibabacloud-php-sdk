@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class tableModel extends Model
 {
     /**
+     * @description The columns in the table.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The description of the table.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The name of the compute engine instance to which the table belongs.
+     *
      * @example odps_first
      *
      * @var string
@@ -27,6 +33,9 @@ class tableModel extends Model
     public $dataSourceName;
 
     /**
+     * @description The environment in which the table is used. Valid values:
+     *
+     * - PROD: production environment
      * @example DEV
      *
      * @var string
@@ -34,6 +43,8 @@ class tableModel extends Model
     public $env;
 
     /**
+     * @description The lifecycle of the table. Unit: days.
+     *
      * @example 7
      *
      * @var int
@@ -41,6 +52,8 @@ class tableModel extends Model
     public $lifeCycle;
 
     /**
+     * @description The path of the table.
+     *
      * @example hdfs://path/to/object
      *
      * @var string
@@ -48,6 +61,8 @@ class tableModel extends Model
     public $location;
 
     /**
+     * @description The name of the table.
+     *
      * @example tb_hello
      *
      * @var string

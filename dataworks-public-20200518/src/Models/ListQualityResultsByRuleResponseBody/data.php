@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The monitoring results returned.
+     *
      * @var ruleChecks[]
      */
     public $ruleChecks;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 200
      *
      * @var int

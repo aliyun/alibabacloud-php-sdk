@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The minimum interval at which alerts are reported. Unit: seconds.
+     *
      * @example 1800
      *
      * @var int
@@ -21,16 +23,31 @@ class data extends Model
     public $alertInterval;
 
     /**
+     * @description The notification method. Valid values:
+     *
+     *   MAIL: Alert notifications are sent by emails.
+     *
+     *   SMS: Alert notifications are sent by text messages.
+     *
+     * Alert notifications can be sent by text messages only in the Singapore (Singapore), Malaysia (Kuala Lumpur), and Germany (Frankfurt) regions.
+     *
+     *   Multiple notification methods are separated by commas (,).
+     *
      * @var string[]
      */
     public $alertMethods;
 
     /**
+     * @description *   If the value of the AlertUnit parameter is OWNER, this parameter is left empty.
+     *   If the value of the AlertUnit parameter is OTHER, the ID of the Alibaba Cloud account used by the specified user is returned. Multiple IDs are separated by commas (,).
+     *
      * @var string[]
      */
     public $alertTargets;
 
     /**
+     * @description The recipient of the alert. Valid values: OWNER and OTHER. A value of OWNER indicates the node owner. A value of OTHER indicates a specified user.
+     *
      * @example OWNER
      *
      * @var string
@@ -38,16 +55,26 @@ class data extends Model
     public $alertUnit;
 
     /**
+     * @description The baselines to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BASELINE.
+     *
      * @var baselines[]
      */
     public $baselines;
 
     /**
+     * @description The workflows to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BIZPROCESS.
+     *
      * @var bizProcesses[]
      */
     public $bizProcesses;
 
     /**
+     * @description *   If the value of the RemindType parameter is FINISHED, this parameter is left empty.
+     *   If the value of the RemindType parameter is UNFINISHED, the trigger conditions are returned as key-value pairs. Example: {"hour":23,"minu":59}. Valid values of hour: 0 to 47. Valid values of minu: 0 to 59.
+     *   If the value of the RemindType parameter is ERROR, this parameter is left empty.
+     *   If the value of the RemindType parameter is CYCLE_UNFINISHED, the trigger conditions are returned as key-value pairs. Example: {"1":"05:50","2":"06:50","3":"07:50","4":"08:50","5":"09:50","6":"10:50","7":"11:50","8":"12:50","9":"13:50","10":"14:50","11":"15:50","12":"16:50","13":"17:50","14":"18:50","15":"19:50","16":"20:50","17":"21:50","18":"22:50","19":"23:50","20":"24:50","21":"25:50"}. The key indicates the ID of the cycle. Valid values: 1 to 288. The value indicates the timeout period of the node that is run in the cycle. The value is in the hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
+     *   If the value of the RemindType parameter is TIMEOUT, the timeout period is returned. Unit: seconds. Example: 1800. This value indicates that an alert is reported if the node is run for more than 30 minutes.
+     *
      * @example {"hour":23,"minu":59}
      *
      * @var string
@@ -55,6 +82,8 @@ class data extends Model
     public $detail;
 
     /**
+     * @description The end time of the quiet hours. The value is in the hh:mm format. Valid values of hh: 0 to 23. Valid values of mm: 0 to 59.
+     *
      * @example 08:00
      *
      * @var string
@@ -62,6 +91,8 @@ class data extends Model
     public $dndEnd;
 
     /**
+     * @description The start time of the quiet hours. The value is in the hh:mm format. Valid values of hh: 0 to 23. Valid values of mm: 0 to 59.
+     *
      * @example 00:00
      *
      * @var string
@@ -69,6 +100,8 @@ class data extends Model
     public $dndStart;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the creator of the custom alert rule.
+     *
      * @example 9527951795****
      *
      * @var string
@@ -76,6 +109,8 @@ class data extends Model
     public $founder;
 
     /**
+     * @description The maximum number of alerts.
+     *
      * @example 3
      *
      * @var int
@@ -83,16 +118,22 @@ class data extends Model
     public $maxAlertTimes;
 
     /**
+     * @description The nodes to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is NODE.
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description The workspaces to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is PROJECT.
+     *
      * @var projects[]
      */
     public $projects;
 
     /**
+     * @description The ID of the custom alert rule.
+     *
      * @example 1234
      *
      * @var int
@@ -100,11 +141,15 @@ class data extends Model
     public $remindId;
 
     /**
+     * @description The name of the custom alert rule.
+     *
      * @var string
      */
     public $remindName;
 
     /**
+     * @description The conditions that trigger an alert. Valid values: FINISHED, UNFINISHED, ERROR, CYCLE_UNFINISHED, and TIMEOUT. A value of FINISHED indicates that the node is run. A value of UNFINISHED indicates that the node is still running at the specified point in time. A value of ERROR indicates that an error occurs when the node is running. A value of CYCLE_UNFINISHED indicates that the node is still running in the specified cycle. A value of TIMEOUT indicates that the node times out.
+     *
      * @example FINISHED
      *
      * @var string
@@ -112,6 +157,8 @@ class data extends Model
     public $remindType;
 
     /**
+     * @description The type of the object to which the custom alert rule is applied. Valid values: NODE, BASELINE, PROJECT, and BIZPROCESS. A value of NODE indicates that the monitored object is a node. A value of BASELINE indicates that the monitored object is a baseline. A value of PROJECT indicates that the monitored object is a workspace. A value of BIZPROCESS indicates that the monitored object is a workflow.
+     *
      * @example NODE
      *
      * @var string
@@ -119,11 +166,15 @@ class data extends Model
     public $remindUnit;
 
     /**
+     * @description The webhook URLs of the DingTalk chatbots.
+     *
      * @var robots[]
      */
     public $robots;
 
     /**
+     * @description Indicates whether the custom alert rule is enabled. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -131,6 +182,8 @@ class data extends Model
     public $useflag;
 
     /**
+     * @description -
+     *
      * @var string[]
      */
     public $webhooks;

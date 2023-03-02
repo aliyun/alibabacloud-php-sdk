@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsRequest extends Model
 {
     /**
+     * @description The category of the resource groups. Valid values:
+     *
+     *   default: shared resource group
+     *   single: exclusive resource group
+     *   Default value: default
+     *
      * @example default
      *
      * @var string
@@ -17,6 +23,8 @@ class ListResourceGroupsRequest extends Model
     public $bizExtKey;
 
     /**
+     * @description The keyword that is used for fuzzy queries by resource group name and identifier.
+     *
      * @example abc
      *
      * @var string
@@ -24,6 +32,18 @@ class ListResourceGroupsRequest extends Model
     public $keyword;
 
     /**
+     * @description The type of the resource groups that you want to query. Valid values:
+     *
+     *   0: DataWorks
+     *   1: scheduling
+     *   2: MaxCompute
+     *   3: Machine Learning Platform for AI (PAI)
+     *   4: Data Integration
+     *   7: exclusive resource group for scheduling (An ID is generated for the purchased resource when you purchase an exclusive resource group for scheduling.)
+     *   9: DataService Studio
+     *   Default value: 1
+     *
+     * If the value indicates a compute engine, the resource groups to query are the ones that were created when you purchased the compute engine.
      * @example 3
      *
      * @var int
@@ -31,6 +51,8 @@ class ListResourceGroupsRequest extends Model
     public $resourceGroupType;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzbn7pti3zfa
      *
      * @var string
@@ -38,6 +60,8 @@ class ListResourceGroupsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

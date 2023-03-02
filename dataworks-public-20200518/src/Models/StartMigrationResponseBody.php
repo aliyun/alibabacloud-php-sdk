@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartMigrationResponseBody extends Model
 {
     /**
+     * @description Indicates whether the migration task is started. Valid values:
+     *
+     *   true: The migration task is started.
+     *   false: The migration task fails to be started.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class StartMigrationResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 110001123445
      *
      * @var string
@@ -23,6 +30,8 @@ class StartMigrationResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example test error msg
      *
      * @var string
@@ -30,6 +39,8 @@ class StartMigrationResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +48,8 @@ class StartMigrationResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FSDFSDF-WERWER-XVCX-DSFSDF
      *
      * @var string
@@ -44,6 +57,8 @@ class StartMigrationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

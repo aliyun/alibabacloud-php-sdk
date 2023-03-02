@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the sync node failed to be updated. If the sync node was updated, this parameter is left empty.
+     *
      * @example ResourceGroup:[S_res_group_XXX] is invalid.
      *
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $message;
 
     /**
+     * @description Indicates whether the sync node was updated. Valid values:
+     *
+     *   success: The sync node was updated.
+     *   fail: The sync node failed to be updated.
+     *
      * @example success
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileResponseBody extends Model
 {
     /**
+     * @description The ID of the file that was created.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFileResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateFileResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG
      *
      * @var string
@@ -44,6 +54,11 @@ class CreateFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

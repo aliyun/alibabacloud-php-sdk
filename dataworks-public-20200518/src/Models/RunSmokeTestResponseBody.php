@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunSmokeTestResponseBody extends Model
 {
     /**
+     * @description The ID of the workflow.
+     *
      * @example 3333333
      *
      * @var int
@@ -16,6 +18,8 @@ class RunSmokeTestResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +27,8 @@ class RunSmokeTestResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -30,6 +36,8 @@ class RunSmokeTestResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class RunSmokeTestResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -44,6 +54,8 @@ class RunSmokeTestResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example false
      *
      * @var bool

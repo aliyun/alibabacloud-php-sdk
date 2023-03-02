@@ -15,8 +15,6 @@ class TopTenErrorTimesInstanceResponseBody extends Model
     public $instanceErrorRank;
 
     /**
-     * @example 952795279527****
-     *
      * @var string
      */
     public $requestId;

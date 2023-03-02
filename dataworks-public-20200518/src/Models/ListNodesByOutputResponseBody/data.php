@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information of the nodes returned.
+     *
      * @var nodeList[]
      */
     public $nodeList;
 
     /**
+     * @description The output name of the current node.
+     *
      * @example test_0709_1.630003556_out
      *
      * @var string

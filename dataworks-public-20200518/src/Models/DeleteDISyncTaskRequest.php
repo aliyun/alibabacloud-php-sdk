@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDISyncTaskRequest extends Model
 {
     /**
+     * @description The ID of the real-time synchronization node. You can call the [ListFiles](~~173942~~) operation to query the ID of the node.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,9 @@ class DeleteDISyncTaskRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
+     * You must set this parameter to specify the DataWorks workspace in which the synchronization node resides.
      * @example 10000
      *
      * @var int
@@ -23,6 +28,9 @@ class DeleteDISyncTaskRequest extends Model
     public $projectId;
 
     /**
+     * @description The type of the synchronization node in Data Integration.
+     *
+     * The parameter value is DI_REALTIME and cannot be changed. The value indicates a real-time synchronization node.
      * @example DI_REALTIME
      *
      * @var string

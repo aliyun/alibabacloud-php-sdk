@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartMigrationRequest extends Model
 {
     /**
+     * @description The ID of the migration package. You can call the [CreateImportMigration](~~206094~~) operation to obtain the ID of the import package and call the [CreateExportMigration](~~349325~~) operation to obtain the ID of the export package.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class StartMigrationRequest extends Model
     public $migrationId;
 
     /**
+     * @description The ID of the workspace. You can go to the Workspace Management page of the DataWorks console to view the ID.
+     *
      * @example 123456
      *
      * @var int

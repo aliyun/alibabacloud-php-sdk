@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deployments extends Model
 {
     /**
+     * @description The time when the deployment task was created.
+     *
      * @example 1593877765000
      *
      * @var int
@@ -16,6 +18,8 @@ class deployments extends Model
     public $createTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the user who created the deployment tasks.
+     *
      * @example 2003****
      *
      * @var string
@@ -23,6 +27,8 @@ class deployments extends Model
     public $creator;
 
     /**
+     * @description The error message returned when the deployment task failed.
+     *
      * @example OK
      *
      * @var string
@@ -30,6 +36,8 @@ class deployments extends Model
     public $errorMessage;
 
     /**
+     * @description The time when the deployment task was run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1593877765000
      *
      * @var int
@@ -37,6 +45,8 @@ class deployments extends Model
     public $executeTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the user who ran the deployment tasks.
+     *
      * @example 2003****
      *
      * @var string
@@ -44,6 +54,8 @@ class deployments extends Model
     public $executor;
 
     /**
+     * @description The ID of the deployment task. You can call the [GetDeployment](~~173950~~) operation to query the details of the deployment task based on the ID.
+     *
      * @example 11111
      *
      * @var int
@@ -51,6 +63,8 @@ class deployments extends Model
     public $id;
 
     /**
+     * @description The name of the deployment task.
+     *
      * @example auto_created
      *
      * @var string
@@ -58,6 +72,13 @@ class deployments extends Model
     public $name;
 
     /**
+     * @description The status of the deployment tasks. Valid values:
+     *
+     *   0: The deployment tasks are ready.
+     *   1: The deployment tasks are successful.
+     *   2: The deployment tasks fail.
+     *   6: The deployment tasks are rejected.
+     *
      * @example 1
      *
      * @var int

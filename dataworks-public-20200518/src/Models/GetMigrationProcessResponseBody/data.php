@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the step in the migration task.
+     *
      * @example IMPORE_PREPARE
      *
      * @var string
@@ -16,6 +18,13 @@ class data extends Model
     public $taskName;
 
     /**
+     * @description The running status of the step in the migration task. Valid values:
+     *
+     *   INT
+     *   RUNNING
+     *   FAILURE
+     *   SUCCESS
+     *
      * @example SUCCESS
      *
      * @var string

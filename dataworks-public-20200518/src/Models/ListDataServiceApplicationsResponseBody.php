@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApplicationsResponseBody extends Model
 {
     /**
+     * @description The returned result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 0
      *
      * @var string
@@ -22,11 +26,17 @@ class ListDataServiceApplicationsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -34,6 +44,8 @@ class ListDataServiceApplicationsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EFG***
      *
      * @var string
@@ -41,6 +53,8 @@ class ListDataServiceApplicationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

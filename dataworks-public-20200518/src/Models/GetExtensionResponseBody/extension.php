@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class extension extends Model
 {
     /**
+     * @description The extension point events.
+     *
      * @var bindEventList[]
      */
     public $bindEventList;
 
     /**
+     * @description The URL of the help document about the extension. You can visit the URL for the details of the extension.
+     *
      * @example https://www.aliyun.com/
      *
      * @var string
@@ -23,11 +27,15 @@ class extension extends Model
     public $detailUrl;
 
     /**
+     * @description The types of the events.
+     *
      * @var eventCategoryList[]
      */
     public $eventCategoryList;
 
     /**
+     * @description The unique code of the extension.
+     *
      * @example ce4*********086da5
      *
      * @var string
@@ -35,16 +43,22 @@ class extension extends Model
     public $extensionCode;
 
     /**
+     * @description The description of the extension.
+     *
      * @var string
      */
     public $extensionDesc;
 
     /**
+     * @description The name of the extension.
+     *
      * @var string
      */
     public $extensionName;
 
     /**
+     * @description The URL of the help document about the extension.
+     *
      * @example https://www.aliyun.com/
      *
      * @var string
@@ -52,11 +66,15 @@ class extension extends Model
     public $helpDocUrl;
 
     /**
+     * @description The option settings of the extension.
+     *
      * @var string
      */
     public $optionSetting;
 
     /**
+     * @description The parameter settings of the extension. For more information, visit https://www.alibabacloud.com/help/en/dataworks/latest/set-extension-parameters.
+     *
      * @example extension.project.disabled=projectId1,projectId2,projectId3
      *
      * @var string
@@ -64,6 +82,8 @@ class extension extends Model
     public $parameterSetting;
 
     /**
+     * @description The workspace for testing. If the extension is in the testing state, the extension can be used only in the workspace for testing.
+     *
      * @example 13552
      *
      * @var int
@@ -71,6 +91,8 @@ class extension extends Model
     public $projectTesting;
 
     /**
+     * @description The state of the extension. 0: testing. 1: publishing. 3: disabled. 4: approving. 5: approved. 6: approval failed.
+     *
      * @example 0
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The change type of the file version. Valid values: CREATE, UPDATE, and DELETE.
+     *
      * @example UPDATE
      *
      * @var string
@@ -16,11 +18,15 @@ class data extends Model
     public $changeType;
 
     /**
+     * @description The description of the file version.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The time when the version was generated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1593881265000
      *
      * @var int
@@ -28,6 +34,8 @@ class data extends Model
     public $commitTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the file version.
+     *
      * @example 7384234****
      *
      * @var string
@@ -35,6 +43,8 @@ class data extends Model
     public $commitUser;
 
     /**
+     * @description The file code.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -42,6 +52,8 @@ class data extends Model
     public $fileContent;
 
     /**
+     * @description The file name.
+     *
      * @example ods_user_info_d
      *
      * @var string
@@ -49,6 +61,8 @@ class data extends Model
     public $fileName;
 
     /**
+     * @description The basic information about the file.
+     *
      * @example {"fileName":"ods_user_info_d","fileType":10}
      *
      * @var string
@@ -56,6 +70,8 @@ class data extends Model
     public $filePropertyContent;
 
     /**
+     * @description The file version.
+     *
      * @example 2
      *
      * @var int
@@ -63,6 +79,8 @@ class data extends Model
     public $fileVersion;
 
     /**
+     * @description Indicates whether the version is the latest version in the production environment.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +88,8 @@ class data extends Model
     public $isCurrentProd;
 
     /**
+     * @description The scheduling configurations of the node that corresponds to the file version.
+     *
      * @example {"cycleType":0,"cronExpress":"00 05 00 * * ?"}
      *
      * @var string
@@ -77,6 +97,8 @@ class data extends Model
     public $nodeContent;
 
     /**
+     * @description The ID of the node that corresponds to the file version.
+     *
      * @example 3000001
      *
      * @var int
@@ -84,6 +106,8 @@ class data extends Model
     public $nodeId;
 
     /**
+     * @description The status of the file version. Valid values: COMMITTING, COMMITTED, CHECK_OK, PACKAGED, DEPLOYING, DEPLOYED, and CANCELLED. The value CHECK_OK is equivalent to the value COMMITTED.
+     *
      * @example COMMITTED
      *
      * @var string
@@ -91,6 +115,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The functional module to which the file belongs. Valid values: NORMAL, MANUAL, MANUAL_BIZ, SKIP, ADHOCQUERY, and COMPONENT. The value NORMAL indicates DataStudio. The value MANUAL indicates a manually triggered node. The value MANUAL_BIZ indicates a manually triggered workflow. The value SKIP indicates a dry-run DataStudio node. The value ADHOCQUERY indicates an ad hoc query. The value COMPONENT indicates snippets.
+     *
      * @example NORMAL
      *
      * @var string

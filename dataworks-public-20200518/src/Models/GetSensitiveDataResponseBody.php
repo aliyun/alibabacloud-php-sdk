@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSensitiveDataResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -16,6 +18,14 @@ class GetSensitiveDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information of the sensitive data returned. The information includes totalCount and sensDatas.
+     *
+     * sensDatas includes the following parameters:
+     *
+     *   guid: the ID of the metadata of the tenant. For example, the ID of the metadata in the MaxCompute compute engine is in the Project name.Table name.Column name format.
+     *   sensType: the type of the sensitive data.
+     *   sensLevel: the sensitivity level of the sensitive data.
+     *
      * @var mixed[]
      */
     public $sensitiveData;

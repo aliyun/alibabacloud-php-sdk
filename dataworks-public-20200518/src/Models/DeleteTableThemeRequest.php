@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableThemeRequest extends Model
 {
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteTableThemeRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the table folder.
+     *
      * @example 123
      *
      * @var int

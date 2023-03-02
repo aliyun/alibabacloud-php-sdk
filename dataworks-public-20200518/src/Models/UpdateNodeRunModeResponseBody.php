@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeRunModeResponseBody extends Model
 {
     /**
+     * @description The ID of the request. You can use the ID to obtain logs and troubleshoot issues.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateNodeRunModeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: indicates that the request is successful.
+     *   false: indicates that the request fails.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListExtensionsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListExtensionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int

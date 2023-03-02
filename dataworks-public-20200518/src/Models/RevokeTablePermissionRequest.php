@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RevokeTablePermissionRequest extends Model
 {
     /**
+     * @description The permissions that you want to revoke. Separate multiple permissions with commas (,).
+     *
+     * You can revoke only the SELECT, DESCRIBE, and DOWNLOAD permissions on MaxCompute tables.
      * @example Select,Describe
      *
      * @var string
@@ -16,6 +19,8 @@ class RevokeTablePermissionRequest extends Model
     public $actions;
 
     /**
+     * @description The name of the MaxCompute project to which the table belongs. You can log on to the DataWorks console and go to the Workspace Management page to obtain the MaxCompute project name.
+     *
      * @example aMaxcomputeProjectName
      *
      * @var string
@@ -23,6 +28,9 @@ class RevokeTablePermissionRequest extends Model
     public $maxComputeProjectName;
 
     /**
+     * @description The ID of the Alibaba Cloud account from which you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID.
+     *
+     * You must specify either this parameter or RevokeUserName. If you specify both this parameter and RevokeUserName, the value of this parameter prevails.
      * @example 267842600408993176
      *
      * @var string
@@ -30,6 +38,12 @@ class RevokeTablePermissionRequest extends Model
     public $revokeUserId;
 
     /**
+     * @description The Alibaba Cloud account from which you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
+     *
+     *   If you want to revoke permissions from an Alibaba Cloud account, specify this parameter in the ALIYUN$+Alibaba Cloud account format.
+     *   If you want to revoke permissions from a Resource Access Management (RAM) user, specify this parameter in the RAM$+RAM user format.
+     *
+     * You must specify either this parameter or RevokeUserId. If you specify both this parameter and RevokeUserId, the value of RevokeUserId prevails.
      * @example RAM$dataworks_3h1_1:stsramuser
      *
      * @var string
@@ -37,6 +51,8 @@ class RevokeTablePermissionRequest extends Model
     public $revokeUserName;
 
     /**
+     * @description The name of the MaxCompute table. You can call the [SearchMetaTables](~~173919~~) operation to query the table name.
+     *
      * @example aTableName
      *
      * @var string
@@ -44,6 +60,8 @@ class RevokeTablePermissionRequest extends Model
     public $tableName;
 
     /**
+     * @description The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
+     *
      * @example 12345
      *
      * @var int

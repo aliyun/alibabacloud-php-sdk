@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DeleteDataSourceResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteDataSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1411515937635****
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

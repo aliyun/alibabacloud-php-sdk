@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileResponseBody extends Model
 {
     /**
+     * @description The ID of the deployment task that deploys the file. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of this parameter is used to call the GetDeployment operation to poll the status of the asynchronous process.
+     *
+     * If this parameter is empty, the file is deleted and the polling is not required.
      * @example 1000000001
      *
      * @var int
@@ -16,6 +19,8 @@ class DeleteFileResponseBody extends Model
     public $deploymentId;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +28,8 @@ class DeleteFileResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -30,6 +37,8 @@ class DeleteFileResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +46,8 @@ class DeleteFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -44,6 +55,11 @@ class DeleteFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

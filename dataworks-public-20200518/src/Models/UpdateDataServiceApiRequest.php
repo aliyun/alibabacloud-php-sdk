@@ -56,6 +56,11 @@ class UpdateDataServiceApiRequest extends Model
     public $requestMethod;
 
     /**
+     * @var int
+     */
+    public $resourceGroupId;
+
+    /**
      * @example 0
      *
      * @var int
@@ -104,6 +109,7 @@ class UpdateDataServiceApiRequest extends Model
         'protocols'           => 'Protocols',
         'registrationDetails' => 'RegistrationDetails',
         'requestMethod'       => 'RequestMethod',
+        'resourceGroupId'     => 'ResourceGroupId',
         'responseContentType' => 'ResponseContentType',
         'scriptDetails'       => 'ScriptDetails',
         'tenantId'            => 'TenantId',
@@ -139,6 +145,9 @@ class UpdateDataServiceApiRequest extends Model
         }
         if (null !== $this->requestMethod) {
             $res['RequestMethod'] = $this->requestMethod;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->responseContentType) {
             $res['ResponseContentType'] = $this->responseContentType;
@@ -190,6 +199,9 @@ class UpdateDataServiceApiRequest extends Model
         }
         if (isset($map['RequestMethod'])) {
             $model->requestMethod = $map['RequestMethod'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResponseContentType'])) {
             $model->responseContentType = $map['ResponseContentType'];

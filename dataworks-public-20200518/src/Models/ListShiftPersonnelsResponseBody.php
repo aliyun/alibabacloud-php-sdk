@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListShiftPersonnelsResponseBody extends Model
 {
     /**
+     * @description The pagination data.
+     *
      * @var paging
      */
     public $paging;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG
      *
      * @var string

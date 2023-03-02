@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeTablePermissionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376****
      *
      * @var string
@@ -16,6 +18,8 @@ class RevokeTablePermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the permissions on the table are revoked.
+     *
      * @example true
      *
      * @var bool

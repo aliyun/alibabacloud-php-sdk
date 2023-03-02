@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDIProjectConfigRequest extends Model
 {
     /**
+     * @description The type of the destination data source of the sync solution. This parameter cannot be left empty.
+     *
+     * Valid values: analyticdb_for_mysql, odps, elasticsearch, holo, mysql, and polardb. You can call the ListDIProjectConfig operation to query the supported types of destination data sources.
      * @example elasticsearch
      *
      * @var string
@@ -16,6 +19,8 @@ class ListDIProjectConfigRequest extends Model
     public $destinationType;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 1000
      *
      * @var int
@@ -23,6 +28,9 @@ class ListDIProjectConfigRequest extends Model
     public $projectId;
 
     /**
+     * @description The type of the source data source of the sync solution.
+     *
+     * If you do not set this parameter, DataWorks applies the default global configuration to all the source data sources of the preceding types.
      * @example mysql
      *
      * @var string

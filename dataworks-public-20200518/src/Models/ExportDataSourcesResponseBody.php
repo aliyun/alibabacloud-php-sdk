@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ExportDataSourcesResponseBody extends Model
 {
     /**
+     * @description The information about the export operation.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned. Valid values:
+     *
+     *   200: The request was successful.
+     *   Other values: The request failed. You can troubleshoot issues based on the HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +29,8 @@ class ExportDataSourcesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     *
      * @example 0bc14115159376359****
      *
      * @var string
@@ -29,6 +38,11 @@ class ExportDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusStatisticRequest extends Model
 {
     /**
+     * @description The date on which the numbers of instances in different states are obtained. Specify the date in the yyyy-MM-dd format.
+     *
      * @example 2020-01-01
      *
      * @var string
@@ -16,6 +18,13 @@ class GetInstanceStatusStatisticRequest extends Model
     public $bizDate;
 
     /**
+     * @description The type of the directed acyclic graph (DAG). Valid values:
+     *
+     *   MANUAL: DAG for a manually triggered workflow
+     *   SMOKE_TEST: DAG for a smoke testing workflow
+     *   SUPPLY_DATA: DAG for a data backfill instance
+     *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+     *
      * @example MANUAL
      *
      * @var string
@@ -23,6 +32,8 @@ class GetInstanceStatusStatisticRequest extends Model
     public $dagType;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+     *
      * @example PROD
      *
      * @var string
@@ -30,6 +41,8 @@ class GetInstanceStatusStatisticRequest extends Model
     public $projectEnv;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 1234
      *
      * @var int
@@ -37,6 +50,13 @@ class GetInstanceStatusStatisticRequest extends Model
     public $projectId;
 
     /**
+     * @description The scheduling type of the node. Valid values:
+     *
+     *   NORMAL: auto triggered node
+     *   MANUAL: manually triggered node
+     *   PAUSE: paused node
+     *   SKIP: dry-run node
+     *
      * @example NORMAL
      *
      * @var string

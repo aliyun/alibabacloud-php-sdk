@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instanceConsumeTimeRank extends Model
 {
     /**
+     * @description The ranking data of the running durations of the instances.
+     *
      * @var consumeTimeRank[]
      */
     public $consumeTimeRank;
 
     /**
+     * @description The timestamp at which the ranking of the running durations of the instances was updated.
+     *
      * @example 1600963200000
      *
      * @var int

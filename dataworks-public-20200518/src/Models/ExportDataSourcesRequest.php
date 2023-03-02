@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExportDataSourcesRequest extends Model
 {
     /**
+     * @description The data source type. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
+     *
      * @example rds
      *
      * @var string
@@ -16,6 +32,11 @@ class ExportDataSourcesRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The environment to which the data sources belong. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +44,9 @@ class ExportDataSourcesRequest extends Model
     public $envType;
 
     /**
+     * @description The keyword contained in the names of the data sources to be exported.
+     *
+     * You can specify only one keyword. For example, if you set this parameter to test, all the data sources whose names contain test in the specified workspace are exported.
      * @example test
      *
      * @var string
@@ -30,6 +54,8 @@ class ExportDataSourcesRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. The value of this parameter must be a positive integer greater than or equal to 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +63,8 @@ class ExportDataSourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +72,8 @@ class ExportDataSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace to which the data sources belong. You can call the [ListProjects](~~178393~~) operation to query the ID of the workspace.
+     *
      * @example 10000
      *
      * @var int
@@ -51,6 +81,9 @@ class ExportDataSourcesRequest extends Model
     public $projectId;
 
     /**
+     * @description The data source subtype. This parameter takes effect only if the DataSourceType parameter is set to rds.
+     *
+     * If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
      * @example mysql
      *
      * @var string

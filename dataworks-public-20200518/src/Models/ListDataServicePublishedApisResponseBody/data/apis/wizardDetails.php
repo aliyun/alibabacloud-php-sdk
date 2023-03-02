@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class wizardDetails extends Model
 {
     /**
+     * @description The sample error response of the API.
+     *
      * @example {"success": false}
      *
      * @var string
@@ -20,6 +22,8 @@ class wizardDetails extends Model
     public $failedResultSample;
 
     /**
+     * @description Indicates whether the entries are returned by page.
+     *
      * @example true
      *
      * @var bool
@@ -27,6 +31,8 @@ class wizardDetails extends Model
     public $isPagedResponse;
 
     /**
+     * @description The sample success response of the API.
+     *
      * @example {"success": true}
      *
      * @var string
@@ -34,21 +40,29 @@ class wizardDetails extends Model
     public $successfulResultSample;
 
     /**
+     * @description The data source information of the API generated in wizard mode.
+     *
      * @var wizardConnection
      */
     public $wizardConnection;
 
     /**
+     * @description The error codes returned for the API generated in wizard mode.
+     *
      * @var wizardErrorCodes[]
      */
     public $wizardErrorCodes;
 
     /**
+     * @description The request parameters of the API generated in wizard mode.
+     *
      * @var wizardRequestParameters[]
      */
     public $wizardRequestParameters;
 
     /**
+     * @description The response parameters of the API generated in wizard mode.
+     *
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;

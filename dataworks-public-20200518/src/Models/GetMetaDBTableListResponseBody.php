@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBTableListResponseBody extends Model
 {
     /**
+     * @description The business data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376
      *
      * @var string

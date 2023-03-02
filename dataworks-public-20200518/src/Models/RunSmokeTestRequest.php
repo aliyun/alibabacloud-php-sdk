@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunSmokeTestRequest extends Model
 {
     /**
+     * @description The data timestamp.
+     *
      * @example 2020-05-26 00:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class RunSmokeTestRequest extends Model
     public $bizdate;
 
     /**
+     * @description The name of the workflow.
+     *
      * @example xm_create_test
      *
      * @var string
@@ -23,6 +27,8 @@ class RunSmokeTestRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID.
+     *
      * @example 1234
      *
      * @var int
@@ -30,6 +36,8 @@ class RunSmokeTestRequest extends Model
     public $nodeId;
 
     /**
+     * @description The parameters related to the node. Set this parameter to a JSON string. A key in the string indicates a parameter, and a value in the string indicates the value of the related parameter.
+     *
      * @example bizdate=$bizdate tbods=$tbods
      *
      * @var string
@@ -37,6 +45,9 @@ class RunSmokeTestRequest extends Model
     public $nodeParams;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+     *
+     * A workspace in basic mode does not have a development environment. For more information, see [Basic mode and standard mode](~~85772~~).
      * @example PROD
      *
      * @var string

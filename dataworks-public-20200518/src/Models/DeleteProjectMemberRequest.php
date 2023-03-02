@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteProjectMemberRequest extends Model
 {
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 27
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteProjectMemberRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 1234
      *
      * @var string

@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The keys of the tags that are added to resources in the workspace. The tag keys must meet the following conditions:
+     *
+     *   The number of tag keys that can be added to resources ranges from 1 to 20.
+     *   Each tag key can be a maximum of 128 characters in length.
+     *   The tag keys cannot start with acs: or aliyun:.
+     *   The tag keys cannot contain http:// or https://.
+     *
+     * @example Env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The values of the tags that are added to resources in the workspace. The tag values must meet the following conditions:
+     *
+     *   The number of tag values that can be added to resources ranges from 1 to 20.
+     *   Each tag value can be a maximum of 128 characters in length.
+     *   The tag values cannot start with acs:.
+     *   The tag values cannot contain http:// or https://.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $value;

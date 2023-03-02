@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The entities.
+     *
      * @var Entity[]
      */
     public $entityList;
 
     /**
+     * @description The token that is used for the next query.
+     *
      * @example 123344
      *
      * @var string

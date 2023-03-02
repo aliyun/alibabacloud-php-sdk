@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filePropertyContent extends Model
 {
     /**
+     * @description The ID of the workflow to which the file belongs.
+     *
      * @example 74328
      *
      * @var int
@@ -16,6 +18,8 @@ class filePropertyContent extends Model
     public $businessId;
 
     /**
+     * @description The latest version number of the file.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class filePropertyContent extends Model
     public $currentVersion;
 
     /**
+     * @description The name of the compute engine instance with which the file is associated.
+     *
      * @example odps_first
      *
      * @var string
@@ -30,6 +36,8 @@ class filePropertyContent extends Model
     public $dataSourceName;
 
     /**
+     * @description The ID of the folder to which the file belongs. You can call the [GetFolder](~~173952~~) operation to query the details of the file based on the folder ID.
+     *
      * @example aldurie78l2falure
      *
      * @var string
@@ -37,6 +45,8 @@ class filePropertyContent extends Model
     public $folderId;
 
     /**
+     * @description The owner of the file.
+     *
      * @example 7384234****
      *
      * @var string
@@ -44,6 +54,8 @@ class filePropertyContent extends Model
     public $owner;
 
     /**
+     * @description The ID of the do-while node or for-each node that corresponds to the file.
+     *
      * @example 1234122
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateExportMigrationRequest extends Model
 {
     /**
+     * @description The description of the export task.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateExportMigrationRequest extends Model
     public $description;
 
     /**
+     * @description The export mode of the export task. Valid values:
+     *
+     *   FULL: The export task is used to export all data objects.
+     *   INCREMENTAL: The export task is used to export data objects that were modified since the specified point in time. If you set this parameter to INCREMENTAL, you must configure the IncrementalSince parameter.
+     *
      * @example FULL
      *
      * @var string
@@ -23,6 +30,12 @@ class CreateExportMigrationRequest extends Model
     public $exportMode;
 
     /**
+     * @description The status of the data objects that you want to export in the export task. The system exports data objects in the state that is specified by this parameter. Valid values:
+     *
+     *   SAVED: Data objects that are in the SAVED state are exported.
+     *   SUBMITTED: Data objects that are in the SUBMITTED state are exported.
+     *   DEPLOYED: Data objects that are in the DEPLOYED state are exported.
+     *
      * @example SAVED
      *
      * @var string
@@ -30,6 +43,9 @@ class CreateExportMigrationRequest extends Model
     public $exportObjectStatus;
 
     /**
+     * @description The start time of the incremental export task.
+     *
+     * The IncrementalSince parameter takes effect only when the ExportMode parameter is set to INCREMENTAL.
      * @example 1589904000000
      *
      * @var int
@@ -37,6 +53,9 @@ class CreateExportMigrationRequest extends Model
     public $incrementalSince;
 
     /**
+     * @description The name of the export task.
+     *
+     * The name of each export task must be unique. You must ensure that no duplicate export task exists in the current workspace.
      * @example test_export_01
      *
      * @var string
@@ -44,6 +63,8 @@ class CreateExportMigrationRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 12345
      *
      * @var int

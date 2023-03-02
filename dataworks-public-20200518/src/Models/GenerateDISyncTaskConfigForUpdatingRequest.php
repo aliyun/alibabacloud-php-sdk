@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateDISyncTaskConfigForUpdatingRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. This parameter is used to prevent repeated operations that are caused by multiple calls.
+     *
      * @example ABFUOEUOTRTRJKE
      *
      * @var string
@@ -16,6 +18,9 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
+     * This parameter specifies the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -23,6 +28,11 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the real-time synchronization node or synchronization solution.
+     *
+     *   If you set the TaskType parameter to DI_REALTIME, set the TaskId parameter to the value of the FileId parameter for the real-time synchronization node.
+     *   If you set the TaskType parameter to DI_SOLUTION, set the TaskId parameter to the value of the FileId parameter for the synchronization solution.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +40,19 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public $taskId;
 
     /**
+     * @description The script for updating the real-time synchronization node or synchronization solution in Data Integration.
+     *
+     * DataWorks allows you to add or remove tables for a real-time synchronization node or a synchronization solution in Data Integration only in asynchronous mode. The following types of real-time synchronization nodes and synchronization solutions are supported:
+     *
+     *   Real-time synchronization node or synchronization solution that is used to synchronize data from MySQL to MaxCompute
+     *   Real-time synchronization node or synchronization solution that is used to synchronize data from MySQL data to Kafka
+     *   Real-time synchronization node or synchronization solution that is used to synchronize data from MySQL to Hologres
+     *
+     * The SelectedTables parameter is used to specify tables that you want to synchronize from multiple databases. The Tables parameter is used to specify tables that you want to synchronize from a single database.
+     *
+     *   If the script contains the SelectedTables parameter, the system synchronizes the tables that you specify in the SelectedTables parameter.
+     *   If the script contains the Tables parameter, the system synchronizes the tables that you specify in the Tables parameter.
+     *
      * @example {      "steps": [         {             "parameter": {                 "connection": [                     {                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         }     ] }
      *
      * @var string
@@ -37,6 +60,13 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     public $taskParam;
 
     /**
+     * @description The type of the object that you want to update in Data Integration in asynchronous mode. Valid values:
+     *
+     *   DI_REALTIME: real-time synchronization node
+     *
+     *   DI_SOLUTION: synchronization solution
+     *
+     * DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
      * @example DI_REALTIME
      *
      * @var string

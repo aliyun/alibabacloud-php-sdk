@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
+     * @description The timestamp when the event was found.
+     *
      * @example 1553524393000
      *
      * @var int
@@ -16,6 +18,8 @@ class topics extends Model
     public $addTime;
 
     /**
+     * @description The timestamp when the event was processed.
+     *
      * @example 1553508465000
      *
      * @var int
@@ -23,6 +27,8 @@ class topics extends Model
     public $fixTime;
 
     /**
+     * @description The timestamp when the event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
+     *
      * @example 1553508465000
      *
      * @var int
@@ -30,6 +36,8 @@ class topics extends Model
     public $happenTime;
 
     /**
+     * @description The ID of the node instance that triggers the event.
+     *
      * @example 12345
      *
      * @var int
@@ -37,6 +45,8 @@ class topics extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the node that triggers the event.
+     *
      * @example 1234
      *
      * @var int
@@ -44,11 +54,17 @@ class topics extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
+     * @example Node Name
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used by the node owner.
+     *
      * @example 952795****
      *
      * @var string
@@ -56,6 +72,8 @@ class topics extends Model
     public $nodeOwner;
 
     /**
+     * @description The ID of the workspace to which the node belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -63,6 +81,8 @@ class topics extends Model
     public $projectId;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 1234
      *
      * @var int
@@ -70,11 +90,17 @@ class topics extends Model
     public $topicId;
 
     /**
+     * @description The name of the event.
+     *
+     * @example 1234 Error
+     *
      * @var string
      */
     public $topicName;
 
     /**
+     * @description The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER. The value IGNORE indicates that the event is ignored. The value NEW indicates that the event is a new event. The value FIXING indicates that the event is being processed. The value RECOVER indicates that the event is processed.
+     *
      * @example NEW
      *
      * @var string
@@ -82,6 +108,8 @@ class topics extends Model
     public $topicStatus;
 
     /**
+     * @description The type of the event. Valid values: SLOW and ERROR. The value SLOW indicates that the running duration of the node in the current scheduling cycle is significantly longer than the average running duration of the node in previous scheduling cycles. The value ERROR indicates that the node fails to run.
+     *
      * @example ERROR
      *
      * @var string

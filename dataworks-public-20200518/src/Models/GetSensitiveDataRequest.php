@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSensitiveDataRequest extends Model
 {
     /**
+     * @description The parameters that you can specify to query the access records. Valid values:
+     *
+     *   dbType: the data type
+     *   instanceName: the name of the instance
+     *   databaseName: the name of the database
+     *   projectName: the name of the workspace
+     *   clusterName: the name of the cluster
+     *
+     * You must specify the parameters based on the compute engine that you use in your business.
      * @example [ {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"}, {"dbType":"ODPS.ODPS","projectName":"adbc"} ]
      *
      * @var string
@@ -16,6 +25,8 @@ class GetSensitiveDataRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. Minimum value:1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +34,8 @@ class GetSensitiveDataRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 1000.
+     *
      * @example 1000
      *
      * @var int

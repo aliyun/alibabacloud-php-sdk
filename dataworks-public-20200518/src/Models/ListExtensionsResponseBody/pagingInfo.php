@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The extensions.
+     *
      * @var extensions[]
      */
     public $extensions;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pagingInfo extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class pagingInfo extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int

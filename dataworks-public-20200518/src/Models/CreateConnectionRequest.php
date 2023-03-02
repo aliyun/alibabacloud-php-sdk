@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionRequest extends Model
 {
     /**
+     * @description The type of the connection string.
+     *
      * @example rds
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateConnectionRequest extends Model
     public $connectionType;
 
     /**
+     * @description Details of the data source.
+     *
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateConnectionRequest extends Model
     public $content;
 
     /**
+     * @description The description of the connection string.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateConnectionRequest extends Model
     public $description;
 
     /**
+     * @description Environment of the data source.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateConnectionRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the data source.
+     *
      * @example abc
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateConnectionRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the workspace to be associated with the data source.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class CreateConnectionRequest extends Model
     public $projectId;
 
     /**
+     * @description The sub-type of a connection string.
+     *
      * @example mysql
      *
      * @var string

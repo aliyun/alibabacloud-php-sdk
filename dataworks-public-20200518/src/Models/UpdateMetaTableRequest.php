@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableRequest extends Model
 {
     /**
+     * @description The names of the labels that you want to add. Separate the labels with commas (,).
+     *
      * @example a,b,c
      *
      * @var string
@@ -16,11 +18,15 @@ class UpdateMetaTableRequest extends Model
     public $addedLabels;
 
     /**
+     * @description The display name of the table.
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The ID of the category that you want to associate.
+     *
      * @example 101
      *
      * @var int
@@ -28,6 +34,8 @@ class UpdateMetaTableRequest extends Model
     public $categoryId;
 
     /**
+     * @description The environment of the DataWorks workspace. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +43,8 @@ class UpdateMetaTableRequest extends Model
     public $envType;
 
     /**
+     * @description The ID of the new owner. If this parameter is not specified, the owner ID is not updated.
+     *
      * @example 12345
      *
      * @var string
@@ -42,6 +52,8 @@ class UpdateMetaTableRequest extends Model
     public $newOwnerId;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 101
      *
      * @var int
@@ -49,6 +61,8 @@ class UpdateMetaTableRequest extends Model
     public $projectId;
 
     /**
+     * @description The names of labels that you want to delete. Separate the labels with commas (,).
+     *
      * @example a,b,c
      *
      * @var string
@@ -56,11 +70,17 @@ class UpdateMetaTableRequest extends Model
     public $removedLabels;
 
     /**
+     * @description The schema information of the table. You need to configure this parameter if you enable the table schema in MaxCompute.
+     *
+     * @example default
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     *
      * @example odps.test.table1
      *
      * @var string
@@ -68,6 +88,8 @@ class UpdateMetaTableRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the table.
+     *
      * @example table1
      *
      * @var string
@@ -75,6 +97,8 @@ class UpdateMetaTableRequest extends Model
     public $tableName;
 
     /**
+     * @description The scope in which the table is visible. Valid values: 0, 1, and 2. The value 0 indicates that the table is invisible to all workspace members. The value 1 indicates that the table is visible to all workspace members. The value 2 indicates that the table is visible to workspace members.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOptionValueForProjectResponseBody extends Model
 {
     /**
+     * @description The option settings. In the example, cuNumber is a custom key.
+     *
      * @example {"cuNumber":"0"}
      *
      * @var string

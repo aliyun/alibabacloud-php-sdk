@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileRequest extends Model
 {
     /**
+     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID of the file.
+     *
      * @example 10000001
      *
      * @var int
@@ -16,6 +18,9 @@ class DeleteFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to view the workspace ID.
+     *
+     * You must specify one of the ProjectId and ProjectIdentifier parameters to determine the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -23,6 +28,9 @@ class DeleteFileRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to view the workspace name.
+     *
+     * You must specify one of the ProjectId and ProjectIdentifier parameters to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string

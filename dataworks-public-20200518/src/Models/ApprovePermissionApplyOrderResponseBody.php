@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderResponseBody extends Model
 {
     /**
+     * @description Indicates that the approval is successful.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class ApprovePermissionApplyOrderResponseBody extends Model
     public $approveSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376****
      *
      * @var string

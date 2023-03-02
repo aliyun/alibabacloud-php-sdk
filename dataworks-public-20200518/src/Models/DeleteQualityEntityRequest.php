@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityEntityRequest extends Model
 {
     /**
+     * @description The ID of the partition filter expression.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteQualityEntityRequest extends Model
     public $entityId;
 
     /**
+     * @description The type of the compute engine instance or data source. Valid values: EMR, Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka and DataHub.
+     *
      * @example ODPS
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteQualityEntityRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the compute engine instance or data source.
+     *
      * @example autotest
      *
      * @var string

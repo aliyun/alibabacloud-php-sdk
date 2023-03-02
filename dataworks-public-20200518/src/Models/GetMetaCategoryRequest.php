@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaCategoryRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetMetaCategoryRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class GetMetaCategoryRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the category tree.
+     *
      * @example 333
      *
      * @var int

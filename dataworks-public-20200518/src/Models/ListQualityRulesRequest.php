@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQualityRulesRequest extends Model
 {
     /**
+     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](~~174003~~) operation to query the ID of the partition filter expression.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class ListQualityRulesRequest extends Model
     public $entityId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListQualityRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class ListQualityRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+     *
      * @example autotest
      *
      * @var string

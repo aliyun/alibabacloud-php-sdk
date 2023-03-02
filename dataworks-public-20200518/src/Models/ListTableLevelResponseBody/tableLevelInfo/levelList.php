@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class levelList extends Model
 {
     /**
+     * @description The description of the table level.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the table level.
+     *
      * @example 123
      *
      * @var int
@@ -21,6 +25,8 @@ class levelList extends Model
     public $levelId;
 
     /**
+     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     *
      * @example 1
      *
      * @var int
@@ -28,11 +34,15 @@ class levelList extends Model
     public $levelType;
 
     /**
+     * @description The name of the table level.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 123
      *
      * @var int

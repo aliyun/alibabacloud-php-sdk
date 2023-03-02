@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionEntityRequest extends Model
 {
     /**
+     * @description The unique identifier of the collection.
+     *
      * @example album.12345
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteMetaCollectionEntityRequest extends Model
     public $collectionQualifiedName;
 
     /**
+     * @description The unique identifier of the entity.
+     *
      * @example maxcompute.projectA.tableB
      *
      * @var string

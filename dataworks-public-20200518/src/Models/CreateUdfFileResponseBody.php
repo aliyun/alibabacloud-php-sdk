@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUdfFileResponseBody extends Model
 {
     /**
+     * @description The ID of the file that was created.
+     *
      * @example 100000002
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateUdfFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateUdfFileResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateUdfFileResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateUdfFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateUdfFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceGroupRequest extends Model
 {
     /**
+     * @description The ID of the business process.
+     *
      * @example ds_123abc
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDataServiceGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDataServiceGroupRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

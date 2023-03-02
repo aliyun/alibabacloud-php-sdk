@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityFollowerRequest extends Model
 {
     /**
+     * @description The notification method. Valid values: 1, 2, 4, and 5. 1 indicates that the notification is sent by email. 2 indicates that the notification is sent by email and text message. 4 indicates that the notification is sent by a DingTalk chatbot. 5 indicates that the notification is sent by a DingTalk chatbot to all members in a DingTalk group.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateQualityFollowerRequest extends Model
     public $alarmMode;
 
     /**
+     * @description The name of the subscriber.
+     *
      * @example 1912232****
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateQualityFollowerRequest extends Model
     public $follower;
 
     /**
+     * @description The ID of the subscription relationship.
+     *
      * @example 1234
      *
      * @var int
@@ -30,6 +36,8 @@ class UpdateQualityFollowerRequest extends Model
     public $followerId;
 
     /**
+     * @description The name of the computing engine instance or data source.
+     *
      * @example autotest
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityResponseBody extends Model
 {
     /**
+     * @description The ID of the partition expression.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateQualityEntityResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 401
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateQualityEntityResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The returned message.
+     *
      * @example Your project is not relative with your account.
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateQualityEntityResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP request error codes.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateQualityEntityResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 011e1231u3****
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateQualityEntityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
      * @example true
      *
      * @var bool

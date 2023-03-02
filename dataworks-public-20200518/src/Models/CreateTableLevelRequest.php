@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateTableLevelRequest extends Model
 {
     /**
+     * @description The description of the table level.
+     *
+     * @example Level Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     *
      * @example 1
      *
      * @var int
@@ -21,11 +27,17 @@ class CreateTableLevelRequest extends Model
     public $levelType;
 
     /**
+     * @description The name of the table level.
+     *
+     * @example Level 1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 123
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UmountDirectoryResponseBody extends Model
 {
     /**
+     * @description The number of directories that are removed. Valid values:
+     *
+     *   0: No directories are removed. The left-side navigation pane may not contain the specified directory.
+     *   1: One directory is removed.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class UmountDirectoryResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned. The value 200 indicates that the remove task is successful.
+     *
      * @example 200
      *
      * @var string
@@ -23,6 +30,8 @@ class UmountDirectoryResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example You have no permission.
      *
      * @var string
@@ -30,6 +39,8 @@ class UmountDirectoryResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +48,8 @@ class UmountDirectoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0bc5aa2716455247597991794e65bd
      *
      * @var string
@@ -44,6 +57,11 @@ class UmountDirectoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

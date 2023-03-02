@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the real-time synchronization node or the data synchronization solution fails to be started.
+     *
+     * If the real-time synchronization node or the data synchronization solution is started, the value null is returned.
      * @example fileId:[100] is invalid.
      *
      * @var string
@@ -16,6 +19,11 @@ class data extends Model
     public $message;
 
     /**
+     * @description Indicates whether the real-time synchronization node or the data synchronization solution is started. Valid values:
+     *
+     *   success: The real-time synchronization node or the data synchronization solution is started.
+     *   fail: The real-time synchronization node or the data synchronization solution fails to be started. You can troubleshoot the issue based on the provided cause.
+     *
      * @example success
      *
      * @var string

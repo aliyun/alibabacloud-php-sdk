@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class consumeTimeRank extends Model
 {
     /**
+     * @description The data timestamp of the instance.
+     *
      * @example 1600963200000
      *
      * @var int
@@ -16,6 +18,8 @@ class consumeTimeRank extends Model
     public $businessDate;
 
     /**
+     * @description The running duration of the instance. Unit: seconds.
+     *
      * @example 1000
      *
      * @var int
@@ -23,6 +27,8 @@ class consumeTimeRank extends Model
     public $consumed;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 95279527
      *
      * @var int
@@ -30,6 +36,8 @@ class consumeTimeRank extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 9527
      *
      * @var int
@@ -37,11 +45,15 @@ class consumeTimeRank extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the owner of the node.
+     *
      * @example 952795279527
      *
      * @var string
@@ -49,6 +61,9 @@ class consumeTimeRank extends Model
     public $owner;
 
     /**
+     * @description The type of the node.
+     *
+     * 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time synchronization), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3)
      * @example 10
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListFileTypeResponseBody extends Model
 {
     /**
+     * @description The information of the node types.
+     *
      * @var nodeTypeInfoList
      */
     public $nodeTypeInfoList;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string

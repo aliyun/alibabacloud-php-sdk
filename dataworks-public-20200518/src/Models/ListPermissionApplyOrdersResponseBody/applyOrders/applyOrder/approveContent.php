@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class approveContent extends Model
 {
     /**
+     * @description The reason for your request. The administrator determines whether to approve the request based on the reason.
+     *
      * @example I need to use this table
      *
      * @var string
@@ -17,6 +19,8 @@ class approveContent extends Model
     public $applyReason;
 
     /**
+     * @description The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class approveContent extends Model
     public $orderType;
 
     /**
+     * @description The content of the object on which you requested permissions.
+     *
      * @var projectMeta
      */
     public $projectMeta;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTableResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example abcdef
      *
      * @var string
@@ -17,6 +19,13 @@ class CreateTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the request task.
+     *
+     * If a request task is aborted due to one of the following issues, address the issue based on the error code and initiate the request task again:
+     *
+     *   The request task fails to be submitted.
+     *   After the request task is submitted, a subtask fails to run.
+     *
      * @var taskInfo
      */
     public $taskInfo;

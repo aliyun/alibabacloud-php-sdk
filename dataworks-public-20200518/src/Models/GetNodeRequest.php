@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeRequest extends Model
 {
     /**
+     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class GetNodeRequest extends Model
     public $nodeId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV.
+     *
      * @example PROD
      *
      * @var string

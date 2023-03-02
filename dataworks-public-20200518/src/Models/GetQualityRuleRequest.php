@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQualityRuleRequest extends Model
 {
     /**
+     * @description The name of the compute engine instance or data source.
+     *
      * @example autotest
      *
      * @var string
@@ -16,6 +18,8 @@ class GetQualityRuleRequest extends Model
     public $projectName;
 
     /**
+     * @description The ID of the monitoring rule. You can call the [ListQualityRules](~~173995~~) operation to query the ID.
+     *
      * @example 1234
      *
      * @var int

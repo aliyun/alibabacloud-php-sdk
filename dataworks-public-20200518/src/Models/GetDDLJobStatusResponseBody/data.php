@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The content of the task.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $content;
 
     /**
+     * @description The ID of the ongoing task. If no value is returned for this parameter, all subtasks are complete.
+     *
      * @example abc1
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $nextTaskId;
 
     /**
+     * @description The status of the task
+     *
      * @example success
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example abc
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the data source failed to be shared. If the data source was shared, this parameter is left empty.
+     *
      * @example datasource is wrong
      *
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $message;
 
     /**
+     * @description Indicates whether the data source was shared. Valid values:
+     *
+     *   success: The data source was shared.
+     *   fail: The data source failed to be shared. You can troubleshoot issues based on the Message parameter.
+     *
      * @example success
      *
      * @var string

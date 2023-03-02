@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the change logs of the metatable.
+     *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 10
      *
      * @var int

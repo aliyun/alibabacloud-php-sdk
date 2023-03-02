@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineConfigsRequest extends Model
 {
     /**
+     * @description The type of the baseline. Valid values: DAILY and HOURLY. A value of DAILY indicates that the baseline is a day-level baseline. A value of HOURLY indicates that the baseline is an hour-level baseline. Separate multiple baseline types with commas (,).
+     *
      * @example DAILY,HOURLY
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBaselineConfigsRequest extends Model
     public $baselineTypes;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the baseline owner.
+     *
      * @example 95279527****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListBaselineConfigsRequest extends Model
     public $owner;
 
     /**
+     * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListBaselineConfigsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListBaselineConfigsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The priority of the baseline. Valid values: 1, 3, 5, 7, and 8. Separate multiple priorities with commas (,).
+     *
      * @example 1,3,5,7,8
      *
      * @var string
@@ -44,6 +54,8 @@ class ListBaselineConfigsRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the workspace. You can call the ListProjects operation to query the ID.
+     *
      * @example 1234
      *
      * @var int
@@ -51,11 +63,15 @@ class ListBaselineConfigsRequest extends Model
     public $projectId;
 
     /**
+     * @description The keyword in the baseline name used to search for the baseline.
+     *
      * @var string
      */
     public $searchText;
 
     /**
+     * @description Specifies whether to enable the baseline. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

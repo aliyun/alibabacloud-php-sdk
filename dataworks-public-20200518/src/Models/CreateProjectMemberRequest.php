@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectMemberRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateProjectMemberRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 27
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateProjectMemberRequest extends Model
     public $projectId;
 
     /**
+     * @description The code of the role. This parameter is optional. If you specify the RoleCode parameter, the user is assigned the role.
+     *
      * @example role_project_guest
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateProjectMemberRequest extends Model
     public $roleCode;
 
     /**
+     * @description The ID of the user to be added.
+     *
      * @example 1234
      *
      * @var string

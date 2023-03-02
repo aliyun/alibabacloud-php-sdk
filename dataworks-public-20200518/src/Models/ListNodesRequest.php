@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The name of the workflow.
+     *
      * @example test_bizName
      *
      * @var string
@@ -16,6 +18,8 @@ class ListNodesRequest extends Model
     public $bizName;
 
     /**
+     * @description The name of the node.
+     *
      * @example liux_test_n****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListNodesRequest extends Model
     public $nodeName;
 
     /**
+     * @description The ID of the owner.
+     *
      * @example 193379****
      *
      * @var string
@@ -30,6 +36,8 @@ class ListNodesRequest extends Model
     public $owner;
 
     /**
+     * @description The number of the page to return. Minimum value: 1. Maximum value: 100.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class ListNodesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class ListNodesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -51,6 +63,8 @@ class ListNodesRequest extends Model
     public $programType;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV.
+     *
      * @example PROD
      *
      * @var string
@@ -58,6 +72,8 @@ class ListNodesRequest extends Model
     public $projectEnv;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 1234
      *
      * @var int

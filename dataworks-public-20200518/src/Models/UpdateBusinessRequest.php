@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBusinessRequest extends Model
 {
     /**
+     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow ID.
+     *
      * @example 300000
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateBusinessRequest extends Model
     public $businessId;
 
     /**
+     * @description The name of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow name.
+     *
      * @example MyBusiness
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateBusinessRequest extends Model
     public $businessName;
 
     /**
+     * @description The description of the workflow.
+     *
      * @example modified from my first business
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateBusinessRequest extends Model
     public $description;
 
     /**
+     * @description The owner of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow owner.
+     *
      * @example 348428****
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateBusinessRequest extends Model
     public $owner;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -44,6 +54,8 @@ class UpdateBusinessRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must configure either this parameter or ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

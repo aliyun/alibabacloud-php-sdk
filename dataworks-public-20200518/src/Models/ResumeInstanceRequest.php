@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResumeInstanceRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class ResumeInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV.
+     *
      * @example PROD
      *
      * @var string

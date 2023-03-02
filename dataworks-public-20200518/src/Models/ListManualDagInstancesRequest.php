@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListManualDagInstancesRequest extends Model
 {
     /**
+     * @description The ID of the directed acyclic graph (DAG) for the manually triggered workflow. You can call the [RunManualDagNodes](~~212830~~) operation to obtain the ID.
+     *
      * @example 7000001231241
      *
      * @var string
@@ -16,6 +18,8 @@ class ListManualDagInstancesRequest extends Model
     public $dagId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. A value of PROD indicates the production environment. A value of DEV indicates the development environment.
+     *
      * @example RPOD
      *
      * @var string
@@ -23,6 +27,8 @@ class ListManualDagInstancesRequest extends Model
     public $projectEnv;
 
     /**
+     * @description The name of the workspace to which the manually triggered workflow belongs. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to view the name.
+     *
      * @example test_workspace
      *
      * @var string

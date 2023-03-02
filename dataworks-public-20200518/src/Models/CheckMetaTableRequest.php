@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaTableRequest extends Model
 {
     /**
+     * @description The ID of the E-MapReduce (EMR) cluster.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckMetaTableRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the data source. Valid values: odps and emr.
+     *
      * @example emr
      *
      * @var string
@@ -23,6 +27,8 @@ class CheckMetaTableRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the EMR database.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class CheckMetaTableRequest extends Model
     public $databaseName;
 
     /**
+     * @description The GUID of the table.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -37,6 +45,8 @@ class CheckMetaTableRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the EMR table.
+     *
      * @example abc
      *
      * @var string

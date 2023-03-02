@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class instanceStatusTrend extends Model
 {
     /**
+     * @description The average trend.
+     *
      * @var avgTrend[]
      */
     public $avgTrend;
 
     /**
+     * @description The trend of the number of auto triggered node instances that are successfully run on the current day.
+     *
      * @var todayTrend[]
      */
     public $todayTrend;
 
     /**
+     * @description The trend of the number of auto triggered node instances that are successfully run one day earlier than the current day.
+     *
      * @var yesterdayTrend[]
      */
     public $yesterdayTrend;

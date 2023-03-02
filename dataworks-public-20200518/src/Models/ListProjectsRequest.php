@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListProjectsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListProjectsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzbn7pti3zfa
      *
      * @var string
@@ -31,6 +37,8 @@ class ListProjectsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

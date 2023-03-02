@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkbenchEventResultRequest extends Model
 {
     /**
+     * @description The check status of the extension point event. Valid values: OK and Fail. A value of OK indicates that the event passes the check. A value of FAIL indicates that the event fails to pass the check.
+     *
      * @example FAIL
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateWorkbenchEventResultRequest extends Model
     public $checkResult;
 
     /**
+     * @description The cause of the check failure.
+     *
      * @example 注意节点有效期
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateWorkbenchEventResultRequest extends Model
     public $checkResultTip;
 
     /**
+     * @description The code of the extension.
+     *
      * @example 58e95e2acd6f408e8707f1bf2591f9e9
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateWorkbenchEventResultRequest extends Model
     public $extensionCode;
 
     /**
+     * @description The ID of the message received when the related extension point event is triggered after you enable message subscription by using the OpenEvent module.
+     *
      * @example 03400b03-b721-4c34-8727-2d6884077091
      *
      * @var string

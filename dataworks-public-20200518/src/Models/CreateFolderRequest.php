@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFolderRequest extends Model
 {
     /**
+     * @description The path of the folder.
+     *
      * @var string
      */
     public $folderPath;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -21,6 +25,8 @@ class CreateFolderRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must configure either the ProjectId or ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

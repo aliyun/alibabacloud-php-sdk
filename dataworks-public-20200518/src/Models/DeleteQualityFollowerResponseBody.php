@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityFollowerResponseBody extends Model
 {
     /**
+     * @description Indicates whether the subscriber was successfully deleted. Valid values:
+     *
+     *   true: The subscriber was successfully deleted.
+     *   false: The subscriber failed to be deleted. You can troubleshoot errors based on the error message returned.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteQualityFollowerResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 401
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteQualityFollowerResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned when the subscriber failed to be deleted.
+     *
      * @example You have no permission.
      *
      * @var string
@@ -30,6 +39,8 @@ class DeleteQualityFollowerResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +48,8 @@ class DeleteQualityFollowerResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot errors.
+     *
      * @example 6d739ef6-098a-47****
      *
      * @var string
@@ -44,6 +57,11 @@ class DeleteQualityFollowerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

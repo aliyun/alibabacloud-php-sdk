@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class level extends Model
 {
     /**
+     * @description The description of the table level.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the table level.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class level extends Model
     public $levelId;
 
     /**
+     * @description The name of the table level.
+     *
      * @example level1
      *
      * @var string
@@ -28,6 +34,11 @@ class level extends Model
     public $name;
 
     /**
+     * @description The type of the table level. Valid values:
+     *
+     *   1: indicates the logical level.
+     *   2: indicates the physical level.
+     *
      * @example 1
      *
      * @var int

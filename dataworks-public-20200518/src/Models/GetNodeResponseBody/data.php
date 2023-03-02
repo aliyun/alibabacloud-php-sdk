@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the baseline.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $baselineId;
 
     /**
+     * @description The ID of the workflow.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $businessId;
 
     /**
+     * @description The connection string.
+     *
      * @example odps_first_dev
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $connection;
 
     /**
+     * @description The CRON expression returned.
+     *
      * @example 00 00 00 * * ?
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $cronExpress;
 
     /**
+     * @description The description of the node.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The table and partition filter expression in Data Quality that are associated with the node.
+     *
      * @example [{"projectName":"test_0923001","tableName":"test_table_001","partition":"ds\u003d$[yyyymmdd]"},{"projectName":"test_0923001","tableName":"test_table_002","partition":"NOTAPARTITIONTABLE"}]
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $dqcDescription;
 
     /**
+     * @description Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. A value of 0 indicates that the node is associated with Data Quality. A value of 1 indicates that the node is not associated with Data Quality.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,13 @@ class data extends Model
     public $dqcType;
 
     /**
+     * @var int
+     */
+    public $fileType;
+
+    /**
+     * @description The ID of the node.
+     *
      * @example 1234
      *
      * @var int
@@ -65,11 +86,15 @@ class data extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the owner of the node.
+     *
      * @example 17366294****
      *
      * @var string
@@ -77,6 +102,8 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description Other parameters.
+     *
      * @example a=b
      *
      * @var string
@@ -84,6 +111,8 @@ class data extends Model
     public $paramValues;
 
     /**
+     * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8.
+     *
      * @example 1
      *
      * @var int
@@ -91,6 +120,8 @@ class data extends Model
     public $priority;
 
     /**
+     * @description The type of the node.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -98,6 +129,8 @@ class data extends Model
     public $programType;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 1234
      *
      * @var int
@@ -105,6 +138,8 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The ID of the workflow to which the node belongs.
+     *
      * @example 123
      *
      * @var int
@@ -112,6 +147,8 @@ class data extends Model
     public $relatedFlowId;
 
     /**
+     * @description The interval at which the node is rerun after the node fails to run.
+     *
      * @example 60
      *
      * @var int
@@ -119,6 +156,8 @@ class data extends Model
     public $repeatInterval;
 
     /**
+     * @description Indicates whether the node can be rerun.
+     *
      * @example true
      *
      * @var string
@@ -128,34 +167,50 @@ class data extends Model
     /**
      * @var string
      */
+    public $resGroupIdentifier;
+
+    /**
+     * @description The name of the resource group.
+     *
+     * @var string
+     */
     public $resGroupName;
 
     /**
+     * @description The scheduling type of the node. Valid values:
+     *
+     *   NORMAL: The node is an auto triggered node.
+     *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+     *   PAUSE: The node is a paused node.
+     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+     *
      * @example NORMAL
      *
      * @var string
      */
     public $schedulerType;
     protected $_name = [
-        'baselineId'     => 'BaselineId',
-        'businessId'     => 'BusinessId',
-        'connection'     => 'Connection',
-        'cronExpress'    => 'CronExpress',
-        'description'    => 'Description',
-        'dqcDescription' => 'DqcDescription',
-        'dqcType'        => 'DqcType',
-        'nodeId'         => 'NodeId',
-        'nodeName'       => 'NodeName',
-        'ownerId'        => 'OwnerId',
-        'paramValues'    => 'ParamValues',
-        'priority'       => 'Priority',
-        'programType'    => 'ProgramType',
-        'projectId'      => 'ProjectId',
-        'relatedFlowId'  => 'RelatedFlowId',
-        'repeatInterval' => 'RepeatInterval',
-        'repeatability'  => 'Repeatability',
-        'resGroupName'   => 'ResGroupName',
-        'schedulerType'  => 'SchedulerType',
+        'baselineId'         => 'BaselineId',
+        'businessId'         => 'BusinessId',
+        'connection'         => 'Connection',
+        'cronExpress'        => 'CronExpress',
+        'description'        => 'Description',
+        'dqcDescription'     => 'DqcDescription',
+        'dqcType'            => 'DqcType',
+        'fileType'           => 'FileType',
+        'nodeId'             => 'NodeId',
+        'nodeName'           => 'NodeName',
+        'ownerId'            => 'OwnerId',
+        'paramValues'        => 'ParamValues',
+        'priority'           => 'Priority',
+        'programType'        => 'ProgramType',
+        'projectId'          => 'ProjectId',
+        'relatedFlowId'      => 'RelatedFlowId',
+        'repeatInterval'     => 'RepeatInterval',
+        'repeatability'      => 'Repeatability',
+        'resGroupIdentifier' => 'ResGroupIdentifier',
+        'resGroupName'       => 'ResGroupName',
+        'schedulerType'      => 'SchedulerType',
     ];
 
     public function validate()
@@ -186,6 +241,9 @@ class data extends Model
         if (null !== $this->dqcType) {
             $res['DqcType'] = $this->dqcType;
         }
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -215,6 +273,9 @@ class data extends Model
         }
         if (null !== $this->repeatability) {
             $res['Repeatability'] = $this->repeatability;
+        }
+        if (null !== $this->resGroupIdentifier) {
+            $res['ResGroupIdentifier'] = $this->resGroupIdentifier;
         }
         if (null !== $this->resGroupName) {
             $res['ResGroupName'] = $this->resGroupName;
@@ -255,6 +316,9 @@ class data extends Model
         if (isset($map['DqcType'])) {
             $model->dqcType = $map['DqcType'];
         }
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -284,6 +348,9 @@ class data extends Model
         }
         if (isset($map['Repeatability'])) {
             $model->repeatability = $map['Repeatability'];
+        }
+        if (isset($map['ResGroupIdentifier'])) {
+            $model->resGroupIdentifier = $map['ResGroupIdentifier'];
         }
         if (isset($map['ResGroupName'])) {
             $model->resGroupName = $map['ResGroupName'];

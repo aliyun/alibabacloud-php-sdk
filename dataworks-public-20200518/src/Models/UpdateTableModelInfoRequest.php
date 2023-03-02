@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableModelInfoRequest extends Model
 {
     /**
+     * @description The ID of the first-level table folder.
+     *
      * @example 101
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateTableModelInfoRequest extends Model
     public $firstLevelThemeId;
 
     /**
+     * @description The ID of the table level.
+     *
      * @example 101
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateTableModelInfoRequest extends Model
     public $levelId;
 
     /**
+     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class UpdateTableModelInfoRequest extends Model
     public $levelType;
 
     /**
+     * @description The ID of the second-level table folder.
+     *
      * @example 101
      *
      * @var int
@@ -37,6 +45,8 @@ class UpdateTableModelInfoRequest extends Model
     public $secondLevelThemeId;
 
     /**
+     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     *
      * @example odps.test.table1
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class inputParameters extends Model
 {
     /**
+     * @description The name of the input parameter of the node. In the code, you can use the ${...} method to reference the input parameter of the node.
+     *
+     * This parameter corresponds to the Parameter Name parameter in the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example input
      *
      * @var string
@@ -16,6 +19,9 @@ class inputParameters extends Model
     public $parameterName;
 
     /**
+     * @description The value source of the input parameter of the node.
+     *
+     * This parameter corresponds to the Value Source parameter in the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example project_001.parent_node:outputs
      *
      * @var string

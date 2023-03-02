@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRemindsRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account that is used to receive alert notifications.
+     *
      * @example 9527952795****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListRemindsRequest extends Model
     public $alertTarget;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the custom alert rules.
+     *
      * @example 9527952795****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListRemindsRequest extends Model
     public $founder;
 
     /**
+     * @description The ID of the node to which the custom alert rules are applied. You can use the ID to search for the custom alert rules that are applied to the node.
+     *
      * @example 1234
      *
      * @var int
@@ -30,6 +36,8 @@ class ListRemindsRequest extends Model
     public $nodeId;
 
     /**
+     * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class ListRemindsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class ListRemindsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The conditions that trigger an alert for the node. Valid values: FINISHED, UNFINISHED, ERROR, CYCLE_UNFINISHED, and TIMEOUT. The value FINISHED indicates that the node finishes running. The value UNFINISHED indicates that the node is still running at the specified point in time. The value ERROR indicates that an error occurs when the node is running. The value CYCLE_UNFINISHED indicates that the node does not finish running in the specified scheduling cycle. The value TIMEOUT indicates that the node times out. You can specify multiple conditions for a custom alert rule. If you specify multiple condition, separate them with commas (,).
+     *
      * @example FINISHED,ERROR
      *
      * @var string
@@ -51,6 +63,10 @@ class ListRemindsRequest extends Model
     public $remindTypes;
 
     /**
+     * @description The keyword in a rule name that is used to search for the rule. Fuzzy search is supported.
+     *
+     * @example Keyword
+     *
      * @var string
      */
     public $searchText;

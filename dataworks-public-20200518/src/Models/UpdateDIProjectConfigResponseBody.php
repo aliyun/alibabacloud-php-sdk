@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIProjectConfigResponseBody extends Model
 {
     /**
+     * @description The information about the modification.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG
      *
      * @var string
@@ -22,6 +26,11 @@ class UpdateDIProjectConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

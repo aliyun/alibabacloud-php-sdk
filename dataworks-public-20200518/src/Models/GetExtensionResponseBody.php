@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetExtensionResponseBody extends Model
 {
     /**
+     * @description The details of the extension.
+     *
      * @var extension
      */
     public $extension;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG
      *
      * @var string

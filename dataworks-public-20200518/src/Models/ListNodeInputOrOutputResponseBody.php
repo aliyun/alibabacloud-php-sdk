@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNodeInputOrOutputResponseBody extends Model
 {
     /**
+     * @description The ancestor or descendant nodes.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example Invalid.Tenant.ProjectNotExists
      *
      * @var string
@@ -22,6 +26,8 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example The project does not exist.
      *
      * @var string
@@ -29,6 +35,8 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

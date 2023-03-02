@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deletedFile extends Model
 {
     /**
+     * @description The ID of the workflow to which the file belongs.
+     *
      * @example 74328
      *
      * @var int
@@ -16,6 +18,8 @@ class deletedFile extends Model
     public $businessId;
 
     /**
+     * @description The code in the file of the current version.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -23,6 +27,8 @@ class deletedFile extends Model
     public $content;
 
     /**
+     * @description The latest version number of the file.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class deletedFile extends Model
     public $currentVersion;
 
     /**
+     * @description The name of the compute engine instance with which the file is associated.
+     *
      * @example odps_first
      *
      * @var string
@@ -37,6 +45,8 @@ class deletedFile extends Model
     public $dataSourceName;
 
     /**
+     * @description The ID of the file.
+     *
      * @example 1234123
      *
      * @var int
@@ -44,6 +54,8 @@ class deletedFile extends Model
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
      * @example hello_dataworks.sql
      *
      * @var string
@@ -51,6 +63,8 @@ class deletedFile extends Model
     public $fileName;
 
     /**
+     * @description The type of the code in the file. Examples: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time sync), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class deletedFile extends Model
     public $fileType;
 
     /**
+     * @description The ID of the folder to which the file belongs. You can call the [GetFolder](~~173952~~) operation to query the details of the file based on the folder ID.
+     *
      * @example aldurie78l2falure
      *
      * @var string
@@ -65,6 +81,8 @@ class deletedFile extends Model
     public $folderId;
 
     /**
+     * @description The ID of the node that is scheduled.
+     *
      * @example 421429
      *
      * @var int
@@ -72,6 +90,8 @@ class deletedFile extends Model
     public $nodeId;
 
     /**
+     * @description The owner of the file.
+     *
      * @example 7384234****
      *
      * @var string
@@ -79,6 +99,8 @@ class deletedFile extends Model
     public $owner;
 
     /**
+     * @description The ID of the do-while node or for-each node that corresponds to the file.
+     *
      * @example 1234122
      *
      * @var int
@@ -86,6 +108,15 @@ class deletedFile extends Model
     public $parentFileId;
 
     /**
+     * @description The module to which the file belongs. Valid values:
+     *
+     *   NORMAL: The file is used for DataStudio.
+     *   MANUAL: The file is used for a manually triggered node.
+     *   MANUAL_BIZ: The file is used for a manually triggered workflow.
+     *   SKIP: The file is used for a dry-run DataStudio node.
+     *   ADHOCQUERY: The file is used for an ad hoc query.
+     *   COMPONENT: The file is used for a snippet.
+     *
      * @example NORMAL
      *
      * @var string

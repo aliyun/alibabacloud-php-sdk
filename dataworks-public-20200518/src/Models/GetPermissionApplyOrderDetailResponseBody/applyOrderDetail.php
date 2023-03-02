@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class applyOrderDetail extends Model
 {
     /**
+     * @description The unique ID of the Alibaba Cloud account that is used to submit the permission request order.
+     *
      * @example 267842600408993176
      *
      * @var string
@@ -19,6 +21,8 @@ class applyOrderDetail extends Model
     public $applyBaseId;
 
     /**
+     * @description The time when the permission request order was submitted. The parameter value is a UNIX timestamp.
+     *
      * @example 1615284086000
      *
      * @var int
@@ -26,16 +30,22 @@ class applyOrderDetail extends Model
     public $applyTimestamp;
 
     /**
+     * @description The list of Alibaba Cloud accounts that are used to approve the permission request order.
+     *
      * @var approveAccountList[]
      */
     public $approveAccountList;
 
     /**
+     * @description The content of the permission request.
+     *
      * @var approveContent
      */
     public $approveContent;
 
     /**
+     * @description The ID of the permission request order.
+     *
      * @example ad8da78d-8135-455e-9486-27cf213fc140
      *
      * @var string
@@ -43,6 +53,13 @@ class applyOrderDetail extends Model
     public $flowId;
 
     /**
+     * @description The status of the permission request order. Valid values:
+     *
+     *   1: pending approval
+     *   2: approved and authorized
+     *   3: approved but authorization failed
+     *   4: rejected
+     *
      * @example 2
      *
      * @var int
@@ -50,6 +67,8 @@ class applyOrderDetail extends Model
     public $flowStatus;
 
     /**
+     * @description Information about the account that is used to request permissions.
+     *
      * @var granteeObjectList[]
      */
     public $granteeObjectList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class robots extends Model
 {
     /**
+     * @description Indicates whether all group members are notified when the alert notification is sent to a DingTalk group. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class robots extends Model
     public $atAll;
 
     /**
+     * @description The webhook URL of the DingTalk chatbot.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=******************************
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the compute engine instance. The ID is in the Engine type.Engine name format.
+     *
      * @example odps.engine_name
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $appGuid;
 
     /**
+     * @description The ID of the EMR cluster. This parameter is returned only for an EMR compute engine instance.
+     *
      * @example abc
      *
      * @var string
@@ -23,11 +27,17 @@ class data extends Model
     public $clusterBizId;
 
     /**
+     * @description The comment.
+     *
+     * @example test table
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The time when the compute engine instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541576644000
      *
      * @var int
@@ -35,6 +45,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The endpoint of the service.
+     *
      * @example http://service.odpsstg.aliyun-inc.com/
      *
      * @var string
@@ -42,6 +54,8 @@ class data extends Model
     public $endpoint;
 
     /**
+     * @description The type of the environment. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +63,8 @@ class data extends Model
     public $envType;
 
     /**
+     * @description The storage path of the metadatabase of the EMR cluster.
+     *
      * @example hdfs://
      *
      * @var string
@@ -56,6 +72,8 @@ class data extends Model
     public $location;
 
     /**
+     * @description The time when the compute engine instance was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541576644000
      *
      * @var int
@@ -63,6 +81,8 @@ class data extends Model
     public $modifyTime;
 
     /**
+     * @description The name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -70,6 +90,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the workspace owner.
+     *
      * @example 23
      *
      * @var string
@@ -77,6 +99,8 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description The name of the workspace owner.
+     *
      * @example 323
      *
      * @var string
@@ -84,6 +108,8 @@ class data extends Model
     public $ownerName;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 22
      *
      * @var int
@@ -91,6 +117,8 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The name of the workspace.
+     *
      * @example test
      *
      * @var string
@@ -98,11 +126,17 @@ class data extends Model
     public $projectName;
 
     /**
+     * @description The display name of the workspace.
+     *
+     * @example Test items
+     *
      * @var string
      */
     public $projectNameCn;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 233
      *
      * @var int
@@ -110,6 +144,8 @@ class data extends Model
     public $tenantId;
 
     /**
+     * @description The type of the metadatabase. Only hive is supported.
+     *
      * @example hive
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineConfigRequest extends Model
 {
     /**
+     * @description The ID of the baseline. You can call the [GetNode](~~173977~~) operation to obtain the ID.
+     *
      * @example 1234
      *
      * @var int

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByRuleRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     * This parameter is used together with the StartDate parameter. The interval between the time specified by this parameter and the time specified by the StartDate parameter cannot exceed 7 days.
      * @example 2020-09-22 00:00:00
      *
      * @var string
@@ -16,6 +19,8 @@ class ListQualityResultsByRuleRequest extends Model
     public $endDate;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,8 @@ class ListQualityResultsByRuleRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +37,8 @@ class ListQualityResultsByRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the compute engine instance or data source for which data quality is monitored.
+     *
      * @example autotest
      *
      * @var string
@@ -37,6 +46,8 @@ class ListQualityResultsByRuleRequest extends Model
     public $projectName;
 
     /**
+     * @description The ID of the monitoring rule. You can use the ID and information such as a partition filter expression to perform a joint query.
+     *
      * @example 152322134
      *
      * @var int
@@ -44,6 +55,9 @@ class ListQualityResultsByRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     * This parameter is used together with the EndDate parameter. The interval between the time specified by this parameter and the time specified by the EndDate parameter cannot exceed 7 days.
      * @example 2020-09-20 00:00:00
      *
      * @var string

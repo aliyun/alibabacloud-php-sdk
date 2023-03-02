@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The ID of the EMR cluster.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class dataEntityList extends Model
     public $clusterId;
 
     /**
+     * @description The name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -23,6 +27,11 @@ class dataEntityList extends Model
     public $databaseName;
 
     /**
+     * @description The type of the metatable. Valid values:
+     *
+     *   0: table
+     *   1: view
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,11 @@ class dataEntityList extends Model
     public $entityType;
 
     /**
+     * @description The type of the environment. Valid values:
+     *
+     *   1: production environment
+     *   0: development environment
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +51,8 @@ class dataEntityList extends Model
     public $envType;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the workspace owner.
+     *
      * @example 123
      *
      * @var string
@@ -44,6 +60,8 @@ class dataEntityList extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 323
      *
      * @var int
@@ -51,6 +69,8 @@ class dataEntityList extends Model
     public $projectId;
 
     /**
+     * @description The name of the workspace.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +78,8 @@ class dataEntityList extends Model
     public $projectName;
 
     /**
+     * @description The schema information of the table. This parameter is returned only if you enable the table schema in MaxCompute.
+     *
      * @example default
      *
      * @var string
@@ -65,6 +87,8 @@ class dataEntityList extends Model
     public $schema;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.test_name
      *
      * @var string
@@ -72,6 +96,8 @@ class dataEntityList extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example test_name
      *
      * @var string
@@ -79,6 +105,8 @@ class dataEntityList extends Model
     public $tableName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 12345
      *
      * @var int

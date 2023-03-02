@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableLineageRequest extends Model
 {
     /**
+     * @description The ID of the E-MapReduce (EMR) cluster. Set this parameter only when you query data in an EMR compute engine instance.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaTableLineageRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the data source. Valid values: odps and emr.
+     *
      * @example emr
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMetaTableLineageRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class GetMetaTableLineageRequest extends Model
     public $databaseName;
 
     /**
+     * @description Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+     *
      * @example up
      *
      * @var string
@@ -37,6 +45,8 @@ class GetMetaTableLineageRequest extends Model
     public $direction;
 
     /**
+     * @description The logic of paging. Set this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the last query.
+     *
      * @example odps.engine_name.table_name1
      *
      * @var string
@@ -44,6 +54,8 @@ class GetMetaTableLineageRequest extends Model
     public $nextPrimaryKey;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +63,8 @@ class GetMetaTableLineageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -58,6 +72,8 @@ class GetMetaTableLineageRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example abc
      *
      * @var string

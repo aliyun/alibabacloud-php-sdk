@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceFolderRequest extends Model
 {
     /**
+     * @description The ID of the folder.
+     *
      * @example 10001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataServiceFolderRequest extends Model
     public $folderId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10002
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDataServiceFolderRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10003
      *
      * @var int

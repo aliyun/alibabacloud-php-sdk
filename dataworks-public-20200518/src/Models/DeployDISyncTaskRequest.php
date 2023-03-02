@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeployDISyncTaskRequest extends Model
 {
     /**
+     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to deploy.
+     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to deploy.
+     *
+     * You can call the [ListFiles](~~173942~~) operation to query the ID of the real-time synchronization node or data synchronization solution.
      * @example 100
      *
      * @var int
@@ -16,6 +20,9 @@ class DeployDISyncTaskRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to query the workspace ID.
+     *
+     * This parameter specifies the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -23,6 +30,11 @@ class DeployDISyncTaskRequest extends Model
     public $projectId;
 
     /**
+     * @description The type of the object that you want to deploy. Valid values:
+     *
+     *   DI_REALTIME: real-time synchronization node
+     *   DI_SOLUTION: data synchronization solution
+     *
      * @example DI_REALTIME
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
+     * @description The details about the instance.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 0
      *
      * @var string
@@ -22,6 +26,8 @@ class GetInstanceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned because the instance fails to be scheduled.
+     *
      * @example test
      *
      * @var string
@@ -29,6 +35,8 @@ class GetInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -43,6 +53,8 @@ class GetInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

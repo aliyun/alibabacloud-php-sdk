@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListShiftSchedulesRequest extends Model
 {
     /**
+     * @description The ID of your Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to obtain the ID.
+     *
      * @example 1933790683****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListShiftSchedulesRequest extends Model
     public $owner;
 
     /**
+     * @description The number of the page to return. Minimum value:1. Maximum value: 100. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListShiftSchedulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListShiftSchedulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword used to perform a fuzzy search on shift schedules.
+     *
      * @var string
      */
     public $shiftScheduleName;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartDISyncInstanceRequest extends Model
 {
     /**
+     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to start.
+     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to start.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +19,9 @@ class StartDISyncInstanceRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
+     * You must set this parameter to specify the DataWorks workspace in which the real-time synchronization node or the data synchronization solution resides.
      * @example 10000
      *
      * @var int
@@ -23,6 +29,9 @@ class StartDISyncInstanceRequest extends Model
     public $projectId;
 
     /**
+     * @description *   If you set the TaskType parameter to DI_REALTIME, the StartParam parameter specifies the startup parameters for the real-time synchronization node. The startup parameters include failover-related parameters, the parameter that specifies the number of dirty data records allowed, and the parameters in the data definition language (DDL) statements.
+     *   If you set the TaskType parameter to DI_SOLUTION, the StartParam parameter does not take effect.
+     *
      * @example {"failoverLimit":{"count":10,"interval":30},"errorLimit":{"record":0},"ddlMarkMap":{"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"IGNORE","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"NORMAL","DROPCOLUMN":"IGNORE","ADDCOLUMN":"NORMAL","RENAMETABLE":"CRITICAL"}}
      *
      * @var string
@@ -30,6 +39,11 @@ class StartDISyncInstanceRequest extends Model
     public $startParam;
 
     /**
+     * @description The type of the Data Integration object that you want to start. Valid values:
+     *
+     *   DI_REALTIME: real-time synchronization node
+     *   DI_SOLUTION: data synchronization solution
+     *
      * @example DI_REALTIME
      *
      * @var string

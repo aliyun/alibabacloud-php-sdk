@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApplicationsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDataServiceApplicationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListDataServiceApplicationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the workspace based on which you want to query the basic information of applications. You can specify multiple IDs. Separate them with commas (,). You must specify at least one workspace ID. You can specify a maximum of 50 workspace IDs.
+     *
      * @example 10000,100001
      *
      * @var string
@@ -30,6 +36,8 @@ class ListDataServiceApplicationsRequest extends Model
     public $projectIdList;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 100002
      *
      * @var int

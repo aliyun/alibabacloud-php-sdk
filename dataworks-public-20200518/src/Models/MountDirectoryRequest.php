@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MountDirectoryRequest extends Model
 {
     /**
+     * @description The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+     *
+     * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](~~469938~~) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
      * @example album.339
      *
      * @var string
@@ -16,14 +19,22 @@ class MountDirectoryRequest extends Model
     public $targetId;
 
     /**
+     * @description The type of the directory that you want to add to the left-side navigation pane of DataAnalysis. Example: META_ALBUM, which indicates the data album.
+     *
      * @example META_ALBUM
      *
      * @var string
      */
     public $targetType;
+
+    /**
+     * @var string
+     */
+    public $targetUserId;
     protected $_name = [
-        'targetId'   => 'TargetId',
-        'targetType' => 'TargetType',
+        'targetId'     => 'TargetId',
+        'targetType'   => 'TargetType',
+        'targetUserId' => 'TargetUserId',
     ];
 
     public function validate()
@@ -38,6 +49,9 @@ class MountDirectoryRequest extends Model
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
+        }
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
 
         return $res;
@@ -56,6 +70,9 @@ class MountDirectoryRequest extends Model
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
+        }
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
 
         return $model;

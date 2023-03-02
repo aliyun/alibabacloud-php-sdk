@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityRuleRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $blockType;
 
     /**
-     * @example 9
-     *
      * @var int
      */
     public $checker;
@@ -28,120 +24,86 @@ class UpdateQualityRuleRequest extends Model
     public $comment;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $criticalThreshold;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $entityId;
 
     /**
-     * @example 300
-     *
      * @var string
      */
     public $expectValue;
 
     /**
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example table_count
-     *
      * @var string
      */
     public $methodName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $openSwitch;
 
     /**
-     * @example >
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $predictType;
 
     /**
-     * @example autotest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example id
-     *
      * @var string
      */
     public $property;
 
     /**
-     * @example bigint
-     *
      * @var string
      */
     public $propertyType;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $ruleType;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $templateId;
 
     /**
-     * @example up
-     *
      * @var string
      */
     public $trend;
 
     /**
-     * @example 5
-     *
      * @var string
      */
     public $warningThreshold;
 
     /**
-     * @example dt=$[yyyymmdd]
-     *
      * @var string
      */
     public $whereCondition;

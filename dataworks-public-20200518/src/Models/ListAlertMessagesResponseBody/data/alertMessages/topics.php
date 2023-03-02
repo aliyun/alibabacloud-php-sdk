@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
+     * @description The ID of the instance that triggered the event.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class topics extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the node that triggered the event.
+     *
      * @example 1234
      *
      * @var int
@@ -23,6 +27,8 @@ class topics extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 1234
      *
      * @var int
@@ -30,11 +36,15 @@ class topics extends Model
     public $topicId;
 
     /**
+     * @description The name of the event.
+     *
      * @var string
      */
     public $topicName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the event owner.
+     *
      * @example 9527952795****
      *
      * @var string
@@ -42,6 +52,8 @@ class topics extends Model
     public $topicOwner;
 
     /**
+     * @description The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER. The value IGNORE indicates that the event is ignored. The value NEW indicates that the event is a new event. The value FIXING indicates that the event is being handled. The value RECOVER indicates that the event is handled.
+     *
      * @example FIXING
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFolderRequest extends Model
 {
     /**
+     * @description The ID of the folder. You can call the [ListFolders](~~173955~~) operation to query the ID.
+     *
      * @example 2eb6f9****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFolderRequest extends Model
     public $folderId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteFolderRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Settings panel to obtain the name. You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

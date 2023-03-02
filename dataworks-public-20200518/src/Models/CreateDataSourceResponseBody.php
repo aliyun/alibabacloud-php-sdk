@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceResponseBody extends Model
 {
     /**
+     * @description The ID of the data source.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDataSourceResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDataSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc141151593763****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

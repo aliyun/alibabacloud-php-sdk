@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
+     *
+     *   1: indicates that the monitoring rule is a strong rule.
+     *
+     *   0: indicates that the monitoring rule is a weak rule.
+     *
+     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and an error alert is triggered, nodes are blocked.
      * @example 1
      *
      * @var int
@@ -16,6 +23,8 @@ class data extends Model
     public $blockType;
 
     /**
+     * @description The ID of the checker. The value of this parameter corresponds to the ID at the frontend and is converted from the ID of the primary key.
+     *
      * @example 9
      *
      * @var int
@@ -23,6 +32,8 @@ class data extends Model
     public $checker;
 
     /**
+     * @description The name of the checker.
+     *
      * @example compared with a fixed value
      *
      * @var string
@@ -30,11 +41,15 @@ class data extends Model
     public $checkerName;
 
     /**
+     * @description The description of the monitoring rule.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The threshold for an error alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and an error alert is triggered, nodes are blocked.
+     *
      * @example 20
      *
      * @var string
@@ -42,6 +57,8 @@ class data extends Model
     public $criticalThreshold;
 
     /**
+     * @description The ID of the partition filter expression.
+     *
      * @example 165523
      *
      * @var int
@@ -49,6 +66,8 @@ class data extends Model
     public $entityId;
 
     /**
+     * @description The expected value.
+     *
      * @example 30
      *
      * @var string
@@ -56,6 +75,8 @@ class data extends Model
     public $expectValue;
 
     /**
+     * @description Indicates whether the monitoring is performed based on a fixed value.
+     *
      * @example true
      *
      * @var bool
@@ -63,6 +84,8 @@ class data extends Model
     public $fixCheck;
 
     /**
+     * @description The ID of the monitoring rule.
+     *
      * @example 123232
      *
      * @var int
@@ -70,6 +93,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The ID of the sampling method of the monitoring rule.
+     *
      * @example 8
      *
      * @var int
@@ -77,6 +102,8 @@ class data extends Model
     public $methodId;
 
     /**
+     * @description The name of the method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+     *
      * @example table_count
      *
      * @var string
@@ -84,6 +111,8 @@ class data extends Model
     public $methodName;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to configure the monitoring rule.
+     *
      * @example 1822931****
      *
      * @var string
@@ -91,6 +120,8 @@ class data extends Model
     public $onDuty;
 
     /**
+     * @description The name of the Alibaba Cloud account that is used to configure the monitoring rule.
+     *
      * @example test
      *
      * @var string
@@ -103,6 +134,8 @@ class data extends Model
     public $openSwitch;
 
     /**
+     * @description The comparison operator of the monitoring rule.
+     *
      * @example >=
      *
      * @var string
@@ -110,6 +143,11 @@ class data extends Model
     public $operator;
 
     /**
+     * @description Indicates whether the threshold is a dynamic threshold. Valid values:
+     *
+     *   0: The threshold is not a dynamic threshold.
+     *   1: The threshold is a dynamic threshold.
+     *
      * @example 0
      *
      * @var int
@@ -117,6 +155,8 @@ class data extends Model
     public $predictType;
 
     /**
+     * @description The field that is monitored. This field is a column name in the data source table that is monitored.
+     *
      * @example id
      *
      * @var string
@@ -124,11 +164,15 @@ class data extends Model
     public $property;
 
     /**
+     * @description The name of the monitoring rule.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The type of the monitoring rule.
+     *
      * @example 0
      *
      * @var int
@@ -136,6 +180,8 @@ class data extends Model
     public $ruleType;
 
     /**
+     * @description The ID of the monitoring template.
+     *
      * @example 7
      *
      * @var int
@@ -143,6 +189,8 @@ class data extends Model
     public $templateId;
 
     /**
+     * @description The name of the monitoring template.
+     *
      * @example SQL task table rows, 1,7, 30 days fluctuation test
      *
      * @var string
@@ -150,6 +198,8 @@ class data extends Model
     public $templateName;
 
     /**
+     * @description The trend of the monitoring result.
+     *
      * @example abs
      *
      * @var string
@@ -157,6 +207,8 @@ class data extends Model
     public $trend;
 
     /**
+     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
+     *
      * @example 10
      *
      * @var string
@@ -164,6 +216,8 @@ class data extends Model
     public $warningThreshold;
 
     /**
+     * @description The filter condition or custom SQL statement that is used for monitoring.
+     *
      * @example id>10
      *
      * @var string

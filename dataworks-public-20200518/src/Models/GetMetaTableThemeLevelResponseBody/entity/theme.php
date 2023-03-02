@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class theme extends Model
 {
     /**
+     * @description The level of the table folder. Valid values:
+     *
+     *   1: indicates a table folder of level 1.
+     *   2: indicates a table folder of level 2.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class theme extends Model
     public $level;
 
     /**
+     * @description The name of the table folder.
+     *
      * @example theme1
      *
      * @var string
@@ -23,6 +30,8 @@ class theme extends Model
     public $name;
 
     /**
+     * @description The ID of the parent table folder.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class theme extends Model
     public $parentId;
 
     /**
+     * @description The ID of the table folder.
+     *
      * @example 123
      *
      * @var int

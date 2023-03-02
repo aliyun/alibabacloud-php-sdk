@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityRequest extends Model
 {
     /**
+     * @description Valid values: 0 (corrected when SQl is completed) and 1 (corrected when task is completed).
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateQualityEntityRequest extends Model
     public $entityLevel;
 
     /**
+     * @description The engine or data source type.
+     *
      * @example ODPS
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateQualityEntityRequest extends Model
     public $envType;
 
     /**
+     * @description The partition expression.
+     *
      * @example dt=$[yyyymmdd]
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @description The name of the maxcompute project or data source.
+     *
      * @example autotest
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateQualityEntityRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the table.
+     *
      * @example dual
      *
      * @var string

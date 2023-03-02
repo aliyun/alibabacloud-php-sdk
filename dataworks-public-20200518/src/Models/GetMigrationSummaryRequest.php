@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationSummaryRequest extends Model
 {
     /**
+     * @description The ID of the migration task.
+     *
+     * You can call the [CreateImportMigration](~~2809123~~) operation to obtain the ID of the import task and call the [CreateExportMigration](~~3241603~~) operation to obtain the ID of the export task.
      * @example 1234
      *
      * @var int
@@ -16,6 +19,8 @@ class GetMigrationSummaryRequest extends Model
     public $migrationId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 12345
      *
      * @var int

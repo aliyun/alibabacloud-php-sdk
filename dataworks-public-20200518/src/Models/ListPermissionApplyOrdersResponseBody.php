@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionApplyOrdersResponseBody extends Model
 {
     /**
+     * @description The query results returned by page.
+     *
      * @var applyOrders
      */
     public $applyOrders;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376****
      *
      * @var string

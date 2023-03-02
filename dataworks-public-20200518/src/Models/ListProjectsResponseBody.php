@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsResponseBody extends Model
 {
     /**
+     * @description The results that are returned.
+     *
      * @var pageResult
      */
     public $pageResult;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 20658801***
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableThemeLevelRequest extends Model
 {
     /**
+     * @description The type of the data source. Set the value to odps.
+     *
      * @example odps
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaTableThemeLevelRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.${projectName}.${tableName}.
+     *
      * @example odps.project1.name1
      *
      * @var string

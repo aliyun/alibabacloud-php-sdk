@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The ID of the API group that is associated with the business process in the API Gateway console.
+     *
      * @example 100abc
      *
      * @var string
@@ -16,6 +18,8 @@ class group extends Model
     public $apiGatewayGroupId;
 
     /**
+     * @description The time when the business process was created.
+     *
      * @example 2020-09-24T18:37:51+0800
      *
      * @var string
@@ -23,6 +27,8 @@ class group extends Model
     public $createdTime;
 
     /**
+     * @description The user identifier (UID) of the creator of the business process. The value of this parameter may be empty for creators of some existing business processes.
+     *
      * @example 10001
      *
      * @var string
@@ -30,11 +36,17 @@ class group extends Model
     public $creatorId;
 
     /**
+     * @description The description of the business process.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the business process.
+     *
      * @example ds_123abc
      *
      * @var string
@@ -42,11 +54,17 @@ class group extends Model
     public $groupId;
 
     /**
+     * @description The name of the business process.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The time when the business process was last modified.
+     *
      * @example 2020-09-24T18:37:51+0800
      *
      * @var string
@@ -54,6 +72,8 @@ class group extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10002
      *
      * @var int
@@ -61,6 +81,8 @@ class group extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10003
      *
      * @var int

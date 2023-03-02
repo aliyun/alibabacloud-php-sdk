@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableRequest extends Model
 {
     /**
+     * @description The globally unique identifier (GUID) of the MaxCompute project. Specify the GUID in the odps.{projectName} format.
+     *
      * @example odps.test
      *
      * @var string
@@ -18,6 +20,8 @@ class UpdateTableRequest extends Model
     public $appGuid;
 
     /**
+     * @description The ID of the associated category.
+     *
      * @example 101
      *
      * @var int
@@ -30,11 +34,19 @@ class UpdateTableRequest extends Model
     public $columns;
 
     /**
+     * @description The comment.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description Specifies whether the table exists. Valid values:
+     *
+     *   true: The table exists.
+     *   false: The table does not exist.
+     *
+     * This parameter is deprecated. Do not use this parameter.
      * @example true
      *
      * @var bool
@@ -42,6 +54,8 @@ class UpdateTableRequest extends Model
     public $createIfNotExists;
 
     /**
+     * @description The endpoint of MaxCompute. If this parameter is left empty, the endpoint of the MaxCompute project is used.
+     *
      * @example odps://
      *
      * @var string
@@ -49,6 +63,8 @@ class UpdateTableRequest extends Model
     public $endpoint;
 
     /**
+     * @description The environment of the DataWorks workspace. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +72,8 @@ class UpdateTableRequest extends Model
     public $envType;
 
     /**
+     * @description The type of the external table. Valid values: 0, 1, 2, and 3. The value 0 indicates that the external table is an OSS external table. The value 1 indicates that the external table is a Tablestore external table. The value 2 indicates that the external table is a volume external table. The value 3 indicates that the external table is a MySQL external table. This parameter is deprecated. Do not use this parameter.
+     *
      * @example 1
      *
      * @var string
@@ -63,6 +81,9 @@ class UpdateTableRequest extends Model
     public $externalTableType;
 
     /**
+     * @description Specifies whether the table that you want to update is a partitioned table. Valid values: 0 and 1. The value 0 indicates that the table is not a partitioned table. The value 1 indicates that the table is a partitioned table. This parameter is deprecated. Do not use this parameter.
+     *
+     * The Column.N.isPartitionCol parameter is used instead of the HasPart parameter to specify whether the MaxCompute table is a partitioned table. If the Column.N.isPartitionCol parameter is set to 1, the MaxCompute table is a partitioned table.
      * @example 0
      *
      * @var int
@@ -70,6 +91,8 @@ class UpdateTableRequest extends Model
     public $hasPart;
 
     /**
+     * @description Specifies whether the table is a view. Valid values: 0 and 1. The value 0 indicates that the table is not a view. The value 1 indicates that the table is a view. This parameter is deprecated. Do not use this parameter.
+     *
      * @example 0
      *
      * @var int
@@ -77,6 +100,8 @@ class UpdateTableRequest extends Model
     public $isView;
 
     /**
+     * @description The lifecycle of the table. Unit: days. If this parameter is left empty, the table is permanently stored.
+     *
      * @example 10
      *
      * @var int
@@ -84,6 +109,8 @@ class UpdateTableRequest extends Model
     public $lifeCycle;
 
     /**
+     * @description The storage location of the external table. This parameter is deprecated. Do not use this parameter.
+     *
      * @example location
      *
      * @var string
@@ -91,6 +118,8 @@ class UpdateTableRequest extends Model
     public $location;
 
     /**
+     * @description The ID of the logical level.
+     *
      * @example 101
      *
      * @var int
@@ -103,6 +132,8 @@ class UpdateTableRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the physical level.
+     *
      * @example 101
      *
      * @var int
@@ -110,6 +141,8 @@ class UpdateTableRequest extends Model
     public $physicsLevelId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console to obtain the ID of the DataWorks workspace.
+     *
      * @example 101
      *
      * @var int
@@ -117,6 +150,8 @@ class UpdateTableRequest extends Model
     public $projectId;
 
     /**
+     * @description The schema information of the table. You need to enter the schema information of the table if you enable the table schema in MaxCompute.
+     *
      * @example default
      *
      * @var string
@@ -124,6 +159,8 @@ class UpdateTableRequest extends Model
     public $schema;
 
     /**
+     * @description The name of the MaxCompute table.
+     *
      * @example abc
      *
      * @var string
@@ -136,6 +173,8 @@ class UpdateTableRequest extends Model
     public $themes;
 
     /**
+     * @description The scope in which the table is visible. Valid values: 0, 1, and 2. The value 0 indicates that the table is invisible to all workspace members. The value 1 indicates that the table is visible to all workspace members. The value 2 indicates that the table is visible to workspace members.
+     *
      * @example 1
      *
      * @var int

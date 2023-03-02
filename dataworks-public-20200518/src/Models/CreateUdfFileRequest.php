@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUdfFileRequest extends Model
 {
     /**
+     * @description The name of the class in which the function is defined. This parameter corresponds to the Class Name parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @example com.alibaba.DataWorks.api.udf.StringConcat
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateUdfFileRequest extends Model
     public $className;
 
     /**
+     * @description The syntax used for calling the function. This parameter corresponds to the Expression Syntax parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @example StringConcat(String... substrs)
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateUdfFileRequest extends Model
     public $cmdDescription;
 
     /**
+     * @description The example for calling the function. This parameter corresponds to the Example parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @example StringConcat(\"a\", \"b\", \"c\")
      *
      * @var string
@@ -30,11 +36,15 @@ class CreateUdfFileRequest extends Model
     public $example;
 
     /**
+     * @description The path of the folder in which the file for the function is stored.
+     *
      * @var string
      */
     public $fileFolderPath;
 
     /**
+     * @description The name of the file for the function.
+     *
      * @example StringConcat
      *
      * @var string
@@ -42,6 +52,8 @@ class CreateUdfFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @example STRING
      *
      * @var string
@@ -49,11 +61,15 @@ class CreateUdfFileRequest extends Model
     public $functionType;
 
     /**
+     * @description The description of the input parameters of the function. This parameter corresponds to the Parameter Description parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -61,6 +77,9 @@ class CreateUdfFileRequest extends Model
     public $projectId;
 
     /**
+     * @description The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
+     *
+     * You must specify either this parameter or the projectId parameter to determine the DataWorks workspace to which the operation is called.
      * @example dw_project
      *
      * @var string
@@ -68,6 +87,8 @@ class CreateUdfFileRequest extends Model
     public $projectIdentifier;
 
     /**
+     * @description The names of the resources that are referenced by the function. This parameter corresponds to the Resources parameter in the Register Function section of the configuration tab of the function in the DataWorks console. Multiple resource names are separated by commas (,).
+     *
      * @example string-concat-1.0.0.jar,commons-lang-2.6.jar
      *
      * @var string
@@ -75,11 +96,15 @@ class CreateUdfFileRequest extends Model
     public $resources;
 
     /**
+     * @description The description of the return value of the function. This parameter corresponds to the Return Value parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @var string
      */
     public $returnValue;
 
     /**
+     * @description The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     *
      * @var string
      */
     public $udfDescription;

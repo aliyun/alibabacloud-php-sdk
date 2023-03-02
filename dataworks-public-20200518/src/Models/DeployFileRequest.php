@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeployFileRequest extends Model
 {
     /**
+     * @description The description of the deployment operation.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     *
+     * You must configure either the FileId parameter or the NodeId parameter.
      * @example 10000001
      *
      * @var int
@@ -21,6 +26,8 @@ class DeployFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the node in the scheduling system that corresponds to the file that you want to deploy. You must configure either the NodeId parameter or the FileId parameter.
+     *
      * @example 2000001
      *
      * @var int
@@ -28,6 +35,8 @@ class DeployFileRequest extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -35,6 +44,8 @@ class DeployFileRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must configure either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

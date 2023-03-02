@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnectionResponseBody extends Model
 {
     /**
+     * @description Indicates whether the update is successful.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateConnectionResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateConnectionResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc14115159376359****
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request has failed.
+     *
      * @example true
      *
      * @var bool

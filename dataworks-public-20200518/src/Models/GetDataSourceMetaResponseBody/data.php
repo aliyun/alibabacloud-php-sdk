@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the metadata of the data source failed to be retrieved. If the metadata of the data source was retrieved, this parameter is left empty.
+     *
      * @example read datasource time out
      *
      * @var string
@@ -16,6 +18,16 @@ class data extends Model
     public $message;
 
     /**
+     * @description The returned metadata of the data source. The returned metadata is in the JSON format.
+     *
+     * Parameter description:
+     *
+     *   dbName: the name of the database in which the data source resides.
+     *   schema: the schema of the database.
+     *   enable: indicates whether the database is available. A value of true indicates that the database is available. A value of false indicates that the database is unavailable.
+     *   tableName: the name of the table in the database.
+     *   tableInfos: the information about the table in the database.
+     *
      * @example {"dbTables":[{"dbName":"testdb","schema":[{"tableInfos":[{"dbName":"testdb","enable":true,"table":"table1","tableName":"table1"}]},{"tableInfos":[{"dbName":"testdb","enable":true,"table":"table2","tableName":"table2"}]}]}]}
      *
      * @var string
@@ -23,6 +35,11 @@ class data extends Model
     public $meta;
 
     /**
+     * @description Indicates whether the metadata of the data source was retrieved. Valid values:
+     *
+     *   success: The metadata of the data source was retrieved.
+     *   fail: The metadata of the data source failed to be retrieved. You can troubleshoot issues based on the Message parameter.
+     *
      * @example success
      *
      * @var string

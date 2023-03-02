@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [ListInstances](~~173982~~) operation to query the ID.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class GetInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+     *
      * @example PROD
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TerminateDISyncInstanceRequest extends Model
 {
     /**
+     * @description The ID of the real-time synchronization node.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,9 @@ class TerminateDISyncInstanceRequest extends Model
     public $fileId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to view the workspace ID.
+     *
+     * This parameter specifies the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -23,6 +28,8 @@ class TerminateDISyncInstanceRequest extends Model
     public $projectId;
 
     /**
+     * @description The type of the node. A value of DI_REALTIME indicates that the node is a real-time synchronization node.
+     *
      * @example DI_REALTIME
      *
      * @var string

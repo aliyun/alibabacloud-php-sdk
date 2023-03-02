@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @description The name of the field.
+     *
      * @example abc
      *
      * @var string
@@ -16,11 +18,15 @@ class column extends Model
     public $columnName;
 
     /**
+     * @description The display name of the field.
+     *
      * @var string
      */
     public $columnNameCn;
 
     /**
+     * @description The type of the field. For more information, see MaxCompute field types.
+     *
      * @example string
      *
      * @var string
@@ -28,6 +34,8 @@ class column extends Model
     public $columnType;
 
     /**
+     * @description The comment of the field.
+     *
      * @var string
      */
     public $comment;

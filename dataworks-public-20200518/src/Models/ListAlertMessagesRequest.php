@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListAlertMessagesRequest extends Model
 {
     /**
+     * @description The notification method. Valid values:
+     *
+     *   MAIL: email
+     *
+     *   SMS: text message
+     *
+     * You can specify multiple notification methods. Separate them with commas (,).
      * @example SMS,MAIL,PHONE
      *
      * @var string
@@ -16,6 +23,8 @@ class ListAlertMessagesRequest extends Model
     public $alertMethods;
 
     /**
+     * @description The type of the alert rule. Valid values: GLOBAL, USER_DEFINE, and OTHER. The value GLOBAL indicates that the alert rule is a global alert rule. The value USER_DEFINE indicates that the alert rule is customized by a user. The value OTHER indicates that the alert rule is a rule of another type. You can specify multiple types. Separate them with commas (,).
+     *
      * @example GLOBAL,USER_DEFINE,OTHER
      *
      * @var string
@@ -23,6 +32,8 @@ class ListAlertMessagesRequest extends Model
     public $alertRuleTypes;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the alert recipient.
+     *
      * @example 123456
      *
      * @var string
@@ -30,6 +41,9 @@ class ListAlertMessagesRequest extends Model
     public $alertUser;
 
     /**
+     * @description The ID of the baseline. This parameter takes effect if the AlertRuleTypes parameter is set to GLOBAL.
+     *
+     * You can configure either this parameter or RemindId.
      * @example 1234
      *
      * @var int
@@ -37,6 +51,8 @@ class ListAlertMessagesRequest extends Model
     public $baselineId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-04-02T00:00:00+0800
      *
      * @var string
@@ -44,6 +60,8 @@ class ListAlertMessagesRequest extends Model
     public $beginTime;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-04-04T00:00:00+0800
      *
      * @var string
@@ -51,6 +69,8 @@ class ListAlertMessagesRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +78,8 @@ class ListAlertMessagesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +87,9 @@ class ListAlertMessagesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the custom alert rule. This parameter takes effect if the AlertRuleTypes parameter is set to USER_DEFINE.
+     *
+     * You can configure either this parameter or BaselineId.
      * @example 9527
      *
      * @var int

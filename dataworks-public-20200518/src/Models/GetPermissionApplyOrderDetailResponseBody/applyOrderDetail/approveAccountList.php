@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class approveAccountList extends Model
 {
     /**
+     * @description The unique ID of the Alibaba Cloud account that is used to approve the permission request order.
+     *
      * @example 182293110403****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class tableLevelInfo extends Model
 {
     /**
+     * @description The list of table levels.
+     *
      * @var levelList[]
      */
     public $levelList;
 
     /**
+     * @description The total number of table levels returned.
+     *
      * @example 10
      *
      * @var int

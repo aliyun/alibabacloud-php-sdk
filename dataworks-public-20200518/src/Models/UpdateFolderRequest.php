@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFolderRequest extends Model
 {
     /**
+     * @description The ID of the folder. You can call the [ListFolders](~~173955~~) operation to query the ID.
+     *
      * @example 2735c2c19d58
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateFolderRequest extends Model
     public $folderId;
 
     /**
+     * @description The name of the folder.
+     *
      * @example MySecondFolder
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateFolderRequest extends Model
     public $folderName;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -30,6 +36,8 @@ class UpdateFolderRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Settings panel to obtain the name. You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

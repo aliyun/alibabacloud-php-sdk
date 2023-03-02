@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListNodeInputOrOutputRequest extends Model
 {
     /**
+     * @description The type of node that you want to query. Valid values:
+     *
+     *   input: ancestor nodes
+     *   output: descendant nodes
+     *
      * @example output
      *
      * @var string
@@ -16,6 +21,8 @@ class ListNodeInputOrOutputRequest extends Model
     public $ioType;
 
     /**
+     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
+     *
      * @example 12314567
      *
      * @var int
@@ -23,6 +30,8 @@ class ListNodeInputOrOutputRequest extends Model
     public $nodeId;
 
     /**
+     * @description The environment of the workspace. Valid values: DEV and PROD. A value of DEV indicates the development environment. A value of PROD indicates the production environment.
+     *
      * @example PROD
      *
      * @var string

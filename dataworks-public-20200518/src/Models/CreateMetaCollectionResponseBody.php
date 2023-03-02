@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMetaCollectionResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example NoPermission
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateMetaCollectionResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateMetaCollectionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateMetaCollectionResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The unique identifier of the collection.
+     *
      * @example album.11111
      *
      * @var string
@@ -37,7 +45,7 @@ class CreateMetaCollectionResponseBody extends Model
     public $qualifiedName;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -46,6 +54,11 @@ class CreateMetaCollectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSources extends Model
 {
     /**
+     * @description The ID of the compute engine to which the data source is bound.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,11 @@ class dataSources extends Model
     public $bindingCalcEngineId;
 
     /**
+     * @description Indicates whether the data source is connected to an exclusive resource group. Valid values:
+     *
+     *   1: The data source is connected to at least one exclusive resource group.
+     *   0: The data source is not connected to any exclusive resource group.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,8 @@ class dataSources extends Model
     public $connectStatus;
 
     /**
+     * @description The configuration of the data source.
+     *
      * @example {"pubEndpoint":"http://service.cn.maxcompute.aliyun.com/api","accessId":"TMP.3KecGjvzy3i8MYfn2BGHgF7EHGyBFZcHm7GgngrABVRyvvKQrfF5kskR36xP361C3dqwbGo7SGYptAeGyiTwHXqLaBUvYC","securityToken":null,"endpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","accessKey":"***","name":"PRE_PROJECT_A_engine","project":"PRE_PROJECT_A","vpcEndpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","region":"cn-shanghai","authType":"2"}
      *
      * @var string
@@ -30,6 +39,22 @@ class dataSources extends Model
     public $content;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
+     *
      * @example rds
      *
      * @var string
@@ -37,6 +62,11 @@ class dataSources extends Model
     public $dataSourceType;
 
     /**
+     * @description Indicates whether the compute engine to which the data source is bound is the default compute engine. Valid values:
+     *
+     *   true: The compute engine is the default compute engine.
+     *   false: The compute engine is not the default compute engine.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +74,8 @@ class dataSources extends Model
     public $defaultEngine;
 
     /**
+     * @description The description of the data source.
+     *
      * @example a connection
      *
      * @var string
@@ -51,6 +83,11 @@ class dataSources extends Model
     public $description;
 
     /**
+     * @description The environment to which the data source belongs. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +95,8 @@ class dataSources extends Model
     public $envType;
 
     /**
+     * @description The time when the data source was created. Example: Mar 17, 2021 4:09:32 PM.
+     *
      * @example Mar 17, 2021 4:09:32 PM
      *
      * @var string
@@ -65,6 +104,8 @@ class dataSources extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the data source was last modified. Example: Mar 17, 2021 4:09:32 PM.
+     *
      * @example Mar 17, 2021 4:09:32 PM
      *
      * @var string
@@ -72,6 +113,8 @@ class dataSources extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the data source.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +122,8 @@ class dataSources extends Model
     public $id;
 
     /**
+     * @description The name of the data source.
+     *
      * @example abc
      *
      * @var string
@@ -86,6 +131,8 @@ class dataSources extends Model
     public $name;
 
     /**
+     * @description The ID of the user who exported the data source.
+     *
      * @example 193543050****
      *
      * @var string
@@ -93,6 +140,8 @@ class dataSources extends Model
     public $operator;
 
     /**
+     * @description The ID of the DataWorks workspace to which the data source belongs.
+     *
      * @example 123
      *
      * @var int
@@ -100,6 +149,8 @@ class dataSources extends Model
     public $projectId;
 
     /**
+     * @description The sequence number of the data source.
+     *
      * @example 300
      *
      * @var int
@@ -107,6 +158,11 @@ class dataSources extends Model
     public $sequence;
 
     /**
+     * @description Indicates whether the data source can be shared. Valid values:
+     *
+     *   true: The data source can be shared.
+     *   false: The data source cannot be shared.
+     *
      * @example false
      *
      * @var bool
@@ -114,6 +170,11 @@ class dataSources extends Model
     public $shared;
 
     /**
+     * @description Indicates whether the data source is available. Valid values:
+     *
+     *   1: The data source is available.
+     *   0: The data source is unavailable.
+     *
      * @example 1
      *
      * @var int
@@ -121,6 +182,9 @@ class dataSources extends Model
     public $status;
 
     /**
+     * @description The subtype of the data source. This parameter is returned only if the value of the DataSourceType parameter is rds.
+     *
+     * If the value of the DataSourceType parameter is rds, the value of this parameter can be mysql, sqlserver, or postgresql.
      * @example mysql
      *
      * @var string
@@ -128,6 +192,8 @@ class dataSources extends Model
     public $subType;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the data source belongs.
+     *
      * @example 1234567
      *
      * @var int

@@ -16,6 +16,8 @@ class data extends Model
     public $deployedItems;
 
     /**
+     * @description The details of the deployment task.
+     *
      * @var deployment
      */
     public $deployment;

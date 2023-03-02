@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class programTypeAndCounts extends Model
 {
     /**
+     * @description The number of nodes.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class programTypeAndCounts extends Model
     public $count;
 
     /**
+     * @description The type of the node.
+     *
      * @example ODPS_SQL
      *
      * @var string

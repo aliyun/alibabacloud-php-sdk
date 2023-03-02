@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class outputList extends Model
 {
     /**
+     * @description The output name of the current file.
+     *
+     * This parameter is equivalent to the Output Name parameter under Output in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example dw_project.002_out
      *
      * @var string
@@ -16,6 +19,9 @@ class outputList extends Model
     public $output;
 
     /**
+     * @description The output table name of the current file.
+     *
+     * This parameter is equivalent to the Output Table Name parameter under Output in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example ods_user_info_d
      *
      * @var string

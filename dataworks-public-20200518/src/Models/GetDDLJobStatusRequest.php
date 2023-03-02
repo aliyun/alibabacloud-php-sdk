@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDDLJobStatusRequest extends Model
 {
     /**
+     * @description The ID of the DDL task.
+     *
      * @example abc
      *
      * @var string

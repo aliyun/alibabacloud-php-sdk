@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cause of the failure to obtain the status of the real-time synchronization node or data synchronization solution. If the status of the real-time synchronization node or data synchronization solution is obtained, the value null is returned.
+     *
      * @example fileId[100] is invalid
      *
      * @var string
@@ -17,6 +19,9 @@ class data extends Model
     public $message;
 
     /**
+     * @description *   If the TaskType parameter is set to DI_REALTIME, the Name parameter indicates the name of the real-time synchronization node.
+     *   If the TaskType parameter is set to DI_SOLITION, the value null is returned.
+     *
      * @example streamx_name
      *
      * @var string
@@ -24,11 +29,17 @@ class data extends Model
     public $name;
 
     /**
+     * @description *   If the TaskType parameter is set to DI_REALTIME, the value null is returned.
+     *   If the TaskType parameter is set to DI_SOLITION, the SolutionInfo parameter indicates the details of the data synchronization solution.
+     *
      * @var solutionInfo
      */
     public $solutionInfo;
 
     /**
+     * @description *   If the TaskType parameter is set to DI_REALTIME, the Status parameter indicates the status of the real-time synchronization node. Valid values: PAUSE, NORUN, RUN, KILLING, and WAIT.
+     *   If the TaskType parameter is set to DI_SOLITION, the Status parameter indicates the status of the data synchronization solution. Valid values: success and fail.
+     *
      * @example RUN
      *
      * @var string

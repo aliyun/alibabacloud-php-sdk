@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProgramTypeCountRequest extends Model
 {
     /**
+     * @description The environment of the workspace, including projects in PROD and DEV.
+     *
      * @example PROD
      *
      * @var string
@@ -16,6 +18,8 @@ class ListProgramTypeCountRequest extends Model
     public $projectEnv;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 1234
      *
      * @var int

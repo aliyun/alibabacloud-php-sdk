@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The affected baseline instances.
+     *
      * @var influences[]
      */
     public $influences;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 1234
      *
      * @var int

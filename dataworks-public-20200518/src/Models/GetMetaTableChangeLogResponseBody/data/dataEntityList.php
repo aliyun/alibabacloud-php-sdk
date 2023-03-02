@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The content of the change.
+     *
      * @example "[{\"action\":\"ADD_COLUMN\",\"value\":[{\"originName\":\"\",\"originType\":\"\",\"originComment\":\"\",\"name\":\"id\",\"type\":\"struct<name:string>\",\"comment\":\"\"}]}]",
      *
      * @var string
@@ -16,6 +18,8 @@ class dataEntityList extends Model
     public $changeContent;
 
     /**
+     * @description The type of the change.
+     *
      * @example CREATE_TABLE
      *
      * @var string
@@ -23,6 +27,8 @@ class dataEntityList extends Model
     public $changeType;
 
     /**
+     * @description The time when the metatable was created.
+     *
      * @example 1590722845000
      *
      * @var int
@@ -30,6 +36,8 @@ class dataEntityList extends Model
     public $createTime;
 
     /**
+     * @description The last time when the metatable was modified.
+     *
      * @example 1590722845000
      *
      * @var int
@@ -37,6 +45,8 @@ class dataEntityList extends Model
     public $modifiedTime;
 
     /**
+     * @description The entity on which the change was made. Valid values: TABLE and PARTITION.
+     *
      * @example TABLE
      *
      * @var string
@@ -44,6 +54,8 @@ class dataEntityList extends Model
     public $objectType;
 
     /**
+     * @description The name of the operator.
+     *
      * @example abc
      *
      * @var string

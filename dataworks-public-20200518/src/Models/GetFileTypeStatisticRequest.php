@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileTypeStatisticRequest extends Model
 {
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+     *
      * @example PROD
      *
      * @var string
@@ -16,6 +18,8 @@ class GetFileTypeStatisticRequest extends Model
     public $projectEnv;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
+     *
      * @example 123465
      *
      * @var int

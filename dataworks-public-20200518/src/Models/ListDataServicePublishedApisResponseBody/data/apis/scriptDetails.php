@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class scriptDetails extends Model
 {
     /**
+     * @description The sample error response of the API.
+     *
      * @example {"success": false}
      *
      * @var string
@@ -20,6 +22,8 @@ class scriptDetails extends Model
     public $failedResultSample;
 
     /**
+     * @description Indicates whether the entries are returned by page.
+     *
      * @example true
      *
      * @var bool
@@ -27,6 +31,8 @@ class scriptDetails extends Model
     public $isPagedResponse;
 
     /**
+     * @description The SQL script.
+     *
      * @example select a from t
      *
      * @var string
@@ -34,26 +40,36 @@ class scriptDetails extends Model
     public $script;
 
     /**
+     * @description The data source information of the API generated in script mode.
+     *
      * @var scriptConnection
      */
     public $scriptConnection;
 
     /**
+     * @description The error codes returned for the API generated in script mode.
+     *
      * @var scriptErrorCodes[]
      */
     public $scriptErrorCodes;
 
     /**
+     * @description The request parameters of the API generated in script mode.
+     *
      * @var scriptRequestParameters[]
      */
     public $scriptRequestParameters;
 
     /**
+     * @description The response parameters of the API generated in script mode.
+     *
      * @var scriptResponseParameters[]
      */
     public $scriptResponseParameters;
 
     /**
+     * @description The sample success response of the API.
+     *
      * @example {"success": true}
      *
      * @var string

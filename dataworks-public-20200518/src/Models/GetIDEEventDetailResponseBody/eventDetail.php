@@ -13,21 +13,30 @@ use AlibabaCloud\Tea\Model;
 class eventDetail extends Model
 {
     /**
+     * @description The data snapshot when the file is committed and deployed.
+     *
+     * The value of this parameter is not empty only when the message type is IDE_FILE_SUBMIT_BEFORE or IDE_FILE_DEPLOY_BEFORE.
      * @var committedFile
      */
     public $committedFile;
 
     /**
+     * @description The data snapshot when the file is deleted. The value of this parameter is not empty only when the message type is IDE_FILE_DELETE_BEFORE.
+     *
      * @var deletedFile
      */
     public $deletedFile;
 
     /**
+     * @description The data snapshot when the code in the file is run. The value of this parameter is not empty only when the message type is IDE_FILE_EXECUTE_BEFORE.
+     *
      * @var fileExecutionCommand
      */
     public $fileExecutionCommand;
 
     /**
+     * @description The data snapshot when the table is committed and deployed. The value of this parameter is not empty only when the message type is IDE_TABLE_SUBMIT_BEFORE or IDE_TABLE_DEPLOY_BEFORE.
+     *
      * @var tableModel
      */
     public $tableModel;

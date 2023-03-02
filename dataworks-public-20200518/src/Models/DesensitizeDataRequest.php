@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DesensitizeDataRequest extends Model
 {
     /**
+     * @description The data that you want to mask.
+     *
      * @example 15365291784
      *
      * @var string
@@ -16,6 +18,8 @@ class DesensitizeDataRequest extends Model
     public $data;
 
     /**
+     * @description The code of the data masking scene. You can view the code on the Data Masking page in Data Security Guard of the DataWorks console.
+     *
      * @example _default_scene_code
      *
      * @var string

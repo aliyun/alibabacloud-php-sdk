@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDagResponseBody extends Model
 {
     /**
+     * @description The details of the DAG.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -22,6 +26,8 @@ class GetDagResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -36,6 +42,8 @@ class GetDagResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 7782a299-b291-4fee-8424-cf8058efa8e8
      *
      * @var string
@@ -43,6 +51,8 @@ class GetDagResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileExecutionCommand extends Model
 {
     /**
+     * @description The code in the file of the current version.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -16,6 +18,8 @@ class fileExecutionCommand extends Model
     public $content;
 
     /**
+     * @description The name of the compute engine instance with which the file is associated.
+     *
      * @example odps_first
      *
      * @var string
@@ -23,6 +27,8 @@ class fileExecutionCommand extends Model
     public $dataSourceName;
 
     /**
+     * @description The ID of the file.
+     *
      * @example 1234123
      *
      * @var int
@@ -30,6 +36,8 @@ class fileExecutionCommand extends Model
     public $fileId;
 
     /**
+     * @description The type of the code in the file. Examples: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time sync), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
+     *
      * @example 10
      *
      * @var int

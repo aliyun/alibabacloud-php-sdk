@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class databaseInfo extends Model
 {
     /**
+     * @description The list of metadatabases.
+     *
      * @var dbList[]
      */
     public $dbList;
 
     /**
+     * @description The total number of the metadatabases.
+     *
      * @example 10
      *
      * @var int

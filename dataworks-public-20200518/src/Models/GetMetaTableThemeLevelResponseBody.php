@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableThemeLevelResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var entity
      */
     public $entity;
 
     /**
+     * @description The error code returned.
+     *
      * @example 0
      *
      * @var string
@@ -22,6 +26,8 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     *
      * @example 1324afdsfde
      *
      * @var string
@@ -43,6 +53,8 @@ class GetMetaTableThemeLevelResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

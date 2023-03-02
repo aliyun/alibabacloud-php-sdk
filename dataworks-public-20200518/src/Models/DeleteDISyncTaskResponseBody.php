@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDISyncTaskResponseBody extends Model
 {
     /**
+     * @description The result returned after you called the DeleteDISyncTask operation.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 0bc1411515937635973****
      *
      * @var string
@@ -22,6 +26,11 @@ class DeleteDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

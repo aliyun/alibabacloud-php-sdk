@@ -15,6 +15,8 @@ class UpdateTableAddColumnRequest extends Model
     public $column;
 
     /**
+     * @description The globally unique identifier (GUID) of the MaxCompute table. Specify the GUID in the odps.projectName.tableName format.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string

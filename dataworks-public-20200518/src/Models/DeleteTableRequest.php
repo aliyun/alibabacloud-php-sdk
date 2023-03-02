@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableRequest extends Model
 {
     /**
+     * @description The globally unique identifier (GUID) of the MaxCompute project. Specify the GUID in the odps.{projectName} format.
+     *
      * @example odps.test
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteTableRequest extends Model
     public $appGuid;
 
     /**
+     * @description The environment of the DataWorks workspace. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteTableRequest extends Model
     public $envType;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 101
      *
      * @var int
@@ -30,6 +36,8 @@ class DeleteTableRequest extends Model
     public $projectId;
 
     /**
+     * @description The schema information of the table. You need to enter the schema information of the table if you enable the table schema in MaxCompute.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteTableRequest extends Model
     public $schema;
 
     /**
+     * @description The name of the MaxCompute table.
+     *
      * @example table1
      *
      * @var string

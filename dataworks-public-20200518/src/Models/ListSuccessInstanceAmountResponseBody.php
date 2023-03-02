@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListSuccessInstanceAmountResponseBody extends Model
 {
     /**
+     * @description Indicates the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+     *
      * @var instanceStatusTrend
      */
     public $instanceStatusTrend;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 952795279527ab****
      *
      * @var string

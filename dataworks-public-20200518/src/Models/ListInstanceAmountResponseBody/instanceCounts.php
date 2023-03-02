@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceCounts extends Model
 {
     /**
+     * @description The number of auto triggered node instances.
+     *
      * @example 9527
      *
      * @var int
@@ -16,6 +18,8 @@ class instanceCounts extends Model
     public $count;
 
     /**
+     * @description The data timestamp at which the number of auto triggered node instances was obtained. This value is a UNIX timestamp.
+     *
      * @example 1623772800000
      *
      * @var int

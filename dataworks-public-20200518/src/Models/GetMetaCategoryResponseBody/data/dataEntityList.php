@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 133
      *
      * @var int
@@ -16,6 +18,8 @@ class dataEntityList extends Model
     public $categoryId;
 
     /**
+     * @description The remarks of the category.
+     *
      * @example category 1
      *
      * @var string
@@ -23,6 +27,8 @@ class dataEntityList extends Model
     public $comment;
 
     /**
+     * @description The time when the category was created.
+     *
      * @example 1541576644000
      *
      * @var int
@@ -30,6 +36,8 @@ class dataEntityList extends Model
     public $createTime;
 
     /**
+     * @description The number of category levels.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class dataEntityList extends Model
     public $depth;
 
     /**
+     * @description The ID of the user that performed the last operation.
+     *
      * @example 12345
      *
      * @var string
@@ -44,6 +54,8 @@ class dataEntityList extends Model
     public $lastOperatorId;
 
     /**
+     * @description The time when the category was last modified.
+     *
      * @example 1541576644000
      *
      * @var int
@@ -51,6 +63,8 @@ class dataEntityList extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the category.
+     *
      * @example category 1
      *
      * @var string
@@ -58,6 +72,8 @@ class dataEntityList extends Model
     public $name;
 
     /**
+     * @description The ID of the category owner.
+     *
      * @example 123
      *
      * @var string
@@ -65,6 +81,8 @@ class dataEntityList extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the parent category.
+     *
      * @example 12
      *
      * @var int

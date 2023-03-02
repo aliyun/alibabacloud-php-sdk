@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sampleValue extends Model
 {
     /**
+     * @description The date on which the business was performed. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+     *
      * @example 1600704000000
      *
      * @var string
@@ -16,6 +18,8 @@ class sampleValue extends Model
     public $bizDate;
 
     /**
+     * @description The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
+     *
      * @example type2
      *
      * @var string
@@ -23,6 +27,8 @@ class sampleValue extends Model
     public $discreteProperty;
 
     /**
+     * @description The sample value.
+     *
      * @example 23
      *
      * @var float

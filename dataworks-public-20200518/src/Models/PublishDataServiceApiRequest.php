@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishDataServiceApiRequest extends Model
 {
     /**
+     * @description The ID of the API. You can call the [ListDataServiceApis](~~174009~~) operation to obtain the ID.
+     *
      * @example 10000
      *
      * @var int
@@ -16,6 +18,8 @@ class PublishDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 10001
      *
      * @var int
@@ -23,6 +27,8 @@ class PublishDataServiceApiRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

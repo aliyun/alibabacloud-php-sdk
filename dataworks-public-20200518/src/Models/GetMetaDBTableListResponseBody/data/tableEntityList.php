@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableEntityList extends Model
 {
     /**
+     * @description The name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class tableEntityList extends Model
     public $databaseName;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.tname
      *
      * @var string
@@ -23,6 +27,8 @@ class tableEntityList extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example tname
      *
      * @var string

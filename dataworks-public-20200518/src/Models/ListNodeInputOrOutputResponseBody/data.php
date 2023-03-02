@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the ancestor or descendant node.
+     *
      * @example xxxx.123141254_out
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $data;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1234667
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $nodeId;
 
     /**
+     * @description The name of the associated table.
+     *
      * @example dwd_xxx_table
      *
      * @var string

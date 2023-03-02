@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersResponseBody extends Model
 {
     /**
+     * @description The results that are returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string

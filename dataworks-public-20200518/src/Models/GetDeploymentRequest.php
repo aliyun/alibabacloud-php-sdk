@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentRequest extends Model
 {
     /**
+     * @description The ID of the deployment task. A deployment task ID is generated when you call the [SubmitFile](~~173944~~) or [DeployFile](~~173956~~) operation.
+     *
      * @example 3000001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDeploymentRequest extends Model
     public $deploymentId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -23,6 +27,9 @@ class GetDeploymentRequest extends Model
     public $projectId;
 
     /**
+     * @description The GUID of the DataWorks workspace. You can view the GUID in the upper part of the DataStudio page. You can also select another GUID to switch to another workspace.
+     *
+     * You must specify either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string

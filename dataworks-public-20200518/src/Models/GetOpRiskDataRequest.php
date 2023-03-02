@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpRiskDataRequest extends Model
 {
     /**
+     * @description The date on which the access records were queried. Specify the value in the yyyyMMdd format.
+     *
      * @example 20210221
      *
      * @var string
@@ -16,6 +18,15 @@ class GetOpRiskDataRequest extends Model
     public $date;
 
     /**
+     * @description The parameters that you can specify to query the access records. Valid values:
+     *
+     *   dbType: the data type
+     *   instanceName: the name of the instance
+     *   databaseName: the name of the database
+     *   projectName: the name of the workspace
+     *   clusterName: the name of the cluster
+     *
+     * You must specify the parameters based on the compute engine that you use in your business.
      * @example [ {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"}, {"dbType":"ODPS.ODPS","projectName":"adbc"} ]
      *
      * @var string
@@ -23,6 +34,8 @@ class GetOpRiskDataRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. Minimum value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +43,8 @@ class GetOpRiskDataRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 1000.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +52,11 @@ class GetOpRiskDataRequest extends Model
     public $pageSize;
 
     /**
+     * @description The method that you use to identify risks.
+     *
+     *   You can manually identify risks.
+     *   You can also use a risk rule to identify risks. You can go to the DataWorks console to obtain the name of the risk rule on the Custom Identification Rules page of Data Security Guard.
+     *
      * @var string
      */
     public $riskType;

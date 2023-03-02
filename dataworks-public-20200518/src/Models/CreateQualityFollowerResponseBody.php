@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityFollowerResponseBody extends Model
 {
     /**
+     * @description The ID of the created subscription relationship.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateQualityFollowerResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 401
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateQualityFollowerResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example You have no permission.
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateQualityFollowerResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateQualityFollowerResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ecb967ec-c137-48****
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateQualityFollowerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

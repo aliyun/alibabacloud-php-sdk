@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionRequest extends Model
 {
     /**
+     * @description The unique identifier of the collection.
+     *
      * @example album.12333
      *
      * @var string

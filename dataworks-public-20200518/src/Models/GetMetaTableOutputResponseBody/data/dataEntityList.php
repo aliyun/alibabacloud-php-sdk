@@ -9,49 +9,63 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @example 1511107200000
+     * @description The end time of the node.
+     *
+     * @example 2022-02-12 0:32:12
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 333
+     * @description The ID of the workspace.
+     *
+     * @example 128
      *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example 1511107200000
+     * @description The start time of the node.
+     *
+     * @example 2022-02-12 0:34:13
      *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example odps.engine_name.table_name
+     * @description The GUID of the MaxCompute metatable.
+     *
+     * @example odps.sample_project.sample_table
      *
      * @var string
      */
     public $tableGuid;
 
     /**
-     * @example 32
+     * @description The ID of the node.
+     *
+     * @example 1048576
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 3521
+     * @description The ID of the instance.
+     *
+     * @example 987654321
      *
      * @var int
      */
     public $taskInstanceId;
 
     /**
-     * @example 323
+     * @description The duration during which the node waits to start.
+     *
+     * @example 3
      *
      * @var string
      */

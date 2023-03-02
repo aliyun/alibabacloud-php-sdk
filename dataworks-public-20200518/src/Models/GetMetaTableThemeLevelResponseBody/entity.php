@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class entity extends Model
 {
     /**
+     * @description The information about the table level.
+     *
      * @var level[]
      */
     public $level;
 
     /**
+     * @description The information about the table folder.
+     *
      * @var theme[]
      */
     public $theme;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTopicRequest extends Model
 {
     /**
+     * @description The ID of the event. You can call the [listTopics](~~173973~~) operation to query the event ID.
+     *
      * @example 1234
      *
      * @var int

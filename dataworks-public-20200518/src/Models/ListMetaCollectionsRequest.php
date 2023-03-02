@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMetaCollectionsRequest extends Model
 {
     /**
+     * @description The ID of the collection administrator.
+     *
      * @example 1200759642363000
      *
      * @var string
@@ -16,6 +18,9 @@ class ListMetaCollectionsRequest extends Model
     public $administrator;
 
     /**
+     * @description ALBUM: data album
+     *
+     * ALBUM_CATEGORY: category in a data album
      * @example ALBUM、ALBUM_CATEGORY
      *
      * @var string
@@ -23,6 +28,8 @@ class ListMetaCollectionsRequest extends Model
     public $collectionType;
 
     /**
+     * @description The ID of the collection creator.
+     *
      * @example 1200759642363000
      *
      * @var string
@@ -30,6 +37,8 @@ class ListMetaCollectionsRequest extends Model
     public $creator;
 
     /**
+     * @description The ID of the collection follower.
+     *
      * @example 1200759642363000
      *
      * @var string
@@ -37,11 +46,15 @@ class ListMetaCollectionsRequest extends Model
     public $follower;
 
     /**
+     * @description The keyword.
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The paging information. This parameter specifies the start point of the query.
+     *
      * @example 12345
      *
      * @var string
@@ -49,11 +62,15 @@ class ListMetaCollectionsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The name of the sorting field.
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -61,6 +78,8 @@ class ListMetaCollectionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The unique identifier of the parent collection.
+     *
      * @example Album.1234
      *
      * @var string

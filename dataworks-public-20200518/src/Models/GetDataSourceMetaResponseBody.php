@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceMetaResponseBody extends Model
 {
     /**
+     * @description The information about the query operation.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The unique ID of the request. You can query logs and troubleshoot issues based on the unique ID.
+     *
      * @example 0000-ABCD-EFG
      *
      * @var string
@@ -22,6 +26,11 @@ class GetDataSourceMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

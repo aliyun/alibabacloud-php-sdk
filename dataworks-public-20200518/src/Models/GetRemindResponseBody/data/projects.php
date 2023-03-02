@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description The ID of the workspace.
+     *
      * @example 1234
      *
      * @var int

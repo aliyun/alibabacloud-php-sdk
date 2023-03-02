@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class committedFile extends Model
 {
     /**
+     * @description The type of the change to the file of the current version. Valid values: CREATE, UPDATE, and DELETE.
+     *
      * @example UPDATE
      *
      * @var string
@@ -18,11 +20,15 @@ class committedFile extends Model
     public $changeType;
 
     /**
+     * @description The description of the file version.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the file of the current version.
+     *
      * @example 7384234****
      *
      * @var string
@@ -30,6 +36,8 @@ class committedFile extends Model
     public $committor;
 
     /**
+     * @description The code in the file of the current version.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -37,6 +45,8 @@ class committedFile extends Model
     public $content;
 
     /**
+     * @description The ID of the file.
+     *
      * @example 1234123
      *
      * @var int
@@ -44,6 +54,8 @@ class committedFile extends Model
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
      * @example hello_dataworks.sql
      *
      * @var string
@@ -51,11 +63,15 @@ class committedFile extends Model
     public $fileName;
 
     /**
+     * @description The details of the file.
+     *
      * @var filePropertyContent
      */
     public $filePropertyContent;
 
     /**
+     * @description The type of the code in the file. Examples: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time sync), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
+     *
      * @example 10
      *
      * @var int
@@ -63,11 +79,15 @@ class committedFile extends Model
     public $fileType;
 
     /**
+     * @description The scheduling properties of the node that corresponds to the file.
+     *
      * @var nodeConfiguration
      */
     public $nodeConfiguration;
 
     /**
+     * @description The ID of the node that is scheduled.
+     *
      * @example 421429
      *
      * @var int
@@ -75,6 +95,15 @@ class committedFile extends Model
     public $nodeId;
 
     /**
+     * @description The module to which the file belongs. Valid values:
+     *
+     *   NORMAL: The file is used for DataStudio.
+     *   MANUAL: The file is used for a manually triggered node.
+     *   MANUAL_BIZ: The file is used for a manually triggered workflow.
+     *   SKIP: The file is used for a dry-run DataStudio node.
+     *   ADHOCQUERY: The file is used for an ad hoc query.
+     *   COMPONENT: The file is used for a snippet.
+     *
      * @example NORMAL
      *
      * @var string

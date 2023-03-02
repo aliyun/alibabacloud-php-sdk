@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateExportMigrationResponseBody extends Model
 {
     /**
+     * @description The ID of the export task.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateExportMigrationResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot errors.
+     *
      * @example 34267E2E-0335-1A60-A1F0-ADA530890CBA
      *
      * @var string
@@ -23,6 +27,11 @@ class CreateExportMigrationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The call succeeded.
+     *   false: The call failed. You can locate errors based on the request ID.
+     *
      * @example true
      *
      * @var bool

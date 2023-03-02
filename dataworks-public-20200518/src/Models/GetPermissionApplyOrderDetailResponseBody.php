@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPermissionApplyOrderDetailResponseBody extends Model
 {
     /**
+     * @description Details about the permission request order.
+     *
      * @var applyOrderDetail
      */
     public $applyOrderDetail;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376****
      *
      * @var string

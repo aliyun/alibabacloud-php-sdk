@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataServiceApiAuthorityRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 10001
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public $apiId;
 
     /**
+     * @description The ID of the workspace from which you want to revoke the access permissions on the API.
+     *
      * @example 10002
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public $authorizedProjectId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10003
      *
      * @var int
@@ -30,6 +36,8 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10004
      *
      * @var int

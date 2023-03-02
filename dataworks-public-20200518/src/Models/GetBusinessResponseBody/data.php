@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the workflow.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,16 +18,22 @@ class data extends Model
     public $businessId;
 
     /**
+     * @description The name of the workflow.
+     *
      * @var string
      */
     public $businessName;
 
     /**
+     * @description The description of the workflow.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The Alibaba Cloud account ID of the workflow owner.
+     *
      * @example 20000****
      *
      * @var string
@@ -33,6 +41,8 @@ class data extends Model
     public $owner;
 
     /**
+     * @description The ID of the workspace to which the workflow belongs.
+     *
      * @example 10000
      *
      * @var string
@@ -40,6 +50,8 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The module to which the workflow belongs. Valid values: NORMAL and MANUAL_BIZ.
+     *
      * @example NORMAL
      *
      * @var string

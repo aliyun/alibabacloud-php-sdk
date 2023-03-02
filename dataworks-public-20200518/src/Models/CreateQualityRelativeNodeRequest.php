@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityRelativeNodeRequest extends Model
 {
     /**
+     * @description The type of the compute engine instance or data source.
+     *
      * @example ODPS
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $envType;
 
     /**
+     * @description The partition filter expression.
+     *
      * @example dt=$[yyyymmdd]
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $matchExpression;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 12321
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the compute engine instance or data source.
+     *
      * @example autotest
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the table.
+     *
      * @example dual
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $tableName;
 
     /**
+     * @description The ID of the workspace to which the node to be associated with the partition filter expression belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -58,6 +72,8 @@ class CreateQualityRelativeNodeRequest extends Model
     public $targetNodeProjectId;
 
     /**
+     * @description The name of the workspace to which the node to be associated with the partition filter expression belongs.
+     *
      * @example autotest
      *
      * @var string

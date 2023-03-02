@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectRoleList extends Model
 {
     /**
+     * @description The role Code of the workspace.
+     *
      * @example role_project_guest
      *
      * @var string
@@ -16,6 +18,8 @@ class projectRoleList extends Model
     public $projectRoleCode;
 
     /**
+     * @description The role ID of the workspace.
+     *
      * @example 1
      *
      * @var int
@@ -23,11 +27,15 @@ class projectRoleList extends Model
     public $projectRoleId;
 
     /**
+     * @description The role name of the workspace.
+     *
      * @var string
      */
     public $projectRoleName;
 
     /**
+     * @description The role type of the workspace. Valid values:
+     *
      * @example 0
      *
      * @var string

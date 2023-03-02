@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRolesRequest extends Model
 {
     /**
+     * @description Dataworks ID of the workspace.
+     *
      * @example 27
      *
      * @var int

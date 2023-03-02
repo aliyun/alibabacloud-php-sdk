@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByRuleResponseBody extends Model
 {
     /**
+     * @description The data structure of the monitoring results returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 401
      *
      * @var string
@@ -22,6 +26,8 @@ class ListQualityResultsByRuleResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example You have no permission.
      *
      * @var string
@@ -29,6 +35,8 @@ class ListQualityResultsByRuleResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListQualityResultsByRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CBA58543-00D4-41****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListQualityResultsByRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description Specifies whether the automatic parsing feature is enabled for the file. Valid values:
+     *
+     *   true: The automatic parsing feature is enabled for the file.
+     *   false: The automatic parsing feature is not enabled for the file.
+     *
+     * This parameter is equivalent to the Analyze Code parameter in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example true
      *
      * @var bool
@@ -16,6 +22,8 @@ class files extends Model
     public $autoParsing;
 
     /**
+     * @description The ID of the workflow to which the file belongs. This parameter is deprecated and replaced by the BusinessId parameter.
+     *
      * @example 300000
      *
      * @var int
@@ -23,6 +31,8 @@ class files extends Model
     public $bizId;
 
     /**
+     * @description The ID of the workflow to which the file belongs.
+     *
      * @example 300000
      *
      * @var int
@@ -30,6 +40,8 @@ class files extends Model
     public $businessId;
 
     /**
+     * @description Indicates whether the latest code in the file is committed. Valid values: 0 and 1. The value 0 indicates that the latest code in the file is not committed. The value 1 indicates that the latest code in the file is committed.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +49,8 @@ class files extends Model
     public $commitStatus;
 
     /**
+     * @description The ID of the compute engine instance that is used to run the node that corresponds to the file.
+     *
      * @example odps_first
      *
      * @var string
@@ -44,6 +58,8 @@ class files extends Model
     public $connectionName;
 
     /**
+     * @description This parameter is deprecated. You can call the [GetFile](~~173954#doc-api-dataworks-public-GetFile~~) operation to query the details of the file.
+     *
      * @example SHOW TABLES;
      *
      * @var string
@@ -51,6 +67,8 @@ class files extends Model
     public $content;
 
     /**
+     * @description The time when the file was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1593950832000
      *
      * @var int
@@ -58,6 +76,8 @@ class files extends Model
     public $createTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the file.
+     *
      * @example 382762****
      *
      * @var string
@@ -65,6 +85,8 @@ class files extends Model
     public $createUser;
 
     /**
+     * @description The latest version number of the file.
+     *
      * @example 2
      *
      * @var int
@@ -72,6 +94,8 @@ class files extends Model
     public $currentVersion;
 
     /**
+     * @description The description of the file.
+     *
      * @example my test datastudio file
      *
      * @var string
@@ -79,6 +103,8 @@ class files extends Model
     public $fileDescription;
 
     /**
+     * @description The ID of the folder to which the file belongs.
+     *
      * @example 2735c2****
      *
      * @var string
@@ -86,6 +112,8 @@ class files extends Model
     public $fileFolderId;
 
     /**
+     * @description The ID of the file.
+     *
      * @example 10000001
      *
      * @var int
@@ -93,6 +121,8 @@ class files extends Model
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
      * @example ods_user_info_d
      *
      * @var string
@@ -100,6 +130,8 @@ class files extends Model
     public $fileName;
 
     /**
+     * @description The type of the code in the file. Valid values: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time synchronization), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
+     *
      * @example 10
      *
      * @var int
@@ -107,6 +139,9 @@ class files extends Model
     public $fileType;
 
     /**
+     * @description Indicates whether the file needs to be uploaded to MaxCompute if the file is a MaxCompute resource file.
+     *
+     * This parameter is returned only if the file is a MaxCompute resource file.
      * @example false
      *
      * @var bool
@@ -114,6 +149,8 @@ class files extends Model
     public $isMaxCompute;
 
     /**
+     * @description The time when the file was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1593950832000
      *
      * @var int
@@ -121,6 +158,8 @@ class files extends Model
     public $lastEditTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to last modify the file.
+     *
      * @example 38748246285727
      *
      * @var string
@@ -128,6 +167,8 @@ class files extends Model
     public $lastEditUser;
 
     /**
+     * @description The ID of the auto triggered node that is generated in the scheduling system after the file is committed.
+     *
      * @example 300001
      *
      * @var int
@@ -135,6 +176,8 @@ class files extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the file owner.
+     *
      * @example 3872572****
      *
      * @var string
@@ -142,6 +185,8 @@ class files extends Model
     public $owner;
 
     /**
+     * @description The ID of the node group file to which the current file belongs. This parameter is returned only if the current file is an inner file of the node group file.
+     *
      * @example -1
      *
      * @var int
@@ -149,6 +194,15 @@ class files extends Model
     public $parentId;
 
     /**
+     * @description The module to which the file belongs. Valid values:
+     *
+     *   NORMAL: The file is used for DataStudio.
+     *   MANUAL: The file is used for a manually triggered node.
+     *   MANUAL_BIZ: The file is used for a manually triggered workflow.
+     *   SKIP: The files is used for a dry-run node in DataStudio.
+     *   ADHOCQUERY: The file is used for an ad hoc query.
+     *   COMPONENT: The file is used for a snippet.
+     *
      * @example NORMAL
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TerminateDISyncInstanceResponseBody extends Model
 {
     /**
+     * @description The result of the operation.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
+     *
      * @example 0bc1411515937635973****
      *
      * @var string
@@ -22,6 +26,11 @@ class TerminateDISyncInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

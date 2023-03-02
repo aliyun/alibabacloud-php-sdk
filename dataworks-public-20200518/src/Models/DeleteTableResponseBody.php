@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example abcde
      *
      * @var string
@@ -17,6 +19,8 @@ class DeleteTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the task that is used to delete the table.
+     *
      * @var taskInfo
      */
     public $taskInfo;

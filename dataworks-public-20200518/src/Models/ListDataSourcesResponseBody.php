@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesResponseBody extends Model
 {
     /**
+     * @description The query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class ListDataSourcesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc14115159376359****
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

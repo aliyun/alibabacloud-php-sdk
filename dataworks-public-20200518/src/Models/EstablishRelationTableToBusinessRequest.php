@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EstablishRelationTableToBusinessRequest extends Model
 {
     /**
+     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to query the ID.
+     *
      * @example 1000001
      *
      * @var string
@@ -16,6 +18,8 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $businessId;
 
     /**
+     * @description The ID of the folder. You can call the [GetFolder](~~173952~~) or [ListFolders](~~173955~~) operation to query the ID.
+     *
      * @example 2eb6f9****
      *
      * @var string
@@ -23,6 +27,8 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $folderId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -30,6 +36,9 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $projectId;
 
     /**
+     * @description The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
+     *
+     * You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
      * @example dw
      *
      * @var string
@@ -37,6 +46,8 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $projectIdentifier;
 
     /**
+     * @description The universally unique identifier (UUID) of the table. You can call the [SearchMetaTables](~~173919~~) operation to query the UUID.
+     *
      * @example odps.dw_project.tb1
      *
      * @var string

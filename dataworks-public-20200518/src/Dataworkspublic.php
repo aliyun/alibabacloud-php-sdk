@@ -682,10 +682,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddProjectMemberToRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+     *   *
+     * @param AddProjectMemberToRoleRequest $request AddProjectMemberToRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddProjectMemberToRoleResponse
+     * @return AddProjectMemberToRoleResponse AddProjectMemberToRoleResponse
      */
     public function addProjectMemberToRoleWithOptions($request, $runtime)
     {
@@ -722,9 +724,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddProjectMemberToRoleRequest $request
+     * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+     *   *
+     * @param AddProjectMemberToRoleRequest $request AddProjectMemberToRoleRequest
      *
-     * @return AddProjectMemberToRoleResponse
+     * @return AddProjectMemberToRoleResponse AddProjectMemberToRoleResponse
      */
     public function addProjectMemberToRole($request)
     {
@@ -1231,10 +1235,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *   *
+     * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDISyncTaskResponse
+     * @return CreateDISyncTaskResponse CreateDISyncTaskResponse
      */
     public function createDISyncTaskWithOptions($request, $runtime)
     {
@@ -1277,9 +1283,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDISyncTaskRequest $request
+     * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *   *
+     * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
      *
-     * @return CreateDISyncTaskResponse
+     * @return CreateDISyncTaskResponse CreateDISyncTaskResponse
      */
     public function createDISyncTask($request)
     {
@@ -1472,11 +1480,17 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->requestMethod)) {
             $body['RequestMethod'] = $request->requestMethod;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->responseContentType)) {
             $body['ResponseContentType'] = $request->responseContentType;
         }
         if (!Utils::isUnset($request->scriptDetails)) {
             $body['ScriptDetails'] = $request->scriptDetails;
+        }
+        if (!Utils::isUnset($request->sqlMode)) {
+            $body['SqlMode'] = $request->sqlMode;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
@@ -1981,10 +1995,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateImportMigrationRequest $request
-     * @param RuntimeOptions               $runtime
+     * The import package must be uploaded. Example of the upload method:
+     *   * Config config = new Config();
+     *   * config.setAccessKeyId(accessId);
+     *   * config.setAccessKeySecret(accessKey);
+     *   * config.setEndpoint(popEndpoint);
+     *   * config.setRegionId(regionId);
+     *   * Client client = new Client(config);
+     *   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+     *   * request.setName("test_migration_api\\_" + System.currentTimeMillis());
+     *   * request.setProjectId(123456L);
+     *   * request.setPackageType("DATAWORKS_MODEL");
+     *   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+     *   * RuntimeOptions runtime = new RuntimeOptions();
+     *   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+     *   * ...
+     *   *
+     * @param CreateImportMigrationRequest $request CreateImportMigrationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImportMigrationResponse
+     * @return CreateImportMigrationResponse CreateImportMigrationResponse
      */
     public function createImportMigrationWithOptions($request, $runtime)
     {
@@ -2036,9 +2066,25 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateImportMigrationRequest $request
+     * The import package must be uploaded. Example of the upload method:
+     *   * Config config = new Config();
+     *   * config.setAccessKeyId(accessId);
+     *   * config.setAccessKeySecret(accessKey);
+     *   * config.setEndpoint(popEndpoint);
+     *   * config.setRegionId(regionId);
+     *   * Client client = new Client(config);
+     *   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+     *   * request.setName("test_migration_api\\_" + System.currentTimeMillis());
+     *   * request.setProjectId(123456L);
+     *   * request.setPackageType("DATAWORKS_MODEL");
+     *   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+     *   * RuntimeOptions runtime = new RuntimeOptions();
+     *   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+     *   * ...
+     *   *
+     * @param CreateImportMigrationRequest $request CreateImportMigrationRequest
      *
-     * @return CreateImportMigrationResponse
+     * @return CreateImportMigrationResponse CreateImportMigrationResponse
      */
     public function createImportMigration($request)
     {
@@ -2247,10 +2293,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateMetaCollectionRequest $request
-     * @param RuntimeOptions              $runtime
+     * Collections are classified into various types. The names of collections of the same type must be different.
+     *   *
+     * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetaCollectionResponse
+     * @return CreateMetaCollectionResponse CreateMetaCollectionResponse
      */
     public function createMetaCollectionWithOptions($request, $runtime)
     {
@@ -2287,9 +2335,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateMetaCollectionRequest $request
+     * Collections are classified into various types. The names of collections of the same type must be different.
+     *   *
+     * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
      *
-     * @return CreateMetaCollectionResponse
+     * @return CreateMetaCollectionResponse CreateMetaCollectionResponse
      */
     public function createMetaCollection($request)
     {
@@ -3757,10 +3807,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityFollowerRequest $request
-     * @param RuntimeOptions               $runtime
+     * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
+     *   *
+     * @param DeleteQualityFollowerRequest $request DeleteQualityFollowerRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQualityFollowerResponse
+     * @return DeleteQualityFollowerResponse DeleteQualityFollowerResponse
      */
     public function deleteQualityFollowerWithOptions($request, $runtime)
     {
@@ -3791,9 +3843,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityFollowerRequest $request
+     * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
+     *   *
+     * @param DeleteQualityFollowerRequest $request DeleteQualityFollowerRequest
      *
-     * @return DeleteQualityFollowerResponse
+     * @return DeleteQualityFollowerResponse DeleteQualityFollowerResponse
      */
     public function deleteQualityFollower($request)
     {
@@ -4342,10 +4396,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GenerateDISyncTaskConfigForCreatingRequest $request
-     * @param RuntimeOptions                             $runtime
+     * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *   * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param GenerateDISyncTaskConfigForCreatingRequest $request GenerateDISyncTaskConfigForCreatingRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateDISyncTaskConfigForCreatingResponse
+     * @return GenerateDISyncTaskConfigForCreatingResponse GenerateDISyncTaskConfigForCreatingResponse
      */
     public function generateDISyncTaskConfigForCreatingWithOptions($request, $runtime)
     {
@@ -4382,9 +4439,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GenerateDISyncTaskConfigForCreatingRequest $request
+     * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *   * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param GenerateDISyncTaskConfigForCreatingRequest $request GenerateDISyncTaskConfigForCreatingRequest
      *
-     * @return GenerateDISyncTaskConfigForCreatingResponse
+     * @return GenerateDISyncTaskConfigForCreatingResponse GenerateDISyncTaskConfigForCreatingResponse
      */
     public function generateDISyncTaskConfigForCreating($request)
     {
@@ -4394,10 +4454,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GenerateDISyncTaskConfigForUpdatingRequest $request
-     * @param RuntimeOptions                             $runtime
+     * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param GenerateDISyncTaskConfigForUpdatingRequest $request GenerateDISyncTaskConfigForUpdatingRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateDISyncTaskConfigForUpdatingResponse
+     * @return GenerateDISyncTaskConfigForUpdatingResponse GenerateDISyncTaskConfigForUpdatingResponse
      */
     public function generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime)
     {
@@ -4437,9 +4499,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GenerateDISyncTaskConfigForUpdatingRequest $request
+     * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param GenerateDISyncTaskConfigForUpdatingRequest $request GenerateDISyncTaskConfigForUpdatingRequest
      *
-     * @return GenerateDISyncTaskConfigForUpdatingResponse
+     * @return GenerateDISyncTaskConfigForUpdatingResponse GenerateDISyncTaskConfigForUpdatingResponse
      */
     public function generateDISyncTaskConfigForUpdating($request)
     {
@@ -4823,10 +4887,21 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDagRequest  $request
-     * @param RuntimeOptions $runtime
+     * Supported DAG types:
+     *   * *   MANUAL: the DAG for a manually triggered workflow.
+     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     *   * Supported DAG states:
+     *   * *   CREATED: The DAG is created.
+     *   * *   RUNNING: The DAG is running.
+     *   * *   FAILURE: The DAG fails to run.
+     *   * *   SUCCESS: The DAG successfully runs.
+     *   *
+     * @param GetDagRequest  $request GetDagRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDagResponse
+     * @return GetDagResponse GetDagResponse
      */
     public function getDagWithOptions($request, $runtime)
     {
@@ -4857,9 +4932,20 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDagRequest $request
+     * Supported DAG types:
+     *   * *   MANUAL: the DAG for a manually triggered workflow.
+     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     *   * Supported DAG states:
+     *   * *   CREATED: The DAG is created.
+     *   * *   RUNNING: The DAG is running.
+     *   * *   FAILURE: The DAG fails to run.
+     *   * *   SUCCESS: The DAG successfully runs.
+     *   *
+     * @param GetDagRequest $request GetDagRequest
      *
-     * @return GetDagResponse
+     * @return GetDagResponse GetDagResponse
      */
     public function getDag($request)
     {
@@ -5757,10 +5843,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceLogRequest $request
-     * @param RuntimeOptions        $runtime
+     * You may not obtain the instance logs that were generated more than seven days ago.
+     *   *
+     * @param GetInstanceLogRequest $request GetInstanceLogRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceLogResponse
+     * @return GetInstanceLogResponse GetInstanceLogResponse
      */
     public function getInstanceLogWithOptions($request, $runtime)
     {
@@ -5794,9 +5882,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceLogRequest $request
+     * You may not obtain the instance logs that were generated more than seven days ago.
+     *   *
+     * @param GetInstanceLogRequest $request GetInstanceLogRequest
      *
-     * @return GetInstanceLogResponse
+     * @return GetInstanceLogResponse GetInstanceLogResponse
      */
     public function getInstanceLog($request)
     {
@@ -6134,10 +6224,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaDBInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param GetMetaDBInfoRequest $request GetMetaDBInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaDBInfoResponse
+     * @return GetMetaDBInfoResponse GetMetaDBInfoResponse
      */
     public function getMetaDBInfoWithOptions($request, $runtime)
     {
@@ -6162,9 +6254,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaDBInfoRequest $request
+     * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param GetMetaDBInfoRequest $request GetMetaDBInfoRequest
      *
-     * @return GetMetaDBInfoResponse
+     * @return GetMetaDBInfoResponse GetMetaDBInfoResponse
      */
     public function getMetaDBInfo($request)
     {
@@ -6625,10 +6719,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTablePartitionRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param GetMetaTablePartitionRequest $tmpReq  GetMetaTablePartitionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTablePartitionResponse
+     * @return GetMetaTablePartitionResponse GetMetaTablePartitionResponse
      */
     public function getMetaTablePartitionWithOptions($tmpReq, $runtime)
     {
@@ -6682,9 +6778,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTablePartitionRequest $request
+     * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param GetMetaTablePartitionRequest $request GetMetaTablePartitionRequest
      *
-     * @return GetMetaTablePartitionResponse
+     * @return GetMetaTablePartitionResponse GetMetaTablePartitionResponse
      */
     public function getMetaTablePartition($request)
     {
@@ -7816,10 +7914,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ImportDataSourcesRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+     *   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
+     *   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
+     *   *
+     * @param ImportDataSourcesRequest $request ImportDataSourcesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportDataSourcesResponse
+     * @return ImportDataSourcesResponse ImportDataSourcesResponse
      */
     public function importDataSourcesWithOptions($request, $runtime)
     {
@@ -7850,9 +7952,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ImportDataSourcesRequest $request
+     * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+     *   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
+     *   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
+     *   *
+     * @param ImportDataSourcesRequest $request ImportDataSourcesRequest
      *
-     * @return ImportDataSourcesResponse
+     * @return ImportDataSourcesResponse ImportDataSourcesResponse
      */
     public function importDataSources($request)
     {
@@ -8288,10 +8394,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIProjectConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
+     *   *
+     * @param ListDIProjectConfigRequest $request ListDIProjectConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDIProjectConfigResponse
+     * @return ListDIProjectConfigResponse ListDIProjectConfigResponse
      */
     public function listDIProjectConfigWithOptions($request, $runtime)
     {
@@ -8325,9 +8433,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIProjectConfigRequest $request
+     * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
+     *   *
+     * @param ListDIProjectConfigRequest $request ListDIProjectConfigRequest
      *
-     * @return ListDIProjectConfigResponse
+     * @return ListDIProjectConfigResponse ListDIProjectConfigResponse
      */
     public function listDIProjectConfig($request)
     {
@@ -8337,10 +8447,21 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDagsRequest $request
-     * @param RuntimeOptions  $runtime
+     * Supported DAG types:
+     *   * *   MANUAL: the DAG for a manually triggered workflow.
+     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     *   * Supported DAG states:
+     *   * *   CREATED: The DAG is created.
+     *   * *   RUNNING: The DAG is running.
+     *   * *   FAILURE: The DAG fails to run.
+     *   * *   SUCCESS: The DAG successfully runs.
+     *   *
+     * @param ListDagsRequest $request ListDagsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDagsResponse
+     * @return ListDagsResponse ListDagsResponse
      */
     public function listDagsWithOptions($request, $runtime)
     {
@@ -8371,9 +8492,20 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDagsRequest $request
+     * Supported DAG types:
+     *   * *   MANUAL: the DAG for a manually triggered workflow.
+     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     *   * Supported DAG states:
+     *   * *   CREATED: The DAG is created.
+     *   * *   RUNNING: The DAG is running.
+     *   * *   FAILURE: The DAG fails to run.
+     *   * *   SUCCESS: The DAG successfully runs.
+     *   *
+     * @param ListDagsRequest $request ListDagsRequest
      *
-     * @return ListDagsResponse
+     * @return ListDagsResponse ListDagsResponse
      */
     public function listDags($request)
     {
@@ -9609,10 +9741,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaCollectionsRequest $request
-     * @param RuntimeOptions             $runtime
+     * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     *   *
+     * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMetaCollectionsResponse
+     * @return ListMetaCollectionsResponse ListMetaCollectionsResponse
      */
     public function listMetaCollectionsWithOptions($request, $runtime)
     {
@@ -9664,9 +9798,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaCollectionsRequest $request
+     * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     *   *
+     * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
      *
-     * @return ListMetaCollectionsResponse
+     * @return ListMetaCollectionsResponse ListMetaCollectionsResponse
      */
     public function listMetaCollections($request)
     {
@@ -10157,10 +10293,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectIdsRequest $request
-     * @param RuntimeOptions        $runtime
+     * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
+     *   *
+     * @param ListProjectIdsRequest $request ListProjectIdsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectIdsResponse
+     * @return ListProjectIdsResponse ListProjectIdsResponse
      */
     public function listProjectIdsWithOptions($request, $runtime)
     {
@@ -10188,9 +10326,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectIdsRequest $request
+     * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
+     *   *
+     * @param ListProjectIdsRequest $request ListProjectIdsRequest
      *
-     * @return ListProjectIdsResponse
+     * @return ListProjectIdsResponse ListProjectIdsResponse
      */
     public function listProjectIds($request)
     {
@@ -11012,6 +11152,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->targetType)) {
             $body['TargetType'] = $request->targetType;
         }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $body['TargetUserId'] = $request->targetUserId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -11138,10 +11281,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDISyncTaskConfigProcessResultRequest $request
-     * @param RuntimeOptions                            $runtime
+     * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+     *   * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param QueryDISyncTaskConfigProcessResultRequest $request QueryDISyncTaskConfigProcessResultRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDISyncTaskConfigProcessResultResponse
+     * @return QueryDISyncTaskConfigProcessResultResponse QueryDISyncTaskConfigProcessResultResponse
      */
     public function queryDISyncTaskConfigProcessResultWithOptions($request, $runtime)
     {
@@ -11175,9 +11321,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDISyncTaskConfigProcessResultRequest $request
+     * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+     *   * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *   *
+     * @param QueryDISyncTaskConfigProcessResultRequest $request QueryDISyncTaskConfigProcessResultRequest
      *
-     * @return QueryDISyncTaskConfigProcessResultResponse
+     * @return QueryDISyncTaskConfigProcessResultResponse QueryDISyncTaskConfigProcessResultResponse
      */
     public function queryDISyncTaskConfigProcessResult($request)
     {
@@ -11187,10 +11336,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryPublicModelEngineRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   You must use FML statements to query information about the data modeling engine when you call this operation.
+     *   * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
+     *   *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+     *   * *   A maximum of 1,000 entries can be returned each time you call the operation.
+     *   *
+     * @param QueryPublicModelEngineRequest $request QueryPublicModelEngineRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPublicModelEngineResponse
+     * @return QueryPublicModelEngineResponse QueryPublicModelEngineResponse
      */
     public function queryPublicModelEngineWithOptions($request, $runtime)
     {
@@ -11221,9 +11375,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryPublicModelEngineRequest $request
+     * *   You must use FML statements to query information about the data modeling engine when you call this operation.
+     *   * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
+     *   *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+     *   * *   A maximum of 1,000 entries can be returned each time you call the operation.
+     *   *
+     * @param QueryPublicModelEngineRequest $request QueryPublicModelEngineRequest
      *
-     * @return QueryPublicModelEngineResponse
+     * @return QueryPublicModelEngineResponse QueryPublicModelEngineResponse
      */
     public function queryPublicModelEngine($request)
     {
@@ -11490,10 +11649,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunCycleDagNodesRequest $request
-     * @param RuntimeOptions          $runtime
+     * For more information about data backfill, see [Backfill data](~~137937~~).
+     *   *
+     * @param RunCycleDagNodesRequest $request RunCycleDagNodesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunCycleDagNodesResponse
+     * @return RunCycleDagNodesResponse RunCycleDagNodesResponse
      */
     public function runCycleDagNodesWithOptions($request, $runtime)
     {
@@ -11554,9 +11715,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunCycleDagNodesRequest $request
+     * For more information about data backfill, see [Backfill data](~~137937~~).
+     *   *
+     * @param RunCycleDagNodesRequest $request RunCycleDagNodesRequest
      *
-     * @return RunCycleDagNodesResponse
+     * @return RunCycleDagNodesResponse RunCycleDagNodesResponse
      */
     public function runCycleDagNodes($request)
     {
@@ -11780,10 +11943,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SearchMetaTablesRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param SearchMetaTablesRequest $request SearchMetaTablesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMetaTablesResponse
+     * @return SearchMetaTablesResponse SearchMetaTablesResponse
      */
     public function searchMetaTablesWithOptions($request, $runtime)
     {
@@ -11832,9 +11997,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SearchMetaTablesRequest $request
+     * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+     *   *
+     * @param SearchMetaTablesRequest $request SearchMetaTablesRequest
      *
-     * @return SearchMetaTablesResponse
+     * @return SearchMetaTablesResponse SearchMetaTablesResponse
      */
     public function searchMetaTables($request)
     {
@@ -12563,6 +12730,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->targetType)) {
             $body['TargetType'] = $request->targetType;
         }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $body['TargetUserId'] = $request->targetUserId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -12802,10 +12972,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIProjectConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+     *   *
+     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfigWithOptions($request, $runtime)
     {
@@ -12842,9 +13014,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIProjectConfigRequest $request
+     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+     *   *
+     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
      *
-     * @return UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfig($request)
     {
@@ -12938,6 +13112,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->requestMethod)) {
             $body['RequestMethod'] = $request->requestMethod;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->responseContentType)) {
             $body['ResponseContentType'] = $request->responseContentType;
@@ -13043,10 +13220,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+     *   *
+     * @param UpdateFileRequest $request UpdateFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFileWithOptions($request, $runtime)
     {
@@ -13158,9 +13337,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileRequest $request
+     * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+     *   *
+     * @param UpdateFileRequest $request UpdateFileRequest
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFile($request)
     {
@@ -13323,10 +13504,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaCollectionRequest $request
-     * @param RuntimeOptions              $runtime
+     * Only the name and comment of a collection can be updated.
+     *   *
+     * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMetaCollectionResponse
+     * @return UpdateMetaCollectionResponse UpdateMetaCollectionResponse
      */
     public function updateMetaCollectionWithOptions($request, $runtime)
     {
@@ -13360,9 +13543,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaCollectionRequest $request
+     * Only the name and comment of a collection can be updated.
+     *   *
+     * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
      *
-     * @return UpdateMetaCollectionResponse
+     * @return UpdateMetaCollectionResponse UpdateMetaCollectionResponse
      */
     public function updateMetaCollection($request)
     {

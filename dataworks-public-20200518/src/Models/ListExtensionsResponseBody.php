@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListExtensionsResponseBody extends Model
 {
     /**
+     * @description The extensions returned on pages.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;

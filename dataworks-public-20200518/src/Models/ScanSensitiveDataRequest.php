@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ScanSensitiveDataRequest extends Model
 {
     /**
+     * @description The data that you want to check.
+     *
      * @example 13900001234
      *
      * @var string

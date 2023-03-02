@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTablePartitionRequest extends Model
 {
     /**
+     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     *
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      * @example abc
      *
      * @var string
@@ -17,6 +20,8 @@ class GetMetaTablePartitionRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the data source. Valid values: odps and emr.
+     *
      * @example emr
      *
      * @var string
@@ -24,6 +29,9 @@ class GetMetaTablePartitionRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the metadatabase. This parameter is required only if you set the DataSourceType parameter to emr.
+     *
+     * You can call the [ListMetaDB](~~185662~~) operation to query the name of the metadatabase.
      * @example abc
      *
      * @var string
@@ -31,6 +39,8 @@ class GetMetaTablePartitionRequest extends Model
     public $databaseName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +48,8 @@ class GetMetaTablePartitionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -45,11 +57,15 @@ class GetMetaTablePartitionRequest extends Model
     public $pageSize;
 
     /**
+     * @description The logic for sorting partitions in the metatable.
+     *
      * @var sortCriterion
      */
     public $sortCriterion;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -57,6 +73,9 @@ class GetMetaTablePartitionRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     *
+     * You can call the [GetMetaDBTableList](~~173916~~) operation to query the name of the metatable.
      * @example abc
      *
      * @var string

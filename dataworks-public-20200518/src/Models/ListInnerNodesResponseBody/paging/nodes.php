@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the baseline with which the inner node is associated.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class nodes extends Model
     public $baselineId;
 
     /**
+     * @description The ID of the workflow.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +27,8 @@ class nodes extends Model
     public $businessId;
 
     /**
+     * @description The connection string.
+     *
      * @example odps_first
      *
      * @var string
@@ -30,6 +36,8 @@ class nodes extends Model
     public $connection;
 
     /**
+     * @description The cron expression.
+     *
      * @example 00 00 00 * * ?
      *
      * @var string
@@ -37,6 +45,8 @@ class nodes extends Model
     public $cronExpress;
 
     /**
+     * @description The description of the inner node.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class nodes extends Model
     public $description;
 
     /**
+     * @description The table and partition filter expression in Data Quality that are associated with the inner node.
+     *
      * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
      *
      * @var string
@@ -51,6 +63,8 @@ class nodes extends Model
     public $dqcDescription;
 
     /**
+     * @description Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. The value 0 indicates that the node is associated with Data Quality. The value 1 indicates that the node is not associated with Data Quality.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +72,8 @@ class nodes extends Model
     public $dqcType;
 
     /**
+     * @description The ID of the inner node.
+     *
      * @example 12
      *
      * @var int
@@ -65,6 +81,8 @@ class nodes extends Model
     public $nodeId;
 
     /**
+     * @description The name of the inner node.
+     *
      * @example liux_test_n****
      *
      * @var string
@@ -72,6 +90,8 @@ class nodes extends Model
     public $nodeName;
 
     /**
+     * @description The ID of the owner of the inner node.
+     *
      * @example 1933****36551
      *
      * @var string
@@ -79,6 +99,8 @@ class nodes extends Model
     public $ownerId;
 
     /**
+     * @description The values of other parameters related to the inner node.
+     *
      * @example a=b
      *
      * @var string
@@ -86,6 +108,8 @@ class nodes extends Model
     public $paramValues;
 
     /**
+     * @description The priority of the inner node. Valid values: 1, 3, 5, 7, and 8.
+     *
      * @example 1
      *
      * @var int
@@ -93,6 +117,8 @@ class nodes extends Model
     public $priority;
 
     /**
+     * @description The type of the inner node.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -100,6 +126,8 @@ class nodes extends Model
     public $programType;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 123
      *
      * @var int
@@ -107,6 +135,8 @@ class nodes extends Model
     public $projectId;
 
     /**
+     * @description The interval at which the inner node is rerun after the inner node fails to be run.
+     *
      * @example 60
      *
      * @var int
@@ -114,6 +144,8 @@ class nodes extends Model
     public $repeatInterval;
 
     /**
+     * @description Indicates whether the inner node can be rerun.
+     *
      * @example true
      *
      * @var bool
@@ -121,11 +153,20 @@ class nodes extends Model
     public $repeatability;
 
     /**
+     * @description The name of the resource group.
+     *
      * @var string
      */
     public $resGroupName;
 
     /**
+     * @description The scheduling type of the inner node. Valid values:
+     *
+     *   NORMAL: The inner node is an auto triggered node.
+     *   MANUAL: The inner node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+     *   PAUSE: The inner node is a paused node.
+     *   SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled but the scheduling system sets the status of the nodes to succeeded when the scheduling system starts to run the nodes.
+     *
      * @example NORMAL
      *
      * @var string

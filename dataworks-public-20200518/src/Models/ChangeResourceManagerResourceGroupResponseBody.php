@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceManagerResourceGroupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the resource group was successfully modified.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class ChangeResourceManagerResourceGroupResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class ChangeResourceManagerResourceGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string
@@ -30,6 +36,11 @@ class ChangeResourceManagerResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateFileResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateFileResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class UpdateFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0000-ABCD-EFGH-IJKLMNOPQ
      *
      * @var string
@@ -37,6 +45,11 @@ class UpdateFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

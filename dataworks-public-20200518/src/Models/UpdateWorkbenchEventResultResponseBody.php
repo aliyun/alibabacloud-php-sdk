@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkbenchEventResultResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 0bc1ec92159376****
      *
@@ -18,6 +18,8 @@ class UpdateWorkbenchEventResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
      * @example true
      *
      * @var bool

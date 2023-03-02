@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the exported data sources.
+     *
+     * The value is an array. The following parameters are the elements in the array. The sample values of these parameters show the details of a sample data source.
      * @var dataSources[]
      */
     public $dataSources;
 
     /**
+     * @description The page number of the returned page. The value of this parameter is a positive integer greater than or equal to 1.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +27,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +36,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

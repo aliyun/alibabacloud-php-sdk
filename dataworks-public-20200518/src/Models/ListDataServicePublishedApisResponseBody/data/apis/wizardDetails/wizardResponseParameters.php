@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wizardResponseParameters extends Model
 {
     /**
+     * @description The sample value of the parameter.
+     *
      * @example example2
      *
      * @var string
@@ -16,6 +18,8 @@ class wizardResponseParameters extends Model
     public $exampleValue;
 
     /**
+     * @description The data type of the parameter. Valid values: 0, 1, 2, 3, 4, and 5. A value of 0 indicates the STRING data type. A value of 1 indicates the INT data type. A value of 2 indicates the LONG data type. A value of 3 indicates the FLOAT data type. A value of 4 indicates the DOUBLE data type. A value of 5 indicates the BOOLEAN data type.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class wizardResponseParameters extends Model
     public $parameterDataType;
 
     /**
+     * @description The description of the parameter.
+     *
      * @example description2
      *
      * @var string
@@ -30,6 +36,8 @@ class wizardResponseParameters extends Model
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example param2
      *
      * @var string

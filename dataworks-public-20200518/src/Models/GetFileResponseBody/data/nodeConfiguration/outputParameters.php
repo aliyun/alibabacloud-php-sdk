@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class outputParameters extends Model
 {
     /**
+     * @description The description of the output parameter of the node.
+     *
      * @example It\"s a context output parameter.
      *
      * @var string
@@ -16,6 +18,9 @@ class outputParameters extends Model
     public $description;
 
     /**
+     * @description The name of the output parameter of the node.
+     *
+     * This parameter corresponds to the Parameter Name parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example output
      *
      * @var string
@@ -23,6 +28,13 @@ class outputParameters extends Model
     public $parameterName;
 
     /**
+     * @description The type of the output parameter of the node. Valid values:
+     *
+     *   1: indicates a constant.
+     *   2: indicates a variable.
+     *   3: indicates a pass-through variable.
+     *
+     * This parameter corresponds to the Type parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example 1
      *
      * @var string
@@ -30,6 +42,9 @@ class outputParameters extends Model
     public $type;
 
     /**
+     * @description The value of the output parameter of the node.
+     *
+     * This parameter corresponds to the Value parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example ${bizdate}
      *
      * @var string

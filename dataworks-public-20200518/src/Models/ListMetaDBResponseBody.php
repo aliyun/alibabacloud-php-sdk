@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListMetaDBResponseBody extends Model
 {
     /**
+     * @description The information of the metadatabases.
+     *
      * @var databaseInfo
      */
     public $databaseInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example abc
      *
      * @var string

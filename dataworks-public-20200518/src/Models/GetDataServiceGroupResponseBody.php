@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceGroupResponseBody extends Model
 {
     /**
+     * @description The details of the business process.
+     *
      * @var group
      */
     public $group;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string

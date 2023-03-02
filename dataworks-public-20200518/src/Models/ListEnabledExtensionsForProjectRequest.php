@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnabledExtensionsForProjectRequest extends Model
 {
     /**
+     * @description The code of the extension point event.
+     *
      * @example commit-file
      *
      * @var string
@@ -16,6 +18,9 @@ class ListEnabledExtensionsForProjectRequest extends Model
     public $eventCode;
 
     /**
+     * @description The type of the code for the file.
+     *
+     * You can call the [ListFileType](~~212428~~) operation to query the type of the code for the file.
      * @example 10
      *
      * @var string
@@ -23,6 +28,8 @@ class ListEnabledExtensionsForProjectRequest extends Model
     public $fileType;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.6b4d4941azHd2k) and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 10000
      *
      * @var int

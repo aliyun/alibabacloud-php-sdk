@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpSensitiveDataRequest extends Model
 {
     /**
+     * @description The date on which access records were generated. Specify the value in the yyyyMMdd format.
+     *
      * @example 20210116
      *
      * @var string
@@ -16,6 +18,15 @@ class GetOpSensitiveDataRequest extends Model
     public $date;
 
     /**
+     * @description The parameters that you can specify to query the access records. Valid values:
+     *
+     *   dbType: the data type
+     *   instanceName: the name of the instance
+     *   databaseName: the name of the database
+     *   projectName: the name of the workspace
+     *   clusterName: the name of the cluster
+     *
+     * You must specify the parameters based on the compute engine that you use in your business.
      * @example [  {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"},  {"dbType":"ODPS.ODPS","projectName":"adbc"}  ]
      *
      * @var string
@@ -23,6 +34,11 @@ class GetOpSensitiveDataRequest extends Model
     public $name;
 
     /**
+     * @description The operation that is performed on the data. Valid values:
+     *
+     *   SQL_SELECT: indicates that the data is accessed. For example, the SELECT statement is executed to query the data.
+     *   TUNNEL_DOWNLOAD: indicates that the data is downloaded. For example, a Tunnel command is run to download the data.
+     *
      * @example SQL_SELECT
      *
      * @var string
@@ -30,6 +46,8 @@ class GetOpSensitiveDataRequest extends Model
     public $opType;
 
     /**
+     * @description The number of the page to return. Minimum value:1. Maximum value: 1000.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +55,8 @@ class GetOpSensitiveDataRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Minimum value: 1. Maximum value: 1000.
+     *
      * @example 1
      *
      * @var int

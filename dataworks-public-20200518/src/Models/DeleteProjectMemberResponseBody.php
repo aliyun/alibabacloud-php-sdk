@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteProjectMemberResponseBody extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string

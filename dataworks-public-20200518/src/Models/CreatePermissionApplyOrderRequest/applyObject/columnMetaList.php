@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class columnMetaList extends Model
 {
     /**
+     * @description The name of the field on which you want to request permissions. If you want to request permissions on an entire table, enter the names of all fields in the table.
+     *
+     * You can request permissions on specific fields of a table in a MaxCompute project only after LabelSecurity is enabled for this project. If LabelSecurity is disabled, you can request permissions only on an entire table.
      * @example aColumnName
      *
      * @var string

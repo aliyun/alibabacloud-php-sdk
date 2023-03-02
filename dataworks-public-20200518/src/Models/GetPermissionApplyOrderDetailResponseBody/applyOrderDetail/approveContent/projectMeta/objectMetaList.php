@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class objectMetaList extends Model
 {
     /**
+     * @description The information about the column fields in the object on which you request permissions.
+     *
      * @var columnMetaList[]
      */
     public $columnMetaList;
 
     /**
+     * @description The name of the table on which you request permissions.
+     *
      * @example aTableName
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The display name of the metatable.
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The ID of the EMR cluster.
+     *
      * @example abc
      *
      * @var string
@@ -21,6 +25,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The number of fields.
+     *
      * @example 3
      *
      * @var int
@@ -28,6 +34,8 @@ class data extends Model
     public $columnCount;
 
     /**
+     * @description The comment of the metatable.
+     *
      * @example test table
      *
      * @var string
@@ -35,6 +43,8 @@ class data extends Model
     public $comment;
 
     /**
+     * @description The time when the metatable was created.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -42,6 +52,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The size of storage space that is occupied by the metatable. Unit: bytes.
+     *
      * @example 10
      *
      * @var int
@@ -49,6 +61,8 @@ class data extends Model
     public $dataSize;
 
     /**
+     * @description The name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -56,6 +70,11 @@ class data extends Model
     public $databaseName;
 
     /**
+     * @description The type of the environment. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +82,8 @@ class data extends Model
     public $envType;
 
     /**
+     * @description The number of times the metatable was added to a favorite list. This parameter is returned only if you set the Extension parameter to true and takes effect only if you set the DataSourceType parameter to odps.
+     *
      * @example 6
      *
      * @var int
@@ -70,6 +91,11 @@ class data extends Model
     public $favoriteCount;
 
     /**
+     * @description Indicates whether the metatable is a partitioned table. Valid values:
+     *
+     *   true: The metatable is a partitioned table.
+     *   false: The metatable is a non-partitioned table.
+     *
      * @example true
      *
      * @var bool
@@ -77,6 +103,11 @@ class data extends Model
     public $isPartitionTable;
 
     /**
+     * @description Indicates whether the metatable is a view. Valid values:
+     *
+     *   true: The metatable is a view.
+     *   false: The metatable is not a view.
+     *
      * @example false
      *
      * @var bool
@@ -84,6 +115,13 @@ class data extends Model
     public $isView;
 
     /**
+     * @description The scope in which the metatable is visible. Valid values:
+     *
+     *   0: The metatable is visible to workspace members.
+     *   1: The metatable is visible to users within the tenant.
+     *   2: The metatable is visible to all tenants.
+     *   3: The metatable is visible only to the metatable owner.
+     *
      * @example 1
      *
      * @var int
@@ -91,6 +129,8 @@ class data extends Model
     public $isVisible;
 
     /**
+     * @description The time when the metatable was last accessed.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -98,6 +138,8 @@ class data extends Model
     public $lastAccessTime;
 
     /**
+     * @description The time when the schema of the metatable was last changed.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -105,6 +147,8 @@ class data extends Model
     public $lastDdlTime;
 
     /**
+     * @description The time when the metatable was last updated.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -112,6 +156,8 @@ class data extends Model
     public $lastModifyTime;
 
     /**
+     * @description The lifecycle of the metatable. Unit: days.
+     *
      * @example 5
      *
      * @var int
@@ -119,6 +165,8 @@ class data extends Model
     public $lifeCycle;
 
     /**
+     * @description The storage path of the Hive metadatabase.
+     *
      * @example hdfs://
      *
      * @var string
@@ -126,6 +174,8 @@ class data extends Model
     public $location;
 
     /**
+     * @description The ID of the metatable owner.
+     *
      * @example 123
      *
      * @var string
@@ -133,6 +183,8 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description The partition key of the Hive metatable.
+     *
      * @example ab
      *
      * @var string
@@ -140,6 +192,8 @@ class data extends Model
     public $partitionKeys;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 232
      *
      * @var int
@@ -147,6 +201,8 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The name of the workspace.
+     *
      * @example test
      *
      * @var string
@@ -154,6 +210,8 @@ class data extends Model
     public $projectName;
 
     /**
+     * @description The number of times the metatable was read. This parameter is returned only if you set the Extension parameter to true and takes effect only if you set the DataSourceType parameter to odps.
+     *
      * @example 3
      *
      * @var int
@@ -161,6 +219,8 @@ class data extends Model
     public $readCount;
 
     /**
+     * @description The schema information of the metatable. This parameter is returned only if you enable the table schema in MaxCompute.
+     *
      * @example default
      *
      * @var string
@@ -168,6 +228,8 @@ class data extends Model
     public $schema;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -175,6 +237,8 @@ class data extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example table_name
      *
      * @var string
@@ -182,6 +246,8 @@ class data extends Model
     public $tableName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 12345
      *
      * @var int
@@ -189,6 +255,8 @@ class data extends Model
     public $tenantId;
 
     /**
+     * @description The number of times the metatable was viewed. This parameter is returned only if you set the Extension parameter to true and takes effect only if you set the DataSourceType parameter to odps.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateIDEEventResultResponseBody extends Model
 {
     /**
+     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *
      * @var string

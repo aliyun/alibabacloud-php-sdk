@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderRequest extends Model
 {
     /**
+     * @description The approval action. Valid values:
+     *
+     *   1: Approve the permission request order.
+     *   2: Reject the permission request order.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class ApprovePermissionApplyOrderRequest extends Model
     public $approveAction;
 
     /**
+     * @description The comment on the approval.
+     *
      * @example agree
      *
      * @var string
@@ -23,6 +30,8 @@ class ApprovePermissionApplyOrderRequest extends Model
     public $approveComment;
 
     /**
+     * @description The ID of the permission request order. You can call the ListPermissionApplyOrders operation to obtain the order ID.
+     *
      * @example 48f36729-05f9-4a40-9286-933fd940f30a
      *
      * @var string

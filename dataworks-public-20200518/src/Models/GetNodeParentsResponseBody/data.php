@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ancestor nodes returned.
+     *
      * @var nodes[]
      */
     public $nodes;

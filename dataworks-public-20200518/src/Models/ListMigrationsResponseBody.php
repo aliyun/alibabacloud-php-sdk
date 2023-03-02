@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationsResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F9198AA3-9010-53D5-9714-DC4461427D3E
      *
      * @var string
@@ -22,6 +26,11 @@ class ListMigrationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

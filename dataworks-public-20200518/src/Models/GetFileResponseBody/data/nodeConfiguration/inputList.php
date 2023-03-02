@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class inputList extends Model
 {
     /**
+     * @description The output name of the parent file on which the current file depends.
+     *
+     * This parameter corresponds to the Output Name parameter under Parent Nodes after Same Cycle is selected in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example project.001_out
      *
      * @var string
@@ -16,6 +19,11 @@ class inputList extends Model
     public $input;
 
     /**
+     * @description The mode of the configuration file dependency. Valid values:
+     *
+     *   MANUAL: Scheduling dependencies are manually configured.
+     *   AUTO: Scheduling dependencies are automatically parsed.
+     *
      * @example MANUAL
      *
      * @var string

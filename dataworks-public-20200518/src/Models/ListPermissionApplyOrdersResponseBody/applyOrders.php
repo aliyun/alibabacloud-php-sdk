@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class applyOrders extends Model
 {
     /**
+     * @description The list of the permission request orders.
+     *
      * @var applyOrder[]
      */
     public $applyOrder;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class applyOrders extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class applyOrders extends Model
     public $pageSize;
 
     /**
+     * @description The total number of permission request orders returned.
+     *
      * @example 150
      *
      * @var int

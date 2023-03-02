@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slaAlert extends Model
 {
     /**
+     * @description The ID of the baseline.
+     *
      * @example 1234
      *
      * @var int
@@ -16,11 +18,15 @@ class slaAlert extends Model
     public $baselineId;
 
     /**
+     * @description The name of the baseline.
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
+     *
      * @example 952795279****
      *
      * @var string
@@ -28,6 +34,8 @@ class slaAlert extends Model
     public $baselineOwner;
 
     /**
+     * @description The data timestamp of the baseline instance.
+     *
      * @example 1553443200000
      *
      * @var int
@@ -35,6 +43,8 @@ class slaAlert extends Model
     public $bizdate;
 
     /**
+     * @description The ID of the cycle of the baseline instance. Valid values of the ID of an hour-level cycle: 1 to 24. The ID of a day-level cycle is 1.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +52,8 @@ class slaAlert extends Model
     public $inGroupId;
 
     /**
+     * @description The ID of the workspace to which the baseline belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -49,6 +61,8 @@ class slaAlert extends Model
     public $projectId;
 
     /**
+     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed time does not arrive. The value OVER indicates that nodes are still running after the committed time.
+     *
      * @example SAFE
      *
      * @var string

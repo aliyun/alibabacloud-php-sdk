@@ -15,6 +15,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $applyObject;
 
     /**
+     * @description The reason for your request. The administrator determines whether to approve the request based on the reason.
+     *
      * @example I need to use this table
      *
      * @var string
@@ -22,6 +24,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $applyReason;
 
     /**
+     * @description The ID of the Alibaba Cloud account for which you want to request permissions. If you want to request permissions for multiple Alibaba Cloud accounts, separate the IDs of the accounts with commas (,).
+     *
      * @example 267842600408993176,267842600408993177
      *
      * @var string
@@ -29,6 +33,9 @@ class CreatePermissionApplyOrderRequest extends Model
     public $applyUserIds;
 
     /**
+     * @description The expiration time of the permissions that you request. This value is a UNIX timestamp. If you do not specify a value for this parameter, January 1, 2065 is used as the expiration time.
+     *
+     * You can go to your DataWorks workspace, view the security level of the fields in DataMap, and then view the security level of the Alibaba Cloud account on the User Management page.
      * @example 1617115071885
      *
      * @var int
@@ -36,6 +43,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $deadline;
 
     /**
+     * @description The type of the compute engine instance in which you want to request permissions on the fields of a table. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in MaxCompute compute engine instances.
+     *
      * @example odps
      *
      * @var string
@@ -43,6 +52,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $engineType;
 
     /**
+     * @description The name of the MaxCompute project in which you request permissions on the fields of a table.
+     *
      * @example aMaxcomputeProjectName
      *
      * @var string
@@ -50,6 +61,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $maxComputeProjectName;
 
     /**
+     * @description The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
+     *
      * @example 1
      *
      * @var int
@@ -57,6 +70,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $orderType;
 
     /**
+     * @description The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the Workspace Management page in the DataWorks console to view the workspace ID.
+     *
      * @example 12345
      *
      * @var int

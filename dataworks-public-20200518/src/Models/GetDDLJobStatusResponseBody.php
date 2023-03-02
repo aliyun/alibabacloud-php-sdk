@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDDLJobStatusResponseBody extends Model
 {
     /**
+     * @description The details of the task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example abc
      *
      * @var string

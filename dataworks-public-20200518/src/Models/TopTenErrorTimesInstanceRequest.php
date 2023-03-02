@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TopTenErrorTimesInstanceRequest extends Model
 {
     /**
-     * @example 9527
-     *
      * @var int
      */
     public $projectId;

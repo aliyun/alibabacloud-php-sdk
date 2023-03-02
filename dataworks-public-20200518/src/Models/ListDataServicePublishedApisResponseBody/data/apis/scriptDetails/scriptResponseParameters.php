@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scriptResponseParameters extends Model
 {
     /**
+     * @description The sample value of the parameter.
+     *
      * @example example2
      *
      * @var string
@@ -16,6 +18,9 @@ class scriptResponseParameters extends Model
     public $exampleValue;
 
     /**
+     * @description The data type of the parameter. Valid values:
+     *
+     * - 5: BOOLEAN
      * @example 0
      *
      * @var int
@@ -23,6 +28,8 @@ class scriptResponseParameters extends Model
     public $parameterDataType;
 
     /**
+     * @description The description of the parameter.
+     *
      * @example description2
      *
      * @var string
@@ -30,6 +37,8 @@ class scriptResponseParameters extends Model
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example param2
      *
      * @var string

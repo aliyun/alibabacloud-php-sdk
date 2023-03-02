@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the created synchronization node.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,11 +18,18 @@ class data extends Model
     public $fileId;
 
     /**
+     * @description The reason why the synchronization node failed to be created.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the synchronization node was created. Valid values:
+     *
+     *   success: The synchronization node was created.
+     *   fail: The synchronization node failed to be created.
+     *
      * @example success
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @description Details about the status of the current subtask.
+     *
+     *   If the current subtask succeeds, success is returned.
+     *   If the current subtask fails, the error details are displayed.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +21,8 @@ class taskInfo extends Model
     public $content;
 
     /**
+     * @description The ID of the subtask that you want to run. If this parameter is left empty, all subtasks are complete. You can call the [GetDDLJobStatus](~~185659~~) operation to query the status of the subtask based on the subtask ID.
+     *
      * @example abc1
      *
      * @var string
@@ -23,6 +30,12 @@ class taskInfo extends Model
     public $nextTaskId;
 
     /**
+     * @description The status of the current subtask. Valid values:
+     *
+     *   operating: The subtask is running.
+     *   success: The subtask succeeds.
+     *   failure: The subtask fails to run. For more information about the error details, see the Content parameter.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +43,8 @@ class taskInfo extends Model
     public $status;
 
     /**
+     * @description The ID of the current subtask.
+     *
      * @example abc
      *
      * @var string

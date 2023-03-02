@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBusinessRequest extends Model
 {
     /**
+     * @description The keyword that is used to perform a fuzzy match.
+     *
      * @example my
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBusinessRequest extends Model
     public $keyword;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListBusinessRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListBusinessRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -37,6 +45,8 @@ class ListBusinessRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must configure either this parameter or ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

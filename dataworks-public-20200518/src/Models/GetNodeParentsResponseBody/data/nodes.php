@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the baseline.
+     *
      * @example 1244564565
      *
      * @var int
@@ -16,6 +18,8 @@ class nodes extends Model
     public $baselineId;
 
     /**
+     * @description The cron expression. Cron expressions are used to run auto triggered nodes.
+     *
      * @example 00 00 * * * *
      *
      * @var string
@@ -23,6 +27,8 @@ class nodes extends Model
     public $cronExpress;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1244564565
      *
      * @var int
@@ -30,6 +36,8 @@ class nodes extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @example test_Node
      *
      * @var string
@@ -37,6 +45,8 @@ class nodes extends Model
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the node owner.
+     *
      * @example 123124561341251321
      *
      * @var string
@@ -44,6 +54,8 @@ class nodes extends Model
     public $ownerId;
 
     /**
+     * @description The priority of the node. Valid values: 1 to 8. A large value indicates a high priority.
+     *
      * @example 3
      *
      * @var int
@@ -51,6 +63,8 @@ class nodes extends Model
     public $priority;
 
     /**
+     * @description The type of the node.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -58,6 +72,8 @@ class nodes extends Model
     public $programType;
 
     /**
+     * @description The ID of the workspace to which the node belongs.
+     *
      * @example 12315412412
      *
      * @var int
@@ -65,6 +81,11 @@ class nodes extends Model
     public $projectId;
 
     /**
+     * @description Indicates whether the node can be rerun if the node fails to run. Valid values:
+     *
+     *   true: indicates that the node can be rerun.
+     *   false: indicates that the node cannot be rerun.
+     *
      * @example true
      *
      * @var bool
@@ -72,6 +93,13 @@ class nodes extends Model
     public $repeatability;
 
     /**
+     * @description The scheduling type of the node. Valid values:
+     *
+     *   NORMAL: indicates that the node is an auto triggered node.
+     *   MANUAL: indicates that the node is a manually triggered node.
+     *   PAUSE: indicates that the node is a paused node. Paused nodes are started as scheduled but the system sets the status of the nodes to failed when it starts to run them.
+     *   SKIP: indicates that the node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+     *
      * @example NORMAL
      *
      * @var string

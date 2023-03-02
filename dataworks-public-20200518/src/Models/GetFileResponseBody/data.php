@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The basic information about the file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The scheduling configurations of the file.
+     *
      * @var nodeConfiguration
      */
     public $nodeConfiguration;

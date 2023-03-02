@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBusinessRequest extends Model
 {
     /**
+     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to query the workflow ID.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteBusinessRequest extends Model
     public $businessId;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteBusinessRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Settings panel to obtain the name. You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListFoldersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,11 +27,15 @@ class ListFoldersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The path of the parent folder.
+     *
      * @var string
      */
     public $parentFolderPath;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example 10000
      *
      * @var int
@@ -35,6 +43,8 @@ class ListFoldersRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Settings panel to obtain the name. You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
+     *
      * @example dw_project
      *
      * @var string

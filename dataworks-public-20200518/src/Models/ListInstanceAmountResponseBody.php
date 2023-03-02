@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAmountResponseBody extends Model
 {
     /**
+     * @description The trend of the number of auto triggered node instances within the specified period of time.
+     *
      * @var instanceCounts[]
      */
     public $instanceCounts;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 95279527adhfj****
      *
      * @var string

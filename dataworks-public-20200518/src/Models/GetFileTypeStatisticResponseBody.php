@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileTypeStatisticResponseBody extends Model
 {
     /**
+     * @description An array of node types and quantity.
+     *
      * @var programTypeAndCounts[]
      */
     public $programTypeAndCounts;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
      *
      * @var string

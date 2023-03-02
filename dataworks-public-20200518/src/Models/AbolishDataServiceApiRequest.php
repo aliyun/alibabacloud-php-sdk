@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbolishDataServiceApiRequest extends Model
 {
     /**
+     * @description The ID of the DataService Studio API.
+     *
      * @example 10000
      *
      * @var int
@@ -16,6 +18,8 @@ class AbolishDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -23,6 +27,8 @@ class AbolishDataServiceApiRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

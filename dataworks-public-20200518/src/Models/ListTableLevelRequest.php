@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTableLevelRequest extends Model
 {
     /**
+     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTableLevelRequest extends Model
     public $levelType;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListTableLevelRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListTableLevelRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console to obtain the ID.
+     *
      * @example 123
      *
      * @var int

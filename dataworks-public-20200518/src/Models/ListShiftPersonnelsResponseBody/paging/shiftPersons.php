@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class shiftPersons extends Model
 {
     /**
+     * @description The time when the on-duty engineer starts the shift.
+     *
      * @example 1593950832000
      *
      * @var int
@@ -16,6 +18,8 @@ class shiftPersons extends Model
     public $beginTime;
 
     /**
+     * @description The time when the on-duty engineer ends the shift.
+     *
      * @example 1593950832000
      *
      * @var int
@@ -23,11 +27,15 @@ class shiftPersons extends Model
     public $endTime;
 
     /**
+     * @description The name of the on-duty engineer.
+     *
      * @var string
      */
     public $shiftPersonName;
 
     /**
+     * @description The UID of the on-duty engineer.
+     *
      * @example 3726346****
      *
      * @var string

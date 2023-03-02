@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @description The name of the field.
+     *
      * @example abc
      *
      * @var string
@@ -16,11 +18,15 @@ class columns extends Model
     public $columnName;
 
     /**
+     * @description The display name of the field.
+     *
      * @var string
      */
     public $columnNameCn;
 
     /**
+     * @description The type of the field. For more information, see MaxCompute field types.
+     *
      * @example string
      *
      * @var string
@@ -28,11 +34,15 @@ class columns extends Model
     public $columnType;
 
     /**
+     * @description The comment of the field.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description Specifies whether the field is a partition field. Valid values: 0 and 1. The value 0 indicates that the field is not a partition field. The value 1 indicates that the field is a partition field.
+     *
      * @example 0
      *
      * @var bool
@@ -40,6 +50,8 @@ class columns extends Model
     public $isPartitionCol;
 
     /**
+     * @description The length of the field.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +59,8 @@ class columns extends Model
     public $length;
 
     /**
+     * @description The sequence number of the field. If the field is a partition field, this parameter is not supported.
+     *
      * @example 1
      *
      * @var int

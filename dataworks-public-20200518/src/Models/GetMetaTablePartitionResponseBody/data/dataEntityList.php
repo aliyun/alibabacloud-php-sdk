@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The comment.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The time when the partition was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1590032868000
      *
      * @var int
@@ -21,6 +25,8 @@ class dataEntityList extends Model
     public $createTime;
 
     /**
+     * @description The size of the partition. Unit: bytes.
+     *
      * @example 19
      *
      * @var int
@@ -28,6 +34,8 @@ class dataEntityList extends Model
     public $dataSize;
 
     /**
+     * @description The time when the partition was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1590032868000
      *
      * @var int
@@ -35,6 +43,8 @@ class dataEntityList extends Model
     public $modifiedTime;
 
     /**
+     * @description The GUID of the partition.
+     *
      * @example odps.engine_name.table_name.pt=20170614
      *
      * @var string
@@ -42,6 +52,8 @@ class dataEntityList extends Model
     public $partitionGuid;
 
     /**
+     * @description The location of the Hive partition.
+     *
      * @example abc
      *
      * @var string
@@ -49,6 +61,8 @@ class dataEntityList extends Model
     public $partitionLocation;
 
     /**
+     * @description The name of the partition.
+     *
      * @example pt=20170614
      *
      * @var string
@@ -56,6 +70,8 @@ class dataEntityList extends Model
     public $partitionName;
 
     /**
+     * @description The path of the partition.
+     *
      * @example abc
      *
      * @var string
@@ -63,6 +79,8 @@ class dataEntityList extends Model
     public $partitionPath;
 
     /**
+     * @description The type of the partition.
+     *
      * @example abc
      *
      * @var string
@@ -70,6 +88,8 @@ class dataEntityList extends Model
     public $partitionType;
 
     /**
+     * @description The number of entries in the partition.
+     *
      * @example 233
      *
      * @var int
@@ -77,6 +97,8 @@ class dataEntityList extends Model
     public $recordCount;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string

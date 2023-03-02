@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the partition filter expression was created.
+     *
      * @example 1593964800000
      *
      * @var int
@@ -16,6 +18,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The level of the partition filter expression. Valid values:
+     *
+     *   0: The partition filter expression is at the SQL level. This indicates that the system checks data quality after each SQL statement is executed.
+     *   1: The partition filter expression is at the node level. This indicates that the system checks data quality after all the SQL statements for a node are executed.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $entityLevel;
 
     /**
+     * @description The type of the compute engine instance or data source.
+     *
      * @example odps
      *
      * @var string
@@ -30,6 +39,8 @@ class data extends Model
     public $envType;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to receive alert notifications.
+     *
      * @example 1822931****
      *
      * @var string
@@ -37,6 +48,11 @@ class data extends Model
     public $followers;
 
     /**
+     * @description Indicates whether the partition filter expression is associated with a node. Valid values:
+     *
+     *   true: The partition filter expression is associated with a node.
+     *   false: The partition filter expression is not associated with a node.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class data extends Model
     public $hasRelativeNode;
 
     /**
+     * @description The ID of the partition filter expression.
+     *
      * @example 4003918
      *
      * @var int
@@ -51,6 +69,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The partition filter expression.
+     *
      * @example dt=$[yyyymmdd-1]
      *
      * @var string
@@ -58,6 +78,8 @@ class data extends Model
     public $matchExpression;
 
     /**
+     * @description The time when the partition filter expression was modified.
+     *
      * @example 1593964800000
      *
      * @var int
@@ -65,6 +87,8 @@ class data extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to modify the partition filter expression.
+     *
      * @example 1822931****
      *
      * @var string
@@ -72,6 +96,8 @@ class data extends Model
     public $modifyUser;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to configure the partition filter expression.
+     *
      * @example 1822931****
      *
      * @var string
@@ -79,6 +105,8 @@ class data extends Model
     public $onDuty;
 
     /**
+     * @description The name of the Alibaba Cloud account that is used to configure the partition filter expression.
+     *
      * @example test
      *
      * @var string
@@ -86,6 +114,8 @@ class data extends Model
     public $onDutyAccountName;
 
     /**
+     * @description The name of the compute engine instance or data source.
+     *
      * @example autotest
      *
      * @var string
@@ -93,6 +123,11 @@ class data extends Model
     public $projectName;
 
     /**
+     * @description The information about the node with which the partition filter expression is associated. The information includes the following items:
+     *
+     *   ProjectName: the name of the workspace to which the node belongs.
+     *   NodeID: the ID of the node.
+     *
      * @example [{"projectName":"xc_DP****","nodeId":7000026****}]
      *
      * @var string
@@ -100,6 +135,8 @@ class data extends Model
     public $relativeNode;
 
     /**
+     * @description Indicates that the partition filter expression is at the SQL level.
+     *
      * @example 0
      *
      * @var int
@@ -107,6 +144,8 @@ class data extends Model
     public $sql;
 
     /**
+     * @description The name of the partitioned table.
+     *
      * @example test_dqc_de****
      *
      * @var string
@@ -114,6 +153,8 @@ class data extends Model
     public $tableName;
 
     /**
+     * @description The node.
+     *
      * @example 0
      *
      * @var int

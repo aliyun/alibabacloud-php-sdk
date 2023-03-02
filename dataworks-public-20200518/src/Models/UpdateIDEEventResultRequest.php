@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateIDEEventResultRequest extends Model
 {
     /**
+     * @description The check status of the extension point event. Valid values:
+     *
+     *   OK: The event passes the check.
+     *   FAIL: The event fails to pass the check. You must check and handle the reported error at the earliest opportunity to ensure that your program is run as expected.
+     *   WARN: The event passes the check, but an alert is reported.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +22,8 @@ class UpdateIDEEventResultRequest extends Model
     public $checkResult;
 
     /**
+     * @description The summary information of the check result. The information is displayed in DataStudio. If an alert is reported or the event fails the check, you can troubleshoot errors based on the information.
+     *
      * @example Succeeded
      *
      * @var string
@@ -23,6 +31,8 @@ class UpdateIDEEventResultRequest extends Model
     public $checkResultTip;
 
     /**
+     * @description The ID of the extension. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Extensions tab of the Open Platform page to view the ID.
+     *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *
      * @var string
@@ -30,7 +40,7 @@ class UpdateIDEEventResultRequest extends Model
     public $extensionCode;
 
     /**
-     * @description 扩展点消息UUID
+     * @description The ID of the message. You can obtain the ID from the received message when the extension point event is triggered.
      *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusStatisticResponseBody extends Model
 {
     /**
+     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetInstanceStatusStatisticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The numbers of instances in different states.
+     *
      * @var statusCount
      */
     public $statusCount;

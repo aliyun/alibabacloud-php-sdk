@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnectionRequest extends Model
 {
     /**
+     * @description The ID of the data source.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateConnectionRequest extends Model
     public $connectionId;
 
     /**
+     * @description Details of the data source.
+     *
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateConnectionRequest extends Model
     public $content;
 
     /**
+     * @description Describes the data source.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateConnectionRequest extends Model
     public $description;
 
     /**
+     * @description Environment of the data source.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class UpdateConnectionRequest extends Model
     public $envType;
 
     /**
+     * @description The status of the data source.
+     *
      * @example ENABLED
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileVersionResponseBody extends Model
 {
     /**
+     * @description The details of the file version.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -22,6 +26,8 @@ class GetFileVersionResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -29,6 +35,8 @@ class GetFileVersionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetFileVersionResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -43,6 +53,8 @@ class GetFileVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

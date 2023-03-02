@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class applyObject extends Model
 {
     /**
+     * @description The permission that you want to request. If you want to request multiple permissions at the same time, separate them with commas (,). You can request only the following permissions: Select, Describe, Drop, Alter, Update, and Download.
+     *
      * @example Select,Describe
      *
      * @var string
@@ -22,6 +24,8 @@ class applyObject extends Model
     public $columnMetaList;
 
     /**
+     * @description The name of the object on which you want to request permissions. You can request permissions only on MaxCompute tables. Set this parameter to the name of the table on which you want to request permissions.
+     *
      * @example aTableName
      *
      * @var string

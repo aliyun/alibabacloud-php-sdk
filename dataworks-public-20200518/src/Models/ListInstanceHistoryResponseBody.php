@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceHistoryResponseBody extends Model
 {
     /**
+     * @description The instance list.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -22,6 +26,11 @@ class ListInstanceHistoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

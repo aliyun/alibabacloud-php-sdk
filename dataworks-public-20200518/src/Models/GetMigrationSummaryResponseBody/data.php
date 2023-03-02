@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the user who creates the migration task.
+     *
      * @example 982293332403****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $createUser;
 
     /**
+     * @description The URL that is used to download the package of the export task.
+     *
      * @example https://shanghai-xxx-oss.oss-cn-shanghai.aliyuncs.com/pre/store/f10_bf47_b4fa7df0860f.zip?Expires=1639540903&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $downloadUrl;
 
     /**
+     * @description The time when the migration task was created.
+     *
      * @example 1589904000000
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the migration task was modified.
+     *
      * @example 1589904000000
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the migration task.
+     *
      * @example 1234
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $migrationId;
 
     /**
+     * @description The name of the migration task.
+     *
      * @example test_export_01
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The ID of the user who manages the migration task.
+     *
      * @example 982293332403****
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $opUser;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 12345
      *
      * @var int
@@ -65,6 +81,19 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The status of the migration task. Valid values:
+     *
+     *   INIT: The migration task is initiating.
+     *   EDITING: The migration task is being edited.
+     *   IMPORTING: The migration task is importing data objects.
+     *   IMPORT_ERROR: The migration task fails to import data objects.
+     *   IMPORT_SUCCESS: Data objects are imported.
+     *   EXPORTING: The migration task is exporting data objects.
+     *   EXPORT_ERROR: The migration task fails to export data objects.
+     *   EXPORT_SUCCESS: The migration task successfully exports data objects.
+     *   REVOKED: The migration task is canceled.
+     *   PARTIAL_SUCCESS: The migration task successfully imports or exports only some data objects.
+     *
      * @example EXPORT_SUCCESS
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQualityEntityRequest extends Model
 {
     /**
+     * @description The type of the compute engine instance or data source.
+     *
      * @example odps
      *
      * @var string
@@ -16,6 +18,8 @@ class GetQualityEntityRequest extends Model
     public $envType;
 
     /**
+     * @description The partition filter expression.
+     *
      * @example dt=$[yyyymmdd]
      *
      * @var string
@@ -23,6 +27,8 @@ class GetQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+     *
      * @example autotest
      *
      * @var string
@@ -30,6 +36,8 @@ class GetQualityEntityRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the partitioned table. You can call the [GetMetaTablePartition](~~173923~~) operation to obtain the name.
+     *
      * @example dual
      *
      * @var string

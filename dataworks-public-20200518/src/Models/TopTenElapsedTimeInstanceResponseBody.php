@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TopTenElapsedTimeInstanceResponseBody extends Model
 {
     /**
+     * @description The ranking record of the running durations of the instances.
+     *
      * @var instanceConsumeTimeRank
      */
     public $instanceConsumeTimeRank;
 
     /**
+     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     *
      * @example 6347364dadsfadf****
      *
      * @var string

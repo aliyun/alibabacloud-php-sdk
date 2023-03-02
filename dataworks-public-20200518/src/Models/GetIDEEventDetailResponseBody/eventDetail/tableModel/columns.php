@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @description The name of the column.
+     *
      * @example ID
      *
      * @var string
@@ -16,6 +18,8 @@ class columns extends Model
     public $columnName;
 
     /**
+     * @description The data type of the column.
+     *
      * @example BIGINT
      *
      * @var string
@@ -23,6 +27,8 @@ class columns extends Model
     public $columnType;
 
     /**
+     * @description The remarks of the column.
+     *
      * @example ID
      *
      * @var string
@@ -30,6 +36,9 @@ class columns extends Model
     public $comment;
 
     /**
+     * @description Indicates whether the column is a partition key column. Valid values:
+     *
+     * - false: The column is not a partition key column.
      * @example false
      *
      * @var bool

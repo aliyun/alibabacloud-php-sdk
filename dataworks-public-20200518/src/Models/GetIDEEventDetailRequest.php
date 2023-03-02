@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetIDEEventDetailRequest extends Model
 {
     /**
+     * @description The ID of the message. You can obtain the ID from the received message when the extension point event is triggered.
+     *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetIDEEventDetailRequest extends Model
     public $messageId;
 
     /**
+     * @description The ID of the workspace. You can obtain the ID from the message.
+     *
      * @example 10000
      *
      * @var int

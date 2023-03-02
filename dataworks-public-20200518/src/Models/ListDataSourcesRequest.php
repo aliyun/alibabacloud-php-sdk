@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesRequest extends Model
 {
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
+     *
      * @example rds
      *
      * @var string
@@ -16,6 +32,8 @@ class ListDataSourcesRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +41,8 @@ class ListDataSourcesRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the data source that you want to query.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +50,8 @@ class ListDataSourcesRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. The value of this parameter must be an integer greater than or equal to 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +59,8 @@ class ListDataSourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +68,8 @@ class ListDataSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace to which the data sources belong. You can call the [ListProjects](~~178393~~) operation to obtain the ID.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +77,11 @@ class ListDataSourcesRequest extends Model
     public $projectId;
 
     /**
+     * @description The status of the data source. Valid values:
+     *
+     *   ENABLED: The data source is accessible.
+     *   DISABLED: The data source is inaccessible.
+     *
      * @example ENABLED
      *
      * @var string
@@ -58,6 +89,9 @@ class ListDataSourcesRequest extends Model
     public $status;
 
     /**
+     * @description The subtype of the data source. This parameter takes effect only if the DataSourceType parameter is set to rds.
+     *
+     * If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
      * @example mysql
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class projectMeta extends Model
 {
     /**
+     * @description The MaxCompute project to which the object on which you request permissions belongs.
+     *
      * @example aMaxComputeProject
      *
      * @var string
@@ -17,11 +19,15 @@ class projectMeta extends Model
     public $maxComputeProjectName;
 
     /**
+     * @description Details about the object on which you request permissions.
+     *
      * @var objectMetaList[]
      */
     public $objectMetaList;
 
     /**
+     * @description The ID of the DataWorks workspace that is associated with the object on which you request permissions.
+     *
      * @example 12345
      *
      * @var int

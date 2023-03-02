@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeParentsRequest extends Model
 {
     /**
+     * @description The ID of the node. You can go to the Operation Center page in the DataWorks console to view the node ID.
+     *
      * @example 12345456211234
      *
      * @var int
@@ -16,6 +18,8 @@ class GetNodeParentsRequest extends Model
     public $nodeId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+     *
      * @example PROD
      *
      * @var string

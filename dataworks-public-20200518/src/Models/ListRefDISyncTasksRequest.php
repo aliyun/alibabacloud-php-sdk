@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRefDISyncTasksRequest extends Model
 {
     /**
+     * @description The name of the data source. You can call the [ListDataSources](~~211431~~) operation to query the name of the data source.
+     *
      * @example mysql_datasource
      *
      * @var string
@@ -16,6 +18,8 @@ class ListRefDISyncTasksRequest extends Model
     public $datasourceName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListRefDISyncTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class ListRefDISyncTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -37,6 +45,11 @@ class ListRefDISyncTasksRequest extends Model
     public $projectId;
 
     /**
+     * @description The condition used to filter sync nodes. Valid values:
+     *
+     *   from: queries the sync nodes that use the data source as the source data source.
+     *   to: queries the sync nodes that use the data source as the destination data source.
+     *
      * @example from
      *
      * @var string
@@ -44,6 +57,12 @@ class ListRefDISyncTasksRequest extends Model
     public $refType;
 
     /**
+     * @description The type of the sync node that you want to query. Valid values:
+     *
+     *   DI_OFFLINE: batch sync node
+     *   DI_REALTIME: real-time sync node
+     *
+     * You can specify only one type. The sync solution type is not supported.
      * @example DI_OFFLINE
      *
      * @var string

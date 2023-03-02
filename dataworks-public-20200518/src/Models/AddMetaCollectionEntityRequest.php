@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddMetaCollectionEntityRequest extends Model
 {
     /**
+     * @description The unique identifier of the collection.
+     *
      * @example album.2222
      *
      * @var string
@@ -16,7 +18,10 @@ class AddMetaCollectionEntityRequest extends Model
     public $collectionQualifiedName;
 
     /**
-     * @example maxcompute.projectA.tableB
+     * @description The unique identifier of the entity.
+     *
+     * Example: maxcompute-table.projectA.tableA.
+     * @example maxcompute-table.projectA.tableB
      *
      * @var string
      */

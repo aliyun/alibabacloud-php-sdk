@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileVersionRequest extends Model
 {
     /**
+     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetFileVersionRequest extends Model
     public $fileId;
 
     /**
+     * @description The file version whose details you want to query.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class GetFileVersionRequest extends Model
     public $fileVersion;
 
     /**
+     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -30,6 +36,9 @@ class GetFileVersionRequest extends Model
     public $projectId;
 
     /**
+     * @description The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
+     *
+     * You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string

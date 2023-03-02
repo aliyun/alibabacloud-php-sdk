@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class folders extends Model
 {
     /**
+     * @description The ID of the folder.
+     *
      * @example 2735c2****
      *
      * @var string
@@ -16,6 +18,8 @@ class folders extends Model
     public $folderId;
 
     /**
+     * @description The path of the folder.
+     *
      * @var string
      */
     public $folderPath;

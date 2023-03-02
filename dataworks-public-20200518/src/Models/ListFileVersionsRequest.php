@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFileVersionsRequest extends Model
 {
     /**
+     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     *
      * @example 100000001
      *
      * @var int
@@ -16,6 +18,8 @@ class ListFileVersionsRequest extends Model
     public $fileId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListFileVersionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value:10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListFileVersionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+     *
      * @example 10000
      *
      * @var int
@@ -37,6 +45,9 @@ class ListFileVersionsRequest extends Model
     public $projectId;
 
     /**
+     * @description The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
+     *
+     * You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string

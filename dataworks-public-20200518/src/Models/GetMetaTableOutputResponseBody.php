@@ -10,25 +10,33 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableOutputResponseBody extends Model
 {
     /**
+     * @description The output node and instance.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @example 1031203110005
+     * @description The error code returned.
+     *
+     * @example 0
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example The specified parameters are invalid.
+     * @description The error message returned.
+     *
+     * @example SUCCESS
      *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,13 +44,17 @@ class GetMetaTableOutputResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @example 0bc1ec92159376****
+     * @description The ID of the request.
+     *
+     * @example 0000-0000-0000-000
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

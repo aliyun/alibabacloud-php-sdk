@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceLogRequest extends Model
 {
     /**
+     * @description The historical record number of the instance. You can call the ListInstanceHistory operation to query the ID.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetInstanceLogRequest extends Model
     public $instanceHistoryId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 1234
      *
      * @var int
@@ -23,6 +27,8 @@ class GetInstanceLogRequest extends Model
     public $instanceId;
 
     /**
+     * @description The environment of the workspace. Valid values: PROD and DEV.
+     *
      * @example PROD
      *
      * @var string

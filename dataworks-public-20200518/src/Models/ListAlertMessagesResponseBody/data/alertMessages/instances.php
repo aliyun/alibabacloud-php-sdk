@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1234
      *
      * @var int
@@ -23,11 +27,15 @@ class instances extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the workspace to which the node belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -35,6 +43,8 @@ class instances extends Model
     public $projectId;
 
     /**
+     * @description The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the node. The value CHECKING_CONDITION indicates that branch conditions are being checked for the node. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is successfully run.
+     *
      * @example NOT_RUN
      *
      * @var string
