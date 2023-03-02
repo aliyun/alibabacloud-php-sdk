@@ -68,7 +68,7 @@ class ListClusterHealthCheckTaskResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

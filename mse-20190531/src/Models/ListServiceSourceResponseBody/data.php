@@ -80,7 +80,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description Support for Ingresses of applications.
+     * @description Indicates whether Ingress is supported for applications.
      *
      * @var ingressOptions
      */

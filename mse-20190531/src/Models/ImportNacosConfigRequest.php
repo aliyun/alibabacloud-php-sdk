@@ -21,7 +21,7 @@ class ImportNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The download URL of the configuration file.
+     * @description The URL that is used to download the configuration file.
      *
      * @example https://mcube-prod.oss-cn-hangzhou.aliyuncs.com/mds/tempFileForOnex/9D7A04F072140/default/SELWNJCN/ea56fa54-ee30-42a6-8611-8c2ecc48a460/00000023.zip
      *

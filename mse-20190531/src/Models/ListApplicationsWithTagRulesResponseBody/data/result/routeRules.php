@@ -18,10 +18,10 @@ class routeRules extends Model
     public $carryData;
 
     /**
-     * @description Indicates whether the alert rule is enabled. Valid values:
+     * @description Indicates whether the alert rule is enabled. Valid value:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example true
      *

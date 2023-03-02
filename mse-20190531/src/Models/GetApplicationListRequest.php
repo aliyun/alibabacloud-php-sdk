@@ -21,7 +21,7 @@ class GetApplicationListRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the application.
+     * @description The ID of an application.
      *
      * @example hkhon1po62@c3df23522b*****
      *
@@ -30,7 +30,7 @@ class GetApplicationListRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The name of an application.
      *
      * @example rest-container
      *
@@ -48,6 +48,10 @@ class GetApplicationListRequest extends Model
     public $language;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -71,7 +75,7 @@ class GetApplicationListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

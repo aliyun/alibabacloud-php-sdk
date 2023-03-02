@@ -18,7 +18,7 @@ class data extends Model
     public $address;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of cluster.
      *
      * @example mse_
      *

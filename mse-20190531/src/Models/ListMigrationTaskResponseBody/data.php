@@ -49,7 +49,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The source instance node address.
+     * @description The address of the source instance node.
      *
      * @example 192.168.1.1:8848
      *
@@ -67,7 +67,7 @@ class data extends Model
     public $originInstanceName;
 
     /**
-     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     * @description The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
      *
      * @example fsdfsdfdsf
      *
@@ -87,7 +87,7 @@ class data extends Model
     /**
      * @description The name of the destination instance.
      *
-     * @example multiple-naocs
+     * @example multiple-nacos
      *
      * @var string
      */

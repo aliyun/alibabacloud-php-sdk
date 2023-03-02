@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryClusterDiskSpecificationResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -56,7 +56,7 @@ class QueryClusterDiskSpecificationResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request was successfully processed.
+     * @example The request is successfully processed.
      *
      * @var string
      */

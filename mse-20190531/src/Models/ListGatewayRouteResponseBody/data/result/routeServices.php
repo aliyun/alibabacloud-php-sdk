@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class routeServices extends Model
 {
     /**
-     * @description The type of the protocol.
+     * @description The protocol.
      *
      * @example DUBBO
      *

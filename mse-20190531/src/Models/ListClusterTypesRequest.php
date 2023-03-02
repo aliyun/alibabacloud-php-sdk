@@ -45,7 +45,7 @@ class ListClusterTypesRequest extends Model
     public $mseVersion;
 
     /**
-     * @description The ID of the region in which the instance resides. The region is supported by MSE.
+     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
      *
      * @example cn-hangzhou
      *

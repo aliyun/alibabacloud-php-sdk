@@ -26,7 +26,7 @@ class PullServicesResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *

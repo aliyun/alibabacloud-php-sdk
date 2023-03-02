@@ -26,7 +26,7 @@ class ExportNacosConfigResponseBody extends Model
     public $data;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace **%s** in the **ErrMessage** parameter.
      *
      * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
@@ -56,7 +56,7 @@ class ExportNacosConfigResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

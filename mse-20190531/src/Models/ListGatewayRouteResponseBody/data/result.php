@@ -81,14 +81,14 @@ class result extends Model
     public $domainName;
 
     /**
-     * @description The list of domain names.
+     * @description The names of domains.
      *
      * @var string[]
      */
     public $domainNameList;
 
     /**
-     * @description Specifies whether to activate Web Application Firewall (WAF).
+     * @description Indicates whether Web Application Firewall (WAF) is activated.
      *
      * @example false
      *
@@ -97,7 +97,7 @@ class result extends Model
     public $enableWaf;
 
     /**
-     * @description Specifies whether to enable the Fallback service.
+     * @description Indicates whether the Fallback service is enabled.
      *
      * @example true
      *
@@ -106,7 +106,7 @@ class result extends Model
     public $fallback;
 
     /**
-     * @description The information about the Fallback service.
+     * @description The information of the Fallback service.
      *
      * @var fallbackServices[]
      */
@@ -199,7 +199,7 @@ class result extends Model
     public $routePredicates;
 
     /**
-     * @description The information about services.
+     * @description The services.
      *
      * @var routeServices[]
      */

@@ -68,7 +68,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *

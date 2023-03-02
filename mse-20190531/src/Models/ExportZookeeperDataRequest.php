@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExportZookeeperDataRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class ExportZookeeperDataRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The type of the object that you want to export. Valid values:
+     *
+     *   transactionLog: transaction logs
+     *   snapshot: snapshots
+     *
      * @example snapshot
      *
      * @var string
@@ -23,6 +33,8 @@ class ExportZookeeperDataRequest extends Model
     public $exportType;
 
     /**
+     * @description The instance ID.
+     *
      * @example mse-cn-78v1l83****
      *
      * @var string
@@ -30,6 +42,8 @@ class ExportZookeeperDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +51,8 @@ class ExportZookeeperDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The extended request parameters in the JSON format.
+     *
      * @example {}
      *
      * @var string

@@ -30,7 +30,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $appId;
 
     /**
-     * @description The names of the applications.
+     * @description The name of the application.
      *
      * @example test
      *
@@ -57,7 +57,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

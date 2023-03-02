@@ -18,7 +18,7 @@ class AddGatewayServiceVersionResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the created service version.
+     * @description The ID of the gateway service.
      *
      * @example 330
      *
@@ -36,7 +36,7 @@ class AddGatewayServiceVersionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The message returned.
      *
      * @example The request is successfully processed.
      *

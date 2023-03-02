@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ingressOptions extends Model
 {
     /**
-     * @description Indicates whether Ingresses are enabled.
+     * @description Indicates whether Ingress is enabled.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class ingressOptions extends Model
     public $enableIngress;
 
     /**
-     * @description Indicates whether the Ingress gateway status is updated.
+     * @description Indicates whether the Ingress status is updated.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class ingressOptions extends Model
     public $ingressClass;
 
     /**
-     * @description The namespace whose resources you want to monitor.
+     * @description The namespace that you want to monitor.
      *
      * @example default
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMseServiceApplicationResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *
@@ -37,7 +37,7 @@ class CreateMseServiceApplicationResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

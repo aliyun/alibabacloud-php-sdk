@@ -21,7 +21,7 @@ class GetImportFileUrlRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the file.
+     * @description The file type.
      *
      * @example application/zip
      *

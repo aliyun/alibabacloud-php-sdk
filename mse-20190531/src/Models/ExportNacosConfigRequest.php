@@ -32,7 +32,7 @@ class ExportNacosConfigRequest extends Model
     /**
      * @description The ID of the data that you want to export.
      *
-     * > :
+     * >
      *
      *   Multiple export methods are supported.
      *   If you want to export a single configuration, you must leave the Ids parameter empty and specify the DataID and Group parameters.
@@ -55,7 +55,7 @@ class ExportNacosConfigRequest extends Model
     /**
      * @description The ID of the primary key of a configuration item.
      *
-     * > : - Multiple export methods are supported. You must specify this parameter if you want to export multiple configurations. - You can obtain the value of this parameter by calling the ListNacosConfigs operation. - If you specify this parameter, multiple configurations are exported. The DataId and Group parameters are invalid.
+     * >  - Multiple export methods are supported. You must specify this parameter if you want to export multiple configurations. - You can obtain the value of this parameter by calling the ListNacosConfigs operation. - If you specify this parameter, multiple configurations are exported. The DataId and Group parameters are invalid.
      * @example 1709,1710
      *
      * @var string

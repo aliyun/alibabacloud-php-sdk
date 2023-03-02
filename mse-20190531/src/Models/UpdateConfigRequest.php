@@ -83,6 +83,11 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
+     * @var bool
+     */
+    public $eurekaSupported;
+
+    /**
      * @description Specifies whether to enable the time to live (TTL) configuration.
      *
      * @example true
@@ -246,6 +251,7 @@ class UpdateConfigRequest extends Model
         'configAuthEnabled'        => 'ConfigAuthEnabled',
         'configSecretEnabled'      => 'ConfigSecretEnabled',
         'configType'               => 'ConfigType',
+        'eurekaSupported'          => 'EurekaSupported',
         'extendedTypesEnable'      => 'ExtendedTypesEnable',
         'initLimit'                => 'InitLimit',
         'instanceId'               => 'InstanceId',
@@ -291,6 +297,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+        if (null !== $this->eurekaSupported) {
+            $res['EurekaSupported'] = $this->eurekaSupported;
         }
         if (null !== $this->extendedTypesEnable) {
             $res['ExtendedTypesEnable'] = $this->extendedTypesEnable;
@@ -372,6 +381,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+        if (isset($map['EurekaSupported'])) {
+            $model->eurekaSupported = $map['EurekaSupported'];
         }
         if (isset($map['ExtendedTypesEnable'])) {
             $model->extendedTypesEnable = $map['ExtendedTypesEnable'];

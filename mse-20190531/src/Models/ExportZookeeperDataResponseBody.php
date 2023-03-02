@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ExportZookeeperDataResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -22,6 +27,8 @@ class ExportZookeeperDataResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -29,6 +36,8 @@ class ExportZookeeperDataResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -36,11 +45,20 @@ class ExportZookeeperDataResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
+     *
+     * @example The request was successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25EA0A83-9007-4E87-808C-637BE1A****
      *
      * @var string
@@ -48,6 +66,11 @@ class ExportZookeeperDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

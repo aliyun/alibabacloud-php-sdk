@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The URL used to download the exported configurations.
+     * @description The URL that is used to download the exported configurations.
      *
      * @example http://xxxxxxxxx
      *

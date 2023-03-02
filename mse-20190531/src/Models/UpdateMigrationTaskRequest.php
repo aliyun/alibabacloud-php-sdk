@@ -21,7 +21,7 @@ class UpdateMigrationTaskRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the instance.
+     * @description The type of the instance. Valid values:
      *
      *   Nacos-Ans
      *   ZooKeeper
@@ -43,7 +43,7 @@ class UpdateMigrationTaskRequest extends Model
     public $id;
 
     /**
-     * @description The source instance node address.
+     * @description The address of the source instance node.
      *
      * @example 192.168.1.1:8848
      *
@@ -61,7 +61,7 @@ class UpdateMigrationTaskRequest extends Model
     public $originInstanceName;
 
     /**
-     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     * @description The list of namespaces. This parameter is optional if you want to migrate applications from a Nacos instance.
      *
      * @example namesapceId1,namesapceId2
      *

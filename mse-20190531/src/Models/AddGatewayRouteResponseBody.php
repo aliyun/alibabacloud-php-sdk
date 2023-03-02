@@ -43,7 +43,7 @@ class AddGatewayRouteResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request was successfully processed.
+     * @example The request is successfully processed.
      *
      * @var string
      */

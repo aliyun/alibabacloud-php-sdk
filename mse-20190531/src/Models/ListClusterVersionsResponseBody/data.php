@@ -20,16 +20,16 @@ class data extends Model
     /**
      * @description The code of the instance type.
      *
-     * @example 200
+     * @example NACOS_2_0_0
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The type of the instance.
+     * @description The version of the instance.
      *
-     * @example Nacos
+     * @example 2.1.0
      *
      * @var string
      */

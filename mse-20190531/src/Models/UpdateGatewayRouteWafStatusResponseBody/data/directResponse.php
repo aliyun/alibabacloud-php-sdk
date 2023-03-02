@@ -18,7 +18,7 @@ class directResponse extends Model
     public $body;
 
     /**
-     * @description The return value.
+     * @description The status code returned.
      *
      * @example 200
      *

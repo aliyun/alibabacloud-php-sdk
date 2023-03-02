@@ -22,7 +22,7 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description The creation time.
+     * @description The time when the migration task was created.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -31,7 +31,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The modification time.
+     * @description The time when the migration task was updated.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -49,7 +49,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The source instance node address.
+     * @description The address of the source instance node.
      *
      * @example 192.168.100.2:2181
      *
@@ -67,7 +67,7 @@ class data extends Model
     public $originInstanceName;
 
     /**
-     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     * @description The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
      *
      * @example fsdfsdfdsf
      *
@@ -87,7 +87,7 @@ class data extends Model
     /**
      * @description The name of the destination instance.
      *
-     * @example multiple-naocs
+     * @example multiple-nacos
      *
      * @var string
      */

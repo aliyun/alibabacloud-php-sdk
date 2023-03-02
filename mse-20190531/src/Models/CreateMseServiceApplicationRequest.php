@@ -60,7 +60,7 @@ class CreateMseServiceApplicationRequest extends Model
     public $mseVersion;
 
     /**
-     * @description The ID of the region where the Microservices Engine (MSE) instance resides. Examples:
+     * @description The ID of the region where the instance resides. Examples:
      *
      *   cn-hangzhou: China (Hangzhou)
      *   cn-beijing: China (Beijing)
@@ -84,7 +84,7 @@ class CreateMseServiceApplicationRequest extends Model
     public $sentinelEnable;
 
     /**
-     * @description The service source.
+     * @description The source.
      *
      * @example edasmsc
      *

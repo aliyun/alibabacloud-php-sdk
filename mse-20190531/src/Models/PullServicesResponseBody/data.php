@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The group.
+     * @description The name of the group.
      *
      * @example test
      *

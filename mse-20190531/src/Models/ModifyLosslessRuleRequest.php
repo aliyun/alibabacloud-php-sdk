@@ -87,6 +87,10 @@ class ModifyLosslessRuleRequest extends Model
     public $lossLessDetail;
 
     /**
+     * @description The microservice namespace to which the rule applies.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;

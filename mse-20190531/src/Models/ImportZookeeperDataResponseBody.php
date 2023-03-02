@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportZookeeperDataResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @example null
      *
      * @var mixed
@@ -16,6 +18,8 @@ class ImportZookeeperDataResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example mse-100-000
      *
      * @var string
@@ -23,6 +27,8 @@ class ImportZookeeperDataResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 202
      *
      * @var string
@@ -30,11 +36,17 @@ class ImportZookeeperDataResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 52BA6DA6-A702-4362-A32F-DFF79655****
      *
      * @var string
@@ -42,6 +54,11 @@ class ImportZookeeperDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

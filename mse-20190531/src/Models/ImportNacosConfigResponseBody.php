@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ImportNacosConfigResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The code returned.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ImportNacosConfigResponseBody extends Model
     public $data;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace **%s** in the **ErrMessage** parameter.
      *
      * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.

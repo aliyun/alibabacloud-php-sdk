@@ -83,7 +83,7 @@ class AddGatewayRequest extends Model
     public $name;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -165,7 +165,7 @@ class AddGatewayRequest extends Model
     public $vSwitchId2;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the virtual private cloud (VPC) in which the instances reside.
      *
      * @example vpc-bp15mncnrtm83uauxd1xb
      *

@@ -3242,10 +3242,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ExportZookeeperDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * Only one task can run at a time.
+     *   *
+     * @param ExportZookeeperDataRequest $request ExportZookeeperDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportZookeeperDataResponse
+     * @return ExportZookeeperDataResponse ExportZookeeperDataResponse
      */
     public function exportZookeeperDataWithOptions($request, $runtime)
     {
@@ -3285,9 +3287,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ExportZookeeperDataRequest $request
+     * Only one task can run at a time.
+     *   *
+     * @param ExportZookeeperDataRequest $request ExportZookeeperDataRequest
      *
-     * @return ExportZookeeperDataResponse
+     * @return ExportZookeeperDataResponse ExportZookeeperDataResponse
      */
     public function exportZookeeperData($request)
     {
@@ -4789,10 +4793,13 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportZookeeperDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * **
+     *   * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     *   *
+     * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportZookeeperDataResponse
+     * @return ImportZookeeperDataResponse ImportZookeeperDataResponse
      */
     public function importZookeeperDataWithOptions($request, $runtime)
     {
@@ -4835,9 +4842,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportZookeeperDataRequest $request
+     * **
+     *   * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     *   *
+     * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
      *
-     * @return ImportZookeeperDataResponse
+     * @return ImportZookeeperDataResponse ImportZookeeperDataResponse
      */
     public function importZookeeperData($request)
     {
@@ -8141,6 +8151,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->configType)) {
             $query['ConfigType'] = $request->configType;
+        }
+        if (!Utils::isUnset($request->eurekaSupported)) {
+            $query['EurekaSupported'] = $request->eurekaSupported;
         }
         if (!Utils::isUnset($request->extendedTypesEnable)) {
             $query['ExtendedTypesEnable'] = $request->extendedTypesEnable;

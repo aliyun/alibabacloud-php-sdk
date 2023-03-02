@@ -35,7 +35,7 @@ class ListServiceSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example You are not authorized to perform this operation.
      *

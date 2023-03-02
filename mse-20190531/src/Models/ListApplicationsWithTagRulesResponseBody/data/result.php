@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example daqijp6c31@xxx
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $appName;
 
     /**
-     * @description An array that consists of the rules.
+     * @description The information about the rules.
      *
      * @var routeRules[]
      */

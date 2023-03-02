@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
-     * @description The group.
+     * @description The name of the group.
      *
      * @example test
      *

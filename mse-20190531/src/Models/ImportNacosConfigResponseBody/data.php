@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about configurations failed to be imported.
+     * @description The information about configurations that are failed to be imported.
      *
      * @var failData[]
      */

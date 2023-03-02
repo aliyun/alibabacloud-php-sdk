@@ -80,7 +80,7 @@ class ListInstanceCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the call was successful. Valid values:
      *
      *   `true`: The request was successful.
      *   `false`: The request failed.

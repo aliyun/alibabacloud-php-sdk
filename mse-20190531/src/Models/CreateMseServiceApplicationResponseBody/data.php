@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example xxxxxxxx@xxxxxxxxxx
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $licenseKey;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $source;
 
     /**
-     * @description The status.
+     * @description The status. Valid values: 1: available; 2: deleted
      *
      * @example 1
      *
