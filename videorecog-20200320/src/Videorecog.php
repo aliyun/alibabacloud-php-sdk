@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\DetectVideoShotAdvanceRequest;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\DetectVideoShotRequest;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\DetectVideoShotResponse;
+use AlibabaCloud\SDK\Videorecog\V20200320\Models\EvaluateVideoQualityAdvanceRequest;
+use AlibabaCloud\SDK\Videorecog\V20200320\Models\EvaluateVideoQualityRequest;
+use AlibabaCloud\SDK\Videorecog\V20200320\Models\EvaluateVideoQualityResponse;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\GenerateVideoCoverAdvanceRequest;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\GenerateVideoCoverRequest;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\GenerateVideoCoverResponse;
@@ -190,6 +193,130 @@ class Videorecog extends OpenApiClient
         }
 
         return $this->detectVideoShotWithOptions($detectVideoShotReq, $runtime);
+    }
+
+    /**
+     * @param EvaluateVideoQualityRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EvaluateVideoQualityResponse
+     */
+    public function evaluateVideoQualityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['VideoUrl'] = $request->videoUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EvaluateVideoQuality',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EvaluateVideoQualityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EvaluateVideoQualityRequest $request
+     *
+     * @return EvaluateVideoQualityResponse
+     */
+    public function evaluateVideoQuality($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->evaluateVideoQualityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EvaluateVideoQualityAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EvaluateVideoQualityResponse
+     */
+    public function evaluateVideoQualityAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videorecog',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $evaluateVideoQualityReq = new EvaluateVideoQualityRequest([]);
+        OpenApiUtilClient::convert($request, $evaluateVideoQualityReq);
+        if (!Utils::isUnset($request->videoUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->videoUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $evaluateVideoQualityReq->videoUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->evaluateVideoQualityWithOptions($evaluateVideoQualityReq, $runtime);
     }
 
     /**
