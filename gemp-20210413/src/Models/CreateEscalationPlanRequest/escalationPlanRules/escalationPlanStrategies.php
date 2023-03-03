@@ -16,6 +16,11 @@ class escalationPlanStrategies extends Model
     public $enableWebhook;
 
     /**
+     * @var string
+     */
+    public $escalationPlanType;
+
+    /**
      * @var string[]
      */
     public $noticeChannels;
@@ -37,11 +42,12 @@ class escalationPlanStrategies extends Model
      */
     public $serviceGroupIds;
     protected $_name = [
-        'enableWebhook'   => 'enableWebhook',
-        'noticeChannels'  => 'noticeChannels',
-        'noticeObjects'   => 'noticeObjects',
-        'noticeTime'      => 'noticeTime',
-        'serviceGroupIds' => 'serviceGroupIds',
+        'enableWebhook'      => 'enableWebhook',
+        'escalationPlanType' => 'escalationPlanType',
+        'noticeChannels'     => 'noticeChannels',
+        'noticeObjects'      => 'noticeObjects',
+        'noticeTime'         => 'noticeTime',
+        'serviceGroupIds'    => 'serviceGroupIds',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class escalationPlanStrategies extends Model
         $res = [];
         if (null !== $this->enableWebhook) {
             $res['enableWebhook'] = $this->enableWebhook;
+        }
+        if (null !== $this->escalationPlanType) {
+            $res['escalationPlanType'] = $this->escalationPlanType;
         }
         if (null !== $this->noticeChannels) {
             $res['noticeChannels'] = $this->noticeChannels;
@@ -80,6 +89,9 @@ class escalationPlanStrategies extends Model
         $model = new self();
         if (isset($map['enableWebhook'])) {
             $model->enableWebhook = $map['enableWebhook'];
+        }
+        if (isset($map['escalationPlanType'])) {
+            $model->escalationPlanType = $map['escalationPlanType'];
         }
         if (isset($map['noticeChannels'])) {
             if (!empty($map['noticeChannels'])) {
