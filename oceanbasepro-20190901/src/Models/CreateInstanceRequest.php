@@ -68,7 +68,7 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @example 2.2.77
+     * @example 3.2.3.3
      *
      * @var string
      */

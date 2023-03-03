@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class tenant extends Model
 {
     /**
+     * @description The list of zones.
+     *
      * @var string[]
      */
     public $availableZones;
 
     /**
+     * @description The character set.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -24,8 +28,8 @@ class tenant extends Model
     public $charset;
 
     /**
-     * @description The enabling status of the Clog service.
-     * - ONLINE: The Clog service is running.
+     * @description The enabling status of the clog service.
+     * - ONLINE: The clog service is running.
      * @example CLOSED
      *
      * @var string
@@ -33,6 +37,8 @@ class tenant extends Model
     public $clogServiceStatus;
 
     /**
+     * @description The collation.
+     *
      * @example utf8mb4_general_ci
      *
      * @var string
@@ -77,12 +83,16 @@ class tenant extends Model
     public $description;
 
     /**
+     * @description The type of the disk.
+     *
+     * @example cloud_essd_pl1
+     *
      * @var string
      */
     public $diskType;
 
     /**
-     * @description Indicates whether the Clog service is available. To enable the Clog service, submit a ticket.
+     * @description Indicates whether the clog service is available. To enable the clog service, submit a ticket.
      *
      * @example false
      *
@@ -100,6 +110,8 @@ class tenant extends Model
     public $enableInternetAddressService;
 
     /**
+     * @description Indicates whether to enable read/write splitting endpoint.
+     *
      * @example false
      *
      * @var bool
@@ -107,11 +119,17 @@ class tenant extends Model
     public $enableReadWriteSplit;
 
     /**
+     * @description The type of the instance.
+     *
+     * @example KAFKA_PUBLIC
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The zone where the primary node is located.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -119,6 +137,10 @@ class tenant extends Model
     public $masterIntranetAddressZone;
 
     /**
+     * @description The type of the payment.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
@@ -133,13 +155,19 @@ class tenant extends Model
     public $primaryZone;
 
     /**
-     * @example Random
+     * @description The deployment type of the primary zone.
+     *
+     * @example RANDOM
      *
      * @var string
      */
     public $primaryZoneDeployType;
 
     /**
+     * @description The series of the instance.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $series;
@@ -154,7 +182,7 @@ class tenant extends Model
     public $status;
 
     /**
-     * @description The connection access information of the tenant.
+     * @description The connection information of the tenant.
      *
      * @var tenantConnections[]
      */
@@ -171,7 +199,7 @@ class tenant extends Model
 
     /**
      * @description The tenant mode.
-     * MySQL
+     * - MySQL
      * @example Oracle
      *
      * @var string

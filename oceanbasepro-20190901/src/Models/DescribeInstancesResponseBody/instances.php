@@ -140,6 +140,10 @@ class instances extends Model
     public $instanceRole;
 
     /**
+     * @description The instance type.
+     *
+     * @example KAFKA_PUBLIC
+     *
      * @var string
      */
     public $instanceType;

@@ -18,6 +18,10 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $instanceId;
 
     /**
+     * @description The availability zone where the primary node is located.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $masterIntranetAddressZone;
@@ -41,7 +45,9 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $primaryZone;
 
     /**
-     * @example Random
+     * @description The deployment type of the primary zone.
+     *
+     * @example RANDOM
      *
      * @var string
      */

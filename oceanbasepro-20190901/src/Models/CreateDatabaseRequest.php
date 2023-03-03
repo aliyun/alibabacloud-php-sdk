@@ -18,6 +18,8 @@ class CreateDatabaseRequest extends Model
     public $clientToken;
 
     /**
+     * @description The collation.
+     *
      * @example utf8mb4_general_ci
      *
      * @var string

@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tenantConnections extends Model
 {
     /**
+     * @description The type of the address.
+     *
+     * @example MASTER
+     *
      * @var string
      */
     public $addressType;
 
     /**
      * @description The service mode of the connection address. Valid values:
-     * Clog: provides transaction log services.
+     * - Clog: provides transaction log services.
      * @example ReadWrite
      *
      * @var string
@@ -104,6 +108,8 @@ class tenantConnections extends Model
     public $intranetPort;
 
     /**
+     * @description Indicates whether to enable transaction splitting.
+     *
      * @example true
      *
      * @var bool

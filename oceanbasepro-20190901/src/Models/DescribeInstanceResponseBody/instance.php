@@ -127,6 +127,11 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @var string
+     */
+    public $instanceRole;
+
+    /**
      * @description Indicates whether the OBServer version is the latest.
      *
      * @example true
@@ -152,6 +157,11 @@ class instance extends Model
      * @var string
      */
     public $maintainTime;
+
+    /**
+     * @var string
+     */
+    public $nodeNum;
 
     /**
      * @description The detailed information of the OBServer version.
@@ -204,6 +214,11 @@ class instance extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var string[]
+     */
+    public $zones;
     protected $_name = [
         'autoRenewal'          => 'AutoRenewal',
         'autoUpgradeObVersion' => 'AutoUpgradeObVersion',
@@ -218,15 +233,18 @@ class instance extends Model
         'instanceClass'        => 'InstanceClass',
         'instanceId'           => 'InstanceId',
         'instanceName'         => 'InstanceName',
+        'instanceRole'         => 'InstanceRole',
         'isLatestObVersion'    => 'IsLatestObVersion',
         'isTrustEcs'           => 'IsTrustEcs',
         'maintainTime'         => 'MaintainTime',
+        'nodeNum'              => 'NodeNum',
         'obRpmVersion'         => 'ObRpmVersion',
         'payType'              => 'PayType',
         'resource'             => 'Resource',
         'series'               => 'Series',
         'status'               => 'Status',
         'version'              => 'Version',
+        'zones'                => 'Zones',
     ];
 
     public function validate()
@@ -275,6 +293,9 @@ class instance extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+        if (null !== $this->instanceRole) {
+            $res['InstanceRole'] = $this->instanceRole;
+        }
         if (null !== $this->isLatestObVersion) {
             $res['IsLatestObVersion'] = $this->isLatestObVersion;
         }
@@ -283,6 +304,9 @@ class instance extends Model
         }
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
+        }
+        if (null !== $this->nodeNum) {
+            $res['NodeNum'] = $this->nodeNum;
         }
         if (null !== $this->obRpmVersion) {
             $res['ObRpmVersion'] = $this->obRpmVersion;
@@ -301,6 +325,9 @@ class instance extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = $this->zones;
         }
 
         return $res;
@@ -355,6 +382,9 @@ class instance extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+        if (isset($map['InstanceRole'])) {
+            $model->instanceRole = $map['InstanceRole'];
+        }
         if (isset($map['IsLatestObVersion'])) {
             $model->isLatestObVersion = $map['IsLatestObVersion'];
         }
@@ -363,6 +393,9 @@ class instance extends Model
         }
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
+        }
+        if (isset($map['NodeNum'])) {
+            $model->nodeNum = $map['NodeNum'];
         }
         if (isset($map['ObRpmVersion'])) {
             $model->obRpmVersion = $map['ObRpmVersion'];
@@ -381,6 +414,11 @@ class instance extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['Zones'])) {
+            if (!empty($map['Zones'])) {
+                $model->zones = $map['Zones'];
+            }
         }
 
         return $model;

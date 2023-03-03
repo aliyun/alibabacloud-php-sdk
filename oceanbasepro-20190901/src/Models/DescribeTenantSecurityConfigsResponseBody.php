@@ -4,29 +4,24 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsResponseBody\configs;
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceTagsResponseBody extends Model
+class DescribeTenantSecurityConfigsResponseBody extends Model
 {
     /**
-     * @description The update status of the tags.
-     *
-     * @example done
-     *
-     * @var string
+     * @var configs
      */
-    public $message;
+    public $configs;
 
     /**
-     * @description The request ID.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example 523E7183-1490-590D-BA03-12DFD316614B
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
+        'configs'   => 'Configs',
         'requestId' => 'RequestId',
     ];
 
@@ -37,8 +32,8 @@ class ModifyInstanceTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->configs) {
+            $res['Configs'] = null !== $this->configs ? $this->configs->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,13 +45,13 @@ class ModifyInstanceTagsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceTagsResponseBody
+     * @return DescribeTenantSecurityConfigsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Configs'])) {
+            $model->configs = configs::fromMap($map['Configs']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

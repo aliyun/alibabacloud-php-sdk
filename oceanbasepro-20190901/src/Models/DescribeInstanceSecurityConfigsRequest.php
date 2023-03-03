@@ -6,28 +6,16 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceTagsRequest extends Model
+class DescribeInstanceSecurityConfigsRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
      * @example ob317v4uif****
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @description The tags.
-     *
-     * @example [{"Key": "xxx", "Value", "xxx"},{}]
-     *
-     * @var string
-     */
-    public $tags;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tags'       => 'Tags',
     ];
 
     public function validate()
@@ -40,9 +28,6 @@ class ModifyInstanceTagsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
 
         return $res;
     }
@@ -50,16 +35,13 @@ class ModifyInstanceTagsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceTagsRequest
+     * @return DescribeInstanceSecurityConfigsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

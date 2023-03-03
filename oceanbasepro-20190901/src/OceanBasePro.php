@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceCreatableZone
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceCreatableZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSecurityConfigsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSecurityConfigsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsRequest;
@@ -1407,6 +1411,49 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceSecurityConfigsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeInstanceSecurityConfigsResponse
+     */
+    public function describeInstanceSecurityConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSecurityConfigs',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceSecurityConfigsRequest $request
+     *
+     * @return DescribeInstanceSecurityConfigsResponse
+     */
+    public function describeInstanceSecurityConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSecurityConfigsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceTagsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2436,6 +2483,52 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTenantMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTenantSecurityConfigsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeTenantSecurityConfigsResponse
+     */
+    public function describeTenantSecurityConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTenantSecurityConfigs',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTenantSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTenantSecurityConfigsRequest $request
+     *
+     * @return DescribeTenantSecurityConfigsResponse
+     */
+    public function describeTenantSecurityConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTenantSecurityConfigsWithOptions($request, $runtime);
     }
 
     /**

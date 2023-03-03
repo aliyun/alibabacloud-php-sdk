@@ -10,7 +10,9 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
-     * @description The primary zone deployment mode.
+     * @description The deployment type of the primary zone.
+     *
+     * @example RANDOM
      *
      * @var string
      */
