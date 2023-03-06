@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
@@ -43,6 +45,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusReque
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
@@ -805,6 +810,70 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
+     */
+    public function getChatappTemplateDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatappTemplateDetail',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatappTemplateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
+     *
+     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
+     */
+    public function getChatappTemplateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatappTemplateDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetChatappUploadAuthorizationRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1054,6 +1123,81 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->isvGetAppIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param ListChatappTemplateRequest $tmpReq  ListChatappTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
+     */
+    public function listChatappTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListChatappTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageShrink)) {
+            $query['Page'] = $request->pageShrink;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChatappTemplate',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ### QPS limit
+     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param ListChatappTemplateRequest $request ListChatappTemplateRequest
+     *
+     * @return ListChatappTemplateResponse ListChatappTemplateResponse
+     */
+    public function listChatappTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatappTemplateWithOptions($request, $runtime);
     }
 
     /**
