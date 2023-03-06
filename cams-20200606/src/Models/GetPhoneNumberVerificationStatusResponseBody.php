@@ -22,7 +22,7 @@ class GetPhoneNumberVerificationStatusResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */
@@ -31,7 +31,7 @@ class GetPhoneNumberVerificationStatusResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example N/A
+     * @example None
      *
      * @var string
      */

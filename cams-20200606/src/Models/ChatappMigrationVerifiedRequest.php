@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChatappMigrationVerifiedRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -16,6 +18,8 @@ class ChatappMigrationVerifiedRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The phone number.
+     *
      * @example 861380000000
      *
      * @var string
@@ -23,6 +27,8 @@ class ChatappMigrationVerifiedRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The verification code.
+     *
      * @example 828798
      *
      * @var string

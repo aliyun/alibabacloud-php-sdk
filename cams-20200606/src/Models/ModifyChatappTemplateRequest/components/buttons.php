@@ -18,7 +18,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description The text of the message to be sent.
+     * @description The text of the message that is sent.
      *
      * @example phone-button-text
      *
@@ -40,7 +40,7 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be visited after clicking the button.
+     * @description The URL to be visited after users click the button.
      *
      * @example https://www.website.com/
      *

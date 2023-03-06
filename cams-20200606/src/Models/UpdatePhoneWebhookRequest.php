@@ -11,14 +11,14 @@ class UpdatePhoneWebhookRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
-     * @example 293483938849493
+     * @example 293483938849493****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description Specifies whether to use HTTP to receive receipts. Valid values: Y and N. A value of Y indicates that HTTP is used to receive receipts. A value of N indicates that HTTP is not used to receive receipts.
+     * @description Specifies whether to use HTTP callbacks to receive receipts. Valid values: Y and N. A value of Y indicates that HTTP callbacks are used to receive receipts. A value of N indicates that HTTP callbacks are not used to receive receipts.
      *
      * @example Y
      *
@@ -45,7 +45,7 @@ class UpdatePhoneWebhookRequest extends Model
     public $queueFlag;
 
     /**
-     * @description The callback URL to which status reports are sent via HTTP callbacks.
+     * @description The callback URL to which status reports are sent by using HTTP callbacks.
      *
      * @example http://www.aliyun.com
      *
@@ -54,7 +54,7 @@ class UpdatePhoneWebhookRequest extends Model
     public $statusCallbackUrl;
 
     /**
-     * @description The callback URL to which mobile originated (MO) messages are sent via HTTP callbacks.
+     * @description The callback URL to which mobile originated (MO) messages are sent by using HTTP callbacks.
      *
      * @example http://aliyun.com
      *

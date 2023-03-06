@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountWebhookRequest extends Model
 {
     /**
-     * @example 293483938849493
+     * @description The space ID of the user under the ISV account.
+     *
+     * @example 293483938849493**
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description Specifies whether to use HTTP callbacks to receive receipts. Valid values: Y and N. A value of Y indicates that HTTP callbacks are used to receive receipts. A value of N indicates that HTTP callbacks are not used to receive receipts.
+     *
      * @example Y
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAccountWebhookRequest extends Model
     public $httpFlag;
 
     /**
+     * @description Specifies whether to use Message Service (MNS) queues to receive receipts. Valid values: Y and N. A value of Y indicates that MNS queues are used to receive receipts. A value of N indicates that MNS queues are not used to receive receipts.
+     *
      * @example N
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateAccountWebhookRequest extends Model
     public $queueFlag;
 
     /**
+     * @description The callback URL to which status reports are sent by using HTTP callbacks.
+     *
      * @example http://www.aliyun.com
      *
      * @var string

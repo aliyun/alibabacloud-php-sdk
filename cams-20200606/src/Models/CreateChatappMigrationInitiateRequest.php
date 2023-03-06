@@ -18,9 +18,9 @@ class CreateChatappMigrationInitiateRequest extends Model
     public $countryCode;
 
     /**
-     * @description The space ID of the ISV user to which the phone number is migrated.
+     * @description The space ID of the user under the ISV account.
      *
-     * @example 293483938849493
+     * @example 293483938849493****
      *
      * @var string
      */

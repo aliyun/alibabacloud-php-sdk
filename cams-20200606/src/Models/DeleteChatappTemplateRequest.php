@@ -16,7 +16,7 @@ class DeleteChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The unique identifier of the WhatsApp account that you register.
+     * @description The ID of the WhatsApp account that you register.
      *
      * @example 65921621816****
      *
@@ -27,7 +27,7 @@ class DeleteChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
-     * @description Assigned by ISV for RAM user authentication and authorization.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *

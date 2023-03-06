@@ -10,23 +10,30 @@ use AlibabaCloud\Tea\Model;
 class ModifyChatappTemplateRequest extends Model
 {
     /**
-     * @description The list of components of the message template.
+     * @example text
+     *
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @description The components of the message template.
      *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description Isv customer space id
+     * @description The space ID of the user under the ISV account.
      *
-     * @example 293483938849493
+     * @example 28251486512358****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatApp Business account of the ISV customer.
+     * @description The ID of the WhatsApp Business account under the ISV account.
      *
      * @example 659216218162179
      *
@@ -44,7 +51,7 @@ class ModifyChatappTemplateRequest extends Model
     public $example;
 
     /**
-     * @description ISV verification code, which is used to verify whether the sub-account is authorized by ISV.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by ISV.
      *
      * @example ksiekdki39ksks93939
      *
@@ -53,7 +60,7 @@ class ModifyChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language.
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
      *
      * @example en
      *
@@ -69,7 +76,15 @@ class ModifyChatappTemplateRequest extends Model
      * @var string
      */
     public $templateCode;
+
+    /**
+     * @example WHATSAPP
+     *
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
+        'category'     => 'Category',
         'components'   => 'Components',
         'custSpaceId'  => 'CustSpaceId',
         'custWabaId'   => 'CustWabaId',
@@ -77,6 +92,7 @@ class ModifyChatappTemplateRequest extends Model
         'isvCode'      => 'IsvCode',
         'language'     => 'Language',
         'templateCode' => 'TemplateCode',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -86,6 +102,9 @@ class ModifyChatappTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->components) {
             $res['Components'] = [];
             if (null !== $this->components && \is_array($this->components)) {
@@ -113,6 +132,9 @@ class ModifyChatappTemplateRequest extends Model
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
+        }
 
         return $res;
     }
@@ -125,6 +147,9 @@ class ModifyChatappTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
@@ -151,6 +176,9 @@ class ModifyChatappTemplateRequest extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

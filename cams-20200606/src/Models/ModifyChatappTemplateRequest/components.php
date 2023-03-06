@@ -27,7 +27,14 @@ class components extends Model
     public $caption;
 
     /**
-     * @description The name of the file.
+     * @example 50
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @description The name of the file
      *
      * > : When the Type parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify a name of the file.
      * @example Video
@@ -37,7 +44,14 @@ class components extends Model
     public $fileName;
 
     /**
-     * @description The type of the media resource.
+     * @example docx
+     *
+     * @var string
+     */
+    public $fileType;
+
+    /**
+     * @description The type of the media resources that are included in the message.
      *
      *   **TEXT**: text
      *   **IMAGE**: image
@@ -51,13 +65,20 @@ class components extends Model
     public $format;
 
     /**
-     * @description The text of the message to be sent.
+     * @description The text of the message that is sent.
      *
      * @example hello chatapp
      *
      * @var string
      */
     public $text;
+
+    /**
+     * @example https://img.png
+     *
+     * @var string
+     */
+    public $thumbUrl;
 
     /**
      * @description The type of the component.
@@ -76,7 +97,7 @@ class components extends Model
     /**
      * @description The URL of the material.
      *
-     * @example "https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
+     * @example https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
      *
      * @var string
      */
@@ -84,9 +105,12 @@ class components extends Model
     protected $_name = [
         'buttons'  => 'Buttons',
         'caption'  => 'Caption',
+        'duration' => 'Duration',
         'fileName' => 'FileName',
+        'fileType' => 'FileType',
         'format'   => 'Format',
         'text'     => 'Text',
+        'thumbUrl' => 'ThumbUrl',
         'type'     => 'Type',
         'url'      => 'Url',
     ];
@@ -110,14 +134,23 @@ class components extends Model
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->thumbUrl) {
+            $res['ThumbUrl'] = $this->thumbUrl;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -149,14 +182,23 @@ class components extends Model
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['ThumbUrl'])) {
+            $model->thumbUrl = $map['ThumbUrl'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

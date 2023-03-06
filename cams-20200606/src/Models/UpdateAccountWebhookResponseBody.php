@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountWebhookResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateAccountWebhookResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateAccountWebhookResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 744c4b5c79c9432497a075bdfca3****
      *
      * @var string

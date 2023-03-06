@@ -22,7 +22,7 @@ class ChatappBindWabaResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */

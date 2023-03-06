@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class phoneNumbers extends Model
 {
     /**
-     * @description 号码校验状态。
+     * @description The verification status of the phone number.
      *
      * @example VERIFIED
      *
@@ -18,7 +18,7 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
-     * @description 号码发送量。
+     * @description The maximum number of messages that can be sent to users by using the phone number.
      *
      * @example TIER_10
      *
@@ -27,7 +27,7 @@ class phoneNumbers extends Model
     public $messagingLimitTier;
 
     /**
-     * @description 名称状态。
+     * @description The status of the business name.
      *
      * @example Approval
      *
@@ -36,7 +36,7 @@ class phoneNumbers extends Model
     public $nameStatus;
 
     /**
-     * @description 新名称审核状态。
+     * @description The review status of the new business name.
      *
      * @example Approval
      *
@@ -54,7 +54,12 @@ class phoneNumbers extends Model
     public $phoneNumber;
 
     /**
-     * @description The quality rating of the phone number. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
+     * @description The quality rating of the phone number. Valid values:
+     *
+     *   **GREEN**
+     *   **YELLOW**
+     *   **RED**
+     *   **UNKNOWN**
      *
      * @example GREEN
      *
@@ -63,7 +68,19 @@ class phoneNumbers extends Model
     public $qualityRating;
 
     /**
-     * @description The status of the phone number. Valid values: PENDING, DELETED, MIGRATED, BANNED, RESTRICTED, RATE_LIMITED, FLAGGED, CONNECTED, DISCONNECTED, UNKNOWN, and UNVERIFIED.
+     * @description The status of the phone number.
+     *
+     *   PENDING
+     *   DELETED
+     *   MIGRATED
+     *   BANNED
+     *   RESTRICTED
+     *   RATE_LIMITED
+     *   FLAGGED
+     *   CONNECTED
+     *   DISCONNECTED
+     *   UNKNOWN
+     *   UNVERIFIED
      *
      * @example CONNECTED
      *
@@ -72,7 +89,7 @@ class phoneNumbers extends Model
     public $status;
 
     /**
-     * @description The status report notification URL.
+     * @description The callback URL to which status reports are sent by using HTTP callbacks.
      *
      * @example https://ali.com/status
      *
@@ -90,7 +107,7 @@ class phoneNumbers extends Model
     public $statusQueue;
 
     /**
-     * @description The MO message notification URL.
+     * @description The callback URL to which MO messages are sent by using HTTP callbacks.
      *
      * @example https://ali.com/inbound
      *
@@ -108,7 +125,7 @@ class phoneNumbers extends Model
     public $upQueue;
 
     /**
-     * @description The name of the company to which the phone number is associated with.
+     * @description The name of the company with which the phone number is associated.
      *
      * @example Alibaba
      *

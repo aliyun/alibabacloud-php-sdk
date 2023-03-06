@@ -26,6 +26,13 @@ class components extends Model
     public $caption;
 
     /**
+     * @example 50
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @description The name of the file.
      *
      * @example Express video
@@ -33,6 +40,13 @@ class components extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @example docx
+     *
+     * @var string
+     */
+    public $fileType;
 
     /**
      * @description The format of the message.
@@ -56,6 +70,13 @@ class components extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @example https://img.png
+     *
+     * @var string
+     */
+    public $thumbUrl;
 
     /**
      * @description The type of the component. Valid values:
@@ -83,9 +104,12 @@ class components extends Model
     protected $_name = [
         'buttons'  => 'Buttons',
         'caption'  => 'Caption',
+        'duration' => 'Duration',
         'fileName' => 'FileName',
+        'fileType' => 'FileType',
         'format'   => 'Format',
         'text'     => 'Text',
+        'thumbUrl' => 'ThumbUrl',
         'type'     => 'Type',
         'url'      => 'Url',
     ];
@@ -109,14 +133,23 @@ class components extends Model
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->thumbUrl) {
+            $res['ThumbUrl'] = $this->thumbUrl;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -148,14 +181,23 @@ class components extends Model
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['ThumbUrl'])) {
+            $model->thumbUrl = $map['ThumbUrl'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

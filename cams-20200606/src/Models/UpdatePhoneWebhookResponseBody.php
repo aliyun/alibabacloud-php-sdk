@@ -21,7 +21,7 @@ class UpdatePhoneWebhookResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example null
      *

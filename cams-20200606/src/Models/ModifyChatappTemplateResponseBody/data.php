@@ -18,7 +18,7 @@ class data extends Model
     public $templateCode;
 
     /**
-     * @description The name of the template.
+     * @description The name of the message template.
      *
      * @example hello_whatsapp
      *

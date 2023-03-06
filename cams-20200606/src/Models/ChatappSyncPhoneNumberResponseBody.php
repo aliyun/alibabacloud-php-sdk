@@ -24,7 +24,7 @@ class ChatappSyncPhoneNumberResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example N/A
+     * @example None
      *
      * @var string
      */

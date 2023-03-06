@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class wabas extends Model
 {
     /**
-     * @description The audit status of the WhatsApp Business account.
+     * @description The review status of the WhatsApp Business account.
      *
      * @example VERIFIED
      *
@@ -29,7 +29,7 @@ class wabas extends Model
     /**
      * @description WabaId
      *
-     * @example 2939933992
+     * @example 2939933992*****
      *
      * @var string
      */

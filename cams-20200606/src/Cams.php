@@ -33,8 +33,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
@@ -43,9 +43,6 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusReque
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
@@ -66,6 +63,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
@@ -265,7 +264,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ChatappBindWabaRequest $request ChatappBindWabaRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -298,7 +297,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ChatappBindWabaRequest $request ChatappBindWabaRequest
      *
@@ -359,10 +358,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappMigrationRegisterRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChatappMigrationRegisterResponse
+     * @return ChatappMigrationRegisterResponse ChatappMigrationRegisterResponse
      */
     public function chatappMigrationRegisterWithOptions($request, $runtime)
     {
@@ -393,9 +394,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappMigrationRegisterRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
      *
-     * @return ChatappMigrationRegisterResponse
+     * @return ChatappMigrationRegisterResponse ChatappMigrationRegisterResponse
      */
     public function chatappMigrationRegister($request)
     {
@@ -405,10 +408,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappMigrationVerifiedRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappMigrationVerifiedRequest $request ChatappMigrationVerifiedRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChatappMigrationVerifiedResponse
+     * @return ChatappMigrationVerifiedResponse ChatappMigrationVerifiedResponse
      */
     public function chatappMigrationVerifiedWithOptions($request, $runtime)
     {
@@ -442,9 +447,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappMigrationVerifiedRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappMigrationVerifiedRequest $request ChatappMigrationVerifiedRequest
      *
-     * @return ChatappMigrationVerifiedResponse
+     * @return ChatappMigrationVerifiedResponse ChatappMigrationVerifiedResponse
      */
     public function chatappMigrationVerified($request)
     {
@@ -741,7 +748,7 @@ class Cams extends OpenApiClient
 
     /**
      * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -784,7 +791,7 @@ class Cams extends OpenApiClient
 
     /**
      * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DeleteChatappTemplateRequest $request DeleteChatappTemplateRequest
      *
@@ -798,38 +805,23 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
-     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param GetChatappUploadAuthorizationRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
+     * @return GetChatappUploadAuthorizationResponse
      */
-    public function getChatappTemplateDetailWithOptions($request, $runtime)
+    public function getChatappUploadAuthorizationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
         }
-        if (!Utils::isUnset($request->custWabaId)) {
-            $query['CustWabaId'] = $request->custWabaId;
-        }
-        if (!Utils::isUnset($request->isvCode)) {
-            $query['IsvCode'] = $request->isvCode;
-        }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['TemplateCode'] = $request->templateCode;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappTemplateDetail',
+            'action'      => 'GetChatappUploadAuthorization',
             'version'     => '2020-06-06',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -840,22 +832,19 @@ class Cams extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetChatappTemplateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappUploadAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
-     * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
+     * @param GetChatappUploadAuthorizationRequest $request
      *
-     * @return GetChatappTemplateDetailResponse GetChatappTemplateDetailResponse
+     * @return GetChatappUploadAuthorizationResponse
      */
-    public function getChatappTemplateDetail($request)
+    public function getChatappUploadAuthorization($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getChatappTemplateDetailWithOptions($request, $runtime);
+        return $this->getChatappUploadAuthorizationWithOptions($request, $runtime);
     }
 
     /**
@@ -915,10 +904,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationVerifyCodeRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMigrationVerifyCodeResponse
+     * @return GetMigrationVerifyCodeResponse GetMigrationVerifyCodeResponse
      */
     public function getMigrationVerifyCodeWithOptions($request, $runtime)
     {
@@ -955,9 +946,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationVerifyCodeRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
      *
-     * @return GetMigrationVerifyCodeResponse
+     * @return GetMigrationVerifyCodeResponse GetMigrationVerifyCodeResponse
      */
     public function getMigrationVerifyCode($request)
     {
@@ -1065,81 +1058,12 @@ class Cams extends OpenApiClient
 
     /**
      * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
-     * @param ListChatappTemplateRequest $tmpReq  ListChatappTemplateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param ModifyChatappTemplateRequest $tmpReq  ModifyChatappTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChatappTemplateResponse ListChatappTemplateResponse
-     */
-    public function listChatappTemplateWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListChatappTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
-        }
-        if (!Utils::isUnset($request->custSpaceId)) {
-            $query['CustSpaceId'] = $request->custSpaceId;
-        }
-        if (!Utils::isUnset($request->custWabaId)) {
-            $query['CustWabaId'] = $request->custWabaId;
-        }
-        if (!Utils::isUnset($request->isvCode)) {
-            $query['IsvCode'] = $request->isvCode;
-        }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $query['Page'] = $request->pageShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListChatappTemplate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ### QPS limit
-     *   * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
-     * @param ListChatappTemplateRequest $request ListChatappTemplateRequest
-     *
-     * @return ListChatappTemplateResponse ListChatappTemplateResponse
-     */
-    public function listChatappTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listChatappTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyChatappTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyChatappTemplateResponse
+     * @return ModifyChatappTemplateResponse ModifyChatappTemplateResponse
      */
     public function modifyChatappTemplateWithOptions($tmpReq, $runtime)
     {
@@ -1153,6 +1077,9 @@ class Cams extends OpenApiClient
             $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
+        }
         if (!Utils::isUnset($request->componentsShrink)) {
             $body['Components'] = $request->componentsShrink;
         }
@@ -1174,6 +1101,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1193,9 +1123,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ModifyChatappTemplateRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyChatappTemplateRequest $request ModifyChatappTemplateRequest
      *
-     * @return ModifyChatappTemplateResponse
+     * @return ModifyChatappTemplateResponse ModifyChatappTemplateResponse
      */
     public function modifyChatappTemplate($request)
     {
@@ -1478,7 +1411,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   * You can send messages to up to 1,000 phone numbers in a single request.
      *   *
      * @param SendChatappMassMessageRequest $tmpReq  SendChatappMassMessageRequest
@@ -1556,7 +1489,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   * You can send messages to up to 1,000 phone numbers in a single request.
      *   *
      * @param SendChatappMassMessageRequest $request SendChatappMassMessageRequest
@@ -1633,6 +1566,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->tag)) {
             $body['Tag'] = $request->tag;
         }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
         }
@@ -1685,10 +1621,73 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountWebhookRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param SubmitIsvCustomerTermsRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateAccountWebhookResponse
+     * @return SubmitIsvCustomerTermsResponse
+     */
+    public function submitIsvCustomerTermsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessDesc)) {
+            $query['BusinessDesc'] = $request->businessDesc;
+        }
+        if (!Utils::isUnset($request->contactMail)) {
+            $query['ContactMail'] = $request->contactMail;
+        }
+        if (!Utils::isUnset($request->countryId)) {
+            $query['CountryId'] = $request->countryId;
+        }
+        if (!Utils::isUnset($request->custName)) {
+            $query['CustName'] = $request->custName;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->isvTerms)) {
+            $query['IsvTerms'] = $request->isvTerms;
+        }
+        if (!Utils::isUnset($request->officeAddress)) {
+            $query['OfficeAddress'] = $request->officeAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitIsvCustomerTerms',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitIsvCustomerTermsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitIsvCustomerTermsRequest $request
+     *
+     * @return SubmitIsvCustomerTermsResponse
+     */
+    public function submitIsvCustomerTerms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIsvCustomerTermsWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateAccountWebhookRequest $request UpdateAccountWebhookRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAccountWebhookResponse UpdateAccountWebhookResponse
      */
     public function updateAccountWebhookWithOptions($request, $runtime)
     {
@@ -1725,9 +1724,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountWebhookRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateAccountWebhookRequest $request UpdateAccountWebhookRequest
      *
-     * @return UpdateAccountWebhookResponse
+     * @return UpdateAccountWebhookResponse UpdateAccountWebhookResponse
      */
     public function updateAccountWebhook($request)
     {

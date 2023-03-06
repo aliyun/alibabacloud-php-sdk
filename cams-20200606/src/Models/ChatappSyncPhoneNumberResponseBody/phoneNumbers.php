@@ -18,7 +18,7 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
-     * @description The quantity of phone numbers to which messages can be sent in a day.
+     * @description The maximum number of messages that can be sent to users by using the phone number.
      *
      * @example TIER_10
      *
@@ -54,7 +54,7 @@ class phoneNumbers extends Model
     public $phoneNumber;
 
     /**
-     * @description The quality of the phone number. Valid values: GREEN, YELLOW, and RED.
+     * @description The quality rating of the phone number. Valid values: GREEN, YELLOW, and RED.
      *
      * @example GREEN
      *
@@ -72,7 +72,7 @@ class phoneNumbers extends Model
     public $status;
 
     /**
-     * @description The callback URL to which status reports are sent via HTTP callbacks.
+     * @description The callback URL to which status reports are sent by using HTTP callbacks.
      *
      * @example https://www.alibaba.com/status
      *
@@ -90,7 +90,7 @@ class phoneNumbers extends Model
     public $statusQueue;
 
     /**
-     * @description The callback URL to which MO messages are sent via HTTP callbacks.
+     * @description The callback URL to which MO messages are sent by using HTTP callbacks.
      *
      * @example https://www.alibaba.com/inbound
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChatappMigrationRegisterRequest extends Model
 {
     /**
+     * @description The space ID of the user under the ISV account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -16,6 +18,8 @@ class ChatappMigrationRegisterRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The phone number.
+     *
      * @example 86138000000
      *
      * @var string

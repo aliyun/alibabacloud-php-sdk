@@ -75,7 +75,7 @@ class SendChatappMassMessageRequest extends Model
     public $isvCode;
 
     /**
-     * @description The message type when the ChannelType parameter is set to viber. Valid values: pormotion and transition.
+     * @description Viber消息类型，取值：pormotion或transation。
      *
      * @example promotion
      *
@@ -100,7 +100,7 @@ class SendChatappMassMessageRequest extends Model
     public $senderList;
 
     /**
-     * @description The tag information when the ChannelType parameter is set to viber.
+     * @description Viber消息发送时tag信息。
      *
      * @example tag
      *
@@ -109,7 +109,7 @@ class SendChatappMassMessageRequest extends Model
     public $tag;
 
     /**
-     * @description The task ID.
+     * @description The ID of the task.
      *
      * @example 100000001
      *
@@ -118,7 +118,7 @@ class SendChatappMassMessageRequest extends Model
     public $taskId;
 
     /**
-     * @description The encoding of the message template.
+     * @description The code of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
@@ -127,7 +127,7 @@ class SendChatappMassMessageRequest extends Model
     public $templateCode;
 
     /**
-     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600, in seconds.
+     * @description Viber消息发送超时时间，单位：秒，取值范围 30~1209600。
      *
      * @example 50
      *

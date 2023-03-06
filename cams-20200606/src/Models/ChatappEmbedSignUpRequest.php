@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChatappEmbedSignUpRequest extends Model
 {
     /**
-     * @description The InputToken returned by the embedded signup.
+     * @description The InputToken returned after the embedded signup flow is complete.
      *
      * @example wlelkelwidilwloe-ewlwols0lwsllsld
      *

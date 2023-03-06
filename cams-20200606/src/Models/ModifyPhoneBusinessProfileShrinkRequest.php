@@ -20,7 +20,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
-     * @example 293483938849493
+     * @example 293483938849****
      *
      * @var string
      */

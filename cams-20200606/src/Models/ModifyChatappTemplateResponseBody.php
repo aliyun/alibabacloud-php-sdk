@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyChatappTemplateResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
-     *   If OK is returned, the request is successful.
-     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
      *
      * @example OK
      *
@@ -22,14 +22,14 @@ class ModifyChatappTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example None
      *

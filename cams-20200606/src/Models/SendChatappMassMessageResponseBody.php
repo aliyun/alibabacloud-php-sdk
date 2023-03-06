@@ -30,7 +30,7 @@ class SendChatappMassMessageResponseBody extends Model
     public $groupMessageId;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example User not authorized to operate on the specified resource.
      *

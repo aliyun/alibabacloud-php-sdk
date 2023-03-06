@@ -4,18 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsResponseBody\data;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CheckChatappContactsResponseBody extends Model
+class GetChatappUploadAuthorizationResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -25,6 +27,8 @@ class CheckChatappContactsResponseBody extends Model
     public $message;
 
     /**
+     * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
+     *
      * @var string
      */
     public $requestId;
@@ -46,13 +50,7 @@ class CheckChatappContactsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -67,7 +65,7 @@ class CheckChatappContactsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CheckChatappContactsResponseBody
+     * @return GetChatappUploadAuthorizationResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -76,13 +74,7 @@ class CheckChatappContactsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

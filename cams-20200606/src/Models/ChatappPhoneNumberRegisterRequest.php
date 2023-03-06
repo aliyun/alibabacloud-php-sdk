@@ -11,7 +11,7 @@ class ChatappPhoneNumberRegisterRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
-     * @example 939283893939
+     * @example 939283893939***
      *
      * @var string
      */

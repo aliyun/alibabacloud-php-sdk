@@ -11,7 +11,7 @@ class ChatappBindWabaRequest extends Model
     /**
      * @description WabaId
      *
-     * @example 2293938222343
+     * @example 2293938222343****
      *
      * @var string
      */

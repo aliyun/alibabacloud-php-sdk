@@ -12,8 +12,8 @@ class SendChatappMessageShrinkRequest extends Model
      * @description The type of the message channel. Valid values:
      *
      *   **whatsapp**
-     *   viber, which is under development
-     *   line, which is under development
+     *   **viber**. This message channel is supported only when you set the Type parameter to message.
+     *   line. The feature ChatApp sends messages by using Line is under development.
      *
      * @example whatsapp
      *
@@ -23,6 +23,8 @@ class SendChatappMessageShrinkRequest extends Model
 
     /**
      * @description The content of the message.
+     *
+     **Usage notes when you set the ChannelType parameter to whatsapp**
      *
      *   When you set the **MessageType** parameter to **text**, the **text** parameter is required and the **caption** parameter cannot be specified.
      *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
@@ -34,6 +36,17 @@ class SendChatappMessageShrinkRequest extends Model
      *   When you set the **MessageType** parameter to **location**, the **longitude** and **latitude** parameters are required.
      *   When you set the **MessageType** parameter to **sticker**, the **link** parameter is required, and the **caption** and **fileName** parameters are invalid.
      *   When you set the **MessageType** parameter to **reaction**, the **messageId** and **emoji** parameters are required.
+     *
+     **Usage notes when you set the ChannelType parameter to viber**
+     *
+     *   When you set the **MessageType** parameter to **text**, the **text** parameter is required.
+     *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
+     *   When you set the **MessageType** parameter to **video**, the **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
+     *   When you set the **MessageType** parameter to **document**, the **link**, **fileName**, and **fileType** parameters are required.
+     *   When you set the **MessageType** parameter to **text_button**, the **text**, **caption**, and **action** parameters are required.
+     *   When you set the **MessageType** parameter to **text_image_button**, the **text**, **link**, **caption**, and **action** parameters are required.
+     *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
+     *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required, and the **action** parameter is invalid.
      *
      * @example {\"text\": \"hello whatsapp\", \"link\": \"\", \"caption\": \"\", \"fileName\": \"\" }
      *
@@ -80,7 +93,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $fallBackContent;
 
     /**
-     * @description The ID of the fallback policy. You can create a fallback policy and view information about the policy in the console.
+     * @description The ID of the fallback strategy. You can create a fallback strategy and view the information in the console.
      *
      * @example S_000001
      *
@@ -108,7 +121,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $isvCode;
 
     /**
-     * @description The message type when the ChannelType parameter is set to viber. Valid values: pormotion and transition.
+     * @description The message type when the ChannelType parameter is set to viber. Valid values: promotion and transaction.
      *
      * @example promotion
      *
@@ -128,6 +141,8 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The type of the message. This parameter is required only if you set the Type parameter to **message**. Valid values:
      *
+     **When you set the ChannelType parameter to whatsapp**
+     *
      *   **text**: the text message.
      *   **image**: the image message.
      *   **video**: the video message.
@@ -139,7 +154,18 @@ class SendChatappMessageShrinkRequest extends Model
      *   **sticker**: the sticker message.
      *   **reaction**: the reaction message.
      *
-     * >  For more information about parameters of location, contacts, interactive, and media, see [Parameters of a message template](~~454530~~).
+     **When you set the ChannelType parameter to viber**
+     *
+     *   **text**: the text message.
+     *   **image**: the image message.
+     *   **video**: the video message.
+     *   **document**: the document message.
+     *   **text_button**: messages that contain the text and button media objects.
+     *   **text_image_button**: messages that contain multiple media objects, including the text, image, and button.
+     *   **text_video**: messages that contain the text and video media objects.
+     *   **text_video_button**: messages that contain multiple media objects, including text, video, and button.
+     *
+     * >  For more information, see [Parameters of a message template](~~454530~~).
      * @example text
      *
      * @var string
@@ -163,6 +189,13 @@ class SendChatappMessageShrinkRequest extends Model
      * @var string
      */
     public $tag;
+
+    /**
+     * @example 2023009398299***
+     *
+     * @var string
+     */
+    public $taskId;
 
     /**
      * @description The code of the message template. This parameter is required only if you set the Type parameter to **template**.
@@ -190,7 +223,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $to;
 
     /**
-     * @description The tracking data when the ChannelType parameter is set to viber.
+     * @description The tracking ID when the ChannelType parameter is set to viber.
      *
      * @example tracking_id:123456
      *
@@ -199,7 +232,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $trackingData;
 
     /**
-     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600, in seconds.
+     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
      *
      * @example 50
      *
@@ -233,6 +266,7 @@ class SendChatappMessageShrinkRequest extends Model
         'messageType'          => 'MessageType',
         'payloadShrink'        => 'Payload',
         'tag'                  => 'Tag',
+        'taskId'               => 'TaskId',
         'templateCode'         => 'TemplateCode',
         'templateParamsShrink' => 'TemplateParams',
         'to'                   => 'To',
@@ -289,6 +323,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -361,6 +398,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

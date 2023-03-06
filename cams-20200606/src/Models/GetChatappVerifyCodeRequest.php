@@ -11,7 +11,7 @@ class GetChatappVerifyCodeRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
-     * @example 229393838
+     * @example 229393838*****
      *
      * @var string
      */
@@ -27,7 +27,7 @@ class GetChatappVerifyCodeRequest extends Model
     public $locale;
 
     /**
-     * @description The type of the verification code. Valid values: SMS and VOICE.
+     * @description The method to obtain the verification code. Valid values: SMS and VOICE.
      *
      * @example SMS
      *

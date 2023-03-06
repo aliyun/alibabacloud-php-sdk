@@ -11,7 +11,7 @@ class GetPhoneNumberVerificationStatusRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
-     * @example 229393838
+     * @example 229393838****
      *
      * @var string
      */

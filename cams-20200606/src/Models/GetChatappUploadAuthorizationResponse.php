@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckChatappContactsResponse extends Model
+class GetChatappUploadAuthorizationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CheckChatappContactsResponse extends Model
     public $statusCode;
 
     /**
-     * @var CheckChatappContactsResponseBody
+     * @var GetChatappUploadAuthorizationResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class CheckChatappContactsResponse extends Model
     /**
      * @param array $map
      *
-     * @return CheckChatappContactsResponse
+     * @return GetChatappUploadAuthorizationResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class CheckChatappContactsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CheckChatappContactsResponseBody::fromMap($map['body']);
+            $model->body = GetChatappUploadAuthorizationResponseBody::fromMap($map['body']);
         }
 
         return $model;
