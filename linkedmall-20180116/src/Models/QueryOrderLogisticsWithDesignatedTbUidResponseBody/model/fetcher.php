@@ -19,16 +19,22 @@ class fetcher extends Model
     public $name;
 
     /**
+     * @example 189***12
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example 24D184B6-91***B-AC1B8ACED261
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 450000
+     *
      * @var string
      */
     public $zipCode;

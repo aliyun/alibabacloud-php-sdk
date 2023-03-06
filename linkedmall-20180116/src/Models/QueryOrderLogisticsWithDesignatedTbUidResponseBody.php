@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderLogisticsWithDesignatedTbUidResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,36 +36,52 @@ class QueryOrderLogisticsWithDesignatedTbUidResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 24D184B6-9***B-AC1B8ACED261
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

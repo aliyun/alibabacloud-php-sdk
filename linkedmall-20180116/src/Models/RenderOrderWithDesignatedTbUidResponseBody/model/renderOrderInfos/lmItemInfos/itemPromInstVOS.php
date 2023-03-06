@@ -15,31 +15,43 @@ class itemPromInstVOS extends Model
     public $availableItems;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $canUse;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $discountPrice;
 
     /**
+     * @example 1659612158
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example 324***234
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 100***35-582***661
+     *
      * @var string
      */
     public $lmItemId;
@@ -60,6 +72,8 @@ class itemPromInstVOS extends Model
     public $reason;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $selected;
@@ -70,26 +84,36 @@ class itemPromInstVOS extends Model
     public $skuIds;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $specialPrice;
 
     /**
+     * @example 0eae4fd***e23145
+     *
      * @var string
      */
     public $subBizCode;
 
     /**
+     * @example 32***24
+     *
      * @var int
      */
     public $tbSellerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $thresholdPrice;
 
     /**
+     * @example 1659612158
+     *
      * @var int
      */
     public $useStartTime;

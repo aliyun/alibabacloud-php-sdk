@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class InitApplyRefundWithDesignatedTbUidResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,36 +36,52 @@ class InitApplyRefundWithDesignatedTbUidResponseBody extends Model
     public $model;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 5BE45C12-C37***81-A8E9C61401AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 201
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

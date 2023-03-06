@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class subOrderList extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $enableStatus;
 
     /**
+     * @example 68444***5753
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $itemPic;
@@ -35,36 +41,52 @@ class subOrderList extends Model
     public $itemTitle;
 
     /**
+     * @example 100***02-68***453
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 539***44
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $number;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $orderStatus;
 
     /**
+     * @description skuId
+     *
+     * @example 477***60
+     *
      * @var string
      */
     public $skuId;
 
     /**
+     * @example 500g
+     *
      * @var string
      */
     public $skuName;
 
     /**
+     * @example 32432***324
+     *
      * @var int
      */
     public $tbOrderId;

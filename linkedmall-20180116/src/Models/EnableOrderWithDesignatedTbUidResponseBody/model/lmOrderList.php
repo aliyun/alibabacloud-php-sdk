@@ -14,6 +14,8 @@ class lmOrderList extends Model
     public $extJson;
 
     /**
+     * @example 45***23
+     *
      * @var string
      */
     public $lmOrderId;

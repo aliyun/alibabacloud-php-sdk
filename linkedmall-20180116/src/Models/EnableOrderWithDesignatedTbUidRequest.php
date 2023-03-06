@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class EnableOrderWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL20***003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 45***23
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 384***213
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example u***002
+     *
      * @var string
      */
     public $thirdPartyUserId;

@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class renderOrderInfos extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
@@ -38,11 +40,15 @@ class renderOrderInfos extends Model
     public $lmItemInfos;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 218***608
+     *
      * @var int
      */
     public $sellerId;

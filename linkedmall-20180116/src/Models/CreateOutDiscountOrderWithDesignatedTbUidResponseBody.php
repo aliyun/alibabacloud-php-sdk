@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateOutDiscountOrderWithDesignatedTbUidResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
@@ -30,36 +36,52 @@ class CreateOutDiscountOrderWithDesignatedTbUidResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3CDA6C55-18F1-53A6-B721-F5E26CBC95BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

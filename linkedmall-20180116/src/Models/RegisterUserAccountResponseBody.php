@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class RegisterUserAccountResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example dsfdsfs***dsfdsfds
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -30,36 +36,52 @@ class RegisterUserAccountResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 03B94457-8FD***93-06CCB1345BC3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1004
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

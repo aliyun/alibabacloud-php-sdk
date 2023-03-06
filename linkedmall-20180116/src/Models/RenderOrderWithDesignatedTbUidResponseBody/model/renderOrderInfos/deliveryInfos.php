@@ -14,16 +14,24 @@ class deliveryInfos extends Model
     public $displayName;
 
     /**
+     * @description id
+     *
+     * @example 10
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $postFee;
 
     /**
+     * @example -4
+     *
      * @var int
      */
     public $serviceType;

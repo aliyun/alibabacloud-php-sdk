@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RegisterUserAccountRequest extends Model
 {
     /**
+     * @example LMALL2022***0001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 3435***1231
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example user***121
+     *
      * @var string
      */
     public $thirdPartyUserId;

@@ -197,6 +197,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityRespon
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBizItemsWithActivityShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryBudgetTicketItemListByBizIdResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryChannelItemBillDownloadUrlRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryChannelItemBillDownloadUrlResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupForCrowdOperationRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupForCrowdOperationResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryGuideItemGroupRequest;
@@ -265,6 +267,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedT
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedTbUidResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QuerySupplierItemBillDownloadUrlRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QuerySupplierItemBillDownloadUrlResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedActivitiesRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedActivitiesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryUnfinishedSessions4ItemsRequest;
@@ -5591,6 +5595,76 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryChannelItemBillDownloadUrlRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryChannelItemBillDownloadUrlResponse
+     */
+    public function queryChannelItemBillDownloadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billId)) {
+            $body['BillId'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->billPeriod)) {
+            $body['BillPeriod'] = $request->billPeriod;
+        }
+        if (!Utils::isUnset($request->billStatus)) {
+            $body['BillStatus'] = $request->billStatus;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizName)) {
+            $body['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->lmShopId)) {
+            $body['LmShopId'] = $request->lmShopId;
+        }
+        if (!Utils::isUnset($request->lmShopName)) {
+            $body['LmShopName'] = $request->lmShopName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryChannelItemBillDownloadUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryChannelItemBillDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryChannelItemBillDownloadUrlRequest $request
+     *
+     * @return QueryChannelItemBillDownloadUrlResponse
+     */
+    public function queryChannelItemBillDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryChannelItemBillDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryGuideItemGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7368,6 +7442,73 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryStatementsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySupplierItemBillDownloadUrlRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QuerySupplierItemBillDownloadUrlResponse
+     */
+    public function querySupplierItemBillDownloadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billId)) {
+            $body['BillId'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->billPeriod)) {
+            $body['BillPeriod'] = $request->billPeriod;
+        }
+        if (!Utils::isUnset($request->billStatus)) {
+            $body['BillStatus'] = $request->billStatus;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizName)) {
+            $body['BizName'] = $request->bizName;
+        }
+        if (!Utils::isUnset($request->lmShopId)) {
+            $body['LmShopId'] = $request->lmShopId;
+        }
+        if (!Utils::isUnset($request->lmShopName)) {
+            $body['LmShopName'] = $request->lmShopName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySupplierItemBillDownloadUrl',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySupplierItemBillDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySupplierItemBillDownloadUrlRequest $request
+     *
+     * @return QuerySupplierItemBillDownloadUrlResponse
+     */
+    public function querySupplierItemBillDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySupplierItemBillDownloadUrlWithOptions($request, $runtime);
     }
 
     /**

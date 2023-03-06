@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class packageGoodItems extends Model
 {
     /**
+     * @example 650***2703
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 100***39-6046***9180
+     *
      * @var string
      */
     public $lmItemId;
@@ -24,6 +28,8 @@ class packageGoodItems extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;

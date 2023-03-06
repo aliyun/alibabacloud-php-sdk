@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateOutDiscountOrderWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL2022***01
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $buyerMessages;
@@ -24,46 +28,64 @@ class CreateOutDiscountOrderWithDesignatedTbUidRequest extends Model
     public $deliveryAddress;
 
     /**
+     * @example {\"id\":\"20\",\"postFee\":0,\"serviceType\":-4}
+     *
      * @var string
      */
     public $deliveryInfo;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $orderExpireTime;
 
     /**
+     * @example [{\"lmItemId\":\"100***1-6300***472\",\"number\":1,\"outDiscountFee\":\"6810\",\"price\":\"8800\",\"skuId\":4649***225}]
+     *
      * @var string
      */
     public $orderItems;
 
     /**
+     * @example {\"promotionInfos\":[{\"discountFee\":\"10000\",\"promotionInstanceId\":\"{\\\"couponId\\\":\\\"136807***98136\\\",\\\"couponTemplateId\\\":\\\"50***5\\\"}\"}],\"totalDiscountFee\":\"10000\"}
+     *
      * @var string
      */
     public $outDiscountInfos;
 
     /**
+     * @example 134860***596130
+     *
      * @var string
      */
     public $outTradeId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 321**123
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example user***001
+     *
      * @var string
      */
     public $thirdPartyUserId;

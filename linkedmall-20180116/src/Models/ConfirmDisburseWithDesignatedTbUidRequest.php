@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ConfirmDisburseWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL2022...03
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 7068...44
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 2131**111
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example user***002
+     *
      * @var string
      */
     public $thirdPartyUserId;

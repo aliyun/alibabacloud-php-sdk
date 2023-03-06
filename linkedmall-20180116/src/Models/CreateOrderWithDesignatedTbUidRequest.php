@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL20******05
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $buyerMessages;
@@ -24,41 +28,57 @@ class CreateOrderWithDesignatedTbUidRequest extends Model
     public $deliveryAddress;
 
     /**
+     * @example { \"serviceType\": -4,\"id\": \"20\", \"postFee\": 0}
+     *
      * @var string
      */
     public $deliveryInfo;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $orderExpireTime;
 
     /**
+     * @example [{\"lmItemId\":\"10028102-655199865844\",\"number\":1,\"skuId\": 4900752886354}]
+     *
      * @var string
      */
     public $orderItems;
 
     /**
+     * @example 146******54
+     *
      * @var string
      */
     public $outTradeId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 677******211
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example 321******211
+     *
      * @var string
      */
     public $thirdPartyUserId;

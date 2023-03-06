@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CancelOrderWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL20***001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 449***059
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 232***124
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example u***001
+     *
      * @var string
      */
     public $thirdPartyUserId;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class lmItemInfos extends Model
 {
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $actualPrice;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $cash;
@@ -30,6 +36,8 @@ class lmItemInfos extends Model
     public $features;
 
     /**
+     * @example 651***245
+     *
      * @var int
      */
     public $itemId;
@@ -40,6 +48,8 @@ class lmItemInfos extends Model
     public $itemName;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $itemPicUrl;
@@ -50,46 +60,64 @@ class lmItemInfos extends Model
     public $itemPromInstVOS;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $itemUrl;
 
     /**
+     * @example 100***87-644***2078
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $promotionFee;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 999
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 218***608
+     *
      * @var int
      */
     public $sellerId;
@@ -100,11 +128,17 @@ class lmItemInfos extends Model
     public $sellerNick;
 
     /**
+     * @description skuid
+     *
+     * @example -1
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 500g
+     *
      * @var string
      */
     public $skuName;

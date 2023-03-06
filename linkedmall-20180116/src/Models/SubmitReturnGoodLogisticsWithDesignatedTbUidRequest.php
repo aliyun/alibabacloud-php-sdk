@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SubmitReturnGoodLogisticsWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL20***003
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example YTO
+     *
      * @var string
      */
     public $cpCode;
 
     /**
+     * @example 19145***4240
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example YT685***0586
+     *
      * @var string
      */
     public $logisticsNo;
 
     /**
+     * @example 702***47
+     *
      * @var string
      */
     public $subLmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 321**123
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example user0***01
+     *
      * @var string
      */
     public $thirdPartyUserId;

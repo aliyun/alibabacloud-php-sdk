@@ -28,6 +28,8 @@ class model_ extends Model
     public $fetcher;
 
     /**
+     * @example SF
+     *
      * @var string
      */
     public $logisticsCompanyCode;
@@ -43,6 +45,8 @@ class model_ extends Model
     public $logisticsDetailList;
 
     /**
+     * @example 21321***2123
+     *
      * @var string
      */
     public $mailNo;
@@ -58,6 +62,8 @@ class model_ extends Model
     public $receiver;
 
     /**
+     * @example 24D184B6-91***B-AC1B8ACED261
+     *
      * @var string
      */
     public $requestId;

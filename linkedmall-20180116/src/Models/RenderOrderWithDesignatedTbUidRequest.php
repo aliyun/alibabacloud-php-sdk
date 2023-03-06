@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RenderOrderWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL202***001
+     *
      * @var string
      */
     public $bizId;
@@ -25,16 +27,22 @@ class RenderOrderWithDesignatedTbUidRequest extends Model
     public $itemList;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 123***23
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example U123***23
+     *
      * @var string
      */
     public $thirdPartyUserId;

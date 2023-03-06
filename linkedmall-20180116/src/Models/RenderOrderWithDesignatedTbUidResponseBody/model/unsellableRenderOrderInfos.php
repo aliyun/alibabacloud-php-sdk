@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class unsellableRenderOrderInfos extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $canSell;
@@ -43,6 +45,8 @@ class unsellableRenderOrderInfos extends Model
     public $message;
 
     /**
+     * @example 2204***416
+     *
      * @var int
      */
     public $sellerId;

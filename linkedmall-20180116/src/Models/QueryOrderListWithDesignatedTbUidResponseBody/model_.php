@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 2022-10-11 15:21:11
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $enableStatus;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extJson;
@@ -32,21 +38,29 @@ class model_ extends Model
     public $fundStructureModels;
 
     /**
+     * @example 639***718
+     *
      * @var int
      */
     public $lmOrderId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $logisticsStatus;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $orderAmount;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $orderStatus;
@@ -67,6 +81,8 @@ class model_ extends Model
     public $subOrderList;
 
     /**
+     * @example 412******113
+     *
      * @var int
      */
     public $tbOrderId;

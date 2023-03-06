@@ -19,16 +19,22 @@ class receiver extends Model
     public $name;
 
     /**
+     * @example 18***00
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example 24D184B6-91***2AB-AC1B8ACED261
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 516000
+     *
      * @var string
      */
     public $zipCode;

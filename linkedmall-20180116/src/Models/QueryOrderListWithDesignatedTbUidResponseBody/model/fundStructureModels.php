@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class fundStructureModels extends Model
 {
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $fundAmount;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $fundAmountMoney;
 
     /**
+     * @example lmCashCnyPay
+     *
      * @var string
      */
     public $fundType;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example LMALL20***002
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example user***121
+     *
      * @var string
      */
     public $CUserId;
 
     /**
+     * @example {\"gmtCreate\":\"2021-11-01 00:00:00\"}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example 2313***1231
+     *
      * @var int
      */
     public $lmUid;
 
     /**
+     * @example 03B94457-8***93-06CCB1345BC3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 3435***1231
+     *
      * @var int
      */
     public $tbUserId;

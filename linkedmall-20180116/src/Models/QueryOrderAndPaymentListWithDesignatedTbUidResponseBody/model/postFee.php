@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class postFee extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fundAmount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fundAmountMoney;
 
     /**
+     * @example lmCashCnyPay
+     *
      * @var string
      */
     public $fundType;

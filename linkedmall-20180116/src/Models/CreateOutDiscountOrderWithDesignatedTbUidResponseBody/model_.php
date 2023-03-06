@@ -14,6 +14,8 @@ class model_ extends Model
     public $allIdsMap;
 
     /**
+     * @example lin***app
+     *
      * @var string
      */
     public $app;
@@ -34,6 +36,8 @@ class model_ extends Model
     public $payTradeIds;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $redirectUrl;

@@ -14,16 +14,22 @@ class addressInfos extends Model
     public $addressDetail;
 
     /**
+     * @example 31***40
+     *
      * @var int
      */
     public $addressId;
 
     /**
+     * @example 43***03
+     *
      * @var string
      */
     public $divisionCode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -34,11 +40,15 @@ class addressInfos extends Model
     public $receiver;
 
     /**
+     * @example 137***343
+     *
      * @var string
      */
     public $receiverPhone;
 
     /**
+     * @example 430***008
+     *
      * @var string
      */
     public $townDivisionCode;

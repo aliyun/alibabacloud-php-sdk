@@ -1,3 +1,7 @@
+2023-03-06 Version: 1.0.14
+- Add QueryChannelItemBillDownloadUrl.
+- Add QuerySupplierItemBillDownloadUrl.
+
 2023-01-12 Version: 1.0.13
 - Add ModifyBasicItemSupplierPrice.
 

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class proofs extends Model
 {
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $messagePic;

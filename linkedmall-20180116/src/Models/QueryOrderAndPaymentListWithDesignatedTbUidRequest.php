@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderAndPaymentListWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL2022***01
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {\"enableStatus\":0,\"lmOrderList\":[424***33]}
+     *
      * @var string
      */
     public $filterOption;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example REAL
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 213***3121
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example R213***3121
+     *
      * @var string
      */
     public $thirdPartyUserId;

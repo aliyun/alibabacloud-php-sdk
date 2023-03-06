@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $bizClaimType;
 
     /**
+     * @example 711***981
+     *
      * @var string
      */
     public $lmOrderId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $mainOrderRefund;

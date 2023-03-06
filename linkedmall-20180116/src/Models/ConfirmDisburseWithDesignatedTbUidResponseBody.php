@@ -9,56 +9,80 @@ use AlibabaCloud\Tea\Model;
 class ConfirmDisburseWithDesignatedTbUidResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example null
+     *
      * @var mixed
      */
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description pageSize
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 23BBD746-A6A9-55D5-A9B5-14019901445C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 19
+     *
      * @var int
      */
     public $totalCount;

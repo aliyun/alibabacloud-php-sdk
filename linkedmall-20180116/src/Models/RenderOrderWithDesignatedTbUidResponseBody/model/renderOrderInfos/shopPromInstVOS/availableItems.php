@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class availableItems extends Model
 {
     /**
+     * @example 668***630
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example 100***88-52***337
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example 10***40
+     *
      * @var int
      */
     public $lmShopId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $number;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pointsAmount;
 
     /**
+     * @example 1490
+     *
      * @var int
      */
     public $priceCent;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $removed;
 
     /**
+     * @example 502***91
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 32***32
+     *
      * @var int
      */
     public $tbSellerId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $userPayFee;

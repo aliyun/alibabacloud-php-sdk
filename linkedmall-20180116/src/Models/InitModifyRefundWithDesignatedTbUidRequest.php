@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class InitModifyRefundWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL2022***001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 20196***0240
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $refundCode;
 
     /**
+     * @example 742***206
+     *
      * @var string
      */
     public $subLmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 345***211
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example u***002
+     *
      * @var string
      */
     public $thirdPartyUserId;

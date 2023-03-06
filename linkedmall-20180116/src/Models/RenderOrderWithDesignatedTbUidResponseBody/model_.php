@@ -17,11 +17,15 @@ class model_ extends Model
     public $addressInfos;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $buyerCurrentPoints;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
@@ -32,6 +36,8 @@ class model_ extends Model
     public $extInfo;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;

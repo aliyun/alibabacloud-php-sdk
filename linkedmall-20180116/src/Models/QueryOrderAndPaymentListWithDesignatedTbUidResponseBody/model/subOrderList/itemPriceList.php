@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class itemPriceList extends Model
 {
     /**
+     * @example 500
+     *
      * @var int
      */
     public $fundAmount;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $fundAmountMoney;
 
     /**
+     * @example lmCashCnyPay
+     *
      * @var string
      */
     public $fundType;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class lmItemInfos extends Model
 {
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $actualPrice;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
 
     /**
+     * @example 16000
+     *
      * @var int
      */
     public $cash;
@@ -30,16 +36,22 @@ class lmItemInfos extends Model
     public $features;
 
     /**
+     * @example 661***740
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @example iphone12
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $itemPicUrl;
@@ -50,46 +62,64 @@ class lmItemInfos extends Model
     public $itemPromInstVOS;
 
     /**
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $itemUrl;
 
     /**
+     * @example 100***02-661***740
+     *
      * @var string
      */
     public $lmItemId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1000000
+     *
      * @var int
      */
     public $pointPrice;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example 6000
+     *
      * @var int
      */
     public $promotionFee;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $reservePrice;
 
     /**
+     * @example 107***918
+     *
      * @var int
      */
     public $sellerId;
@@ -100,11 +130,17 @@ class lmItemInfos extends Model
     public $sellerNick;
 
     /**
+     * @description skuid
+     *
+     * @example 493***981
+     *
      * @var int
      */
     public $skuId;
 
     /**
+     * @example 64GB
+     *
      * @var string
      */
     public $skuName;
@@ -115,6 +151,8 @@ class lmItemInfos extends Model
     public $tbShopName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $virtualItemType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenRealTbAccountSupportRequest extends Model
 {
     /**
+     * @example LMALL20***002
+     *
      * @var string
      */
     public $bizId;

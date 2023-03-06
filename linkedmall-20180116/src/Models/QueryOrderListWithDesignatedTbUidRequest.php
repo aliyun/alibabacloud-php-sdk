@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderListWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL2022***001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example {\"lmOrderList\":[\"718***37\"]}
+     *
      * @var string
      */
     public $filterOption;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 333***21
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example R333***21
+     *
      * @var string
      */
     public $thirdPartyUserId;

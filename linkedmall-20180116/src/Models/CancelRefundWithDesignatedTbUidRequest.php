@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CancelRefundWithDesignatedTbUidRequest extends Model
 {
     /**
+     * @example LMALL20***001
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1108***5380
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example 709***761
+     *
      * @var string
      */
     public $subLmOrderId;
 
     /**
+     * @example ANONY
+     *
      * @var string
      */
     public $tbAccountType;
 
     /**
+     * @example 2132***312
+     *
      * @var int
      */
     public $tbUserId;
 
     /**
+     * @example U0324***21
+     *
      * @var string
      */
     public $thirdPartyUserId;
