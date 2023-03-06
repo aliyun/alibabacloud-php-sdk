@@ -351,6 +351,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetShareSpeechModelAudioRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetShareSpeechModelAudioResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetShareTaskByDeviceOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetShareTaskByDeviceOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSoundCodeAudioRequest;
@@ -619,6 +621,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySoundCodeScheduleListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySoundCodeScheduleListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechLicenseAvailableQuotaRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechLicenseAvailableQuotaResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechLicenseDeviceListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechLicenseDeviceListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListRequest;
@@ -9772,6 +9776,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param GetShareSpeechModelAudioRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetShareSpeechModelAudioResponse
+     */
+    public function getShareSpeechModelAudioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->shareTaskId)) {
+            $body['ShareTaskId'] = $request->shareTaskId;
+        }
+        if (!Utils::isUnset($request->speechModelCodeList)) {
+            $body['SpeechModelCodeList'] = $request->speechModelCodeList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetShareSpeechModelAudio',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetShareSpeechModelAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetShareSpeechModelAudioRequest $request
+     *
+     * @return GetShareSpeechModelAudioResponse
+     */
+    public function getShareSpeechModelAudio($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getShareSpeechModelAudioWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetShareTaskByDeviceOpenRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -16956,6 +17009,49 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySpeechDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechLicenseAvailableQuotaRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QuerySpeechLicenseAvailableQuotaResponse
+     */
+    public function querySpeechLicenseAvailableQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechLicenseAvailableQuota',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechLicenseAvailableQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechLicenseAvailableQuotaRequest $request
+     *
+     * @return QuerySpeechLicenseAvailableQuotaResponse
+     */
+    public function querySpeechLicenseAvailableQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechLicenseAvailableQuotaWithOptions($request, $runtime);
     }
 
     /**
