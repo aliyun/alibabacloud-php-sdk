@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutEnableFwSwitchRequest extends Model
 {
     /**
-     * @description The list of IP addresses.
+     * @description The IP addresses.
      *
-     * >  You must specify at least one of the IpaddrList, RegionList, ResourceTypeList parameters.
+     * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
      * @example ["192.0.X.X","192.0.X.X"]
      *
      * @var string[]
@@ -19,7 +19,7 @@ class PutEnableFwSwitchRequest extends Model
     public $ipaddrList;
 
     /**
-     * @description The language of the content within the request and response.
+     * @description The language of the content within the response.
      *
      *   **zh**: Chinese
      *   **en**: English
@@ -31,9 +31,9 @@ class PutEnableFwSwitchRequest extends Model
     public $lang;
 
     /**
-     * @description The list of regions.
+     * @description The regions.
      *
-     * >  You must specify at least one of the IpaddrList, RegionList, ResourceTypeList parameters.
+     * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
      * @example ["cn-hangzhou","cn-shanghai"]
      *
      * @var string[]
@@ -41,9 +41,23 @@ class PutEnableFwSwitchRequest extends Model
     public $regionList;
 
     /**
-     * @description The list of asset types.
+     * @description The types of the assets.
      *
-     * >  You must specify at least one of the IpaddrList, RegionList, ResourceTypeList parameters.
+     * Valid values:
+     *
+     *   BastionHostIP: the egress IP address of a bastion host
+     *   BastionHostIngressIP: the ingress IP address of a bastion host
+     *   EcsEIP: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
+     *   EcsPublicIP: the public IP address of an ECS instance
+     *   EIP: the EIP
+     *   EniEIP: the EIP of an elastic network interface (ENI)
+     *   NatEIP: the EIP of a NAT gateway
+     *   SlbEIP: the EIP of a Server Load Balancer (SLB) instance
+     *   SlbPublicIP: the public IP address of an SLB instance
+     *   NatPublicIP: the public IP address of a NAT gateway
+     *   HAVIP: the high-availability virtual IP address (HAVIP)
+     *
+     * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
      * @example ["EcsPublicIp","NatEip"]
      *
      * @var string[]

@@ -19,7 +19,7 @@ class localVpc extends Model
     public $authorizationStatus;
 
     /**
-     * @description The CIDR blocks that are protected by the VPC firewall.
+     * @description An array consisting of the CIDR blocks that are protected by the VPC firewall.
      *
      * @var string[]
      */
@@ -46,7 +46,7 @@ class localVpc extends Model
     /**
      * @description The name of the network instance.
      *
-     * @example local-test-vpc
+     * @example Test VPC
      *
      * @var string
      */
@@ -108,7 +108,7 @@ class localVpc extends Model
     public $supportManualMode;
 
     /**
-     * @description The type of the CEN transit router. Valid values:
+     * @description The edition of the CEN transit router. Valid values:
      *
      *   **Basic**: Basic Edition transit router
      *   **Enterprise**: Enterprise Edition transit router
@@ -120,7 +120,7 @@ class localVpc extends Model
     public $transitRouterType;
 
     /**
-     * @description The CIDR block of the VPC.
+     * @description An array that consists of the CIDR blocks of the VPC.
      *
      * @var vpcCidrTableList[]
      */
@@ -138,7 +138,7 @@ class localVpc extends Model
     /**
      * @description The name of the VPC.
      *
-     * @example xlx-vpc
+     * @example Test instance
      *
      * @var string
      */

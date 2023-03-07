@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallAclGroupListRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The number of the page to return. Default value: 1.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -21,9 +20,10 @@ class DescribeVpcFirewallAclGroupListRequest extends Model
     /**
      * @description Specifies whether VPC firewalls are configured. Valid values:
      *
-     * - **notconfigured**: VPC firewalls are not configured.
-     * - **configured**: VPC firewalls are configured.
-     * - If this parameter is left empty, all policy groups of access control policies are queried.
+     *   **notconfigured**: VPC firewalls are not configured.
+     *   **configured**: VPC firewalls are configured.
+     *   If this parameter is left empty, all policy groups of access control policies are queried.
+     *
      * @example configured
      *
      * @var string
@@ -33,8 +33,9 @@ class DescribeVpcFirewallAclGroupListRequest extends Model
     /**
      * @description The language of the content within the response. Valid values:
      *
-     * - **zh**: Chinese (default)
-     * - **en**: English
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -42,9 +43,8 @@ class DescribeVpcFirewallAclGroupListRequest extends Model
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return on each page. Maximum value: 50.
      *
-     * Maximum value: 50.
      * @example 10
      *
      * @var string

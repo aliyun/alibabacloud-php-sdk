@@ -67,7 +67,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example test-cloufirewall-vpc
+     * @example Test instance
      *
      * @var string
      */
@@ -76,7 +76,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The ID of the region to which the VPC belongs.
      *
-     * >  For more information about the regions, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string

@@ -30,7 +30,7 @@ class DeleteVpcFirewallCenConfigureRequest extends Model
     public $memberUid;
 
     /**
-     * @description The list of VPC firewall IDs.
+     * @description The instance IDs of VPC firewalls.
      *
      * @var string[]
      */

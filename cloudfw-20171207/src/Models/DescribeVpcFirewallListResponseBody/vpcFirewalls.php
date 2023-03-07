@@ -46,7 +46,7 @@ class vpcFirewalls extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not created.
+     *   **notconfigured**: The VPC firewall is not configured.
      *
      * @example opened
      *

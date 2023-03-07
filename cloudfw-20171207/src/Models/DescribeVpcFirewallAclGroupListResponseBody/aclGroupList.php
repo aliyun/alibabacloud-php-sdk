@@ -11,12 +11,15 @@ class aclGroupList extends Model
     /**
      * @description The ID of the policy group.
      *
-     * - If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
+     * Valid values:
      *
-     * Example: cen-ervw0g12b5jbw****
-     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+     *   If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
      *
-     * Example: vfw-a42bbb7b887148c9****
+     * Example: cen-ervw0g12b5jbw\*\*\*\*
+     *
+     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+     *
+     * Example: vfw-a42bbb7b887148c9\*\*\*\*
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string
@@ -26,7 +29,9 @@ class aclGroupList extends Model
     /**
      * @description The name of the policy group. Valid values:
      *
-     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the name of the VPC firewall instance.
+     *   If the VPC firewall is used to protect a CEN instance, the value of this parameter is the name of the CEN instance.
+     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the name of the VPC firewall instance.
+     *
      * @example group_test
      *
      * @var string

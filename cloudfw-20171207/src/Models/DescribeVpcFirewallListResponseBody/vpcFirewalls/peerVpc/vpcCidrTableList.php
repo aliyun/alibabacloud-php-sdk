@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class vpcCidrTableList extends Model
 {
     /**
-     * @description The route entries of the peer VPC.
+     * @description An array that consists of the route entries of the peer VPC.
      *
      * @var routeEntryList[]
      */

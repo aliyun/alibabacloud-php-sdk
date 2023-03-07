@@ -54,7 +54,7 @@ class dataList extends Model
     public $description;
 
     /**
-     * @description The direction of the traffic for the intrusion events. Valid values:
+     * @description The direction of the traffic for the intrusion event. Valid values:
      *
      *   **in**: inbound
      *   **out**: outbound
@@ -111,7 +111,7 @@ class dataList extends Model
     public $firstEventTime;
 
     /**
-     * @description The information about the geographical location of the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\
+     * @description The geographical information about the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\
      ****************
      * @var IPLocationInfo
      */
@@ -127,7 +127,7 @@ class dataList extends Model
     public $lastEventTime;
 
     /**
-     * @description The information about the private IP address of the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\
+     * @description The information about the private IP address in the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\
      ****************
      * @var resourcePrivateIPList[]
      */
@@ -201,7 +201,7 @@ class dataList extends Model
     public $srcIPTag;
 
     /**
-     * @description The source private IP addresses of the intrusion event.
+     * @description An array that consists of the source private IP addresses in the intrusion event.
      *
      * @var string[]
      */

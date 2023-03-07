@@ -22,7 +22,7 @@ class vpcFirewalls extends Model
     /**
      * @description The name of the CEN instance.
      *
-     * @example cen_swas
+     * @example Test CEN instance
      *
      * @var string
      */
@@ -42,7 +42,7 @@ class vpcFirewalls extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not created.
+     *   **notconfigured**: The VPC firewall is not configured.
      *
      * @example opened
      *
@@ -76,9 +76,10 @@ class vpcFirewalls extends Model
     /**
      * @description Indicates whether the VPC firewall can be automatically enabled to protect VPC traffic based on route learning. Valid values:
      *
-     * - **passed**: The VPC firewall can be automatically enabled.
-     * - **failed**: The VPC firewall cannot be automatically enabled.
-     * - **unknown**: The VPC firewall is in an unknown state.
+     *   **passed**: The VPC firewall can be automatically enabled.
+     *   **failed**: The VPC firewall cannot be automatically enabled.
+     *   **unknown**: The VPC firewall is in an unknown state.
+     *
      * @example failed
      *
      * @var string
@@ -86,7 +87,7 @@ class vpcFirewalls extends Model
     public $precheckStatus;
 
     /**
-     * @description Indicates whether you can create a VPC firewall in a region. Valid values:
+     * @description Indicates whether you can create a VPC firewall in a specified region. Valid values:
      *
      *   **enable**: yes
      *   **disable**: no
@@ -101,7 +102,7 @@ class vpcFirewalls extends Model
      * @description The result code of the operation that creates the VPC firewall. Valid values:
      *
      *   **Unauthorized**: Cloud Firewall is not authorized to access the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-     *   **RegionDisable**: .VPC Firewall is not supported in the region of the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
+     *   **RegionDisable**: VPC Firewall is not supported in the region of the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
      *   **OpsDisable**: You are not allowed to create the VPC firewall.
      *   **VbrNotSupport**: The VPC firewall cannot be created for a VBR that is attached to the CEN instance.
      *   Empty string: You can create a VPC firewall for the network instance.
@@ -124,7 +125,7 @@ class vpcFirewalls extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example test-firewall
+     * @example Test firewall
      *
      * @var string
      */

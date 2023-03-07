@@ -32,10 +32,10 @@ class DescribeVpcFirewallCenListRequest extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not created.
-     *   **configured**: The VPC firewall is created but is not enabled.
+     *   **notconfigured**: The VPC firewall is not configured.
+     *   **configured**: The VPC firewall is configured but is not enabled.
      *
-     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
+     * > If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
      *
      * @var string
@@ -55,7 +55,7 @@ class DescribeVpcFirewallCenListRequest extends Model
     public $lang;
 
     /**
-     * @description The UID of the member that is manged by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
+     * @description The UID of the member that is managed by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
      *
      * @example 258039427902****
      *
@@ -90,7 +90,7 @@ class DescribeVpcFirewallCenListRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * >  For more information about the regions, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -103,7 +103,7 @@ class DescribeVpcFirewallCenListRequest extends Model
      *   **auto**: automatic mode
      *   **manual**: manual mode
      *
-     * >  If you do not specify this parameter, VPC firewalls in all routing modes are queried.
+     * > If you do not specify this parameter, VPC firewalls in all routing modes are queried.
      * @example auto
      *
      * @var string
@@ -134,7 +134,7 @@ class DescribeVpcFirewallCenListRequest extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example vfw1
+     * @example Test firewall
      *
      * @var string
      */

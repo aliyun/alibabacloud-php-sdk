@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcFirewallConfigureRequest extends Model
 {
     /**
-     * @description The natural language of the request and response. Valid values:
+     * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
      *   **en**: English
@@ -30,7 +30,7 @@ class DeleteVpcFirewallConfigureRequest extends Model
     public $memberUid;
 
     /**
-     * @description The list of the VPC firewall IDs.
+     * @description The instance IDs of VPC firewalls.
      *
      * @var string[]
      */

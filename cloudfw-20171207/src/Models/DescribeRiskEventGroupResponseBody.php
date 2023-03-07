@@ -26,7 +26,7 @@ class DescribeRiskEventGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of intrusion events.
+     * @description The total number of risk events.
      *
      * @example 20
      *

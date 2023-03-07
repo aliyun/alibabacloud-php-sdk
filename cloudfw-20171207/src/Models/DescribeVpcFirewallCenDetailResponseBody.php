@@ -59,7 +59,7 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
-     * @example FW-VPC-Internal
+     * @example Test firewall
      *
      * @var string
      */

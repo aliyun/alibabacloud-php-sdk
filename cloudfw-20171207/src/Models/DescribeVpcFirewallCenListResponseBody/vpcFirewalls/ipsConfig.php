@@ -11,8 +11,9 @@ class ipsConfig extends Model
     /**
      * @description Indicates whether basic protection is enabled. Valid values:
      *
-     * - **1**: yes
-     * - **0**: no
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -22,8 +23,9 @@ class ipsConfig extends Model
     /**
      * @description Indicates whether virtual patching is enabled. Valid values:
      *
-     * - **1**: yes
-     * - **0**: no
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -33,8 +35,9 @@ class ipsConfig extends Model
     /**
      * @description The mode of the IPS. Valid values:
      *
-     * - **1**: block mode
-     * - **0**: monitor mode
+     *   **1**: block mode
+     *   **0**: monitor mode
+     *
      * @example 0
      *
      * @var int

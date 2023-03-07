@@ -37,7 +37,7 @@ class localVpc extends Model
     public $regionNo;
 
     /**
-     * @description The CIDR blocks of the local VPC.
+     * @description An array that consists of the CIDR blocks of the local VPC.
      *
      * @var vpcCidrTableList[]
      */

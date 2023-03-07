@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class vpcCidrTableList extends Model
 {
     /**
-     * @description The route entries of the VPC.
+     * @description An array that consists of the route entries for the VPC.
      *
      * @var routeEntryList[]
      */
     public $routeEntryList;
 
     /**
-     * @description The ID of the route table for the VPC.
+     * @description The route table ID of the VPC.
      *
      * @example vtb-1234
      *

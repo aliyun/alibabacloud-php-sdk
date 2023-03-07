@@ -37,7 +37,7 @@ class peerVpc extends Model
     public $regionNo;
 
     /**
-     * @description The CIDR blocks of the peer VPC.
+     * @description An array that consists of the CIDR blocks of the peer VPC.
      *
      * @var vpcCidrTableList[]
      */

@@ -22,28 +22,28 @@ class localVpc extends Model
     /**
      * @description The name of the connection between two network instances.
      *
-     * @example local-test
+     * @example Local test
      *
      * @var string
      */
     public $attachmentName;
 
     /**
-     * @description The CIDR blocks that are protected by the VPC firewall.
+     * @description An array consisting of the CIDR blocks that are protected by the VPC firewall.
      *
      * @var string[]
      */
     public $defendCidrList;
 
     /**
-     * @description The Elastic Network Interfaces (ENIs).
+     * @description An array that consists of the elastic network interfaces (ENIs).
      *
      * @var eniList[]
      */
     public $eniList;
 
     /**
-     * @description The ID of the vSwitch. The value of this parameter is returned only when the RouteMode parameter is set to manual.
+     * @description The ID of the specified vSwitch when the routing mode is manual.
      *
      * @example vsw-zeq4o875u****
      *
@@ -63,7 +63,7 @@ class localVpc extends Model
     /**
      * @description The name of the network instance.
      *
-     * @example test-network
+     * @example Test VPC
      *
      * @var string
      */
@@ -99,8 +99,8 @@ class localVpc extends Model
     /**
      * @description The routing mode. Valid values:
      *
-     *   auto
-     *   manual
+     *   auto: automatic mode
+     *   manual: manual mode
      *
      * @example auto
      *
@@ -109,7 +109,7 @@ class localVpc extends Model
     public $routeMode;
 
     /**
-     * @description Indicates whether the routing mode can be set to manual. Valid values:
+     * @description Indicates whether the manual routing mode is supported. Valid values:
      *
      *   **1**: yes
      *   **0**: no
@@ -142,7 +142,7 @@ class localVpc extends Model
     public $transitRouterType;
 
     /**
-     * @description The CIDR blocks of the VPC.
+     * @description An array that consists of the CIDR blocks of the VPC.
      *
      * @var vpcCidrTableList[]
      */
@@ -160,7 +160,7 @@ class localVpc extends Model
     /**
      * @description The name of the VPC.
      *
-     * @example UAT
+     * @example Test instance
      *
      * @var string
      */

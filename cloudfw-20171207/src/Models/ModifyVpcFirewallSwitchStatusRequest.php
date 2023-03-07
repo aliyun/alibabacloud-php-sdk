@@ -11,8 +11,8 @@ class ModifyVpcFirewallSwitchStatusRequest extends Model
     /**
      * @description Specifies whether to enable the VPC firewall. Valid values:
      *
-     *   **open**: enables the VPC firewall.
-     *   **close**: disables the VPC firewall.
+     *   **open**: yes
+     *   **close**: no
      *
      * @example open
      *
@@ -21,7 +21,7 @@ class ModifyVpcFirewallSwitchStatusRequest extends Model
     public $firewallSwitch;
 
     /**
-     * @description The natural language of the request and response. Valid values:
+     * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
      *   **en**: English
@@ -44,7 +44,7 @@ class ModifyVpcFirewallSwitchStatusRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
-     * >  You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
+     * > You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
      * @example vfw-m5e7dbc4y****
      *
      * @var string

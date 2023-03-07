@@ -18,7 +18,7 @@ class routeEntryList extends Model
     public $destinationCidr;
 
     /**
-     * @description The instance ID for the next hop of the VPC.
+     * @description The instance ID of the next hop for the VPC.
      *
      * @example vrt-m5eb5me6c3l5sezae****
      *

@@ -35,10 +35,10 @@ class DescribeVpcFirewallListRequest extends Model
      *
      *   **opened**: The VPC firewall is enabled.
      *   **closed**: The VPC firewall is disabled.
-     *   **notconfigured**: The VPC firewall is not created.
-     *   **configured**: The VPC firewall is created.
+     *   **notconfigured**: The VPC firewall is not configured.
+     *   **configured**: The VPC firewall is configured.
      *
-     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
+     * > If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
      *
      * @var string
@@ -88,7 +88,7 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * >  For more information about the regions, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string
