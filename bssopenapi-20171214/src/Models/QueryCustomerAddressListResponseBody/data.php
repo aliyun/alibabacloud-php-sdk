@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of addresses to which invoices are mailed.
+     *
      * @var customerInvoiceAddressList
      */
     public $customerInvoiceAddressList;

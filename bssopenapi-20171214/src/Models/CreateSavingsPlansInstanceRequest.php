@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSavingsPlansInstanceRequest extends Model
 {
     /**
+     * @description The code of the service.
+     *
      * @example savingplan_common_public_cn
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The service duration. This parameter is used together with the PricingCycle parameter.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $duration;
 
     /**
+     * @description The time when the savings plan takes effect. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2021-12-31T00:00:00Z
      *
      * @var string
@@ -30,6 +36,12 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $effectiveDate;
 
     /**
+     * @description The payment mode. Valid values:
+     *
+     *   total: all upfront
+     *   half: partial upfront
+     *   zero: no upfront
+     *
      * @example total
      *
      * @var string
@@ -37,6 +49,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $payMode;
 
     /**
+     * @description The contracted amount. unit: CNY
+     *
      * @example 0.1
      *
      * @var string
@@ -44,6 +58,11 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $poolValue;
 
     /**
+     * @description The unit of the service duration. This parameter is used together with the During parameter. Valid values:
+     *
+     *   Year
+     *   Month
+     *
      * @example Year
      *
      * @var string
@@ -51,6 +70,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The ID of the region in which you create the savings plan. You must specify this parameter if the Type parameter is not set to universal.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +79,11 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $region;
 
     /**
+     * @description The specification type. This parameter is used together with the Specification parameter. You must specify this parameter if the Type parameter is not set to universal. Valid values:
+     *
+     *   group: specification group
+     *   family: specification family
+     *
      * @example family
      *
      * @var string
@@ -65,6 +91,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $specType;
 
     /**
+     * @description The specifications of the savings plan. This parameter is used together with the SpecType parameter.
+     *
      * @example ecs.g6
      *
      * @var string
@@ -72,6 +100,12 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $specification;
 
     /**
+     * @description The type of the savings plan. Valid values:
+     *
+     *   universal: general-purpose type
+     *   ecs: ECS compute type
+     *   elasticy: elastic type
+     *
      * @example univeral
      *
      * @var string

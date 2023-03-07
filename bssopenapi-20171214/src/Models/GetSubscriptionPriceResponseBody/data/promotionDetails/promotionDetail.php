@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class promotionDetail extends Model
 {
     /**
+     * @description The description of the discount.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class promotionDetail extends Model
     public $promotionDesc;
 
     /**
+     * @description The ID of the discount.
+     *
      * @example 1021199213
      *
      * @var int
@@ -23,6 +27,8 @@ class promotionDetail extends Model
     public $promotionId;
 
     /**
+     * @description The name of the discount.
+     *
      * @example test
      *
      * @var string

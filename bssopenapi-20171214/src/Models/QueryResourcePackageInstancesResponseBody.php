@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryResourcePackageInstancesResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +44,8 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -43,6 +53,8 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6000EE23-274B-4E07-A697-FF2E999520A4
      *
      * @var string
@@ -50,6 +62,8 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +71,8 @@ class QueryResourcePackageInstancesResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 12
      *
      * @var int

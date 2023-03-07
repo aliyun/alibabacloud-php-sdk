@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The amount deducted by using credit refunds.
+     *
      * @example 0
      *
      * @var float
@@ -16,6 +18,8 @@ class item extends Model
     public $adjustAmount;
 
     /**
+     * @description The billing date. This parameter is returned only if the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+     *
      * @example 2020-03
      *
      * @var string
@@ -23,16 +27,26 @@ class item extends Model
     public $billingDate;
 
     /**
+     * @description The billable item. This parameter is returned only if the IsBillingItem parameter is set to true.
+     *
+     * @example Other
+     *
      * @var string
      */
     public $billingItem;
 
     /**
+     * @description The billing type.
+     *
+     * @example Other
+     *
      * @var string
      */
     public $billingType;
 
     /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is not included.
+     *
      * @example 0
      *
      * @var float
@@ -40,6 +54,8 @@ class item extends Model
     public $cashAmount;
 
     /**
+     * @description The code of the commodity. The commodity code is the same as that displayed in User Center.
+     *
      * @example rds
      *
      * @var string
@@ -47,11 +63,21 @@ class item extends Model
     public $commodityCode;
 
     /**
+     * @description The cost center.
+     *
+     * @example Not allocated
+     *
      * @var string
      */
     public $costUnit;
 
     /**
+     * @description The type of the currency. Valid values:
+     *
+     *   CNY
+     *   USD
+     *   JPY
+     *
      * @example CNY
      *
      * @var string
@@ -59,6 +85,8 @@ class item extends Model
     public $currency;
 
     /**
+     * @description The amount deducted by using vouchers.
+     *
      * @example 0
      *
      * @var float
@@ -66,6 +94,8 @@ class item extends Model
     public $deductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons.
+     *
      * @example 0
      *
      * @var float
@@ -73,6 +103,8 @@ class item extends Model
     public $deductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards.
+     *
      * @example 0
      *
      * @var float
@@ -80,6 +112,8 @@ class item extends Model
     public $deductedByPrepaidCard;
 
     /**
+     * @description The amount deducted by using resource plans.
+     *
      * @example NULL
      *
      * @var string
@@ -87,6 +121,8 @@ class item extends Model
     public $deductedByResourcePackage;
 
     /**
+     * @description The configurations of the instance.
+     *
      * @example CPU:12
      *
      * @var string
@@ -94,6 +130,8 @@ class item extends Model
     public $instanceConfig;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-kjhdskjgshfdlkjfdh
      *
      * @var string
@@ -101,6 +139,8 @@ class item extends Model
     public $instanceID;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example ecs.sn1ne.3xlarge
      *
      * @var string
@@ -108,6 +148,8 @@ class item extends Model
     public $instanceSpec;
 
     /**
+     * @description The public IP address.
+     *
      * @example 34.xx.x.x
      *
      * @var string
@@ -115,6 +157,8 @@ class item extends Model
     public $internetIP;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.xx.xx.xx
      *
      * @var string
@@ -122,6 +166,8 @@ class item extends Model
     public $intranetIP;
 
     /**
+     * @description The discount amount.
+     *
      * @example 0
      *
      * @var float
@@ -129,6 +175,13 @@ class item extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The type of the bill.
+     *
+     *   SubscriptionOrder: subscription order
+     *   PayAsYouGoBill: pay-as-you-go bill
+     *   Refund: refund
+     *   Adjustment: reconciliation
+     *
      * @example PayAsYouGoBill
      *
      * @var string
@@ -136,6 +189,8 @@ class item extends Model
     public $item;
 
     /**
+     * @description The unit price. This parameter is returned only if the isBillingItem parameter is set to true.
+     *
      * @example 100
      *
      * @var string
@@ -143,11 +198,17 @@ class item extends Model
     public $listPrice;
 
     /**
+     * @description The unit of the unit price. This parameter is returned only if the isBillingItem parameter is set to true.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $listPriceUnit;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test
      *
      * @var string
@@ -155,6 +216,8 @@ class item extends Model
     public $nickName;
 
     /**
+     * @description The unsettled amount.
+     *
      * @example 0
      *
      * @var float
@@ -162,6 +225,8 @@ class item extends Model
     public $outstandingAmount;
 
     /**
+     * @description The ID of the member account. This parameter is returned in a multi-account payment scenario.
+     *
      * @example 169***013
      *
      * @var string
@@ -169,6 +234,8 @@ class item extends Model
     public $ownerID;
 
     /**
+     * @description The amount paid in cash.
+     *
      * @example 0
      *
      * @var float
@@ -176,6 +243,8 @@ class item extends Model
     public $paymentAmount;
 
     /**
+     * @description The code of the service. The service code is the same as that displayed in User Center.
+     *
      * @example rds
      *
      * @var string
@@ -183,6 +252,8 @@ class item extends Model
     public $pipCode;
 
     /**
+     * @description The pretax amount.
+     *
      * @example 0
      *
      * @var float
@@ -190,6 +261,8 @@ class item extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax gross amount.
+     *
      * @example 0
      *
      * @var float
@@ -197,6 +270,8 @@ class item extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -204,16 +279,26 @@ class item extends Model
     public $productCode;
 
     /**
+     * @description The details of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productDetail;
 
     /**
+     * @description The name of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -221,16 +306,26 @@ class item extends Model
     public $productType;
 
     /**
+     * @description The region.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The resource group.
+     *
+     * @example Default resource group
+     *
      * @var string
      */
     public $resourceGroup;
 
     /**
+     * @description The validity period.
+     *
      * @example 10
      *
      * @var string
@@ -238,11 +333,24 @@ class item extends Model
     public $servicePeriod;
 
     /**
+     * @description The unit of the validity period.
+     *
+     * @example Seconds
+     *
      * @var string
      */
     public $servicePeriodUnit;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
+     **
+     *
+     ****This parameter is returned together with the ProductCode parameter.
+     *
      * @example PayAsYouGo
      *
      * @var string
@@ -250,6 +358,8 @@ class item extends Model
     public $subscriptionType;
 
     /**
+     * @description The tag.
+     *
      * @example tag
      *
      * @var string
@@ -257,6 +367,8 @@ class item extends Model
     public $tag;
 
     /**
+     * @description The usage of the billable item. This parameter is returned only if the isBillingItem parameter is set to true.
+     *
      * @example 100
      *
      * @var string
@@ -264,6 +376,8 @@ class item extends Model
     public $usage;
 
     /**
+     * @description The unit of usage. This parameter is returned only if the isBillingItem parameter is set to true.
+     *
      * @example GB
      *
      * @var string
@@ -271,6 +385,8 @@ class item extends Model
     public $usageUnit;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

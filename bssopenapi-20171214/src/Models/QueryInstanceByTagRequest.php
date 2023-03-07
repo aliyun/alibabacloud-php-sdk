@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceByTagRequest extends Model
 {
     /**
+     * @description The IDs of resources.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Specify the savings plan instance as the type of the resource.
+     *
      * @example instance
      *
      * @var string
@@ -22,6 +26,8 @@ class QueryInstanceByTagRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

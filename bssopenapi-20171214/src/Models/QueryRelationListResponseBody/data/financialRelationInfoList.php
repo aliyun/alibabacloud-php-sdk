@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class financialRelationInfoList extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 1851253838840762
      *
      * @var int
@@ -16,6 +18,8 @@ class financialRelationInfoList extends Model
     public $accountId;
 
     /**
+     * @description The name of the account.
+     *
      * @example caiwuyun_test4
      *
      * @var string
@@ -23,6 +27,8 @@ class financialRelationInfoList extends Model
     public $accountName;
 
     /**
+     * @description The display name of the account.
+     *
      * @example test4
      *
      * @var string
@@ -30,6 +36,8 @@ class financialRelationInfoList extends Model
     public $accountNickName;
 
     /**
+     * @description The type of the account. Valid values: MASTER and MEMBER.
+     *
      * @example MEMBER
      *
      * @var string
@@ -37,6 +45,8 @@ class financialRelationInfoList extends Model
     public $accountType;
 
     /**
+     * @description The time when the relationship became invalid. If no value is returned, the relationship is still valid.
+     *
      * @example 2021-03-08T15:12Z
      *
      * @var string
@@ -44,6 +54,8 @@ class financialRelationInfoList extends Model
     public $endTime;
 
     /**
+     * @description The ID of the relationship.
+     *
      * @example 51463
      *
      * @var int
@@ -51,6 +63,8 @@ class financialRelationInfoList extends Model
     public $relationId;
 
     /**
+     * @description The type of the relationship. Valid values: FinancialManagement and FinancialTrusteeship.
+     *
      * @example FinancialManagement
      *
      * @var string
@@ -58,6 +72,8 @@ class financialRelationInfoList extends Model
     public $relationType;
 
     /**
+     * @description The time when the relationship was established. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. Example: 2016-05-23T12:00:00Z.
+     *
      * @example 2021-03-02T15:12Z
      *
      * @var string
@@ -65,6 +81,8 @@ class financialRelationInfoList extends Model
     public $setupTime;
 
     /**
+     * @description The time when the relationship became valid. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. Example: 2016-05-23T12:00:00Z.
+     *
      * @example 2021-03-02T15:12Z
      *
      * @var string
@@ -72,6 +90,8 @@ class financialRelationInfoList extends Model
     public $startTime;
 
     /**
+     * @description The state of the relationship. One of the enumeration members of the RelationshipStatusEnum data type is returned.
+     *
      * @example RELATED
      *
      * @var string

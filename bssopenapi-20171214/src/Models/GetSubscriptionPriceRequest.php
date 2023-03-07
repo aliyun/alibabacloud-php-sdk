@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionPriceRequest extends Model
 {
     /**
+     * @description The ID of the instance for which the price is queried. This parameter is required if you upgrade an instance. You can specify this parameter to obtain the pre-upgrade configurations of the instance.
+     *
      * @example i-khkjhxxxxxxxxx
      *
      * @var string
@@ -17,11 +19,19 @@ class GetSubscriptionPriceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The information about the pricing module.
+     *
      * @var moduleList[]
      */
     public $moduleList;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   NewOrder: purchases an instance of an Alibaba Cloud service.
+     *   Renewal: renews an instance of an Alibaba Cloud service.
+     *   Upgrade: upgrades an instance of an Alibaba Cloud service.
+     *
      * @example NewOrder
      *
      * @var string
@@ -34,6 +44,8 @@ class GetSubscriptionPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service. For more information about the service code, see **Codes of Alibaba Cloud Services**.
+     *
      * @example ecs
      *
      * @var string
@@ -41,6 +53,8 @@ class GetSubscriptionPriceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service. Specify the parameter based on the pricing document of the specific service.
+     *
      * @example ecs
      *
      * @var string
@@ -48,6 +62,8 @@ class GetSubscriptionPriceRequest extends Model
     public $productType;
 
     /**
+     * @description The quantity.
+     *
      * @example 1
      *
      * @var int
@@ -55,6 +71,8 @@ class GetSubscriptionPriceRequest extends Model
     public $quantity;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +80,8 @@ class GetSubscriptionPriceRequest extends Model
     public $region;
 
     /**
+     * @description The service duration.
+     *
      * @example 1
      *
      * @var int
@@ -69,6 +89,11 @@ class GetSubscriptionPriceRequest extends Model
     public $servicePeriodQuantity;
 
     /**
+     * @description The unit of the service duration. Valid values:
+     *
+     *   Year
+     *   Month
+     *
      * @example Year
      *
      * @var string
@@ -76,6 +101,8 @@ class GetSubscriptionPriceRequest extends Model
     public $servicePeriodUnit;
 
     /**
+     * @description The billing method. Set the value to Subscription.
+     *
      * @example Subscription
      *
      * @var string

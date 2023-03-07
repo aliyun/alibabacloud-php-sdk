@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the account.
+     *
      * @example 185766xxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $accountID;
 
     /**
+     * @description The name of the account.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description The data entries returned.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 100
      *
      * @var int
@@ -36,6 +44,8 @@ class data extends Model
     public $maxResults;
 
     /**
+     * @description The position from which the results started to return. The parameter must be left empty or set to the value of the NextToken parameter returned from the last call. Otherwise, an error is returned. If this parameter is left empty, data is queried from the beginning.
+     *
      * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
      *
      * @var string
@@ -43,6 +53,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 100
      *
      * @var int

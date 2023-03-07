@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserQuotaRequest extends Model
 {
     /**
+     * @description The quota of a quota ledger. Unit: CNY.
+     *
      * @example 750
      *
      * @var string
@@ -16,11 +18,17 @@ class SetResellerUserQuotaRequest extends Model
     public $amount;
 
     /**
+     * @description You do not need to set the parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The ID of the business.
+     *
      * @example OD2022040818295234777795624764689
      *
      * @var string

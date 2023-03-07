@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
+     * @description The configurations of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
+     *
      * @example PackageCode:version_1
      *
      * @var string
@@ -16,6 +18,8 @@ class moduleList extends Model
     public $config;
 
     /**
+     * @description The identifier of the Nth pricing module.
+     *
      * @example PackageCode
      *
      * @var string
@@ -23,6 +27,12 @@ class moduleList extends Model
     public $moduleCode;
 
     /**
+     * @description The status of the pricing module. This parameter is required only if the order type is Upgrade. Valid values:
+     *
+     *   1: adds one or more instances.
+     *   2: modifies the configurations of an instance. In the upgrade scenario, if the configurations of the pricing module change, you must specify this value for the parameter.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -30,6 +40,8 @@ class moduleList extends Model
     public $moduleStatus;
 
     /**
+     * @description The tag of the specified resource. This parameter is required only if you upgrade or modify the configurations of an Alibaba Cloud service. For example, if you want to modify the configurations of a disk, you can use a tag to identify the ID of the disk.
+     *
      * @example 213213123
      *
      * @var string

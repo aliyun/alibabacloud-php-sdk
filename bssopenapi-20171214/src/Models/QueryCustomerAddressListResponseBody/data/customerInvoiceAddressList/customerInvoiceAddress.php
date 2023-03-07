@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customerInvoiceAddress extends Model
 {
     /**
+     * @description The addressee.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class customerInvoiceAddress extends Model
     public $addressee;
 
     /**
+     * @description The business type.
+     *
      * @example test
      *
      * @var string
@@ -23,22 +27,34 @@ class customerInvoiceAddress extends Model
     public $bizType;
 
     /**
+     * @description The city to which the invoice is mailed.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The name of the district to which the invoice is mailed.
+     *
+     * @example Test District
+     *
      * @var string
      */
     public $county;
 
     /**
+     * @description The detailed address to which the invoice is mailed. This parameter is returned after fields are concatenated.
+     *
+     * @example Test Address
+     *
      * @var string
      */
     public $deliveryAddress;
 
     /**
-     * @description ID。
+     * @description The ID.
      *
      * @example 311601051
      *
@@ -47,6 +63,8 @@ class customerInvoiceAddress extends Model
     public $id;
 
     /**
+     * @description The phone number of the addressee.
+     *
      * @example 138xxxxxxxx
      *
      * @var string
@@ -54,6 +72,8 @@ class customerInvoiceAddress extends Model
     public $phone;
 
     /**
+     * @description The postcode.
+     *
      * @example 000000
      *
      * @var string
@@ -61,16 +81,26 @@ class customerInvoiceAddress extends Model
     public $postalCode;
 
     /**
+     * @description The province to which the invoice is mailed.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @description The name of the street to which the invoice is mailed.
+     *
+     * @example Test Street
+     *
      * @var string
      */
     public $street;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 4382956342857
      *
      * @var int
@@ -78,6 +108,8 @@ class customerInvoiceAddress extends Model
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example testNick
      *
      * @var string

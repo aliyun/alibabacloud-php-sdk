@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetPayAsYouGoPriceResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class GetPayAsYouGoPriceResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful
      *
      * @var string
@@ -29,6 +35,8 @@ class GetPayAsYouGoPriceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1537A007-72D7-4165-8A26-8694A38E219A
      *
      * @var string
@@ -36,6 +44,8 @@ class GetPayAsYouGoPriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

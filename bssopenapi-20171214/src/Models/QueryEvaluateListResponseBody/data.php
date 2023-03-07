@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var evaluateList
      */
     public $evaluateList;
 
     /**
+     * @description The ID of the host.
+     *
      * @example cn
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The number of the page returned.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +44,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 2
      *
      * @var int
@@ -43,6 +53,8 @@ class data extends Model
     public $totalCount;
 
     /**
+     * @description The invoiced amount that meets the query conditions. Unit: Cent.
+     *
      * @example 12344
      *
      * @var int
@@ -50,6 +62,8 @@ class data extends Model
     public $totalInvoiceAmount;
 
     /**
+     * @description The invoiceable amount that meets the query conditions. Unit: Cent.
+     *
      * @example 12344
      *
      * @var int

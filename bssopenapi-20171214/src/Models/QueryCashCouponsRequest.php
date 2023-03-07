@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCashCouponsRequest extends Model
 {
     /**
+     * @description Specifies whether the voucher takes effect. Valid values:
+     *
+     *   true: The voucher takes effect.
+     *   false: The voucher does not take effect.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class QueryCashCouponsRequest extends Model
     public $effectiveOrNot;
 
     /**
+     * @description The end time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string
@@ -23,6 +30,8 @@ class QueryCashCouponsRequest extends Model
     public $expiryTimeEnd;
 
     /**
+     * @description The start time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string

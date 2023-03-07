@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account that is used as a member.
+     *
+     * @example ID of the Alibaba Cloud account that is used as a member
+     *
      * @var int
      */
     public $childUserId;
 
     /**
+     * @description The time when the financial relationship between the management account and the member was terminated.
+     *
      * @example 2021-12-01
      *
      * @var int
@@ -21,6 +27,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The time when the financial relationship between the management account and the member was modified.
+     *
      * @example 2021-12-01
      *
      * @var int
@@ -28,16 +36,26 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the financial relationship.
+     *
+     * @example ID of the financial relationship
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used as the management account.
+     *
+     * @example ID of the Alibaba Cloud account that is used as the management account
+     *
      * @var int
      */
     public $parentUserId;
 
     /**
+     * @description The time when the financial relationship between the management account and the member was established.
+     *
      * @example 2021-11-01
      *
      * @var int
@@ -45,6 +63,8 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The status of the financial relationship between the management account and the member.
+     *
      * @example RELATED
      *
      * @var string
@@ -52,6 +72,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The type of the financial relationship.
+     *
      * @example enterprise_group
      *
      * @var string

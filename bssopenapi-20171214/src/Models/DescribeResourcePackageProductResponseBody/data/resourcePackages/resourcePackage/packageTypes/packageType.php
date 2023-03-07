@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class packageType extends Model
 {
     /**
+     * @description The code of the resource plan.
+     *
      * @example FPT_ossbag_deadlineAcc_CdnOut_common_sz
      *
      * @var string
@@ -18,16 +20,24 @@ class packageType extends Model
     public $code;
 
     /**
+     * @description The name of the resource plan type.
+     *
+     * @example Back-to-origin traffic plan - China (Shenzhen)
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The properties of the resource plan.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The specifications of the resource plan.
+     *
      * @var specifications
      */
     public $specifications;

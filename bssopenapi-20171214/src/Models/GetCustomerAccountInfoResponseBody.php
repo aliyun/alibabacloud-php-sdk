@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCustomerAccountInfoResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class GetCustomerAccountInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class GetCustomerAccountInfoResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 94017C56-1725-5DD9-AB41-B3BAE791D600
      *
      * @var string
@@ -36,6 +44,8 @@ class GetCustomerAccountInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

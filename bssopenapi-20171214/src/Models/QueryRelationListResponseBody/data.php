@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The relationships.
+     *
      * @var financialRelationInfoList[]
      */
     public $financialRelationInfoList;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

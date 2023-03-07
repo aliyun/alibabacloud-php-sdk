@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyInvoiceRequest extends Model
 {
     /**
+     * @description The ID of the address to which the invoice is delivered. This parameter is required if the invoice is a paper invoice. Set the ID to the value of the AddressId parameter returned by calling the QueryCustomerAddressList operation.
+     *
      * @example 237958367
      *
      * @var int
@@ -16,6 +18,8 @@ class ApplyInvoiceRequest extends Model
     public $addressId;
 
     /**
+     * @description The nickname of the applicant. The system does not verify the nickname.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ApplyInvoiceRequest extends Model
     public $applyUserNick;
 
     /**
+     * @description The ID of the customer. Set the ID to the value of the CustomerId parameter returned by calling the QueryInvoicingCustomerList operation.
+     *
      * @example 124132423
      *
      * @var int
@@ -30,6 +36,8 @@ class ApplyInvoiceRequest extends Model
     public $customerId;
 
     /**
+     * @description The amount of the invoice. Unit: Cent.
+     *
      * @example 124132
      *
      * @var int
@@ -37,6 +45,8 @@ class ApplyInvoiceRequest extends Model
     public $invoiceAmount;
 
     /**
+     * @description Specifies whether to invoice by amount. A value of true indicates that the user applies for the invoice based on the InvoiceAmount parameter. A value of false indicates that the user applies for the invoice based on the total amount of the invoicing items.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,11 @@ class ApplyInvoiceRequest extends Model
     public $invoiceByAmount;
 
     /**
+     * @description The type of the invoice. Valid values:
+     *
+     *   0: paper invoice
+     *   1: electronic invoice
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +71,8 @@ class ApplyInvoiceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The channel that is used to process the invoice. A value of 0 indicates that the invoice is processed by Alibaba Cloud. A value of 1 indicates that the invoice is processed by the tax platform. Set the value to 1.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +80,8 @@ class ApplyInvoiceRequest extends Model
     public $processWay;
 
     /**
+     * @description The IDs of the selected invoicing items. Set the IDs to the IDs returned by calling the QueryEvaluateList operation.
+     *
      * @example 384752367
      *
      * @var int[]
@@ -70,6 +89,8 @@ class ApplyInvoiceRequest extends Model
     public $selectedIds;
 
     /**
+     * @description The remarks made by the user.
+     *
      * @example test
      *
      * @var string

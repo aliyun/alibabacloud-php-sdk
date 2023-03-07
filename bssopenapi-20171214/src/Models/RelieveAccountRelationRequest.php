@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RelieveAccountRelationRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account that is used as the member. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+     *
      * @example 1512996702208737
      *
      * @var int
@@ -16,6 +18,8 @@ class RelieveAccountRelationRequest extends Model
     public $childUserId;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used as the management account. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+     *
      * @example 1738376485192612
      *
      * @var int
@@ -23,6 +27,8 @@ class RelieveAccountRelationRequest extends Model
     public $parentUserId;
 
     /**
+     * @description The ID of the financial relationship between the management account and the member. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+     *
      * @example RelationId
      *
      * @var int
@@ -30,6 +36,8 @@ class RelieveAccountRelationRequest extends Model
     public $relationId;
 
     /**
+     * @description The type of the financial relationship. Set the value to enterprise_group.
+     *
      * @example enterprise_group
      *
      * @var string
@@ -37,6 +45,8 @@ class RelieveAccountRelationRequest extends Model
     public $relationType;
 
     /**
+     * @description The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
+     *
      * @example request_id
      *
      * @var string

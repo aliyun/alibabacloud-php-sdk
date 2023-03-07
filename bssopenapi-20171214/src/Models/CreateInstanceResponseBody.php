@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example Successful！
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C880B065-A781-4F19-B6DD-3E0E3B715C64
      *
      * @var string
@@ -36,6 +44,8 @@ class CreateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

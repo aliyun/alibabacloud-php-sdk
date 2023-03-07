@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class agRelationDto extends Model
 {
     /**
-     * @description MPK（UID）
+     * @description The ID of the account that is used to call the CreateAgAccount operation.
      *
      * @example 1785287436011964
      *
@@ -18,6 +18,8 @@ class agRelationDto extends Model
     public $mpk;
 
     /**
+     * @description The ID of the account that is created.
+     *
      * @example 1728240534507590
      *
      * @var string
@@ -25,6 +27,8 @@ class agRelationDto extends Model
     public $pk;
 
     /**
+     * @description The role of the account that is created.
+     *
      * @example admin-role
      *
      * @var string
@@ -32,6 +36,8 @@ class agRelationDto extends Model
     public $ramAdminRoleName;
 
     /**
+     * @description The type of the relationship.
+     *
      * @example FINACE_CLOUD
      *
      * @var string

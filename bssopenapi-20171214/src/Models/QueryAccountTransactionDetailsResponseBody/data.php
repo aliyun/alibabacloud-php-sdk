@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the account.
+     *
      * @example yidi
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description The details of the transactions within the account.
+     *
      * @var accountTransactionsList
      */
     public $accountTransactionsList;
 
     /**
+     * @description This parameter is invalid.
+     *
      * @example 0
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for paging.
+     *
      * @example ASHDADS
      *
      * @var string
@@ -36,6 +44,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

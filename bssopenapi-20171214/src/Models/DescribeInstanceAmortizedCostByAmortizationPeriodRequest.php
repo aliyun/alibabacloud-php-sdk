@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
 {
     /**
+     * @description The ID of the member to which the bill belongs. The member ID is used to filter bills. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account and all members of the current account are queried. You can specify a maximum of 10 IDs.
+     *
      * @var string[]
      */
     public $billOwnerIdList;
 
     /**
+     * @description The ID of the member that needs to settle the bill. The member ID is used to filter bills. If you specify a value for this parameter, you can query the bills of the specified member account. If you leave this parameter empty, the bills of the current account and all members of the current account are queried by default. You can specify a maximum of 10 IDs.
+     *
      * @var string[]
      */
     public $billUserIdList;
 
     /**
+     * @description The allocation month. Format: YYYY-MM.
+     *
      * @example 2022-10
      *
      * @var string
@@ -26,11 +32,15 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The billing cycle that is used to filter bills. You can specify a maximum of 10 billing cycles.
+     *
      * @var string[]
      */
     public $consumePeriodFilter;
 
     /**
+     * @description The code of the cost center.
+     *
      * @example 123#
      *
      * @var string
@@ -38,11 +48,15 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $costUnitCode;
 
     /**
+     * @description The instance ID that is used to filter bills. You can specify multiple instance IDs to query bills of multiple instances. If you leave this parameter empty, the bills of all instances are queried by default. You can specify a maximum of 10 instance IDs.
+     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
+     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -50,6 +64,8 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $maxResults;
 
     /**
+     * @description The position from which the query starts. The parameter must be left empty or set to the value of the NextToken parameter returned from the last call. Otherwise, an error is returned. If this parameter is left empty, data is queried from the beginning.
+     *
      * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
      *
      * @var string
@@ -57,6 +73,8 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $nextToken;
 
     /**
+     * @description The code of the service. You can obtain the value of this parameter by calling the QueryProductList operation or the DescribeResourcePackageProduct operation.
+     *
      * @example rds
      *
      * @var string
@@ -64,6 +82,8 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $productCode;
 
     /**
+     * @description The specific service resource.
+     *
      * @example rds
      *
      * @var string
@@ -71,6 +91,11 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
     public $productDetail;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
      * @example Subscription
      *
      * @var string

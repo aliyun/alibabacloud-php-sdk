@@ -67,6 +67,11 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -77,6 +82,7 @@ class QuerySavingsPlansInstanceRequest extends Model
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'startTime'  => 'StartTime',
+        'status'     => 'Status',
         'tag'        => 'Tag',
     ];
 
@@ -104,6 +110,9 @@ class QuerySavingsPlansInstanceRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -143,6 +152,9 @@ class QuerySavingsPlansInstanceRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

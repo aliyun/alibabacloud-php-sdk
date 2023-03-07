@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the account. A value of 1 indicates an enterprise account. A value of 0 indicates an individual account.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $accountType;
 
     /**
+     * @description The business status of the customer. Valid values:
+     *
+     * TrusteeshipCancel: The business is not hosted.
      * @example Freeze
      *
      * @var string
@@ -23,6 +28,9 @@ class data extends Model
     public $creditLimitStatus;
 
     /**
+     * @description The hosting status of the credit information and instances of the customer. If the credit information and instances of the customer are managed on Alibaba Cloud, Alibaba Cloud suspends a customer service upon overdue payment. Valid values:
+     *
+     * TRUSTEESHIP: The business of the customer is hosted.
      * @example FREEZE
      *
      * @var string
@@ -30,6 +38,8 @@ class data extends Model
     public $hostingStatus;
 
     /**
+     * @description Indicates whether the account passes the real-name verification.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +47,8 @@ class data extends Model
     public $isCertified;
 
     /**
+     * @description The email address of the customer.
+     *
      * @example xxxx@aliyun.com
      *
      * @var string
@@ -44,6 +56,8 @@ class data extends Model
     public $loginEmail;
 
     /**
+     * @description The ID of the management account.
+     *
      * @example 1051360339779133
      *
      * @var int

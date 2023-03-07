@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class moduleDetail extends Model
 {
     /**
+     * @description The discount price.
+     *
      * @example 0
      *
      * @var float
@@ -16,6 +18,8 @@ class moduleDetail extends Model
     public $costAfterDiscount;
 
     /**
+     * @description The discount that was applied.
+     *
      * @example 100
      *
      * @var float
@@ -23,6 +27,8 @@ class moduleDetail extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The identifier of the pricing module.
+     *
      * @example PackageCode
      *
      * @var string
@@ -30,6 +36,8 @@ class moduleDetail extends Model
     public $moduleCode;
 
     /**
+     * @description The original price of the service.
+     *
      * @example 200
      *
      * @var float
@@ -37,6 +45,8 @@ class moduleDetail extends Model
     public $originalCost;
 
     /**
+     * @description The unit price.
+     *
      * @example 0
      *
      * @var float

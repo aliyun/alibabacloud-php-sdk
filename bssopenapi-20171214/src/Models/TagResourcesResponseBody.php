@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example InternalError
      *
      * @var string
@@ -16,6 +18,8 @@ class TagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class TagResourcesResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example This API is not applicable for caller.
      *
      * @var string
@@ -30,6 +36,8 @@ class TagResourcesResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1537A007-72D7-4165-8A26-8694A38E219A
      *
      * @var string
@@ -37,6 +45,8 @@ class TagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

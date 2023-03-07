@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class QueryEvaluateListRequest extends Model
 {
     /**
-     * @example 2020-03
+     * @description The billing cycle.
+     *
+     * @example 202003
      *
      * @var string
      */
     public $billCycle;
 
     /**
+     * @description The market types in invoices.
+     *
+     * >  By default, this parameter is left empty. If this parameter is left empty, all market types are queried.
      * @example ALIYUN
      *
      * @var string[]
@@ -23,6 +28,8 @@ class QueryEvaluateListRequest extends Model
     public $bizTypeList;
 
     /**
+     * @description The maximum amount to be queried.
+     *
      * @example 1000
      *
      * @var int
@@ -30,6 +37,8 @@ class QueryEvaluateListRequest extends Model
     public $endAmount;
 
     /**
+     * @description The latest time when an order is paid Specify the time in the yyyy-mm-dd hh:mm:ss format.
+     *
      * @example 2020-02-02 15:00:00
      *
      * @var string
@@ -37,6 +46,8 @@ class QueryEvaluateListRequest extends Model
     public $endBizTime;
 
     /**
+     * @description The end of the time range to query.
+     *
      * @example 2020-03-02 12:00:00
      *
      * @var string
@@ -44,6 +55,8 @@ class QueryEvaluateListRequest extends Model
     public $endSearchTime;
 
     /**
+     * @description The ID of the external order.
+     *
      * @example 2387432832696
      *
      * @var string
@@ -56,6 +69,8 @@ class QueryEvaluateListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +78,8 @@ class QueryEvaluateListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -70,6 +87,12 @@ class QueryEvaluateListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the sort. Valid values:
+     *
+     *   1: Sort invoices by ID in descending order.
+     *   2: Sort invoices by invoice type in descending order, and then sort invoices of the same type by ID in descending order.
+     *   3: Sort invoices by invoice type in ascending order, and then sort invoices of the same type by ID in descending order.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +100,8 @@ class QueryEvaluateListRequest extends Model
     public $sortType;
 
     /**
+     * @description The minimum amount to be queried.
+     *
      * @example 100
      *
      * @var int
@@ -84,6 +109,8 @@ class QueryEvaluateListRequest extends Model
     public $startAmount;
 
     /**
+     * @description The earliest time when an order is paid. Specify the time in the yyyy-mm-dd hh:mm:ss format.
+     *
      * @example 2020-02-02 12:00:00
      *
      * @var string
@@ -91,6 +118,8 @@ class QueryEvaluateListRequest extends Model
     public $startBizTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
      * @example 2020-02-02 12:00:00
      *
      * @var string
@@ -98,6 +127,14 @@ class QueryEvaluateListRequest extends Model
     public $startSearchTime;
 
     /**
+     * @description The type of orders to be queried. Valid values:
+     *
+     *   1: the orders in which the invoiceable amount is negative.
+     *   2: the orders in which the invoiceable amount is positive.
+     *   3: the orders in which the invoiceable amount is not 0.
+     *   4: the orders in which the amount that has been invoiced is greater than 0.
+     *
+     * >  By default, this parameter is left empty. If this parameter is left empty, all orders are queried.
      * @example 1
      *
      * @var int

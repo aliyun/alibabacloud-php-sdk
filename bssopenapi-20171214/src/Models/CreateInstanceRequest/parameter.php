@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The code property of the Nth module. Value of N: 1 to 100. If multiple module property parameters are involved, concatenate multiple parameters based on the value of N in sequence.
+     *
      * @example InstanceType
      *
      * @var string
@@ -16,6 +18,8 @@ class parameter extends Model
     public $code;
 
     /**
+     * @description The value property of the Nth module. Value of N: 1 to 100.
+     *
      * @example disk
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveUserCreditRequest extends Model
 {
     /**
+     * @description Specifies whether to enable service suspension protection for pay-as-you-go services.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class SaveUserCreditRequest extends Model
     public $avoidExpiration;
 
     /**
+     * @description Specifies whether to allow the use of pay-as-you-go services without the need to send notifications.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class SaveUserCreditRequest extends Model
     public $avoidNotification;
 
     /**
+     * @description Specifies whether to enable service suspension protection for subscription services.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class SaveUserCreditRequest extends Model
     public $avoidPrepaidExpiration;
 
     /**
+     * @description Specifies whether to allow the use of subscription services without the need to send notifications.
+     *
      * @example true
      *
      * @var bool
@@ -37,16 +45,26 @@ class SaveUserCreditRequest extends Model
     public $avoidPrepaidNotification;
 
     /**
+     * @description The type of the credit.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $creditType;
 
     /**
+     * @description The value of the credit.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $creditValue;
 
     /**
+     * @description Description
+     *
      * @example description
      *
      * @var string
@@ -54,6 +72,8 @@ class SaveUserCreditRequest extends Model
     public $description;
 
     /**
+     * @description The operator who performs the action.
+     *
      * @example 65683
      *
      * @var string

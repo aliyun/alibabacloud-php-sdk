@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCreditLabelActionRequest extends Model
 {
     /**
+     * @description The type of the action. Valid values: SET: adds the pay-as-you-go tag. CANCEL: removes the pay-as-you-go tag.
+     *
      * @example SET
      *
      * @var string
@@ -16,11 +18,17 @@ class SetCreditLabelActionRequest extends Model
     public $actionType;
 
     /**
+     * @description The cycle in which the account is notified of payment. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clearCycle;
 
     /**
+     * @description The credit line of the account.
+     *
      * @example 1000
      *
      * @var string
@@ -28,6 +36,8 @@ class SetCreditLabelActionRequest extends Model
     public $creditAmount;
 
     /**
+     * @description The code of currency that is used. Valid values: USD and CNY.
+     *
      * @example CNY
      *
      * @var string
@@ -35,46 +45,80 @@ class SetCreditLabelActionRequest extends Model
     public $currencyCode;
 
     /**
+     * @description The cycle in which payment can be deferred. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $dailyCycle;
 
     /**
+     * @description The description of the action.
+     *
+     * @example Cancel the credit authorization
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to add the post-settlement tag. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $isNeedAddSettleLabel;
 
     /**
+     * @description Specifies whether to synchronize the monthly settlement tag. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $isNeedAdjustCreditAccount;
 
     /**
+     * @description Specifies whether to save the notification rule. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $isNeedSaveNotifyRule;
 
     /**
+     * @description Specifies whether to set a credit line. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $isNeedSetCreditAmount;
 
     /**
+     * @description Specifies whether to notify the account of an identity change. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var bool
      */
     public $needNotice;
 
     /**
+     * @description Specifies whether to call another operation to create a credit ledger. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var bool
      */
     public $newCreateMode;
 
     /**
+     * @description The operator who performs the action.
+     *
      * @example 78394
      *
      * @var string
@@ -82,6 +126,8 @@ class SetCreditLabelActionRequest extends Model
     public $operator;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F5B803CF-94D8-43AF-ADB3-D819AAD30E27
      *
      * @var string
@@ -89,11 +135,17 @@ class SetCreditLabelActionRequest extends Model
     public $requestId;
 
     /**
+     * @description The code of the site. **You do not need to specify this parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $siteCode;
 
     /**
+     * @description The source of the action.
+     *
      * @example dellidc
      *
      * @var string
@@ -101,6 +153,8 @@ class SetCreditLabelActionRequest extends Model
     public $source;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 1911503093565030
      *
      * @var string

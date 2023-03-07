@@ -6,20 +6,9 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetResellerUserAlarmThresholdRequest extends Model
+class QueryResellerUserAlarmThresholdRequest extends Model
 {
     /**
-     * @description The alert rules corresponding to the specified alert type. If you leave this parameter empty, no alert threshold exists.
-     *
-     * @example [{\"denominator\":100,\"numerator\":30,\"thresholdType\":1}]
-     *
-     * @var string
-     */
-    public $alarmThresholds;
-
-    /**
-     * @description The type of the alert. Set the value to `quota_low_balance`.
-     *
      * @example quota_low_balance
      *
      * @var string
@@ -31,9 +20,8 @@ class SetResellerUserAlarmThresholdRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'alarmThresholds' => 'AlarmThresholds',
-        'alarmType'       => 'AlarmType',
-        'ownerId'         => 'OwnerId',
+        'alarmType' => 'AlarmType',
+        'ownerId'   => 'OwnerId',
     ];
 
     public function validate()
@@ -43,9 +31,6 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alarmThresholds) {
-            $res['AlarmThresholds'] = $this->alarmThresholds;
-        }
         if (null !== $this->alarmType) {
             $res['AlarmType'] = $this->alarmType;
         }
@@ -59,14 +44,11 @@ class SetResellerUserAlarmThresholdRequest extends Model
     /**
      * @param array $map
      *
-     * @return SetResellerUserAlarmThresholdRequest
+     * @return QueryResellerUserAlarmThresholdRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlarmThresholds'])) {
-            $model->alarmThresholds = $map['AlarmThresholds'];
-        }
         if (isset($map['AlarmType'])) {
             $model->alarmType = $map['AlarmType'];
         }

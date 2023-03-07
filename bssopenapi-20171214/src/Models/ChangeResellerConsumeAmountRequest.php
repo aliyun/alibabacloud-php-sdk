@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountRequest extends Model
 {
     /**
+     * @description The type of the consumption amount adjustment. Valid values: increase: The consumption amount increases because new consumption occurs. decrease: The consumption amount decreases because funds are added to the account. This parameter is required.
+     *
      * @example increase/decrease
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $adjustType;
 
     /**
+     * @description The amount to be adjusted. Unit: CNY
+     *
      * @example 10.00
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $amount;
 
     /**
+     * @description The type of the business.
+     *
      * @example quota_amount_adjust
      *
      * @var string
@@ -30,6 +36,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $businessType;
 
     /**
+     * @description The type of the currency.
+     *
      * @example CNY
      *
      * @var string
@@ -37,6 +45,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $currency;
 
     /**
+     * @description The extended field of a message.
+     *
      * @example {}
      *
      * @var string
@@ -44,6 +54,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $extendMap;
 
     /**
+     * @description The ID of the primary key for external business. The ID is used for idempotence verification.
+     *
      * @example 1647396865
      *
      * @var string
@@ -56,6 +68,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $ownerId;
 
     /**
+     * @description The source of the request. Specify the system name for the parameter.
+     *
      * @example system
      *
      * @var string

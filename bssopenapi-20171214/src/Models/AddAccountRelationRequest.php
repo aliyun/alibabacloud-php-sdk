@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AddAccountRelationRequest extends Model
 {
     /**
+     * @description The display name of the member. This helps clarify the scenario in which the account is used.
+     *
+     * @example xxx project
+     *
      * @var string
      */
     public $childNick;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used as the member.
+     *
      * @example 1512996702208737
      *
      * @var int
@@ -21,6 +27,8 @@ class AddAccountRelationRequest extends Model
     public $childUserId;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used as the management account.
+     *
      * @example 1738376485192612
      *
      * @var int
@@ -28,6 +36,16 @@ class AddAccountRelationRequest extends Model
     public $parentUserId;
 
     /**
+     * @description The permissions that can be granted to the member. Valid values:
+     *
+     *   SYNCHRONIZE_FINANCE_IDENTITY: allows the credit control identity to be shared with the member.
+     *   SYNCHRONIZE_FINANCE_DISCOUNT_POLICY_TO_TARGET: allows the discount policy to be shared with the member.
+     *   FORBID_WITHDRAW_CASH: does not allow the member to withdraw the balance.
+     *   FORBID_MANAGE_INVOICE: does not allow the member to manage invoices.
+     *   CHECK_FINANCE_INFO: requests to view information about the financial relationship.
+     *   MANAGE_TARGET_INVOICE: allows the member to manage invoices.
+     *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
+     *
      * @example CHECK_TARGET_CONSUMPTION
      *
      * @var string[]
@@ -35,6 +53,8 @@ class AddAccountRelationRequest extends Model
     public $permissionCodes;
 
     /**
+     * @description The type of the financial relationship. Set the value to enterprise_group.
+     *
      * @example enterprise_group
      *
      * @var string
@@ -42,6 +62,8 @@ class AddAccountRelationRequest extends Model
     public $relationType;
 
     /**
+     * @description The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
+     *
      * @example 32324242444
      *
      * @var string
@@ -49,6 +71,8 @@ class AddAccountRelationRequest extends Model
     public $requestId;
 
     /**
+     * @description The roles that can be assigned to the member. Set the value to trusteeship.
+     *
      * @example trusteeship
      *
      * @var string[]

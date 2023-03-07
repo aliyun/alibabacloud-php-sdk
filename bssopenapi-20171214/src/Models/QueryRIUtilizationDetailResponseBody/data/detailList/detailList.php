@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class detailList extends Model
 {
     /**
+     * @description The time when the fees are deducted by using the RI.
+     *
      * @example 2019-05-23 12:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class detailList extends Model
     public $deductDate;
 
     /**
+     * @description The total amount of computing power of the RI or capacity of SCU in the time period.
+     *
      * @example 1
      *
      * @var float
@@ -23,6 +27,9 @@ class detailList extends Model
     public $deductFactorTotal;
 
     /**
+     * @description The duration that is deducted by using the RI. Unit: hours.
+     *
+     * This parameter is returned only if the RICommodityCode parameter is set to ecsRi. If the RICommodityCode parameter is set to scu_bag, this parameter is not returned.
      * @example 24
      *
      * @var string
@@ -30,6 +37,8 @@ class detailList extends Model
     public $deductHours;
 
     /**
+     * @description The computing power or capacity of the pay-as-you-go instance whose fees are deducted by using the RI.
+     *
      * @example 1
      *
      * @var float
@@ -37,6 +46,8 @@ class detailList extends Model
     public $deductQuantity;
 
     /**
+     * @description The code of the service whose fees are deducted by using the RI.
+     *
      * @example rds
      *
      * @var string
@@ -44,6 +55,8 @@ class detailList extends Model
     public $deductedCommodityCode;
 
     /**
+     * @description The ID of the instance whose fees are deducted by using the RI.
+     *
      * @example safdffghfgh
      *
      * @var string
@@ -51,11 +64,17 @@ class detailList extends Model
     public $deductedInstanceId;
 
     /**
+     * @description The name of the service whose fees are deducted by using the RI.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $deductedProductDetail;
 
     /**
+     * @description The instance type of the instance whose fees are deducted by using the RI.
+     *
      * @example rds.mysql.s3.large
      *
      * @var string
@@ -63,6 +82,8 @@ class detailList extends Model
     public $instanceSpec;
 
     /**
+     * @description The ID of the RI.
+     *
      * @example 324253645
      *
      * @var string

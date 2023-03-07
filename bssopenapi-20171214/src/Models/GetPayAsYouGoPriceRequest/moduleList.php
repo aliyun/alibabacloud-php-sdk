@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
+     * @description The configuration of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
+     *
+     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the configuration parameters of the pricing module.
      * @example InstanceType:ecs.g5.xlarge,IoOptimized:IoOptimized,ImageOs:linux
      *
      * @var string
@@ -16,6 +19,9 @@ class moduleList extends Model
     public $config;
 
     /**
+     * @description The code of the Nth pricing module.
+     *
+     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the module code.
      * @example InstanceType
      *
      * @var string
@@ -23,6 +29,14 @@ class moduleList extends Model
     public $moduleCode;
 
     /**
+     * @description The price type of the Nth pricing module. Valid values:
+     *
+     *   Hour: hourly price
+     *   Usage: usage price
+     *   Month: monthly price
+     *   Year: annual price
+     *
+     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the configuration parameters of the pricing module.
      * @example Hour
      *
      * @var string

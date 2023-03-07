@@ -145,6 +145,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerUserAlarmThresholdRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerUserAlarmThresholdResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailRequest;
@@ -298,10 +300,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param AddAccountRelationRequest $request
-     * @param RuntimeOptions            $runtime
+     * 1\\. For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 2. If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     *   *
+     * @param AddAccountRelationRequest $request AddAccountRelationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAccountRelationResponse
+     * @return AddAccountRelationResponse AddAccountRelationResponse
      */
     public function addAccountRelationWithOptions($request, $runtime)
     {
@@ -347,9 +351,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param AddAccountRelationRequest $request
+     * 1\\. For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 2. If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     *   *
+     * @param AddAccountRelationRequest $request AddAccountRelationRequest
      *
-     * @return AddAccountRelationResponse
+     * @return AddAccountRelationResponse AddAccountRelationResponse
      */
     public function addAccountRelation($request)
     {
@@ -594,10 +600,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param ConfirmRelationRequest $request
-     * @param RuntimeOptions         $runtime
+     * 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+     *   *
+     * @param ConfirmRelationRequest $request ConfirmRelationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmRelationResponse
+     * @return ConfirmRelationResponse ConfirmRelationResponse
      */
     public function confirmRelationWithOptions($request, $runtime)
     {
@@ -643,9 +651,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param ConfirmRelationRequest $request
+     * 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+     *   *
+     * @param ConfirmRelationRequest $request ConfirmRelationRequest
      *
-     * @return ConfirmRelationResponse
+     * @return ConfirmRelationResponse ConfirmRelationResponse
      */
     public function confirmRelation($request)
     {
@@ -713,10 +723,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param CreateAgAccountRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to create an account so as to establish a master-member financial relationship.
+     *   *
+     * @param CreateAgAccountRequest $request CreateAgAccountRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAgAccountResponse
+     * @return CreateAgAccountResponse CreateAgAccountResponse
      */
     public function createAgAccountWithOptions($request, $runtime)
     {
@@ -768,9 +780,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param CreateAgAccountRequest $request
+     * You can call this operation to create an account so as to establish a master-member financial relationship.
+     *   *
+     * @param CreateAgAccountRequest $request CreateAgAccountRequest
      *
-     * @return CreateAgAccountResponse
+     * @return CreateAgAccountResponse CreateAgAccountResponse
      */
     public function createAgAccount($request)
     {
@@ -1177,10 +1191,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
-     * @param RuntimeOptions                                           $runtime
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *   *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
+     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse DescribeInstanceAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
     {
@@ -1238,9 +1254,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *   *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse DescribeInstanceAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriod($request)
     {
@@ -1323,10 +1341,14 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceBillRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
+     *   * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
+     *   * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
+     *   *
+     * @param DescribeInstanceBillRequest $request DescribeInstanceBillRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceBillResponse
+     * @return DescribeInstanceBillResponse DescribeInstanceBillResponse
      */
     public function describeInstanceBillWithOptions($request, $runtime)
     {
@@ -1390,9 +1412,13 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceBillRequest $request
+     * *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
+     *   * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
+     *   * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
+     *   *
+     * @param DescribeInstanceBillRequest $request DescribeInstanceBillRequest
      *
-     * @return DescribeInstanceBillResponse
+     * @return DescribeInstanceBillResponse DescribeInstanceBillResponse
      */
     public function describeInstanceBill($request)
     {
@@ -1454,10 +1480,12 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
-     * @param RuntimeOptions                                          $runtime
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *   *
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request DescribeProductAmortizedCostByAmortizationPeriodRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse DescribeProductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeProductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
     {
@@ -1512,9 +1540,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *   *
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request DescribeProductAmortizedCostByAmortizationPeriodRequest
      *
-     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse DescribeProductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeProductAmortizedCostByAmortizationPeriod($request)
     {
@@ -2311,9 +2341,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomerListResponse
+     * @return GetCustomerListResponse GetCustomerListResponse
      */
     public function getCustomerListWithOptions($runtime)
     {
@@ -2334,7 +2366,9 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @return GetCustomerListResponse
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+     *   *
+     * @return GetCustomerListResponse GetCustomerListResponse
      */
     public function getCustomerList()
     {
@@ -2390,10 +2424,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param GetPayAsYouGoPriceRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### Usage notes
+     *   * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](~~95984~~).
+     *   * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](~~96469~~).
+     *   * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
+     *   *
+     * @param GetPayAsYouGoPriceRequest $request GetPayAsYouGoPriceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPayAsYouGoPriceResponse
+     * @return GetPayAsYouGoPriceResponse GetPayAsYouGoPriceResponse
      */
     public function getPayAsYouGoPriceWithOptions($request, $runtime)
     {
@@ -2436,9 +2475,14 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param GetPayAsYouGoPriceRequest $request
+     * ### Usage notes
+     *   * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](~~95984~~).
+     *   * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](~~96469~~).
+     *   * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
+     *   *
+     * @param GetPayAsYouGoPriceRequest $request GetPayAsYouGoPriceRequest
      *
-     * @return GetPayAsYouGoPriceResponse
+     * @return GetPayAsYouGoPriceResponse GetPayAsYouGoPriceResponse
      */
     public function getPayAsYouGoPrice($request)
     {
@@ -2515,10 +2559,14 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionPriceRequest $request
-     * @param RuntimeOptions              $runtime
+     * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](~~95984~~).
+     *   * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](~~96469~~).
+     *   * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
+     *   *
+     * @param GetSubscriptionPriceRequest $request GetSubscriptionPriceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSubscriptionPriceResponse
+     * @return GetSubscriptionPriceResponse GetSubscriptionPriceResponse
      */
     public function getSubscriptionPriceWithOptions($request, $runtime)
     {
@@ -2576,9 +2624,13 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionPriceRequest $request
+     * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](~~95984~~).
+     *   * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](~~96469~~).
+     *   * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
+     *   *
+     * @param GetSubscriptionPriceRequest $request GetSubscriptionPriceRequest
      *
-     * @return GetSubscriptionPriceResponse
+     * @return GetSubscriptionPriceResponse GetSubscriptionPriceResponse
      */
     public function getSubscriptionPrice($request)
     {
@@ -2847,10 +2899,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryAccountBillRequest $request
-     * @param RuntimeOptions          $runtime
+     * ##
+     *   * Before you call this operation, take note of the following items:
+     *   * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
+     *   * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
+     *   *
+     * @param QueryAccountBillRequest $request QueryAccountBillRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAccountBillResponse
+     * @return QueryAccountBillResponse QueryAccountBillResponse
      */
     public function queryAccountBillWithOptions($request, $runtime)
     {
@@ -2902,9 +2959,14 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryAccountBillRequest $request
+     * ##
+     *   * Before you call this operation, take note of the following items:
+     *   * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
+     *   * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
+     *   *
+     * @param QueryAccountBillRequest $request QueryAccountBillRequest
      *
-     * @return QueryAccountBillResponse
+     * @return QueryAccountBillResponse QueryAccountBillResponse
      */
     public function queryAccountBill($request)
     {
@@ -3722,10 +3784,16 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryInstanceBillRequest $request
-     * @param RuntimeOptions           $runtime
+     * ##
+     *   * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](~~209402~~) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
+     *   * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
+     *   * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
+     *   * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
+     *   *
+     * @param QueryInstanceBillRequest $request QueryInstanceBillRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInstanceBillResponse
+     * @return QueryInstanceBillResponse QueryInstanceBillResponse
      */
     public function queryInstanceBillWithOptions($request, $runtime)
     {
@@ -3786,9 +3854,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryInstanceBillRequest $request
+     * ##
+     *   * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](~~209402~~) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
+     *   * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
+     *   * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
+     *   * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
+     *   *
+     * @param QueryInstanceBillRequest $request QueryInstanceBillRequest
      *
-     * @return QueryInstanceBillResponse
+     * @return QueryInstanceBillResponse QueryInstanceBillResponse
      */
     public function queryInstanceBill($request)
     {
@@ -4401,6 +4475,52 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QueryResellerUserAlarmThresholdRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryResellerUserAlarmThresholdResponse
+     */
+    public function queryResellerUserAlarmThresholdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmType)) {
+            $query['AlarmType'] = $request->alarmType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryResellerUserAlarmThreshold',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryResellerUserAlarmThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryResellerUserAlarmThresholdRequest $request
+     *
+     * @return QueryResellerUserAlarmThresholdResponse
+     */
+    public function queryResellerUserAlarmThreshold($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryResellerUserAlarmThresholdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryResourcePackageInstancesRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -4590,6 +4710,9 @@ class BssOpenApi extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -4745,10 +4868,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QuerySplitItemBillRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](~~208169~~) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
+     *   * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
+     *   * *   You can call this operation to query split bills generated within the last 12 months.
+     *   * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
+     *   *
+     * @param QuerySplitItemBillRequest $request QuerySplitItemBillRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySplitItemBillResponse
+     * @return QuerySplitItemBillResponse QuerySplitItemBillResponse
      */
     public function querySplitItemBillWithOptions($request, $runtime)
     {
@@ -4797,9 +4925,14 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QuerySplitItemBillRequest $request
+     * *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](~~208169~~) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
+     *   * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
+     *   * *   You can call this operation to query split bills generated within the last 12 months.
+     *   * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
+     *   *
+     * @param QuerySplitItemBillRequest $request QuerySplitItemBillRequest
      *
-     * @return QuerySplitItemBillResponse
+     * @return QuerySplitItemBillResponse QuerySplitItemBillResponse
      */
     public function querySplitItemBill($request)
     {
@@ -4809,10 +4942,16 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryUserOmsDataRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
+     *   * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
+     *   * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+     *   *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
+     *   *     *   You can query the usage data that is recorded in the last quarter.
+     *   *
+     * @param QueryUserOmsDataRequest $request QueryUserOmsDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserOmsDataResponse
+     * @return QueryUserOmsDataResponse QueryUserOmsDataResponse
      */
     public function queryUserOmsDataWithOptions($request, $runtime)
     {
@@ -4858,9 +4997,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param QueryUserOmsDataRequest $request
+     * You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
+     *   * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
+     *   * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+     *   *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
+     *   *     *   You can query the usage data that is recorded in the last quarter.
+     *   *
+     * @param QueryUserOmsDataRequest $request QueryUserOmsDataRequest
      *
-     * @return QueryUserOmsDataResponse
+     * @return QueryUserOmsDataResponse QueryUserOmsDataResponse
      */
     public function queryUserOmsData($request)
     {
@@ -5572,10 +5717,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SubscribeBillToOSSRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you call this operation, take note of the following items:
+     *   * *   You can subscribe to only one type of bill at a time.
+     *   * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
+     *   * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
+     *   * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     *   * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
+     *   * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
+     *   * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
+     *   * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
+     *   * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
+     *   * 4.  4.  The directory name must be 1 to 254 characters in length.
+     *   * *   File names:
+     *   *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
+     *   *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
+     *   *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
+     *   *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **SplitItemDetailDaily** (Split bills summarized by day)
+     *   *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **MonthBill** (Monthly bill in the PDF format)
+     *   *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
+     *   * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+     *   *
+     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubscribeBillToOSSResponse
+     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSSWithOptions($request, $runtime)
     {
@@ -5621,9 +5794,37 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SubscribeBillToOSSRequest $request
+     * Before you call this operation, take note of the following items:
+     *   * *   You can subscribe to only one type of bill at a time.
+     *   * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
+     *   * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
+     *   * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     *   * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
+     *   * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
+     *   * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
+     *   * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
+     *   * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
+     *   * 4.  4.  The directory name must be 1 to 254 characters in length.
+     *   * *   File names:
+     *   *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
+     *   *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
+     *   *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
+     *   *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **SplitItemDetailDaily** (Split bills summarized by day)
+     *   *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **MonthBill** (Monthly bill in the PDF format)
+     *   *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
+     *   * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+     *   *
+     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
      *
-     * @return SubscribeBillToOSSResponse
+     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSS($request)
     {

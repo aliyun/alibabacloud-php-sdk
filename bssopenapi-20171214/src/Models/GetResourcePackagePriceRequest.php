@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourcePackagePriceRequest extends Model
 {
     /**
+     * @description The validity period of the resource plan. The value must be the same as the duration of the resource plan specified in the specifications.
+     *
      * @example 6
      *
      * @var int
@@ -16,6 +18,8 @@ class GetResourcePackagePriceRequest extends Model
     public $duration;
 
     /**
+     * @description The time when the resource plan takes effect. If you do not specify this parameter, the resource plan immediately takes effect by default. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-02-10T12:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class GetResourcePackagePriceRequest extends Model
     public $effectiveDate;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example OSSBAG-cn-0xl0002
      *
      * @var string
@@ -30,6 +36,13 @@ class GetResourcePackagePriceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   BUY: You place the order to purchase an instance.
+     *   UPGRADE: You place the order to upgrade an instance.
+     *   RENEW: You place the order to renew an instance.
+     *
+     * Default value: BUY.
      * @example BUY
      *
      * @var string
@@ -42,6 +55,8 @@ class GetResourcePackagePriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The type of the resource plan. The value must be the same as the value of the **ProductCode** parameter that is returned when you call the **DescribeResourcePackageProduct** operation.
+     *
      * @example FPT_ossbag_periodMonthlyAcc_NetworkOut_finance_common
      *
      * @var string
@@ -49,6 +64,11 @@ class GetResourcePackagePriceRequest extends Model
     public $packageType;
 
     /**
+     * @description The unit of validity period of the resource plan. Valid values:
+     *
+     *   Month
+     *   Year
+     *
      * @example Month
      *
      * @var string
@@ -56,6 +76,8 @@ class GetResourcePackagePriceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The code of service. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
+     *
      * @example ossbag
      *
      * @var string
@@ -63,6 +85,8 @@ class GetResourcePackagePriceRequest extends Model
     public $productCode;
 
     /**
+     * @description The specifications of the resource plan.
+     *
      * @example 500
      *
      * @var string

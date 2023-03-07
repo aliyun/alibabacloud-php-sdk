@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPermissionListResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryPermissionListResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryPermissionListResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F6E29451-A3CD-4705-806D-0112D08F5C49
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryPermissionListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

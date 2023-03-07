@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The services to which the resource plan is applicable.
+     *
      * @var applicableProducts
      */
     public $applicableProducts;
 
     /**
+     * @description The commodity code.
+     *
      * @example rds
      *
      * @var string
@@ -22,6 +26,8 @@ class instance extends Model
     public $commodityCode;
 
     /**
+     * @description The deduction type. Example: Absolute.
+     *
      * @example Absolute
      *
      * @var string
@@ -29,6 +35,8 @@ class instance extends Model
     public $deductType;
 
     /**
+     * @description The time when the resource plan took effect.
+     *
      * @example 2018-09-12T09:51:56Z
      *
      * @var string
@@ -36,6 +44,8 @@ class instance extends Model
     public $effectiveTime;
 
     /**
+     * @description The time when the resource plan expired.
+     *
      * @example 2019-03-12T16:00:00Z
      *
      * @var string
@@ -43,6 +53,8 @@ class instance extends Model
     public $expiryTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example OSSBAG-cn-v0h1s4hma01
      *
      * @var string
@@ -50,6 +62,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description The type of the resource plan.
+     *
      * @example FPT_ossbag_absolute_Storage_sh
      *
      * @var string
@@ -57,6 +71,8 @@ class instance extends Model
     public $packageType;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +80,8 @@ class instance extends Model
     public $region;
 
     /**
+     * @description The remaining quota.
+     *
      * @example 40.000
      *
      * @var string
@@ -71,6 +89,8 @@ class instance extends Model
     public $remainingAmount;
 
     /**
+     * @description The unit of the remaining quota.
+     *
      * @example GB
      *
      * @var string
@@ -78,11 +98,18 @@ class instance extends Model
     public $remainingAmountUnit;
 
     /**
+     * @description The remarks on the resource plan. The remarks must be made in Chinese.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The status of the resource plan. Valid values:
+     *
+     *   Available
+     *   Expired
+     *
      * @example Available
      *
      * @var string
@@ -90,6 +117,8 @@ class instance extends Model
     public $status;
 
     /**
+     * @description The total quota of the resource plan.
+     *
      * @example 40.000
      *
      * @var string
@@ -97,6 +126,8 @@ class instance extends Model
     public $totalAmount;
 
     /**
+     * @description The unit of the total quota.
+     *
      * @example GB
      *
      * @var string

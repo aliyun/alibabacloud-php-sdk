@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the financial account. A value of MASTER indicates that the account is a management account. A value of MEMBER indicates that the account is a member.
+     *
      * @example MEMBER
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accountType;
 
     /**
+     * @description Indicates whether the account is a financial account. A value of true indicates that the account is a financial account. A value of false indicates that the account is not a financial account.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class data extends Model
     public $isFinancialAccount;
 
     /**
+     * @description The ID of the group to which the member belongs.
+     *
      * @example 124
      *
      * @var int
@@ -30,16 +36,26 @@ class data extends Model
     public $memberGroupId;
 
     /**
+     * @description The name of the group to which the member belongs.
+     *
+     * @example Test group
+     *
      * @var string
      */
     public $memberGroupName;
 
     /**
+     * @description The display name of the member.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $memberNickName;
 
     /**
+     * @description The username of the account.
+     *
      * @example killortop3
      *
      * @var string

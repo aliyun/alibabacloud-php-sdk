@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountTransactionsResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryAccountTransactionsResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful！
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryAccountTransactionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8634E02D-0942-4B1D-8295-5352FE9A1F39
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryAccountTransactionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

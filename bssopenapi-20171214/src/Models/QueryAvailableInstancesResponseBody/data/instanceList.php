@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The time when the specified instance was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceList extends Model
     public $createTime;
 
     /**
+     * @description The time when the instance was expired.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class instanceList extends Model
     public $endTime;
 
     /**
+     * @description The time when the specified instance was expected to be released.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class instanceList extends Model
     public $expectedReleaseTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 1049056
      *
      * @var string
@@ -37,6 +45,8 @@ class instanceList extends Model
     public $instanceID;
 
     /**
+     * @description The ID of the instance owner.
+     *
      * @example 325352345
      *
      * @var int
@@ -44,6 +54,8 @@ class instanceList extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -51,6 +63,8 @@ class instanceList extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -58,6 +72,8 @@ class instanceList extends Model
     public $productType;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,8 @@ class instanceList extends Model
     public $region;
 
     /**
+     * @description The time when the instance was released.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -72,6 +90,12 @@ class instanceList extends Model
     public $releaseTime;
 
     /**
+     * @description The renewal status of the specified instance. Valid values:
+     *
+     *   AutoRenewal: The instance is automatically renewed.
+     *   ManualRenewal: The instance is manually renewed.
+     *   NotRenewal: The instance is not renewed.
+     *
      * @example ManualRenewal
      *
      * @var string
@@ -79,6 +103,8 @@ class instanceList extends Model
     public $renewStatus;
 
     /**
+     * @description The number of auto-renewal cycles.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +112,11 @@ class instanceList extends Model
     public $renewalDuration;
 
     /**
+     * @description The unit of the auto-renewal cycle. Valid values:
+     *
+     *   M: month
+     *   Y: year
+     *
      * @example M
      *
      * @var string
@@ -93,6 +124,8 @@ class instanceList extends Model
     public $renewalDurationUnit;
 
     /**
+     * @description The seller.
+     *
      * @example 123123123
      *
      * @var string
@@ -100,6 +133,8 @@ class instanceList extends Model
     public $seller;
 
     /**
+     * @description The ID of the seller.
+     *
      * @example 123123123
      *
      * @var int
@@ -107,11 +142,17 @@ class instanceList extends Model
     public $sellerId;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example Creating: The instance is being created. WaitForExpire: The instance is about to expire. Normal: The instance can properly run. Expired: The instance is expired.
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the specified instance was suspended.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -119,11 +160,20 @@ class instanceList extends Model
     public $stopTime;
 
     /**
+     * @description The sub-status of the specified instance.
+     *
+     * @example Normal: The pay-as-you-go module can properly run. WaitForLimit: The pay-as-you-go module is about to be limited due to overdue payments. BandwidthLimited: The pay-as-you-go module is limited due to overdue payments.
+     *
      * @var string
      */
     public $subStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example Subscription
      *
      * @var string

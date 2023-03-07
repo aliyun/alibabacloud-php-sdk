@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBillOverviewRequest extends Model
 {
     /**
+     * @description The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
+     *
      * @example 1234
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryBillOverviewRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle, in the YYYY-MM format.
+     *
      * @example 2018-07
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryBillOverviewRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryBillOverviewRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -37,6 +45,11 @@ class QueryBillOverviewRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
      * @example Subscription
      *
      * @var string

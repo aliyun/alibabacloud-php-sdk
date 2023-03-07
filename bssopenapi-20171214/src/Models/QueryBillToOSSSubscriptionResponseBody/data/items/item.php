@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The owner ID of the OSS bucket.
+     *
      * @example 1369168081849304
      *
      * @var int
@@ -16,6 +18,8 @@ class item extends Model
     public $bucketOwnerId;
 
     /**
+     * @description The directory of the OSS bucket.
+     *
      * @example Billing/BillingItemDetailMonthly/
      *
      * @var string
@@ -28,6 +32,8 @@ class item extends Model
     public $rowLimitPerFile;
 
     /**
+     * @description The ID of the OSS bucket that stores the subscribed bill.
+     *
      * @example billingtestbucket
      *
      * @var string
@@ -35,6 +41,8 @@ class item extends Model
     public $subscribeBucket;
 
     /**
+     * @description The code of the language.
+     *
      * @example zh
      *
      * @var string
@@ -42,6 +50,8 @@ class item extends Model
     public $subscribeLanguage;
 
     /**
+     * @description The time when the subscribed bill was stored in the OSS bucket. The time is displayed in the YYYY-MM-DD hh:mm:ss format.
+     *
      * @example 2019-10-30 15:40:11
      *
      * @var string
@@ -49,6 +59,11 @@ class item extends Model
     public $subscribeTime;
 
     /**
+     * @description The type of the subscribed bill. Valid values:
+     *
+     *   BillingItemDetailForBillingPeriod: bill of a billable item
+     *   InstanceDetailForBillingPeriod: bill of an instance
+     *
      * @example BillingItemDetailForBillingPeriod
      *
      * @var string

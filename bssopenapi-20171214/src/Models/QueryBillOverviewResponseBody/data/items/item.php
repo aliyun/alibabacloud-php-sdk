@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The amount deducted by using credit refunds.
+     *
      * @example 0
      *
      * @var float
@@ -23,6 +25,8 @@ class item extends Model
     public $afterTaxAmount;
 
     /**
+     * @description The ID of the account to which the bill belongs.
+     *
      * @example 185766xxxx
      *
      * @var string
@@ -30,6 +34,8 @@ class item extends Model
     public $billAccountID;
 
     /**
+     * @description The name of the account to which the bill belongs.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -37,6 +43,8 @@ class item extends Model
     public $billAccountName;
 
     /**
+     * @description The business type.
+     *
      * @example trusteeship
      *
      * @var string
@@ -44,6 +52,8 @@ class item extends Model
     public $bizType;
 
     /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is not included.
+     *
      * @example 0
      *
      * @var float
@@ -51,6 +61,8 @@ class item extends Model
     public $cashAmount;
 
     /**
+     * @description The code of the commodity. The commodity code is the same as that displayed in User Center.
+     *
      * @example rds
      *
      * @var string
@@ -58,6 +70,12 @@ class item extends Model
     public $commodityCode;
 
     /**
+     * @description The type of the currency. Valid values:
+     *
+     *   CNY
+     *   USD
+     *   JPY
+     *
      * @example CNY
      *
      * @var string
@@ -65,6 +83,8 @@ class item extends Model
     public $currency;
 
     /**
+     * @description The amount deducted by using vouchers.
+     *
      * @example 0
      *
      * @var float
@@ -72,6 +92,8 @@ class item extends Model
     public $deductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons.
+     *
      * @example 0
      *
      * @var float
@@ -79,6 +101,8 @@ class item extends Model
     public $deductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards.
+     *
      * @example 0
      *
      * @var float
@@ -86,6 +110,8 @@ class item extends Model
     public $deductedByPrepaidCard;
 
     /**
+     * @description The discount amount.
+     *
      * @example 0
      *
      * @var float
@@ -93,6 +119,13 @@ class item extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The type of the bill. Valid values:
+     *
+     *   SubscriptionOrder
+     *   PayAsYouGoBill
+     *   Refund
+     *   Adjustment
+     *
      * @example PayAsYouGoBill
      *
      * @var string
@@ -100,6 +133,8 @@ class item extends Model
     public $item;
 
     /**
+     * @description The unsettled amount or the amount deducted by using credits. This may be an unsettled amount of a regular user or credits consumed by a credit user.
+     *
      * @example 0
      *
      * @var float
@@ -107,6 +142,8 @@ class item extends Model
     public $outstandingAmount;
 
     /**
+     * @description The ID of the bill owner.
+     *
      * @example 1222
      *
      * @var string
@@ -114,6 +151,8 @@ class item extends Model
     public $ownerID;
 
     /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is included.
+     *
      * @example 100
      *
      * @var float
@@ -128,6 +167,8 @@ class item extends Model
     public $paymentCurrency;
 
     /**
+     * @description The code of the service. The service code is the same as that displayed in User Center.
+     *
      * @example rds
      *
      * @var string
@@ -135,6 +176,8 @@ class item extends Model
     public $pipCode;
 
     /**
+     * @description The pretax amount.
+     *
      * @example 100
      *
      * @var float
@@ -149,6 +192,8 @@ class item extends Model
     public $pretaxAmountLocal;
 
     /**
+     * @description The pretax gross amount.
+     *
      * @example 100
      *
      * @var float
@@ -156,6 +201,8 @@ class item extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -163,6 +210,8 @@ class item extends Model
     public $productCode;
 
     /**
+     * @description The details of the service.
+     *
      * @example NAT Gateway (Pay-As-You-Go)
      *
      * @var string
@@ -170,11 +219,17 @@ class item extends Model
     public $productDetail;
 
     /**
+     * @description The name of the service.
+     *
+     * @example NAT Gateway
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -182,6 +237,8 @@ class item extends Model
     public $productType;
 
     /**
+     * @description The round down discount.
+     *
      * @example 0
      *
      * @var string
@@ -189,6 +246,11 @@ class item extends Model
     public $roundDownDiscount;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
      * @example Subscription
      *
      * @var string

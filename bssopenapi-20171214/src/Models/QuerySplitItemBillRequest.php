@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySplitItemBillRequest extends Model
 {
     /**
+     * @description The ID of the member. If you specify a value for this parameter, you can query the split bills of the specified member. If you leave this parameter empty, the split bills of the current account are queried by default.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class QuerySplitItemBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle, in the YYYY-MM format.
+     *
      * @example 2020-03
      *
      * @var string
@@ -28,6 +32,8 @@ class QuerySplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +41,8 @@ class QuerySplitItemBillRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -42,6 +50,8 @@ class QuerySplitItemBillRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -49,6 +59,8 @@ class QuerySplitItemBillRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -56,6 +68,8 @@ class QuerySplitItemBillRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values: Subscription: subscription PayAsYouGo: pay-as-you-go This parameter must be used together with the ProductCode parameter.
+     *
      * @example PayAsYouGo
      *
      * @var string

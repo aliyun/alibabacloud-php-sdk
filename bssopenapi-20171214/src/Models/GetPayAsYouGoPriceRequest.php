@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetPayAsYouGoPriceRequest extends Model
 {
     /**
+     * @description The details of pricing modules.
+     *
      * @var moduleList[]
      */
     public $moduleList;
@@ -20,6 +22,8 @@ class GetPayAsYouGoPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -27,6 +31,8 @@ class GetPayAsYouGoPriceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -34,6 +40,8 @@ class GetPayAsYouGoPriceRequest extends Model
     public $productType;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +49,8 @@ class GetPayAsYouGoPriceRequest extends Model
     public $region;
 
     /**
+     * @description The billing method. Set the value to PayAsYouGo.
+     *
      * @example PayAsYouGo
      *
      * @var string

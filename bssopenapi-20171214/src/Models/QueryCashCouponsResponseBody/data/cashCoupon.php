@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class cashCoupon extends Model
 {
     /**
+     * @description The service to which the voucher is applicable.
+     *
+     * @example All Alibaba Cloud services
+     *
      * @var string
      */
     public $applicableProducts;
 
     /**
+     * @description The scenario to which the voucher is applicable.
+     *
+     * @example Pay for the pay-as-you-go bills of Alibaba Cloud services or purchase an instance of an Alibaba Cloud service
+     *
      * @var string
      */
     public $applicableScenarios;
 
     /**
+     * @description The remaining quota of the voucher.
+     *
      * @example 100.00
      *
      * @var string
@@ -26,6 +36,8 @@ class cashCoupon extends Model
     public $balance;
 
     /**
+     * @description The ID of the voucher.
+     *
      * @example 34534253254325
      *
      * @var int
@@ -33,6 +45,8 @@ class cashCoupon extends Model
     public $cashCouponId;
 
     /**
+     * @description The code of the voucher.
+     *
      * @example Q-b1485def8f04a
      *
      * @var string
@@ -40,6 +54,8 @@ class cashCoupon extends Model
     public $cashCouponNo;
 
     /**
+     * @description The time when the voucher took effect.
+     *
      * @example 2018-08-02T15:15:50Z
      *
      * @var string
@@ -47,6 +63,8 @@ class cashCoupon extends Model
     public $effectiveTime;
 
     /**
+     * @description The time when the voucher expired.
+     *
      * @example 2019-01-29T15:15:50Z
      *
      * @var string
@@ -54,6 +72,8 @@ class cashCoupon extends Model
     public $expiryTime;
 
     /**
+     * @description The time when the voucher was released.
+     *
      * @example 2018-08-02T15:15:50Z
      *
      * @var string
@@ -61,6 +81,8 @@ class cashCoupon extends Model
     public $grantedTime;
 
     /**
+     * @description The denomination of the voucher.
+     *
      * @example 100.00
      *
      * @var string
@@ -68,6 +90,12 @@ class cashCoupon extends Model
     public $nominalValue;
 
     /**
+     * @description The state of the voucher. Valid values:
+     *
+     *   Available: The voucher is valid.
+     *   Expired: The voucher has expired.
+     *   Cancelled: The voucher is canceled.
+     *
      * @example Available
      *
      * @var string

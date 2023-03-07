@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPrepaidCardsResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryPrepaidCardsResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryPrepaidCardsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7EA6C02D-06D0-4213-9C3B-E67910F7D1EB
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryPrepaidCardsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

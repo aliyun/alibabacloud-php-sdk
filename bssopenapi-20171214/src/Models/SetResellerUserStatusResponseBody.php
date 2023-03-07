@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserStatusResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed. For more information, see the "Error codes" section of this topic.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class SetResellerUserStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class SetResellerUserStatusResponseBody extends Model
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -30,6 +36,8 @@ class SetResellerUserStatusResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F5B803CF-94D8-43AF-ADB3-D819AAD30E27
      *
      * @var string
@@ -37,6 +45,8 @@ class SetResellerUserStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

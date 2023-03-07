@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewResourcePackageRequest extends Model
 {
     /**
+     * @description The renewal period of the resource plan.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class RenewResourcePackageRequest extends Model
     public $duration;
 
     /**
+     * @description The time when the resource plan takes effect. If you leave this parameter empty, the resource plan immediately takes effect by default.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2020-02-02T12:00:00Z
      *
      * @var string
@@ -23,6 +28,8 @@ class RenewResourcePackageRequest extends Model
     public $effectiveDate;
 
     /**
+     * @description The ID of the resource plan.
+     *
      * @example lskd****sljhsdj
      *
      * @var string
@@ -35,6 +42,12 @@ class RenewResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The unit of the validity period for the resource plan. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
      * @example Month
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRelationListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryRelationListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class QueryRelationListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The states of the relationships between the management account and its members. The valid values of this parameter are the enumeration members of the RelationshipStatusEnum data type. If you do not specify this parameter, valid relationship states are queried by default.
+     *
      * @example RELATED
      *
      * @var string[]
@@ -30,6 +36,8 @@ class QueryRelationListRequest extends Model
     public $statusList;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 1990699401005016
      *
      * @var int

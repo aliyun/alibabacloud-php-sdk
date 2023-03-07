@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class permissionList extends Model
 {
     /**
+     * @description The time when the permission expired. If no value is returned, the permission is still valid. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the permission expired at 20:00:00 on May 23, 2016 (UTC+8).
+     *
      * @example 2021-03-05T15:12Z
      *
      * @var string
@@ -16,6 +18,8 @@ class permissionList extends Model
     public $endTime;
 
     /**
+     * @description The code of the permission.
+     *
      * @example allow_synchronize_finance_identity
      *
      * @var string
@@ -23,11 +27,17 @@ class permissionList extends Model
     public $permissionCode;
 
     /**
+     * @description The name of the permission.
+     *
+     * @example The management account shares the credit control identity with the member.
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @description The time when the permission took effect. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the permission took effect at 20:00:00 on May 23, 2016 (UTC+8).
+     *
      * @example 2021-03-02T15:12Z
      *
      * @var string

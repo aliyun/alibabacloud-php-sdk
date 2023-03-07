@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryAvailableInstancesRequest extends Model
 {
     /**
+     * @description The end time when the specified instance is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2016-05-23T12:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryAvailableInstancesRequest extends Model
     public $createTimeEnd;
 
     /**
+     * @description The start time when the specified instance is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2016-05-23T12:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryAvailableInstancesRequest extends Model
     public $createTimeStart;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2016-05-23T12:00:00Z.
+     *
      * @example 2016-05-23T12:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryAvailableInstancesRequest extends Model
     public $endTimeEnd;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2016-05-23T12:00:00Z.
+     *
      * @example 2016-05-23T12:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class QueryAvailableInstancesRequest extends Model
     public $endTimeStart;
 
     /**
+     * @description The ID of the instance. Separate multiple IDs with commas (,). You can specify a maximum of 100 IDs.
+     *
      * @example rm-xxxxxxxxxxxx
      *
      * @var string
@@ -49,6 +59,8 @@ class QueryAvailableInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +68,8 @@ class QueryAvailableInstancesRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -63,6 +77,9 @@ class QueryAvailableInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud services**.
+     *
+     * >This parameter cannot be left empty if the region is specified.
      * @example rds
      *
      * @var string
@@ -70,6 +87,8 @@ class QueryAvailableInstancesRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -77,6 +96,8 @@ class QueryAvailableInstancesRequest extends Model
     public $productType;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +105,12 @@ class QueryAvailableInstancesRequest extends Model
     public $region;
 
     /**
+     * @description The renewal status of the specified instance. Valid values:
+     *
+     *   AutoRenewal: The instance is automatically renewed.
+     *   ManualRenewal: The instance is manually renewed.
+     *   NotRenewal: The instance is not renewed.
+     *
      * @example AutoRenewal
      *
      * @var string
@@ -91,6 +118,11 @@ class QueryAvailableInstancesRequest extends Model
     public $renewStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example Subscription
      *
      * @var string

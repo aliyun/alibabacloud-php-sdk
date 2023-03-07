@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class prepaidCard extends Model
 {
     /**
+     * @description The services to which the prepaid card is applicable.
+     *
+     * @example All Alibaba Cloud services
+     *
      * @var string
      */
     public $applicableProducts;
 
     /**
+     * @description The scenario to which the prepaid card is applicable.
+     *
      * @example test
      *
      * @var string
@@ -21,6 +27,8 @@ class prepaidCard extends Model
     public $applicableScenarios;
 
     /**
+     * @description The balance of the prepaid card.
+     *
      * @example 100.00
      *
      * @var string
@@ -28,6 +36,8 @@ class prepaidCard extends Model
     public $balance;
 
     /**
+     * @description The time when the prepaid card took effect.
+     *
      * @example 2018-08-03T01:39:11Z
      *
      * @var string
@@ -35,6 +45,8 @@ class prepaidCard extends Model
     public $effectiveTime;
 
     /**
+     * @description The time when the prepaid card expired.
+     *
      * @example 2019-08-04T01:39:11Z
      *
      * @var string
@@ -42,6 +54,8 @@ class prepaidCard extends Model
     public $expiryTime;
 
     /**
+     * @description The time when the prepaid card was issued.
+     *
      * @example 2018-08-03T01:39:11Z
      *
      * @var string
@@ -49,6 +63,8 @@ class prepaidCard extends Model
     public $grantedTime;
 
     /**
+     * @description The nominal value of the prepaid card.
+     *
      * @example 100.00
      *
      * @var string
@@ -56,6 +72,8 @@ class prepaidCard extends Model
     public $nominalValue;
 
     /**
+     * @description The ID of the prepaid card.
+     *
      * @example 213432432
      *
      * @var int
@@ -63,6 +81,8 @@ class prepaidCard extends Model
     public $prepaidCardId;
 
     /**
+     * @description The number of the prepaid card.
+     *
      * @example Q-7edaab979fc9
      *
      * @var string
@@ -70,6 +90,12 @@ class prepaidCard extends Model
     public $prepaidCardNo;
 
     /**
+     * @description The status of the prepaid card. Valid values:
+     *
+     *   Available: The prepaid card is valid.
+     *   Expired: The prepaid card expired.
+     *   Cancelled: The prepaid card is invalid.
+     *
      * @example Available
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceBillRequest extends Model
 {
     /**
+     * @description The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
+     *
      * @example 122
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryInstanceBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle. Format: YYYY-MM.
+     *
      * @example 2020-03
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryInstanceBillRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
+     *
      * @example 2020-03-03
      *
      * @var string
@@ -30,6 +36,12 @@ class QueryInstanceBillRequest extends Model
     public $billingDate;
 
     /**
+     * @description The granularity at which bills are queried. Valid values:
+     *
+     *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
+     *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
+     *
+     * You must set the **BillingDate** parameter before you can set the Granularity parameter to DAILY.
      * @example MONTHLY
      *
      * @var string
@@ -37,6 +49,12 @@ class QueryInstanceBillRequest extends Model
     public $granularity;
 
     /**
+     * @description Specifies whether to query data by billable item. Valid values:
+     *
+     *   false: does not query data by billable item. The data queried is consistent with the data that is displayed for the specified instance on the Billing Details tab of the Bill Details page in User Center.
+     *   true: queries data by billable item. The data queried is consistent with the data that is displayed for the specified billable item on the Billing Details tab of the Bill Details page in User Center.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -44,6 +62,11 @@ class QueryInstanceBillRequest extends Model
     public $isBillingItem;
 
     /**
+     * @description Specifies whether to filter out a bill whose pretax gross amount and pretax amount are 0. Default value: false.******** Valid values:
+     *
+     *   false: does not filter the bill.
+     *   true: filters the bill.
+     *
      * @example false
      *
      * @var bool
@@ -56,6 +79,8 @@ class QueryInstanceBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +88,8 @@ class QueryInstanceBillRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -70,6 +97,8 @@ class QueryInstanceBillRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -77,6 +106,8 @@ class QueryInstanceBillRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service. This parameter is required if the ProductCode parameter is set to the service code of Alibaba Cloud Marketplace.
+     *
      * @example rds
      *
      * @var string
@@ -84,6 +115,15 @@ class QueryInstanceBillRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
+     **
+     *
+     ****This parameter must be used together with the **ProductCode** parameter.
+     *
      * @example PayAsYouGo
      *
      * @var string

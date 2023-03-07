@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the relationship expired. If no value is returned, the relationship is still valid.
+     *
      * @example 2021-03-06T15:12Z
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The ID of the management account.
+     *
      * @example 1990699401005016
      *
      * @var int
@@ -24,6 +28,8 @@ class data extends Model
     public $masterId;
 
     /**
+     * @description The ID of the member.
+     *
      * @example 1851253838840762
      *
      * @var int
@@ -31,11 +37,15 @@ class data extends Model
     public $memberId;
 
     /**
+     * @description The list of permissions.
+     *
      * @var permissionList[]
      */
     public $permissionList;
 
     /**
+     * @description The type of the relationship. Valid values: FinancialManagement and FinancialTrusteeship.
+     *
      * @example FinancialManagement
      *
      * @var string
@@ -43,6 +53,8 @@ class data extends Model
     public $relationType;
 
     /**
+     * @description The time when the relationship was established. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the relationship was established at 20:00:00 on May 23, 2016 (UTC+8).
+     *
      * @example 2021-03-02T15:12Z
      *
      * @var string
@@ -50,6 +62,8 @@ class data extends Model
     public $setupTime;
 
     /**
+     * @description The time when the relationship took effect. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the relationship took effect at 20:00:00 on May 23, 2016 (UTC+8).
+     *
      * @example 2021-03-02T15:12Z
      *
      * @var string
@@ -57,6 +71,8 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The status of the relationship. For more information about valid values of this parameter, see the enumeration values of the RelationshipStatusEnum type in the following table.
+     *
      * @example RELATED
      *
      * @var string

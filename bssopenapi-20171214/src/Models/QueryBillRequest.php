@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBillRequest extends Model
 {
     /**
+     * @description The ID of the member.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle, in the YYYY-MM format.
+     *
      * @example 2018-07
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryBillRequest extends Model
     public $billingCycle;
 
     /**
+     * @description Specifies whether to display local currency information in bills. The parameter will be discontinued.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,11 @@ class QueryBillRequest extends Model
     public $isDisplayLocalCurrency;
 
     /**
+     * @description Specifies whether to filter out a bill whose pretax gross amount is 0. By default, a bill whose pretax gross amount is 0 is not filtered out. Valid values:
+     *
+     *   true: filters out a bill whose pretax gross amount is 0.
+     *   false: does not filter out a bill whose pretax gross amount is 0.
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +53,8 @@ class QueryBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +62,8 @@ class QueryBillRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +71,8 @@ class QueryBillRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -63,6 +80,8 @@ class QueryBillRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -70,6 +89,15 @@ class QueryBillRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription
+     *   PayAsYouGo
+     *
+     **
+     *
+     ****This parameter must be used together with the ProductCode parameter.
+     *
      * @example Subscription
      *
      * @var string
@@ -77,6 +105,13 @@ class QueryBillRequest extends Model
     public $subscriptionType;
 
     /**
+     * @description The type of the bill. Valid values:
+     *
+     *   SubscriptionOrder
+     *   PayAsYouGoBill
+     *   Refund
+     *   Adjustment
+     *
      * @example SubscriptionOrder
      *
      * @var string

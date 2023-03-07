@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductAmortizedCostByAmortizationPeriodResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeProductAmortizedCostByAmortizationPeriodResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful！
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeProductAmortizedCostByAmortizationPeriodResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeProductAmortizedCostByAmortizationPeriodResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

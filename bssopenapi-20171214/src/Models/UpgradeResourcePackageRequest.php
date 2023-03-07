@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpgradeResourcePackageRequest extends Model
 {
     /**
+     * @description The time when the resource plan takes effect. If you leave this parameter empty, the resource plan immediately takes effect by default.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2020-02-02T12:00:00Z
      *
      * @var string
@@ -16,6 +19,8 @@ class UpgradeResourcePackageRequest extends Model
     public $effectiveDate;
 
     /**
+     * @description The ID of the resource plan.
+     *
      * @example OSSBAG-cn-0xl*****x002
      *
      * @var string
@@ -28,6 +33,8 @@ class UpgradeResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The specifications to which you want to upgrade the resource plan.
+     *
      * @example 51200
      *
      * @var string

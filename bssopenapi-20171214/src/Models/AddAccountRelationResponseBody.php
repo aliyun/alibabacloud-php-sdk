@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddAccountRelationResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,21 +19,33 @@ class AddAccountRelationResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example Message returned
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Request ID
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

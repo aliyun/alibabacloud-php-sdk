@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The allocation month. Format: YYYYMM.
+     *
      * @example 202210
      *
      * @var string
@@ -16,6 +18,11 @@ class items extends Model
     public $amortizationPeriod;
 
     /**
+     * @description The allocation status. Valid values:
+     *
+     *   amortized: allocated
+     *   unAmortized: not allocated
+     *
      * @example amortized
      *
      * @var string
@@ -23,6 +30,8 @@ class items extends Model
     public $amortizationStatus;
 
     /**
+     * @description The ID of the account to which the bill belongs.
+     *
      * @example 185xxxxx489
      *
      * @var int
@@ -30,6 +39,8 @@ class items extends Model
     public $billAccountID;
 
     /**
+     * @description The name of the account to which the bill belongs.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -37,6 +48,8 @@ class items extends Model
     public $billAccountName;
 
     /**
+     * @description The ID of the account to which the resource belongs.
+     *
      * @example 185xxxxx489
      *
      * @var int
@@ -44,6 +57,8 @@ class items extends Model
     public $billOwnerID;
 
     /**
+     * @description The name of the account to which the resource belongs.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -51,6 +66,8 @@ class items extends Model
     public $billOwnerName;
 
     /**
+     * @description The business type.
+     *
      * @example trusteeship
      *
      * @var string
@@ -58,6 +75,8 @@ class items extends Model
     public $bizType;
 
     /**
+     * @description The billing cycle. Format: YYYYMM.
+     *
      * @example 202210
      *
      * @var string
@@ -65,6 +84,8 @@ class items extends Model
     public $consumePeriod;
 
     /**
+     * @description The amount deducted by using vouchers and allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -72,6 +93,8 @@ class items extends Model
     public $currentAmortizationDeductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons and allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -79,6 +102,8 @@ class items extends Model
     public $currentAmortizationDeductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards and allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -86,6 +111,8 @@ class items extends Model
     public $currentAmortizationDeductedByPrepaidCard;
 
     /**
+     * @description The expenditure amount allocated to the current allocation month. Invoicing is supported.
+     *
      * @example 0
      *
      * @var float
@@ -93,6 +120,8 @@ class items extends Model
     public $currentAmortizationExpenditureAmount;
 
     /**
+     * @description The discount amount allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -100,6 +129,8 @@ class items extends Model
     public $currentAmortizationInvoiceDiscount;
 
     /**
+     * @description The pretax amount allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -107,6 +138,8 @@ class items extends Model
     public $currentAmortizationPretaxAmount;
 
     /**
+     * @description The pretax gross amount allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -114,6 +147,8 @@ class items extends Model
     public $currentAmortizationPretaxGrossAmount;
 
     /**
+     * @description The round-off amount allocated to the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -121,6 +156,8 @@ class items extends Model
     public $currentAmortizationRoundDownDiscount;
 
     /**
+     * @description The amount deducted by using vouchers.
+     *
      * @example 0
      *
      * @var float
@@ -128,6 +165,8 @@ class items extends Model
     public $deductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons.
+     *
      * @example 0
      *
      * @var float
@@ -135,6 +174,8 @@ class items extends Model
     public $deductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards.
+     *
      * @example 0
      *
      * @var float
@@ -142,6 +183,8 @@ class items extends Model
     public $deductedByPrepaidCard;
 
     /**
+     * @description The expenditure amount. Invoicing is supported.
+     *
      * @example 0
      *
      * @var float
@@ -149,6 +192,8 @@ class items extends Model
     public $expenditureAmount;
 
     /**
+     * @description The discount amount.
+     *
      * @example 0
      *
      * @var float
@@ -156,6 +201,8 @@ class items extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The pretax amount.
+     *
      * @example 0
      *
      * @var float
@@ -163,6 +210,8 @@ class items extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax gross amount.
+     *
      * @example 0
      *
      * @var float
@@ -170,6 +219,8 @@ class items extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The amount deducted by using vouchers and allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -177,6 +228,8 @@ class items extends Model
     public $previouslyAmortizedDeductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons and allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -184,6 +237,8 @@ class items extends Model
     public $previouslyAmortizedDeductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards and allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -191,6 +246,8 @@ class items extends Model
     public $previouslyAmortizedDeductedByPrepaidCard;
 
     /**
+     * @description The expenditure amount allocated before the current allocation month. Invoicing is supported.
+     *
      * @example 0
      *
      * @var float
@@ -198,6 +255,8 @@ class items extends Model
     public $previouslyAmortizedExpenditureAmount;
 
     /**
+     * @description The discount amount allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -205,6 +264,8 @@ class items extends Model
     public $previouslyAmortizedInvoiceDiscount;
 
     /**
+     * @description The pretax amount allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -212,6 +273,8 @@ class items extends Model
     public $previouslyAmortizedPretaxAmount;
 
     /**
+     * @description The pretax gross amount allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -219,6 +282,8 @@ class items extends Model
     public $previouslyAmortizedPretaxGrossAmount;
 
     /**
+     * @description The round-off amount allocated before the current allocation month.
+     *
      * @example 0
      *
      * @var float
@@ -226,6 +291,8 @@ class items extends Model
     public $previouslyAmortizedRoundDownDiscount;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -233,11 +300,17 @@ class items extends Model
     public $productCode;
 
     /**
+     * @description The specific service resource.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productDetail;
 
     /**
+     * @description The code of the specific service resource.
+     *
      * @example rds
      *
      * @var string
@@ -245,11 +318,17 @@ class items extends Model
     public $productDetailCode;
 
     /**
+     * @description The name of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The amount deducted by using vouchers and to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -257,6 +336,8 @@ class items extends Model
     public $remainingAmortizationDeductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons and to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -264,6 +345,8 @@ class items extends Model
     public $remainingAmortizationDeductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards and to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -271,6 +354,8 @@ class items extends Model
     public $remainingAmortizationDeductedByPrepaidCard;
 
     /**
+     * @description The expenditure amount to be allocated to one or more future allocation months. Invoicing is supported.
+     *
      * @example 0
      *
      * @var float
@@ -278,6 +363,8 @@ class items extends Model
     public $remainingAmortizationExpenditureAmount;
 
     /**
+     * @description The discount amount to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -285,6 +372,8 @@ class items extends Model
     public $remainingAmortizationInvoiceDiscount;
 
     /**
+     * @description The pretax amount to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -292,6 +381,8 @@ class items extends Model
     public $remainingAmortizationPretaxAmount;
 
     /**
+     * @description The pretax gross amount to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -299,6 +390,8 @@ class items extends Model
     public $remainingAmortizationPretaxGrossAmount;
 
     /**
+     * @description The round-off amount to be allocated to one or more future allocation months.
+     *
      * @example 0
      *
      * @var float
@@ -306,6 +399,8 @@ class items extends Model
     public $remainingAmortizationRoundDownDiscount;
 
     /**
+     * @description The round-off amount.
+     *
      * @example 0
      *
      * @var float
@@ -313,6 +408,11 @@ class items extends Model
     public $roundDownDiscount;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
      * @example PayAsYouGo
      *
      * @var string

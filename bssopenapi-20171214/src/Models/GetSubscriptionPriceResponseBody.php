@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionPriceResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example InvalidConfigCod
      *
      * @var string
@@ -17,11 +19,15 @@ class GetSubscriptionPriceResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the service price.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful
      *
      * @var string
@@ -29,6 +35,8 @@ class GetSubscriptionPriceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 30E7066E-AE6F-4E59-AFE6-11386CE3AFA7
      *
      * @var string
@@ -36,6 +44,8 @@ class GetSubscriptionPriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

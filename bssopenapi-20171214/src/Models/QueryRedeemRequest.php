@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class QueryRedeemRequest extends Model
 {
     /**
+     * @description Specifies whether the redemption coupon takes effect. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -16,6 +22,8 @@ class QueryRedeemRequest extends Model
     public $effectiveOrNot;
 
     /**
+     * @description The end time when the redemption coupon expires. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string
@@ -23,6 +31,8 @@ class QueryRedeemRequest extends Model
     public $expiryTimeEnd;
 
     /**
+     * @description The start time when the redemption coupon expires. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string
@@ -30,6 +40,8 @@ class QueryRedeemRequest extends Model
     public $expiryTimeStart;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +49,8 @@ class QueryRedeemRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int

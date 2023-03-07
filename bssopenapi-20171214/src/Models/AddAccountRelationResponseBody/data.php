@@ -18,6 +18,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The ID of the financial relationship.
+     *
      * @example RelationId
      *
      * @var int

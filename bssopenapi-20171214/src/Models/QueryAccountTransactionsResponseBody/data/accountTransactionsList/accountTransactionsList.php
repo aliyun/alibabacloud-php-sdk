@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountTransactionsList extends Model
 {
     /**
+     * @description The amount.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class accountTransactionsList extends Model
     public $amount;
 
     /**
+     * @description The balance of the account.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class accountTransactionsList extends Model
     public $balance;
 
     /**
+     * @description The billing cycle. Format: YYYY-MM.
+     *
      * @example 2020-03
      *
      * @var string
@@ -30,6 +36,13 @@ class accountTransactionsList extends Model
     public $billingCycle;
 
     /**
+     * @description The type of transaction payment. Valid values:
+     *
+     *   Cash: pay for the transaction in cash.
+     *   Deposit: pay for the transaction with deposit.
+     *   RegularBankCreditRefund: pay for the transaction with credit refund controlled by a bank.
+     *   DirectPay: directly pay for the transaction.
+     *
      * @example Cash
      *
      * @var string
@@ -37,6 +50,8 @@ class accountTransactionsList extends Model
     public $fundType;
 
     /**
+     * @description The number of the order or bill.
+     *
      * @example 2020030242
      *
      * @var string
@@ -44,6 +59,8 @@ class accountTransactionsList extends Model
     public $recordID;
 
     /**
+     * @description The remarks on the transaction.
+     *
      * @example NAT_GW
      *
      * @var string
@@ -51,6 +68,8 @@ class accountTransactionsList extends Model
     public $remarks;
 
     /**
+     * @description The transaction account. For example, the account is a recharge account in Alipay or a transfer account.
+     *
      * @example 213562146
      *
      * @var string
@@ -58,6 +77,19 @@ class accountTransactionsList extends Model
     public $transactionAccount;
 
     /**
+     * @description The transaction channel.
+     *
+     *   AccountBalance
+     *   BankTransfer
+     *   Alipay
+     *   AntCreditPay
+     *   OfflineRemittance
+     *   RegularBankCreditRefund
+     *   CreditCard
+     *   MyBankCredit
+     *   HuaxiaBankCInstallment
+     *   ApplePay
+     *
      * @example AccountBalance
      *
      * @var string
@@ -65,6 +97,8 @@ class accountTransactionsList extends Model
     public $transactionChannel;
 
     /**
+     * @description The serial number of the transaction channel.
+     *
      * @example 1234354325
      *
      * @var string
@@ -72,6 +106,11 @@ class accountTransactionsList extends Model
     public $transactionChannelSN;
 
     /**
+     * @description The type of the transaction flow.
+     *
+     *   Income
+     *   Expense
+     *
      * @example Expense
      *
      * @var string
@@ -79,6 +118,8 @@ class accountTransactionsList extends Model
     public $transactionFlow;
 
     /**
+     * @description The number of the transaction.
+     *
      * @example 43342334
      *
      * @var string
@@ -86,6 +127,8 @@ class accountTransactionsList extends Model
     public $transactionNumber;
 
     /**
+     * @description The time when the transaction was made.
+     *
      * @example 2020-03-10T02:03:20Z
      *
      * @var string
@@ -93,6 +136,15 @@ class accountTransactionsList extends Model
     public $transactionTime;
 
     /**
+     * @description The type of the transaction.
+     *
+     *   Payment
+     *   Withdraw
+     *   Refund
+     *   Consumption
+     *   Transfer
+     *   Adjust
+     *
      * @example Consumption
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryPrepaidCardsRequest extends Model
 {
     /**
+     * @description Specifies whether the prepaid card takes effect. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class QueryPrepaidCardsRequest extends Model
     public $effectiveOrNot;
 
     /**
+     * @description The end of the expiration time of prepaid cards to query. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string
@@ -23,6 +30,8 @@ class QueryPrepaidCardsRequest extends Model
     public $expiryTimeEnd;
 
     /**
+     * @description The start of the expiration time of prepaid cards to query. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * @example 2018-08-01T00:00:00Z
      *
      * @var string

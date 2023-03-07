@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnsubscribeBillToOSSResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class UnsubscribeBillToOSSResponseBody extends Model
     public $code;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -23,6 +27,8 @@ class UnsubscribeBillToOSSResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D23FE74C-742F-4624-A82B-******
      *
      * @var string
@@ -30,6 +36,8 @@ class UnsubscribeBillToOSSResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

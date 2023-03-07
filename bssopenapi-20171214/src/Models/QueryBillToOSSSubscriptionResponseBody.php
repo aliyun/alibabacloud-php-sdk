@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBillToOSSSubscriptionResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryBillToOSSSubscriptionResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryBillToOSSSubscriptionResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9EEAE43F-1E4D-4734-AE93-5049878AC103
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryBillToOSSSubscriptionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

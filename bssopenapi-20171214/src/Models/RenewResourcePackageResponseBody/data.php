@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the resource plan.
+     *
      * @example OSSBAG-cn-0xl0n****003
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 204322560333
      *
      * @var int

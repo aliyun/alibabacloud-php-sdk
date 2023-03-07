@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class redeem extends Model
 {
     /**
+     * @description The services to which the redemption coupon is applicable.
+     *
+     * @example Elastic Compute Service (ECS)
+     *
      * @var string
      */
     public $applicableProducts;
 
     /**
+     * @description The balance of the redemption coupon.
+     *
      * @example 0
      *
      * @var string
@@ -21,6 +27,8 @@ class redeem extends Model
     public $balance;
 
     /**
+     * @description The time when the redemption coupon took effect.
+     *
      * @example 2018-05-14 20:25:00
      *
      * @var string
@@ -28,6 +36,8 @@ class redeem extends Model
     public $effectiveTime;
 
     /**
+     * @description The time when the redemption coupon expired.
+     *
      * @example 2018-06-13 20:25:00
      *
      * @var string
@@ -35,6 +45,8 @@ class redeem extends Model
     public $expiryTime;
 
     /**
+     * @description The time when the redemption coupon was issued.
+     *
      * @example 2018-05-14 20:25:00
      *
      * @var string
@@ -42,6 +54,8 @@ class redeem extends Model
     public $grantedTime;
 
     /**
+     * @description The nominal value of the redemption coupon.
+     *
      * @example 0
      *
      * @var string
@@ -49,6 +63,8 @@ class redeem extends Model
     public $nominalValue;
 
     /**
+     * @description The ID of the redemption coupon.
+     *
      * @example 1342
      *
      * @var string
@@ -56,6 +72,8 @@ class redeem extends Model
     public $redeemId;
 
     /**
+     * @description The number of the redemption coupon.
+     *
      * @example 4889*****1610
      *
      * @var string
@@ -63,11 +81,28 @@ class redeem extends Model
     public $redeemNo;
 
     /**
+     * @description The specifications of the redemption coupon.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @description The status of the redemption coupon. Valid values:
+     *
+     *   Generated
+     *   CallBack
+     *   RefundPending
+     *   Canceled
+     *   Order_Canceled
+     *   ActivePending
+     *   ActiveSuccess
+     *   ExchangePending
+     *   ExchangeSuccess
+     *   Expired
+     *
      * @example Generated
      *
      * @var string

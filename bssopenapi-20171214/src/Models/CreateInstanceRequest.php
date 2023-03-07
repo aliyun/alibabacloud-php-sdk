@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. The server checks whether a request that uses the same client token has been received. If a request that uses the same client token has been received, the server returns the same request result as the previous request.
+     *
      * @example JASIOFKVNVIXXXXXX
      *
      * @var string
@@ -17,6 +19,10 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The logistics address of this order. This parameter is generally valid for physical orders.
+     *
+     * @example {"cityCode":"330100","cityName":"Hangzhou","contactName":"Test","countryCode":"","districtName":"Puyan Street","email":"\*\*@example.com","mobilePhone":"153564848844","phone":"1234567","provCode":"330000","provName":"Zhejiang","streetCode":"33010610","streetName":"Zhuantang","zipCode":"0000"}
+     *
      * @var string
      */
     public $logistics;
@@ -27,11 +33,16 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The details of the modules.
+     *
      * @var parameter[]
      */
     public $parameter;
 
     /**
+     * @description The subscription duration. Unit: month. The value must be an integral multiple of 12.
+     *
+     * >  This parameter is required if you create a subscription instance.
      * @example 12
      *
      * @var int
@@ -39,6 +50,8 @@ class CreateInstanceRequest extends Model
     public $period;
 
     /**
+     * @description The code of the service to which the instance belongs. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
+     *
      * @example rds
      *
      * @var string
@@ -46,6 +59,8 @@ class CreateInstanceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -53,6 +68,9 @@ class CreateInstanceRequest extends Model
     public $productType;
 
     /**
+     * @description The auto-renewal period. Unit: month.
+     *
+     * >  This parameter is required if the **RenewalStatus** parameter is set to **AutoRenewal**.
      * @example 12
      *
      * @var int
@@ -60,6 +78,12 @@ class CreateInstanceRequest extends Model
     public $renewPeriod;
 
     /**
+     * @description The renewal method. Valid values:
+     *
+     *   AutoRenewal: The instance is automatically renewed.
+     *   ManualRenewal: The instance is manually renewed.
+     *
+     * Default value: ManualRenewal.
      * @example ManualRenewal
      *
      * @var string
@@ -67,6 +91,11 @@ class CreateInstanceRequest extends Model
     public $renewalStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method.
+     *   PayAsYouGo: the pay-as-you-go billing method.
+     *
      * @example Subscription
      *
      * @var string

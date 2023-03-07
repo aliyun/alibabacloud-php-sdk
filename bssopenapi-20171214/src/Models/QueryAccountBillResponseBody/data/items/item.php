@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The amount deducted by using credit refunds.
+     *
      * @example 0
      *
      * @var float
@@ -16,6 +18,8 @@ class item extends Model
     public $adjustAmount;
 
     /**
+     * @description The ID of the account to which the bill belongs.
+     *
      * @example 1857xxxxx489
      *
      * @var string
@@ -23,6 +27,8 @@ class item extends Model
     public $billAccountID;
 
     /**
+     * @description The name of the account to which the bill belongs.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -30,6 +36,8 @@ class item extends Model
     public $billAccountName;
 
     /**
+     * @description The billing date.
+     *
      * @example 2021-03-01
      *
      * @var string
@@ -37,6 +45,8 @@ class item extends Model
     public $billingDate;
 
     /**
+     * @description The business type.
+     *
      * @example trusteeship
      *
      * @var string
@@ -44,6 +54,8 @@ class item extends Model
     public $bizType;
 
     /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is not included.
+     *
      * @example 0
      *
      * @var float
@@ -51,11 +63,21 @@ class item extends Model
     public $cashAmount;
 
     /**
+     * @description The cost center.
+     *
+     * @example Not allocated
+     *
      * @var string
      */
     public $costUnit;
 
     /**
+     * @description The type of the currency. Valid values:
+     *
+     *   CNY
+     *   USD
+     *   JPY
+     *
      * @example CNY
      *
      * @var string
@@ -63,6 +85,8 @@ class item extends Model
     public $currency;
 
     /**
+     * @description The amount deducted by using vouchers.
+     *
      * @example 0
      *
      * @var float
@@ -70,6 +94,8 @@ class item extends Model
     public $deductedByCashCoupons;
 
     /**
+     * @description The amount deducted by using coupons.
+     *
      * @example 0
      *
      * @var float
@@ -77,6 +103,8 @@ class item extends Model
     public $deductedByCoupons;
 
     /**
+     * @description The amount deducted by using prepaid cards.
+     *
      * @example 0
      *
      * @var float
@@ -84,6 +112,8 @@ class item extends Model
     public $deductedByPrepaidCard;
 
     /**
+     * @description The discount amount.
+     *
      * @example 0
      *
      * @var float
@@ -91,6 +121,8 @@ class item extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The unsettled amount or the amount settled with credits.
+     *
      * @example 0
      *
      * @var float
@@ -98,6 +130,8 @@ class item extends Model
     public $outstandingAmount;
 
     /**
+     * @description The ID of the member.
+     *
      * @example 325434254
      *
      * @var string
@@ -105,6 +139,8 @@ class item extends Model
     public $ownerID;
 
     /**
+     * @description The name of the member.
+     *
      * @example aligzncloudtest2
      *
      * @var string
@@ -112,6 +148,8 @@ class item extends Model
     public $ownerName;
 
     /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is included.
+     *
      * @example 0
      *
      * @var float
@@ -119,6 +157,8 @@ class item extends Model
     public $paymentAmount;
 
     /**
+     * @description The code of the service. The service code is consistent with that displayed in User Center.
+     *
      * @example rds
      *
      * @var string
@@ -126,6 +166,8 @@ class item extends Model
     public $pipCode;
 
     /**
+     * @description The pretax amount.
+     *
      * @example 0
      *
      * @var float
@@ -133,6 +175,8 @@ class item extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax gross amount.
+     *
      * @example 0
      *
      * @var float
@@ -140,6 +184,12 @@ class item extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the service.
+     *
+     **
+     *
+     ****A value is returned only if the **IsGroupByProduct **parameter is set to true.
+     *
      * @example rds
      *
      * @var string
@@ -147,6 +197,12 @@ class item extends Model
     public $productCode;
 
     /**
+     * @description The name of the service.
+     *
+     **
+     *
+     ****A value is returned only if the **IsGroupByProduct **parameter is set to true.
+     *
      * @example rds
      *
      * @var string
@@ -154,6 +210,15 @@ class item extends Model
     public $productName;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
+     **
+     *
+     ****A value is returned only if the IsGroupByProduct parameter is set to true.
+     *
      * @example PayAsYouGo
      *
      * @var string

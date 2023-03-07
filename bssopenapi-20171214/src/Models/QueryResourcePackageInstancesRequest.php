@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryResourcePackageInstancesRequest extends Model
 {
     /**
+     * @description The end of the expiration time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-02-02T13:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryResourcePackageInstancesRequest extends Model
     public $expiryTimeEnd;
 
     /**
+     * @description The beginning of the expiration time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-02-02T12:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryResourcePackageInstancesRequest extends Model
     public $expiryTimeStart;
 
     /**
+     * @description Specifies whether partners are involved.
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +41,8 @@ class QueryResourcePackageInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +50,8 @@ class QueryResourcePackageInstancesRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -49,6 +59,8 @@ class QueryResourcePackageInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string

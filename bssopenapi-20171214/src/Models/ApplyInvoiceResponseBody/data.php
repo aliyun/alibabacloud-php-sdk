@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 1323125534
      *
      * @var int

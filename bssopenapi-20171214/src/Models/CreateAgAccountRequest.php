@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAgAccountRequest extends Model
 {
     /**
+     * @description The attribute of the account. To view the attribute of the account, use the account to log on to the Alibaba Cloud Management Console, move the pointer over the profile picture in the upper-right corner, and then click **Security Settings**.
+     *
      * @example 1
      *
      * @var string
@@ -16,26 +18,45 @@ class CreateAgAccountRequest extends Model
     public $accountAttr;
 
     /**
+     * @description The name of the city.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The name of the enterprise.
+     *
+     * @example Dongguan ChuangNeng Electric Appliance Co., Ltd
+     *
      * @var string
      */
     public $enterpriseName;
 
     /**
+     * @description The first name.
+     *
+     * @example Zhicheng
+     *
      * @var string
      */
     public $firstName;
 
     /**
+     * @description The last name.
+     *
+     * The last name can be up to 64 characters in length.
+     * @example Wu
+     *
      * @var string
      */
     public $lastName;
 
     /**
+     * @description The email address used to log on to the account.
+     *
      * @example email
      *
      * @var string
@@ -43,6 +64,8 @@ class CreateAgAccountRequest extends Model
     public $loginEmail;
 
     /**
+     * @description The country code.
+     *
      * @example CN
      *
      * @var string
@@ -50,6 +73,8 @@ class CreateAgAccountRequest extends Model
     public $nationCode;
 
     /**
+     * @description The zip code.
+     *
      * @example 350000
      *
      * @var string
@@ -57,6 +82,10 @@ class CreateAgAccountRequest extends Model
     public $postcode;
 
     /**
+     * @description The name of the province. This parameter is optional.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $provinceName;

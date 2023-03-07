@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the currency.
+     *
      * @example CNY
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $currency;
 
     /**
+     * @description The discounted amount. Unit: CNY.
+     *
      * @example 215040
      *
      * @var float
@@ -24,6 +28,8 @@ class data extends Model
     public $discountPrice;
 
     /**
+     * @description The original price. Unit: CNY.
+     *
      * @example 1290240
      *
      * @var float
@@ -31,11 +37,15 @@ class data extends Model
     public $originalPrice;
 
     /**
+     * @description The details of the discount.
+     *
      * @var promotions
      */
     public $promotions;
 
     /**
+     * @description The price at which the transaction is made. Unit: CNY.
+     *
      * @example 1075200
      *
      * @var float

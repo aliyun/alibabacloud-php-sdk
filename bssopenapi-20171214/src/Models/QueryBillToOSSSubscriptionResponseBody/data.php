@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the account used to perform the query.
+     *
      * @example 185xxxxx03489
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $accountID;
 
     /**
+     * @description The name of the account used to perform the query.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description The details of the subscribed bills.
+     *
      * @var items
      */
     public $items;

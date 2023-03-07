@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceByTagResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example PARAM_ERROR
      *
      * @var string
@@ -17,6 +19,8 @@ class QueryInstanceByTagResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example param is null
      *
      * @var string
@@ -24,6 +28,8 @@ class QueryInstanceByTagResponseBody extends Model
     public $message;
 
     /**
+     * @description The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the QueryInstanceByTag operation was called.
+     *
      * @example CAESEgoQCg4KCm
      *
      * @var string
@@ -31,6 +37,8 @@ class QueryInstanceByTagResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9EC6C0B7-3397-5FAE-9915-8972CDDB1211
      *
      * @var string
@@ -38,6 +46,8 @@ class QueryInstanceByTagResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -45,6 +55,8 @@ class QueryInstanceByTagResponseBody extends Model
     public $success;
 
     /**
+     * @description The instances returned.
+     *
      * @var tagResource[]
      */
     public $tagResource;

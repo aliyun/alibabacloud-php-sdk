@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserStatusRequest extends Model
 {
     /**
+     * @description The type of the business. Valid values: FREEZE: the frozen business of the account. TRUSTEESHIP: the hosted business of the account.
+     *
      * @example FREEZE
      *
      * @var string
@@ -21,6 +23,8 @@ class SetResellerUserStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The account status that you want to set. Valid values: Freeze: The account is frozen. Thaw: The account is unfrozen. Trusteeship: The account is hosted. TrusteeshipCancel: The account is not hosted.
+     *
      * @example Freeze
      *
      * @var string
@@ -28,6 +32,10 @@ class SetResellerUserStatusRequest extends Model
     public $status;
 
     /**
+     * @description 停机模式
+     * 1：立即停机
+     * @example 0
+     *
      * @var string
      */
     public $stopMode;

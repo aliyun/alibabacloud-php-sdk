@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceBillRequest extends Model
 {
     /**
+     * @description The ID of the member. If you specify this parameter, the bills of the member are queried. If you do not specify this parameter, the bills of the current account are queried by default.
+     *
      * @example 122
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeInstanceBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle. Specify the parameter in the YYYY-MM format.
+     *
      * @example 2020-03
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeInstanceBillRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The billing date. This parameter is required only when the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+     *
      * @example 2020-03-02
      *
      * @var string
@@ -30,6 +36,12 @@ class DescribeInstanceBillRequest extends Model
     public $billingDate;
 
     /**
+     * @description The granularity at which bills are queried. Valid values:
+     *
+     *   MONTHLY: queries bills on a monthly basis. The data that you query is the same as the data searched by instances on the Billing Details tab of the Bill Details page in the User Center console.
+     *   DAILY: queries bills on a daily basis. The data that you query is the same as the data searched by days on the Billing Details tab of the Bill Details page in the User Center console.
+     *
+     * The BillingDate parameter is required if you set the Granularity parameter to DAILY.
      * @example MONTHLY
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeInstanceBillRequest extends Model
     public $granularity;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example abc
      *
      * @var string
@@ -44,6 +58,12 @@ class DescribeInstanceBillRequest extends Model
     public $instanceID;
 
     /**
+     * @description Specifies whether to query data by billable items. Valid values:
+     *
+     *   false: The data that you query is the same as the data searched by instances on the Billing Details tab of the Bill Details page in the User Center console.
+     *   true: The data that you query is the same as the data searched by billable items on the Billing Details tab of the Bill Details page in the User Center console.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -51,6 +71,11 @@ class DescribeInstanceBillRequest extends Model
     public $isBillingItem;
 
     /**
+     * @description Specifies whether to filter bills if both the pretax gross amount and pretax amount are 0. Valid values:
+     *
+     *   false: does not filter bills.
+     *   true: filters bills.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +83,8 @@ class DescribeInstanceBillRequest extends Model
     public $isHideZeroCharge;
 
     /**
+     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -65,6 +92,8 @@ class DescribeInstanceBillRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to indicate the position where the results for the current call start. The parameter must be left empty or set to the value of the NextToken parameter that is returned from the last call. Otherwise, an error is returned. If the parameter is left empty, data is queried from the first item.
+     *
      * @example CAESEgoQCg4KCm
      *
      * @var string
@@ -77,6 +106,8 @@ class DescribeInstanceBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -84,6 +115,8 @@ class DescribeInstanceBillRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -91,6 +124,11 @@ class DescribeInstanceBillRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method.
+     *   PayAsYouGo: the pay-as-you-go billing method.
+     *
      * @example PayAsYouGo
      *
      * @var string

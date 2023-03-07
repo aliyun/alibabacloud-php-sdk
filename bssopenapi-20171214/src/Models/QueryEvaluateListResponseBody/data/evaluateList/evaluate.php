@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class evaluate extends Model
 {
     /**
+     * @description The billing cycle.
+     *
      * @example 202002
      *
      * @var string
@@ -16,6 +18,8 @@ class evaluate extends Model
     public $billCycle;
 
     /**
+     * @description The ID of the bill.
+     *
      * @example 234543254325
      *
      * @var int
@@ -23,6 +27,8 @@ class evaluate extends Model
     public $billId;
 
     /**
+     * @description The time.
+     *
      * @example 2018-10-10 18:05:44
      *
      * @var string
@@ -30,6 +36,11 @@ class evaluate extends Model
     public $bizTime;
 
     /**
+     * @description The market type in the invoice. Valid values:
+     *
+     *   ALIYUN: Alibaba Cloud
+     *   MARKETPLACE: Alibaba Cloud Marketplace
+     *
      * @example ALIYUN
      *
      * @var string
@@ -37,6 +48,8 @@ class evaluate extends Model
     public $bizType;
 
     /**
+     * @description The invoiceable amount.
+     *
      * @example 123213
      *
      * @var int
@@ -44,6 +57,8 @@ class evaluate extends Model
     public $canInvoiceAmount;
 
     /**
+     * @description The creation time.
+     *
      * @example 2018-10-10 18:05:44
      *
      * @var string
@@ -51,6 +66,8 @@ class evaluate extends Model
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
      * @example 2018-10-10 18:05:44
      *
      * @var string
@@ -58,6 +75,8 @@ class evaluate extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the invoice.
+     *
      * @example 1325321532
      *
      * @var int
@@ -65,6 +84,8 @@ class evaluate extends Model
     public $id;
 
     /**
+     * @description The invoiced amount.
+     *
      * @example 10000
      *
      * @var int
@@ -72,6 +93,8 @@ class evaluate extends Model
     public $invoicedAmount;
 
     /**
+     * @description The ID of the item.
+     *
      * @example 23453245
      *
      * @var int
@@ -79,11 +102,17 @@ class evaluate extends Model
     public $itemId;
 
     /**
+     * @description The name of the object to be invoiced.
+     *
+     * @example Refund of a voucher with denomination marked
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description If a refund is issued due to an order such as an unsubscription order or a configuration downgrade order, the refund amount is used to offset the amount of the invoice. The value is consistent with the value of the **OffsetCostAmount** parameter.
+     *
      * @example 500
      *
      * @var int
@@ -91,6 +120,8 @@ class evaluate extends Model
     public $offsetAcceptAmount;
 
     /**
+     * @description The refund amount used to offset the amount of the invoice. If a refund is issued due to an order such as an unsubscription order or a configuration downgrade order, the refund amount is used to offset the amount of the invoice. The value is consistent with the value of the **OffsetAcceptAmount** parameter.
+     *
      * @example 500
      *
      * @var int
@@ -98,6 +129,8 @@ class evaluate extends Model
     public $offsetCostAmount;
 
     /**
+     * @description The ID of the external object.
+     *
      * @example 12341
      *
      * @var string
@@ -105,6 +138,8 @@ class evaluate extends Model
     public $opId;
 
     /**
+     * @description The original amount.
+     *
      * @example -10000
      *
      * @var int
@@ -112,6 +147,8 @@ class evaluate extends Model
     public $originalAmount;
 
     /**
+     * @description The ID of the external order.
+     *
      * @example 124324213421
      *
      * @var string
@@ -119,6 +156,8 @@ class evaluate extends Model
     public $outBizId;
 
     /**
+     * @description The balance.
+     *
      * @example -10000
      *
      * @var int
@@ -126,6 +165,8 @@ class evaluate extends Model
     public $presentAmount;
 
     /**
+     * @description The status of the invoiceable amount.
+     *
      * @example 1
      *
      * @var int
@@ -133,6 +174,14 @@ class evaluate extends Model
     public $status;
 
     /**
+     * @description The type of orders that are queried. Valid values:
+     *
+     *   1: the orders in which the invoiceable amount is negative.
+     *   2: the orders in which the invoiceable amount is positive.
+     *   3: the orders in which the invoiceable amount is not 0.
+     *   4: the orders in which the amount that has been invoiced is greater than 0.
+     *
+     * >  By default, this parameter is left empty. If this parameter is left empty, all orders are queried.
      * @example 1
      *
      * @var int
@@ -140,6 +189,8 @@ class evaluate extends Model
     public $type;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 2738543
      *
      * @var int
@@ -147,6 +198,8 @@ class evaluate extends Model
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example test
      *
      * @var string

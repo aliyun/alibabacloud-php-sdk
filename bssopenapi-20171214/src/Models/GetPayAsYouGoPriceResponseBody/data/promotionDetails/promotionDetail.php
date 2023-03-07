@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class promotionDetail extends Model
 {
     /**
+     * @description The description of the discount.
+     *
+     * @example This discount allows you to use a service at the minimum price and is provided for testing purposes only.
+     *
      * @var string
      */
     public $promotionDesc;
 
     /**
+     * @description The ID of the discount.
+     *
      * @example 10200210
      *
      * @var int
@@ -21,6 +27,10 @@ class promotionDetail extends Model
     public $promotionId;
 
     /**
+     * @description The name of the discount.
+     *
+     * @example This discount allows you to use a service at the minimum price and is provided for testing purposes only.
+     *
      * @var string
      */
     public $promotionName;

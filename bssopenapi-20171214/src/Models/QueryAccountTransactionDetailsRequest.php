@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountTransactionDetailsRequest extends Model
 {
     /**
+     * @description The end of the creation time range to query.
+     *
      * @example 2022-12-20
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $createTimeEnd;
 
     /**
+     * @description The beginning of the creation time range to query.
+     *
      * @example 2022-01-20
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $createTimeStart;
 
     /**
+     * @description This parameter is invalid.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for paging.
+     *
      * @example ABEDSDS124DASA
      *
      * @var string
@@ -37,6 +45,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the order or bill.
+     *
      * @example 2022120336190912
      *
      * @var string
@@ -44,6 +54,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $recordID;
 
     /**
+     * @description The transaction channel.
+     *
      * @example ALIPAY
      *
      * @var string
@@ -51,6 +63,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $transactionChannel;
 
     /**
+     * @description The serial number of the transaction channel.
+     *
      * @example 2022112122001470591458665933
      *
      * @var string
@@ -58,6 +72,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $transactionChannelSN;
 
     /**
+     * @description The number of the transaction.
+     *
      * @example 410874027490089
      *
      * @var string
@@ -65,6 +81,8 @@ class QueryAccountTransactionDetailsRequest extends Model
     public $transactionNumber;
 
     /**
+     * @description The type of the transaction.
+     *
      * @example CHARGE
      *
      * @var string

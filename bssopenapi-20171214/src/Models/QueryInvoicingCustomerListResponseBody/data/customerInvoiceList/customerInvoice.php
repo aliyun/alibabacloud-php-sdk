@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customerInvoice extends Model
 {
     /**
+     * @description The type of invoice that was changed to.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,17 @@ class customerInvoice extends Model
     public $adjustType;
 
     /**
+     * @description The bank that issues the invoice.
+     *
+     * @example Test Bank
+     *
      * @var string
      */
     public $bank;
 
     /**
+     * @description The bank account number.
+     *
      * @example 389576348573296349853476
      *
      * @var string
@@ -28,6 +36,11 @@ class customerInvoice extends Model
     public $bankNo;
 
     /**
+     * @description The authentication type of Alipay. Valid values:
+     *
+     *   1: individual
+     *   2: company
+     *
      * @example 1
      *
      * @var int
@@ -35,11 +48,17 @@ class customerInvoice extends Model
     public $customerType;
 
     /**
+     * @description The default note that is attached when the title is specified.
+     *
+     * @example PO Code: 12984554
+     *
      * @var string
      */
     public $defaultRemark;
 
     /**
+     * @description The time when the payment ended.
+     *
      * @example 202003
      *
      * @var int
@@ -47,6 +66,8 @@ class customerInvoice extends Model
     public $endCycle;
 
     /**
+     * @description The time when the invoice was created. The time was in the yyyy-mm-dd hh:mm:ss format.
+     *
      * @example 2018-09-07 15:26:20
      *
      * @var string
@@ -54,6 +75,8 @@ class customerInvoice extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the invoice.
+     *
      * @example 239875502738
      *
      * @var int
@@ -61,11 +84,17 @@ class customerInvoice extends Model
     public $id;
 
     /**
+     * @description The company name in the invoice title.
+     *
+     * @example Test Company
+     *
      * @var string
      */
     public $invoiceTitle;
 
     /**
+     * @description The type of issue.
+     *
      * @example 1
      *
      * @var int
@@ -73,11 +102,17 @@ class customerInvoice extends Model
     public $issueType;
 
     /**
+     * @description The address of the business license.
+     *
+     * @example XXX, XXX district, XXX city, XXX province
+     *
      * @var string
      */
     public $operatingLicenseAddress;
 
     /**
+     * @description The phone number of the business license.
+     *
      * @example 138xxxxxxxx
      *
      * @var string
@@ -85,6 +120,8 @@ class customerInvoice extends Model
     public $operatingLicensePhone;
 
     /**
+     * @description The tax registration number.
+     *
      * @example 21343245342534
      *
      * @var string
@@ -92,6 +129,8 @@ class customerInvoice extends Model
     public $registerNo;
 
     /**
+     * @description The time when the payment started.
+     *
      * @example 202002
      *
      * @var int
@@ -99,6 +138,8 @@ class customerInvoice extends Model
     public $startCycle;
 
     /**
+     * @description The status of the invoice title.
+     *
      * @example 2
      *
      * @var int
@@ -106,6 +147,8 @@ class customerInvoice extends Model
     public $status;
 
     /**
+     * @description The path and file name of the scanned copy of the tax registration certificate.
+     *
      * @example taxationLicense.jpg
      *
      * @var string
@@ -113,6 +156,11 @@ class customerInvoice extends Model
     public $taxationLicense;
 
     /**
+     * @description The type of the taxpayer. Valid values:
+     *
+     *   1: general taxpayer
+     *   2: special taxpayer
+     *
      * @example 1
      *
      * @var int
@@ -120,6 +168,8 @@ class customerInvoice extends Model
     public $taxpayerType;
 
     /**
+     * @description The instruction document of the invoice title change.
+     *
      * @example instruction.doc
      *
      * @var string
@@ -127,6 +177,11 @@ class customerInvoice extends Model
     public $titleChangeInstructions;
 
     /**
+     * @description The type of the invoice. Valid values:
+     *
+     *   0: plain value-added tax (VAT) invoice
+     *   1: special VAT invoice
+     *
      * @example 1
      *
      * @var int
@@ -134,6 +189,8 @@ class customerInvoice extends Model
     public $type;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 34565465675
      *
      * @var int
@@ -141,6 +198,8 @@ class customerInvoice extends Model
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example testNick
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountTransactionsList extends Model
 {
     /**
+     * @description The amount of the transaction.
+     *
      * @example 1.00
      *
      * @var string
@@ -16,6 +18,8 @@ class accountTransactionsList extends Model
     public $amount;
 
     /**
+     * @description The balance of the account.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class accountTransactionsList extends Model
     public $balance;
 
     /**
+     * @description The billing cycle.
+     *
      * @example 2022-10
      *
      * @var string
@@ -30,6 +36,9 @@ class accountTransactionsList extends Model
     public $billingCycle;
 
     /**
+     * @description The type of transaction payment. Valid values:
+     *
+     * Cash: pay for the transaction in cash. Deposit: pay for the transaction with deposit. RegularBankCreditRefund: pay for the transaction with credit refund controlled by a bank. DirectPay: directly pay for the transaction.
      * @example Cash
      *
      * @var string
@@ -37,6 +46,8 @@ class accountTransactionsList extends Model
     public $fundType;
 
     /**
+     * @description The ID of the order or bill.
+     *
      * @example 2022120336190912
      *
      * @var string
@@ -44,11 +55,17 @@ class accountTransactionsList extends Model
     public $recordID;
 
     /**
+     * @description The remarks.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $remarks;
 
     /**
+     * @description The transaction account.
+     *
      * @example fortune_test@xxx.com
      *
      * @var string
@@ -56,6 +73,8 @@ class accountTransactionsList extends Model
     public $transactionAccount;
 
     /**
+     * @description The transaction channel.
+     *
      * @example ALIPAY
      *
      * @var string
@@ -63,6 +82,8 @@ class accountTransactionsList extends Model
     public $transactionChannel;
 
     /**
+     * @description The serial number of the transaction channel.
+     *
      * @example 123232434343532
      *
      * @var string
@@ -70,6 +91,9 @@ class accountTransactionsList extends Model
     public $transactionChannelSN;
 
     /**
+     * @description Indicates whether the transaction is of the income type or the expenditure type. If one of the following types is specified, results for the specific type are returned. If the type that you specified for the parameter does not belong to the following types, no result is returned. If the parameter is left empty, results for transactions of the income and expenditure types are all returned. Valid values:
+     *
+     * Income and Expense.
      * @example Income
      *
      * @var string
@@ -77,6 +101,8 @@ class accountTransactionsList extends Model
     public $transactionFlow;
 
     /**
+     * @description The number of the transaction.
+     *
      * @example 43342334
      *
      * @var string
@@ -84,6 +110,8 @@ class accountTransactionsList extends Model
     public $transactionNumber;
 
     /**
+     * @description The time when the transaction was made.
+     *
      * @example 2022-10-01
      *
      * @var string
@@ -91,6 +119,9 @@ class accountTransactionsList extends Model
     public $transactionTime;
 
     /**
+     * @description The type of the transaction. If one of the following transaction types is specified, results for the specified transaction type are returned. If the transaction type that you specified does not belong to the following transaction types, no result is returned. If the parameter is left empty, results for all transaction types are returned. Valid values:
+     *
+     * Payment, Withdraw, Refund, Consumption, Transfer, and Adjust.
      * @example Consumption
      *
      * @var string

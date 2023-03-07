@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The available balance of the account.
+     *
      * @example 10000.00
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $availableAmount;
 
     /**
+     * @description The available balance in cash.
+     *
      * @example 10000.00
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $availableCashAmount;
 
     /**
+     * @description The credit balance of the account.
+     *
      * @example 0.00
      *
      * @var string
@@ -30,6 +36,12 @@ class data extends Model
     public $creditAmount;
 
     /**
+     * @description The type of the currency. Valid values:
+     *
+     *   CNY: Chinese Yuan
+     *   USD: US dollar
+     *   JPY: Japanese Yen
+     *
      * @example CNY
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $currency;
 
     /**
+     * @description The credit line controlled by MYbank.
+     *
      * @example 0.00
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed. For more information, see the "Error codes" section of the topic.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeResellerConsumeAmountResponseBody extends Model
     public $code;
 
     /**
+     * @description The consumption quota for the quota ledger after adjustment.
+     *
      * @example 300.00
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangeResellerConsumeAmountResponseBody extends Model
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +36,8 @@ class ChangeResellerConsumeAmountResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D6E068C3-25BC-455A-85FE-45F0B22ECB1F
      *
      * @var string
@@ -37,6 +45,8 @@ class ChangeResellerConsumeAmountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

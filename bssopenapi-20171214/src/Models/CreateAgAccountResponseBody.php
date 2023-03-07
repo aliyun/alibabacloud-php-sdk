@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAgAccountResponseBody extends Model
 {
     /**
+     * @description The relationship between the account that is used to call the CreateAgAccount operation and the account that is created.
+     *
      * @var agRelationDto
      */
     public $agRelationDto;
 
     /**
+     * @description The status code returned.
+     *
      * @example LOGIN_EMAIL_HAS_BEEN_USED
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateAgAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example loginEmail=685741089H@chinaunicom.cn,has used
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateAgAccountResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EAE08A27-386C-579E-966D-8853EC3C5D0E
      *
      * @var string
@@ -36,6 +44,8 @@ class CreateAgAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

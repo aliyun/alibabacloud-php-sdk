@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the host.
+     *
      * @example cn
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description Indicates that the returned usage data starts from the next page. If no value is returned for this parameter or this parameter is not returned, no data can be queried.
+     *
      * @example NextToken
      *
      * @var string
