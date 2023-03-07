@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRemindResponseBody extends Model
 {
     /**
+     * @description Indicates whether the custom alert rule is deleted. Valid values: true and false. The value true indicates that the custom alert rule is deleted. The value false indicates that the custom alert rule fails to be deleted.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DeleteRemindResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned.
+     *
      * @example 1031203110005
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteRemindResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteRemindResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class DeleteRemindResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -44,6 +54,8 @@ class DeleteRemindResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

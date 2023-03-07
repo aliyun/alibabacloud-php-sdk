@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRemindRequest extends Model
 {
     /**
+     * @description The ID of the custom alert rule.
+     *
      * @example 1234
      *
      * @var int

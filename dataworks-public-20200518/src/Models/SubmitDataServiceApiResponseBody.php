@@ -6,68 +6,35 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateRemindResponseBody extends Model
+class SubmitDataServiceApiResponseBody extends Model
 {
     /**
-     * @description Indicates whether the modification to the custom alert rule succeeds.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description The error code returned.
-     *
-     * @example 1031203110005
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned.
-     *
-     * @example The specified parameters are invalid.
-     *
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'data'           => 'Data',
         'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
@@ -86,9 +53,6 @@ class UpdateRemindResponseBody extends Model
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
@@ -105,7 +69,7 @@ class UpdateRemindResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateRemindResponseBody
+     * @return SubmitDataServiceApiResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -115,9 +79,6 @@ class UpdateRemindResponseBody extends Model
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

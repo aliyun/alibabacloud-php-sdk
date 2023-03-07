@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityRuleResponseBody extends Model
 {
     /**
+     * @description Indicates whether the monitoring rule is updated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example You have no permission.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     *
+     * @example 576b9457-2cf5-4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

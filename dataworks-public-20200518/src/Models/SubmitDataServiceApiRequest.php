@@ -6,18 +6,26 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TopTenErrorTimesInstanceRequest extends Model
+class SubmitDataServiceApiRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
-     *
-     * @example 9527
-     *
+     * @var int
+     */
+    public $apiId;
+
+    /**
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var int
+     */
+    public $tenantId;
     protected $_name = [
+        'apiId'     => 'ApiId',
         'projectId' => 'ProjectId',
+        'tenantId'  => 'TenantId',
     ];
 
     public function validate()
@@ -27,8 +35,14 @@ class TopTenErrorTimesInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -37,13 +51,19 @@ class TopTenErrorTimesInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return TopTenErrorTimesInstanceRequest
+     * @return SubmitDataServiceApiRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

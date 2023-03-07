@@ -444,6 +444,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitDataServiceApiRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SuspendInstanceRequest;
@@ -12364,6 +12366,55 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDataServiceApiRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitDataServiceApiResponse
+     */
+    public function submitDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDataServiceApi',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDataServiceApiRequest $request
+     *
+     * @return SubmitDataServiceApiResponse
+     */
+    public function submitDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDataServiceApiWithOptions($request, $runtime);
     }
 
     /**
