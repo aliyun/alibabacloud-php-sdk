@@ -22,6 +22,16 @@ class ImportServicesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $fcServiceName;
+
+    /**
+     * @var string
+     */
+    public $fcVersion;
+
+    /**
      * @description The unique ID of the gateway.
      *
      * @example gw-77e1153db6e14c0a8b1fae20bcb89ca5
@@ -71,6 +81,8 @@ class ImportServicesRequest extends Model
     public $tlsSetting;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
+        'fcServiceName'   => 'FcServiceName',
+        'fcVersion'       => 'FcVersion',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'serviceList'     => 'ServiceList',
         'sourceType'      => 'SourceType',
@@ -86,6 +98,12 @@ class ImportServicesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->fcServiceName) {
+            $res['FcServiceName'] = $this->fcServiceName;
+        }
+        if (null !== $this->fcVersion) {
+            $res['FcVersion'] = $this->fcVersion;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -119,6 +137,12 @@ class ImportServicesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['FcServiceName'])) {
+            $model->fcServiceName = $map['FcServiceName'];
+        }
+        if (isset($map['FcVersion'])) {
+            $model->fcVersion = $map['FcVersion'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
