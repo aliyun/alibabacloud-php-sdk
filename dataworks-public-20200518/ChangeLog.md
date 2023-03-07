@@ -1,3 +1,6 @@
+2023-03-07 Version: 4.4.4
+- Generated php 2020-05-18 for dataworks-public.
+
 2023-03-07 Version: 4.4.3
 - Generated php 2020-05-18 for dataworks-public.
 

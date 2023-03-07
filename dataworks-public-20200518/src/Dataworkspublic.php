@@ -426,6 +426,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunSmokeTestRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunSmokeTestResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunTriggerNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunTriggerNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SaveDataServiceApiTestResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SaveDataServiceApiTestResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ScanSensitiveDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ScanSensitiveDataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesRequest;
@@ -11902,6 +11904,61 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runTriggerNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveDataServiceApiTestResultRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SaveDataServiceApiTestResultResponse
+     */
+    public function saveDataServiceApiTestResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->autoGenerate)) {
+            $body['AutoGenerate'] = $request->autoGenerate;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $body['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $body['ResultSample'] = $request->resultSample;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveDataServiceApiTestResult',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveDataServiceApiTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveDataServiceApiTestResultRequest $request
+     *
+     * @return SaveDataServiceApiTestResultResponse
+     */
+    public function saveDataServiceApiTestResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveDataServiceApiTestResultWithOptions($request, $runtime);
     }
 
     /**
