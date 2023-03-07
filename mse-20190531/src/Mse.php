@@ -2099,6 +2099,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
+        if (!Utils::isUnset($request->recordCanaryDetail)) {
+            $query['RecordCanaryDetail'] = $request->recordCanaryDetail;
+        }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
@@ -3099,6 +3102,15 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

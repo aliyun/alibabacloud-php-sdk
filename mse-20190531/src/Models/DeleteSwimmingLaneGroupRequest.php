@@ -28,9 +28,27 @@ class DeleteSwimmingLaneGroupRequest extends Model
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'namespace'      => 'Namespace',
+        'region'         => 'Region',
+        'name'           => 'name',
     ];
 
     public function validate()
@@ -45,6 +63,15 @@ class DeleteSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -63,6 +90,15 @@ class DeleteSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

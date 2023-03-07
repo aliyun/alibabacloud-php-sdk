@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
@@ -22,7 +23,7 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
      *
      * @example {}
      *
-     * @var mixed
+     * @var data
      */
     public $data;
 
@@ -102,7 +103,7 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
@@ -138,7 +139,7 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];

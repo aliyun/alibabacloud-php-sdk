@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneGroupResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class QueryAllSwimmingLaneGroupResponseBody extends Model
@@ -22,7 +23,7 @@ class QueryAllSwimmingLaneGroupResponseBody extends Model
      *
      * @example [{id:100,name:"test"}]
      *
-     * @var mixed
+     * @var data[]
      */
     public $data;
 
@@ -107,7 +108,13 @@ class QueryAllSwimmingLaneGroupResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
@@ -143,7 +150,13 @@ class QueryAllSwimmingLaneGroupResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
