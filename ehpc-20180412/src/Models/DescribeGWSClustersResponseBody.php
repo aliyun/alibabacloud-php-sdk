@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClustersResponseBody extends Model
 {
     /**
+     * @example sub
+     *
      * @var string
      */
     public $callerType;
@@ -20,21 +22,29 @@ class DescribeGWSClustersResponseBody extends Model
     public $clusters;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2777461A-E45E-42F8-8E67-0EBF132E93E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

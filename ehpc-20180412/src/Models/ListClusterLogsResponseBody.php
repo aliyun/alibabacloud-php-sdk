@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListClusterLogsResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The details about operations logs.
+     *
      * @var logs
      */
     public $logs;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries that are returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BBC2F93D-003A-49C4-850C-B826EECF6667
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class totalResources extends Model
 {
     /**
+     * @description The number of CPU cores. Unit: cores.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The total number of GPU cards. Unit: cards.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gpu;
 
     /**
+     * @description The memory capacity. Unit: GB.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $memory;

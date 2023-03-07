@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class roleInfo extends Model
 {
     /**
+     * @description The type of the node on which the file system is mounted. Valid values:
+     *
+     *   Compute: compute node
+     *   Manager: management node
+     *   Login: logon node
+     *
      * @example Compute
      *
      * @var string

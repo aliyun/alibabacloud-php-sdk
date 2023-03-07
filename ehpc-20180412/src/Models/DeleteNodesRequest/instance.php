@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the compute node that you want to delete. Valid values of N: 1 to 100.
+     *
+     * You can call the [DescribeCluster](~~87126~~) operation to query the IDs of the nodes in the cluster.
      * @example i-bp13p7vlcb1uihfv****
      *
      * @var string

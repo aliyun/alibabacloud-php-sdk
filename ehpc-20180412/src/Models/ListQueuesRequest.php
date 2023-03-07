@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesRequest extends Model
 {
     /**
+     * @description Specifies whether to enable asynchronous query.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class ListQueuesRequest extends Model
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string

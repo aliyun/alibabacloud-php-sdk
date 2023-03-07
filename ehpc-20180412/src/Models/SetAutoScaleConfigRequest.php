@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetAutoScaleConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -17,6 +19,12 @@ class SetAutoScaleConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specifies whether to enable auto scale-out. Valid values:
+     *
+     *   true: enables auto scale-out.
+     *   false: disables auto scale-out
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -24,6 +32,12 @@ class SetAutoScaleConfigRequest extends Model
     public $enableAutoGrow;
 
     /**
+     * @description Specifies whether to enable auto scale-in. Valid values:
+     *
+     *   true: enables auto scale-in.
+     *   false: disables auto scale-in
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -31,6 +45,9 @@ class SetAutoScaleConfigRequest extends Model
     public $enableAutoShrink;
 
     /**
+     * @description The compute nodes that are excluded from the list of auto scaling nodes. Separate multiple compute nodes with commas (,).
+     *
+     * If you want to retain a compute node, you can set the node as an exceptional node. Then, the node is not released if it is idle.
      * @example i-bp19lgqwxb4206t5****,i-bp1g4hvzs9pywrhb****
      *
      * @var string
@@ -38,6 +55,9 @@ class SetAutoScaleConfigRequest extends Model
     public $excludeNodes;
 
     /**
+     * @description The percentage of extra compute nodes. Valid values: 0 to 100
+     *
+     * If you need to add 100 compute nodes and the value of the ExtraNodesGrowRatio parameter is 2, 102 compute nodes are added.
      * @example 0
      *
      * @var int
@@ -45,6 +65,9 @@ class SetAutoScaleConfigRequest extends Model
     public $extraNodesGrowRatio;
 
     /**
+     * @description The interval between two consecutive rounds of scale-out. Unit: minutes.
+     *
+     * >  An interval may exist during multiple rounds of a scale-out task or between two consecutive scale-out tasks.
      * @example 2
      *
      * @var int
@@ -52,6 +75,9 @@ class SetAutoScaleConfigRequest extends Model
     public $growIntervalInMinutes;
 
     /**
+     * @description The percentage of each round of scale-out. Valid values: 1 to 100.
+     *
+     * If you set GrowRatio to 50, the scale-out has two rounds. Each round completes half of the scale-out.
      * @example 50
      *
      * @var int
@@ -59,6 +85,9 @@ class SetAutoScaleConfigRequest extends Model
     public $growRatio;
 
     /**
+     * @description The scale-out timeout period. Unit: minutes.
+     *
+     * If the scale-out timeout period has been reached but the scale-out nodes still do not reach the Running state, the system resets them.
      * @example 20
      *
      * @var int
@@ -66,6 +95,13 @@ class SetAutoScaleConfigRequest extends Model
     public $growTimeoutInMinutes;
 
     /**
+     * @description The ID of the image.
+     *
+     * >
+     *   If you set both `Queues.N.QueueImageId` and `ImageId`, `Queues.N.QueueImageId` prevails.
+     *   If you set `Queues.N.QueueImageId` or `ImageId`, the parameter that you set takes effect.
+     *   If you leave both `Queues.N.QueueImageId` and `ImageId` empty, the image that was specified when you created the cluster or the last time when you scaled out the cluster is used by default.
+     *
      * @example centos_7_03_64_20G_alibase_201708****
      *
      * @var string
@@ -73,6 +109,9 @@ class SetAutoScaleConfigRequest extends Model
     public $imageId;
 
     /**
+     * @description The maximum number of compute nodes that can be added in the cluster. Valid values: 0 to 500.
+     *
+     * Default value: 100
      * @example 100
      *
      * @var int
@@ -85,6 +124,9 @@ class SetAutoScaleConfigRequest extends Model
     public $queues;
 
     /**
+     * @description The number of consecutive times that a compute node is idle during the resource scale-in check.
+     *
+     * If the parameter is set to 3, a compute node is idle for more than three consecutive times. In this case, the node is released. If a compute node is idle for more than 6 minutes in a row, it is released by default. This is because the default value of the ShrinkIntervalInMinutes parameter is 2.
      * @example 3
      *
      * @var int
@@ -92,6 +134,9 @@ class SetAutoScaleConfigRequest extends Model
     public $shrinkIdleTimes;
 
     /**
+     * @description The interval between two consecutive rounds of scale-in. Unit: minutes.
+     *
+     * Default value: 2
      * @example 2
      *
      * @var int
@@ -99,6 +144,8 @@ class SetAutoScaleConfigRequest extends Model
     public $shrinkIntervalInMinutes;
 
     /**
+     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
+     *
      * @example 0.062
      *
      * @var float
@@ -106,6 +153,13 @@ class SetAutoScaleConfigRequest extends Model
     public $spotPriceLimit;
 
     /**
+     * @description The preemption policy of the compute nodes. Valid values:
+     *
+     *   NoSpot: The compute nodes are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     *
+     * Default value: NoSpot
      * @example SpotWithPriceLimit
      *
      * @var string

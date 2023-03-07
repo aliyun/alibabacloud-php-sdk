@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MountNFSResponseBody extends Model
 {
     /**
+     * @example t-hz0jdfwd9f****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @example 6FDDFC21-40CD-4DB2-9978-012AB7FC9BDW
+     *
      * @var string
      */
     public $requestId;

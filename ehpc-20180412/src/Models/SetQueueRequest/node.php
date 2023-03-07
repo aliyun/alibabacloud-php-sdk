@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The name of the compute node that you want to move. Valid values of N: 1 to 100.
+     *
+     * You can call the [ListNodes](~~87161~~) operation to query the names of the compute nodes.
+     * @example compute1
+     *
      * @var string
      */
     public $name;

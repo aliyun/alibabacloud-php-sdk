@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListJobsWithFiltersResponseBody extends Model
 {
     /**
+     * @description The list of jobs.
+     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,25 +26,38 @@ class ListJobsWithFiltersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @example 20
+     * @description The number of entries returned per page.
+     *
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example True
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The request failed.
+     *
+     * @example true
      *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

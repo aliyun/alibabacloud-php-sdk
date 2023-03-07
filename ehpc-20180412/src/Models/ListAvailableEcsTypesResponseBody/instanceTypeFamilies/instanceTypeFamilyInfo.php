@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeFamilyInfo extends Model
 {
     /**
+     * @description The instance family.
+     *
+     * @example ecs-3
+     *
      * @var string
      */
     public $generation;
 
     /**
+     * @description The ID of the instance family. For more information, see [Instance families](~~25378~~).
+     *
+     * @example ecs.n4
+     *
      * @var string
      */
     public $instanceTypeFamilyId;
 
     /**
+     * @description The list of instance types.
+     *
      * @var types
      */
     public $types;

@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2019-05-15T06:05:40.000Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1nq8oshqudln3hy****
+     *
      * @var string
      */
     public $vpcId;

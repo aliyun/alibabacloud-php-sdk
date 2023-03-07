@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class logInfo extends Model
 {
     /**
+     * @description The time when the log was created.
+     *
+     * @example 2019-09-18T13:24:13.000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The severity level of the log entry.
+     *
+     * @example info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The content of the log entry.
+     *
+     * @example Begin to create cluster
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the operation.
+     *
+     * @example CreateCluster
+     *
      * @var string
      */
     public $operation;

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of the region to which the resource belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -20,6 +24,10 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

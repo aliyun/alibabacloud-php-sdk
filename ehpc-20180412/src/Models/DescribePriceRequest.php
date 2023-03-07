@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @description The billing method of the ECS instances. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * Default value: PostPaid
      * @example PostPaid
      *
      * @var string
@@ -22,6 +28,8 @@ class DescribePriceRequest extends Model
     public $commodities;
 
     /**
+     * @description The type of the order. The order can be set only as a purchase order. Valid value: INSTANCE-BUY.
+     *
      * @example INSTANCE-BUY
      *
      * @var string
@@ -29,6 +37,13 @@ class DescribePriceRequest extends Model
     public $orderType;
 
     /**
+     * @description The billing cycle of the Elastic Compute Service (ECS) instances. This parameter takes effect only when the ChargeType parameter is set to PrePaid. Valid values:
+     *
+     *   Month: pay-by-month
+     *   Year: pay-by-year
+     *   Hour: pay-by-hour
+     *
+     * Default value: Hour
      * @example Hour
      *
      * @var string

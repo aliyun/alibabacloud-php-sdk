@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableEcsTypesResponseBody extends Model
 {
     /**
+     * @description The instance family to which the instance type belongs.
+     *
      * @var instanceTypeFamilies
      */
     public $instanceTypeFamilies;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D9DD3AF8-1F91-4075-8669-55D10E45****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Specifies whether preemptible instances are supported. Valid values:
+     *
+     *   false: not supported
+     *   true: supported
+     *
+     * @example false
+     *
      * @var bool
      */
     public $supportSpotInstance;

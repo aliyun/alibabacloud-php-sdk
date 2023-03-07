@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListContainerImagesResponseBody extends Model
 {
     /**
+     * @description The information of the database.
+     *
      * @example mongodb://localhost/
      *
      * @var string
@@ -17,11 +19,15 @@ class ListContainerImagesResponseBody extends Model
     public $DBInfo;
 
     /**
+     * @description The array of local images.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class ListContainerImagesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +44,8 @@ class ListContainerImagesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListContainerImagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

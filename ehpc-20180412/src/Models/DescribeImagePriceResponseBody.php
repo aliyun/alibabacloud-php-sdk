@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePriceResponseBody extends Model
 {
     /**
+     * @description The number of images that you want to purchase.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description The discount that is applied.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-bp198jigq7l1ga11****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The original price of the image.
+     *
+     * @example 0.8
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 47ca3ac4-2a03-48f1-8bf2-ba6de0f3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The final price of the image.
+     *
+     * @example 0.8
+     *
      * @var float
      */
     public $tradePrice;

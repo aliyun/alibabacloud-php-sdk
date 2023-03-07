@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StartClusterRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to start.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;

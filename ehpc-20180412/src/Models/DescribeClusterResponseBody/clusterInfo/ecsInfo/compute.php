@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class compute extends Model
 {
     /**
+     * @description The number of compute nodes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The instance type of the compute nodes.
+     *
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;

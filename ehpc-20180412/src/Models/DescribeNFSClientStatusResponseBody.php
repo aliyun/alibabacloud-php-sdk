@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNFSClientStatusResponseBody extends Model
 {
     /**
+     * @example 3EB7FCEE-D731-4948-85A3-4B2C341CA983
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeNFSClientStatusResponseBody extends Model
     public $result;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;

@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class QueryServicePackAndPriceResponseBody extends Model
 {
     /**
+     * @example 167
+     *
      * @var int
      */
     public $chargeAmount;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 0.418
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @example 3191
+     *
      * @var int
      */
     public $originalAmount;
 
     /**
+     * @example 3.34
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 3B2E8108-7068-413E-BCA7-CAAB25D46408
+     *
      * @var string
      */
     public $requestId;
@@ -50,6 +64,8 @@ class QueryServicePackAndPriceResponseBody extends Model
     public $servicePack;
 
     /**
+     * @example 2.922
+     *
      * @var float
      */
     public $tradePrice;

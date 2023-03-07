@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddQueueResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 7ABFF29F-BD9C-4663-AD5D-E620FA48****
+     *
      * @var string
      */
     public $requestId;

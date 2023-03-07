@@ -9,56 +9,123 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The filter options of the node list.
+     *
+     * Format: {"status":"node_status"}. Replace node_status with the node status. Valid values of node_status:
+     *
+     *   uninit: The node is being installed.
+     *   exception: An exception has occurred on the node.
+     *   running: The node is running.
+     *   initing: The node is being initialized.
+     *   releasing: The node is being released.
+     *   untracking: The node is not added to the cluster.
+     *   stopped: The node is stopped.
+     *
+     * @example {"status":"running"}
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The name of the node. You can perform a fuzzy search. MySQL regular expressions are supported.
+     *
+     * @example test-HostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The prefix of the hostname. You can query nodes that have a specified prefix.
+     *
+     * @example compute
+     *
      * @var string
      */
     public $hostNamePrefix;
 
     /**
+     * @description The suffix of the hostname. You can query nodes that have a specified suffix.
+     *
+     * @example 01
+     *
      * @var string
      */
     public $hostNameSuffix;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The private IP address of the node.
+     *
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * @example Manager
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The sorting method of the node list. Valid values:
+     *
+     *   Forward: sorts the nodes in chronological order.
+     *   Backward: sorts the nodes in reverse chronological order.
+     *
+     * >  Sequence is used in combination with SortBy. If SortBy is set to AddedTime and Sequence is set to Forward, nodes are sorted by the time that they were added in chronological order.
+     * @example Forward
+     *
      * @var string
      */
     public $sequence;
 
     /**
+     * @description The sorting method of the node list. Valid values:
+     *
+     *   AddedTime: sorts the nodes by the time that they were added.
+     *   HostName: sorts the nodes by their host names.
+     *
+     * @example AddedTime
+     *
      * @var string
      */
     public $sortBy;

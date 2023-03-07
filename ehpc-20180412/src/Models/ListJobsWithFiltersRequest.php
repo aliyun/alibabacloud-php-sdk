@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListJobsWithFiltersRequest extends Model
 {
     /**
+     * @description Specifies whether to enable asynchronous query.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The latest time when a job is submitted. The value is a UNIX timestamp, which represents the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1647428667
+     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
+     * @description The earliest time when a job is submitted. The value is a UNIX timestamp, which represents the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1647427667
+     *
      * @var string
      */
     public $createTimeStart;
 
     /**
+     * @description The order in which jobs are sorted based on the execution time. Valid values:
+     *
+     *   asc: ascending order
+     *   desc: descending order
+     *
+     * @example asc
+     *
      * @var string
      */
     public $executeOrder;
 
     /**
+     * @description The name of the job. Fuzzy match is supported.
+     *
+     * @example job1
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   all
+     *   finished
+     *   notfinish
+     *
+     * Default value: all
+     * @example finished
+     *
      * @var string
      */
     public $jobStatus;
@@ -49,16 +86,33 @@ class ListJobsWithFiltersRequest extends Model
     public $nodes;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The order in which jobs are sorted based on the time when they queue. Valid values:
+     *
+     *   asc: ascending order
+     *   desc: descending order
+     *
+     * @example desc
+     *
      * @var string
      */
     public $pendOrder;
@@ -69,11 +123,23 @@ class ListJobsWithFiltersRequest extends Model
     public $queues;
 
     /**
+     * @description The ID of the region.
+     *
+     * You can call the [ListRegions](~~188593~~) operation to query the list of regions where E-HPC is supported.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The order in which jobs are sorted based on the time when they are submitted. Valid values:
+     *
+     *   asc: ascending order
+     *   desc: descending order
+     *
+     * @example asc
+     *
      * @var string
      */
     public $submitOrder;

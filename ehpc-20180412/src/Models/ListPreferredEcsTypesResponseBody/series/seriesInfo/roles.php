@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description The list of recommended ECS instance types for compute nodes.
+     *
      * @var compute
      */
     public $compute;
 
     /**
+     * @description The list of recommended ECS instance types for logon nodes.
+     *
      * @var login
      */
     public $login;
 
     /**
+     * @description The list of recommended ECS instance types for management nodes.
+     *
      * @var manager
      */
     public $manager;

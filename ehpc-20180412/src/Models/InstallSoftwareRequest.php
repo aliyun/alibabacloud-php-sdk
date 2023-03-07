@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InstallSoftwareRequest extends Model
 {
     /**
+     * @description The name of the software that you want to install.
+     *
+     * You can call the [ListSoftwares](~~87216~~) operation to query the software that can be installed.
      * @example ABYSS_2.1.5
      *
      * @var string
@@ -16,6 +19,9 @@ class InstallSoftwareRequest extends Model
     public $application;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-jeJki6****
      *
      * @var string

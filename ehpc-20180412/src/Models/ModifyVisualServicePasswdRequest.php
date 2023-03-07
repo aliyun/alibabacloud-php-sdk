@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVisualServicePasswdRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-jeJki6****
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyVisualServicePasswdRequest extends Model
     public $clusterId;
 
     /**
+     * @description The connection password of the VNC remote visualization service. The password must be 8 to 30 characters in length and include at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     *
+     * `()~! @#$%^&*-_+=|{}[]:;\"/<>,.? /`
+     *
+     * >  You must use HTTPS to call the API to ensure that the password remains confidential.
      * @example 1254****
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifyVisualServicePasswdRequest extends Model
     public $passwd;
 
     /**
+     * @description The username of the cluster. Default value: root user. You can call the [ListUsers](~~188572~~) operation to query all users in a cluster.
+     *
      * @example root
      *
      * @var string
@@ -30,6 +39,8 @@ class ModifyVisualServicePasswdRequest extends Model
     public $runasUser;
 
     /**
+     * @description The user password of the cluster.
+     *
      * @example 2145****
      *
      * @var string

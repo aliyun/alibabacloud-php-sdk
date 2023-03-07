@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The name of the user that you want to delete. Valid values of N: 1 to 100.
+     *
+     * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
+     * @example user1
+     *
      * @var string
      */
     public $name;

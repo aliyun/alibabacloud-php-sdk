@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVisualServiceStatusRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;

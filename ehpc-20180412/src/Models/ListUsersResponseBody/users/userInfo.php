@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @description The time when the user was created.
+     *
      * @example 2018-07-18T17:46:47
      *
      * @var string
@@ -16,6 +18,11 @@ class userInfo extends Model
     public $addTime;
 
     /**
+     * @description The name of the permission group. Valid values:
+     *
+     *   users: an ordinary permission group. It is applicable to ordinary users that need only to submit and debug jobs.
+     *   wheel: a sudo permission group. It is applicable to the administrator who needs to manage the cluster. In addition to submitting and debugging jobs, users who have sudo permissions can run sudo commands to install software and restart nodes.
+     *
      * @example wheel
      *
      * @var string
@@ -23,6 +30,8 @@ class userInfo extends Model
     public $group;
 
     /**
+     * @description The username.
+     *
      * @example user1
      *
      * @var string

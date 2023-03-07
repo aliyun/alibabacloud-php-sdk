@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateQueueConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The instance type of the node.
+     *
+     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $computeInstanceType;
 
     /**
+     * @description The name of the queue.
+     *
+     * @example workq
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     * @example rg-acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

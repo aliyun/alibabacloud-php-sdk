@@ -9,36 +9,83 @@ use AlibabaCloud\Tea\Model;
 class RecoverClusterRequest extends Model
 {
     /**
+     * @description The service type of the domain account. Valid values:
+     *
+     *   nis
+     *   ldap
+     *
+     * Default value: nis
+     * @example nis
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The version of the E-HPC client. The default value is the latest version of the client.
+     *
+     * You can call the [ListCurrentClientVersion](~~87223~~) operation to query the current version of the E-HPC client.
+     * @example 1.0.76
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @description The ID of the cluster. The cluster must be in the Exception state.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID and status.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the image.
+     *
+     * You can call the [ListImages](~~87213~~) and [ListCustomImages](~~87215~~) operations to query the images that are supported by E-HPC.
+     * @example m-bp18133n0335yq****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *
+     * Default value: system
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The image tag of the operating system.
+     *
+     * You can call the [ListImages](~~87213~~) and [ListCustomImages](~~87215~~) operations to query the image tags supported by Elastic High Performance Computing (E-HPC).
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $osTag;
 
     /**
+     * @description The type of the scheduler. Valid values:
+     *
+     *   pbs
+     *   slurm
+     *   opengridscheduler
+     *   deadline
+     *
+     * Default value: pbs
+     * @example pbs
+     *
      * @var string
      */
     public $schedulerType;

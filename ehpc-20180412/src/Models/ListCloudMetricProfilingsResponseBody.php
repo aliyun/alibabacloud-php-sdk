@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudMetricProfilingsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries that are returned per page.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,15 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The profiling information of a specified cluster.
+     *
      * @var profilings
      */
     public $profilings;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9A05F620-ED46-4A57-95F1-C67D6D3C5DD2
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCloudMetricProfilingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 1
      *
      * @var int

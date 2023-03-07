@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListInvocationResultsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the command.
+     *
+     * You can call the [ListCommands](~~87388~~) operation to query the command ID.
+     * @example c-hz01v8x80o3****
+     *
      * @var string
      */
     public $commandId;
@@ -25,16 +35,35 @@ class ListInvocationResultsRequest extends Model
     public $instance;
 
     /**
+     * @description The status of the command that you want to query. Valid values:
+     *
+     *   Finished
+     *   Running
+     *   Failed
+     *   Stopped
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $invokeRecordStatus;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

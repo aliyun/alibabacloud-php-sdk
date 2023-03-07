@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class imageStatus extends Model
 {
     /**
+     * @description The list of Inspect information about the image.
+     *
      * @var imageInspectInfo
      */
     public $imageInspectInfo;

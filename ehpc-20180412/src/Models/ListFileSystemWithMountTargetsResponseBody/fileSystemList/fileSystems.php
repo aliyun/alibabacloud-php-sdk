@@ -11,76 +11,139 @@ use AlibabaCloud\Tea\Model;
 class fileSystems extends Model
 {
     /**
+     * @description The bandwidth of the file system. Unit: MB/s.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $bandWidth;
 
     /**
+     * @description The capacity of the file system. Unit: GiB.
+     *
+     * @example 5120
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The time when the file system was created.
+     *
+     * @example 2018-07-26 16:36:27
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the file system.
+     *
+     * @example FilesDescription
+     *
      * @var string
      */
     public $destription;
 
     /**
+     * @description Indicates whether the file system is encrypted. Valid values:
+     *
+     *   0: The file system is not encrypted.
+     *   1: The file system is encrypted.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $encryptType;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example 088b****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The type of the file system. Valid values:
+     *
+     *   standard: General-purpose NAS file system
+     *   extreme: Extreme NAS file system
+     *
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;
 
     /**
+     * @description The used capacity of the file system. Unit: bytes.
+     *
+     * @example 1216816455
+     *
      * @var int
      */
     public $meteredSize;
 
     /**
+     * @description The list of mount targets.
+     *
      * @var mountTargetList
      */
     public $mountTargetList;
 
     /**
+     * @description The list of storage plans.
+     *
      * @var packageList
      */
     public $packageList;
 
     /**
+     * @description The protocol type of the file system. Valid values:
+     *
+     * - SMB
+     * @example NFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the file system. Valid values:
+     *
+     * - Deleting: The file system is being deleted.
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The storage type of the file system.
+     *
+     * - If FileSystemType is set to extreme, the StorageType parameter has the following valid values: standard and advance.
+     * @example Performance
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example vpc-bp132kgui8n0targbn1cm
+     *
      * @var string
      */
     public $vpcId;

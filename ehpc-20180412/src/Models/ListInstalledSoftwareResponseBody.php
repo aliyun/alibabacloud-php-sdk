@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstalledSoftwareResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example DDCA0E7B-03E7-430D-810C-0D508539****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListInstalledSoftwareResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of installed software.
+     *
      * @var softwareList
      */
     public $softwareList;

@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
+     * @description The queue name of the nth attached mounted filesystem.
+     *
+     * @example work
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @description The on-premises mount directory for the nth additional mounted file system.
+     *
+     * @example /ff
+     *
      * @var string
      */
     public $localDirectory;
 
     /**
+     * @description The storage location of the nth attached mounted file system. Valid values:
+     *
+     *   OnPremise: hybrid cloud cluster
+     *   PublicCloud: public cloud cluster
+     *
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The remote directory to be mounted by the nth additional mounted file system.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $remoteDirectory;
@@ -35,21 +54,41 @@ class additionalVolumes extends Model
     public $roles;
 
     /**
+     * @description The ID of the nth additional mounted file system.
+     *
+     * @example extreme-00b88****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @description The domain name of the mount target for the nth additional mounted file system.
+     *
+     * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @description The protocol type of the nth additional mounted file system. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @description The type of the nth additional mounted file system. Currently, only NAS is supported.
+     *
+     * Valid values of N: 1 to 10.
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;

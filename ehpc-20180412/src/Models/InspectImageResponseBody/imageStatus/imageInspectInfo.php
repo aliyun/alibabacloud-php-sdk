@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class imageInspectInfo extends Model
 {
     /**
+     * @description The version of the bootstrapper used by the container image.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $bootStrap;
 
     /**
+     * @description The architecture used to build the image.
+     *
+     * @example amd64
+     *
      * @var string
      */
     public $buildArch;
 
     /**
+     * @description The date on which the image was built.
+     *
+     * @example Tuesday_9_November_2021_19
+     *
      * @var string
      */
     public $buildDate;
 
     /**
+     * @description The container version of the image.
+     *
+     * @example sccIntelMPI.sif
+     *
      * @var string
      */
     public $containerVersion;
 
     /**
+     * @description The mode in which the image was built.
+     *
+     * @example localimage
+     *
      * @var string
      */
     public $defFrom;
 
     /**
+     * @description The singularity version and kernel version of the image.
+     *
+     * @example 3.8.3-1.el7
+     *
      * @var string
      */
     public $schemaVersion;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class volumeInfo extends Model
 {
     /**
+     * @description The queue of the job.
+     *
      * @example workq
      *
      * @var string
@@ -17,6 +19,8 @@ class volumeInfo extends Model
     public $jobQueue;
 
     /**
+     * @description The local mount directory.
+     *
      * @example /ehpcdata
      *
      * @var string
@@ -24,6 +28,11 @@ class volumeInfo extends Model
     public $localDirectory;
 
     /**
+     * @description The type of cluster. Valid values:
+     *
+     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   PublicCloud: The cluster is deployed on a public cloud.
+     *
      * @example PublicCloud
      *
      * @var string
@@ -31,6 +40,8 @@ class volumeInfo extends Model
     public $location;
 
     /**
+     * @description Indicates whether the resource can be unmounted.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +49,8 @@ class volumeInfo extends Model
     public $mustKeep;
 
     /**
+     * @description The remote mount directory.
+     *
      * @example /test
      *
      * @var string
@@ -45,11 +58,15 @@ class volumeInfo extends Model
     public $remoteDirectory;
 
     /**
+     * @description The array of the node on which the file system is mounted.
+     *
      * @var roles
      */
     public $roles;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example 0e754****
      *
      * @var string
@@ -57,6 +74,8 @@ class volumeInfo extends Model
     public $volumeId;
 
     /**
+     * @description The address of the mount target.
+     *
      * @example 0e754****-kal90.cn-hangzhou.nas.aliyuncs.com<
      *
      * @var string
@@ -64,6 +83,11 @@ class volumeInfo extends Model
     public $volumeMountpoint;
 
     /**
+     * @description The storage protocol type of the file system. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
      * @example NFS
      *
      * @var string
@@ -71,6 +95,10 @@ class volumeInfo extends Model
     public $volumeProtocol;
 
     /**
+     * @description The type of the file system. Valid values:
+     *
+     *   NAS
+     *
      * @example NAS
      *
      * @var string

@@ -9,26 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListNodesByQueueRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the queue.
+     *
+     * @example workq
+     *
      * @var string
      */
     public $queueName;

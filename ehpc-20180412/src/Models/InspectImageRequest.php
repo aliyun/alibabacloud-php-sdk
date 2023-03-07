@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class InspectImageRequest extends Model
 {
     /**
+     * @description The ID of the E-HPC cluster where the image whose Inspect information you want to view resides.
+     *
+     * @example ehpc-hz-ibug699***
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The container type of the image. Set the value to singularity.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @description The name of the image whose Inspect information you want to view.
+     *
+     * @example test.sif
+     *
      * @var string
      */
     public $imageName;

@@ -16,6 +16,12 @@ class queues extends Model
     public $dataDisks;
 
     /**
+     * @description Specifies whether the queue enables auto scale-out. Valid values:
+     *
+     *   true: enables auto scale-out.
+     *   false: disables auto scale-out
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -23,6 +29,12 @@ class queues extends Model
     public $enableAutoGrow;
 
     /**
+     * @description Specifies whether the queue enables auto scale-in. Valid values:
+     *
+     *   true: enables auto scale-in.
+     *   false: disables auto scale-in
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -30,6 +42,9 @@ class queues extends Model
     public $enableAutoShrink;
 
     /**
+     * @description The hostname prefix of the host that is used to perform scale-out for the queue. You can manage compute nodes that have a specified hostname prefix.
+     *
+     * Valid values of N: 1 to 8
      * @example compute
      *
      * @var string
@@ -37,6 +52,9 @@ class queues extends Model
     public $hostNamePrefix;
 
     /**
+     * @description The hostname suffix of the host that is used to perform scale-out for the queue. You can manage nodes that have a specified hostname suffix.
+     *
+     * Valid values of N: 1 to 8
      * @example 000
      *
      * @var string
@@ -44,6 +62,8 @@ class queues extends Model
     public $hostNameSuffix;
 
     /**
+     * @description The instance type of the compute nodes that are automatically added in the queue. Valid values of N: 1 to 8
+     *
      * @example ecs.n1.medium
      *
      * @var string
@@ -56,6 +76,9 @@ class queues extends Model
     public $instanceTypes;
 
     /**
+     * @description The maximum number of the compute nodes that can be added in the queue. Valid values: 0 to 500.
+     *
+     * Default value: 100
      * @example 30
      *
      * @var int
@@ -63,6 +86,9 @@ class queues extends Model
     public $maxNodesInQueue;
 
     /**
+     * @description The maximum number of compute nodes that can be added in each round of scale-out. Valid values: 0 to 99.
+     *
+     * Default value: 0
      * @example 20
      *
      * @var int
@@ -70,6 +96,9 @@ class queues extends Model
     public $maxNodesPerCycle;
 
     /**
+     * @description The minimum number of the compute nodes that can be removed in the queue. Valid values: 0 to 50.
+     *
+     * Default value: 0
      * @example 0
      *
      * @var int
@@ -77,6 +106,9 @@ class queues extends Model
     public $minNodesInQueue;
 
     /**
+     * @description The minimum number of compute nodes that can be added in each round of scale-out. Valid values: 1 to 99.
+     *
+     * >  The configuration takes effect only for the minimum compute nodes that can be added in the current round.
      * @example 5
      *
      * @var int
@@ -84,6 +116,13 @@ class queues extends Model
     public $minNodesPerCycle;
 
     /**
+     * @description The image ID of the queue where scale-out is performed. Valid values of N: 1 to 8.
+     *
+     * >
+     *   If you set both `Queues.N.QueueImageId` and `ImageId`, `Queues.N.QueueImageId` prevails.
+     *   If you set `Queues.N.QueueImageId` or `ImageId`, the parameter that you set takes effect.
+     *   If you leave both `Queues.N.QueueImageId` and `ImageId` empty, the image that was specified when you created the cluster or the last time when you scaled out the cluster is used by default.
+     *
      * @example centos_7_03_64_20G_alibase_201708****
      *
      * @var string
@@ -91,6 +130,8 @@ class queues extends Model
     public $queueImageId;
 
     /**
+     * @description The name of the queue. N queue names can be set at the same time. Valid values of N: 1 to 8.
+     *
      * @example cluster1
      *
      * @var string
@@ -98,6 +139,9 @@ class queues extends Model
     public $queueName;
 
     /**
+     * @description The maximum hourly price of the compute nodes that are automatically added in the queue. The value can be accurate to three decimal places. The parameter takes effect only when `Queues.N.SpotStrategy` is set to `SpotWithPriceLimit`.
+     *
+     * Valid values of N: 1 to 8
      * @example 0.662
      *
      * @var float
@@ -105,6 +149,15 @@ class queues extends Model
     public $spotPriceLimit;
 
     /**
+     * @description The bidding method of the compute nodes that are automatically added in the queue. Valid values of N: 1 to 8
+     *
+     * Valid values:
+     *
+     *   NoSpot: The compute nodes are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     *
+     * Default value: NoSpot
      * @example NoSpot
      *
      * @var string
@@ -112,6 +165,14 @@ class queues extends Model
     public $spotStrategy;
 
     /**
+     * @description The type of the system disk specified for the compute nodes that are added in the queue. Valid values:
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: SSD.
+     *   cloud_essd: ESSD.
+     *   cloud: basic disk. Disks of this type are retired.
+     *
+     * Default value: cloud_efficiency
      * @example cloud_efficiency
      *
      * @var string
@@ -119,6 +180,14 @@ class queues extends Model
     public $systemDiskCategory;
 
     /**
+     * @description The performance level of the system disk specified for the compute nodes that are added in the queue. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * Default value: PL1
      * @example PL1
      *
      * @var string
@@ -126,6 +195,9 @@ class queues extends Model
     public $systemDiskLevel;
 
     /**
+     * @description The size of the system disk specified for the compute nodes that are added in the queue. Unit: GB.
+     *
+     * Default value: 40
      * @example 40
      *
      * @var int

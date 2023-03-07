@@ -9,46 +9,92 @@ use AlibabaCloud\Tea\Model;
 class volumeInfo extends Model
 {
     /**
+     * @description The queue to which the job belongs.
+     *
+     * @example all.q
+     *
      * @var string
      */
     public $jobQueue;
 
     /**
+     * @description The local mount directory.
+     *
+     * @example /testopt
+     *
      * @var string
      */
     public $localDirectory;
 
     /**
+     * @description The location where the cluster was deployed. Valid values:
+     *
+     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   PublicCloud: The cluster is deployed on a public cloud.
+     *
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The remote directory on which the file system is mounted.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $remoteDirectory;
 
     /**
+     * @description The type of the node on which the file system is mounted. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * @example Compute
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example 86y3****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example 86y3****-rgd51.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @description The type of the storage protocol. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @description The type of the additional file system. Only NAS is supported.
+     *
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;

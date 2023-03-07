@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The new permission group of the user. Valid values:
+     *
+     *   users: an ordinary permission group. It is applicable to ordinary users that need only to submit and debug jobs.
+     *   wheel: a sudo permission group. It is applicable to the administrator who needs to manage the cluster. In addition to submitting and debugging jobs, users who have sudo permissions can run sudo commands to install software and restart nodes.
+     *
      * @example users
      *
      * @var string
@@ -16,6 +21,9 @@ class user extends Model
     public $group;
 
     /**
+     * @description The name of the user whose permissions you want to modify. Valid values of N: 1 to 100.
+     *
+     * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
      * @example user11
      *
      * @var string

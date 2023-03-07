@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListJobTemplatesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of job templates.
+     *
      * @var templates
      */
     public $templates;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

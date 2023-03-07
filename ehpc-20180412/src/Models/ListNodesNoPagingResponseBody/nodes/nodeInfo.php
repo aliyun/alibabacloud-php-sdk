@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The name of the node.
+     *
+     * @example compute0
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example i-bp13p7vlcb1uihfv****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_7_02_64_20G_alibase_20170818****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The instance type of the node.
+     *
+     * @example ecs.n1.tiny
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   uninit: The node is being installed.
+     *   exception: An exception has occurred on the node.
+     *   running: The node is running.
+     *   initing: The node is being initialized.
+     *   releasing: The node is being released.
+     *   untracking: The node is not added to the cluster.
+     *   stopped: The node is stopped.
+     *
+     * @example untracking
+     *
      * @var string
      */
     public $status;

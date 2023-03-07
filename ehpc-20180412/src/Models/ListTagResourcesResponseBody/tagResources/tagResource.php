@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the resource. Set the value to the ID of the cluster.
+     *
+     * @example ehpc-hz-xxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $tagValue;

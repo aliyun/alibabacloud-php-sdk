@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCloudMetricLogsResponseBody extends Model
 {
     /**
+     * @description The list of the performance data.
+     *
      * @var metricLogs
      */
     public $metricLogs;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 015C2C4D-1884-4EB7-BCD3-C5BB8D7E56DB
      *
      * @var string

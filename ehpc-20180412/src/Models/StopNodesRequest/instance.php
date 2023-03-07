@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the Nth node that you want to stop. Valid values of N: 1 to 100
+     *
+     * You can call the [ListNodes](~~87161~~) operation to query the IDs of the compute nodes.
+     * @example i-bp13p7vlcb1uihf****
+     *
      * @var string
      */
     public $id;

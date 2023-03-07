@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListFileSystemWithMountTargetsResponseBody extends Model
 {
     /**
+     * @description The list of file systems.
+     *
      * @var fileSystemList
      */
     public $fileSystemList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25638B77-2F19-5DC5-B578-7790CE92052B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

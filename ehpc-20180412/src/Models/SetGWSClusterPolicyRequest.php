@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SetGWSClusterPolicyRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $asyncMode;
 
     /**
+     * @example readwrite
+     *
      * @var string
      */
     public $clipboard;
 
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example read
+     *
      * @var string
      */
     public $localDrive;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $udpPort;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $usbRedirect;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $watermark;

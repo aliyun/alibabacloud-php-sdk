@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
+     * @description The queue of the nodes to which the additional file system is attached.
+     *
+     * Valid values of N: 1 to 10
      * @example high
      *
      * @var string
@@ -17,6 +20,9 @@ class additionalVolumes extends Model
     public $jobQueue;
 
     /**
+     * @description The local directory on which the additional file system is mounted.
+     *
+     * Valid values of N: 1 to 10
      * @example /ff
      *
      * @var string
@@ -24,6 +30,9 @@ class additionalVolumes extends Model
     public $localDirectory;
 
     /**
+     * @description The type of the E-HPC cluster. Set the value to PublicCloud.
+     *
+     * Valid values of N: 1 to 10
      * @example PublicCloud
      *
      * @var string
@@ -31,6 +40,9 @@ class additionalVolumes extends Model
     public $location;
 
     /**
+     * @description The remote directory on which the additional file system is mounted.
+     *
+     * Valid values of N: 1 to 10
      * @example /test
      *
      * @var string
@@ -43,6 +55,9 @@ class additionalVolumes extends Model
     public $roles;
 
     /**
+     * @description The ID of the additional file system.
+     *
+     * Valid values of N: 1 to 10
      * @example extreme-00b88****
      *
      * @var string
@@ -50,6 +65,9 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
+     * @description The mount options of the additional file system.
+     *
+     * Valid values of N: 1 to 10
      * @example -t nfs -o vers=4.0
      *
      * @var string
@@ -57,6 +75,9 @@ class additionalVolumes extends Model
     public $volumeMountOption;
 
     /**
+     * @description The mount target of the additional file system.
+     *
+     * Valid values of N: 1 to 10
      * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
      *
      * @var string
@@ -64,6 +85,12 @@ class additionalVolumes extends Model
     public $volumeMountpoint;
 
     /**
+     * @description The type of the protocol that is used by the additional file system. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
+     * Default value: NFS
      * @example NFS
      *
      * @var string
@@ -71,6 +98,9 @@ class additionalVolumes extends Model
     public $volumeProtocol;
 
     /**
+     * @description The type of the additional shared storage. Only NAS file systems are supported.
+     *
+     * Valid values of N: 1 to 10
      * @example nas
      *
      * @var string

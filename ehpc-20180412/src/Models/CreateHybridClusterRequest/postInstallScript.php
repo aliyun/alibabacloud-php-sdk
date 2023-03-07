@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class postInstallScript extends Model
 {
     /**
+     * @description The parameters that are used to run the post-installation script. Valid values of N: 1 to 16.
+     *
      * @example bash file.sh
      *
      * @var string
@@ -16,6 +18,8 @@ class postInstallScript extends Model
     public $args;
 
     /**
+     * @description The full path of the post-installation script. Valid values of N: 1 to 16.
+     *
      * @example /opt/job.sh
      *
      * @var string

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListTasksResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 89A1AC0F-4A6C-4F3D-98F9-BEF9A823****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of task information.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of entries of the task.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

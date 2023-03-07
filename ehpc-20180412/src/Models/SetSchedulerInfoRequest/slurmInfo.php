@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class slurmInfo extends Model
 {
     /**
+     * @description The backfill scheduling period. Unit: seconds.
+     *
+     * Default value: 60
+     * @example 60
+     *
      * @var int
      */
     public $backfillInterval;
 
     /**
+     * @description SlurmInfo specifies the number of Slurm schedulers that can be configured in the cluster. Valid values of N: 0 to 100.
+     *
+     * Default value: 60
+     * @example 60
+     *
      * @var int
      */
     public $schedInterval;

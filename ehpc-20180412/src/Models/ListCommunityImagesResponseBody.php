@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListCommunityImagesResponseBody extends Model
 {
     /**
+     * @description The list of community images, including custom images and shared images.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

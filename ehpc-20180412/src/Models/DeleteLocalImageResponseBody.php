@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLocalImageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 896D338C-E4F4-41EC-A154-D605E5DE****
+     *
      * @var string
      */
     public $requestId;

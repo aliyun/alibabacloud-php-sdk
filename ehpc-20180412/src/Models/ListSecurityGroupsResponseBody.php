@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6D9A3378-61CA-4415-BEB0-1168C2A15975
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the security group.
+     *
      * @var securityGroups
      */
     public $securityGroups;
 
     /**
+     * @description The number of security groups.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

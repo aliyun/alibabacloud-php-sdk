@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetCommonImageResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 1DB7684F-4F93-5314-8D3F-F28EE0788E9E
+     *
      * @var string
      */
     public $requestId;

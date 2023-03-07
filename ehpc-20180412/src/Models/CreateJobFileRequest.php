@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateJobFileRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-jeJki6****
      *
      * @var string
@@ -21,6 +26,8 @@ class CreateJobFileRequest extends Model
     public $clusterId;
 
     /**
+     * @description The content of the job file. The content is encoded in Base64.
+     *
      * @example c2xlZXAgMzA=
      *
      * @var string
@@ -28,6 +35,9 @@ class CreateJobFileRequest extends Model
     public $content;
 
     /**
+     * @description The user to which the job belongs.
+     *
+     * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
      * @example testuser1
      *
      * @var string
@@ -35,6 +45,8 @@ class CreateJobFileRequest extends Model
     public $runasUser;
 
     /**
+     * @description The password of the user.
+     *
      * @example !QAZ****
      *
      * @var string
@@ -42,6 +54,8 @@ class CreateJobFileRequest extends Model
     public $runasUserPassword;
 
     /**
+     * @description The name of the job file.
+     *
      * @example lammps.pbs
      *
      * @var string

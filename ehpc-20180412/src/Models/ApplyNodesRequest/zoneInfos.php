@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class zoneInfos extends Model
 {
     /**
+     * @description The ID of the vSwitch. Valid values of N: 1 to 10.
+     *
+     * @example vsw-bp1e47optm9g58zcu****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the zone to which the cluster belongs. Valid values of N: 1 to 10.
+     *
+     * >  Each zone ID must be unique.
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

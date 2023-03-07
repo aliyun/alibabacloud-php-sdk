@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class profilingInfo extends Model
 {
     /**
+     * @description The duration of the profiling process. Unit: seconds
+     *
+     * Valid values: 10 to 300
      * @example 30
      *
      * @var int
@@ -16,6 +19,9 @@ class profilingInfo extends Model
     public $duration;
 
     /**
+     * @description The frequency of the profiling process. Unit: Hz
+     *
+     * Valid values: 1 to 2000
      * @example 2000
      *
      * @var int
@@ -23,6 +29,8 @@ class profilingInfo extends Model
     public $freq;
 
     /**
+     * @description The name of the host.
+     *
      * @example compute5
      *
      * @var string
@@ -30,6 +38,8 @@ class profilingInfo extends Model
     public $hostName;
 
     /**
+     * @description The ID of the node.
+     *
      * @example i-bp1j76z8dlukzqgl0****
      *
      * @var string
@@ -37,6 +47,8 @@ class profilingInfo extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the profiling process.
+     *
      * @example 21687
      *
      * @var int
@@ -44,6 +56,8 @@ class profilingInfo extends Model
     public $pid;
 
     /**
+     * @description The ID of the profiling process.
+     *
      * @example ehpc-hz-i-bplukzqgl****_21687_2019-09-09-02-37-40
      *
      * @var string
@@ -51,6 +65,8 @@ class profilingInfo extends Model
     public $profilingId;
 
     /**
+     * @description The time when the profiling process is triggered.
+     *
      * @example 2019-09-09 02:37:40
      *
      * @var string

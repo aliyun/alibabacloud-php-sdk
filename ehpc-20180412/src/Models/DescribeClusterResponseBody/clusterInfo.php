@@ -13,101 +13,194 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description The service type of the domain account. Valid values:
+     *
+     *   nis
+     *   ldap
+     *
+     * @example nis
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The array of the software in the cluster. The array contains the name and version of the software.
+     *
      * @var applications
      */
     public $applications;
 
     /**
+     * @description The image of the cluster.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $baseOsTag;
 
     /**
+     * @description The version of the E-HPC client.
+     *
+     * @example 1.0.1
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2020-12-24T03:18:23.000Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The mode in which the cluster is deployed. Valid values:
+     *
+     *   Standard: An account node, a scheduling node, a logon node, and multiple compute nodes are separately deployed.
+     *   Advanced: Two high availability (HA) account nodes, two HA scheduler nodes, one logon node, and multiple compute nodes are separately deployed.
+     *   Simple: A management node, a logon node, and multiple compute nodes are deployed. The management node consists of an account node and a scheduling node. The logon node and compute nodes are separately deployed.
+     *   Tiny: A management node and multiple compute nodes are deployed. The management node consists of an account node, a scheduling node, and a logon node. The compute nodes are separately deployed.
+     *
+     * @example Simple
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description The description of the cluster.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The billing method of the nodes in the cluster. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $ecsChargeType;
 
     /**
+     * @description The list of ECS instance specifications and quantity.
+     *
      * @var ecsInfo
      */
     public $ecsInfo;
 
     /**
+     * @description Indicates whether the high availability feature is enabled.
+     *
+     * >  If high availability is enabled, a primary management node and a secondary management node are used.
+     * @example false
+     *
      * @var bool
      */
     public $haEnable;
 
     /**
+     * @description The ID of the Elastic Compute Service (ECS) instance.
+     *
+     * @example i-bp15de54eet1c43f****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_7_02_64_20G_alibase_20170818****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example test_for_Image
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The name of the AccessKey pair.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The location where the cluster is deployed. Valid values:
+     *
+     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   PublicCloud: The node is deployed on a public cloud.
+     *
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The list of on-premises management nodes.
+     *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var onPremiseInfo
      */
     public $onPremiseInfo;
 
     /**
+     * @description The image tag of the operating system.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $osTag;
 
     /**
+     * @description The list of scripts downloaded after the cluster was created.
+     *
      * @var postInstallScripts
      */
     public $postInstallScripts;
@@ -123,61 +216,124 @@ class clusterInfo extends Model
     public $ramRoleName;
 
     /**
+     * @description The region ID of the security group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The remote directory on which the file system is mounted.
+     *
+     * @example NasMountpoint:/RemoteDirectory
+     *
      * @var string
      */
     public $remoteDirectory;
 
     /**
+     * @description The ID of the Super Computing Cluster (SCC) instance. If the cluster is not an SCC instance, a null string is returned.
+     *
+     * @example 00b648b****
+     *
      * @var string
      */
     public $sccClusterId;
 
     /**
+     * @description The type of the scheduler. Valid values:
+     *
+     *   pbs
+     *   slurm
+     *   opengridscheduler
+     *   deadline
+     *
+     * @example pbs
+     *
      * @var string
      */
     public $schedulerType;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp1asugr34gzn****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   uninit: The cluster is not initialized.
+     *   creating: The cluster is being created.
+     *   init: The cluster is being initialized.
+     *   running: The cluster is running.
+     *   exception: The cluster encounters an exception.
+     *   releasing: The cluster is being released.
+     *
+     * @example creating
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the vSwitch. E-HPC can be deployed only in VPCs.
+     *
+     * @example vsw-bp1e47optm9g58zcu****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the Apsara File Storage NAS file system. NAS file systems cannot be automatically created.
+     *
+     * @example 008b64****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @description The mount target of the file system. Mount targets cannot be automatically created for NAS file systems.
+     *
+     * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @description The type of the protocol that is used by the file system. Valid values:
+     *
+     *   nfs
+     *   smb
+     *
+     * @example nfs
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @description The type of the network shared storage. Valid value: NAS.
+     *
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1pxkcvmmz53ki89****
+     *
      * @var string
      */
     public $vpcId;

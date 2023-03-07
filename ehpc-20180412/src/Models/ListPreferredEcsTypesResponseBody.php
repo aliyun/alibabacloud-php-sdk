@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListPreferredEcsTypesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of recommended ECS instances. Each SeriesInfo element contains the recommended ECS instance types for various nodes of the E-HPC cluster.
+     *
      * @var series
      */
     public $series;
 
     /**
+     * @description Indicates whether spot instances are supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportSpotInstance;

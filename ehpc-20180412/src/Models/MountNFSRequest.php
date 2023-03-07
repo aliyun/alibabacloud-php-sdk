@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class MountNFSRequest extends Model
 {
     /**
+     * @example i-bp1bzqq4rremun****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Z:
+     *
      * @var string
      */
     public $mountDir;
 
     /**
+     * @example \\0de-jup****.cn-hangzhou.nas.aliyuncs.com\
+     *
      * @var string
      */
     public $nfsDir;
 
     /**
+     * @example nfs
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example /test
+     *
      * @var string
      */
     public $remoteDir;

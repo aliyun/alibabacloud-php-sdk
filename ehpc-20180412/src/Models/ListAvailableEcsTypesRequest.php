@@ -9,21 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableEcsTypesRequest extends Model
 {
     /**
+     * @description The billing method of the ECS instances. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description Specifies whether the ECS instances are sold out. Valid values:
+     *
+     *   false: available
+     *   true: sold out
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $showSoldOut;
 
     /**
+     * @description The preemption policy of the ECS instances. Valid values:
+     *
+     *   NoSpot: The ECS instances are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The ECS instances are preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The ECS instances are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

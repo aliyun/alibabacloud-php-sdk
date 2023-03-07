@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerAppRequest extends Model
 {
     /**
+     * @description The ID of the containerized application.
+     *
+     * You can call the [ListContainerApps](~~87333~~) operation to query the ID of the containerized application.
+     * @example ehpc-container-ABDUGSkjs****
+     *
      * @var string
      */
     public $containerId;

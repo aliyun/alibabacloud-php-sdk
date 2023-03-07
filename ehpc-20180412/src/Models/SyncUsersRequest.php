@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SyncUsersRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the list of E-HPC clusters.
      * @example ehpc-hz-gh5WKb****
      *
      * @var string
@@ -16,6 +19,9 @@ class SyncUsersRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the region where the cluster resides.
+     *
+     * You can call the [ListRegions](~~188593~~) operation to query the list of regions where E-HPC is available.
      * @example cn-hangzhou
      *
      * @var string

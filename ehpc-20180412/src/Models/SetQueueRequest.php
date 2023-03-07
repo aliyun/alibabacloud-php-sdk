@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SetQueueRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,6 +25,11 @@ class SetQueueRequest extends Model
     public $node;
 
     /**
+     * @description The name of the destination queue.
+     *
+     * You can call the [ListQueues](~~92176~~) operation to query the queue name.
+     * @example work
+     *
      * @var string
      */
     public $queueName;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the job.
+     *
+     * You can call the [ListJobs](~~87251~~) operation to query the job ID.
+     * @example 1.scheduler****
+     *
      * @var string
      */
     public $jobId;

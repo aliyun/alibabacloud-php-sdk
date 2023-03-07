@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterVolumesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F6757FA4-8FED-4602-B7F5-3550C0842122
+     *
      * @var string
      */
     public $requestId;

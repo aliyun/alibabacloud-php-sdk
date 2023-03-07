@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class servicePackInfo extends Model
 {
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @example 1612705988
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example EHPCBAG-cn-78v12vbme0****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 1610027588
+     *
      * @var int
      */
     public $startTime;

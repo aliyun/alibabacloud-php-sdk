@@ -10,46 +10,83 @@ use AlibabaCloud\Tea\Model;
 class volumeInfo extends Model
 {
     /**
+     * @description The information of additional file systems mounted on E-HPC clusters.
+     *
      * @var additionalVolumes
      */
     public $additionalVolumes;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example cluster1
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The remote directory on which the file system is mounted.
+     *
+     * @example /test1
+     *
      * @var string
      */
     public $remoteDirectory;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example bc8a****
+     *
      * @var string
      */
     public $volumeId;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example bc8a****-rgd51.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $volumeMountpoint;
 
     /**
+     * @description The type of the storage protocol. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
+     * @example NFS
+     *
      * @var string
      */
     public $volumeProtocol;
 
     /**
+     * @description The type of the file system that is mounted on the cluster. Only NAS is supported.
+     *
+     * @example NAS
+     *
      * @var string
      */
     public $volumeType;

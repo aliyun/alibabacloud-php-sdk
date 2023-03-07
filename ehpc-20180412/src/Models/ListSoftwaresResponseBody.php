@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSoftwaresResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of the information about the software installed in the cluster.
+     *
      * @var softwares
      */
     public $softwares;

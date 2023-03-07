@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class RunCloudMetricProfilingRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The duration of the profiling process. Unit: seconds.
+     *
+     * Default value: 30
+     * @example 300
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The sampling frequency. Unit: Hz
+     *
+     * Default value: 2000
+     * @example 2000
+     *
      * @var int
      */
     public $freq;
 
     /**
+     * @description The name of the host.
+     *
+     * @example compute0
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the profiling process.
+     *
+     * @example 29075
+     *
      * @var int
      */
     public $processId;
 
     /**
+     * @description The ID of the region where the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class PullImageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 29d3d9Ee-8eCB-5013-A1c2-1CeD19C6CfFe
+     *
      * @var string
      */
     public $requestId;

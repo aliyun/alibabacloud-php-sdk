@@ -25,6 +25,8 @@ class CreateHybridClusterRequest extends Model
     public $application;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -32,6 +34,8 @@ class CreateHybridClusterRequest extends Model
     public $clientToken;
 
     /**
+     * @description The version of the client. By default, the latest version is used.
+     *
      * @example 1.0.64
      *
      * @var string
@@ -39,6 +43,8 @@ class CreateHybridClusterRequest extends Model
     public $clientVersion;
 
     /**
+     * @description The maximum hourly price for the ECS instance under the compute node. A maximum of three decimal places can be used in the value of the parameter. The parameter is valid only when the ComputeSpotStrategy parameter is set to SpotWithPriceLimit.
+     *
      * @example 0.034
      *
      * @var float
@@ -46,6 +52,13 @@ class CreateHybridClusterRequest extends Model
     public $computeSpotPriceLimit;
 
     /**
+     * @description The preemption policy of the compute nodes. Valid values:
+     *
+     *   NoSpot: The compute nodes are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances of the compute node are preemptible instances. These types of instances have a specified maximum hourly price.
+     *   SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
+     *
+     * Default value: NoSpot
      * @example NoSpot
      *
      * @var string
@@ -53,6 +66,9 @@ class CreateHybridClusterRequest extends Model
     public $computeSpotStrategy;
 
     /**
+     * @description The description of the cluster. The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
+     *
+     * Default value: null
      * @example TestDescription
      *
      * @var string
@@ -60,6 +76,12 @@ class CreateHybridClusterRequest extends Model
     public $description;
 
     /**
+     * @description The type of the domain account service. Valid values:
+     *
+     *   nis
+     *   ldap
+     *
+     * Default value: nis
      * @example nis
      *
      * @var string
@@ -67,6 +89,8 @@ class CreateHybridClusterRequest extends Model
     public $domain;
 
     /**
+     * @description The version of E-HPC. By default, the latest version is used.
+     *
      * @example 1.0.0
      *
      * @var string
@@ -74,6 +98,8 @@ class CreateHybridClusterRequest extends Model
     public $ehpcVersion;
 
     /**
+     * @description The ID of the image.
+     *
      * @example wi_1607_x64_dtc_zh_40G_alibase****
      *
      * @var string
@@ -81,6 +107,13 @@ class CreateHybridClusterRequest extends Model
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
      * @example system
      *
      * @var string
@@ -88,6 +121,8 @@ class CreateHybridClusterRequest extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The default queue of the scale-out nodes.
+     *
      * @example workq
      *
      * @var string
@@ -95,6 +130,9 @@ class CreateHybridClusterRequest extends Model
     public $jobQueue;
 
     /**
+     * @description The name of the AccessKey pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * >  For more information, see [Create an SSH key pair](~~51793~~).
      * @example test
      *
      * @var string
@@ -102,6 +140,8 @@ class CreateHybridClusterRequest extends Model
     public $keyPairName;
 
     /**
+     * @description The location where the cluster resides. Set the value to OnPremise.
+     *
      * @example OnPremise
      *
      * @var string
@@ -109,6 +149,12 @@ class CreateHybridClusterRequest extends Model
     public $location;
 
     /**
+     * @description Specifies whether the cluster supports multiple operating systems. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -116,6 +162,8 @@ class CreateHybridClusterRequest extends Model
     public $multiOs;
 
     /**
+     * @description The name of the cluster. The name must be 2 to 64 characters in length, and can contain only letters, digits, hyphens (-), and underscores (\_). It must start with a letter.
+     *
      * @example hybridcluster
      *
      * @var string
@@ -128,6 +176,8 @@ class CreateHybridClusterRequest extends Model
     public $nodes;
 
     /**
+     * @description The path in which the on-premises file system is mounted on the nodes on the cloud.
+     *
      * @example /OnCloudDirectory
      *
      * @var string
@@ -135,6 +185,8 @@ class CreateHybridClusterRequest extends Model
     public $onPremiseVolumeLocalPath;
 
     /**
+     * @description The mount target of the on-premises file system.
+     *
      * @example RemoteNasDomain.com
      *
      * @var string
@@ -142,6 +194,8 @@ class CreateHybridClusterRequest extends Model
     public $onPremiseVolumeMountPoint;
 
     /**
+     * @description The type of the protocol that is used by the on-premises file system. Only NFS is supported.
+     *
      * @example NFS
      *
      * @var string
@@ -149,6 +203,8 @@ class CreateHybridClusterRequest extends Model
     public $onPremiseVolumeProtocol;
 
     /**
+     * @description The mount path of the on-premises file system.
+     *
      * @example /RemoteDirectory
      *
      * @var string
@@ -161,6 +217,8 @@ class CreateHybridClusterRequest extends Model
     public $openldapPar;
 
     /**
+     * @description The image tag of the operating system. You can call the [ListImages](~~87213~~) operation to query the image tag.
+     *
      * @example CentOS_7.2_64
      *
      * @var string
@@ -168,6 +226,11 @@ class CreateHybridClusterRequest extends Model
     public $osTag;
 
     /**
+     * @description The root password of the logon node. The password must be 8 to 30 characters in length and contain at least three of the following items: uppercase letters, lowercase letters, digits, and special characters. The password can contain the following special characters:
+     *
+     * `() ~ ! @ # $ % ^ & * - = + | { } [ ] : ; ‘ < > , . ? /`
+     *
+     * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
      * @example 123****
      *
      * @var string
@@ -175,6 +238,8 @@ class CreateHybridClusterRequest extends Model
     public $password;
 
     /**
+     * @example {"pluginMod": "oss","pluginLocalPath": "/opt/plugin","pluginOssPath": "https://bucket.oss-cn-hangzhou.aliyuncs.com/plugin/plugin.tgz"}
+     *
      * @var string
      */
     public $plugin;
@@ -185,6 +250,8 @@ class CreateHybridClusterRequest extends Model
     public $postInstallScript;
 
     /**
+     * @description The remote directory to which the file system is mounted.
+     *
      * @example /RemoteDirectory
      *
      * @var string
@@ -192,6 +259,8 @@ class CreateHybridClusterRequest extends Model
     public $remoteDirectory;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -199,6 +268,11 @@ class CreateHybridClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Specifies whether the scheduler is preinstalled for the image. Valid values:
+     *
+     *   true: The scheduler is preinstalled. When you create or add a node, you do not need to install the scheduler.
+     *   false: The scheduler is not preinstalled. When you create or add a cluster, you must install the scheduler.
+     *
      * @example true
      *
      * @var bool
@@ -206,6 +280,9 @@ class CreateHybridClusterRequest extends Model
     public $schedulerPreInstall;
 
     /**
+     * @description You can select an existing security group.
+     *
+     * >  If you specify this parameter, you cannot specify the `SecurityGroupName` parameter at the same time.
      * @example sg-bp13n61xsydodfyg****
      *
      * @var string
@@ -213,6 +290,9 @@ class CreateHybridClusterRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description If you do not use an existing security group, set the parameter to the name of a new security group. A default policy is applied to the new security group.
+     *
+     * >  If you specify this parameter, you cannot specify the `SecurityGroupId` parameter at the same time.
      * @example ehpc-SecurityGroup
      *
      * @var string
@@ -220,6 +300,8 @@ class CreateHybridClusterRequest extends Model
     public $securityGroupName;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string
@@ -227,6 +309,8 @@ class CreateHybridClusterRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the file system. NAS file systems cannot be automatically created.
+     *
      * @example 008b64****
      *
      * @var string
@@ -234,6 +318,8 @@ class CreateHybridClusterRequest extends Model
     public $volumeId;
 
     /**
+     * @description The mount target of the file system. Mount targets cannot be automatically created for NAS file systems.
+     *
      * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -241,6 +327,8 @@ class CreateHybridClusterRequest extends Model
     public $volumeMountpoint;
 
     /**
+     * @description The type of the protocol that is used by the file system. Only NFS is supported.
+     *
      * @example NFS
      *
      * @var string
@@ -248,6 +336,8 @@ class CreateHybridClusterRequest extends Model
     public $volumeProtocol;
 
     /**
+     * @description The type of the file system. Only NAS file systems are supported.
+     *
      * @example NAS
      *
      * @var string
@@ -255,6 +345,8 @@ class CreateHybridClusterRequest extends Model
     public $volumeType;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the cluster belongs.
+     *
      * @example vpc-b3f3edefefeep0760yju****
      *
      * @var string
@@ -267,6 +359,8 @@ class CreateHybridClusterRequest extends Model
     public $winAdPar;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

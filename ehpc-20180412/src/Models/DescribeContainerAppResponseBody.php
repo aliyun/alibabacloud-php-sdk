@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerAppResponseBody extends Model
 {
     /**
+     * @description The information of the containerized application.
+     *
      * @var containerAppInfo
      */
     public $containerAppInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;

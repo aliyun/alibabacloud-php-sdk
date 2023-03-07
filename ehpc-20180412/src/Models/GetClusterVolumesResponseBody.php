@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterVolumesResponseBody extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -17,6 +19,8 @@ class GetClusterVolumesResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8BCFD52E-0336-4490-AE7D-F560F106****
      *
      * @var string
@@ -24,6 +28,8 @@ class GetClusterVolumesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The array of the file system mounted to the E-HPC cluster.
+     *
      * @var volumes
      */
     public $volumes;

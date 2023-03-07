@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class compute extends Model
 {
     /**
+     * @description The number of the compute nodes. Valid values: 1 to 99.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class compute extends Model
     public $count;
 
     /**
+     * @description The instance type of the compute nodes.
+     *
+     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
      * @example ecs.n1.tiny
      *
      * @var string

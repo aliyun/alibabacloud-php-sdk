@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class packages extends Model
 {
     /**
+     * @description The ID of the storage plan.
+     *
+     * @example naspackage-0be9c4b624-37****
+     *
      * @var string
      */
     public $packageId;

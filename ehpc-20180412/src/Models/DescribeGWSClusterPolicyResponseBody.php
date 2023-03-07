@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClusterPolicyResponseBody extends Model
 {
     /**
+     * @example read
+     *
      * @var string
      */
     public $clipboard;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $localDrive;
 
     /**
+     * @example 7afc5a17-e60d-4a2a-85d6-7c9d4a81d65e
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $usbRedirect;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $watermark;

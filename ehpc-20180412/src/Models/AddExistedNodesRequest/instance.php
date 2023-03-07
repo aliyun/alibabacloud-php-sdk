@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The Nth node ID. N starts from 1. Valid values: 1 to 100.
+     *
      * @example i-bp16mxn6mt3t7ftk****
      *
      * @var string

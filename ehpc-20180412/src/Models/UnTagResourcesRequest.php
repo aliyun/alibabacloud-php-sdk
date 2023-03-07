@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class UnTagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the resource. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The ID of the region to which the resource belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -24,6 +36,10 @@ class UnTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

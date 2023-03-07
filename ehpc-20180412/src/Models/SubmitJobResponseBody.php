@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitJobResponseBody extends Model
 {
     /**
+     * @description The ID of the job.
+     *
+     * @example 1.manager
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;

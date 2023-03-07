@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListJobTemplatesRequest extends Model
 {
     /**
+     * @description The name of the job template.
+     *
+     * You can call the [ListJobTemplates](~~87248~~) operation to obtain the job template name.
+     * @example jobtemplateName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return. Page numbers start from 1.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

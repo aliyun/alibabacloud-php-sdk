@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeEstackImageResponseBody extends Model
 {
     /**
+     * @description The array of base images.
+     *
      * @var imageList
      */
     public $imageList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2D69A58F-345C-4FDE-88E4-BF518948xxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of images.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

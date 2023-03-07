@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListClusterLogsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100
+     *
+     * Default: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

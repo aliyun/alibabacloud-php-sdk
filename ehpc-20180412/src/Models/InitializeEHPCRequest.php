@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InitializeEHPCRequest extends Model
 {
     /**
+     * @description The ID of the region where the service-linked role is created.
+     *
+     * You can call the [ListRegions](~~188593~~) operation to obtain the IDs of regions supported by E-HPC.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

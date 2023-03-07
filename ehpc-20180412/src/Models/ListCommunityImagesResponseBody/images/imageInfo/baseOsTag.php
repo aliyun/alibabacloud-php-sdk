@@ -9,21 +9,53 @@ use AlibabaCloud\Tea\Model;
 class baseOsTag extends Model
 {
     /**
+     * @description The architecture of the operating system. Valid values:
+     *
+     *   i386
+     *   x86\_64
+     *
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The tag of the OS image.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $osTag;
 
     /**
+     * @description The distribution of the operating system. Valid values:
+     *
+     *   CentOS
+     *   Ubuntu
+     *   SUSE
+     *   OpenSUSE
+     *   Debian
+     *   CoreOS
+     *   Aliyun
+     *   Windows Server 2003
+     *   Windows Server 2008
+     *   Windows Server 2012
+     *   Others Linux
+     *   Customized Linux
+     *
+     * @example CentOS
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The version of the operating system.
+     *
+     * @example 7.2
+     *
      * @var string
      */
     public $version;

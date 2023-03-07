@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description The node type on which the nth additional mounted file system is mounted. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * @example ["Compute"]
+     *
      * @var string
      */
     public $name;

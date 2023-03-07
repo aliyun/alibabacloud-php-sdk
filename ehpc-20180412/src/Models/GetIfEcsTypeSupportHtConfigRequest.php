@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetIfEcsTypeSupportHtConfigRequest extends Model
 {
     /**
+     * @description The instance type of the ECS instance.
+     *
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceType;

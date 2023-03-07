@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class containerApps extends Model
 {
     /**
+     * @description The time when the containerized application was created.
+     *
+     * @example 2018-07-18T17:46:47
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the containerized application.
+     *
+     * @example ExampleDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the containerized application.
+     *
+     * @example ehpc-container-ABDUGSkjs****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The tags of the image.
+     *
+     * @example latest
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The name of the containerized application.
+     *
+     * @example ExampleName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example busybox
+     *
      * @var string
      */
     public $repository;
 
     /**
+     * @description The type of the container. Set the value to singularity.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $type;

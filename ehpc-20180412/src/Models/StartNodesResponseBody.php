@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartNodesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string

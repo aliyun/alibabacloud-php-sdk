@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetAutoScaleConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-13358736C-A1D7-6C044FE7****
      *
      * @var string

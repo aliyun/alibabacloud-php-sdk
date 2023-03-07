@@ -11,66 +11,129 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
+     * @description The tag of the BOS image.
+     *
      * @var baseOsTag
      */
     public $baseOsTag;
 
     /**
+     * @description The description of the image.
+     *
+     * @example ExampleDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-bp181x855551ww5yq****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example linux_CentOS7.2_OceanBase_OBD_1ECS-3OB_3.0
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   self: custom image
+     *   others: shared image
+     *
+     * @example self
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description An array of OS images that are supported by E-HPC.
+     *
      * @var osTag
      */
     public $osTag;
 
     /**
+     * @description The script that is run after the image is installed.
+     *
+     * @example example.sh
+     *
      * @var string
      */
     public $postInstallScript;
 
     /**
+     * @description The billing unit of the image. Valid values:
+     *
+     *   Hour
+     *   Month
+     *   Year
+     *
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @description The Alibaba Cloud Marketplace product code of the image.
+     *
+     * @example cmjj028279
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The size of the image. Unit: GiB.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The stock keeping unit (SKU) of the image. Valid values:
+     *
+     *   ECS: pay-as-you-go
+     *   package: subscription
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $skuCode;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     *   UnAvailable: The image is unavailable.
+     *   Available: The image is available.
+     *   Creating: The image is being created.
+     *   CreateFailed: The image failed to be created.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The owner of the image.
+     *
+     * @example 127****
+     *
      * @var string
      */
     public $uid;

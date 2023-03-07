@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterAttributesRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to modify.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The new cluster description.
+     *
+     * @example test-description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_7_06_64_20G_alibase_2019071****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The new image type of the cluster. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * @example self
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The new cluster name.
+     *
+     * @example cluster1
+     *
      * @var string
      */
     public $name;

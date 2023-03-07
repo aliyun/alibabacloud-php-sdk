@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
+     * @description The currency that is used to measure the price. Valid values:
+     *
+     * USD
      * @example CNY
      *
      * @var string
@@ -16,6 +19,12 @@ class priceInfo extends Model
     public $currency;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
      * @example Compute
      *
      * @var string
@@ -23,6 +32,9 @@ class priceInfo extends Model
     public $nodeType;
 
     /**
+     * @description The original price of the image.
+     *
+     * Unit: USD
      * @example 1258
      *
      * @var float
@@ -30,6 +42,9 @@ class priceInfo extends Model
     public $originalPrice;
 
     /**
+     * @description The final price.
+     *
+     * Unit: USD
      * @example 1258
      *
      * @var float

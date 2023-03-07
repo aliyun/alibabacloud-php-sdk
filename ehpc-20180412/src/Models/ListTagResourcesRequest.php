@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0axxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region to which the resource belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -25,6 +33,10 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

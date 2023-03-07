@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StopVisualServiceResponseBody extends Model
 {
     /**
+     * @description The status of the VNC Remote Service. Valid values:
+     *
+     *   Service started
+     *   Service stopped
+     *
+     * @example Service stopped
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 896D338C-E4F4-41EC-A154-D605E5DE6880
+     *
      * @var string
      */
     public $requestId;

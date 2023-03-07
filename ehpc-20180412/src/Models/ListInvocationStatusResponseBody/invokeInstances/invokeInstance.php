@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class invokeInstance extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example i-uf6abz34m2714bp4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   Finished
+     *   Running
+     *   Failed
+     *   Stopped
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $instanceInvokeStatus;

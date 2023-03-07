@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetCommonImageRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example singularity
+     *
      * @var string
      */
     public $containType;
 
     /**
+     * @example tensorflow-21.09-tf1-py3.sif
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

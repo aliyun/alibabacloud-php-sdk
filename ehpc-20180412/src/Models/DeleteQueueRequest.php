@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteQueueRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the queue that you want to delete.
+     *
+     * You can call the [ListQueues](~~92176~~) operation to query the name of the queue.
+     * @example workq
+     *
      * @var string
      */
     public $queueName;

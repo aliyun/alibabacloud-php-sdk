@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -22,6 +25,9 @@ class DeleteNodesRequest extends Model
     public $instance;
 
     /**
+     * @description Specifies whether to release the instances that are created by using E-HPC.
+     *
+     * Default value: true
      * @example true
      *
      * @var bool
@@ -29,6 +35,11 @@ class DeleteNodesRequest extends Model
     public $releaseInstance;
 
     /**
+     * @description Specifies whether to directly delete the node. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

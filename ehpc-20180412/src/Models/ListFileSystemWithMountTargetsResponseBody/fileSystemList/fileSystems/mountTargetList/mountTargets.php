@@ -9,31 +9,63 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
+     * @description The name of the permission group that applied to the mount target.
+     *
+     * @example DEFAULT_VPC_GROUP_NAME
+     *
      * @var string
      */
     public $accessGroup;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example 088b****-lj2.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @description The network type of the mount target. Valid values:
+     *
+     *   Vpc: virtual private cloud (VPC)
+     *   Classic: the classic network
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The status of the mount target. Valid values:
+     *
+     *   Active: The mount target is available.
+     *   Inactive: The mount target is inactive.
+     *   Pending: The mount target is being created or modified.
+     *   Deleting: The mount target is being deleted.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-8vbvb34rtyh6xb3zrehs1****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-8vb34rtyh6xb3zrehs1****
+     *
      * @var string
      */
     public $vswId;

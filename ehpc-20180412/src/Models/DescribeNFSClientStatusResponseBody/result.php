@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exitCode;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $invokeRecordStatus;
 
     /**
+     * @example TmV3LUlWtmOWc6XxpZW50Rm9yLi4uDQ****
+     *
      * @var string
      */
     public $output;

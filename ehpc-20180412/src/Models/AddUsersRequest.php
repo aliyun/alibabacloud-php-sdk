@@ -15,6 +15,9 @@ class AddUsersRequest extends Model
     public $async;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string

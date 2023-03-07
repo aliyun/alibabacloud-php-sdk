@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description The type of the nodes to which the additional file system is attached.
+     *
+     * Valid values of N in Roles.N.Name: 0 to 8
      * @example ["Compute"]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The tag of the application. Valid values of N: 1 to 5.
+     *
      * @example OpenMPI_11.1
      *
      * @var string

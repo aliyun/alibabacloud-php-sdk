@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the compute node that you want to attach. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+     *
+     * Valid values of N: 1 to 10
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value of the compute node that you want to add. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or contain http:// or https://.
+     *
+     * Valid values of N: 1 to 10
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

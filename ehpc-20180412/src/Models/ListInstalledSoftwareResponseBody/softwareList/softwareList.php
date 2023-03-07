@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class softwareList extends Model
 {
     /**
+     * @description The ID of the software.
+     *
      * @example MPICH_3.2
      *
      * @var string
@@ -16,6 +18,8 @@ class softwareList extends Model
     public $softwareId;
 
     /**
+     * @description The name of the software.
+     *
      * @example mpich
      *
      * @var string
@@ -23,6 +27,11 @@ class softwareList extends Model
     public $softwareName;
 
     /**
+     * @description The status of the software. Valid values:
+     *
+     *   Installing: The software is being installed.
+     *   Installed: The software is installed.
+     *
      * @example Installing
      *
      * @var string
@@ -30,6 +39,8 @@ class softwareList extends Model
     public $softwareStatus;
 
     /**
+     * @description The version of the software.
+     *
      * @example 3.2
      *
      * @var string

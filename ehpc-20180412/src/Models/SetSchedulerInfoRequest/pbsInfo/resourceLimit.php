@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class resourceLimit extends Model
 {
     /**
+     * @description The maximum number of vCPUs that can be used for nodes in a queue.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpus;
 
     /**
+     * @description The maximum number of jobs that can be submitted to the cluster. If the total number of running jobs and queuing jobs exceeds the value, no more jobs can be submitted.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxJobs;
 
     /**
+     * @description The maximum memory resources that can be used in a queue. Units:
+     *
+     *   gb
+     *   mb
+     *   kb
+     *
+     * @example 2gb
+     *
      * @var string
      */
     public $mem;
 
     /**
+     * @description The maximum number of nodes that can be used in a queue.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $nodes;
 
     /**
+     * @description PbsInfo specifies the number of PBS schedulers that can be configured in the cluster. Valid values of N: 0 to 100.
+     *
+     * If one of the User, Cpus, Nodes, and Mem parameters is set in ResourceLimit, you must specify the Queue parameter.
+     * @example workq
+     *
      * @var string
      */
     public $queue;
 
     /**
+     * @description The name of the user that runs jobs.
+     *
+     * @example user1
+     *
      * @var string
      */
     public $user;

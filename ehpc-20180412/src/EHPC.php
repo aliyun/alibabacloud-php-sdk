@@ -309,10 +309,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param AddContainerAppRequest $request
-     * @param RuntimeOptions         $runtime
+     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+     *   *
+     * @param AddContainerAppRequest $request AddContainerAppRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddContainerAppResponse
+     * @return AddContainerAppResponse AddContainerAppResponse
      */
     public function addContainerAppWithOptions($request, $runtime)
     {
@@ -337,9 +339,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param AddContainerAppRequest $request
+     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+     *   *
+     * @param AddContainerAppRequest $request AddContainerAppRequest
      *
-     * @return AddContainerAppResponse
+     * @return AddContainerAppResponse AddContainerAppResponse
      */
     public function addContainerApp($request)
     {
@@ -349,10 +353,14 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param AddExistedNodesRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   The compute nodes to be added are in the Stopped state.
+     *   * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+     *   * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
+     *   *
+     * @param AddExistedNodesRequest $request AddExistedNodesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddExistedNodesResponse
+     * @return AddExistedNodesResponse AddExistedNodesResponse
      */
     public function addExistedNodesWithOptions($request, $runtime)
     {
@@ -377,9 +385,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param AddExistedNodesRequest $request
+     * *   The compute nodes to be added are in the Stopped state.
+     *   * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+     *   * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
+     *   *
+     * @param AddExistedNodesRequest $request AddExistedNodesRequest
      *
-     * @return AddExistedNodesResponse
+     * @return AddExistedNodesResponse AddExistedNodesResponse
      */
     public function addExistedNodes($request)
     {
@@ -589,10 +601,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ApplyNodesRequest $request
-     * @param RuntimeOptions    $runtime
+     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+     *   *
+     * @param ApplyNodesRequest $request ApplyNodesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyNodesResponse
+     * @return ApplyNodesResponse ApplyNodesResponse
      */
     public function applyNodesWithOptions($request, $runtime)
     {
@@ -617,9 +631,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ApplyNodesRequest $request
+     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+     *   *
+     * @param ApplyNodesRequest $request ApplyNodesRequest
      *
-     * @return ApplyNodesResponse
+     * @return ApplyNodesResponse ApplyNodesResponse
      */
     public function applyNodes($request)
     {
@@ -629,10 +645,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+     *   *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -657,9 +675,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+     *   *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -909,10 +929,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+     *   *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -937,9 +959,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+     *   *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -1229,10 +1253,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteNodesRequest $request
-     * @param RuntimeOptions     $runtime
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *   *
+     * @param DeleteNodesRequest $request DeleteNodesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNodesResponse
+     * @return DeleteNodesResponse DeleteNodesResponse
      */
     public function deleteNodesWithOptions($request, $runtime)
     {
@@ -1257,9 +1283,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteNodesRequest $request
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *   *
+     * @param DeleteNodesRequest $request DeleteNodesRequest
      *
-     * @return DeleteNodesResponse
+     * @return DeleteNodesResponse DeleteNodesResponse
      */
     public function deleteNodes($request)
     {
@@ -1349,10 +1377,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+     *   *
+     * @param DeleteUsersRequest $request DeleteUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUsersResponse
+     * @return DeleteUsersResponse DeleteUsersResponse
      */
     public function deleteUsersWithOptions($request, $runtime)
     {
@@ -1377,9 +1407,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteUsersRequest $request
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+     *   *
+     * @param DeleteUsersRequest $request DeleteUsersRequest
      *
-     * @return DeleteUsersResponse
+     * @return DeleteUsersResponse DeleteUsersResponse
      */
     public function deleteUsers($request)
     {
@@ -3883,10 +3915,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
-     * @param RuntimeOptions   $runtime
+     * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
+     *   *
+     * @param ListTasksRequest $request ListTasksRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasksWithOptions($request, $runtime)
     {
@@ -3911,9 +3945,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
+     * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
+     *   *
+     * @param ListTasksRequest $request ListTasksRequest
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -4083,10 +4119,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterAttributesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+     *   *
+     * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterAttributesResponse
+     * @return ModifyClusterAttributesResponse ModifyClusterAttributesResponse
      */
     public function modifyClusterAttributesWithOptions($request, $runtime)
     {
@@ -4111,9 +4149,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterAttributesRequest $request
+     * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+     *   *
+     * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
      *
-     * @return ModifyClusterAttributesResponse
+     * @return ModifyClusterAttributesResponse ModifyClusterAttributesResponse
      */
     public function modifyClusterAttributes($request)
     {
@@ -4436,10 +4476,16 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param RecoverClusterRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
+     *   * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+     *   * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+     *   * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
+     *   * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+     *   *
+     * @param RecoverClusterRequest $request RecoverClusterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecoverClusterResponse
+     * @return RecoverClusterResponse RecoverClusterResponse
      */
     public function recoverClusterWithOptions($request, $runtime)
     {
@@ -4464,9 +4510,15 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param RecoverClusterRequest $request
+     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
+     *   * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+     *   * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+     *   * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
+     *   * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+     *   *
+     * @param RecoverClusterRequest $request RecoverClusterRequest
      *
-     * @return RecoverClusterResponse
+     * @return RecoverClusterResponse RecoverClusterResponse
      */
     public function recoverCluster($request)
     {
@@ -4516,10 +4568,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ResetNodesRequest $request
-     * @param RuntimeOptions    $runtime
+     * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
+     *   *
+     * @param ResetNodesRequest $request ResetNodesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetNodesResponse
+     * @return ResetNodesResponse ResetNodesResponse
      */
     public function resetNodesWithOptions($request, $runtime)
     {
@@ -4544,9 +4598,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ResetNodesRequest $request
+     * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
+     *   *
+     * @param ResetNodesRequest $request ResetNodesRequest
      *
-     * @return ResetNodesResponse
+     * @return ResetNodesResponse ResetNodesResponse
      */
     public function resetNodes($request)
     {
@@ -4596,10 +4652,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SetAutoScaleConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+     *   *
+     * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAutoScaleConfigResponse
+     * @return SetAutoScaleConfigResponse SetAutoScaleConfigResponse
      */
     public function setAutoScaleConfigWithOptions($request, $runtime)
     {
@@ -4624,9 +4682,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SetAutoScaleConfigRequest $request
+     * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+     *   *
+     * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
      *
-     * @return SetAutoScaleConfigResponse
+     * @return SetAutoScaleConfigResponse SetAutoScaleConfigResponse
      */
     public function setAutoScaleConfig($request)
     {
@@ -5057,10 +5117,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param StopClusterRequest $request
-     * @param RuntimeOptions     $runtime
+     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
+     *   *
+     * @param StopClusterRequest $request StopClusterRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopClusterResponse
+     * @return StopClusterResponse StopClusterResponse
      */
     public function stopClusterWithOptions($request, $runtime)
     {
@@ -5085,9 +5147,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param StopClusterRequest $request
+     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
+     *   *
+     * @param StopClusterRequest $request StopClusterRequest
      *
-     * @return StopClusterResponse
+     * @return StopClusterResponse StopClusterResponse
      */
     public function stopCluster($request)
     {
@@ -5257,10 +5321,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+     *   *
+     * @param SubmitJobRequest $request SubmitJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitJobResponse
+     * @return SubmitJobResponse SubmitJobResponse
      */
     public function submitJobWithOptions($request, $runtime)
     {
@@ -5285,9 +5351,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobRequest $request
+     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+     *   *
+     * @param SubmitJobRequest $request SubmitJobRequest
      *
-     * @return SubmitJobResponse
+     * @return SubmitJobResponse SubmitJobResponse
      */
     public function submitJob($request)
     {
@@ -5604,10 +5672,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param UpdateQueueConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     *   *
+     * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQueueConfigResponse
+     * @return UpdateQueueConfigResponse UpdateQueueConfigResponse
      */
     public function updateQueueConfigWithOptions($request, $runtime)
     {
@@ -5632,9 +5702,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param UpdateQueueConfigRequest $request
+     * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     *   *
+     * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
      *
-     * @return UpdateQueueConfigResponse
+     * @return UpdateQueueConfigResponse UpdateQueueConfigResponse
      */
     public function updateQueueConfig($request)
     {

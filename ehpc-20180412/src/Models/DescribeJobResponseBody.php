@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobResponseBody extends Model
 {
     /**
+     * @description The list of returned job information.
+     *
      * @var message
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9697AD8D-56FA-4C8E-B46C-00AC9***
+     *
      * @var string
      */
     public $requestId;

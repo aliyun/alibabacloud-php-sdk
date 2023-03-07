@@ -12,131 +12,265 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The time when the node was added to the cluster.
+     *
+     * @example 2020-06-09T06:22:02.000Z
+     *
      * @var string
      */
     public $addTime;
 
     /**
+     * @description The mode in which the compute nodes are added. Valid values:
+     *
+     *   manual: The compute nodes are manually added.
+     *   autoscale: The compute nodes are automatically added.
+     *
+     * @example manual
+     *
      * @var string
      */
     public $createMode;
 
     /**
+     * @description Indicates whether the node was created by using E-HPC.
+     *
+     *   true: The node is created by using E-HPC.
+     *   false: The node is not created by using E-HPC.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $createdByEhpc;
 
     /**
+     * @description Indicates whether the subscription node expired. For a pay-as-you-go node, false is returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The time when the subscription node expires. For a pay-as-you-go node, a null value is returned.
+     *
+     * @example 2020-06-09T06:22:02.000Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the node.
+     *
+     * @example test-HostName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description Indicates whether hyper-threading is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $htEnabled;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example i-bp15707mys2rsy0j****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_7_06_64_20G_alibase_20190711.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The instance types of the node.
+     *
+     * @example ecs.c5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The location where the node was deployed. Valid values:
+     *
+     *   OnPremise: The node is deployed on your data center.
+     *   PublicCloud: The node is deployed on the public cloud.
+     *
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The reason why the node was locked. Valid values:
+     *
+     *   financial: The node is locked due to overdue payments.
+     *   security: The node is locked for security reasons.
+     *   recycling: The preemptible node is locked and pending release.
+     *   dedicatedhostfinancial: The node is locked due to the overdue payments of the dedicated host.
+     *
+     * By default, an empty string is returned.
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The public IP address of the node.
+     *
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $publicIpAddress;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   Scheduler: primary scheduling node
+     *   SchedulerBackup: secondary scheduling node
+     *   Account: primary domain server node
+     *   AccountBackup: secondary domain server node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * Scheduling nodes and domain server nodes are management nodes.
      * @var roles
      */
     public $roles;
 
     /**
+     * @description The bidding method of the compute nodes.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The status of the node displayed on the scheduler. The status varies with the scheduler.
+     *
+     * @example active
+     *
      * @var string
      */
     public $stateInSched;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   uninit: The node is being installed.
+     *   exception: An exception has occurred on the node.
+     *   running: The node is running.
+     *   initing: The node is being initialized.
+     *   releasing: The node is being released.
+     *   untracking: The node is not added to the cluster.
+     *   stopped: The node is stopped.
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The statistics of the resources used by the node.
+     *
      * @var totalResources
      */
     public $totalResources;
 
     /**
+     * @description The usage of the compute nodes in the cluster. For other types of nodes, an empty value is returned.
+     *
      * @var usedResources
      */
     public $usedResources;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1e47optm9g58zcu****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The version of the client.
+     *
+     * @example 1.0.78
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp1gnu8br4ay7beb2w****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class repo extends Model
 {
     /**
+     * @example http
+     *
      * @var string
      */
     public $auth;
 
     /**
+     * @example registry.docker-cn.com
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example https://registry.docker-cn.com
+     *
      * @var string
      */
     public $URL;

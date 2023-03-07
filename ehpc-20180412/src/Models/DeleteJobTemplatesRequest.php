@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteJobTemplatesRequest extends Model
 {
     /**
+     * @description The list of job templates. A maximum of 20 job templates can be deleted.
+     *
+     * Format: `[{"Id": "0.sched****"},{"Id": "1.sched****"}]`. Separate multiple job templates with commas (,).
+     *
+     * You can call the [ListJobTemplates](~~87248~~) operation to obtain the job template ID.
+     * @example [{"Id":"ehpc-job-tmpl-6RVcMK****"},{"Id": "ehpc-job-tmpl-6RxO5y****"}]
+     *
      * @var string
      */
     public $templates;

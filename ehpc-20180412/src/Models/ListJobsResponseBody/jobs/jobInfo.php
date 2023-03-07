@@ -10,76 +10,139 @@ use AlibabaCloud\Tea\Model;
 class jobInfo extends Model
 {
     /**
+     * @description The job array. If the job is not in a queue, the output is empty.
+     *
+     * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
+     * @example 1-10:2
+     *
      * @var string
      */
     public $arrayRequest;
 
     /**
+     * @description The description of the job.
+     *
+     * @example jobDescription
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 0.manager
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The time when the job was last modified.
+     *
+     * @example 2018-07-18T17:46:48
+     *
      * @var string
      */
     public $lastModifyTime;
 
     /**
+     * @description The name of the job.
+     *
+     * @example job1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The list of compute nodes that were used to run the job.
+     *
+     * @example [\"compute2\", \"compute3\"]
+     *
      * @var string
      */
     public $nodeList;
 
     /**
+     * @description The name of the user that runs the job.
+     *
+     * @example user1
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The resources that were used to run the job.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The path that was used to run the job.
+     *
+     * @example ./Temp
+     *
      * @var string
      */
     public $shellPath;
 
     /**
+     * @description The time when the job started to run.
+     *
+     * @example 2018-07-18T17:46:48
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the job. Valid values: Valid values:
+     *
+     *   FINISHED: The job is completed
+     *   RUNNING: The job is running.
+     *   QUEUED: The job is pending in a queue.
+     *
+     * @example FINISHED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The output file path of stderr.
+     *
+     * @example ./Temp
+     *
      * @var string
      */
     public $stderr;
 
     /**
+     * @description The output file path of stdout.
+     *
+     * @example ./Temp
+     *
      * @var string
      */
     public $stdout;
 
     /**
+     * @description The time when the job was submitted.
+     *
+     * @example 2018-07-18T17:46:47
+     *
      * @var string
      */
     public $submitTime;

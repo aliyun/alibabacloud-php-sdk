@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListClustersMetaResponseBody extends Model
 {
     /**
+     * @description The list of clusters.
+     *
      * @var clusters
      */
     public $clusters;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values: 1 to 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DD517102-B314-4665-BDAC-A32DE7834D02
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

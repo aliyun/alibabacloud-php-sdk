@@ -10,61 +10,110 @@ use AlibabaCloud\Tea\Model;
 class typesInfo extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
+     * @description The maximum number of elastic network interfaces (ENIs) that can be bound to an ECS instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $eniQuantity;
 
     /**
+     * @description The number of GPUs of an ECS instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $GPUAmount;
 
     /**
+     * @description The GPU type of the ECS instance.
+     *
+     * @example NVIDIA V100
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @description The maximum inbound internal bandwidth. Unit: Kbit/s.
+     *
+     * @example 10240000
+     *
      * @var int
      */
     public $instanceBandwidthRx;
 
     /**
+     * @description The maximum outbound internal bandwidth. Unit: Kbit/s.
+     *
+     * @example 10240000
+     *
      * @var int
      */
     public $instanceBandwidthTx;
 
     /**
+     * @description The inbound packet forwarding rate over the internal network. Unit: pps
+     *
+     * @example 9000000
+     *
      * @var int
      */
     public $instancePpsRx;
 
     /**
+     * @description The outbound packet forwarding rate over the internal network. Unit: pps
+     *
+     * @example 9000000
+     *
      * @var int
      */
     public $instancePpsTx;
 
     /**
+     * @description The ID of the ECS instance type.
+     *
+     * @example ecs.n4.xlarge
+     *
      * @var string
      */
     public $instanceTypeId;
 
     /**
+     * @description The memory size of the ECS instance. Unit: GiB
+     *
+     * @example 8
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   SoldOut
+     *   Available
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The list of zone IDs.
+     *
      * @var zoneIds
      */
     public $zoneIds;

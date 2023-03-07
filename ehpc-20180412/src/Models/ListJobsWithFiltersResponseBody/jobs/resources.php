@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The number of CPUs that were used to run the job.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @description The number of nodes that were used to run the job.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nodes;

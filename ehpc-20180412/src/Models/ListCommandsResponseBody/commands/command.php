@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class command extends Model
 {
     /**
+     * @description The content of the command.
+     *
      * @example echo "hello world"
      *
      * @var string
@@ -16,6 +18,8 @@ class command extends Model
     public $commandContent;
 
     /**
+     * @description The ID of the command.
+     *
      * @example c-hz01v8vudql****
      *
      * @var string
@@ -23,6 +27,8 @@ class command extends Model
     public $commandId;
 
     /**
+     * @description The timeout period. Unit: seconds.
+     *
      * @example 60
      *
      * @var string
@@ -30,6 +36,8 @@ class command extends Model
     public $timeout;
 
     /**
+     * @description The working directory of the command.
+     *
      * @example /root
      *
      * @var string

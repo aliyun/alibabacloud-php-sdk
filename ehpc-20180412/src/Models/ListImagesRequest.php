@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
+     * @description The image tag of the operating system. The tag is used only for management nodes.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $baseOsTag;
 
     /**
+     * @description The instance type of the node.
+     *
+     *   If a value is passed to the parameter, the list of images that are supported by the specified instance type is queried.
+     *   If no value is passed to the parameter, the list of images that are supported by all instance types is queried.
+     *
+     * @example ecs.n1.medium
+     *
      * @var string
      */
     public $instanceType;

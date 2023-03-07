@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClustersRequest extends Model
 {
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description The array of cluster prices. If you query the prices of multiple nodes in the cluster, the sequence of the prices in the returned value of PriceInfo is the same as that of the nodes in the request parameters. For example, the first price in the value of PriceInfo is the price of the first node specified in the request parameters.
+     *
      * @var prices
      */
     public $prices;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54FF9025-2C2F-42EB-870D-0DF5B0ACF24E
      *
      * @var string
@@ -22,6 +26,9 @@ class DescribePriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total price.
+     *
+     * Unit: USD
      * @example 1258
      *
      * @var float

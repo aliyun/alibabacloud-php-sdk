@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class usedResources extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The number of GPUs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gpu;
 
     /**
+     * @description The memory capacity. Unit: GB
+     *
+     * @example 0
+     *
      * @var int
      */
     public $memory;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHybridClusterConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +18,9 @@ class GetHybridClusterConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the on-premises compute node. You can call this operation to query the configurations of the on-premises compute node.
+     *
+     * By default, the operation queries the configurations of a cluster.
      * @example testNode
      *
      * @var string

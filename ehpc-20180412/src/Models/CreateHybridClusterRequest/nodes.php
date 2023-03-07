@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The service type of the domain account to which the on-premises node in the cluster belongs. Valid values:
+     *
+     *   nis
+     *   ldap
+     *
+     * Default value: nis
      * @example nis
      *
      * @var string
@@ -16,6 +22,8 @@ class nodes extends Model
     public $accountType;
 
     /**
+     * @description The directory of the on-premises node in the cluster.
+     *
      * @example /opt/sge/default/
      *
      * @var string
@@ -23,6 +31,8 @@ class nodes extends Model
     public $dir;
 
     /**
+     * @description The hostname of the on-premises node in the cluster.
+     *
      * @example test1
      *
      * @var string
@@ -30,6 +40,8 @@ class nodes extends Model
     public $hostName;
 
     /**
+     * @description The IP address of the on-premises node in the cluster.
+     *
      * @example 00b648b****
      *
      * @var string
@@ -37,6 +49,12 @@ class nodes extends Model
     public $ipAddress;
 
     /**
+     * @description The role of the on-premises node in the cluster. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
      * @example Compute
      *
      * @var string
@@ -44,6 +62,14 @@ class nodes extends Model
     public $role;
 
     /**
+     * @description The scheduler type of the on-premises node in the cluster. Valid values:
+     *
+     *   pbs
+     *   slurm
+     *   opengridscheduler
+     *   deadline
+     *
+     * Default value: pbs
      * @example pbs
      *
      * @var string

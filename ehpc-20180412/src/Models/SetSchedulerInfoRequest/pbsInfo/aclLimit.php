@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class aclLimit extends Model
 {
     /**
+     * @description The user that can use the queue. Separate multiple users with commas (`,`).
+     *
+     * If you specify users, you must specify the PbsInfo.N.AclLimit.N.Queue parameter.
+     * @example user1,user2
+     *
      * @var string
      */
     public $aclUsers;
 
     /**
+     * @description AclLimit specifies the queue that has limits when it is used. Valid values of N: 0 to 100.
+     *
+     * If you set `PbsInfo.N.AclLimit.N.Queue` to `workq` and `PbsInfo.N.AclLimit.N.AclUsers` to `user1,user2`, workq can be used only by user1 and user2.
+     * @example workq
+     *
      * @var string
      */
     public $queue;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class AddQueueRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the queue. The name must be 1 to 63 characters in length and start with a letter. It can contain letters, digits, and underscores (\_).
+     *
+     * @example test1
+     *
      * @var string
      */
     public $queueName;

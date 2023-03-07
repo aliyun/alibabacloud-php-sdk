@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetGWSConnectTicketResponseBody extends Model
 {
     /**
+     * @example 5198C3E8-85F5-4280-8547-687C1710FE08
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example W0VuY29kaG9ydFJlY29ubmVjdEVuY****
+     *
      * @var string
      */
     public $ticket;

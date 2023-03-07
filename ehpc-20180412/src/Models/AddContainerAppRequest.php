@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class AddContainerAppRequest extends Model
 {
     /**
+     * @description The type of the container. Set the value to singularity.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @description The description of the container.
+     *
+     * @example descriptionContainer
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The tags of the image.
+     *
+     * Default value: latest
+     * @example latest
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The name of the container. The name must be 2 to 64 characters in length. It must start with a letter and can contain letters, digits, hyphens (-), and underscores (\_).
+     *
+     * @example container1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the repository. The image that has the same name as the repository is pulled.
+     *
+     * For information about image names, visit [Docker Hub official website](https://hub.docker.com/search?q=\&type=image).
+     * @example repo1
+     *
      * @var string
      */
     public $repository;

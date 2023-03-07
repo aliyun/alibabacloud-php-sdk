@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class PullImageRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-nkKsP3****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The type of the image. Default value: shifter.
+     *
+     * @example shifter
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @description The tag of the image. Default value: latest.
+     *
+     * @example latest
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example centos
+     *
      * @var string
      */
     public $repository;

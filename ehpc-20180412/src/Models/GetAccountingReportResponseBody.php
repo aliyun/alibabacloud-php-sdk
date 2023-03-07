@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class GetAccountingReportResponseBody extends Model
 {
     /**
+     * @description The list serialized in the JSON format. The list contains multiple records.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The list serialized in the JSON format. The list contains the column names of each record in the Data.
+     *
+     * @example [\"user\",\"coreTime\",\"usedMem\"]
+     *
      * @var string
      */
     public $metrics;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B1DCB399-9333-4B38-A35A-0BDFABC71881
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of CPU cores in the queried cluster.
+     *
+     * @example 261300
+     *
      * @var int
      */
     public $totalCoreTime;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the compute node that you want to reset. Valid values of N: 1 to 100
+     *
+     * You can call the [ListNodes](~~87161~~) operation to query the IDs of the compute nodes.
+     * @example i-bp13p7vlcb1uihfv****
+     *
      * @var string
      */
     public $id;

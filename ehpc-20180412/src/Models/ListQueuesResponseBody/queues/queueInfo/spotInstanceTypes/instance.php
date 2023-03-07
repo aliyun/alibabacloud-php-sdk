@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The specifications of the ECS instance.
+     *
      * @example ecs.n1.tiny
      *
      * @var string
@@ -16,6 +18,8 @@ class instance extends Model
     public $instanceType;
 
     /**
+     * @description The maximum hourly price of the preemptible instance. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+     *
      * @example 0.062
      *
      * @var float

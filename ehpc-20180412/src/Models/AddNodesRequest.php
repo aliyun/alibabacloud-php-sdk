@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class AddNodesRequest extends Model
 {
     /**
+     * @description Specifies whether to allocate a public IP address to the compute nodes. Valid values:
+     *
+     *   true: A public IP address is allocated to the compute nodes.
+     *   false: A public IP address is not allocated to the compute nodes.
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -17,6 +23,12 @@ class AddNodesRequest extends Model
     public $allocatePublicAddress;
 
     /**
+     * @description Specifies whether to enable auto-renewal. The parameter takes effect only when EcsChargeType is set to PrePaid. Valid values:
+     *
+     *   true: enables auto-renewal
+     *   false: disables auto-renewal
+     *
+     * Default value: true
      * @example true
      *
      * @var string
@@ -24,6 +36,12 @@ class AddNodesRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The auto-renewal period of the subscription compute nodes. The parameter takes effect when AutoRenew is set to true.
+     *
+     *   If PeriodUnit is set to Week, the valid values of the AutoRenewPeriod parameter are 1, 2, and 3.
+     *   If PeriodUnit is set to Month, the valid values of the AutoRenewPeriod parameter are 1, 2, 3, 6, and 12.
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -31,6 +49,8 @@ class AddNodesRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -38,6 +58,9 @@ class AddNodesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the E-HPC cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -45,6 +68,12 @@ class AddNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specifies whether the compute nodes support hyper-threading. Valid values:
+     *
+     *   true: Hyper-threading is supported.
+     *   false: Hyper-threading is not supported.
+     *
+     * Default value: true
      * @example true
      *
      * @var bool
@@ -52,6 +81,8 @@ class AddNodesRequest extends Model
     public $computeEnableHt;
 
     /**
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0 and 1. A value of 0 indicates that the preemptible instance has no protection period.
+     *
      * @example 1
      *
      * @var int
@@ -59,6 +90,8 @@ class AddNodesRequest extends Model
     public $computeSpotDuration;
 
     /**
+     * @description The interruption mode of the preemptible instance. Default value: Terminate. Set the value to Terminate, which indicates that the instance is released.
+     *
      * @example Terminate
      *
      * @var string
@@ -66,6 +99,8 @@ class AddNodesRequest extends Model
     public $computeSpotInterruptionBehavior;
 
     /**
+     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter only takes effect when SpotStrategy is set to SpotWithPriceLimit.
+     *
      * @example 0.68
      *
      * @var string
@@ -73,6 +108,13 @@ class AddNodesRequest extends Model
     public $computeSpotPriceLimit;
 
     /**
+     * @description The preemption policy of the compute nodes. The parameter only takes effect when EcsChargeType is set to PostPaid. Valid values:
+     *
+     *   NoSpot: The compute nodes are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     *
+     * Default value: NoSpot
      * @example NoSpot
      *
      * @var string
@@ -80,6 +122,12 @@ class AddNodesRequest extends Model
     public $computeSpotStrategy;
 
     /**
+     * @description The number of compute nodes that you want to add. Valid values: 1 to 99. The value of this parameter is greater than that of the MinCount parameter.
+     *
+     *   If the number of available ECS instances is less than the value of the MinCount parameter, the compute nodes cannot be added.
+     *   If the number of available ECS instances is greater than the value of the MinCount parameter and less than that of the Count parameter, the compute nodes are added based on the value of the MinCount parameter.
+     *   If the number of available ECS instances is greater than the value of the Count parameter, the compute nodes are added based on the value of the Count parameter.
+     *
      * @example 10
      *
      * @var int
@@ -87,6 +135,12 @@ class AddNodesRequest extends Model
     public $count;
 
     /**
+     * @description The mode in which the compute nodes are added. Valid values:
+     *
+     *   manual: The compute nodes are manually added.
+     *   autoscale: The compute nodes are automatically added.
+     *
+     * Default value: manual
      * @example manual
      *
      * @var string
@@ -99,6 +153,12 @@ class AddNodesRequest extends Model
     public $dataDisks;
 
     /**
+     * @description The billing method of the compute nodes. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * If the parameter is set to PrePaid, auto-renewal is enabled by default. After the E-HPC cluster is released, auto-renewal is disabled.
      * @example PostPaid
      *
      * @var string
@@ -106,6 +166,8 @@ class AddNodesRequest extends Model
     public $ecsChargeType;
 
     /**
+     * @description The prefix of the hostname. You can specify the parameter to manage the compute nodes in an efficient manner.
+     *
      * @example compute
      *
      * @var string
@@ -113,6 +175,8 @@ class AddNodesRequest extends Model
     public $hostNamePrefix;
 
     /**
+     * @description The suffix of the hostname. You can specify the parameter to manage the compute nodes in an efficient manner.
+     *
      * @example 01
      *
      * @var string
@@ -120,6 +184,15 @@ class AddNodesRequest extends Model
     public $hostNameSuffix;
 
     /**
+     * @description The ID of the image that is specified for the compute nodes. The image must meet the following requirements:
+     *
+     *   The operating system that is specified by the image must be the same as that of the existing cluster nodes. For example, if the operating system of the cluster nodes is CentOS, you can select only a CentOS image.
+     *
+     * > If you add nodes to a hybrid cloud cluster that supports multiple operating systems, you can select a Windows Server image or a CentOS image when the operating system of the cluster nodes is Windows.
+     *
+     *   The major version of the image specified for the compute nodes that you want to add is the same as that of the image of the cluster. For example, if the version of the cluster image is CentOS 7.x, the version of the image specified for the compute nodes must be CentOS 7.x.
+     *
+     * You can call the [ListImages](~~87213~~) and [ListCustomImages](~~87215~~) operations to query the image ID.
      * @example centos_7_06_64_20G_alibase_20190711.vhd
      *
      * @var string
@@ -127,6 +200,14 @@ class AddNodesRequest extends Model
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * Default value: system
      * @example system
      *
      * @var string
@@ -134,6 +215,8 @@ class AddNodesRequest extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The instance type of the compute nodes. The default value is the instance type that was specified when you created the E-HPC cluster or the last time when you added compute nodes.
+     *
      * @example ecs.n1.tiny
      *
      * @var string
@@ -141,6 +224,11 @@ class AddNodesRequest extends Model
     public $instanceType;
 
     /**
+     * @description The billing method of the elastic IP address (EIP). Valid values:
+     *
+     *   PayByBandwidth: pay-by-bandwidth
+     *   PayByTraffic: pay-by-traffic
+     *
      * @example PayByTraffic
      *
      * @var string
@@ -148,6 +236,11 @@ class AddNodesRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+     *
+     *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of the parameter are 1 to 10 and the default value is 10.
+     *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the amount of the outbound bandwidth that is purchased.
+     *
      * @example 10
      *
      * @var int
@@ -155,6 +248,9 @@ class AddNodesRequest extends Model
     public $internetMaxBandWidthIn;
 
     /**
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
+     *
+     * Default value: 0
      * @example 10
      *
      * @var int
@@ -162,6 +258,8 @@ class AddNodesRequest extends Model
     public $internetMaxBandWidthOut;
 
     /**
+     * @description The queue to which the compute nodes are added.
+     *
      * @example workq
      *
      * @var string
@@ -169,6 +267,13 @@ class AddNodesRequest extends Model
     public $jobQueue;
 
     /**
+     * @description The minimum number of the compute nodes that you want to add. Valid values: 1 to 99. The value of the parameter is less than that of the Count parameter.
+     *
+     *   If the number of available ECS instances is less than the value of the MinCount parameter, the compute nodes cannot be added.
+     *   If the number of available ECS instances is greater than the value of the MinCount parameter and less than that of the Count parameter, the compute nodes are added based on the value of the MinCount parameter.
+     *   If the number of available ECS instances is greater than the value of the Count parameter, the compute nodes are added based on the value of the Count parameter.
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -176,6 +281,19 @@ class AddNodesRequest extends Model
     public $minCount;
 
     /**
+     * @example Standard
+     *
+     * @var string
+     */
+    public $networkInterfaceTrafficMode;
+
+    /**
+     * @description The duration of the subscription. The unit of the duration is specified by the PeriodUnit parameter. The parameter only takes effect when InstanceChargeType is set to PrePaid. Valid values:
+     *
+     *   If PeriodUnit is set to Week, the valid values of the Period parameter are 1, 2, 3, and 4.
+     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -183,6 +301,12 @@ class AddNodesRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the subscription period. Valid values:
+     *
+     *   Week
+     *   Month
+     *
+     * Default value: Month
      * @example Month
      *
      * @var string
@@ -190,6 +314,12 @@ class AddNodesRequest extends Model
     public $periodUnit;
 
     /**
+     * @description Specifies whether to set the API operation as a synchronous operation. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -197,6 +327,14 @@ class AddNodesRequest extends Model
     public $sync;
 
     /**
+     * @description The performance level of the ESSD that is used as the system disk. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * For more information about ESSD performance parameters, see [ESSD](~~122389~~).
      * @example PL0
      *
      * @var string
@@ -204,6 +342,9 @@ class AddNodesRequest extends Model
     public $systemDiskLevel;
 
     /**
+     * @description The size of the system disk. Unit: GiB
+     *
+     * Default value: 40
      * @example 40
      *
      * @var int
@@ -211,6 +352,14 @@ class AddNodesRequest extends Model
     public $systemDiskSize;
 
     /**
+     * @description The type of the system disk. Valid values:
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: SSD.
+     *   cloud_essd: ESSD.
+     *   cloud: basic disk. Disks of this type are retired.
+     *
+     * Default value: cloud_efficiency
      * @example cloud_ssd
      *
      * @var string
@@ -218,6 +367,8 @@ class AddNodesRequest extends Model
     public $systemDiskType;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string
@@ -225,6 +376,8 @@ class AddNodesRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -255,6 +408,7 @@ class AddNodesRequest extends Model
         'internetMaxBandWidthOut'         => 'InternetMaxBandWidthOut',
         'jobQueue'                        => 'JobQueue',
         'minCount'                        => 'MinCount',
+        'networkInterfaceTrafficMode'     => 'NetworkInterfaceTrafficMode',
         'period'                          => 'Period',
         'periodUnit'                      => 'PeriodUnit',
         'sync'                            => 'Sync',
@@ -349,6 +503,9 @@ class AddNodesRequest extends Model
         }
         if (null !== $this->minCount) {
             $res['MinCount'] = $this->minCount;
+        }
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -463,6 +620,9 @@ class AddNodesRequest extends Model
         }
         if (isset($map['MinCount'])) {
             $model->minCount = $map['MinCount'];
+        }
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

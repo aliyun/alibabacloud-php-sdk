@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class invocationResult extends Model
 {
     /**
+     * @description The ID of the command.
+     *
+     * @example c-hz01v8x80o3****
+     *
      * @var string
      */
     public $commandId;
 
     /**
+     * @description The exit code.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exitCode;
 
     /**
+     * @description The time at which the command entered the Finished state.
+     *
+     * @example 2021-09-06T09:14:56Z
+     *
      * @var string
      */
     public $finishedTime;
 
     /**
+     * @description The ID of the node on which the command was run.
+     *
+     * @example i-uf65bh2113hlqvyr****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the command. Valid values:
+     *
+     *   Finished
+     *   Running
+     *   Failed
+     *   Stopped
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $invokeRecordStatus;
 
     /**
+     * @description The output result.
+     *
+     * @example hello world
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the command was run and its result was obtained.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSImageResponseBody extends Model
 {
     /**
+     * @example ehs-fakeid-****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 5198C3E8-85F5-4280-8547-687C1710FE08
+     *
      * @var string
      */
     public $requestId;

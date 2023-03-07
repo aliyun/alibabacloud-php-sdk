@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class openldapPar extends Model
 {
     /**
+     * @example ehpctest
+     *
      * @var string
      */
     public $baseDn;
 
     /**
+     * @example 192.168.1.2
+     *
      * @var string
      */
     public $ldapServerIp;

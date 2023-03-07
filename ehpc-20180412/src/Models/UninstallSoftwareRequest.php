@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UninstallSoftwareRequest extends Model
 {
     /**
+     * @description The name of the software that you want to uninstall.
+     *
+     * You can call the [ListInstalledSoftware](~~188591~~) operation to query the software that is installed in the cluster.
      * @example ABYSS_2.1.5
      *
      * @var string
@@ -16,6 +19,9 @@ class UninstallSoftwareRequest extends Model
     public $application;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-jeJki6****
      *
      * @var string

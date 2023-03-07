@@ -16,6 +16,11 @@ class pbsInfo extends Model
     public $aclLimit;
 
     /**
+     * @description The retention period of jobs. After the retention period is exceeded, job data is deleted. Unit: days.
+     *
+     * Default value: 14
+     * @example 14
+     *
      * @var int
      */
     public $jobHistoryDuration;
@@ -26,16 +31,29 @@ class pbsInfo extends Model
     public $resourceLimit;
 
     /**
+     * @description PbsInfo specifies the number of PBS schedulers that can be configured in the cluster. Valid values of N: 0 to 100.
+     *
+     * Default value: 60
+     * @example 60
+     *
      * @var int
      */
     public $schedInterval;
 
     /**
+     * @description The maximum number of jobs that can be scheduled in the cluster. If the total number of running jobs and queuing jobs exceeds the value, no more jobs can be submitted. Default value: 20000.
+     *
+     * @example 20000
+     *
      * @var int
      */
     public $schedMaxJobs;
 
     /**
+     * @description The maximum number of queuing jobs that can be scheduled in the cluster. If the number of queuing jobs exceeds the value, no more jobs can be submitted. Default value: 10000.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $schedMaxQueuedJobs;

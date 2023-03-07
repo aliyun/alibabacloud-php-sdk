@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListCpfsFileSystemsRequest extends Model
 {
     /**
+     * @example 096751****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetGWSInstanceNameResponseBody extends Model
 {
     /**
+     * @example 0505220-2409-4B78-B7B6-CD5F294518C9
+     *
      * @var string
      */
     public $requestId;

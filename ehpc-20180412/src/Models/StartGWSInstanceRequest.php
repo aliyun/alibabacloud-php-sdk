@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartGWSInstanceRequest extends Model
 {
     /**
+     * @example i-bp1bzqq4rj1eemun****
+     *
      * @var string
      */
     public $instanceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSImageRequest extends Model
 {
     /**
+     * @example i-bp66guhybgtrftpa1****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example EHPC-TEST
+     *
      * @var string
      */
     public $name;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSchedulerInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example BBC2F93D-003A-49C4-850C-B826EECF****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetSchedulerInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The settings of the scheduler.
+     *
      * @var schedInfo[]
      */
     public $schedInfo;

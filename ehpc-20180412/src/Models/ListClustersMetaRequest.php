@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListClustersMetaRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetCloudMetricProfilingResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0DD6F715-85EE-4EA6-BDC4-48A75B719068
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of profiling results.
+     *
      * @var svgUrls
      */
     public $svgUrls;

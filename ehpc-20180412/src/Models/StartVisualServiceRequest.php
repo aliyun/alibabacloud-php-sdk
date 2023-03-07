@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class StartVisualServiceRequest extends Model
 {
     /**
+     * @description A public IP address of logon nodes in the cluster.
+     *
+     * @example 190.100.**.**
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-jeJki6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The fixed port. Set the value to 12016
+     *
+     * @example 12016
+     *
      * @var int
      */
     public $port;

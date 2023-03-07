@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The ID of the image.
+     *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
      * @var string
@@ -16,6 +18,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The name of the repository.
+     *
      * @example busybox
      *
      * @var string
@@ -23,6 +27,8 @@ class images extends Model
     public $repository;
 
     /**
+     * @description The status of the image.
+     *
      * @example READY
      *
      * @var string
@@ -30,6 +36,8 @@ class images extends Model
     public $status;
 
     /**
+     * @description The container system of the image.
+     *
      * @example mycluster
      *
      * @var string
@@ -37,6 +45,8 @@ class images extends Model
     public $system;
 
     /**
+     * @description The tags of the image.
+     *
      * @example latest
      *
      * @var string
@@ -44,6 +54,8 @@ class images extends Model
     public $tag;
 
     /**
+     * @description The type of the container. Set the value to singularity.
+     *
      * @example docker
      *
      * @var string
@@ -51,6 +63,8 @@ class images extends Model
     public $type;
 
     /**
+     * @description The time when the image was updated.
+     *
      * @example 2018-08-02T20:11:36
      *
      * @var string

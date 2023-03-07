@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The type of the container. Set the value to singularity.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @description The tags of the image.
+     *
+     * Default value: latest
+     * @example latest
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The name of the repository.
+     *
+     * You can call the [ListContainerImages](~~87348~~) operation to query the name of the repository.
+     * @example repo1
+     *
      * @var string
      */
     public $repository;

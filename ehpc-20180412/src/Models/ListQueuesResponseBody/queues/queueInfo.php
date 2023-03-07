@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class queueInfo extends Model
 {
     /**
+     * @description The instance type of the compute nodes.
+     *
      * @var computeInstanceType
      */
     public $computeInstanceType;
 
     /**
+     * @description Indicates whether the queue enabled auto scale-out. Valid values:
+     *
+     * false: The queue disabled auto scale-out.
      * @example false
      *
      * @var bool
@@ -23,6 +28,8 @@ class queueInfo extends Model
     public $enableAutoGrow;
 
     /**
+     * @description The prefix of the host name.
+     *
      * @example compute
      *
      * @var string
@@ -30,6 +37,8 @@ class queueInfo extends Model
     public $hostNamePrefix;
 
     /**
+     * @description The suffix of the host name.
+     *
      * @example 01
      *
      * @var string
@@ -37,6 +46,8 @@ class queueInfo extends Model
     public $hostNameSuffix;
 
     /**
+     * @description The ID of the image.
+     *
      * @example centos_7_06_64_20G_alibase_20****.vhd
      *
      * @var string
@@ -44,6 +55,8 @@ class queueInfo extends Model
     public $imageId;
 
     /**
+     * @description The name of the queue.
+     *
      * @example workq
      *
      * @var string
@@ -51,6 +64,8 @@ class queueInfo extends Model
     public $queueName;
 
     /**
+     * @description The ID of the resource group to which the queue belongs.
+     *
      * @example rg-acfmxp7uc24****
      *
      * @var string
@@ -63,6 +78,9 @@ class queueInfo extends Model
     public $spotInstanceTypes;
 
     /**
+     * @description The preemption policy of the compute nodes. Valid values:
+     *
+     * SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -70,6 +88,9 @@ class queueInfo extends Model
     public $spotStrategy;
 
     /**
+     * @description The type of the queue. Valid values:
+     *
+     * Router: Queues in which jobs cannot be executed but are forwarded to the bounded Execution queue for processing.
      * @example Execution
      *
      * @var string

@@ -15,6 +15,10 @@ class UpdateClusterVolumesRequest extends Model
     public $additionalVolumes;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterRequest extends Model
 {
     /**
+     * @description The ID of the cluster. You can call the [ListClusters](~~87116~~) operation to query the list of clusters in a region.
+     *
+     * @example ehpc-hz-QKKVqO****
+     *
      * @var string
      */
     public $clusterId;

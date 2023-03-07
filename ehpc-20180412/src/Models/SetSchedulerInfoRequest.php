@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class SetSchedulerInfoRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -22,6 +27,11 @@ class SetSchedulerInfoRequest extends Model
     public $pbsInfo;
 
     /**
+     * @description The ID of the region.
+     *
+     * You can call the [ListRegions](~~188593~~) operation to obtain the IDs of regions supported by Elastic High Performance Computing (E-HPC).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

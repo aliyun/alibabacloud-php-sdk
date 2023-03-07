@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetHybridClusterConfigResponseBody extends Model
 {
     /**
+     * @description The configurations returned.
+     *
+     *   If the parameter Node is null, you can obtain the configurations of the hybrid cloud cluster.
+     *   If the parameter Node is a specified on-premises compute node, you can obtain the configurations of the on-premises compute node.
+     *
+     * This parameter is returned in the ini format. You can use this parameter to configure on-premises cluster nodes.
      * @example ClNjaGcyI6W119Cg****
      *
      * @var string
@@ -16,6 +22,8 @@ class GetHybridClusterConfigResponseBody extends Model
     public $clusterConfig;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

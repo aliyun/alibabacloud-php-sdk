@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class osInfo extends Model
 {
     /**
+     * @description The architecture of the operating system. Valid values:
+     *
+     *   i386
+     *   x86\_64
+     *
+     * @example i386
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The image tag of the operating system. The tag is used only for management nodes.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $baseOsTag;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-bp1h8aoe73p71iow****
+     *
      * @var string
      */
     public $imageId;
@@ -26,14 +41,39 @@ class osInfo extends Model
     /**
      * @var string
      */
+    public $OSName;
+
+    /**
+     * @var string
+     */
+    public $OSNameEn;
+
+    /**
+     * @description The image tag of the cluster.
+     *
+     * @example CentOS_7.2_64
+     *
+     * @var string
+     */
     public $osTag;
 
     /**
+     * @description The operating system. Valid values:
+     *
+     *   CentOS
+     *   windows
+     *
+     * @example CentOS
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The version of the operating system.
+     *
+     * @example 7.2
+     *
      * @var string
      */
     public $version;
@@ -41,6 +81,8 @@ class osInfo extends Model
         'architecture' => 'Architecture',
         'baseOsTag'    => 'BaseOsTag',
         'imageId'      => 'ImageId',
+        'OSName'       => 'OSName',
+        'OSNameEn'     => 'OSNameEn',
         'osTag'        => 'OsTag',
         'platform'     => 'Platform',
         'version'      => 'Version',
@@ -61,6 +103,12 @@ class osInfo extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->OSName) {
+            $res['OSName'] = $this->OSName;
+        }
+        if (null !== $this->OSNameEn) {
+            $res['OSNameEn'] = $this->OSNameEn;
         }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
@@ -91,6 +139,12 @@ class osInfo extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['OSName'])) {
+            $model->OSName = $map['OSName'];
+        }
+        if (isset($map['OSNameEn'])) {
+            $model->OSNameEn = $map['OSNameEn'];
         }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];

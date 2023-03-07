@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetClusterVolumesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-gh5WKb****
      *
      * @var string

@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageGatewayConfigRequest extends Model
 {
     /**
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 13****
+     *
      * @var string
      */
     public $DBPassword;
 
     /**
+     * @example dds-uf6628e4287716b433270.mongodb.rds.aliyuncs.com:3717/admin
+     *
      * @var string
      */
     public $DBServerInfo;
 
     /**
+     * @example mongodb
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $DBUsername;
 
     /**
+     * @example registry-1.docker.io
+     *
      * @var string
      */
     public $defaultRepoLocation;
 
     /**
+     * @example 12:00:00
+     *
      * @var string
      */
     public $imageExpirationTimeout;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $pullUpdateTimeout;

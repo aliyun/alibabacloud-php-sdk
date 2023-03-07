@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClusterPolicyRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $asyncMode;
 
     /**
+     * @example gws-rhz99q8rc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example t-****
+     *
      * @var string
      */
     public $taskId;

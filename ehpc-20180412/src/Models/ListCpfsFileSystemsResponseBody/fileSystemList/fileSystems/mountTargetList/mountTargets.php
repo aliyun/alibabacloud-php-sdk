@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
+     * @example c0967****.cn-hangzhou.cpfs.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-8vbvb34rtyh6xb3zrehs1****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-8vb34rtyh6xb3zrehs1****
+     *
      * @var string
      */
     public $vswId;

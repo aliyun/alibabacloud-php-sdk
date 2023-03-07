@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class GetUserImageRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example ehpc-hz-ibug69*****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The type of the image. Set the value to singularity.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $containerType;
 
     /**
+     * @description The name of the image.
+     *
+     * @example test.sif
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The path where the image is stored in the OSS bucket.
+     *
+     * @example testUserImages
+     *
      * @var string
      */
     public $imagePath;
 
     /**
+     * @description The OSS bucket.
+     *
+     * @example XXXXXXX
+     *
      * @var string
      */
     public $OSSBucket;
 
     /**
+     * @description The endpoint of OSS.
+     *
+     * @example vpc***-oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $OSSEndPoint;

@@ -11,121 +11,241 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The time when the node was added to the cluster.
+     *
+     * @example 2019-09-18T13:24:29.000Z
+     *
      * @var string
      */
     public $addTime;
 
     /**
+     * @description The mode in which the node was added. Valid values:
+     *
+     *   manual: The node was manually added.
+     *   autoscale: The node is automatically added.
+     *
+     * @example manual
+     *
      * @var string
      */
     public $createMode;
 
     /**
+     * @description Indicates whether the node was created by using E-HPC.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $createdByEhpc;
 
     /**
+     * @description Indicates whether the subscription node has expired. If the node is a pay-as-you-go node, false is returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The time when the subscription instance expires. If the node is a pay-as-you-go node, a null value is returned.
+     *
+     * @example 2020-09-18T13:24:29.000Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the node.
+     *
+     * @example compute0
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description Indicates whether Hyper-Threading (HT) is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $htEnabled;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-bp13p7vlcb1uihfv****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_7_02_64_20G_alibase_20170818****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description The private IP address of the node.
+     *
+     * @example 172.168.**.**
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The location where the node is deployed. Valid values:
+     *
+     *   OnPremise: The node is deployed on a hybrid cloud.
+     *   PublicCloud: The node is deployed on a public cloud.
+     *
+     * @example PublicCloud
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The reason why the node is locked. Valid values:
+     *
+     *   financial: The node is locked due to overdue payments.
+     *   security: The node is locked due to security reasons.
+     *   recycling: The preemptible node is locked and pending release.
+     *   dedicatedhostfinancial: The node is locked due to the overdue payments of the dedicated host.
+     *
+     * By default, an empty string is returned.
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The public IP address of the node.
+     *
+     * @example 10.34.**.**
+     *
      * @var string
      */
     public $publicIpAddress;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The preemption policy for the Elastic Compute Service (ECS) instance. Valid values:
+     *
+     *   NoSpot: applies to regular pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances of the compute node are preemptible instances. These types of instances have a specified maximum hourly price.
+     *   SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The status of the node displayed on the scheduler. The status varies with the scheduler.
+     *
+     * @example active
+     *
      * @var string
      */
     public $stateInSched;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   uninit: The node is not initialized.
+     *   init: The node is being initialized.
+     *   ready: The node is ready.
+     *   running: The node is running.
+     *   exception: An exception has occurred on the node.
+     *   untracking: The node is not added to the cluster.
+     *
+     * @example untracking
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The number of all resources in the cluster.
+     *
      * @var totalResources
      */
     public $totalResources;
 
     /**
+     * @description The usage of the compute nodes in the cluster. For other types of nodes, an empty value is returned.
+     *
      * @var usedResources
      */
     public $usedResources;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1e47optm9g58zcu****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The version of the E-HPC client.
+     *
+     * @example 1.0.64
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp1gnu8br4ay7beb2w****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

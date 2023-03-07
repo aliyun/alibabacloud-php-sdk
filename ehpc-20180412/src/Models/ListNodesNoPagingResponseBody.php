@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListNodesNoPagingResponseBody extends Model
 {
     /**
+     * @description The information about nodes.
+     *
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class managers extends Model
 {
     /**
+     * @description The number of abnormal nodes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exceptionCount;
 
     /**
+     * @description The number of normal nodes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $normalCount;
 
     /**
+     * @description The number of nodes that are being used in the queue. This includes those that are being initialized, installed, or released.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $operatingCount;
 
     /**
+     * @description The number of stopped nodes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $stoppedCount;
 
     /**
+     * @description The total number of management nodes.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

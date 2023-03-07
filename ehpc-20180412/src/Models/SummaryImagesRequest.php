@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SummaryImagesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-jeJki6****
      *
      * @var string
@@ -16,6 +18,8 @@ class SummaryImagesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the image. Set the value to singularity.
+     *
      * @example singularity
      *
      * @var string

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class fileSystems extends Model
 {
     /**
+     * @example 5120
+     *
      * @var string
      */
     public $capacity;
 
     /**
+     * @example 2018-07-26 16:36:27
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example FilsDestription
+     *
      * @var string
      */
     public $destription;
 
     /**
+     * @example 096751****
+     *
      * @var string
      */
     public $fileSystemId;
@@ -35,16 +43,22 @@ class fileSystems extends Model
     public $mountTargetList;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

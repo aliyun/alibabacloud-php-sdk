@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class imageListInfo extends Model
 {
     /**
+     * @description The name of the image.
+     *
+     * @example tensorflow-21.09-tf1-py3.sif
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The size of the image.
+     *
+     * @example 65535
+     *
      * @var int
      */
     public $imageSize;
 
     /**
+     * @description The type of the image.
+     *
+     * @example singularity
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The download URL of the image.
+     *
+     * @example http://xxxx.oss-cn-hangzhou.aliyuncs.com/eStackPackage/singularity/tensorflow-21.09-tf1-py3.sif
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @description The time when the image was last modified.
+     *
+     * @example 2022-05-05T07:10:55.000Z
+     *
      * @var string
      */
     public $recentUpdateTime;

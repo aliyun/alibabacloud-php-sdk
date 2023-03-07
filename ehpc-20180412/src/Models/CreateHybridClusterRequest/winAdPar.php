@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class winAdPar extends Model
 {
     /**
+     * @example ad-hybrid001.ehpcad.com
+     *
      * @var string
      */
     public $adDc;
 
     /**
+     * @example 192.168.1.2
+     *
      * @var string
      */
     public $adIp;
 
     /**
+     * @example Administrator
+     *
      * @var string
      */
     public $adUser;
 
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $adUserPasswd;

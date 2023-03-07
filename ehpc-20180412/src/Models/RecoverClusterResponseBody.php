@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RecoverClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 18FB21E3-F423-4B84-BB63-D8887A29****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 18FB21E3-F423-4B84-BB63-D8887A29****
+     *
      * @var string
      */
     public $taskId;

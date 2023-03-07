@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudMetricProfilingsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +18,9 @@ class ListCloudMetricProfilingsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class ListCloudMetricProfilingsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50
+     *
+     * Default value: 10
      * @example 10
      *
      * @var int
@@ -30,6 +38,8 @@ class ListCloudMetricProfilingsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

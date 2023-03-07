@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetGWSConnectTicketRequest extends Model
 {
     /**
+     * @example app-****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example i-bp1ch35z696b6b26****
+     *
      * @var string
      */
     public $instanceId;

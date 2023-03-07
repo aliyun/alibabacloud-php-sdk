@@ -15,21 +15,29 @@ class ListCpfsFileSystemsResponseBody extends Model
     public $fileSystemList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2B900AFE-C938-4551-86E9-97E231BBC876
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

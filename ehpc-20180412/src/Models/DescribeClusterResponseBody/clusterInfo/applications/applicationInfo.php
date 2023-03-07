@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
+     * @description The name of the software.
+     *
+     * @example openmpi
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The tag of the software.
+     *
+     * @example OpenMPI_1.8.7
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The version of the software.
+     *
+     * @example 1.10
+     *
      * @var string
      */
     public $version;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class postInstallScript extends Model
 {
     /**
+     * @description The parameter that is used to run the script after the E-HPC cluster is created.
+     *
+     * Valid values of N: 0 to 16
      * @example bashfile.sh
      *
      * @var string
@@ -16,6 +19,9 @@ class postInstallScript extends Model
     public $args;
 
     /**
+     * @description The URL that is used to download the script after the E-HPC cluster is created.
+     *
+     * Valid values of N: 0 to 16
      * @example /opt/job.sh
      *
      * @var string

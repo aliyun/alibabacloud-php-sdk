@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetPostScriptsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-sh-EnjshUxn
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the region.
+     *
+     * You can call the [ListRegions](~~188593~~) operation to query the latest region list.
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

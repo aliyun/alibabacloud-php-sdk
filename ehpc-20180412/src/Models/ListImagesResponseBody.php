@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListImagesResponseBody extends Model
 {
     /**
+     * @description The list of images that are supported by E-HPC.
+     *
      * @var osTags
      */
     public $osTags;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
+     *
      * @var string
      */
     public $requestId;

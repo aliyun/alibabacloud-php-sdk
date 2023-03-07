@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class message extends Model
 {
     /**
+     * @description The details of the job.
+     *
+     * @example {"2.scheduler": {"egroup": "users","Stageout_status": 1,"Keep_Files": "n","server": "scheduler","queue": "workq"}}
+     *
      * @var string
      */
     public $jobInfo;

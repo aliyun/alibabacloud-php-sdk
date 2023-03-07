@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class StopNodesRequest extends Model
 {
     /**
+     * @description The ID of the E-HPC cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * @example ehpc-hz-FYUr32****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,6 +25,15 @@ class StopNodesRequest extends Model
     public $instance;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * Default value: Compute
+     * @example Compute
+     *
      * @var string
      */
     public $role;

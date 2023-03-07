@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class AddNodesResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  AddNodes is an asynchronous API operation. If a request succeeds, a response is immediately generated before ECS instances are created. Therefore, the value of the parameter is null. You can call the [ListNodes](~~87161~~) operation to obtain the IDs of the ECS instances.
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *
      * @var string
@@ -22,6 +27,8 @@ class AddNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *
      * @var string
