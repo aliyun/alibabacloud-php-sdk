@@ -27,6 +27,11 @@ class DeleteQualityEntityRequest extends Model
     public $envType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source.
      *
      * @example autotest
@@ -37,6 +42,7 @@ class DeleteQualityEntityRequest extends Model
     protected $_name = [
         'entityId'    => 'EntityId',
         'envType'     => 'EnvType',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -52,6 +58,9 @@ class DeleteQualityEntityRequest extends Model
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -73,6 +82,9 @@ class DeleteQualityEntityRequest extends Model
         }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

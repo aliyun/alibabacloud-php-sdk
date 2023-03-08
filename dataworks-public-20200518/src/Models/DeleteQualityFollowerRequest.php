@@ -18,6 +18,11 @@ class DeleteQualityFollowerRequest extends Model
     public $followerId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine or data source for which the partition filter expression is configured. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Monitoring Rules page of Data Quality to obtain the name.
      *
      * @example autotest
@@ -27,6 +32,7 @@ class DeleteQualityFollowerRequest extends Model
     public $projectName;
     protected $_name = [
         'followerId'  => 'FollowerId',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -39,6 +45,9 @@ class DeleteQualityFollowerRequest extends Model
         $res = [];
         if (null !== $this->followerId) {
             $res['FollowerId'] = $this->followerId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -57,6 +66,9 @@ class DeleteQualityFollowerRequest extends Model
         $model = new self();
         if (isset($map['FollowerId'])) {
             $model->followerId = $map['FollowerId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -36,6 +36,11 @@ class CreateQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the maxcompute project or data source.
      *
      * @example autotest
@@ -56,6 +61,7 @@ class CreateQualityEntityRequest extends Model
         'entityLevel'     => 'EntityLevel',
         'envType'         => 'EnvType',
         'matchExpression' => 'MatchExpression',
+        'projectId'       => 'ProjectId',
         'projectName'     => 'ProjectName',
         'tableName'       => 'TableName',
     ];
@@ -75,6 +81,9 @@ class CreateQualityEntityRequest extends Model
         }
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -102,6 +111,9 @@ class CreateQualityEntityRequest extends Model
         }
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

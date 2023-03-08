@@ -117,6 +117,11 @@ class UpdateQualityRuleRequest extends Model
     public $predictType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the name.
      *
      * @example autotest
@@ -216,6 +221,7 @@ class UpdateQualityRuleRequest extends Model
         'openSwitch'        => 'OpenSwitch',
         'operator'          => 'Operator',
         'predictType'       => 'PredictType',
+        'projectId'         => 'ProjectId',
         'projectName'       => 'ProjectName',
         'property'          => 'Property',
         'propertyType'      => 'PropertyType',
@@ -266,6 +272,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (null !== $this->predictType) {
             $res['PredictType'] = $this->predictType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -338,6 +347,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (isset($map['PredictType'])) {
             $model->predictType = $map['PredictType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

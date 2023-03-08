@@ -88,6 +88,11 @@ class CreateQualityRuleRequest extends Model
     public $predictType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source.
      *
      * @example autotest
@@ -181,6 +186,7 @@ class CreateQualityRuleRequest extends Model
         'methodName'        => 'MethodName',
         'operator'          => 'Operator',
         'predictType'       => 'PredictType',
+        'projectId'         => 'ProjectId',
         'projectName'       => 'ProjectName',
         'property'          => 'Property',
         'propertyType'      => 'PropertyType',
@@ -225,6 +231,9 @@ class CreateQualityRuleRequest extends Model
         }
         if (null !== $this->predictType) {
             $res['PredictType'] = $this->predictType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -291,6 +300,9 @@ class CreateQualityRuleRequest extends Model
         }
         if (isset($map['PredictType'])) {
             $model->predictType = $map['PredictType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -45,6 +45,11 @@ class ListQualityResultsByEntityRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
      * @example autotest
@@ -66,6 +71,7 @@ class ListQualityResultsByEntityRequest extends Model
         'entityId'    => 'EntityId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
         'startDate'   => 'StartDate',
     ];
@@ -88,6 +94,9 @@ class ListQualityResultsByEntityRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -118,6 +127,9 @@ class ListQualityResultsByEntityRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

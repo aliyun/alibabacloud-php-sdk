@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveDataServiceApiTestResultRequest extends Model
 {
     /**
+     * @example 417381955954827
+     *
      * @var int
      */
     public $apiId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoGenerate;
@@ -24,11 +28,15 @@ class SaveDataServiceApiTestResultRequest extends Model
     public $failResultSample;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example {  "data": {    "totalNum": 0,    "pageSize": 10,    "rows": [],    "pageNum": 1  },  "errCode": 0,  "requestId": "0bc14a561678159140664515*****",  "errMsg": "success",  "apiLog": null}
+     *
      * @var string
      */
     public $resultSample;

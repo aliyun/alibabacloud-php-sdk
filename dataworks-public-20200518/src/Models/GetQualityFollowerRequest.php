@@ -16,6 +16,11 @@ class GetQualityFollowerRequest extends Model
     public $entityId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @example autotest
      *
      * @var string
@@ -23,6 +28,7 @@ class GetQualityFollowerRequest extends Model
     public $projectName;
     protected $_name = [
         'entityId'    => 'EntityId',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -35,6 +41,9 @@ class GetQualityFollowerRequest extends Model
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -53,6 +62,9 @@ class GetQualityFollowerRequest extends Model
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

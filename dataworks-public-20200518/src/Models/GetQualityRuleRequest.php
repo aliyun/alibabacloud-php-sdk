@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetQualityRuleRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source.
      *
      * @example autotest
@@ -26,6 +31,7 @@ class GetQualityRuleRequest extends Model
      */
     public $ruleId;
     protected $_name = [
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
         'ruleId'      => 'RuleId',
     ];
@@ -37,6 +43,9 @@ class GetQualityRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -55,6 +64,9 @@ class GetQualityRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

@@ -27,6 +27,11 @@ class GetQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
      * @example autotest
@@ -46,6 +51,7 @@ class GetQualityEntityRequest extends Model
     protected $_name = [
         'envType'         => 'EnvType',
         'matchExpression' => 'MatchExpression',
+        'projectId'       => 'ProjectId',
         'projectName'     => 'ProjectName',
         'tableName'       => 'TableName',
     ];
@@ -62,6 +68,9 @@ class GetQualityEntityRequest extends Model
         }
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -86,6 +95,9 @@ class GetQualityEntityRequest extends Model
         }
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

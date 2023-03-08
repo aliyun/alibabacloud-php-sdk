@@ -36,6 +36,11 @@ class ListQualityRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
      * @example autotest
@@ -47,6 +52,7 @@ class ListQualityRulesRequest extends Model
         'entityId'    => 'EntityId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -65,6 +71,9 @@ class ListQualityRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -89,6 +98,9 @@ class ListQualityRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -9,37 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityFollowerRequest extends Model
 {
     /**
-     * @description The notification method. Valid values: 1, 2, 4, and 5. 1 indicates that the notification is sent by email. 2 indicates that the notification is sent by email and text message. 4 indicates that the notification is sent by a DingTalk chatbot. 5 indicates that the notification is sent by a DingTalk chatbot to all members in a DingTalk group.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $alarmMode;
 
     /**
-     * @description The name of the subscriber.
-     *
-     * @example 1912232****
-     *
      * @var string
      */
     public $follower;
 
     /**
-     * @description The ID of the subscription relationship.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $followerId;
 
     /**
-     * @description The name of the computing engine instance or data source.
-     *
-     * @example autotest
-     *
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -47,6 +36,7 @@ class UpdateQualityFollowerRequest extends Model
         'alarmMode'   => 'AlarmMode',
         'follower'    => 'Follower',
         'followerId'  => 'FollowerId',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -65,6 +55,9 @@ class UpdateQualityFollowerRequest extends Model
         }
         if (null !== $this->followerId) {
             $res['FollowerId'] = $this->followerId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -89,6 +82,9 @@ class UpdateQualityFollowerRequest extends Model
         }
         if (isset($map['FollowerId'])) {
             $model->followerId = $map['FollowerId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

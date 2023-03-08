@@ -36,6 +36,11 @@ class CreateQualityFollowerRequest extends Model
     public $follower;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @description The name of the computing engine instance or data source.
      *
      * @example autotest
@@ -47,6 +52,7 @@ class CreateQualityFollowerRequest extends Model
         'alarmMode'   => 'AlarmMode',
         'entityId'    => 'EntityId',
         'follower'    => 'Follower',
+        'projectId'   => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 
@@ -65,6 +71,9 @@ class CreateQualityFollowerRequest extends Model
         }
         if (null !== $this->follower) {
             $res['Follower'] = $this->follower;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -89,6 +98,9 @@ class CreateQualityFollowerRequest extends Model
         }
         if (isset($map['Follower'])) {
             $model->follower = $map['Follower'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

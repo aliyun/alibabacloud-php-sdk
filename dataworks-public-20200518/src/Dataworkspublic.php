@@ -2487,6 +2487,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->matchExpression)) {
             $body['MatchExpression'] = $request->matchExpression;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -2541,6 +2544,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->follower)) {
             $body['Follower'] = $request->follower;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
@@ -2675,6 +2681,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->predictType)) {
             $body['PredictType'] = $request->predictType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
@@ -3777,6 +3786,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->envType)) {
             $body['EnvType'] = $request->envType;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -3824,6 +3836,9 @@ class Dataworkspublic extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->followerId)) {
             $body['FollowerId'] = $request->followerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
@@ -3934,6 +3949,9 @@ class Dataworkspublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -7565,6 +7583,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->matchExpression)) {
             $body['MatchExpression'] = $request->matchExpression;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -7614,6 +7635,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->entityId)) {
             $body['EntityId'] = $request->entityId;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -7657,6 +7681,9 @@ class Dataworkspublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -10516,6 +10543,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -10572,6 +10602,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
@@ -10630,6 +10663,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
@@ -13080,12 +13116,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
-     *   *
-     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param UpdateDIProjectConfigRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfigWithOptions($request, $runtime)
     {
@@ -13122,11 +13156,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
-     *   *
-     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
+     * @param UpdateDIProjectConfigRequest $request
      *
-     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfig($request)
     {
@@ -13904,6 +13936,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->followerId)) {
             $body['FollowerId'] = $request->followerId;
         }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;
         }
@@ -13979,6 +14014,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->predictType)) {
             $body['PredictType'] = $request->predictType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['ProjectName'] = $request->projectName;

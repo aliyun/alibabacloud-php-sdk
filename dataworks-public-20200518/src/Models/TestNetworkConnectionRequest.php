@@ -9,40 +9,21 @@ use AlibabaCloud\Tea\Model;
 class TestNetworkConnectionRequest extends Model
 {
     /**
-     * @description The name of the data source.
-     *
-     * @example mysql_name
-     *
      * @var string
      */
     public $datasourceName;
 
     /**
-     * @description The environment to which the data source belongs. Valid values:
-     *
-     *   0: development environment
-     *   1: production environment
-     *
-     * @example 1
-     *
      * @var string
      */
     public $envType;
 
     /**
-     * @description The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](~~178393~~) operation to query the ID of the workspace.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The identifier of the resource group. You can call the [ListResourceGroups](~~173913~~) operation to query the identifier of the resource group.
-     *
-     * @example S_res_group_2XXXX4_1619100XXXXX
-     *
      * @var string
      */
     public $resourceGroup;
