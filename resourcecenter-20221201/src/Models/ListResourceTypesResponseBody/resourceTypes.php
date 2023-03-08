@@ -4,16 +4,10 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesResponseBody;
 
-use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesResponseBody\resourceTypes\codeMapping;
 use AlibabaCloud\Tea\Model;
 
 class resourceTypes extends Model
 {
-    /**
-     * @var codeMapping
-     */
-    public $codeMapping;
-
     /**
      * @var string[]
      */
@@ -36,7 +30,6 @@ class resourceTypes extends Model
      */
     public $resourceTypeName;
     protected $_name = [
-        'codeMapping'      => 'CodeMapping',
         'filterKeys'       => 'FilterKeys',
         'productName'      => 'ProductName',
         'resourceType'     => 'ResourceType',
@@ -50,9 +43,6 @@ class resourceTypes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->codeMapping) {
-            $res['CodeMapping'] = null !== $this->codeMapping ? $this->codeMapping->toMap() : null;
-        }
         if (null !== $this->filterKeys) {
             $res['FilterKeys'] = $this->filterKeys;
         }
@@ -77,9 +67,6 @@ class resourceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CodeMapping'])) {
-            $model->codeMapping = codeMapping::fromMap($map['CodeMapping']);
-        }
         if (isset($map['FilterKeys'])) {
             if (!empty($map['FilterKeys'])) {
                 $model->filterKeys = $map['FilterKeys'];
