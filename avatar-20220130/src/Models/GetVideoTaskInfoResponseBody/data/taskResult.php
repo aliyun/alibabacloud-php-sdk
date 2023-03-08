@@ -31,11 +31,17 @@ class taskResult extends Model
      * @var string
      */
     public $videoUrl;
+
+    /**
+     * @var string
+     */
+    public $wordSubtitlesUrl;
     protected $_name = [
-        'failCode'     => 'FailCode',
-        'failReason'   => 'FailReason',
-        'subtitlesUrl' => 'SubtitlesUrl',
-        'videoUrl'     => 'VideoUrl',
+        'failCode'         => 'FailCode',
+        'failReason'       => 'FailReason',
+        'subtitlesUrl'     => 'SubtitlesUrl',
+        'videoUrl'         => 'VideoUrl',
+        'wordSubtitlesUrl' => 'WordSubtitlesUrl',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class taskResult extends Model
         }
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
+        }
+        if (null !== $this->wordSubtitlesUrl) {
+            $res['WordSubtitlesUrl'] = $this->wordSubtitlesUrl;
         }
 
         return $res;
@@ -80,6 +89,9 @@ class taskResult extends Model
         }
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
+        }
+        if (isset($map['WordSubtitlesUrl'])) {
+            $model->wordSubtitlesUrl = $map['WordSubtitlesUrl'];
         }
 
         return $model;
