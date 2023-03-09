@@ -14,6 +14,11 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -49,6 +54,7 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'sourceURI'              => 'SourceURI',
@@ -65,6 +71,9 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -95,6 +104,9 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

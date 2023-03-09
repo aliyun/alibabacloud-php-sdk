@@ -16,9 +16,14 @@ class IndexFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @var FileForReq
+     * @var InputFile
      */
     public $file;
+
+    /**
+     * @var Notification
+     */
+    public $notification;
 
     /**
      * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
@@ -36,6 +41,7 @@ class IndexFileMetaRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'file'            => 'File',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
     ];
@@ -52,6 +58,9 @@ class IndexFileMetaRequest extends Model
         }
         if (null !== $this->file) {
             $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -75,7 +84,10 @@ class IndexFileMetaRequest extends Model
             $model->datasetName = $map['DatasetName'];
         }
         if (isset($map['File'])) {
-            $model->file = FileForReq::fromMap($map['File']);
+            $model->file = InputFile::fromMap($map['File']);
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -4,18 +4,18 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\audio;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\image;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\segment;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\subtitle;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\video;
 use AlibabaCloud\SDK\Imm\V20200930\Models\PresetReference;
+use AlibabaCloud\SDK\Imm\V20200930\Models\TargetAudio;
+use AlibabaCloud\SDK\Imm\V20200930\Models\TargetImage;
+use AlibabaCloud\SDK\Imm\V20200930\Models\TargetSubtitle;
+use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo;
 use AlibabaCloud\Tea\Model;
 
 class targets extends Model
 {
     /**
-     * @var audio
+     * @var TargetAudio
      */
     public $audio;
 
@@ -27,7 +27,7 @@ class targets extends Model
     public $container;
 
     /**
-     * @var image
+     * @var TargetImage
      */
     public $image;
 
@@ -49,7 +49,12 @@ class targets extends Model
     public $speed;
 
     /**
-     * @var subtitle
+     * @var bool
+     */
+    public $stripMetadata;
+
+    /**
+     * @var TargetSubtitle
      */
     public $subtitle;
 
@@ -61,19 +66,20 @@ class targets extends Model
     public $URI;
 
     /**
-     * @var video
+     * @var TargetVideo
      */
     public $video;
     protected $_name = [
-        'audio'     => 'Audio',
-        'container' => 'Container',
-        'image'     => 'Image',
-        'preset'    => 'Preset',
-        'segment'   => 'Segment',
-        'speed'     => 'Speed',
-        'subtitle'  => 'Subtitle',
-        'URI'       => 'URI',
-        'video'     => 'Video',
+        'audio'         => 'Audio',
+        'container'     => 'Container',
+        'image'         => 'Image',
+        'preset'        => 'Preset',
+        'segment'       => 'Segment',
+        'speed'         => 'Speed',
+        'stripMetadata' => 'StripMetadata',
+        'subtitle'      => 'Subtitle',
+        'URI'           => 'URI',
+        'video'         => 'Video',
     ];
 
     public function validate()
@@ -101,6 +107,9 @@ class targets extends Model
         if (null !== $this->speed) {
             $res['Speed'] = $this->speed;
         }
+        if (null !== $this->stripMetadata) {
+            $res['StripMetadata'] = $this->stripMetadata;
+        }
         if (null !== $this->subtitle) {
             $res['Subtitle'] = null !== $this->subtitle ? $this->subtitle->toMap() : null;
         }
@@ -123,13 +132,13 @@ class targets extends Model
     {
         $model = new self();
         if (isset($map['Audio'])) {
-            $model->audio = audio::fromMap($map['Audio']);
+            $model->audio = TargetAudio::fromMap($map['Audio']);
         }
         if (isset($map['Container'])) {
             $model->container = $map['Container'];
         }
         if (isset($map['Image'])) {
-            $model->image = image::fromMap($map['Image']);
+            $model->image = TargetImage::fromMap($map['Image']);
         }
         if (isset($map['Preset'])) {
             $model->preset = PresetReference::fromMap($map['Preset']);
@@ -140,14 +149,17 @@ class targets extends Model
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];
         }
+        if (isset($map['StripMetadata'])) {
+            $model->stripMetadata = $map['StripMetadata'];
+        }
         if (isset($map['Subtitle'])) {
-            $model->subtitle = subtitle::fromMap($map['Subtitle']);
+            $model->subtitle = TargetSubtitle::fromMap($map['Subtitle']);
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
         }
         if (isset($map['Video'])) {
-            $model->video = video::fromMap($map['Video']);
+            $model->video = TargetVideo::fromMap($map['Video']);
         }
 
         return $model;

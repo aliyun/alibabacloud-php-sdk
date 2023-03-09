@@ -14,6 +14,11 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -52,6 +57,7 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'sourcesShrink'          => 'Sources',
@@ -69,6 +75,9 @@ class CreateMediaConvertTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -102,6 +111,9 @@ class CreateMediaConvertTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

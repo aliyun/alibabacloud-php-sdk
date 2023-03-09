@@ -14,6 +14,11 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -54,6 +59,7 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'sourcesShrink'          => 'Sources',
@@ -71,6 +77,9 @@ class CreateImageToPDFTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -104,6 +113,9 @@ class CreateImageToPDFTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

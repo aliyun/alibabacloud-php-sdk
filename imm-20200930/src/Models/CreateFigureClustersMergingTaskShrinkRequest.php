@@ -23,6 +23,16 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $from;
 
     /**
+     * @var string
+     */
+    public $fromsShrink;
+
+    /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -57,13 +67,15 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'from'            => 'From',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'tagsShrink'      => 'Tags',
-        'to'              => 'To',
-        'userData'        => 'UserData',
+        'datasetName'        => 'DatasetName',
+        'from'               => 'From',
+        'fromsShrink'        => 'Froms',
+        'notificationShrink' => 'Notification',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'projectName'        => 'ProjectName',
+        'tagsShrink'         => 'Tags',
+        'to'                 => 'To',
+        'userData'           => 'UserData',
     ];
 
     public function validate()
@@ -78,6 +90,12 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->fromsShrink) {
+            $res['Froms'] = $this->fromsShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -111,6 +129,12 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['Froms'])) {
+            $model->fromsShrink = $map['Froms'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

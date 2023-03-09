@@ -21,6 +21,11 @@ class IndexFileMetaShrinkRequest extends Model
     public $fileShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -34,10 +39,11 @@ class IndexFileMetaShrinkRequest extends Model
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'fileShrink'      => 'File',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName'        => 'DatasetName',
+        'fileShrink'         => 'File',
+        'notificationShrink' => 'Notification',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'projectName'        => 'ProjectName',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (null !== $this->fileShrink) {
             $res['File'] = $this->fileShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -76,6 +85,9 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (isset($map['File'])) {
             $model->fileShrink = $map['File'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

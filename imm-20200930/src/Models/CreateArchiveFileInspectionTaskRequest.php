@@ -14,6 +14,11 @@ class CreateArchiveFileInspectionTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -56,6 +61,7 @@ class CreateArchiveFileInspectionTaskRequest extends Model
     public $userData;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
+        'notification'     => 'Notification',
         'notifyTopicName'  => 'NotifyTopicName',
         'password'         => 'Password',
         'projectName'      => 'ProjectName',
@@ -73,6 +79,9 @@ class CreateArchiveFileInspectionTaskRequest extends Model
         $res = [];
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -106,6 +115,9 @@ class CreateArchiveFileInspectionTaskRequest extends Model
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

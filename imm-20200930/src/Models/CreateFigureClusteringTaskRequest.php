@@ -16,6 +16,11 @@ class CreateFigureClusteringTaskRequest extends Model
     public $datasetName;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -44,6 +49,7 @@ class CreateFigureClusteringTaskRequest extends Model
     public $userData;
     protected $_name = [
         'datasetName'     => 'DatasetName',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'tags'            => 'Tags',
@@ -59,6 +65,9 @@ class CreateFigureClusteringTaskRequest extends Model
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -86,6 +95,9 @@ class CreateFigureClusteringTaskRequest extends Model
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -49,6 +49,11 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $margin;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -115,6 +120,7 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         'direction'              => 'Direction',
         'imageFormat'            => 'ImageFormat',
         'margin'                 => 'Margin',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'padding'                => 'Padding',
         'projectName'            => 'ProjectName',
@@ -150,6 +156,9 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (null !== $this->margin) {
             $res['Margin'] = $this->margin;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -207,6 +216,9 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (isset($map['Margin'])) {
             $model->margin = $map['Margin'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

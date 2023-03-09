@@ -49,6 +49,11 @@ class CreateStoryRequest extends Model
     public $minFileCount;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -124,6 +129,7 @@ class CreateStoryRequest extends Model
         'datasetName'     => 'DatasetName',
         'maxFileCount'    => 'MaxFileCount',
         'minFileCount'    => 'MinFileCount',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'objectId'        => 'ObjectId',
         'projectName'     => 'ProjectName',
@@ -160,6 +166,9 @@ class CreateStoryRequest extends Model
         }
         if (null !== $this->minFileCount) {
             $res['MinFileCount'] = $this->minFileCount;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -220,6 +229,9 @@ class CreateStoryRequest extends Model
         }
         if (isset($map['MinFileCount'])) {
             $model->minFileCount = $map['MinFileCount'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -28,6 +28,11 @@ class CreateImageModerationTaskRequest extends Model
     public $maxFrames;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -77,6 +82,7 @@ class CreateImageModerationTaskRequest extends Model
         'credentialConfig' => 'CredentialConfig',
         'interval'         => 'Interval',
         'maxFrames'        => 'MaxFrames',
+        'notification'     => 'Notification',
         'notifyTopicName'  => 'NotifyTopicName',
         'projectName'      => 'ProjectName',
         'reviewer'         => 'Reviewer',
@@ -101,6 +107,9 @@ class CreateImageModerationTaskRequest extends Model
         }
         if (null !== $this->maxFrames) {
             $res['MaxFrames'] = $this->maxFrames;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -143,6 +152,9 @@ class CreateImageModerationTaskRequest extends Model
         }
         if (isset($map['MaxFrames'])) {
             $model->maxFrames = $map['MaxFrames'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

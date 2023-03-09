@@ -24,6 +24,11 @@ class CreateFacesSearchingTaskRequest extends Model
     public $maxResult;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -58,6 +63,7 @@ class CreateFacesSearchingTaskRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'maxResult'       => 'MaxResult',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'sources'         => 'Sources',
@@ -77,6 +83,9 @@ class CreateFacesSearchingTaskRequest extends Model
         }
         if (null !== $this->maxResult) {
             $res['MaxResult'] = $this->maxResult;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -116,6 +125,9 @@ class CreateFacesSearchingTaskRequest extends Model
         }
         if (isset($map['MaxResult'])) {
             $model->maxResult = $map['MaxResult'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

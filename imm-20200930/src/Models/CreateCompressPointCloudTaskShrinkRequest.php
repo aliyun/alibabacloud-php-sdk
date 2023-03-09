@@ -26,6 +26,11 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
     public $kdtreeOptionShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example imm-regression-test-1
      *
      * @var string
@@ -87,6 +92,7 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         'compressMethod'         => 'CompressMethod',
         'credentialConfigShrink' => 'CredentialConfig',
         'kdtreeOptionShrink'     => 'KdtreeOption',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'octreeOptionShrink'     => 'OctreeOption',
         'pointCloudFieldsShrink' => 'PointCloudFields',
@@ -113,6 +119,9 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         }
         if (null !== $this->kdtreeOptionShrink) {
             $res['KdtreeOption'] = $this->kdtreeOptionShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -161,6 +170,9 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         }
         if (isset($map['KdtreeOption'])) {
             $model->kdtreeOptionShrink = $map['KdtreeOption'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

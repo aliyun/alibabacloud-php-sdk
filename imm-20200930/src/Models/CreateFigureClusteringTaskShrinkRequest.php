@@ -16,6 +16,11 @@ class CreateFigureClusteringTaskShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -43,11 +48,12 @@ class CreateFigureClusteringTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'tagsShrink'      => 'Tags',
-        'userData'        => 'UserData',
+        'datasetName'        => 'DatasetName',
+        'notificationShrink' => 'Notification',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'projectName'        => 'ProjectName',
+        'tagsShrink'         => 'Tags',
+        'userData'           => 'UserData',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class CreateFigureClusteringTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -86,6 +95,9 @@ class CreateFigureClusteringTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -21,6 +21,11 @@ class BatchIndexFileMetaShrinkRequest extends Model
     public $filesShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -34,10 +39,11 @@ class BatchIndexFileMetaShrinkRequest extends Model
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'filesShrink'     => 'Files',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName'        => 'DatasetName',
+        'filesShrink'        => 'Files',
+        'notificationShrink' => 'Notification',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'projectName'        => 'ProjectName',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class BatchIndexFileMetaShrinkRequest extends Model
         }
         if (null !== $this->filesShrink) {
             $res['Files'] = $this->filesShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -76,6 +85,9 @@ class BatchIndexFileMetaShrinkRequest extends Model
         }
         if (isset($map['Files'])) {
             $model->filesShrink = $map['Files'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

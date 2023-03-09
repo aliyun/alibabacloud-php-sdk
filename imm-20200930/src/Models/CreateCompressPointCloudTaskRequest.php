@@ -26,6 +26,11 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $kdtreeOption;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example imm-regression-test-1
      *
      * @var string
@@ -87,6 +92,7 @@ class CreateCompressPointCloudTaskRequest extends Model
         'compressMethod'       => 'CompressMethod',
         'credentialConfig'     => 'CredentialConfig',
         'kdtreeOption'         => 'KdtreeOption',
+        'notification'         => 'Notification',
         'notifyTopicName'      => 'NotifyTopicName',
         'octreeOption'         => 'OctreeOption',
         'pointCloudFields'     => 'PointCloudFields',
@@ -113,6 +119,9 @@ class CreateCompressPointCloudTaskRequest extends Model
         }
         if (null !== $this->kdtreeOption) {
             $res['KdtreeOption'] = null !== $this->kdtreeOption ? $this->kdtreeOption->toMap() : null;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -161,6 +170,9 @@ class CreateCompressPointCloudTaskRequest extends Model
         }
         if (isset($map['KdtreeOption'])) {
             $model->kdtreeOption = KdtreeOption::fromMap($map['KdtreeOption']);
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

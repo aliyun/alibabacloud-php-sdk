@@ -28,6 +28,11 @@ class CreateLocationDateClusteringTaskRequest extends Model
     public $locationOptions;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example NotifyTopicName1
      *
      * @var string
@@ -58,6 +63,7 @@ class CreateLocationDateClusteringTaskRequest extends Model
         'datasetName'     => 'DatasetName',
         'dateOptions'     => 'DateOptions',
         'locationOptions' => 'LocationOptions',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'tags'            => 'Tags',
@@ -79,6 +85,9 @@ class CreateLocationDateClusteringTaskRequest extends Model
         }
         if (null !== $this->locationOptions) {
             $res['LocationOptions'] = null !== $this->locationOptions ? $this->locationOptions->toMap() : null;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -112,6 +121,9 @@ class CreateLocationDateClusteringTaskRequest extends Model
         }
         if (isset($map['LocationOptions'])) {
             $model->locationOptions = locationOptions::fromMap($map['LocationOptions']);
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -84,6 +84,11 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public $maxSheetRow;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -232,6 +237,7 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         'longText'               => 'LongText',
         'maxSheetColumn'         => 'MaxSheetColumn',
         'maxSheetRow'            => 'MaxSheetRow',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'pages'                  => 'Pages',
         'paperHorizontal'        => 'PaperHorizontal',
@@ -293,6 +299,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (null !== $this->maxSheetRow) {
             $res['MaxSheetRow'] = $this->maxSheetRow;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -398,6 +407,9 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
         }
         if (isset($map['MaxSheetRow'])) {
             $model->maxSheetRow = $map['MaxSheetRow'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

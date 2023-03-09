@@ -23,6 +23,11 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $maxResult;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -55,13 +60,14 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'maxResult'       => 'MaxResult',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'sourcesShrink'   => 'Sources',
-        'topK'            => 'TopK',
-        'userData'        => 'UserData',
+        'datasetName'        => 'DatasetName',
+        'maxResult'          => 'MaxResult',
+        'notificationShrink' => 'Notification',
+        'notifyTopicName'    => 'NotifyTopicName',
+        'projectName'        => 'ProjectName',
+        'sourcesShrink'      => 'Sources',
+        'topK'               => 'TopK',
+        'userData'           => 'UserData',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
         }
         if (null !== $this->maxResult) {
             $res['MaxResult'] = $this->maxResult;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -109,6 +118,9 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
         }
         if (isset($map['MaxResult'])) {
             $model->maxResult = $map['MaxResult'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

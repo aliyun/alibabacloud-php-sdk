@@ -28,6 +28,11 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $maxFrames;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -77,6 +82,7 @@ class CreateImageModerationTaskShrinkRequest extends Model
         'credentialConfigShrink' => 'CredentialConfig',
         'interval'               => 'Interval',
         'maxFrames'              => 'MaxFrames',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'reviewer'               => 'Reviewer',
@@ -101,6 +107,9 @@ class CreateImageModerationTaskShrinkRequest extends Model
         }
         if (null !== $this->maxFrames) {
             $res['MaxFrames'] = $this->maxFrames;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -143,6 +152,9 @@ class CreateImageModerationTaskShrinkRequest extends Model
         }
         if (isset($map['MaxFrames'])) {
             $model->maxFrames = $map['MaxFrames'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

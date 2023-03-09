@@ -567,12 +567,18 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->files)) {
             $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
         }
         if (!Utils::isUnset($request->filesShrink)) {
             $query['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -735,9 +741,15 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -925,6 +937,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->kdtreeOption)) {
             $request->kdtreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kdtreeOption, 'KdtreeOption', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->octreeOption)) {
             $request->octreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->octreeOption, 'OctreeOption', 'json');
         }
@@ -943,6 +958,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->kdtreeOptionShrink)) {
             $query['KdtreeOption'] = $request->kdtreeOptionShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1154,6 +1172,9 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateFacesSearchingTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
@@ -1163,6 +1184,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxResult)) {
             $query['MaxResult'] = $request->maxResult;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1220,12 +1244,18 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateFigureClusteringTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1280,6 +1310,12 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateFigureClustersMergingTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->froms)) {
+            $request->fromsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->froms, 'Froms', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -1289,6 +1325,12 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->fromsShrink)) {
+            $query['Froms'] = $request->fromsShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1349,6 +1391,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
@@ -1358,6 +1403,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1424,6 +1472,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->selectedFiles)) {
             $request->selectedFilesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->selectedFiles, 'SelectedFiles', 'json');
         }
@@ -1433,6 +1484,9 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1499,6 +1553,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->scenes)) {
             $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
         }
@@ -1514,6 +1571,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxFrames)) {
             $query['MaxFrames'] = $request->maxFrames;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1580,6 +1640,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
@@ -1604,6 +1667,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->margin)) {
             $query['Margin'] = $request->margin;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1676,6 +1742,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
@@ -1685,6 +1754,9 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1751,6 +1823,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->locationOptions)) {
             $request->locationOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationOptions, 'LocationOptions', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -1763,6 +1838,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationOptionsShrink)) {
             $query['LocationOptions'] = $request->locationOptionsShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1820,6 +1898,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
@@ -1832,6 +1913,9 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1895,6 +1979,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -1934,6 +2021,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxSheetRow)) {
             $query['MaxSheetRow'] = $request->maxSheetRow;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -2112,10 +2202,16 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
+        }
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['Tags'] = $request->tagsShrink;
         }
@@ -2282,12 +2378,18 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -2348,6 +2450,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->scenes)) {
             $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
         }
@@ -2363,6 +2468,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxFrames)) {
             $query['MaxFrames'] = $request->maxFrames;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -3348,6 +3456,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
             $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         if (!Utils::isUnset($tmpReq->permission)) {
             $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
         }
@@ -3372,6 +3483,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->hidecmb)) {
             $query['Hidecmb'] = $request->hidecmb;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -3971,12 +4085,18 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->file)) {
             $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
         }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
         }
         if (!Utils::isUnset($request->fileShrink)) {
             $query['File'] = $request->fileShrink;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;

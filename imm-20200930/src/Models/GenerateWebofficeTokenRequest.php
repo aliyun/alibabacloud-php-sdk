@@ -42,6 +42,11 @@ class GenerateWebofficeTokenRequest extends Model
     public $hidecmb;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -110,6 +115,7 @@ class GenerateWebofficeTokenRequest extends Model
         'externalUploaded' => 'ExternalUploaded',
         'filename'         => 'Filename',
         'hidecmb'          => 'Hidecmb',
+        'notification'     => 'Notification',
         'notifyTopicName'  => 'NotifyTopicName',
         'password'         => 'Password',
         'permission'       => 'Permission',
@@ -143,6 +149,9 @@ class GenerateWebofficeTokenRequest extends Model
         }
         if (null !== $this->hidecmb) {
             $res['Hidecmb'] = $this->hidecmb;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -200,6 +209,9 @@ class GenerateWebofficeTokenRequest extends Model
         }
         if (isset($map['Hidecmb'])) {
             $model->hidecmb = $map['Hidecmb'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

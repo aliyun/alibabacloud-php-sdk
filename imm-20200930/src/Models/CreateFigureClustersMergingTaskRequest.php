@@ -23,6 +23,16 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $from;
 
     /**
+     * @var string[]
+     */
+    public $froms;
+
+    /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -59,6 +69,8 @@ class CreateFigureClustersMergingTaskRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'from'            => 'From',
+        'froms'           => 'Froms',
+        'notification'    => 'Notification',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'tags'            => 'Tags',
@@ -78,6 +90,12 @@ class CreateFigureClustersMergingTaskRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->froms) {
+            $res['Froms'] = $this->froms;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -111,6 +129,14 @@ class CreateFigureClustersMergingTaskRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['Froms'])) {
+            if (!empty($map['Froms'])) {
+                $model->froms = $map['Froms'];
+            }
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

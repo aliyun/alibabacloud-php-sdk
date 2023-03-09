@@ -21,6 +21,11 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -69,6 +74,7 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     protected $_name = [
         'compressedFormat'       => 'CompressedFormat',
         'credentialConfigShrink' => 'CredentialConfig',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'password'               => 'Password',
         'projectName'            => 'ProjectName',
@@ -90,6 +96,9 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -129,6 +138,9 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

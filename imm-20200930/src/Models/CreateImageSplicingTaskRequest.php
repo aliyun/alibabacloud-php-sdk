@@ -50,6 +50,11 @@ class CreateImageSplicingTaskRequest extends Model
     public $margin;
 
     /**
+     * @var Notification
+     */
+    public $notification;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -116,6 +121,7 @@ class CreateImageSplicingTaskRequest extends Model
         'direction'        => 'Direction',
         'imageFormat'      => 'ImageFormat',
         'margin'           => 'Margin',
+        'notification'     => 'Notification',
         'notifyTopicName'  => 'NotifyTopicName',
         'padding'          => 'Padding',
         'projectName'      => 'ProjectName',
@@ -151,6 +157,9 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (null !== $this->margin) {
             $res['Margin'] = $this->margin;
+        }
+        if (null !== $this->notification) {
+            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -214,6 +223,9 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (isset($map['Margin'])) {
             $model->margin = $map['Margin'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notification = Notification::fromMap($map['Notification']);
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

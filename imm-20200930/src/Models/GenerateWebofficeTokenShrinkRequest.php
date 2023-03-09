@@ -42,6 +42,11 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $hidecmb;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example topic1
      *
      * @var string
@@ -110,6 +115,7 @@ class GenerateWebofficeTokenShrinkRequest extends Model
         'externalUploaded'       => 'ExternalUploaded',
         'filename'               => 'Filename',
         'hidecmb'                => 'Hidecmb',
+        'notificationShrink'     => 'Notification',
         'notifyTopicName'        => 'NotifyTopicName',
         'password'               => 'Password',
         'permissionShrink'       => 'Permission',
@@ -143,6 +149,9 @@ class GenerateWebofficeTokenShrinkRequest extends Model
         }
         if (null !== $this->hidecmb) {
             $res['Hidecmb'] = $this->hidecmb;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -200,6 +209,9 @@ class GenerateWebofficeTokenShrinkRequest extends Model
         }
         if (isset($map['Hidecmb'])) {
             $model->hidecmb = $map['Hidecmb'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

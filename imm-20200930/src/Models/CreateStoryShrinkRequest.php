@@ -49,6 +49,11 @@ class CreateStoryShrinkRequest extends Model
     public $minFileCount;
 
     /**
+     * @var string
+     */
+    public $notificationShrink;
+
+    /**
      * @example test-topic
      *
      * @var string
@@ -124,6 +129,7 @@ class CreateStoryShrinkRequest extends Model
         'datasetName'        => 'DatasetName',
         'maxFileCount'       => 'MaxFileCount',
         'minFileCount'       => 'MinFileCount',
+        'notificationShrink' => 'Notification',
         'notifyTopicName'    => 'NotifyTopicName',
         'objectId'           => 'ObjectId',
         'projectName'        => 'ProjectName',
@@ -160,6 +166,9 @@ class CreateStoryShrinkRequest extends Model
         }
         if (null !== $this->minFileCount) {
             $res['MinFileCount'] = $this->minFileCount;
+        }
+        if (null !== $this->notificationShrink) {
+            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -220,6 +229,9 @@ class CreateStoryShrinkRequest extends Model
         }
         if (isset($map['MinFileCount'])) {
             $model->minFileCount = $map['MinFileCount'];
+        }
+        if (isset($map['Notification'])) {
+            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
