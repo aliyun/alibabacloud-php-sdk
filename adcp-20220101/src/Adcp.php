@@ -25,8 +25,12 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeUserPermissionsRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeUserPermissionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureShrinkRequest;
@@ -532,6 +536,49 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserPermissionsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeUserPermissionsResponse
+     */
+    public function describeUserPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserPermissions',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserPermissionsRequest $request
+     *
+     * @return DescribeUserPermissionsResponse
+     */
+    public function describeUserPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetachClusterFromHubRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -580,6 +627,52 @@ class Adcp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachClusterFromHubWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantUserPermissionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GrantUserPermissionsResponse
+     */
+    public function grantUserPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->permissions)) {
+            $query['Permissions'] = $request->permissions;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantUserPermissions',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantUserPermissionsRequest $request
+     *
+     * @return GrantUserPermissionsResponse
+     */
+    public function grantUserPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantUserPermissionsWithOptions($request, $runtime);
     }
 
     /**
