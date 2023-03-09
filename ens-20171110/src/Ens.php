@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceRequest;
@@ -281,6 +283,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssUsageDataRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssUsageDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceRequest;
@@ -1599,8 +1603,8 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['product'] = $request->product;
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2784,6 +2788,49 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDeviceInternetPortWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDiskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteDiskResponse
+     */
+    public function deleteDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDisk',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiskRequest $request
+     *
+     * @return DeleteDiskResponse
+     */
+    public function deleteDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiskWithOptions($request, $runtime);
     }
 
     /**
@@ -7447,6 +7494,46 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOssStorageAndAccByBucketsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOssUsageDataRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetOssUsageDataResponse
+     */
+    public function getOssUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOssUsageData',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOssUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOssUsageDataRequest $request
+     *
+     * @return GetOssUsageDataResponse
+     */
+    public function getOssUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssUsageDataWithOptions($request, $runtime);
     }
 
     /**

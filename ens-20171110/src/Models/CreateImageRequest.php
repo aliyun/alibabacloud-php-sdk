@@ -28,16 +28,14 @@ class CreateImageRequest extends Model
     public $instanceId;
 
     /**
-     * @example DAILY_FORECAST_15D
-     *
      * @var string
      */
-    public $product;
+    public $snapshotId;
     protected $_name = [
         'deleteAfterImageUpload' => 'DeleteAfterImageUpload',
         'imageName'              => 'ImageName',
         'instanceId'             => 'InstanceId',
-        'product'                => 'product',
+        'snapshotId'             => 'SnapshotId',
     ];
 
     public function validate()
@@ -56,8 +54,8 @@ class CreateImageRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->product) {
-            $res['product'] = $this->product;
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -80,8 +78,8 @@ class CreateImageRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['product'])) {
-            $model->product = $map['product'];
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;
