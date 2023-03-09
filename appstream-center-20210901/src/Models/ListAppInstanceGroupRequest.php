@@ -26,6 +26,11 @@ class ListAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @var string
+     */
+    public $nodeInstanceType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -59,6 +64,7 @@ class ListAppInstanceGroupRequest extends Model
         'appCenterImageId'     => 'AppCenterImageId',
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'nodeInstanceType'     => 'NodeInstanceType',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'productType'          => 'ProductType',
@@ -81,6 +87,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
+        }
+        if (null !== $this->nodeInstanceType) {
+            $res['NodeInstanceType'] = $this->nodeInstanceType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -117,6 +126,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
+        }
+        if (isset($map['NodeInstanceType'])) {
+            $model->nodeInstanceType = $map['NodeInstanceType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

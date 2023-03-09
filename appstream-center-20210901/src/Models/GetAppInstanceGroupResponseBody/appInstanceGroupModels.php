@@ -2,17 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody;
+namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody;
 
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\apps;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\nodePool;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\otaInfo;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels\apps;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels\nodePool;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels\otaInfo;
 use AlibabaCloud\Tea\Model;
 
 class appInstanceGroupModels extends Model
 {
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
@@ -24,6 +24,13 @@ class appInstanceGroupModels extends Model
      * @var string
      */
     public $appCenterImageId;
+
+    /**
+     * @example OfficeApps
+     *
+     * @var string
+     */
+    public $appCenterImageName;
 
     /**
      * @example aig-9ciijz60n4xsv****
@@ -45,19 +52,9 @@ class appInstanceGroupModels extends Model
     public $appInstanceType;
 
     /**
-     * @var string
-     */
-    public $appPolicyId;
-
-    /**
      * @var apps[]
      */
     public $apps;
-
-    /**
-     * @var string
-     */
-    public $chargeResourceMode;
 
     /**
      * @example PrePaid
@@ -112,6 +109,8 @@ class appInstanceGroupModels extends Model
     public $regionId;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $resourceStatus;
@@ -139,12 +138,11 @@ class appInstanceGroupModels extends Model
     protected $_name = [
         'amount'               => 'Amount',
         'appCenterImageId'     => 'AppCenterImageId',
+        'appCenterImageName'   => 'AppCenterImageName',
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'appInstanceType'      => 'AppInstanceType',
-        'appPolicyId'          => 'AppPolicyId',
         'apps'                 => 'Apps',
-        'chargeResourceMode'   => 'ChargeResourceMode',
         'chargeType'           => 'ChargeType',
         'expiredTime'          => 'ExpiredTime',
         'gmtCreate'            => 'GmtCreate',
@@ -172,6 +170,9 @@ class appInstanceGroupModels extends Model
         if (null !== $this->appCenterImageId) {
             $res['AppCenterImageId'] = $this->appCenterImageId;
         }
+        if (null !== $this->appCenterImageName) {
+            $res['AppCenterImageName'] = $this->appCenterImageName;
+        }
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
@@ -181,9 +182,6 @@ class appInstanceGroupModels extends Model
         if (null !== $this->appInstanceType) {
             $res['AppInstanceType'] = $this->appInstanceType;
         }
-        if (null !== $this->appPolicyId) {
-            $res['AppPolicyId'] = $this->appPolicyId;
-        }
         if (null !== $this->apps) {
             $res['Apps'] = [];
             if (null !== $this->apps && \is_array($this->apps)) {
@@ -192,9 +190,6 @@ class appInstanceGroupModels extends Model
                     $res['Apps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->chargeResourceMode) {
-            $res['ChargeResourceMode'] = $this->chargeResourceMode;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -256,6 +251,9 @@ class appInstanceGroupModels extends Model
         if (isset($map['AppCenterImageId'])) {
             $model->appCenterImageId = $map['AppCenterImageId'];
         }
+        if (isset($map['AppCenterImageName'])) {
+            $model->appCenterImageName = $map['AppCenterImageName'];
+        }
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
@@ -265,9 +263,6 @@ class appInstanceGroupModels extends Model
         if (isset($map['AppInstanceType'])) {
             $model->appInstanceType = $map['AppInstanceType'];
         }
-        if (isset($map['AppPolicyId'])) {
-            $model->appPolicyId = $map['AppPolicyId'];
-        }
         if (isset($map['Apps'])) {
             if (!empty($map['Apps'])) {
                 $model->apps = [];
@@ -276,9 +271,6 @@ class appInstanceGroupModels extends Model
                     $model->apps[$n++] = null !== $item ? apps::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ChargeResourceMode'])) {
-            $model->chargeResourceMode = $map['ChargeResourceMode'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];

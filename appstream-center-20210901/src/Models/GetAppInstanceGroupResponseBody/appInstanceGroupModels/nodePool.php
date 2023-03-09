@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
+namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels;
 
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\nodePool\recurrenceSchedules;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels\nodePool\recurrenceSchedules;
 use AlibabaCloud\Tea\Model;
 
 class nodePool extends Model
@@ -104,11 +104,15 @@ class nodePool extends Model
     public $scalingUsageThreshold;
 
     /**
+     * @example 2022-09-08
+     *
      * @var string
      */
     public $strategyDisableDate;
 
     /**
+     * @example 2022-08-01
+     *
      * @var string
      */
     public $strategyEnableDate;
@@ -121,6 +125,8 @@ class nodePool extends Model
     public $strategyType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $warmUp;

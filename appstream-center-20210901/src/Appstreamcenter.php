@@ -17,6 +17,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResp
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
@@ -388,6 +394,168 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param DeleteAppInstancesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAppInstancesResponse
+     */
+    public function deleteAppInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->appInstanceIds)) {
+            $body['AppInstanceIds'] = $request->appInstanceIds;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppInstances',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppInstancesRequest $request
+     *
+     * @return DeleteAppInstancesResponse
+     */
+    public function deleteAppInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppInstanceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAppInstanceGroupResponse
+     */
+    public function getAppInstanceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppInstanceGroup',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppInstanceGroupRequest $request
+     *
+     * @return GetAppInstanceGroupResponse
+     */
+    public function getAppInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConnectionTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConnectionTicketResponse
+     */
+    public function getConnectionTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appInstanceGroupIdList)) {
+            $body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
+        }
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $body['AppInstanceId'] = $request->appInstanceId;
+        }
+        if (!Utils::isUnset($request->appStartParam)) {
+            $body['AppStartParam'] = $request->appStartParam;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $body['AppVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $body['BizRegionId'] = $request->bizRegionId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConnectionTicket',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetConnectionTicketRequest $request
+     *
+     * @return GetConnectionTicketResponse
+     */
+    public function getConnectionTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConnectionTicketWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetOtaTaskByTaskIdRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -561,6 +729,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->appInstanceGroupName)) {
             $query['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        }
+        if (!Utils::isUnset($request->nodeInstanceType)) {
+            $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1125,9 +1296,6 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
-        }
-        if (!Utils::isUnset($request->updateMode)) {
-            $query['UpdateMode'] = $request->updateMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
