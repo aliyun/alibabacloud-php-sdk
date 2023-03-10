@@ -265,6 +265,8 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailReq
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplicationDetailResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedTbUidRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryRefundApplyWithDesignatedTbUidResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QuerySellerLicenseRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QuerySellerLicenseResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryStatementsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QuerySupplierItemBillDownloadUrlRequest;
@@ -7366,6 +7368,55 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRefundApplyWithDesignatedTbUidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySellerLicenseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySellerLicenseResponse
+     */
+    public function querySellerLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $body['SellerId'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySellerLicense',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySellerLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySellerLicenseRequest $request
+     *
+     * @return QuerySellerLicenseResponse
+     */
+    public function querySellerLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySellerLicenseWithOptions($request, $runtime);
     }
 
     /**
