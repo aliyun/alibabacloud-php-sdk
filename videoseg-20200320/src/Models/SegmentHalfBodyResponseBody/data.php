@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://vibktprfx-prod-prod-aic-vd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/segment-halfbody/1596074561.mp4?Expires=1596076361&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=2mMLs0Y1muqeqCEv%2FSWyq8EEEc****
+     *
      * @var string
      */
     public $videoUrl;

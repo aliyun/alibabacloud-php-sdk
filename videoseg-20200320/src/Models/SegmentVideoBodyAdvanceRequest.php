@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class SegmentVideoBodyAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoseg/SegmentVideoBody/SegmentVideoBody1.mp4
+     *
      * @var Stream
      */
     public $videoUrlObject;

@@ -1,3 +1,6 @@
+2023-03-10 Version: 1.0.5
+- Update videoseg.
+
 2022-10-17 Version: 1.0.4
 - Update videoseg.
 

@@ -20,6 +20,8 @@ class SegmentVideoBodyResponseBody extends Model
     public $message;
 
     /**
+     * @example 49E2CC28-ED1D-4CC5-854D-7D0AE2B20976
+     *
      * @var string
      */
     public $requestId;

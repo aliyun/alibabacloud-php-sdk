@@ -20,6 +20,8 @@ class SegmentGreenScreenVideoResponseBody extends Model
     public $message;
 
     /**
+     * @example 031051E9-0781-4283-AED1-8DCE92E3CDAA
+     *
      * @var string
      */
     public $requestId;

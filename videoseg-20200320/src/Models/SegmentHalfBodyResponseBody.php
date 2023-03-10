@@ -20,6 +20,8 @@ class SegmentHalfBodyResponseBody extends Model
     public $message;
 
     /**
+     * @example 894DF9EE-EFE6-4906-B5A3-0A4796E12238
+     *
      * @var string
      */
     public $requestId;
