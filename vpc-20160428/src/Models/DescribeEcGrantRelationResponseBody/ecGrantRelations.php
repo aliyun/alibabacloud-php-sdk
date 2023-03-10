@@ -23,6 +23,11 @@ class ecGrantRelations extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $grantType;
+
+    /**
      * @example vpc-bp1brjuegjc88v3u9****
      *
      * @var string
@@ -80,6 +85,7 @@ class ecGrantRelations extends Model
     protected $_name = [
         'aliUid'           => 'AliUid',
         'gmtCreate'        => 'GmtCreate',
+        'grantType'        => 'GrantType',
         'instanceId'       => 'InstanceId',
         'instanceName'     => 'InstanceName',
         'instanceRouterId' => 'InstanceRouterId',
@@ -102,6 +108,9 @@ class ecGrantRelations extends Model
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->grantType) {
+            $res['GrantType'] = $this->grantType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -144,6 +153,9 @@ class ecGrantRelations extends Model
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GrantType'])) {
+            $model->grantType = $map['GrantType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

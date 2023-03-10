@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersResponse
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersResponseBody\trafficMirrorFilters\egressRules;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersResponseBody\trafficMirrorFilters\ingressRules;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersResponseBody\trafficMirrorFilters\tags;
 use AlibabaCloud\Tea\Model;
 
 class trafficMirrorFilters extends Model
@@ -19,6 +20,16 @@ class trafficMirrorFilters extends Model
      * @var ingressRules[]
      */
     public $ingressRules;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example This is a filter.
@@ -50,6 +61,8 @@ class trafficMirrorFilters extends Model
     protected $_name = [
         'egressRules'                    => 'EgressRules',
         'ingressRules'                   => 'IngressRules',
+        'resourceGroupId'                => 'ResourceGroupId',
+        'tags'                           => 'Tags',
         'trafficMirrorFilterDescription' => 'TrafficMirrorFilterDescription',
         'trafficMirrorFilterId'          => 'TrafficMirrorFilterId',
         'trafficMirrorFilterName'        => 'TrafficMirrorFilterName',
@@ -78,6 +91,18 @@ class trafficMirrorFilters extends Model
                 $n = 0;
                 foreach ($this->ingressRules as $item) {
                     $res['IngressRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -120,6 +145,18 @@ class trafficMirrorFilters extends Model
                 $n                   = 0;
                 foreach ($map['IngressRules'] as $item) {
                     $model->ingressRules[$n++] = null !== $item ? ingressRules::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

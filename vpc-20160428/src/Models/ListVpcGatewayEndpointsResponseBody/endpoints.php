@@ -14,41 +14,57 @@ class endpoints extends Model
     public $associatedRouteTables;
 
     /**
+     * @example 2021-09-08T08:43:04Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example test_description
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @example vpce-bp1i1212ss2whuwyw****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example Created
+     *
      * @var string
      */
     public $endpointStatus;
 
     /**
+     * @example {\n  \"Version\": \"1\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Principal\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example vpc-bp1gsk7h12ew7oegk****
+     *
      * @var string
      */
     public $vpcId;

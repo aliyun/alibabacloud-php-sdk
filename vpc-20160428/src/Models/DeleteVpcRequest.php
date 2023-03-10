@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
+    public $forceDelete;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -42,6 +52,8 @@ class DeleteVpcRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'dryRun'               => 'DryRun',
+        'forceDelete'          => 'ForceDelete',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -57,6 +69,12 @@ class DeleteVpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->forceDelete) {
+            $res['ForceDelete'] = $this->forceDelete;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -87,6 +105,12 @@ class DeleteVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ForceDelete'])) {
+            $model->forceDelete = $map['ForceDelete'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

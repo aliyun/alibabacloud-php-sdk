@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsResponseBody\haVip
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsResponseBody\haVips\haVip\associatedEipAddresses;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsResponseBody\haVips\haVip\associatedInstances;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsResponseBody\haVips\haVip\tags;
 use AlibabaCloud\Tea\Model;
 
 class haVip extends Model
@@ -84,11 +85,21 @@ class haVip extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Available
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
 
     /**
      * @example vsw-bp1pkt1fba8e824ez****
@@ -115,7 +126,9 @@ class haVip extends Model
         'masterInstanceId'       => 'MasterInstanceId',
         'name'                   => 'Name',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'status'                 => 'Status',
+        'tags'                   => 'Tags',
         'vSwitchId'              => 'VSwitchId',
         'vpcId'                  => 'VpcId',
     ];
@@ -160,8 +173,14 @@ class haVip extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -214,8 +233,14 @@ class haVip extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

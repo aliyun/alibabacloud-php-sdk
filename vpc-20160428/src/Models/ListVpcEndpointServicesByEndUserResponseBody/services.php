@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @example {   \"Version\" : \"1\",   \"Statement\" : [ {     \"Effect\" : \"Allow\",     \"Action\" : \"*\",     \"Principal\" : \"*\",     \"Resource\" : \"*\"   } ] }
+     *
      * @var string
      */
     public $defaultPolicyDocument;
 
     /**
+     * @example oss-admin.aliyuncs.com
+     *
      * @var string
      */
     public $serviceDomain;
 
     /**
+     * @example vpces-m5enwdmilo210aibo9****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportPolicy;

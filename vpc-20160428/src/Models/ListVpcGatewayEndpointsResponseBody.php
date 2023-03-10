@@ -15,21 +15,29 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $endpoints;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

@@ -13,7 +13,7 @@ class trafficPath extends Model
      */
     public $trafficPathList;
     protected $_name = [
-        'trafficPathList' => 'trafficPathList',
+        'trafficPathList' => 'TrafficPathList',
     ];
 
     public function validate()
@@ -24,7 +24,7 @@ class trafficPath extends Model
     {
         $res = [];
         if (null !== $this->trafficPathList) {
-            $res['trafficPathList'] = $this->trafficPathList;
+            $res['TrafficPathList'] = $this->trafficPathList;
         }
 
         return $res;
@@ -38,9 +38,9 @@ class trafficPath extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['trafficPathList'])) {
-            if (!empty($map['trafficPathList'])) {
-                $model->trafficPathList = $map['trafficPathList'];
+        if (isset($map['TrafficPathList'])) {
+            if (!empty($map['TrafficPathList'])) {
+                $model->trafficPathList = $map['TrafficPathList'];
             }
         }
 

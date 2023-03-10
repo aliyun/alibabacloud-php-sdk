@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorSessionsResponseBody;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorSessionsResponseBody\trafficMirrorSessions\tags;
 use AlibabaCloud\Tea\Model;
 
 class trafficMirrorSessions extends Model
@@ -28,6 +29,16 @@ class trafficMirrorSessions extends Model
      * @var int
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example tmf-j6cmls82xnc86vtpe****
@@ -100,6 +111,8 @@ class trafficMirrorSessions extends Model
         'enabled'                            => 'Enabled',
         'packetLength'                       => 'PacketLength',
         'priority'                           => 'Priority',
+        'resourceGroupId'                    => 'ResourceGroupId',
+        'tags'                               => 'Tags',
         'trafficMirrorFilterId'              => 'TrafficMirrorFilterId',
         'trafficMirrorSessionBusinessStatus' => 'TrafficMirrorSessionBusinessStatus',
         'trafficMirrorSessionDescription'    => 'TrafficMirrorSessionDescription',
@@ -127,6 +140,18 @@ class trafficMirrorSessions extends Model
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficMirrorFilterId) {
             $res['TrafficMirrorFilterId'] = $this->trafficMirrorFilterId;
@@ -178,6 +203,18 @@ class trafficMirrorSessions extends Model
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficMirrorFilterId'])) {
             $model->trafficMirrorFilterId = $map['TrafficMirrorFilterId'];

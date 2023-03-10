@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsResponseBody\flowLogs;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsResponseBody\flowLogs\flowLog\tags;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsResponseBody\flowLogs\flowLog\trafficPath;
 use AlibabaCloud\Tea\Model;
 
@@ -73,6 +74,11 @@ class flowLog extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example eni-askldfas****
      *
      * @var string
@@ -101,6 +107,11 @@ class flowLog extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var trafficPath
      */
     public $trafficPath;
@@ -121,10 +132,12 @@ class flowLog extends Model
         'logStoreName'        => 'LogStoreName',
         'projectName'         => 'ProjectName',
         'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'resourceId'          => 'ResourceId',
         'resourceType'        => 'ResourceType',
         'serviceType'         => 'ServiceType',
         'status'              => 'Status',
+        'tags'                => 'Tags',
         'trafficPath'         => 'TrafficPath',
         'trafficType'         => 'TrafficType',
     ];
@@ -163,6 +176,9 @@ class flowLog extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -174,6 +190,9 @@ class flowLog extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->trafficPath) {
             $res['TrafficPath'] = null !== $this->trafficPath ? $this->trafficPath->toMap() : null;
@@ -220,6 +239,9 @@ class flowLog extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
@@ -231,6 +253,9 @@ class flowLog extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TrafficPath'])) {
             $model->trafficPath = trafficPath::fromMap($map['TrafficPath']);

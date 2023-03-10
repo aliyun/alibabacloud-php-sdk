@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVSwitchAttributesResponseBody\routeTable;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVSwitchAttributesResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVSwitchAttributesResponseBody extends Model
@@ -92,6 +93,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @example vsw-25b7pv15t****
      *
      * @var string
@@ -131,6 +137,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'routeTable'              => 'RouteTable',
         'status'                  => 'Status',
+        'tags'                    => 'Tags',
         'vSwitchId'               => 'VSwitchId',
         'vSwitchName'             => 'VSwitchName',
         'vpcId'                   => 'VpcId',
@@ -179,6 +186,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -239,6 +249,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

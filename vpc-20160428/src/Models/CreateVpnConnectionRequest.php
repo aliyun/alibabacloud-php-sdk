@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnConnectionRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateVpnConnectionRequest extends Model
@@ -134,6 +135,11 @@ class CreateVpnConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example vpn-bp1q8bgx4xnkm****
      *
      * @var string
@@ -159,6 +165,7 @@ class CreateVpnConnectionRequest extends Model
         'remoteSubnet'         => 'RemoteSubnet',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tags'                 => 'Tags',
         'vpnGatewayId'         => 'VpnGatewayId',
     ];
 
@@ -225,6 +232,15 @@ class CreateVpnConnectionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
@@ -297,6 +313,15 @@ class CreateVpnConnectionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];

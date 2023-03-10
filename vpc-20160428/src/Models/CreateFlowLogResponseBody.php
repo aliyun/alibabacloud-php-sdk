@@ -23,15 +23,21 @@ class CreateFlowLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example true
      *
      * @var string
      */
     public $success;
     protected $_name = [
-        'flowLogId' => 'FlowLogId',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'flowLogId'       => 'FlowLogId',
+        'requestId'       => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class CreateFlowLogResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -67,6 +76,9 @@ class CreateFlowLogResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -6,32 +6,28 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
+class CreateDefaultVpcRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
-    public $autoPay;
+    public $enableIpv6;
 
     /**
-     * @var int
-     */
-    public $bandwidth;
-
-    /**
+     * @example 2408:XXXX:346:b600::/56
+     *
      * @var string
      */
-    public $bandwidthPackageId;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $internetChargeType;
+    public $ipv6CidrBlock;
 
     /**
      * @var string
@@ -44,14 +40,18 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @var int
-     */
-    public $ratio;
-
-    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-acfmystnjq4****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -63,15 +63,13 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'bandwidth'            => 'Bandwidth',
-        'bandwidthPackageId'   => 'BandwidthPackageId',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'internetChargeType'   => 'InternetChargeType',
+        'clientToken'          => 'ClientToken',
+        'enableIpv6'           => 'EnableIpv6',
+        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'ratio'                => 'Ratio',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -83,20 +81,14 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
         }
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -104,11 +96,11 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->ratio) {
-            $res['Ratio'] = $this->ratio;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -123,25 +115,19 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyCommonBandwidthPackageInternetChargeTypeRequest
+     * @return CreateDefaultVpcRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
         }
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -149,11 +135,11 @@ class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Ratio'])) {
-            $model->ratio = $map['Ratio'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

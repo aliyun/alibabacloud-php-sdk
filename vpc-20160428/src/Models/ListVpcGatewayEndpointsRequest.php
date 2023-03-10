@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListVpcGatewayEndpointsRequest extends Model
 {
     /**
+     * @example vpce-bp1i1212ss2whuwyw****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +47,8 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +64,8 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;

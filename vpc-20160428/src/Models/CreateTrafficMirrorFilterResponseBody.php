@@ -16,6 +16,11 @@ class CreateTrafficMirrorFilterResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -23,6 +28,7 @@ class CreateTrafficMirrorFilterResponseBody extends Model
     public $trafficMirrorFilterId;
     protected $_name = [
         'requestId'             => 'RequestId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
     ];
 
@@ -35,6 +41,9 @@ class CreateTrafficMirrorFilterResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->trafficMirrorFilterId) {
             $res['TrafficMirrorFilterId'] = $this->trafficMirrorFilterId;
@@ -53,6 +62,9 @@ class CreateTrafficMirrorFilterResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TrafficMirrorFilterId'])) {
             $model->trafficMirrorFilterId = $map['TrafficMirrorFilterId'];

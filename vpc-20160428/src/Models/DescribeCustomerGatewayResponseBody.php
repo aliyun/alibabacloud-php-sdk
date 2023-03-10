@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCustomerGatewayResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomerGatewayResponseBody extends Model
@@ -63,6 +64,11 @@ class DescribeCustomerGatewayResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'asn'               => 'Asn',
         'authKey'           => 'AuthKey',
@@ -72,6 +78,7 @@ class DescribeCustomerGatewayResponseBody extends Model
         'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
         'requestId'         => 'RequestId',
+        'tags'              => 'Tags',
     ];
 
     public function validate()
@@ -104,6 +111,9 @@ class DescribeCustomerGatewayResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -140,6 +150,9 @@ class DescribeCustomerGatewayResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

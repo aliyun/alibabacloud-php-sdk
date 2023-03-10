@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeFlowLogsRequest extends Model
@@ -75,6 +76,11 @@ class DescribeFlowLogsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example eni-askldfas****
      *
      * @var string
@@ -106,6 +112,11 @@ class DescribeFlowLogsRequest extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example All
      *
      * @var string
@@ -129,11 +140,13 @@ class DescribeFlowLogsRequest extends Model
         'pageSize'             => 'PageSize',
         'projectName'          => 'ProjectName',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceType'         => 'ResourceType',
         'status'               => 'Status',
+        'tags'                 => 'Tags',
         'trafficType'          => 'TrafficType',
         'vpcId'                => 'VpcId',
     ];
@@ -175,6 +188,9 @@ class DescribeFlowLogsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -189,6 +205,15 @@ class DescribeFlowLogsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficType) {
             $res['TrafficType'] = $this->trafficType;
@@ -238,6 +263,9 @@ class DescribeFlowLogsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
@@ -252,6 +280,15 @@ class DescribeFlowLogsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficType'])) {
             $model->trafficType = $map['TrafficType'];

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResp
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\egressAclEntries;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\ingressAclEntries;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\resources;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\tags;
 use AlibabaCloud\Tea\Model;
 
 class networkAclAttribute extends Model
@@ -76,6 +77,11 @@ class networkAclAttribute extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @example vpc-a2d33rfpl72k5defr****
      *
      * @var string
@@ -92,6 +98,7 @@ class networkAclAttribute extends Model
         'regionId'          => 'RegionId',
         'resources'         => 'Resources',
         'status'            => 'Status',
+        'tags'              => 'Tags',
         'vpcId'             => 'VpcId',
     ];
 
@@ -131,6 +138,9 @@ class networkAclAttribute extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -176,6 +186,9 @@ class networkAclAttribute extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

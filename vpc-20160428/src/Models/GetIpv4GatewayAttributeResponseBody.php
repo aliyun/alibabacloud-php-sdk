@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetIpv4GatewayAttributeResponseBody extends Model
@@ -58,11 +59,21 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Created
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example vpc-5tsrxlw7dv074gci4****
@@ -78,7 +89,9 @@ class GetIpv4GatewayAttributeResponseBody extends Model
         'ipv4GatewayName'         => 'Ipv4GatewayName',
         'ipv4GatewayRouteTableId' => 'Ipv4GatewayRouteTableId',
         'requestId'               => 'RequestId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'status'                  => 'Status',
+        'tags'                    => 'Tags',
         'vpcId'                   => 'VpcId',
     ];
 
@@ -110,8 +123,20 @@ class GetIpv4GatewayAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -149,8 +174,20 @@ class GetIpv4GatewayAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

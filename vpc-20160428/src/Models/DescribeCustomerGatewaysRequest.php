@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCustomerGatewaysRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomerGatewaysRequest extends Model
@@ -55,6 +56,11 @@ class DescribeCustomerGatewaysRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'customerGatewayId'    => 'CustomerGatewayId',
         'ownerAccount'         => 'OwnerAccount',
@@ -64,6 +70,7 @@ class DescribeCustomerGatewaysRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -96,6 +103,15 @@ class DescribeCustomerGatewaysRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -132,6 +148,15 @@ class DescribeCustomerGatewaysRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

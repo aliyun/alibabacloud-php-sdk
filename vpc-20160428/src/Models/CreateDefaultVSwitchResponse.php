@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyCommonBandwidthPackageInternetChargeTypeResponse extends Model
+class CreateDefaultVSwitchResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifyCommonBandwidthPackageInternetChargeTypeResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifyCommonBandwidthPackageInternetChargeTypeResponseBody
+     * @var CreateDefaultVSwitchResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ModifyCommonBandwidthPackageInternetChargeTypeResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyCommonBandwidthPackageInternetChargeTypeResponse
+     * @return CreateDefaultVSwitchResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ModifyCommonBandwidthPackageInternetChargeTypeResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyCommonBandwidthPackageInternetChargeTypeResponseBody::fromMap($map['body']);
+            $model->body = CreateDefaultVSwitchResponseBody::fromMap($map['body']);
         }
 
         return $model;

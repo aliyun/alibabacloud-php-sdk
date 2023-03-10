@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesByEndUserRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,6 +33,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example com.aliyun.cn-hangzhou.oss
+     *
      * @var string
      */
     public $serviceName;

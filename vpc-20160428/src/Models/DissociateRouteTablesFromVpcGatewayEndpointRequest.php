@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DissociateRouteTablesFromVpcGatewayEndpointRequest extends Model
 {
     /**
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example vpce-m5e371h5clm3uadih****
+     *
      * @var string
      */
     public $endpointId;
@@ -34,6 +40,8 @@ class DissociateRouteTablesFromVpcGatewayEndpointRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +57,8 @@ class DissociateRouteTablesFromVpcGatewayEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vtb-m5elgtm3aj586iitr****
+     *
      * @var string[]
      */
     public $routeTableIds;

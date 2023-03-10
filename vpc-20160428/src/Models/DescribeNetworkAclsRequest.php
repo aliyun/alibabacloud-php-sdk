@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkAclsRequest extends Model
@@ -80,6 +81,11 @@ class DescribeNetworkAclsRequest extends Model
     public $resourceType;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example vpc-m5ebpc2xh64mqm27e****
      *
      * @var string
@@ -97,6 +103,7 @@ class DescribeNetworkAclsRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceType'         => 'ResourceType',
+        'tags'                 => 'Tags',
         'vpcId'                => 'VpcId',
     ];
 
@@ -139,6 +146,15 @@ class DescribeNetworkAclsRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -187,6 +203,15 @@ class DescribeNetworkAclsRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

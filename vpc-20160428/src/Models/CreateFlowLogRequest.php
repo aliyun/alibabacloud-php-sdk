@@ -61,6 +61,11 @@ class CreateFlowLogRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example eni-askldfas****
      *
      * @var string
@@ -104,6 +109,7 @@ class CreateFlowLogRequest extends Model
         'ownerId'              => 'OwnerId',
         'projectName'          => 'ProjectName',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -142,6 +148,9 @@ class CreateFlowLogRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -196,6 +205,9 @@ class CreateFlowLogRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

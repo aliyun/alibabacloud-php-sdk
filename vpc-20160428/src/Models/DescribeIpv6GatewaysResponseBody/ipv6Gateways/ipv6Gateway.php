@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6GatewaysResponseBody\ipv6Gateways;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6GatewaysResponseBody\ipv6Gateways\ipv6Gateway\tags;
 use AlibabaCloud\Tea\Model;
 
 class ipv6Gateway extends Model
@@ -65,11 +66,21 @@ class ipv6Gateway extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Available
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
 
     /**
      * @example vpc-123sedrfswd23****
@@ -86,7 +97,9 @@ class ipv6Gateway extends Model
         'ipv6GatewayId'      => 'Ipv6GatewayId',
         'name'               => 'Name',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'status'             => 'Status',
+        'tags'               => 'Tags',
         'vpcId'              => 'VpcId',
     ];
 
@@ -121,8 +134,14 @@ class ipv6Gateway extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -163,8 +182,14 @@ class ipv6Gateway extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

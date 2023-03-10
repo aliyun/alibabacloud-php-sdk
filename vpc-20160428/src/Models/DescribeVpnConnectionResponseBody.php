@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\ipsecConfig;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\tags;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\vcoHealthCheck;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\vpnBgpConfig;
 use AlibabaCloud\Tea\Model;
@@ -149,6 +150,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @example tr-p0we2edef9qr44a85****
      *
      * @var string
@@ -213,6 +219,7 @@ class DescribeVpnConnectionResponseBody extends Model
         'spec'                   => 'Spec',
         'state'                  => 'State',
         'status'                 => 'Status',
+        'tags'                   => 'Tags',
         'transitRouterId'        => 'TransitRouterId',
         'transitRouterName'      => 'TransitRouterName',
         'vcoHealthCheck'         => 'VcoHealthCheck',
@@ -288,6 +295,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
@@ -381,6 +391,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];

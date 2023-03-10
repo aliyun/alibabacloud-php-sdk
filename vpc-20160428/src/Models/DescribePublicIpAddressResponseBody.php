@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribePublicIpAddressResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 110.11.1.0/24
+     *
      * @var string[]
      */
     public $publicIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

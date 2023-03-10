@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBo
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\ipsecConfig;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\tag;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\vcoHealthCheck;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\vpnBgpConfig;
 use AlibabaCloud\Tea\Model;
@@ -142,6 +143,11 @@ class vpnConnection extends Model
     public $status;
 
     /**
+     * @var tag
+     */
+    public $tag;
+
+    /**
      * @example tr-p0we2edef9qr44a85****
      *
      * @var string
@@ -198,6 +204,7 @@ class vpnConnection extends Model
         'spec'                   => 'Spec',
         'state'                  => 'State',
         'status'                 => 'Status',
+        'tag'                    => 'Tag',
         'transitRouterId'        => 'TransitRouterId',
         'transitRouterName'      => 'TransitRouterName',
         'vcoHealthCheck'         => 'VcoHealthCheck',
@@ -269,6 +276,9 @@ class vpnConnection extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
@@ -356,6 +366,9 @@ class vpnConnection extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];

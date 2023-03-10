@@ -19,16 +19,22 @@ class DescribePublicIpAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

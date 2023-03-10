@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListTrafficMirrorFiltersRequest extends Model
@@ -42,12 +43,22 @@ class ListTrafficMirrorFiltersRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example tmf-j6cmls82xnc86vtpe****
@@ -68,8 +79,10 @@ class ListTrafficMirrorFiltersRequest extends Model
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
         'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
+        'tags'                    => 'Tags',
         'trafficMirrorFilterIds'  => 'TrafficMirrorFilterIds',
         'trafficMirrorFilterName' => 'TrafficMirrorFilterName',
     ];
@@ -96,11 +109,23 @@ class ListTrafficMirrorFiltersRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficMirrorFilterIds) {
             $res['TrafficMirrorFilterIds'] = $this->trafficMirrorFilterIds;
@@ -135,11 +160,23 @@ class ListTrafficMirrorFiltersRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficMirrorFilterIds'])) {
             if (!empty($map['TrafficMirrorFilterIds'])) {

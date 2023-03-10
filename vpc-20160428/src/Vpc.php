@@ -90,6 +90,10 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateCommonBandwidthPackageRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateCommonBandwidthPackageResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateCustomerGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateCustomerGatewayResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVpcRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVpcResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVSwitchRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVSwitchResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressCloudConnectionRequest;
@@ -3650,6 +3654,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3678,6 +3685,137 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomerGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDefaultVSwitchRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDefaultVSwitchResponse
+     */
+    public function createDefaultVSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipv6CidrBlock)) {
+            $query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDefaultVSwitch',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDefaultVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDefaultVSwitchRequest $request
+     *
+     * @return CreateDefaultVSwitchResponse
+     */
+    public function createDefaultVSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefaultVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDefaultVpcRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDefaultVpcResponse
+     */
+    public function createDefaultVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableIpv6)) {
+            $query['EnableIpv6'] = $request->enableIpv6;
+        }
+        if (!Utils::isUnset($request->ipv6CidrBlock)) {
+            $query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDefaultVpc',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDefaultVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDefaultVpcRequest $request
+     *
+     * @return CreateDefaultVpcResponse
+     */
+    public function createDefaultVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefaultVpcWithOptions($request, $runtime);
     }
 
     /**
@@ -3880,6 +4018,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -4202,6 +4343,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4580,6 +4724,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -4725,6 +4872,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6008,6 +6158,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -6153,6 +6306,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6974,6 +7130,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7070,6 +7229,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->vpnGatewayId)) {
             $query['VpnGatewayId'] = $request->vpnGatewayId;
@@ -9994,6 +10156,12 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->forceDelete)) {
+            $query['ForceDelete'] = $request->forceDelete;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -11005,6 +11173,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -11434,6 +11605,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -11448,6 +11622,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->trafficType)) {
             $query['TrafficType'] = $request->trafficType;
@@ -11759,11 +11936,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -12434,11 +12617,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -12676,6 +12865,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -14746,6 +14938,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vpnConnectionId)) {
             $query['VpnConnectionId'] = $request->vpnConnectionId;
@@ -17348,11 +17543,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -17951,11 +18152,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->trafficMirrorFilterIds)) {
             $query['TrafficMirrorFilterIds'] = $request->trafficMirrorFilterIds;
@@ -18024,11 +18231,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->trafficMirrorFilterId)) {
             $query['TrafficMirrorFilterId'] = $request->trafficMirrorFilterId;
