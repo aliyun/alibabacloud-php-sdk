@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUs
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1273,6 +1275,58 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return UnbindResponse
+     */
+    public function unbindWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $body['AppInstanceId'] = $request->appInstanceId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Unbind',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindRequest $request
+     *
+     * @return UnbindResponse
+     */
+    public function unbind($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindWithOptions($request, $runtime);
     }
 
     /**
