@@ -25,11 +25,17 @@ class SubmitConvertPdfToExcelJobRequest extends Model
     /**
      * @var bool
      */
+    public $forceExportInnerImage;
+
+    /**
+     * @var bool
+     */
     public $forceMergeExcel;
     protected $_name = [
-        'fileName'        => 'FileName',
-        'fileUrl'         => 'FileUrl',
-        'forceMergeExcel' => 'ForceMergeExcel',
+        'fileName'              => 'FileName',
+        'fileUrl'               => 'FileUrl',
+        'forceExportInnerImage' => 'ForceExportInnerImage',
+        'forceMergeExcel'       => 'ForceMergeExcel',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class SubmitConvertPdfToExcelJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->forceExportInnerImage) {
+            $res['ForceExportInnerImage'] = $this->forceExportInnerImage;
         }
         if (null !== $this->forceMergeExcel) {
             $res['ForceMergeExcel'] = $this->forceMergeExcel;
@@ -65,6 +74,9 @@ class SubmitConvertPdfToExcelJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['ForceExportInnerImage'])) {
+            $model->forceExportInnerImage = $map['ForceExportInnerImage'];
         }
         if (isset($map['ForceMergeExcel'])) {
             $model->forceMergeExcel = $map['ForceMergeExcel'];

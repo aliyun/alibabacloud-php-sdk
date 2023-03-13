@@ -21,9 +21,15 @@ class SubmitConvertPdfToWordJobRequest extends Model
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var bool
+     */
+    public $forceExportInnerImage;
     protected $_name = [
-        'fileName' => 'FileName',
-        'fileUrl'  => 'FileUrl',
+        'fileName'              => 'FileName',
+        'fileUrl'               => 'FileUrl',
+        'forceExportInnerImage' => 'ForceExportInnerImage',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class SubmitConvertPdfToWordJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->forceExportInnerImage) {
+            $res['ForceExportInnerImage'] = $this->forceExportInnerImage;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class SubmitConvertPdfToWordJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['ForceExportInnerImage'])) {
+            $model->forceExportInnerImage = $map['ForceExportInnerImage'];
         }
 
         return $model;
