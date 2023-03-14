@@ -625,6 +625,12 @@ class Videorecog extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->maxTime)) {
+            $body['MaxTime'] = $request->maxTime;
+        }
+        if (!Utils::isUnset($request->minTime)) {
+            $body['MinTime'] = $request->minTime;
+        }
         if (!Utils::isUnset($request->template)) {
             $body['Template'] = $request->template;
         }
