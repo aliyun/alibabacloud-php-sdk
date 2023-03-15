@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class PushNoticeToAndroidRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example body
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+     *
      * @var string
      */
     public $extParameters;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $targetValue;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;

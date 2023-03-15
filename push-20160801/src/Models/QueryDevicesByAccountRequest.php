@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesByAccountRequest extends Model
 {
     /**
+     * @example accountName
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;

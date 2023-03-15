@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class appDeviceStat extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example iOS
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example 2016-07-28T16:00:00Z
+     *
      * @var string
      */
     public $time;

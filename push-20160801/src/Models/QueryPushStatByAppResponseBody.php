@@ -15,6 +15,8 @@ class QueryPushStatByAppResponseBody extends Model
     public $appPushStats;
 
     /**
+     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+     *
      * @var string
      */
     public $requestId;

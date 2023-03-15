@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deviceCheckInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $available;
 
     /**
+     * @example ae296f3b04a58a05b30c95f****
+     *
      * @var string
      */
     public $deviceId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceStatRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example iOS
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example 2016-07-29T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example TOTAL
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @example 2016-07-28T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

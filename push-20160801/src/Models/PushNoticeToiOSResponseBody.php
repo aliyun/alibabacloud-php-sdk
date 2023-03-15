@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PushNoticeToiOSResponseBody extends Model
 {
     /**
+     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 501029
+     *
      * @var string
      */
     public $requestId;

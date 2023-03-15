@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryPushStatByMsgRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example 510427
+     *
      * @var int
      */
     public $messageId;

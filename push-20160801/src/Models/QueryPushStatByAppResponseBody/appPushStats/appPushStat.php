@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class appPushStat extends Model
 {
     /**
+     * @example 120
+     *
      * @var int
      */
     public $acceptCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $deletedCount;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $openedCount;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $receivedCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $sentCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsFailedCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsReceiveFailedCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsReceiveSuccessCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsSentCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsSkipCount;
 
     /**
+     * @example 2016-07-25T00:00:00Z
+     *
      * @var string
      */
     public $time;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCertificateResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $android;
@@ -21,6 +23,8 @@ class CheckCertificateResponseBody extends Model
     public $developmentCertInfo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $IOS;
@@ -31,6 +35,8 @@ class CheckCertificateResponseBody extends Model
     public $productionCertInfo;
 
     /**
+     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+     *
      * @var string
      */
     public $requestId;

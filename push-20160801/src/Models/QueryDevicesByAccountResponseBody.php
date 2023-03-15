@@ -15,6 +15,8 @@ class QueryDevicesByAccountResponseBody extends Model
     public $deviceIds;
 
     /**
+     * @example A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
+     *
      * @var string
      */
     public $requestId;

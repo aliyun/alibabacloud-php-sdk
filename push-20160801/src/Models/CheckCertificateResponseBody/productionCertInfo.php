@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class productionCertInfo extends Model
 {
     /**
+     * @example 1764561600000
+     *
      * @var int
      */
     public $exipreTime;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $status;

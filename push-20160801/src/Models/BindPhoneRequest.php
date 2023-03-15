@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BindPhoneRequest extends Model
 {
     /**
+     * @example 27725900
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example eb5f741d83d04d34807d229999eefa52
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 1381111****
+     *
      * @var string
      */
     public $phoneNumber;

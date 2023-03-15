@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class PushNoticeToiOSRequest extends Model
 {
     /**
+     * @example DEV
+     *
      * @var string
      */
     public $apnsEnv;
 
     /**
+     * @example 24780725
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example Hello World
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example {"k1":"ios","k2":"v2"}
+     *
      * @var string
      */
     public $extParameters;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $targetValue;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;

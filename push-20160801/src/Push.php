@@ -402,10 +402,14 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckDeviceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CheckDeviceResponse
+     * @param CheckDeviceRequest $request CheckDeviceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckDeviceResponse CheckDeviceResponse
      */
     public function checkDeviceWithOptions($request, $runtime)
     {
@@ -436,9 +440,13 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckDeviceRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CheckDeviceResponse
+     * @param CheckDeviceRequest $request CheckDeviceRequest
+     *
+     * @return CheckDeviceResponse CheckDeviceResponse
      */
     public function checkDevice($request)
     {
@@ -592,9 +600,13 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListSummaryAppsResponse
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSummaryAppsResponse ListSummaryAppsResponse
      */
     public function listSummaryAppsWithOptions($runtime)
     {
@@ -615,7 +627,11 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @return ListSummaryAppsResponse
+     * @deprecated
+     *   *
+     * Deprecated
+     *
+     * @return ListSummaryAppsResponse ListSummaryAppsResponse
      */
     public function listSummaryApps()
     {
@@ -740,6 +756,12 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidExtParameters)) {
             $query['AndroidExtParameters'] = $request->androidExtParameters;
         }
+        if (!Utils::isUnset($request->androidHuaweiReceiptId)) {
+            $query['AndroidHuaweiReceiptId'] = $request->androidHuaweiReceiptId;
+        }
+        if (!Utils::isUnset($request->androidHuaweiTargetUserType)) {
+            $query['AndroidHuaweiTargetUserType'] = $request->androidHuaweiTargetUserType;
+        }
         if (!Utils::isUnset($request->androidImageUrl)) {
             $query['AndroidImageUrl'] = $request->androidImageUrl;
         }
@@ -751,6 +773,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidMessageHuaweiUrgency)) {
             $query['AndroidMessageHuaweiUrgency'] = $request->androidMessageHuaweiUrgency;
+        }
+        if (!Utils::isUnset($request->androidMessageVivoCategory)) {
+            $query['AndroidMessageVivoCategory'] = $request->androidMessageVivoCategory;
         }
         if (!Utils::isUnset($request->androidMusic)) {
             $query['AndroidMusic'] = $request->androidMusic;

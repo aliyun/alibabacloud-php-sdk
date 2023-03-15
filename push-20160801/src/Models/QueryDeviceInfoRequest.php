@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceInfoRequest extends Model
 {
     /**
+     * @example 23419851
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example a64ae296f3b04a58a05b30c9****
+     *
      * @var string
      */
     public $deviceId;

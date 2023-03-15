@@ -15,6 +15,8 @@ class QueryAliasesResponseBody extends Model
     public $aliasInfos;
 
     /**
+     * @example 159E4422-6624-4750-8943-DFD98D34858C
+     *
      * @var string
      */
     public $requestId;

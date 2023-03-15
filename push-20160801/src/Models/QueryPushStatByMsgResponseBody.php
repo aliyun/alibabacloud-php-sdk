@@ -15,6 +15,8 @@ class QueryPushStatByMsgResponseBody extends Model
     public $pushStats;
 
     /**
+     * @example CF195C34-98FB-491A-98D7-19CBC1FA880B
+     *
      * @var string
      */
     public $requestId;

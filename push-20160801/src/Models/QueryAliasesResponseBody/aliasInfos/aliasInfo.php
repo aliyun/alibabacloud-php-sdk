@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aliasInfo extends Model
 {
     /**
+     * @example test_alias1
+     *
      * @var string
      */
     public $aliasName;

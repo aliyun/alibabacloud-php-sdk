@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @example test@aliyun.com
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example test_alias,test_alias2
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example a64ae296f3b04a58a05b30c95****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 5ecc7b4012aaa801b63******5543ccbda6b4930d09629e936e1ac4b762a7df
+     *
      * @var string
      */
     public $deviceToken;
 
     /**
+     * @example iOS
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example 2018-03-27T02:19:40Z
+     *
      * @var string
      */
     public $lastOnlineTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @example 133********
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pushEnabled;
 
     /**
+     * @example test_tag,test_tag2
+     *
      * @var string
      */
     public $tags;

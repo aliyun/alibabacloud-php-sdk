@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelPushRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example 501029
+     *
      * @var int
      */
     public $messageId;

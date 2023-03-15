@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pushTask extends Model
 {
     /**
+     * @example com.alibaba.cloudpushdemo.bizactivity
+     *
      * @var string
      */
     public $androidActivity;
@@ -19,6 +21,8 @@ class pushTask extends Model
     public $androidBigBody;
 
     /**
+     * @example https://imag.example.com/image.png
+     *
      * @var string
      */
     public $androidBigPictureUrl;
@@ -29,11 +33,25 @@ class pushTask extends Model
     public $androidBigTitle;
 
     /**
+     * @example {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+     *
      * @var string
      */
     public $androidExtParameters;
 
     /**
+     * @var string
+     */
+    public $androidHuaweiReceiptId;
+
+    /**
+     * @var int
+     */
+    public $androidHuaweiTargetUserType;
+
+    /**
+     * @example https://imag.example.com/image.png
+     *
      * @var string
      */
     public $androidImageUrl;
@@ -44,11 +62,15 @@ class pushTask extends Model
     public $androidInboxBody;
 
     /**
+     * @example VOIP
+     *
      * @var string
      */
     public $androidMessageHuaweiCategory;
 
     /**
+     * @example HIGH
+     *
      * @var string
      */
     public $androidMessageHuaweiUrgency;
@@ -56,244 +78,347 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $androidMessageVivoCategory;
+
+    /**
+     * @var string
+     */
     public $androidMusic;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $androidNotificationBarPriority;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $androidNotificationBarType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $androidNotificationChannel;
 
     /**
+     * @example group-1
+     *
      * @var string
      */
     public $androidNotificationGroup;
 
     /**
+     * @example LOW
+     *
      * @var string
      */
     public $androidNotificationHonorChannel;
 
     /**
+     * @example LOW
+     *
      * @var string
      */
     public $androidNotificationHuaweiChannel;
 
     /**
+     * @example 100001
+     *
      * @var int
      */
     public $androidNotificationNotifyId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $androidNotificationVivoChannel;
 
     /**
+     * @example michannel
+     *
      * @var string
      */
     public $androidNotificationXiaomiChannel;
 
     /**
+     * @example VIBRATE
+     *
      * @var string
      */
     public $androidNotifyType;
 
     /**
+     * @example APPLICATION
+     *
      * @var string
      */
     public $androidOpenType;
 
     /**
+     * @example https://xxxx.xxx
+     *
      * @var string
      */
     public $androidOpenUrl;
 
     /**
+     * @example com.alibaba.cloudpushdemo.bizactivity
+     *
      * @var string
      */
     public $androidPopupActivity;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $androidPopupBody;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $androidPopupTitle;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $androidRemind;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $androidRenderStyle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $androidVivoPushMode;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $androidXiaoMiActivity;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $androidXiaoMiNotifyBody;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $androidXiaoMiNotifyTitle;
 
     /**
+     * @example https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+     *
      * @var string
      */
     public $androidXiaomiBigPictureUrl;
 
     /**
+     * @example https://imag.example.com/image.png
+     *
      * @var string
      */
     public $androidXiaomiImageUrl;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example 2019-02-20T00:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @example 2019-02-20T00:00:00Z
+     *
      * @var string
      */
     public $pushTime;
 
     /**
+     * @example MESSAGE
+     *
      * @var string
      */
     public $pushType;
 
     /**
+     * @example accs,huawei,xiaomi
+     *
      * @var string
      */
     public $sendChannels;
 
     /**
+     * @example 0
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $sendSpeed;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $storeOffline;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example deviceid1,deviceid2
+     *
      * @var string
      */
     public $targetValue;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $trim;
 
     /**
+     * @example DEV
+     *
      * @var string
      */
     public $iOSApnsEnv;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $iOSBadge;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $iOSBadgeAutoIncrement;
 
     /**
+     * @example {“attachment”: “https://xxxx.xxx/notification_pic.png"}
+     *
      * @var string
      */
     public $iOSExtParameters;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $iOSInterruptionLevel;
 
     /**
+     * @example ””
+     *
      * @var string
      */
     public $iOSMusic;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $iOSMutableContent;
 
     /**
+     * @example ios
+     *
      * @var string
      */
     public $iOSNotificationCategory;
 
     /**
+     * @example ZD2011
+     *
      * @var string
      */
     public $iOSNotificationCollapseId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $iOSNotificationThreadId;
 
     /**
+     * @example 0.01
+     *
      * @var float
      */
     public $iOSRelevanceScore;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $iOSRemind;
@@ -304,11 +429,15 @@ class pushTask extends Model
     public $iOSRemindBody;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $iOSSilentNotification;
 
     /**
+     * @example subtitle
+     *
      * @var string
      */
     public $iOSSubtitle;
@@ -318,10 +447,13 @@ class pushTask extends Model
         'androidBigPictureUrl'             => 'AndroidBigPictureUrl',
         'androidBigTitle'                  => 'AndroidBigTitle',
         'androidExtParameters'             => 'AndroidExtParameters',
+        'androidHuaweiReceiptId'           => 'AndroidHuaweiReceiptId',
+        'androidHuaweiTargetUserType'      => 'AndroidHuaweiTargetUserType',
         'androidImageUrl'                  => 'AndroidImageUrl',
         'androidInboxBody'                 => 'AndroidInboxBody',
         'androidMessageHuaweiCategory'     => 'AndroidMessageHuaweiCategory',
         'androidMessageHuaweiUrgency'      => 'AndroidMessageHuaweiUrgency',
+        'androidMessageVivoCategory'       => 'AndroidMessageVivoCategory',
         'androidMusic'                     => 'AndroidMusic',
         'androidNotificationBarPriority'   => 'AndroidNotificationBarPriority',
         'androidNotificationBarType'       => 'AndroidNotificationBarType',
@@ -398,6 +530,12 @@ class pushTask extends Model
         if (null !== $this->androidExtParameters) {
             $res['AndroidExtParameters'] = $this->androidExtParameters;
         }
+        if (null !== $this->androidHuaweiReceiptId) {
+            $res['AndroidHuaweiReceiptId'] = $this->androidHuaweiReceiptId;
+        }
+        if (null !== $this->androidHuaweiTargetUserType) {
+            $res['AndroidHuaweiTargetUserType'] = $this->androidHuaweiTargetUserType;
+        }
         if (null !== $this->androidImageUrl) {
             $res['AndroidImageUrl'] = $this->androidImageUrl;
         }
@@ -409,6 +547,9 @@ class pushTask extends Model
         }
         if (null !== $this->androidMessageHuaweiUrgency) {
             $res['AndroidMessageHuaweiUrgency'] = $this->androidMessageHuaweiUrgency;
+        }
+        if (null !== $this->androidMessageVivoCategory) {
+            $res['AndroidMessageVivoCategory'] = $this->androidMessageVivoCategory;
         }
         if (null !== $this->androidMusic) {
             $res['AndroidMusic'] = $this->androidMusic;
@@ -593,6 +734,12 @@ class pushTask extends Model
         if (isset($map['AndroidExtParameters'])) {
             $model->androidExtParameters = $map['AndroidExtParameters'];
         }
+        if (isset($map['AndroidHuaweiReceiptId'])) {
+            $model->androidHuaweiReceiptId = $map['AndroidHuaweiReceiptId'];
+        }
+        if (isset($map['AndroidHuaweiTargetUserType'])) {
+            $model->androidHuaweiTargetUserType = $map['AndroidHuaweiTargetUserType'];
+        }
         if (isset($map['AndroidImageUrl'])) {
             $model->androidImageUrl = $map['AndroidImageUrl'];
         }
@@ -604,6 +751,9 @@ class pushTask extends Model
         }
         if (isset($map['AndroidMessageHuaweiUrgency'])) {
             $model->androidMessageHuaweiUrgency = $map['AndroidMessageHuaweiUrgency'];
+        }
+        if (isset($map['AndroidMessageVivoCategory'])) {
+            $model->androidMessageVivoCategory = $map['AndroidMessageVivoCategory'];
         }
         if (isset($map['AndroidMusic'])) {
             $model->androidMusic = $map['AndroidMusic'];

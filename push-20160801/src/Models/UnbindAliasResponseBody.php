@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindAliasResponseBody extends Model
 {
     /**
+     * @example 159E4422-6624-4750-8943-DFD98D34858C
+     *
      * @var string
      */
     public $requestId;

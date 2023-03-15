@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagResponseBody extends Model
 {
     /**
+     * @example 23000F3C-0EFE-4C89-82EE-E04F42D37B3C
+     *
      * @var string
      */
     public $requestId;

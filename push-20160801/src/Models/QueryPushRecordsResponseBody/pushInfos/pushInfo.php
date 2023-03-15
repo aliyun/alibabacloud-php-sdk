@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class pushInfo extends Model
 {
     /**
+     * @example 333526247
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example abcd
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example ANDROID
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example 510431
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 2021-09-15T02:05:24Z
+     *
      * @var string
      */
     public $pushTime;
 
     /**
+     * @example NOTICE
+     *
      * @var string
      */
     public $pushType;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example SENT
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example sssss
+     *
      * @var string
      */
     public $title;

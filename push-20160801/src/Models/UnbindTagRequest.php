@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnbindTagRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example e2ba19de97604f55b16557673****
+     *
      * @var string
      */
     public $clientKey;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $keyType;
 
     /**
+     * @example test_tag1,test_tag2
+     *
      * @var string
      */
     public $tagName;

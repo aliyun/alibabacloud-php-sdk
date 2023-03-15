@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindPhoneResponseBody extends Model
 {
     /**
+     * @example 0D1126F0-F8FF-513D-BAFA-F140447BDED4
+     *
      * @var string
      */
     public $requestId;

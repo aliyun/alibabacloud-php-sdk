@@ -15,6 +15,8 @@ class QueryDeviceInfoResponseBody extends Model
     public $deviceInfo;
 
     /**
+     * @example 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
+     *
      * @var string
      */
     public $requestId;

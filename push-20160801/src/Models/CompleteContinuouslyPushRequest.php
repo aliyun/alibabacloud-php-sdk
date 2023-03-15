@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CompleteContinuouslyPushRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example 4010290149170430
+     *
      * @var string
      */
     public $messageId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class summaryAppInfo extends Model
 {
     /**
+     * @example 23****07
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $appName;

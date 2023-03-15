@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;

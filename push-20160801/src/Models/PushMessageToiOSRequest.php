@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class PushMessageToiOSRequest extends Model
 {
     /**
+     * @example 24780725
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example my body
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $jobKey;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $targetValue;
 
     /**
+     * @example my title
+     *
      * @var string
      */
     public $title;

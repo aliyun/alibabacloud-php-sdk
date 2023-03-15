@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ContinuouslyPushRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example 500131
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example a692961a92534047ad3625****
+     *
      * @var string
      */
     public $targetValue;

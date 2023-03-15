@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnbindAliasRequest extends Model
 {
     /**
+     * @example test_alias
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example e2ba19de97604f55b16557673****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $unbindAll;

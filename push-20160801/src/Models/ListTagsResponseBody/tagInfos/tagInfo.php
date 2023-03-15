@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagInfo extends Model
 {
     /**
+     * @example test_tag2
+     *
      * @var string
      */
     public $tagName;

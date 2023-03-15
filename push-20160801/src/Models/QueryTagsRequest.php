@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryTagsRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example e2ba19de97604f55b165576****
+     *
      * @var string
      */
     public $clientKey;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $keyType;

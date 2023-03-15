@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryPushRecordsRequest extends Model
 {
     /**
+     * @example 333526247
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example 2021-09-29T06:24:58Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,36 +28,50 @@ class QueryPushRecordsRequest extends Model
     public $keyword;
 
     /**
+     * @example FFPpkmhCPm*****************xjk=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example NOTICE
+     *
      * @var string
      */
     public $pushType;
 
     /**
+     * @example API
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 2021-09-15T02:05:24Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example DEVICE
+     *
      * @var string
      */
     public $target;

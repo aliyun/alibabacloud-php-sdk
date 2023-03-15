@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryPushRecordsResponseBody extends Model
 {
     /**
+     * @example i91D***********kXIh/dVBEQ==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -30,11 +36,15 @@ class QueryPushRecordsResponseBody extends Model
     public $pushInfos;
 
     /**
+     * @example 9B24B396-249D-55E4-8CA1-66C9B50BB734
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 193
+     *
      * @var int
      */
     public $total;

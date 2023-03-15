@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example test_tag
+     *
      * @var string
      */
     public $tagName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryAliasesRequest extends Model
 {
     /**
+     * @example 23267207
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example e2ba19de97604f55b165576****
+     *
      * @var string
      */
     public $deviceId;
