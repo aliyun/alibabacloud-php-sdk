@@ -11,16 +11,27 @@ use AlibabaCloud\Tea\Model;
 class parameterConstraints extends Model
 {
     /**
+     * @description The values of the parameter.
+     *
      * @var string[]
      */
     public $allowedValues;
 
     /**
+     * @description The names of the associated parameters.
+     *
      * @var string[]
      */
     public $associationParameterNames;
 
     /**
+     * @description The behavior of the parameter. Valid values:
+     *
+     *   NoLimit: No limit is imposed on the value of this parameter.
+     *   NotSupport: The value of this parameter cannot be queried.
+     *   QueryError: This parameter failed to be queried.
+     *
+     * >  If the AllowedValues parameter is not returned, the Behavior and BehaviorReason parameters are returned.
      * @example NoLimit
      *
      * @var string
@@ -28,6 +39,8 @@ class parameterConstraints extends Model
     public $behavior;
 
     /**
+     * @description The reason why the behavior of the parameter is returned.
+     *
      * @example No resource property refer to the parameter
      *
      * @var string
@@ -35,11 +48,17 @@ class parameterConstraints extends Model
     public $behaviorReason;
 
     /**
+     * @description The values that do not conform to the parameter constraints.
+     *
+     * >  If the `AllowedValues` parameter is returned, the `IllegalValueByParameterConstraints` and `IllegalValueByRules` parameters are returned at the same time.
      * @var mixed[]
      */
     public $illegalValueByParameterConstraints;
 
     /**
+     * @description The values that do not match the rules in the template.
+     *
+     * >  If the `AllowedValues` parameter is returned, the `IllegalValueByParameterConstraints` and `IllegalValueByRules` parameters are returned at the same time.
      * @var mixed[]
      */
     public $illegalValueByRules;
@@ -50,6 +69,8 @@ class parameterConstraints extends Model
     public $notSupportResources;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example ZoneInfo
      *
      * @var string
@@ -62,6 +83,8 @@ class parameterConstraints extends Model
     public $queryErrors;
 
     /**
+     * @description The type of the parameter.
+     *
      * @example String
      *
      * @var string

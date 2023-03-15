@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateScratchShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among the different requests. The token can be up to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,11 +19,19 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the scenario.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The execution mode. Default value: Async. Valid values:
+     *
+     *   Async: asynchronous mode
+     *   Sync: synchronous mode
+     *
+     * >  If you have a wide scope of resources, Sync takes longer. If you set ExecutionMode to Sync, we recommend that you set ClientToken to prevent the execution from timing out.
      * @example Sync
      *
      * @var string
@@ -28,6 +39,12 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $executionMode;
 
     /**
+     * @description The generation policy of the logical ID. Default value: LongTypePrefixAndIndexSuffix. Valid values:
+     *
+     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+     *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+     *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+     *
      * @example LongTypePrefixAndIndexSuffix
      *
      * @var string
@@ -35,11 +52,16 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $logicalIdStrategy;
 
     /**
+     * @description The parameters that are configured in the scenario.
+     *
      * @var string
      */
     public $preferenceParametersShrink;
 
     /**
+     * @description The ID of the region in which the scenario is created.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,21 +69,29 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The source resource group.
+     *
      * @var string
      */
     public $sourceResourceGroupShrink;
 
     /**
+     * @description The source resource.
+     *
      * @var string
      */
     public $sourceResourcesShrink;
 
     /**
+     * @description The source tag.
+     *
      * @var string
      */
     public $sourceTagShrink;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-7f7a704cf71c49a6****
      *
      * @var string

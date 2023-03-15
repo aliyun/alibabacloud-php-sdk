@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The time when the resource was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2019-08-01T06:01:23
      *
      * @var string
@@ -16,6 +18,8 @@ class resources extends Model
     public $createTime;
 
     /**
+     * @description The most recent point in time when a successful drift detection operation was performed.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -23,6 +27,8 @@ class resources extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+     *
      * @example dummy
      *
      * @var string
@@ -30,6 +36,8 @@ class resources extends Model
     public $logicalResourceId;
 
     /**
+     * @description The physical ID of the resource.
+     *
      * @example d04af923-e6b7-4272-aeaa-47ec9777****
      *
      * @var string
@@ -37,6 +45,13 @@ class resources extends Model
     public $physicalResourceId;
 
     /**
+     * @description The drift status of the resource in the most recent successful drift detection. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: ROS did not check whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     *
      * @example IN_SYNC
      *
      * @var string
@@ -44,6 +59,8 @@ class resources extends Model
     public $resourceDriftStatus;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ROS::Stack
      *
      * @var string
@@ -51,6 +68,8 @@ class resources extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -58,6 +77,9 @@ class resources extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example test-describe-resource
      *
      * @var string
@@ -65,6 +87,25 @@ class resources extends Model
     public $stackName;
 
     /**
+     * @description The status of the resource. Valid values:
+     *
+     *   INIT_COMPLETE: The resource is in the pending creation state.
+     *   CREATE_COMPLETE: The resource is created.
+     *   CREATE_FAILED: The resource fails to be created.
+     *   CREATE_IN_PROGRESS: The resource is being created.
+     *   UPDATE_IN_PROGRESS: The resource is being updated.
+     *   UPDATE_FAILED: The resource fails to be updated.
+     *   UPDATE_COMPLETE: The resource is updated.
+     *   DELETE_IN_PROGRESS: The resource is being deleted.
+     *   DELETE_FAILED: The resource fails to be deleted.
+     *   DELETE_COMPLETE: The resource is deleted.
+     *   CHECK_IN_PROGRESS: The resource is being validated.
+     *   CHECK_FAILED: The resource fails to be validated.
+     *   CHECK_COMPLETE: The resource is validated.
+     *   IMPORT_IN_PROGRESS: The resource is being imported.
+     *   IMPORT_FAILED: The resource fails to be imported.
+     *   IMPORT_COMPLETE: The resource is imported.
+     *
      * @example UPDATE_COMPLETE
      *
      * @var string
@@ -72,6 +113,8 @@ class resources extends Model
     public $status;
 
     /**
+     * @description The reason why the resource is in a specific state.
+     *
      * @example state changed
      *
      * @var string
@@ -79,6 +122,8 @@ class resources extends Model
     public $statusReason;
 
     /**
+     * @description The time when the resource was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2019-08-01T06:01:29
      *
      * @var string

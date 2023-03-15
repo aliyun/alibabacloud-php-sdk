@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
+     * @description The log that is generated when a Terraform stack is run. This parameter is returned only if the stack is a Terraform stack.
+     *
+     * >  You can use this parameter to preview the logs of a Terraform stack.
      * @var terraformLogs[]
      */
     public $terraformLogs;

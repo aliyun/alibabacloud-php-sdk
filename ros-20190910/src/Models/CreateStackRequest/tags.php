@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of tag N that you want to add to the stack.
+     *
+     * >
+     *   The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
+     *   The tag of a stack is propagated to each stack resource that supports the tag feature. For more information, see [Propagate tags](~~201421~~).
+     *
      * @example usage
      *
      * @var string
@@ -16,6 +22,9 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The value of tag N that you want to add to the stack.
+     *
+     * >  The tag of a stack is propagated to each stack resource that supports the tag feature. For more information, see [Propagate tags](~~201421~~).
      * @example test
      *
      * @var string

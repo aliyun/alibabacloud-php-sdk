@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class stack extends Model
 {
     /**
+     * @description The description of the stack.
+     *
      * @example One ECS instance.
      *
      * @var string
@@ -19,6 +21,8 @@ class stack extends Model
     public $description;
 
     /**
+     * @description Indicates whether rollback is disabled for the resources when the stack fails to be created.
+     *
      * @example false
      *
      * @var bool
@@ -26,16 +30,22 @@ class stack extends Model
     public $disableRollback;
 
     /**
+     * @description The log that is generated when the stack is run.
+     *
      * @var log
      */
     public $log;
 
     /**
+     * @description The parameters of the stack.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The region ID of the stack.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,11 +53,15 @@ class stack extends Model
     public $regionId;
 
     /**
+     * @description The resources in the stack.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The name of the stack.
+     *
      * @example MyStack
      *
      * @var string
@@ -55,6 +69,8 @@ class stack extends Model
     public $stackName;
 
     /**
+     * @description The structure that contains the stack policy body.
+     *
      * @example {   "Statement": [     {       "Action": "Update:*",       "Resource": "*",       "Effect": "Allow",       "Principal": "*"     },     {       "Action": "Update:*",       "Resource": "LogicalResourceId/apple1",       "Effect": "Deny",       "Principal": "*"     }   ] }
      *
      * @var mixed[]
@@ -62,6 +78,8 @@ class stack extends Model
     public $stackPolicyBody;
 
     /**
+     * @description The description of the template.
+     *
      * @example One ECS instance.
      *
      * @var string
@@ -69,6 +87,9 @@ class stack extends Model
     public $templateDescription;
 
     /**
+     * @description The timeout period that is allowed to create the stack.
+     *
+     * Unit: minutes.
      * @example 60
      *
      * @var int

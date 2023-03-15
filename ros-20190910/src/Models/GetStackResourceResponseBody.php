@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetStackResourceResponseBody extends Model
 {
     /**
+     * @description The time when the resource was created.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2019-08-01T06:01:23
      *
      * @var string
@@ -16,6 +19,8 @@ class GetStackResourceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the resource.
+     *
      * @example no description
      *
      * @var string
@@ -23,6 +28,8 @@ class GetStackResourceResponseBody extends Model
     public $description;
 
     /**
+     * @description The time when the last successful drift detection was performed on the stack.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -30,6 +37,8 @@ class GetStackResourceResponseBody extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The logical ID of the resource defined in the template.
+     *
      * @example WebServer
      *
      * @var string
@@ -37,6 +46,8 @@ class GetStackResourceResponseBody extends Model
     public $logicalResourceId;
 
     /**
+     * @description The metadata.
+     *
      * @example {"key": "value"}
      *
      * @var mixed[]
@@ -44,6 +55,8 @@ class GetStackResourceResponseBody extends Model
     public $metadata;
 
     /**
+     * @description The physical ID of the resource.
+     *
      * @example d04af923-e6b7-4272-aeaa-47ec9777****
      *
      * @var string
@@ -51,6 +64,8 @@ class GetStackResourceResponseBody extends Model
     public $physicalResourceId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
@@ -58,11 +73,20 @@ class GetStackResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of the resource properties.
+     *
      * @var mixed[][]
      */
     public $resourceAttributes;
 
     /**
+     * @description The status of the resource in the last successful drift detection. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     *
      * @example IN_SYNC
      *
      * @var string
@@ -70,6 +94,8 @@ class GetStackResourceResponseBody extends Model
     public $resourceDriftStatus;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ROS::WaitConditionHandle
      *
      * @var string
@@ -77,6 +103,8 @@ class GetStackResourceResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example efdf5c10-96a5-4fd7-ab89-68e7baa2****
      *
      * @var string
@@ -84,6 +112,9 @@ class GetStackResourceResponseBody extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example test-describe-resource
      *
      * @var string
@@ -91,6 +122,23 @@ class GetStackResourceResponseBody extends Model
     public $stackName;
 
     /**
+     * @description The status of the resource. Valid values:
+     *
+     *   CREATE_COMPLETE
+     *   CREATE_FAILED
+     *   CREATE_IN_PROGRESS
+     *   UPDATE_IN_PROGRESS
+     *   UPDATE_FAILED
+     *   UPDATE_COMPLETE
+     *   DELETE_IN_PROGRESS
+     *   DELETE_FAILED
+     *   CHECK_IN_PROGRESS
+     *   CHECK_FAILED
+     *   CHECK_COMPLETE
+     *   IMPORT_IN_PROGRESS
+     *   IMPORT_FAILED
+     *   IMPORT_COMPLETE
+     *
      * @example CREATE_COMPLETE
      *
      * @var string
@@ -98,6 +146,8 @@ class GetStackResourceResponseBody extends Model
     public $status;
 
     /**
+     * @description The reason why the resource is in its current state.
+     *
      * @example state changed
      *
      * @var string
@@ -105,6 +155,9 @@ class GetStackResourceResponseBody extends Model
     public $statusReason;
 
     /**
+     * @description The time when the resource was updated.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2019-08-01T06:01:29
      *
      * @var string

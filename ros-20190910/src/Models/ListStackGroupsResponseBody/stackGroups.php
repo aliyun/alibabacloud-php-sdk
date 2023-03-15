@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class stackGroups extends Model
 {
     /**
+     * @description The information about automatic deployment settings.
+     *
      * @var autoDeployment
      */
     public $autoDeployment;
 
     /**
+     * @description The description of the stack group.
+     *
      * @example My Stack Group
      *
      * @var string
@@ -23,6 +27,8 @@ class stackGroups extends Model
     public $description;
 
     /**
+     * @description The time when the last successful drift detection was performed on the stack group.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -30,6 +36,14 @@ class stackGroups extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The permission model.
+     *
+     * Valid values:
+     *
+     *   SELF_MANAGED: self-managed permission model
+     *   SERVICE_MANAGED: service-managed permission model
+     *
+     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
      * @example SELF_MANAGED
      *
      * @var string
@@ -37,6 +51,8 @@ class stackGroups extends Model
     public $permissionModel;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzawhxxcj****
      *
      * @var string
@@ -44,6 +60,14 @@ class stackGroups extends Model
     public $resourceGroupId;
 
     /**
+     * @description The state of the stack group on which the last successful drift detection was performed.
+     *
+     * Valid values:
+     *
+     *   DRIFTED: The stack group has drifted.
+     *   NOT_CHECKED: No drift detection is performed on the stack group.
+     *   IN_SYNC: No drifts are detected on the stack group.
+     *
      * @example IN_SYNC
      *
      * @var string
@@ -51,6 +75,8 @@ class stackGroups extends Model
     public $stackGroupDriftStatus;
 
     /**
+     * @description The ID of the stack group.
+     *
      * @example fd0ddef9-9540-4b42-a464-94f77835****
      *
      * @var string
@@ -58,6 +84,8 @@ class stackGroups extends Model
     public $stackGroupId;
 
     /**
+     * @description The name of the stack group.
+     *
      * @example MyStackGroup
      *
      * @var string
@@ -65,6 +93,13 @@ class stackGroups extends Model
     public $stackGroupName;
 
     /**
+     * @description The state of the stack group.
+     *
+     * Valid values:
+     *
+     *   ACTIVE
+     *   DELETED
+     *
      * @example ACTIVE
      *
      * @var string
@@ -72,6 +107,8 @@ class stackGroups extends Model
     public $status;
 
     /**
+     * @description The tags that are added to the stack group.
+     *
      * @var tags[]
      */
     public $tags;

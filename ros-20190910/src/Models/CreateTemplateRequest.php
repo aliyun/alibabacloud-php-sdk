@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @description The description of the template. The description can be up to 256 characters in length.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -17,6 +19,9 @@ class CreateTemplateRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * For more information about resource groups, see the "Resource Group" section of [What is Resource Management?](~~94475~~)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -29,6 +34,9 @@ class CreateTemplateRequest extends Model
     public $tags;
 
     /**
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     *
+     * For more information about Terraform templates, see [Structure of Terraform templates](~~184397~~).
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -36,6 +44,9 @@ class CreateTemplateRequest extends Model
     public $templateBody;
 
     /**
+     * @description The name of the template.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example MyTemplate
      *
      * @var string
@@ -43,6 +54,9 @@ class CreateTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou.
+     *
+     * >  You must specify the TemplateBody or TemplateURL parameter.
      * @example oss://ros/template/demo
      *
      * @var string

@@ -16,6 +16,13 @@ class SetTemplatePermissionRequest extends Model
     public $accountIds;
 
     /**
+     * @description The sharing option.
+     *
+     * Valid values:
+     *
+     *   ShareToAccounts: shares the template with other Alibaba Cloud accounts.
+     *   CancelSharing: unshares the template.
+     *
      * @example ShareToAccounts
      *
      * @var string
@@ -23,6 +30,8 @@ class SetTemplatePermissionRequest extends Model
     public $shareOption;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -30,6 +39,9 @@ class SetTemplatePermissionRequest extends Model
     public $templateId;
 
     /**
+     * @description The version of the template that you want to share. This parameter takes effect when the ShareOption parameter is set to ShareToAccounts and the VersionOption parameter is set to Specified.
+     *
+     * Valid values: v1 to v100.
      * @example v1
      *
      * @var string
@@ -37,6 +49,15 @@ class SetTemplatePermissionRequest extends Model
     public $templateVersion;
 
     /**
+     * @description The version option for template sharing. This parameter takes effect when the ShareOption parameter is set to ShareToAccounts.
+     *
+     * Default value: AllVersions. Valid values:
+     *
+     *   AllVersions: shares all versions of the template.
+     *   Latest: shares only the latest version of the template. If the shared template is updated, the latest version of the template is shared with the destination account.
+     *   Current: shares only the current version of the template. The current version of the template is shared with the destination account even if the template is updated.
+     *   Specified: shares only one specific version of the template.
+     *
      * @example Specified
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The name of parameter N. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template. Maximum value of N: 200.
+     *
+     * >  If you specify Parameters, you must specify Parameters.N.ParameterKey.
      * @example ALIYUN::AccountId
      *
      * @var string
@@ -16,6 +19,9 @@ class parameters extends Model
     public $parameterKey;
 
     /**
+     * @description The value of parameter N. Maximum value of N: 200.
+     *
+     * >  If you specify Parameters, you must specify Parameters.N.ParameterValue.
      * @example 151266687691****
      *
      * @var string

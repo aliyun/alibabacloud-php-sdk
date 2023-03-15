@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateSummaryResponseBody extends Model
 {
     /**
+     * @description The description of the stack template.
+     *
      * @example No description
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTemplateSummaryResponseBody extends Model
     public $description;
 
     /**
+     * @description The metadata that is defined in the template.
+     *
      * @example {"key": "value"}
      *
      * @var mixed[]
@@ -24,11 +28,15 @@ class GetTemplateSummaryResponseBody extends Model
     public $metadata;
 
     /**
+     * @description The declarations of the parameters in the template.
+     *
      * @var mixed[][]
      */
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
@@ -36,16 +44,23 @@ class GetTemplateSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource identifier summaries that describe the resources that you want to import and the properties that are used to identify the resources during the import.
+     *
+     * For example, VpcId is an identifier property for ALIYUN::ECS::VPC resources.
      * @var resourceIdentifierSummaries[]
      */
     public $resourceIdentifierSummaries;
 
     /**
+     * @description All resource types that are used in the template.
+     *
      * @var string[]
      */
     public $resourceTypes;
 
     /**
+     * @description The version of the template.
+     *
      * @example 2015-09-01
      *
      * @var string

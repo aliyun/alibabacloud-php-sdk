@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description The information about the API operation that is used to create the RAM role.
+     *
      * @var apiForCreation
      */
     public $apiForCreation;
 
     /**
+     * @description Indicates whether the RAM role is created. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +29,9 @@ class roles extends Model
     public $created;
 
     /**
+     * @description The purpose for which the RAM role is used.
+     *
+     * Default value: Default. This value indicates that the RAM role is the default role of the service.
      * @example Default
      *
      * @var string
@@ -29,6 +39,8 @@ class roles extends Model
     public $function;
 
     /**
+     * @description The name of the RAM role.
+     *
      * @example AliyunServiceRoleForEHPC
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackRequest extends Model
 {
     /**
+     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
+     *
+     * The name of the RAM role can be up to 64 bytes in length.
      * @example test-role
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteStackRequest extends Model
     public $ramRoleName;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +28,13 @@ class DeleteStackRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to retain all resources in the stack.
+     *
+     * Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +49,8 @@ class DeleteStackRequest extends Model
     public $retainResources;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

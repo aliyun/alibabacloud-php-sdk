@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The token that determines the start point of the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0*****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTagKeysRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the tag key. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,13 @@ class ListTagKeysRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   stack: stack
+     *   stackgroup: stack group
+     *   template: template
+     *   templatescratch: scenario
+     *
      * @example stack
      *
      * @var string

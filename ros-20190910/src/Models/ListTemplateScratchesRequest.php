@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateScratchesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -17,6 +20,9 @@ class ListTemplateScratchesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -24,6 +30,9 @@ class ListTemplateScratchesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the scenario is created.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,7 +40,13 @@ class ListTemplateScratchesRequest extends Model
     public $regionId;
 
     /**
-     * @example GENERATE_COMPLETE
+     * @description The state of the scenario. Valid values:
+     *
+     *   GENERATE_IN_PROGRESS: The scenario is being created.
+     *   GENERATE_COMPLETE: The scenario is created.
+     *   GENERATE_FAILED: The scenario fails to be created.
+     *
+     * @example ["GENERATE_COMPLETE"]
      *
      * @var string
      */
@@ -43,6 +58,8 @@ class ListTemplateScratchesRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-7f7a704cf71c49a6****
      *
      * @var string
@@ -50,6 +67,11 @@ class ListTemplateScratchesRequest extends Model
     public $templateScratchId;
 
     /**
+     * @description The type of the scenario. Valid values:
+     *
+     *   ResourceImport: resource management
+     *   ArchitectureReplication: resource replication
+     *
      * @example ArchitectureReplication
      *
      * @var string

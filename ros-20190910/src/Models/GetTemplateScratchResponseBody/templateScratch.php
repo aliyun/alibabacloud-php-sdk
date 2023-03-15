@@ -15,6 +15,9 @@ use AlibabaCloud\Tea\Model;
 class templateScratch extends Model
 {
     /**
+     * @description The time at which the scenario was created.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-22T01:49:22
      *
      * @var string
@@ -22,11 +25,16 @@ class templateScratch extends Model
     public $createTime;
 
     /**
+     * @description The description of the scenario.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The status code of the scenario that fails to be created.
+     *
+     * >  This parameter is returned only if you set the Status parameter to GENERATE_FAILED.
      * @example InvalidZoneId
      *
      * @var string
@@ -34,6 +42,12 @@ class templateScratch extends Model
     public $failedCode;
 
     /**
+     * @description The policy based on which the logical ID is generated. Default value: LongTypePrefixAndIndexSuffix. Valid values:
+     *
+     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+     *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+     *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+     *
      * @example LongTypePrefixAndIndexSuffix
      *
      * @var string
@@ -41,36 +55,54 @@ class templateScratch extends Model
     public $logicalIdStrategy;
 
     /**
+     * @description The parameters that are configured for the scenario.
+     *
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
 
     /**
+     * @description The source resource group.
+     *
      * @var sourceResourceGroup
      */
     public $sourceResourceGroup;
 
     /**
+     * @description The source resource.
+     *
      * @var sourceResources[]
      */
     public $sourceResources;
 
     /**
+     * @description The source tag.
+     *
      * @var sourceTag
      */
     public $sourceTag;
 
     /**
+     * @description The preset information about the stack.
+     *
      * @var stackProvision
      */
     public $stackProvision;
 
     /**
+     * @description The list of stacks that are associated with the scenario.
+     *
      * @var stacks[]
      */
     public $stacks;
 
     /**
+     * @description The status of the scenario. Valid values:
+     *
+     *   GENERATE_IN_PROGRESS: The scenario is being created.
+     *   GENERATE_COMPLETE: The scenario is created.
+     *   GENERATE_FAILED: The scenario fails to be created.
+     *
      * @example GENERATE_COMPLETE
      *
      * @var string
@@ -78,6 +110,9 @@ class templateScratch extends Model
     public $status;
 
     /**
+     * @description The reason why the scenario fails to be created.
+     *
+     * >  This parameter is returned only if you set the Status parameter to GENERATE_FAILED.
      * @example Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
      *
      * @var string
@@ -85,11 +120,15 @@ class templateScratch extends Model
     public $statusReason;
 
     /**
+     * @description The scenario data.
+     *
      * @var mixed[]
      */
     public $templateScratchData;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-7f7a704cf71c49a6****
      *
      * @var string
@@ -97,6 +136,11 @@ class templateScratch extends Model
     public $templateScratchId;
 
     /**
+     * @description The type of the scenario. Valid values:
+     *
+     *   ResourceImport: resource management
+     *   ArchitectureReplication: resource replication
+     *
      * @example ArchitectureReplication
      *
      * @var string
@@ -104,6 +148,9 @@ class templateScratch extends Model
     public $templateScratchType;
 
     /**
+     * @description The time at which the scenario was updated.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-22T01:49:23
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetStackPolicyRequest extends Model
 {
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class SetStackPolicyRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -23,6 +27,9 @@ class SetStackPolicyRequest extends Model
     public $stackId;
 
     /**
+     * @description The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
+     *
+     * You can specify one of the StackPolicyBody and StackPolicyURL parameters, but you cannot specify both of them.
      * @example {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
      *
      * @var string
@@ -30,6 +37,9 @@ class SetStackPolicyRequest extends Model
     public $stackPolicyBody;
 
     /**
+     * @description The URL for the file that contains the stack policy. The URL must point to a template located in an HTTP or HTTPS web server or an Alibaba Cloud OSS bucket. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. The template can be up to 16,384 bytes in length, and the URL can be up to 1,350 bytes in length.
+     *
+     * You can specify one of the StackPolicyBody and StackPolicyURL parameters, but you cannot specify both of them.
      * @example oss://ros/stack-policy/demo
      *
      * @var string

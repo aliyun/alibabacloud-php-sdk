@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description The content of a resource log.
+     *
      * @example []
      *
      * @var string
@@ -16,6 +18,8 @@ class logs extends Model
     public $content;
 
     /**
+     * @description The keywords.
+     *
      * @var string[]
      */
     public $keys;

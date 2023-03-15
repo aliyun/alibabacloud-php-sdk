@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag that is added to the stack group.
+     *
+     * @example usage1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that is added to the stack group.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $value;

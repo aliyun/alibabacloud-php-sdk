@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The statements that are contained in the policy.
+     *
      * @var statement[]
      */
     public $statement;
 
     /**
+     * @description The version number.
+     *
      * @example 1
      *
      * @var string

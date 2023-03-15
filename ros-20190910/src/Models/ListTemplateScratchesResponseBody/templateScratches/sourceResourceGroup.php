@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceResourceGroup extends Model
 {
     /**
+     * @description The ID of the source resource group.
+     *
      * @example rg-acfmzawhxxc****
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceResourceGroup extends Model
     public $resourceGroupId;
 
     /**
+     * @description The filter for resource types.
+     *
      * @var string[]
      */
     public $resourceTypeFilter;

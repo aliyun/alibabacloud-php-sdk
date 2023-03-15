@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceProgress extends Model
 {
     /**
+     * @description The number of resources that fail to be created.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,8 @@ class resourceProgress extends Model
     public $failedResourceCount;
 
     /**
+     * @description The number of resources that are being created.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,15 @@ class resourceProgress extends Model
     public $inProgressResourceCount;
 
     /**
+     * @description The progress details of resources that are being created.
+     *
      * @var inProgressResourceDetails[]
      */
     public $inProgressResourceDetails;
 
     /**
+     * @description The number of resources to be created.
+     *
      * @example 0
      *
      * @var int
@@ -36,6 +44,8 @@ class resourceProgress extends Model
     public $pendingResourceCount;
 
     /**
+     * @description The number of resources that are created.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +53,8 @@ class resourceProgress extends Model
     public $successResourceCount;
 
     /**
+     * @description The total number of resources.
+     *
      * @example 2
      *
      * @var int

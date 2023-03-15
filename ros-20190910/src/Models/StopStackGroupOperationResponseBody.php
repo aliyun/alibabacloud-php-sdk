@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopStackGroupOperationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
      * @var string

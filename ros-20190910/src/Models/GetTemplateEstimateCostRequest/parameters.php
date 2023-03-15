@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
+     *
+     * Examples:
+     *
+     *   Parameters.1.ParameterKey: `Name`
+     *   Parameters.2.ParameterKey: `Netmode`
+     *
+     * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
      * @example Name
      *
      * @var string
@@ -16,6 +24,14 @@ class parameters extends Model
     public $parameterKey;
 
     /**
+     * @description The value of parameter N.
+     *
+     * Examples:
+     *
+     *   Parameters.1.ParameterValue: `DemoEip`
+     *   Parameters.2.ParameterValue: `public`
+     *
+     * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
      * @example DemoEip
      *
      * @var string

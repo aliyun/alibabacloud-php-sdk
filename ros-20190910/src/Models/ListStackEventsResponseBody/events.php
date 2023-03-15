@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The time when the resource was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2019-08-01T04:07:39
      *
      * @var string
@@ -16,6 +18,8 @@ class events extends Model
     public $createTime;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 0086612d-77cf-4056-b0b5-ff8e94ad****
      *
      * @var string
@@ -23,6 +27,8 @@ class events extends Model
     public $eventId;
 
     /**
+     * @description The logical ID of the resource that is defined in the template.
+     *
      * @example WebServer
      *
      * @var string
@@ -30,6 +36,8 @@ class events extends Model
     public $logicalResourceId;
 
     /**
+     * @description The physical ID of the resource.
+     *
      * @example i-m5e3tfdbinchnexh****
      *
      * @var string
@@ -37,6 +45,8 @@ class events extends Model
     public $physicalResourceId;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ECS::Instance
      *
      * @var string
@@ -44,6 +54,8 @@ class events extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -51,6 +63,8 @@ class events extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack.
+     *
      * @example StackName
      *
      * @var string
@@ -58,6 +72,8 @@ class events extends Model
     public $stackName;
 
     /**
+     * @description The state of the resource.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string
@@ -65,6 +81,8 @@ class events extends Model
     public $status;
 
     /**
+     * @description The reason why the resource is in its current state.
+     *
      * @example state changed
      *
      * @var string

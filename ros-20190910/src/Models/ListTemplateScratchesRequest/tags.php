@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of tag N that is added to the scenario.
+     *
+     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
+     * @example usage
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N that is added to the scenario.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectStackGroupDriftResponseBody extends Model
 {
     /**
+     * @description The ID of the operation.
+     *
      * @example 6da106ca-1784-4a6f-a7e1-e723863d****
      *
      * @var string
@@ -16,6 +18,8 @@ class DetectStackGroupDriftResponseBody extends Model
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string

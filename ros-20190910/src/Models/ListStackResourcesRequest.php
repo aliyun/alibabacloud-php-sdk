@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourcesRequest extends Model
 {
     /**
+     * @description The ID of the region to which the stack belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class ListStackResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The type of the resource that belongs to an Alibaba Cloud service.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $acsResourceType;
 
     /**
+     * @description The action that is performed on resources. Valid values:
+     *
+     *   Add
+     *   Modify
+     *   Remove
+     *   None
+     *
      * @example Add
      *
      * @var string
@@ -21,6 +32,8 @@ class resources extends Model
     public $action;
 
     /**
+     * @description The description of the resource.
+     *
      * @example ECS instance.
      *
      * @var string
@@ -28,6 +41,8 @@ class resources extends Model
     public $description;
 
     /**
+     * @description The logical ID of the resource.
+     *
      * @example WebServer
      *
      * @var string
@@ -35,11 +50,18 @@ class resources extends Model
     public $logicalResourceId;
 
     /**
+     * @description The physical ID of the resource.
+     *
+     * This parameter is returned only if the Action parameter is set to Modify or Remove.
+     * @example i-a1b2c3***
+     *
      * @var string
      */
     public $physicalResourceId;
 
     /**
+     * @description The properties of the resource.
+     *
      * @example {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
      *
      * @var mixed[]
@@ -47,6 +69,13 @@ class resources extends Model
     public $properties;
 
     /**
+     * @description Indicates whether a replacement update is performed on the template. Valid values:
+     *
+     *   True: A replacement update is performed on the template.
+     *   False: A change is made on the template.
+     *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
+     *
+     * >  This parameter is returned only if the Action parameter is set to Modify.
      * @example False
      *
      * @var string
@@ -54,11 +83,15 @@ class resources extends Model
     public $replacement;
 
     /**
+     * @description The resources on which the stack depends.
+     *
      * @var string[]
      */
     public $requiredBy;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ECS::Instance
      *
      * @var string
@@ -66,6 +99,8 @@ class resources extends Model
     public $resourceType;
 
     /**
+     * @description The information about the nested stack. The data structure of the value is the same as the data structure of the entire response.
+     *
      * @example {}
      *
      * @var mixed[]

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateScratchRequest extends Model
 {
     /**
+     * @description The ID of the region in which the scenario is created.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteTemplateScratchRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-4f83704400994409****
      *
      * @var string

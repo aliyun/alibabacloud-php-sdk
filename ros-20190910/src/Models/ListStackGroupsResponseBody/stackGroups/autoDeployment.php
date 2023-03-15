@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
+     * @description Indicates whether automatic deployment is enabled.
+     *
+     * Valid values:
+     *
+     *   true: Automatic deployment is enabled. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the specified region of the member. If you delete the member from the folder, ROS automatically deletes the stacks in the stack group from the specified region of the member.
+     *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you change the member in the folder.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +23,14 @@ class autoDeployment extends Model
     public $enabled;
 
     /**
+     * @description Indicates whether the stacks within a member are retained when you delete the member from the folder.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter is returned only if the Enabled parameter is set to true.
      * @example true
      *
      * @var bool

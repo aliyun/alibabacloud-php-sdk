@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
+     * @description The names of properties that are supported by the resource type.
+     *
      * @var string[]
      */
     public $properties;
 
     /**
+     * @description The resource type.
+     *
+     * @example ALIYUN::ECS::Disk
+     *
      * @var string
      */
     public $resourceType;

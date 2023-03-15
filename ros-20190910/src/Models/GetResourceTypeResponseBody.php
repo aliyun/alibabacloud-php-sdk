@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeResponseBody extends Model
 {
     /**
+     * @description The attributes of the resource.
+     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
+     * @description The entity type. Valid values:
+     *
+     *   Resource: resources other than DataSource resources. For more information, see [Resources](~~28863~~).
+     *   DataSource: DataSource resources.
+     *
      * @example Resource
      *
      * @var string
@@ -21,11 +28,15 @@ class GetResourceTypeResponseBody extends Model
     public $entityType;
 
     /**
+     * @description The properties of the resource.
+     *
      * @var mixed[]
      */
     public $properties;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A28FBA2E-B6B3-5822-AA45-AB875EF23641
      *
      * @var string
@@ -33,6 +44,8 @@ class GetResourceTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ROS::WaitConditionHandle
      *
      * @var string
@@ -40,6 +53,11 @@ class GetResourceTypeResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description Indicates whether the resource supports drift detection. Default value: false. Valid values:
+     *
+     *   true: Drift detection is supported.
+     *   false: Drift detection is not supported.
+     *
      * @example false
      *
      * @var bool
@@ -47,6 +65,11 @@ class GetResourceTypeResponseBody extends Model
     public $supportDriftDetection;
 
     /**
+     * @description Indicates whether the resource supports scratch detection. Default value: false. Valid values:
+     *
+     *   true: Scratch detection is supported.
+     *   false: Scratch detection is not supported.
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class providerVersions extends Model
 {
     /**
+     * @description The name of the provider.
+     *
      * @example alicloud
      *
      * @var string
@@ -16,6 +18,8 @@ class providerVersions extends Model
     public $providerName;
 
     /**
+     * @description The versions of the provider.
+     *
      * @var string[]
      */
     public $supportedVersions;

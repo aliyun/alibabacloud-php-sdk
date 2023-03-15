@@ -14,6 +14,9 @@ class GenerateTemplatePolicyRequest extends Model
     public $operationTypes;
 
     /**
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.
+     *
+     * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -21,6 +24,9 @@ class GenerateTemplatePolicyRequest extends Model
     public $templateBody;
 
     /**
+     * @description The ID of the template. This parameter applies to shared templates and private templates.
+     *
+     * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -28,6 +34,9 @@ class GenerateTemplatePolicyRequest extends Model
     public $templateId;
 
     /**
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
+     *
+     * The URL can be up to 1,024 bytes in length.
      * @example oss://ros/template/demo
      *
      * @var string
@@ -35,6 +44,8 @@ class GenerateTemplatePolicyRequest extends Model
     public $templateURL;
 
     /**
+     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
+     *
      * @example v1
      *
      * @var string

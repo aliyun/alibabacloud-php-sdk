@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
@@ -17,6 +19,8 @@ class ListStackResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details about resources.
+     *
      * @var resources[]
      */
     public $resources;

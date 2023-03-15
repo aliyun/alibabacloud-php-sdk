@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class resourceLogs extends Model
 {
     /**
+     * @description The logs of all resources.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description The name of the resource that is defined in the template.
+     *
      * @example MyResourceCleaner
      *
      * @var string

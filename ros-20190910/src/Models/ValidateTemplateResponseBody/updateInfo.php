@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class updateInfo extends Model
 {
     /**
+     * @description The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
+     *
      * @var string[]
      */
     public $parametersAllowedToBeModified;
 
     /**
+     * @description The parameters whose changes cause service interruptions. If you change only values of the parameters in a stack template and use the template to update the stack, service interruptions are caused.
+     *
+     * >
+     *   This parameter is supported only for a small number of resource types.
+     *   This parameter is valid only for changes that are made on ROS stacks.
+     *
      * @var string[]
      */
     public $parametersCauseInterruptionIfModified;
 
     /**
+     * @description The parameters that can be modified under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values of the parameters determine whether validation errors are caused.
+     *
      * @var string[]
      */
     public $parametersConditionallyAllowedToBeModified;
 
     /**
+     * @description The parameters whose changes cause service interruptions under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values and the update type determine whether service interruptions are caused.
+     *
+     * >
+     *   This parameter is supported only for a small number of resource types.
+     *   This parameter is valid only for changes that are made on ROS stacks.
+     *
      * @var string[]
      */
     public $parametersConditionallyCauseInterruptionIfModified;
 
     /**
+     * @description The parameters that cannot be modified. If you change only values of the parameters in a stack template and use the template to update the stack, validation errors are caused.
+     *
      * @var string[]
      */
     public $parametersNotAllowedToBeModified;
 
     /**
+     * @description The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
+     *
      * @var string[]
      */
     public $parametersUncertainlyAllowedToBeModified;
 
     /**
+     * @description The parameters whose changes cause service interruptions under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether service interruptions are caused.
+     *
+     * >
+     *   This parameter is supported only for a small number of resource types.
+     *   This parameter is valid only for changes that are made on ROS stacks.
+     *
      * @var string[]
      */
     public $parametersUncertainlyCauseInterruptionIfModified;

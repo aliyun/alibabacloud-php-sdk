@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class roleProvision extends Model
 {
     /**
+     * @description The authorization URL of the RAM role.
+     *
+     * >  This parameter is returned if the Created parameter is set to false.
      * @example https://ehpc.console.aliyun.com/
      *
      * @var string
@@ -17,6 +20,8 @@ class roleProvision extends Model
     public $authorizationURL;
 
     /**
+     * @description The RAM roles of the service.
+     *
      * @var roles[]
      */
     public $roles;

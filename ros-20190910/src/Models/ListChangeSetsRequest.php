@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListChangeSetsRequest extends Model
 {
     /**
+     * @description The ID of the change set. If detailed information about the change set is not required, you can use this parameter to replace the GetChangeSet operation.
+     *
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -30,6 +32,9 @@ class ListChangeSetsRequest extends Model
     public $executionStatus;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -37,6 +42,9 @@ class ListChangeSetsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -44,6 +52,8 @@ class ListChangeSetsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +61,8 @@ class ListChangeSetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

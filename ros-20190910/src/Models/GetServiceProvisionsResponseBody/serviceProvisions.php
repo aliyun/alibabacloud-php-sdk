@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class serviceProvisions extends Model
 {
     /**
+     * @description Indicates whether automatic activation for the service is defined in the template. Valid values:
+     *
+     *   true: Automatic activation for the service is defined in the template.
+     *   false: Manual activation for the service is defined in the template.
+     *
      * @example false
      *
      * @var bool
@@ -17,11 +22,16 @@ class serviceProvisions extends Model
     public $autoEnableService;
 
     /**
+     * @description The names of Alibaba Cloud services on which the service depends.
+     *
      * @var string[]
      */
     public $dependentServiceNames;
 
     /**
+     * @description The URL that points to the activation page of the service.
+     *
+     * >  This parameter is returned if the Status parameter is set to Disabled.
      * @example https://common-buy.aliyun.com/?commodityCode=nas
      *
      * @var string
@@ -29,11 +39,15 @@ class serviceProvisions extends Model
     public $enableURL;
 
     /**
+     * @description The information about the RAM role of the service. If this parameter is empty, no RAM role is associated with the service.
+     *
      * @var roleProvision
      */
     public $roleProvision;
 
     /**
+     * @description The name of the service.
+     *
      * @example EHPC
      *
      * @var string
@@ -41,6 +55,12 @@ class serviceProvisions extends Model
     public $serviceName;
 
     /**
+     * @description The activation status of the service. Valid values:
+     *
+     *   Enabled: The service is activated.
+     *   Disabled: The service is not activated.
+     *   Unknown: The activation status of the service is unknown.
+     *
      * @example Enabled
      *
      * @var string
@@ -48,6 +68,9 @@ class serviceProvisions extends Model
     public $status;
 
     /**
+     * @description The reason why the service is in the Disabled or Unknown state.
+     *
+     * >  This parameter is returned if the Status parameter is set to Disabled or Unknown.
      * @example No permission.
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDrifts extends Model
 {
     /**
+     * @description The actual resource properties in JSON format.
+     *
      * @example {"ScalingRuleName": "test1"}
      *
      * @var string
@@ -17,6 +19,8 @@ class resourceDrifts extends Model
     public $actualProperties;
 
     /**
+     * @description The time when the resource drift detection operation was initiated.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -24,6 +28,8 @@ class resourceDrifts extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The resource properties as defined in the template, in JSON format.
+     *
      * @example {"ScalingRuleName": "test2"}
      *
      * @var string
@@ -31,6 +37,8 @@ class resourceDrifts extends Model
     public $expectedProperties;
 
     /**
+     * @description The logical ID of the resource as defined in the template.
+     *
      * @example ScalingRule
      *
      * @var string
@@ -38,6 +46,8 @@ class resourceDrifts extends Model
     public $logicalResourceId;
 
     /**
+     * @description The physical ID of the resource.
+     *
      * @example asr-2ze4zzc3kf9yz1kd****
      *
      * @var string
@@ -45,11 +55,20 @@ class resourceDrifts extends Model
     public $physicalResourceId;
 
     /**
+     * @description The property differences of the resource.
+     *
      * @var propertyDifferences[]
      */
     public $propertyDifferences;
 
     /**
+     * @description The drift status of the resource. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource had been deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     *
      * @example MODIFIED
      *
      * @var string
@@ -57,6 +76,8 @@ class resourceDrifts extends Model
     public $resourceDriftStatus;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ESS::ScalingRule
      *
      * @var string
@@ -64,6 +85,8 @@ class resourceDrifts extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

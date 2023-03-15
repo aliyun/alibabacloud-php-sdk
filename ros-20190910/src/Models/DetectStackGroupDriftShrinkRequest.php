@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetectStackGroupDriftShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +19,23 @@ class DetectStackGroupDriftShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The operation settings, in JSON format. The following fields are supported:
+     *
+     *   FailureToleranceCount
+     *
+     * Valid values: 0 to 20.
+     *
+     *   FailureTolerancePercentage
+     *
+     * Valid values: 0 to 100.
+     *
+     *   MaxConcurrentCount
+     *
+     * Valid values: 1 to 20.
+     *
+     *   MaxConcurrentPercentage
+     *
+     * Valid values: 1 to 100.
      * @example {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
      *
      * @var string
@@ -23,6 +43,8 @@ class DetectStackGroupDriftShrinkRequest extends Model
     public $operationPreferencesShrink;
 
     /**
+     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035#doc-api-ROS-DescribeRegions~~ "Queries the DescribeRegions list of a region.") operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +52,9 @@ class DetectStackGroupDriftShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the stack group. The name must be unique in a region.
+     *
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
      * @example MyStackGroup
      *
      * @var string

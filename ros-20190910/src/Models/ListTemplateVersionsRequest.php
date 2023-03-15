@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsRequest extends Model
 {
     /**
+     * @description The maximum number of results to be returned in a single call when the NextToken parameter is used for the query.
+     *
+     * Default value: 50.
      * @example 50
      *
      * @var int
@@ -16,6 +19,8 @@ class ListTemplateVersionsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The query token. Set the value to the NextToken value that is returned from the last call.
+     *
      * @example caeba0bbb2be03f84eb48b699f0****
      *
      * @var string
@@ -23,6 +28,8 @@ class ListTemplateVersionsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the template. This parameter applies to shared and private templates.
+     *
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string

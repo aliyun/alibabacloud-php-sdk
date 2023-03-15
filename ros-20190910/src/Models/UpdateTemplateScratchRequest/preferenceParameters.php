@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class preferenceParameters extends Model
 {
     /**
+     * @description The name of a request parameter.
+     *
+     * For more information about ParameterKey, see **Additional description of request parameters**.
+     *
+     * >
+     *   PreferenceParameters is optional. If you set PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+     *   If you set TemplateScratchType to ResourceImport, you must set ParameterKey to DeletionPolicy.
+     *
      * @example DeletionPolicy
      *
      * @var string
@@ -16,6 +24,11 @@ class preferenceParameters extends Model
     public $parameterKey;
 
     /**
+     * @description The value of a request parameter. The value of ParameterValue varies based on the value of ParameterKey.
+     *
+     * For more information about ParameterValue, see **Additional description of request parameters**.
+     *
+     * >  PreferenceParameters is optional. If you set PreferenceParameters, you must specify both ParameterKey and ParameterValue.
      * @example Retain
      *
      * @var string

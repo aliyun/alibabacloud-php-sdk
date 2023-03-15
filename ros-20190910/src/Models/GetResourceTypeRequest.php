@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeRequest extends Model
 {
     /**
+     * @description The type of the resource.
+     *
+     * For more information about resource types supported by Resource Orchestration Service (ROS), see [List of resource types by service](~~127039~~).
      * @example ALIYUN::ROS::WaitConditionHandle
      *
      * @var string

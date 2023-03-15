@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStackInstanceRequest extends Model
 {
     /**
+     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,9 @@ class GetStackInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the stack group. The name must be unique in a region.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example MyStackGroup
      *
      * @var string
@@ -23,6 +28,12 @@ class GetStackInstanceRequest extends Model
     public $stackGroupName;
 
     /**
+     * @description The ID of the account to which the stack belongs.
+     *
+     *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
+     *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
+     *
+     * >  For more information about the account, see [Overview](~~154578~~).
      * @example 151266687691****
      *
      * @var string
@@ -30,6 +41,8 @@ class GetStackInstanceRequest extends Model
     public $stackInstanceAccountId;
 
     /**
+     * @description The ID of the region to which the stack belongs.
+     *
      * @example cn-beijing
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelUpdateStackRequest extends Model
 {
     /**
+     * @description The method to cancel the update operation. Valid values:
+     *
+     *   Quick: cancels the update of a stack as soon as possible.
+     *   Safe: cancels the update of a stack as safely as possible.
+     *
      * @example Safe
      *
      * @var string
@@ -16,6 +21,8 @@ class CancelUpdateStackRequest extends Model
     public $cancelType;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class CancelUpdateStackRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

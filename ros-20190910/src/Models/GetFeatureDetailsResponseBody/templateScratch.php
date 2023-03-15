@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class templateScratch extends Model
 {
     /**
+     * @description The resource types that support the scenario feature.
+     *
      * @var supportedResourceTypes[]
      */
     public $supportedResourceTypes;

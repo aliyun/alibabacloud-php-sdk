@@ -2,12 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackShrinkRequest;
+namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateRecommendParametersRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class parameters extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $parameterCandidateValues;
+
     /**
      * @var string
      */
@@ -18,8 +23,9 @@ class parameters extends Model
      */
     public $parameterValue;
     protected $_name = [
-        'parameterKey'   => 'ParameterKey',
-        'parameterValue' => 'ParameterValue',
+        'parameterCandidateValues' => 'ParameterCandidateValues',
+        'parameterKey'             => 'ParameterKey',
+        'parameterValue'           => 'ParameterValue',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class parameters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterCandidateValues) {
+            $res['ParameterCandidateValues'] = $this->parameterCandidateValues;
+        }
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
         }
@@ -47,6 +56,11 @@ class parameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterCandidateValues'])) {
+            if (!empty($map['ParameterCandidateValues'])) {
+                $model->parameterCandidateValues = $map['ParameterCandidateValues'];
+            }
+        }
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectStackDriftResponseBody extends Model
 {
     /**
+     * @description The ID of the drift detection.
+     *
      * @example a7044f0d-6f2e-4128-a307-4524ef88****
      *
      * @var string
@@ -16,6 +18,8 @@ class DetectStackDriftResponseBody extends Model
     public $driftDetectionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string

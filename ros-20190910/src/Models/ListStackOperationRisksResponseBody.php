@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListStackOperationRisksResponseBody extends Model
 {
     /**
+     * @description The operations on which the permissions are not granted to the Alibaba Cloud account of the caller.
+     *
      * @var string[]
      */
     public $missingPolicyActions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 72108E7A-E874-4A5E-B22C-A61E94AD12CD
      *
      * @var string
@@ -22,6 +26,8 @@ class ListStackOperationRisksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resources that are at risk.
+     *
      * @var riskResources[]
      */
     public $riskResources;

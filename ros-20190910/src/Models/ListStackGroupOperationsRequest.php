@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupOperationsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class ListStackGroupOperationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +29,8 @@ class ListStackGroupOperationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +38,9 @@ class ListStackGroupOperationsRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the stack group. The name must be unique within a region.
+     *
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
      * @example MyStackGroup
      *
      * @var string

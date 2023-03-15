@@ -12,6 +12,15 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperation extends Model
 {
     /**
+     * @description The operation that was performed.
+     *
+     * Valid values:
+     *
+     *   CREATE
+     *   UPDATE
+     *   DELETE
+     *   DETECT_DRIFT
+     *
      * @example DELETE
      *
      * @var string
@@ -19,6 +28,8 @@ class stackGroupOperation extends Model
     public $action;
 
     /**
+     * @description The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the stack group that is granted self-managed permissions. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+     *
      * @example AliyunROSStackGroupAdministrationRole
      *
      * @var string
@@ -26,6 +37,8 @@ class stackGroupOperation extends Model
     public $administrationRoleName;
 
     /**
+     * @description The time when the operation was initiated.
+     *
      * @example 2020-01-20T09:22:3
      *
      * @var string
@@ -33,11 +46,15 @@ class stackGroupOperation extends Model
     public $createTime;
 
     /**
+     * @description The folders in which you want to deploy the stack instances that are granted service-managed permissions.
+     *
      * @var deploymentTargets
      */
     public $deploymentTargets;
 
     /**
+     * @description The time when the operation ended.
+     *
      * @example 2020-01-20T09:22:4
      *
      * @var string
@@ -45,6 +62,8 @@ class stackGroupOperation extends Model
     public $endTime;
 
     /**
+     * @description The name of the RAM role that is specified for the execution account when you create the stack group that is granted self-managed permissions. The administrator account whose RAM role is AliyunROSStackGroupAdministrationRole assumes this RAM role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+     *
      * @example AliyunROSStackGroupExecutionRole
      *
      * @var string
@@ -52,6 +71,9 @@ class stackGroupOperation extends Model
     public $executionRoleName;
 
     /**
+     * @description The description of the operation.
+     *
+     * >  This parameter is returned only if the OperationDescription request parameter is specified in the [CreateStackInstances](~~151338~~) operation to create stack instances.
      * @example Create stack instance in hangzhou
      *
      * @var string
@@ -59,6 +81,8 @@ class stackGroupOperation extends Model
     public $operationDescription;
 
     /**
+     * @description The ID of the operation that was performed on the stack group.
+     *
      * @example 6da106ca-1784-4a6f-a7e1-e723863d****
      *
      * @var string
@@ -66,11 +90,21 @@ class stackGroupOperation extends Model
     public $operationId;
 
     /**
+     * @description The operation preferences.
+     *
      * @var operationPreferences
      */
     public $operationPreferences;
 
     /**
+     * @description Indicates whether the relevant stacks are retained when stack instances are deleted in the stack group.
+     *
+     * Valid values:
+     *
+     *   true: The stacks are retained.
+     *   false: The stacks are deleted. Proceed with caution.
+     *
+     * >  This parameter is returned only when the stack instances are deleted.
      * @example true
      *
      * @var bool
@@ -78,11 +112,16 @@ class stackGroupOperation extends Model
     public $retainStacks;
 
     /**
+     * @description The details of the drift detection.
+     *
+     * >  This parameter is returned only when the drift detection is performed on the stack group.
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
 
     /**
+     * @description The ID of the stack group.
+     *
      * @example fd0ddef9-9540-4b42-a464-94f77835****
      *
      * @var string
@@ -90,6 +129,8 @@ class stackGroupOperation extends Model
     public $stackGroupId;
 
     /**
+     * @description The name of the stack group.
+     *
      * @example MyStackGroup
      *
      * @var string
@@ -97,6 +138,16 @@ class stackGroupOperation extends Model
     public $stackGroupName;
 
     /**
+     * @description The status of the operation.
+     *
+     * Valid values:
+     *
+     *   RUNNING: The operation is being performed.
+     *   SUCCEEDED: The operation succeeded.
+     *   FAILED: The operation failed.
+     *   STOPPING: The operation is being stopped.
+     *   STOPPED: The operation is stopped.
+     *
      * @example SUCCEEDED
      *
      * @var string

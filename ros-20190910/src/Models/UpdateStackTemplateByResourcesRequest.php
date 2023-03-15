@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackTemplateByResourcesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +19,12 @@ class UpdateStackTemplateByResourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to only preview the corrected template in this request. Default value: false. Valid values:
+     *
+     *   true: returns the content of the corrected template and does not correct the template. After Resource Orchestration Service (ROS) compares the corrected template with the original template, ROS determines whether to execute the correction.
+     *   false: corrects the template to eliminate drift.
+     *
+     * >  We recommend that you set the DryRun parameter to true to preview the corrected template. If the template content meets expectations, set the DryRun parameter to false to execute the correction.
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class UpdateStackTemplateByResourcesRequest extends Model
     public $logicalResourceId;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +48,8 @@ class UpdateStackTemplateByResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -44,6 +57,11 @@ class UpdateStackTemplateByResourcesRequest extends Model
     public $stackId;
 
     /**
+     * @description The format of the returned template. Default value: JSON. Valid values:
+     *
+     *   JSON
+     *   YAML
+     *
      * @example JSON
      *
      * @var string

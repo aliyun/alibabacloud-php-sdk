@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
+     * @description The logs of resources in the stack. This parameter is returned if the LogOption parameter is set to Resource or All.
+     *
+     * >  The logs are returned for resources of specific types, such as `ALIYUN::ROS::ResourceCleaner`.
      * @var resourceLogs[]
      */
     public $resourceLogs;
 
     /**
+     * @description The logs of the Terraform stack. This parameter is returned only for a Terraform stack.
+     *
+     * >  This parameter is not returned for a running stack. The logs are generated from the last creation, re-creation, update, or deletion operation on the stack.
      * @var terraformLogs[]
      */
     public $terraformLogs;

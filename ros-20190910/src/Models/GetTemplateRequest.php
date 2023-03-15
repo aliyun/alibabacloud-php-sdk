@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
+     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -16,6 +19,12 @@ class GetTemplateRequest extends Model
     public $changeSetId;
 
     /**
+     * @description Specifies whether to query the template sharing information. Default value: Disabled. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * >  Only the template owner can query the template sharing information.
      * @example Enabled
      *
      * @var string
@@ -23,6 +32,12 @@ class GetTemplateRequest extends Model
     public $includePermission;
 
     /**
+     * @description Specifies whether to query the information about tags. Default value: Disabled. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * >  This parameter only takes effect when you specify the TemplateId parameter.
      * @example Enabled
      *
      * @var string
@@ -30,6 +45,8 @@ class GetTemplateRequest extends Model
     public $includeTags;
 
     /**
+     * @description The ID of the region to which the stack or stack group defined in the template belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +54,9 @@ class GetTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the stack group.
+     *
+     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example MyStackGroup
      *
      * @var string
@@ -44,6 +64,9 @@ class GetTemplateRequest extends Model
     public $stackGroupName;
 
     /**
+     * @description The ID of the stack.
+     *
+     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -51,6 +74,9 @@ class GetTemplateRequest extends Model
     public $stackId;
 
     /**
+     * @description The ID of the template.
+     *
+     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -58,6 +84,13 @@ class GetTemplateRequest extends Model
     public $templateId;
 
     /**
+     * @description The stage of the template. This parameter only takes effect when you specify the StackId, ChangeSetId, or StackGroupName parameter.
+     *
+     * Default value: Processed. Valid values:
+     *
+     *   Processed: returns the processed template that contains transforms.
+     *   Original: returns the original template that you specify.
+     *
      * @example Processed
      *
      * @var string
@@ -65,6 +98,9 @@ class GetTemplateRequest extends Model
     public $templateStage;
 
     /**
+     * @description The version of the template. This parameter only takes effect when you specify the TemplateId parameter.
+     *
+     * Valid values: v1 to v100.
      * @example v1
      *
      * @var string

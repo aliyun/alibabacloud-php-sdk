@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStackPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -16,6 +18,8 @@ class GetStackPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
+     *
      * @example {"Statement": [{"Action": "Update:*", "Effect": "Allow","Principal": "*","Resource": "*"}]}
      *
      * @var mixed[]

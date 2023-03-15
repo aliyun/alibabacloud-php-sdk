@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteChangeSetRequest extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteChangeSetRequest extends Model
     public $changeSetId;
 
     /**
+     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @description Specifies whether to query the information about tags. Default value: Disabled. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
      * @example Enabled
      *
      * @var string
@@ -17,6 +22,9 @@ class ListTemplatesRequest extends Model
     public $includeTags;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -24,6 +32,9 @@ class ListTemplatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -31,6 +42,9 @@ class ListTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -38,6 +52,14 @@ class ListTemplatesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The sharing type of the template.
+     *
+     * Default value: Private. Valid values:
+     *
+     *   Private: The template belongs to the template owner.
+     *   Shared: The template is shared with other users.
+     *   Official: The template is the shared template of the official version.
+     *
      * @example Private
      *
      * @var string
@@ -50,6 +72,9 @@ class ListTemplatesRequest extends Model
     public $tag;
 
     /**
+     * @description The name of the template. This parameter takes effect only when the ShareType parameter is set to Private.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example MyTemplate
      *
      * @var string

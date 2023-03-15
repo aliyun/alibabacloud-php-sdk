@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateResponseBody extends Model
 {
     /**
+     * @description The description of the template.
+     *
      * @example No description
      *
      * @var string
@@ -20,16 +22,23 @@ class ValidateTemplateResponseBody extends Model
     public $description;
 
     /**
+     * @description The output items of the template.
+     *
      * @var outputs[]
      */
     public $outputs;
 
     /**
+     * @description The parameters in the Parameters section of the template.
+     *
+     * The Parameters section contains the parameters that you must specify when you use the template to create a stack. You can use the parameters to specify the stack details, such as the username, the password, and the Elastic Compute Service (ECS) instance type in the specified region.
      * @var mixed[][]
      */
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -37,16 +46,26 @@ class ValidateTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource types that are used in the template.
+     *
      * @var resourceTypes
      */
     public $resourceTypes;
 
     /**
+     * @description The regular resources that are defined in the template.
+     *
+     * >
+     *   For a Resource Orchestration Service (ROS) template, the resource whose definition contains the `Count` parameter is not displayed as a list.
+     *   For a Terraform template, the resource whose definition contains the `count` or `for_each` parameter is not displayed as a list.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The update information about the stack.
+     *
      * @var updateInfo
      */
     public $updateInfo;

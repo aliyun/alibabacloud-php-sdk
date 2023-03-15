@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PreviewStackResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -17,6 +19,8 @@ class PreviewStackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the stack that is previewed.
+     *
      * @var stack
      */
     public $stack;

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetDeletionProtectionRequest extends Model
 {
     /**
+     * @description Indicates whether stack deletion protection is enabled. Valid values:
+     *
+     *   Enabled: enables the stack deletion protection.
+     *   Disabled (default): Resource stack deletion protection is Disabled. You can use the console or API(DeleteStack) to release the stack resources.
+     *
+     * >  The deletion of nested stacks is the same as the root stack.
      * @example Enabled
      *
      * @var string
@@ -16,6 +22,8 @@ class SetDeletionProtectionRequest extends Model
     public $deletionProtection;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,9 @@ class SetDeletionProtectionRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
+     * The delete protection attribute of a nested stack is determined by the root stack and remains unchanged from the root stack.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class changeSets extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -16,6 +18,8 @@ class changeSets extends Model
     public $changeSetId;
 
     /**
+     * @description The name of the change set.
+     *
      * @example MyChangeSet
      *
      * @var string
@@ -23,6 +27,8 @@ class changeSets extends Model
     public $changeSetName;
 
     /**
+     * @description The type of the change set.
+     *
      * @example UPDATE
      *
      * @var string
@@ -30,6 +36,8 @@ class changeSets extends Model
     public $changeSetType;
 
     /**
+     * @description The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-08-01T05:16:31
      *
      * @var string
@@ -37,6 +45,8 @@ class changeSets extends Model
     public $createTime;
 
     /**
+     * @description The description of the change set.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -44,6 +54,8 @@ class changeSets extends Model
     public $description;
 
     /**
+     * @description The execution status of the change set.
+     *
      * @example AVAILABLE
      *
      * @var string
@@ -51,6 +63,8 @@ class changeSets extends Model
     public $executionStatus;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +72,8 @@ class changeSets extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack with which the change set is associated.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -65,6 +81,8 @@ class changeSets extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack with which the change set is associated.
+     *
      * @example MyStack
      *
      * @var string
@@ -72,6 +90,8 @@ class changeSets extends Model
     public $stackName;
 
     /**
+     * @description The status of the change set.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string
@@ -79,6 +99,8 @@ class changeSets extends Model
     public $status;
 
     /**
+     * @description The reason why the change set is in its current status.
+     *
      * @example too many changes
      *
      * @var string

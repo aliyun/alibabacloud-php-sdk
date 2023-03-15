@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class notSupportResources extends Model
 {
     /**
+     * @example InstanceName
+     *
      * @var string
      */
     public $propertyName;
 
     /**
+     * @example ALIYUN::ECS::InstanceGroup
+     *
      * @var string
      */
     public $resourceType;

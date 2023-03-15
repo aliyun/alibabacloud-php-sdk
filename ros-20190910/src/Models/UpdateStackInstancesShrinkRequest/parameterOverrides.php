@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class parameterOverrides extends Model
 {
     /**
+     * @description The name of parameter N that you want to use to override a specific parameter. If you do not specify the name of parameter N, ROS uses the name that you specify when you create the stack group.
+     *
+     * >
+     *   The ParameterOverrides parameter is optional.
+     *   If you specify the ParameterOverrides parameter, you must specify the ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue parameters.
+     *
      * @example Amount
      *
      * @var string
@@ -16,6 +22,12 @@ class parameterOverrides extends Model
     public $parameterKey;
 
     /**
+     * @description The value of parameter N that you want to use to override a specific parameter. If you do not specify the name and value of parameter N, ROS uses the name and value that you specify when you create the stack group.
+     *
+     * >
+     *   The ParameterOverrides parameter is optional.
+     *   If you specify the ParameterOverrides parameter, you must specify the ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue parameters.
+     *
      * @example 1
      *
      * @var string

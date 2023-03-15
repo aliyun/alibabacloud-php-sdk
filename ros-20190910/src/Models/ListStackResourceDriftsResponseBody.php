@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsResponseBody extends Model
 {
     /**
+     * @description The query token value returned in this call.
+     *
      * @example AAAAAdDWBF2****w==
      *
      * @var string
@@ -17,6 +19,8 @@ class ListStackResourceDriftsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -24,6 +28,8 @@ class ListStackResourceDriftsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array of resource drifts.
+     *
      * @var resourceDrifts[]
      */
     public $resourceDrifts;

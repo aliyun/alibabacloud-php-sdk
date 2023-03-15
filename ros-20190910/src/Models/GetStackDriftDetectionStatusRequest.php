@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetStackDriftDetectionStatusRequest extends Model
 {
     /**
+     * @description The ID of the drift detection operation.
+     *
+     * You can call the [ListStackResourceDrifts](~~155098~~) operation to obtain the ID of the drift detection operation.
      * @example a7044f0d-6f2e-4128-a307-4524ef88****
      *
      * @var string
@@ -16,6 +19,9 @@ class GetStackDriftDetectionStatusRequest extends Model
     public $driftDetectionId;
 
     /**
+     * @description The region ID of the stack to be detected for drift.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

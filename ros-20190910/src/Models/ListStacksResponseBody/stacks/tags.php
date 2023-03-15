@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The tag key of the stack.
+     *
      * @example acs:rm:rgId
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The tag value of the stack.
+     *
      * @example rg-aek2frunvw7****
      *
      * @var string

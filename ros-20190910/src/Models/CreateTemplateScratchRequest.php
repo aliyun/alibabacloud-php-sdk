@@ -14,6 +14,9 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateScratchRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     *
+     * For more information, see [Ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -21,11 +24,19 @@ class CreateTemplateScratchRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the scenario.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The execution mode. Default value: Async. Valid values:
+     *
+     *   Async: asynchronous mode
+     *   Sync: synchronous mode
+     *
+     * >  If a wide scope of resources exist, the synchronous mode takes a longer period of time than the asynchronous mode. If you set the ExecutionMode parameter to Sync, we recommend that you configure the ClientToken parameter to prevent a timeout error.
      * @example Sync
      *
      * @var string
@@ -33,6 +44,12 @@ class CreateTemplateScratchRequest extends Model
     public $executionMode;
 
     /**
+     * @description The policy based on which the logical ID is generated. Default value: LongTypePrefixAndIndexSuffix. Valid values:
+     *
+     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+     *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+     *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+     *
      * @example LongTypePrefixAndIndexSuffix
      *
      * @var string
@@ -40,11 +57,16 @@ class CreateTemplateScratchRequest extends Model
     public $logicalIdStrategy;
 
     /**
+     * @description The parameters that you want to configure for the scenario.
+     *
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
 
     /**
+     * @description The ID of the region in which you want to create the scenario.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,16 +74,22 @@ class CreateTemplateScratchRequest extends Model
     public $regionId;
 
     /**
+     * @description The source resource group.
+     *
      * @var sourceResourceGroup
      */
     public $sourceResourceGroup;
 
     /**
+     * @description The source resources.
+     *
      * @var sourceResources[]
      */
     public $sourceResources;
 
     /**
+     * @description The source tag.
+     *
      * @var sourceTag
      */
     public $sourceTag;
@@ -72,6 +100,12 @@ class CreateTemplateScratchRequest extends Model
     public $tags;
 
     /**
+     * @description The type of the scenario. Valid values:
+     *
+     *   ResourceImport: resource management
+     *   ArchitectureReplication: resource replication
+     *   ResourceMigration: resource migration
+     *
      * @example ArchitectureReplication
      *
      * @var string

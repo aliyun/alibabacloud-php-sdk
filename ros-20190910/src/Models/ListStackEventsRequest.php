@@ -16,6 +16,9 @@ class ListStackEventsRequest extends Model
     public $logicalResourceId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +26,9 @@ class ListStackEventsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListStackEventsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the stack resides. You can call the [DescribeRegions](~~131035~~) operation to query the most recent list of Alibaba Cloud regions.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +52,8 @@ class ListStackEventsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

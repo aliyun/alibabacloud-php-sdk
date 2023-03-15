@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stackOperationRisk extends Model
 {
     /**
+     * @description The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
+     *
      * @var string[]
      */
     public $deleteStack;

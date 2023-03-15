@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesResponseBody extends Model
 {
     /**
+     * @description The token that is used to start the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0*****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTagValuesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C429473A-5C66-4661-B5F8-4F900CD4330A
      *
      * @var string
@@ -23,6 +27,8 @@ class ListTagValuesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tag values.
+     *
      * @var string[]
      */
     public $values;

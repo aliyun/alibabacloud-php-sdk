@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class templateParameterConstraints extends Model
 {
     /**
+     * @description The resource types that support the template parameter constraint feature.
+     *
      * @var supportedResourceTypes[]
      */
     public $supportedResourceTypes;

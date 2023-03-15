@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameterOverrides extends Model
 {
     /**
+     * @description The name of the parameter that is used to override a specific parameter.
+     *
      * @example Amount
      *
      * @var string
@@ -16,6 +18,8 @@ class parameterOverrides extends Model
     public $parameterKey;
 
     /**
+     * @description The value of the parameter that is used to override a specific parameter.
+     *
      * @example 1
      *
      * @var string

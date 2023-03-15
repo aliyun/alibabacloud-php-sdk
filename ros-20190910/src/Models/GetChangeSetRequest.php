@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetChangeSetRequest extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
      * @example 4c11658d-bd47-4dd0-ba64-727edc62****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetChangeSetRequest extends Model
     public $changeSetId;
 
     /**
+     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,11 @@ class GetChangeSetRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to show the template. Default value: false. Valid values:
+     *
+     *   true: shows the template.
+     *   false: does not show the template.
+     *
      * @example false
      *
      * @var bool

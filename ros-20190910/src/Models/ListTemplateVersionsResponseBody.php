@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
+     * @description The query token that is returned in this call.
+     *
      * @example caeba0bbb2be03f84eb48b699f0****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTemplateVersionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -24,6 +28,8 @@ class ListTemplateVersionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of versions.
+     *
      * @var versions[]
      */
     public $versions;

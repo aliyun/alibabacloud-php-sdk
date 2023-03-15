@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class terraform extends Model
 {
     /**
+     * @description The resource types that support the scenario feature.
+     *
      * @var supportedResourceTypes
      */
     public $supportedResourceTypes;
 
     /**
+     * @description The Terraform versions.
+     *
      * @var supportedVersions[]
      */
     public $supportedVersions;

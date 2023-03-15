@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2019-10-15T08:17:14.000000
      *
      * @var string
@@ -17,6 +19,8 @@ class templates extends Model
     public $createTime;
 
     /**
+     * @description The description of the template.
+     *
      * @example test-description
      *
      * @var string
@@ -24,6 +28,8 @@ class templates extends Model
     public $description;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the template belongs.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -31,6 +37,8 @@ class templates extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -38,6 +46,13 @@ class templates extends Model
     public $resourceGroupId;
 
     /**
+     * @description The sharing type of the template.
+     *
+     * Default value: Private. Valid values:
+     *
+     *   Private: The template belongs to the template owner.
+     *   Shared: The template is shared with other users.
+     *
      * @example Private
      *
      * @var string
@@ -45,11 +60,15 @@ class templates extends Model
     public $shareType;
 
     /**
+     * @description The tags of the template.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the template.
+     *
      * @example acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
      *
      * @var string
@@ -57,6 +76,8 @@ class templates extends Model
     public $templateARN;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 4d4f5aa2-3260-4e47-863b-763fbb12****
      *
      * @var string
@@ -64,6 +85,8 @@ class templates extends Model
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
      * @example demo
      *
      * @var string
@@ -71,6 +94,8 @@ class templates extends Model
     public $templateName;
 
     /**
+     * @description The latest version of the template.
+     *
      * @example v1
      *
      * @var string
@@ -78,6 +103,8 @@ class templates extends Model
     public $templateVersion;
 
     /**
+     * @description The time when the template was last updated.
+     *
      * @example 2019-10-15T08:17:14.000000
      *
      * @var string

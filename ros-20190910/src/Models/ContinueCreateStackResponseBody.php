@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ContinueCreateStackResponseBody extends Model
 {
     /**
+     * @description The validation result.
+     *
      * @var dryRunResult
      */
     public $dryRunResult;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
@@ -22,6 +26,8 @@ class ContinueCreateStackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

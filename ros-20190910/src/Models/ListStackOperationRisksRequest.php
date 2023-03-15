@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStackOperationRisksRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     *
+     * For more information, see [Ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +19,13 @@ class ListStackOperationRisksRequest extends Model
     public $clientToken;
 
     /**
+     * @description The type of the operation of which you want to detect risks.
+     *
+     * Valid values:
+     *
+     *   DeleteStack: detects high risks that may arise in resources when you delete a stack.
+     *   CreateStack: detect risks of creation failure that may arise when you create a stack. In this case, ROS allows you to detect only the required permissions that are not granted to the Alibaba Cloud account of the caller.
+     *
      * @example DeleteStack
      *
      * @var string
@@ -23,6 +33,12 @@ class ListStackOperationRisksRequest extends Model
     public $operationType;
 
     /**
+     * @description The name of the RAM role.
+     *
+     *   If you specify a RAM role, ROS creates stacks based on the permissions that are granted to the RAM role and uses the credentials of the RAM role to call the API operations of Alibaba Cloud services.
+     *   If you do not specify a RAM role, ROS creates stacks based on the permissions of your Alibaba Cloud account.
+     *
+     * The name of the RAM role can be up to 64 bytes in length.
      * @example test-role
      *
      * @var string
@@ -30,6 +46,9 @@ class ListStackOperationRisksRequest extends Model
     public $ramRoleName;
 
     /**
+     * @description The region ID of the stack.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +56,14 @@ class ListStackOperationRisksRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to retain all resources in the stack.
+     *
+     * Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter takes effect when the OperationType parameter is set to DeleteStack.
      * @example false
      *
      * @var bool
@@ -51,6 +78,8 @@ class ListStackOperationRisksRequest extends Model
     public $retainResources;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -58,21 +87,41 @@ class ListStackOperationRisksRequest extends Model
     public $stackId;
 
     /**
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     *
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
+     *
      * @var string
      */
     public $templateBody;
 
     /**
+     * @description The ID of the template. This parameter applies to shared and private templates.
+     *
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     *
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * @example oss://ros-template/demo
+     *
      * @var string
      */
     public $templateURL;
 
     /**
+     * @description The version of the template.
+     *
+     * >  This parameter takes effect only when the TemplateId parameter is specified.
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

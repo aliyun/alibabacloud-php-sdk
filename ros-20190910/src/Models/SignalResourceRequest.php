@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SignalResourceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +19,8 @@ class SignalResourceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The logical ID of the resource as defined in the template.
+     *
      * @example WebServer
      *
      * @var string
@@ -23,6 +28,8 @@ class SignalResourceRequest extends Model
     public $logicalResourceId;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +37,8 @@ class SignalResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -37,6 +46,12 @@ class SignalResourceRequest extends Model
     public $stackId;
 
     /**
+     * @description The status of the signal. Failure signals can cause stack creation or update to fail. If all signals are warnings, the stack cannot be created or updated. Valid values:
+     *
+     *   SUCCESS
+     *   FAILURE
+     *   WARNING
+     *
      * @example SUCCESS
      *
      * @var string
@@ -44,6 +59,8 @@ class SignalResourceRequest extends Model
     public $status;
 
     /**
+     * @description The unique ID of the signal. The ID must be 1 to 64 characters in length. If multiple signals are sent to a single resource, each signal must have a unique ID.
+     *
      * @example 27c7347b-352a-4377-accf-63d361c1****
      *
      * @var string

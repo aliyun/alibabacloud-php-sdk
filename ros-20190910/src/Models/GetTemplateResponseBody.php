@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the change set. This parameter is returned only if the ChangeSetId parameter is specified.
+     *
      * @example e85abe0c-6528-43fb-ae93-fdf8de22****
      *
      * @var string
@@ -18,6 +20,12 @@ class GetTemplateResponseBody extends Model
     public $changeSetId;
 
     /**
+     * @description The time when the template was created. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * >
+     *   If the TemplateVersion parameter is specified, the creation time of the template whose version is specified by using the TemplateVersion parameter is returned.
+     *   If the TemplateVersion parameter is not specified, the creation time of the template whose version is the default version is returned.
+     *
      * @example 2020-11-18T08:49:26
      *
      * @var string
@@ -25,6 +33,8 @@ class GetTemplateResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
      * @example ROS template for create ECS instance.
      *
      * @var string
@@ -32,6 +42,8 @@ class GetTemplateResponseBody extends Model
     public $description;
 
     /**
+     * @description The description of the web UI in the ROS console.
+     *
      * @example {}
      *
      * @var string
@@ -39,6 +51,8 @@ class GetTemplateResponseBody extends Model
     public $interface;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the template belongs. This parameter is returned only if the TemplateId parameter is specified.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -46,11 +60,19 @@ class GetTemplateResponseBody extends Model
     public $ownerId;
 
     /**
+     * @description Details of the sharing status of the template. This parameter is returned only if the TemplateId parameter is specified and the IncludePermission parameter is set to Enabled.
+     *
+     * >
+     *   If the TemplateVersion parameter is not specified or does not take effect, the details of the sharing status of the template whose version is the default version is returned.
+     *   If the TemplateVersion parameter is specified and takes effect, the details of the sharing status of the template whose version is specified by using the TemplateVersion parameter is returned.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description The ID of the region to which the stack or stack group defined in the template belongs. This parameter is returned only if the StackId, ChangeSetId, or StackGroupName parameter is specified.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +80,8 @@ class GetTemplateResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84****
      *
      * @var string
@@ -65,6 +89,8 @@ class GetTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -72,6 +98,13 @@ class GetTemplateResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The sharing type of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * Valid values:
+     *
+     *   Private: The template can be used only by the template owner.
+     *   Shared: The template is shared with other users.
+     *
      * @example Private
      *
      * @var string
@@ -79,6 +112,8 @@ class GetTemplateResponseBody extends Model
     public $shareType;
 
     /**
+     * @description The name of the stack group. This parameter is returned only if the StackGroupName parameter is specified.
+     *
      * @example MyStackGroup
      *
      * @var string
@@ -86,6 +121,8 @@ class GetTemplateResponseBody extends Model
     public $stackGroupName;
 
     /**
+     * @description The ID of the stack. This parameter is returned only if the StackId parameter is specified.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -93,11 +130,15 @@ class GetTemplateResponseBody extends Model
     public $stackId;
 
     /**
+     * @description The tags of the template.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
      * @example acs:ros:*:151266687691****:template/a52f81be-496f-4e1c-a286-8852ab54****
      *
      * @var string
@@ -105,6 +146,8 @@ class GetTemplateResponseBody extends Model
     public $templateARN;
 
     /**
+     * @description The body of the template.
+     *
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -112,6 +155,9 @@ class GetTemplateResponseBody extends Model
     public $templateBody;
 
     /**
+     * @description The ID of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * If the template is a shared template, the value of this parameter is the same as the value of the TemplateARN parameter.
      * @example a52f81be-496f-4e1c-a286-8852ab54****
      *
      * @var string
@@ -119,6 +165,12 @@ class GetTemplateResponseBody extends Model
     public $templateId;
 
     /**
+     * @description The name of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * >
+     *   If the TemplateVersion parameter is specified, the name of the template whose version is specified by using the TemplateVersion parameter is returned.
+     *   If the TemplateVersion parameter is not specified, the name of the template whose version is the default version is returned.
+     *
      * @example MyTemplate
      *
      * @var string
@@ -126,6 +178,9 @@ class GetTemplateResponseBody extends Model
     public $templateName;
 
     /**
+     * @description The version of the template. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * If the template is a shared template, this parameter is returned only if the VersionOption parameter is set to AllVersions.
      * @example v1
      *
      * @var string
@@ -133,6 +188,12 @@ class GetTemplateResponseBody extends Model
     public $templateVersion;
 
     /**
+     * @description The time when the template was last updated. This parameter is returned only if the TemplateId parameter is specified.
+     *
+     * >
+     *   If the TemplateVersion parameter is specified, the last update time of the template whose version is specified by using the TemplateVersion parameter is returned.
+     *   If the TemplateVersion parameter is not specified, the last update time of the template whose version is the default version is returned.
+     *
      * @example 2020-12-07T06:11:48
      *
      * @var string

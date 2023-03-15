@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the resources. This parameter takes effect when the TagKey.N parameter is not specified in the request. Default value: false. Valid values:
+     *
+     *   true: removes all tags from the resources.
+     *   false: removes the specified tags from the resources.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The region ID of the tag. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +37,13 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   stack: stack
+     *   stackgroup: stack group
+     *   template: template
+     *   templatescratch: scenario
+     *
      * @example stack
      *
      * @var string

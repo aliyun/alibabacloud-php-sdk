@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesRequest extends Model
 {
     /**
+     * @description The entity type. Valid values:
+     *
+     *   All: all resource types.
+     *   Resource: resources other than DataSource resources. For more information, see [Resources](~~28863~~).
+     *   DataSource: DataSource resources.
+     *
      * @example Resource
      *
      * @var string

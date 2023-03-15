@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the tag. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,6 +26,13 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource to which you want to add the tag. Valid values:
+     *
+     *   stack: stack
+     *   stackgroup: stack group
+     *   template: template
+     *   TemplateScratch: scenario
+     *
      * @example stack
      *
      * @var string

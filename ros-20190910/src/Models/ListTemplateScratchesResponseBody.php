@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateScratchesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListTemplateScratchesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListTemplateScratchesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D1C09606-C58B-558F-9B4E-5BF263D17D09
      *
      * @var string
@@ -31,11 +37,15 @@ class ListTemplateScratchesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of scenarios.
+     *
      * @var templateScratches[]
      */
     public $templateScratches;
 
     /**
+     * @description The total number of scenarios.
+     *
      * @example 2
      *
      * @var int

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * Pages start from page 1.
      * @example 1
      *
      * @var int
@@ -17,6 +20,8 @@ class ListTemplatesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +29,8 @@ class ListTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C3A8413B-1F16-4DED-AC3E-61A00718DE8A
      *
      * @var string
@@ -31,11 +38,15 @@ class ListTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of templates.
+     *
      * @var templates[]
      */
     public $templates;
 
     /**
+     * @description The total number of templates.
+     *
      * @example 1
      *
      * @var int

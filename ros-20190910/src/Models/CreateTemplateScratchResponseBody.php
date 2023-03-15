@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateScratchResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 84980977-22F0-5421-B30D-B201311D5DCF
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTemplateScratchResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-7f7a704cf71c49a6****
      *
      * @var string

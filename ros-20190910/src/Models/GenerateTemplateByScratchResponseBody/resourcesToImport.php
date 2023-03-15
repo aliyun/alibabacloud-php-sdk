@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourcesToImport extends Model
 {
     /**
+     * @description The ID of the logical resource.
+     *
      * @example ECSVPC_001
      *
      * @var string
@@ -16,6 +18,9 @@ class resourcesToImport extends Model
     public $logicalResourceId;
 
     /**
+     * @description The key-value mappings from string to string. The parameter value is a JSON string that identifies the resource that is imported.
+     *
+     * A key is an identifier for a resource, and a value is an assignment of data to the key. For example, VpcId is a key that indicates the ID of a virtual private cloud (VPC), and `vpc-bp1m6fww66xbntjyc****"` is a value that is assigned to VpcId.
      * @example {"VpcId": "vpc-bp1m6fww66xbntjyc****" }
      *
      * @var mixed[]
@@ -23,6 +28,8 @@ class resourcesToImport extends Model
     public $resourceIdentifier;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ECS::VPC
      *
      * @var string

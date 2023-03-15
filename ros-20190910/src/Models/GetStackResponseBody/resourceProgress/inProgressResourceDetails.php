@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inProgressResourceDetails extends Model
 {
     /**
+     * @description The desired progress value of the resource.
+     *
      * @example 10
      *
      * @var float
@@ -16,6 +18,8 @@ class inProgressResourceDetails extends Model
     public $progressTargetValue;
 
     /**
+     * @description The current progress value of the resource.
+     *
      * @example 5
      *
      * @var float
@@ -23,6 +27,8 @@ class inProgressResourceDetails extends Model
     public $progressValue;
 
     /**
+     * @description The name of the resource.
+     *
      * @example WaitCondition
      *
      * @var string
@@ -30,6 +36,8 @@ class inProgressResourceDetails extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ROS::WaitCondition
      *
      * @var string

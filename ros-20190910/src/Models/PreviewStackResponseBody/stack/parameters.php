@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
      * @example ALIYUN::AccountId
      *
      * @var string
@@ -16,6 +18,8 @@ class parameters extends Model
     public $parameterKey;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example 151266687691****
      *
      * @var string

@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class statement extends Model
 {
     /**
+     * @description The operations that are performed on the specified resource.
+     *
      * @var string[]
      */
     public $action;
 
     /**
+     * @description The effect of the statement. Valid values:
+     *
+     *   Allow
+     *   Deny
+     *
      * @example Allow
      *
      * @var string
@@ -21,6 +28,8 @@ class statement extends Model
     public $effect;
 
     /**
+     * @description The object that the statement covers. An asterisk (\*) indicates all resources.
+     *
      * @example *
      *
      * @var string

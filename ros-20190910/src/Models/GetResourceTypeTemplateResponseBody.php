@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 87F54B2B-AEF0-4C33-A72A-3F8856A575E9
      *
      * @var string
@@ -16,6 +18,9 @@ class GetResourceTypeTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The structure that contains the template body.
+     *
+     * For more information, see [Template syntax](~~28857~~).
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var mixed[]

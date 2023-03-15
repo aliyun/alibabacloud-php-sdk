@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateTemplateByScratchResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D22C1D13-D74E-558C-AF68-1B4C05FA6F1A
      *
      * @var string
@@ -17,11 +19,16 @@ class GenerateTemplateByScratchResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resources that you want to import to a stack in the scenario of the Resource Management type.
+     *
+     * >  This parameter is returned only for scenarios of the Resource Management type.
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
 
     /**
+     * @description The content of the template that is created for the scenario.
+     *
      * @example {\"ROSTemplateFormatVersion\": \"2015-09-01\", \"Resources\": {\"ECSVPC_001\": {\"DeletionPolicy\": \"Retain\", \"Type\": \"ALIYUN::ECS::VPC\", \"Properties\": {\"CidrBlock\": \"172.16.0.0/12\", \"VpcName\": \"MyTestVpc\", \"EnableIpv6\": false}}}}
      *
      * @var string

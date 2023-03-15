@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resourceTypes extends Model
 {
     /**
+     * @description The DataSource resource types.
+     *
      * @var string[]
      */
     public $dataSources;
 
     /**
+     * @description The regular resource types.
+     *
      * @var string[]
      */
     public $resources;

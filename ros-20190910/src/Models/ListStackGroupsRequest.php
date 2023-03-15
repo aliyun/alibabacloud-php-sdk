@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +22,11 @@ class ListStackGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Valid values: 1 to 50.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +34,8 @@ class ListStackGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +43,9 @@ class ListStackGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. If you do not specify this parameter, the stack groups in all the resource groups are queried.
+     *
+     * >  If you want to obtain the resource group ID, go to the **Resource Group** page in the **Resource Management** console. For more information, see [View basic information about a resource group](~~151181~~).
      * @example rg-acfmzawhxxcj****
      *
      * @var string
@@ -38,6 +53,13 @@ class ListStackGroupsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The state of the stack group. If you do not specify this parameter, the stack groups in all states in the specified region are queried.
+     *
+     * Valid values:
+     *
+     *   ACTIVE
+     *   DELETED
+     *
      * @example ACTIVE
      *
      * @var string

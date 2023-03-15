@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteChangeSetRequest extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -16,6 +18,9 @@ class ExecuteChangeSetRequest extends Model
     public $changeSetId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -23,6 +28,8 @@ class ExecuteChangeSetRequest extends Model
     public $clientToken;
 
     /**
+     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

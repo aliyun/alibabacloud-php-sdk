@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class operationPreferences extends Model
 {
     /**
+     * @description The maximum number of stack operation failures that can occur within the accounts in each region. When the value is exceeded, the operation fails to be performed in the region. If the operation fails to be performed in one region, the operation fails to be performed in other regions.
+     *
+     * >  Only one of the FailureToleranceCount and FailureTolerancePercentage parameters is returned.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class operationPreferences extends Model
     public $failureToleranceCount;
 
     /**
+     * @description The percentage of the total number of accounts within which stack operation failures can occur to the total number of accounts in each region. When the value is exceeded, the operation fails to be performed in the region.
+     *
+     * >  Only one of the FailureToleranceCount and FailureTolerancePercentage parameters is returned.
      * @example 10
      *
      * @var int
@@ -23,6 +29,9 @@ class operationPreferences extends Model
     public $failureTolerancePercentage;
 
     /**
+     * @description The maximum number of accounts within which operations are performed on stacks concurrently in each region.
+     *
+     * >  Only one of the MaxConcurrentCount and MaxConcurrentPercentage parameters is returned.
      * @example 1
      *
      * @var int
@@ -30,6 +39,9 @@ class operationPreferences extends Model
     public $maxConcurrentCount;
 
     /**
+     * @description The percentage of the total number of accounts within which operations are performed on stacks concurrently to the total number of accounts in each region.
+     *
+     * >  Only one of the MaxConcurrentCount and MaxConcurrentPercentage parameters is returned.
      * @example 10
      *
      * @var int
@@ -37,7 +49,7 @@ class operationPreferences extends Model
     public $maxConcurrentPercentage;
 
     /**
-     * @description test
+     * @description The regions in the order of which the operation is performed.
      *
      * @var string[]
      */

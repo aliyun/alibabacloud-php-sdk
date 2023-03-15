@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @description The time when the version was created.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -16,6 +18,8 @@ class versions extends Model
     public $createTime;
 
     /**
+     * @description The description of the version.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class versions extends Model
     public $description;
 
     /**
+     * @description The ID of the template. This parameter applies to shared and private templates. For a shared template, the template ID is the same as the Alibaba Cloud Resource Name (ARN) of the template.
+     *
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -30,6 +36,8 @@ class versions extends Model
     public $templateId;
 
     /**
+     * @description The template name that corresponds to the specified version.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,9 @@ class versions extends Model
     public $templateName;
 
     /**
+     * @description The version number.
+     *
+     * Valid values: v1 to v100.
      * @example v1
      *
      * @var string
@@ -44,6 +55,8 @@ class versions extends Model
     public $templateVersion;
 
     /**
+     * @description The time when the version was last updated.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string

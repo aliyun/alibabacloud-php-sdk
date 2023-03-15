@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class GetFeatureDetailsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example EBF833DA-D0E2-52BE-92E2-59CA56BE834E
      *
      * @var string
@@ -20,21 +22,29 @@ class GetFeatureDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the resource cleaner feature.
+     *
      * @var resourceCleaner
      */
     public $resourceCleaner;
 
     /**
+     * @description Details of the template parameter constraint feature.
+     *
      * @var templateParameterConstraints
      */
     public $templateParameterConstraints;
 
     /**
+     * @description Details of the scenario feature.
+     *
      * @var templateScratch
      */
     public $templateScratch;
 
     /**
+     * @description Details of the Terraform hosting feature.
+     *
      * @var terraform
      */
     public $terraform;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class riskResources extends Model
 {
     /**
+     * @description The error code that is returned when the risk detection fails.
+     *
+     * >  This parameter is not returned if the risk detection is successful.
      * @example NoPermission
      *
      * @var string
@@ -16,6 +19,8 @@ class riskResources extends Model
     public $code;
 
     /**
+     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+     *
      * @example MySG
      *
      * @var string
@@ -23,6 +28,9 @@ class riskResources extends Model
     public $logicalResourceId;
 
     /**
+     * @description The error message that is returned when the risk detection fails.
+     *
+     * >  This parameter is not returned if the risk detection is successful.
      * @example You are not authorized to complete this action.
      *
      * @var string
@@ -30,6 +38,8 @@ class riskResources extends Model
     public $message;
 
     /**
+     * @description The physical ID of the resource. The physical ID is the actual ID of the resource.
+     *
      * @example sg-bp1dpioafqphedg9****
      *
      * @var string
@@ -37,6 +47,8 @@ class riskResources extends Model
     public $physicalResourceId;
 
     /**
+     * @description The reason for the risk.
+     *
      * @example There are some ECS instances (i-bp18el96s4wq635e****) depending on the security group.
      *
      * @var string
@@ -44,6 +56,9 @@ class riskResources extends Model
     public $reason;
 
     /**
+     * @description The ID of the request when the risk detection fails.
+     *
+     * >  This parameter is not returned if the risk detection is successful.
      * @example DF4296CF-F45F-4845-A72B-BE617601DB25
      *
      * @var string
@@ -51,6 +66,8 @@ class riskResources extends Model
     public $requestId;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ECS::SecurityGroup
      *
      * @var string
@@ -58,6 +75,13 @@ class riskResources extends Model
     public $resourceType;
 
     /**
+     * @description The type of the risk. Valid values:
+     *
+     *   Referenced: The resource is referenced by other resources.
+     *   MaybeReferenced: The resource may be referenced by other resources.
+     *   AdditionalRiskCheckRequired: An additional risk detection is required for a nested stack.
+     *   OperationIgnored: The operation does not take effect for the resource.
+     *
      * @example Referenced
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
+     * @description The description of the output item.
+     *
      * @example The instance ID of my ECS.
      *
      * @var string
@@ -16,6 +18,8 @@ class outputs extends Model
     public $description;
 
     /**
+     * @description The alias of the output item.
+     *
      * @example Instance ID
      *
      * @var string
@@ -23,6 +27,8 @@ class outputs extends Model
     public $label;
 
     /**
+     * @description The name of the output item.
+     *
      * @example instance_id
      *
      * @var string

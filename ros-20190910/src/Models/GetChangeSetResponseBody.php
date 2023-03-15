@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetChangeSetResponseBody extends Model
 {
     /**
+     * @description The ID of the change set.
+     *
      * @example 4c11658d-bd47-4dd0-ba64-727edc62****
      *
      * @var string
@@ -18,6 +20,8 @@ class GetChangeSetResponseBody extends Model
     public $changeSetId;
 
     /**
+     * @description The name of the change set.
+     *
      * @example ChangeSet_template
      *
      * @var string
@@ -25,6 +29,8 @@ class GetChangeSetResponseBody extends Model
     public $changeSetName;
 
     /**
+     * @description The type of the change set.
+     *
      * @example UPDATE
      *
      * @var string
@@ -32,11 +38,16 @@ class GetChangeSetResponseBody extends Model
     public $changeSetType;
 
     /**
+     * @description The changes of the change set.
+     *
+     * For more information, see [Data structure](~~155988~~).
      * @var mixed[][]
      */
     public $changes;
 
     /**
+     * @description The time when the resource was created. The time is displayed in UTC.
+     *
      * @example 2021-12-01T02:20:56
      *
      * @var string
@@ -44,6 +55,8 @@ class GetChangeSetResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the change set.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -51,6 +64,8 @@ class GetChangeSetResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether rollback was performed.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +73,8 @@ class GetChangeSetResponseBody extends Model
     public $disableRollback;
 
     /**
+     * @description The execution status of the change set.
+     *
      * @example AVAILABLE
      *
      * @var string
@@ -65,16 +82,22 @@ class GetChangeSetResponseBody extends Model
     public $executionStatus;
 
     /**
+     * @description The logs of the change set.
+     *
      * @var log
      */
     public $log;
 
     /**
+     * @description The parameters of the stack.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -82,6 +105,8 @@ class GetChangeSetResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3766EE04-76DD-50F9-9C23-3AF136CD5708
      *
      * @var string
@@ -89,6 +114,8 @@ class GetChangeSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the stack with which the change set is associated.
+     *
      * @example a486fc19-ebb7-4ce9-a70b-554a7c3d****
      *
      * @var string
@@ -96,6 +123,8 @@ class GetChangeSetResponseBody extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack with which the change set is associated.
+     *
      * @example stack_2021-10-13
      *
      * @var string
@@ -103,6 +132,8 @@ class GetChangeSetResponseBody extends Model
     public $stackName;
 
     /**
+     * @description The status of the change set.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string
@@ -110,6 +141,8 @@ class GetChangeSetResponseBody extends Model
     public $status;
 
     /**
+     * @description The reason why the change set is in its current state.
+     *
      * @example too many changes.
      *
      * @var string
@@ -117,6 +150,9 @@ class GetChangeSetResponseBody extends Model
     public $statusReason;
 
     /**
+     * @description The template body of the change set.
+     *
+     * >  This parameter takes effect only when the ShowTemplate parameter is set to true.
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -124,6 +160,8 @@ class GetChangeSetResponseBody extends Model
     public $templateBody;
 
     /**
+     * @description The timeout period that is specified for the stack creation or update request.
+     *
      * @example 60
      *
      * @var int

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsRequest extends Model
 {
     /**
+     * @description The maximum number of results to be returned with a single call when the NextToken parameter is used for the query.
+     *
+     * Default value: 50.
      * @example 50
      *
      * @var int
@@ -16,6 +19,8 @@ class ListStackResourceDriftsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The query token. Set this parameter to the NextToken value returned in the last API call.
+     *
      * @example AAAAAdDWBF2****w==
      *
      * @var string
@@ -23,6 +28,8 @@ class ListStackResourceDriftsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +44,8 @@ class ListStackResourceDriftsRequest extends Model
     public $resourceDriftStatus;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

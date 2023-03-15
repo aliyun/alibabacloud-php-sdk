@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperations extends Model
 {
     /**
+     * @description The operation that was performed.
+     *
+     * Valid values:
+     *
+     *   CREATE
+     *   UPDATE
+     *   DELETE
+     *   DETECT_DRIFT
+     *
      * @example CREATE
      *
      * @var string
@@ -16,6 +25,8 @@ class stackGroupOperations extends Model
     public $action;
 
     /**
+     * @description The time when the operation was initiated.
+     *
      * @example 2020-01-20T09:22:36.000000
      *
      * @var string
@@ -23,6 +34,8 @@ class stackGroupOperations extends Model
     public $createTime;
 
     /**
+     * @description The time when the operation ended.
+     *
      * @example 2020-01-20T09:22:41.000000
      *
      * @var string
@@ -30,6 +43,8 @@ class stackGroupOperations extends Model
     public $endTime;
 
     /**
+     * @description The description of the operation.
+     *
      * @example Create stack instance in hangzhou
      *
      * @var string
@@ -37,6 +52,8 @@ class stackGroupOperations extends Model
     public $operationDescription;
 
     /**
+     * @description The ID of the operation.
+     *
      * @example 14A07460-EBE7-47CA-9757-12CC4761****
      *
      * @var string
@@ -44,6 +61,8 @@ class stackGroupOperations extends Model
     public $operationId;
 
     /**
+     * @description The ID of the stack group.
+     *
      * @example fd0ddef9-9540-4b42-a464-94f77835****
      *
      * @var string
@@ -51,6 +70,8 @@ class stackGroupOperations extends Model
     public $stackGroupId;
 
     /**
+     * @description The name of the stack group.
+     *
      * @example MyStackGroup
      *
      * @var string
@@ -58,6 +79,16 @@ class stackGroupOperations extends Model
     public $stackGroupName;
 
     /**
+     * @description The status of the operation.
+     *
+     * Valid values:
+     *
+     *   RUNNING
+     *   SUCCEEDED
+     *   FAILED
+     *   STOPPING
+     *   STOPPED
+     *
      * @example SUCCEEDED
      *
      * @var string

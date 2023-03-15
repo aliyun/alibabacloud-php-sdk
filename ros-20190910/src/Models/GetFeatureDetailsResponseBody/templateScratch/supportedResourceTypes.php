@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ECS::Disk
      *
      * @var string
@@ -16,6 +18,9 @@ class supportedResourceTypes extends Model
     public $resourceType;
 
     /**
+     * @description Indicates whether the resource scope can be specified by resource group. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool
@@ -23,6 +28,9 @@ class supportedResourceTypes extends Model
     public $sourceResourceGroupSupported;
 
     /**
+     * @description Indicates whether the resource scope can be specified by tag, resource group, or resource. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool
@@ -30,6 +38,9 @@ class supportedResourceTypes extends Model
     public $sourceResourcesSupported;
 
     /**
+     * @description Indicates whether the resource scope can be specified by resource. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool
@@ -37,6 +48,9 @@ class supportedResourceTypes extends Model
     public $sourceSupported;
 
     /**
+     * @description Indicates whether the resource scope can be specified by tag. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool

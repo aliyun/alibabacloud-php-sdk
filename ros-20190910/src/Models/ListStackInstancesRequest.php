@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListStackInstancesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class ListStackInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Valid values: 1 to 50.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +33,8 @@ class ListStackInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +42,9 @@ class ListStackInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the stack group. The name must be unique within a region.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example MyStackGroup
      *
      * @var string
@@ -37,6 +52,13 @@ class ListStackInstancesRequest extends Model
     public $stackGroupName;
 
     /**
+     * @description The ID of the account to which the stack belongs.
+     *
+     *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
+     *
+     *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
+     *
+     * > For more information about the account, see [Overview](~~154578~~).
      * @example 156552876021****
      *
      * @var string
@@ -44,6 +66,8 @@ class ListStackInstancesRequest extends Model
     public $stackInstanceAccountId;
 
     /**
+     * @description The ID of the region to which the stack belongs.
+     *
      * @example cn-beijing
      *
      * @var string

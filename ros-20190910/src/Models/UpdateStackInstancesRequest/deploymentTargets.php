@@ -9,13 +9,23 @@ use AlibabaCloud\Tea\Model;
 class deploymentTargets extends Model
 {
     /**
+     * @description The IDs of the members in the resource directory. You can specify up to 20 member IDs.
+     *
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
      * @var string[]
      */
     public $accountIds;
 
     /**
-     * @description test
+     * @description The IDs of the folders in the resource directory. You can specify up to five folder IDs.
      *
+     * You must specify at least one of the RdFolderIds and AccountIds parameters. The parameters are subject to the following rules:
+     *
+     *   If you specify only the RdFolderIds parameter, stacks are deployed within all members in the specified folders. If you select the Root folder, stacks are deployed within all members in the resource directory.
+     *   If you specify only the AccountIds parameter, stacks are deployed within the specified members.
+     *   If you specify both parameters, the accounts specified by using the AccountIds parameter must be contained in the folders specified by using the RdFolderIds parameter. In this case, stacks are deployed within the specified members that are contained in the specified folders.
+     *
+     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
      * @var string[]
      */
     public $rdFolderIds;
