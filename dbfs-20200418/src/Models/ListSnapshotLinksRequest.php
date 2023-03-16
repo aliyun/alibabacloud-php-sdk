@@ -23,6 +23,16 @@ class ListSnapshotLinksRequest extends Model
     public $filterValue;
 
     /**
+     * @var string
+     */
+    public $fsIds;
+
+    /**
+     * @var string
+     */
+    public $linkIds;
+
+    /**
      * @example 1
      *
      * @var int
@@ -45,6 +55,8 @@ class ListSnapshotLinksRequest extends Model
     protected $_name = [
         'filterKey'   => 'FilterKey',
         'filterValue' => 'FilterValue',
+        'fsIds'       => 'FsIds',
+        'linkIds'     => 'LinkIds',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'regionId'    => 'RegionId',
@@ -62,6 +74,12 @@ class ListSnapshotLinksRequest extends Model
         }
         if (null !== $this->filterValue) {
             $res['FilterValue'] = $this->filterValue;
+        }
+        if (null !== $this->fsIds) {
+            $res['FsIds'] = $this->fsIds;
+        }
+        if (null !== $this->linkIds) {
+            $res['LinkIds'] = $this->linkIds;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -89,6 +107,12 @@ class ListSnapshotLinksRequest extends Model
         }
         if (isset($map['FilterValue'])) {
             $model->filterValue = $map['FilterValue'];
+        }
+        if (isset($map['FsIds'])) {
+            $model->fsIds = $map['FsIds'];
+        }
+        if (isset($map['LinkIds'])) {
+            $model->linkIds = $map['LinkIds'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

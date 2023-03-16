@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
 {
     /**
+     * @example FsName
+     *
      * @var string
      */
     public $filterKey;
 
     /**
+     * @example DBFS1
+     *
      * @var string
      */
     public $filterValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example sp-z5siir3iq3m**********
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class dbfsList extends Model
 {
     /**
+     * @example dbfs-ejdvesb0qvuywvg*******
+     *
      * @var string
      */
     public $fsId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $fsName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $sizeG;
@@ -34,6 +42,8 @@ class dbfsList extends Model
     public $snapshotCount;
 
     /**
+     * @example attached
+     *
      * @var string
      */
     public $status;

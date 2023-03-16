@@ -11,33 +11,51 @@ class ecsLabelInfo extends Model
     /**
      * @var string
      */
+    public $imageId;
+
+    /**
+     * @example ecs.g7se
+     *
+     * @var string
+     */
     public $instanceTypeFamily;
 
     /**
+     * @example Alibaba Cloud Linux 2.1903 LTS 64 bit
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @example dbfs-test-01
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example i-bp10jb8mqajkmrejgo00
+     *
      * @var string
      */
     public $value;
     protected $_name = [
+        'imageId'            => 'ImageId',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'OSName'             => 'OSName',
         'status'             => 'Status',
@@ -53,6 +71,9 @@ class ecsLabelInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
@@ -83,6 +104,9 @@ class ecsLabelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }

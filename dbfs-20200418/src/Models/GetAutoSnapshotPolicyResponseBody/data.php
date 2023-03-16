@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 13523459********
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $appliedDbfsNumber;
 
     /**
+     * @example 1670998784000
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 1670998784000
+     *
      * @var string
      */
     public $lastModified;
 
     /**
+     * @example sp-z5siir3iq3m**********
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example PolicyTest
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,16 +63,22 @@ class data extends Model
     public $repeatWeekdays;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $statusDetail;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListDbfsAttachableEcsInstancesRequest extends Model
 {
     /**
+     * @example InstanceName
+     *
      * @var string
      */
     public $filterKey;
 
     /**
+     * @example autotest1
+     *
      * @var string
      */
     public $filterValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

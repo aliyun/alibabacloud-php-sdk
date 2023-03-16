@@ -1565,6 +1565,12 @@ class DBFS extends OpenApiClient
         if (!Utils::isUnset($request->filterValue)) {
             $query['FilterValue'] = $request->filterValue;
         }
+        if (!Utils::isUnset($request->fsIds)) {
+            $query['FsIds'] = $request->fsIds;
+        }
+        if (!Utils::isUnset($request->linkIds)) {
+            $query['LinkIds'] = $request->linkIds;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
