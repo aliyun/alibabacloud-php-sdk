@@ -31,6 +31,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureShrinkRequest;
@@ -630,17 +631,22 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionsRequest $request
+     * @param GrantUserPermissionsRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return GrantUserPermissionsResponse
      */
-    public function grantUserPermissionsWithOptions($request, $runtime)
+    public function grantUserPermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GrantUserPermissionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permissions)) {
+            $request->permissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
+        }
         $query = [];
-        if (!Utils::isUnset($request->permissions)) {
-            $query['Permissions'] = $request->permissions;
+        if (!Utils::isUnset($request->permissionsShrink)) {
+            $query['Permissions'] = $request->permissionsShrink;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
