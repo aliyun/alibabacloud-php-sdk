@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The Base64-decoded Output parameter value. A True in the last line indicates successful installation. Otherwise, the installation fails.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $exitCode;
 
     /**
+     * @description The status of the invocation record, which is the same as the value of the Status parameter.
+     *
      * @example Running
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $invokeRecordStatus;
 
     /**
+     * @description The execution result of the command.
+     *
      * @example TmV3LUlWtmOWc6XxpZW50Rm9yLi4uDQ****
      *
      * @var string

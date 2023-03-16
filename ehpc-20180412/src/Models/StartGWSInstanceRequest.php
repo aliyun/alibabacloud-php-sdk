@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartGWSInstanceRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp1bzqq4rj1eemun****
      *
      * @var string

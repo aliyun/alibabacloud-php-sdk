@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
+     * @description The domain where the mount target resides.
+     *
      * @example c0967****.cn-hangzhou.cpfs.nas.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class mountTargets extends Model
     public $mountTargetDomain;
 
     /**
+     * @description The network type.
+     *
      * @example VPC
      *
      * @var string
@@ -23,6 +27,13 @@ class mountTargets extends Model
     public $networkType;
 
     /**
+     * @description The status of the mount target. Valid values:
+     *
+     *   Active: The mount target is available.
+     *   Inactive: The mount target is unavailable.
+     *   Pending: The mount target is being mounted.
+     *   Deleting: The mount target is being deleted.
+     *
      * @example Active
      *
      * @var string
@@ -30,6 +41,8 @@ class mountTargets extends Model
     public $status;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-8vbvb34rtyh6xb3zrehs1****
      *
      * @var string
@@ -37,6 +50,8 @@ class mountTargets extends Model
     public $vpcId;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
      * @example vsw-8vb34rtyh6xb3zrehs1****
      *
      * @var string

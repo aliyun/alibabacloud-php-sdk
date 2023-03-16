@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetGWSInstanceUserResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example CDC4FF2F-62DB-48D2-B342-A3B9E2684B99rrwr
      *
      * @var string

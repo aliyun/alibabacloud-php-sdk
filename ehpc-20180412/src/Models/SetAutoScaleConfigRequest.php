@@ -19,6 +19,11 @@ class SetAutoScaleConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $computeEnableHt;
+
+    /**
      * @description Specifies whether to enable auto scale-out. Valid values:
      *
      *   true: enables auto scale-out.
@@ -167,6 +172,7 @@ class SetAutoScaleConfigRequest extends Model
     public $spotStrategy;
     protected $_name = [
         'clusterId'               => 'ClusterId',
+        'computeEnableHt'         => 'ComputeEnableHt',
         'enableAutoGrow'          => 'EnableAutoGrow',
         'enableAutoShrink'        => 'EnableAutoShrink',
         'excludeNodes'            => 'ExcludeNodes',
@@ -192,6 +198,9 @@ class SetAutoScaleConfigRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->computeEnableHt) {
+            $res['ComputeEnableHt'] = $this->computeEnableHt;
         }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
@@ -255,6 +264,9 @@ class SetAutoScaleConfigRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ComputeEnableHt'])) {
+            $model->computeEnableHt = $map['ComputeEnableHt'];
         }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];

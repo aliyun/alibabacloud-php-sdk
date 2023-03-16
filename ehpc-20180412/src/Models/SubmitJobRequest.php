@@ -27,7 +27,7 @@ class SubmitJobRequest extends Model
     /**
      * @description Specifies whether to use an asynchronous link to submit the job.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -49,7 +49,7 @@ class SubmitJobRequest extends Model
     public $clockTime;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -97,7 +97,7 @@ class SubmitJobRequest extends Model
     public $gpu;
 
     /**
-     * @description The URL of the job files that are uploaded to an Object Storage Service (OSS) bucket.
+     * @description The URL of the job file that is uploaded to an Object Storage Service (OSS) bucket.
      *
      * @example https://ehpc-hangzhou.oss-cn-hangzhou.aliyuncs.com/test-u4****\/testlist_ehpc.sh
      *
@@ -136,7 +136,7 @@ class SubmitJobRequest extends Model
     /**
      * @description The number of compute nodes required to run the job.
      *
-     * >  If the parameter is not specified, the Task, Thread, Mem, and Gpu parameters become invalid.
+     * > If the parameter is not specified, the Cpu, Task, Thread, Mem, and Gpu parameters become invalid.
      * @example 2
      *
      * @var int
@@ -162,9 +162,9 @@ class SubmitJobRequest extends Model
     public $postCmdLine;
 
     /**
-     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     * @description The priority of the job. Valid values: 0 to 9. A larger value indicates a higher priority.
      *
-     * Default value: 0
+     * Default value: 0.
      * @example 0
      *
      * @var int
@@ -187,14 +187,14 @@ class SubmitJobRequest extends Model
      * @description The name of the user that runs the job.
      *
      * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
-     * @example root
+     * @example testuser
      *
      * @var string
      */
     public $runasUser;
 
     /**
-     * @description The user password.
+     * @description The password that corresponds to the username.
      *
      * @example 12****
      *

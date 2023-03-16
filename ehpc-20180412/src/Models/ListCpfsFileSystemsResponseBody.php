@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCpfsFileSystemsResponseBody extends Model
 {
     /**
+     * @description The list of file systems.
+     *
      * @var fileSystemList
      */
     public $fileSystemList;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCpfsFileSystemsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListCpfsFileSystemsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2B900AFE-C938-4551-86E9-97E231BBC876
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCpfsFileSystemsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 10
      *
      * @var int

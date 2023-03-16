@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MountNFSResponseBody extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
      * @example t-hz0jdfwd9f****
      *
      * @var string
@@ -16,6 +18,8 @@ class MountNFSResponseBody extends Model
     public $invokeId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6FDDFC21-40CD-4DB2-9978-012AB7FC9BDW
      *
      * @var string

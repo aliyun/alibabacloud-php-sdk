@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSImageResponseBody extends Model
 {
     /**
+     * @description The image ID of the visualization instance.
+     *
      * @example ehs-fakeid-****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGWSImageResponseBody extends Model
     public $imageId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5198C3E8-85F5-4280-8547-687C1710FE08
      *
      * @var string

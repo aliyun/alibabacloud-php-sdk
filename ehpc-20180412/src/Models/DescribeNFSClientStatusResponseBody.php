@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNFSClientStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 3EB7FCEE-D731-4948-85A3-4B2C341CA983
      *
      * @var string
@@ -17,11 +19,19 @@ class DescribeNFSClientStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of results.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The deployment status of the NFS client. Valid values:
+     *
+     *   NotInstalled: The client is not installed.
+     *   Running: The client is being installed.
+     *   Finished: The client is installed on the instance.
+     *
      * @example Running
      *
      * @var string

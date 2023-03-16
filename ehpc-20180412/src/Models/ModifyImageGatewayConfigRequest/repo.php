@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class repo extends Model
 {
     /**
+     * @description The authentication method of the repository. Valid values:
+     *
+     *   http
+     *   https
+     *
+     * Default value: http.
      * @example http
      *
      * @var string
@@ -16,6 +22,8 @@ class repo extends Model
     public $auth;
 
     /**
+     * @description The address of the repository N.
+     *
      * @example registry.docker-cn.com
      *
      * @var string
@@ -23,6 +31,8 @@ class repo extends Model
     public $location;
 
     /**
+     * @description The URL of the repository. The URL is required to add a repository address.
+     *
      * @example https://registry.docker-cn.com
      *
      * @var string

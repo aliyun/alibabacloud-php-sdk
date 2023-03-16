@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetGWSClusterPolicyRequest extends Model
 {
     /**
+     * @description Specifies whether to support the asynchronous calls.
+     *
+     *   false: not supported. The result is returned after the request is completed.
+     *   true: supported. The result is immediately returned while the request is being processed.
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -16,6 +22,13 @@ class SetGWSClusterPolicyRequest extends Model
     public $asyncMode;
 
     /**
+     * @description The permissions on the clipboard. Valid values:
+     *
+     *   read: read-only. You can copy data from your local computer to the cloud desktop, but cannot copy data from the cloud desktop to your local computer.
+     *   readwrite: read and write. You can copy data between your local computer and the cloud desktop.
+     *   off: disabled. You cannot copy data between your local computer and the cloud desktop.
+     *
+     * Default value: off.
      * @example readwrite
      *
      * @var string
@@ -23,6 +36,8 @@ class SetGWSClusterPolicyRequest extends Model
     public $clipboard;
 
     /**
+     * @description The ID of the visualization service.
+     *
      * @example gws-rhz99q8rc****
      *
      * @var string
@@ -30,6 +45,13 @@ class SetGWSClusterPolicyRequest extends Model
     public $clusterId;
 
     /**
+     * @description The permissions on local disk mapping. Valid values:
+     *
+     *   read: read-only. The disks on your local computer are mapped to the cloud desktop. You can only read (copy) files on the local computer, but cannot modify the files.
+     *   readwrite: read and write. The disks on your local computer are mapped to the cloud desktop. You can read (copy) and modify files on your local computer.
+     *   off: disabled. The disks on your local computer are not mapped to the cloud desktop.
+     *
+     * Default value: off.
      * @example read
      *
      * @var string
@@ -37,6 +59,12 @@ class SetGWSClusterPolicyRequest extends Model
     public $localDrive;
 
     /**
+     * @description The UDP port. Valid values:
+     *
+     *   on
+     *   off
+     *
+     * Default value: on.
      * @example on
      *
      * @var string
@@ -44,6 +72,12 @@ class SetGWSClusterPolicyRequest extends Model
     public $udpPort;
 
     /**
+     * @description The USB redirection feature. Valid values:
+     *
+     *   on
+     *   off
+     *
+     * Default value: off.
      * @example on
      *
      * @var string
@@ -51,6 +85,12 @@ class SetGWSClusterPolicyRequest extends Model
     public $usbRedirect;
 
     /**
+     * @description The watermarking feature. Valid values:
+     *
+     *   on
+     *   off
+     *
+     * Default value: off.
      * @example on
      *
      * @var string

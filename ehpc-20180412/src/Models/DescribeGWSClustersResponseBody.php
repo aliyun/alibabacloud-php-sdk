@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClustersResponseBody extends Model
 {
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   sub: a RAM user.
+     *   parent: an Alibaba Cloud account.
+     *
      * @example sub
      *
      * @var string
@@ -17,11 +22,15 @@ class DescribeGWSClustersResponseBody extends Model
     public $callerType;
 
     /**
+     * @description The information of the visualization services.
+     *
      * @var clusters
      */
     public $clusters;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +38,8 @@ class DescribeGWSClustersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +47,8 @@ class DescribeGWSClustersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2777461A-E45E-42F8-8E67-0EBF132E93E0
      *
      * @var string
@@ -43,6 +56,8 @@ class DescribeGWSClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

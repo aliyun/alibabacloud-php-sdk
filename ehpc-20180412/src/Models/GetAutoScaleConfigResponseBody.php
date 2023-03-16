@@ -33,6 +33,11 @@ class GetAutoScaleConfigResponseBody extends Model
     public $clusterType;
 
     /**
+     * @var bool
+     */
+    public $computeEnableHt;
+
+    /**
      * @description Indicates whether the cluster enabled auto scale-out. Valid values:
      *
      *   true
@@ -192,6 +197,7 @@ class GetAutoScaleConfigResponseBody extends Model
     protected $_name = [
         'clusterId'               => 'ClusterId',
         'clusterType'             => 'ClusterType',
+        'computeEnableHt'         => 'ComputeEnableHt',
         'enableAutoGrow'          => 'EnableAutoGrow',
         'enableAutoShrink'        => 'EnableAutoShrink',
         'excludeNodes'            => 'ExcludeNodes',
@@ -222,6 +228,9 @@ class GetAutoScaleConfigResponseBody extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->computeEnableHt) {
+            $res['ComputeEnableHt'] = $this->computeEnableHt;
         }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
@@ -288,6 +297,9 @@ class GetAutoScaleConfigResponseBody extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['ComputeEnableHt'])) {
+            $model->computeEnableHt = $map['ComputeEnableHt'];
         }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];

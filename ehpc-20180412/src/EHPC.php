@@ -5321,7 +5321,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+     * ## Description
+     *   * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
      *   *
      * @param SubmitJobRequest $request SubmitJobRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -5351,7 +5352,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+     * ## Description
+     *   * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
      *   *
      * @param SubmitJobRequest $request SubmitJobRequest
      *

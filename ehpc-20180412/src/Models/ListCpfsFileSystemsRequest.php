@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListCpfsFileSystemsRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * By default, the information about all CPFSs and their mount targets within your account are queried.
      * @example 096751****
      *
      * @var string
@@ -16,6 +19,9 @@ class ListCpfsFileSystemsRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +29,9 @@ class ListCpfsFileSystemsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int

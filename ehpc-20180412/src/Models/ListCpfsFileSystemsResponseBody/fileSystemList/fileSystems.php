@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class fileSystems extends Model
 {
     /**
+     * @description The capacity of the file system. Unit: GiB.
+     *
      * @example 5120
      *
      * @var string
@@ -17,6 +19,8 @@ class fileSystems extends Model
     public $capacity;
 
     /**
+     * @description The time when the file system was created.
+     *
      * @example 2018-07-26 16:36:27
      *
      * @var string
@@ -24,6 +28,8 @@ class fileSystems extends Model
     public $createTime;
 
     /**
+     * @description The description of the file system.
+     *
      * @example FilsDestription
      *
      * @var string
@@ -31,6 +37,8 @@ class fileSystems extends Model
     public $destription;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example 096751****
      *
      * @var string
@@ -38,11 +46,18 @@ class fileSystems extends Model
     public $fileSystemId;
 
     /**
+     * @description The mount targets.
+     *
      * @var mountTargetList
      */
     public $mountTargetList;
 
     /**
+     * @description The protocol type that is applied to the mounted file system. Valid values:
+     *
+     *   NFS
+     *   SMB
+     *
      * @example NFS
      *
      * @var string
@@ -50,6 +65,8 @@ class fileSystems extends Model
     public $protocolType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +74,8 @@ class fileSystems extends Model
     public $regionId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

@@ -63,6 +63,11 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
+     * @var string
+     */
+    public $volumeMountOption;
+
+    /**
      * @description The domain name of the mount target for the nth additional mounted file system.
      *
      * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
@@ -93,15 +98,16 @@ class additionalVolumes extends Model
      */
     public $volumeType;
     protected $_name = [
-        'jobQueue'         => 'JobQueue',
-        'localDirectory'   => 'LocalDirectory',
-        'location'         => 'Location',
-        'remoteDirectory'  => 'RemoteDirectory',
-        'roles'            => 'Roles',
-        'volumeId'         => 'VolumeId',
-        'volumeMountpoint' => 'VolumeMountpoint',
-        'volumeProtocol'   => 'VolumeProtocol',
-        'volumeType'       => 'VolumeType',
+        'jobQueue'          => 'JobQueue',
+        'localDirectory'    => 'LocalDirectory',
+        'location'          => 'Location',
+        'remoteDirectory'   => 'RemoteDirectory',
+        'roles'             => 'Roles',
+        'volumeId'          => 'VolumeId',
+        'volumeMountOption' => 'VolumeMountOption',
+        'volumeMountpoint'  => 'VolumeMountpoint',
+        'volumeProtocol'    => 'VolumeProtocol',
+        'volumeType'        => 'VolumeType',
     ];
 
     public function validate()
@@ -134,6 +140,9 @@ class additionalVolumes extends Model
         }
         if (null !== $this->volumeId) {
             $res['VolumeId'] = $this->volumeId;
+        }
+        if (null !== $this->volumeMountOption) {
+            $res['VolumeMountOption'] = $this->volumeMountOption;
         }
         if (null !== $this->volumeMountpoint) {
             $res['VolumeMountpoint'] = $this->volumeMountpoint;
@@ -179,6 +188,9 @@ class additionalVolumes extends Model
         }
         if (isset($map['VolumeId'])) {
             $model->volumeId = $map['VolumeId'];
+        }
+        if (isset($map['VolumeMountOption'])) {
+            $model->volumeMountOption = $map['VolumeMountOption'];
         }
         if (isset($map['VolumeMountpoint'])) {
             $model->volumeMountpoint = $map['VolumeMountpoint'];

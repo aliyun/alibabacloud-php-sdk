@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSInstancesResponseBody extends Model
 {
     /**
+     * @description The list of visualization instances.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The page number of the current page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeGWSInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeGWSInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2777461A-E45E-42F8-8E67-0EBF132E93E0
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeGWSInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

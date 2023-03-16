@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetGWSInstanceUserRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp1bzqq4rj1eemun****
      *
      * @var string
@@ -16,6 +18,8 @@ class SetGWSInstanceUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the user.
+     *
      * @example test_****
      *
      * @var string
@@ -23,6 +27,8 @@ class SetGWSInstanceUserRequest extends Model
     public $userName;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 217346586905362****
      *
      * @var string

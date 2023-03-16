@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class locationInfo extends Model
 {
     /**
+     * @description The authentication method of the image repository. Valid values:
+     *
+     *   http
+     *   https
+     *
      * @example https
      *
      * @var string
@@ -16,6 +21,8 @@ class locationInfo extends Model
     public $authentication;
 
     /**
+     * @description The source address of the image repository.
+     *
      * @example regi****.docker.io
      *
      * @var string
@@ -23,6 +30,8 @@ class locationInfo extends Model
     public $location;
 
     /**
+     * @description The type of the image repository.
+     *
      * @example dockerv2
      *
      * @var string
@@ -30,6 +39,8 @@ class locationInfo extends Model
     public $remoteType;
 
     /**
+     * @description The URL of the image repository.
+     *
      * @example https://regi****.docker-cn.com
      *
      * @var string

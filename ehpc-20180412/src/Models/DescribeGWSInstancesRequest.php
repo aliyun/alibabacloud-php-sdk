@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSInstancesRequest extends Model
 {
     /**
+     * @description The ID of the visualization service.
+     *
      * @example gws-rhz99q8rc****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeGWSInstancesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp1bzqq1ddeemuddn****
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeGWSInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -30,6 +37,9 @@ class DescribeGWSInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -37,6 +47,9 @@ class DescribeGWSInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The username of the entity whose instances you want to query.
+     *
+     * >  If this parameter is not specified, instances of all users are queried.
      * @example testuser
      *
      * @var string
@@ -44,6 +57,9 @@ class DescribeGWSInstancesRequest extends Model
     public $userName;
 
     /**
+     * @description The user ID of the entity whose instances you want to query.
+     *
+     * >  If this parameter is not specified, instances of all users are queried.
      * @example 1234567890
      *
      * @var int

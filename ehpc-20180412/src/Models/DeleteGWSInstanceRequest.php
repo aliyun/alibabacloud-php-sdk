@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGWSInstanceRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp66guhybgtrftpa1****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGWSImageRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp66guhybgtrftpa1****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGWSImageRequest extends Model
     public $instanceId;
 
     /**
+     * @description The image name of the visualization instance.
+     *
      * @example EHPC-TEST
      *
      * @var string

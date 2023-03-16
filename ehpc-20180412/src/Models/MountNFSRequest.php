@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MountNFSRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp1bzqq4rremun****
      *
      * @var string
@@ -16,6 +18,8 @@ class MountNFSRequest extends Model
     public $instanceId;
 
     /**
+     * @description The local mount directory.
+     *
      * @example Z:
      *
      * @var string
@@ -23,6 +27,8 @@ class MountNFSRequest extends Model
     public $mountDir;
 
     /**
+     * @description The address of the mount target.
+     *
      * @example \\0de-jup****.cn-hangzhou.nas.aliyuncs.com\
      *
      * @var string
@@ -30,6 +36,11 @@ class MountNFSRequest extends Model
     public $nfsDir;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   nfs
+     *   smb
+     *
      * @example nfs
      *
      * @var string
@@ -37,6 +48,8 @@ class MountNFSRequest extends Model
     public $protocolType;
 
     /**
+     * @description The remote mount address.
+     *
      * @example /test
      *
      * @var string

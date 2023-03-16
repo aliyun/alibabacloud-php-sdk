@@ -16,6 +16,8 @@ class appInfo extends Model
     public $appArgs;
 
     /**
+     * @description The name of the application.
+     *
      * @example notepad
      *
      * @var string
@@ -23,6 +25,8 @@ class appInfo extends Model
     public $appName;
 
     /**
+     * @description The execution directory of the application.
+     *
      * @example /home/test/notepad.exe
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNFSClientStatusRequest extends Model
 {
     /**
+     * @description The ID of the visualization instance.
+     *
      * @example i-bp1bzq4rj1emun****
      *
      * @var string

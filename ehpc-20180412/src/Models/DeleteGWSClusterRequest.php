@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGWSClusterRequest extends Model
 {
     /**
+     * @description The ID of the visualization service.
+     *
      * @example gws-rhz99q8rc****
      *
      * @var string

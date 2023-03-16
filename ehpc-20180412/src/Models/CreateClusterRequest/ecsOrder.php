@@ -33,9 +33,6 @@ class ecsOrder extends Model
 
     public function validate()
     {
-        Model::validateRequired('compute', $this->compute, true);
-        Model::validateRequired('login', $this->login, true);
-        Model::validateRequired('manager', $this->manager, true);
     }
 
     public function toMap()

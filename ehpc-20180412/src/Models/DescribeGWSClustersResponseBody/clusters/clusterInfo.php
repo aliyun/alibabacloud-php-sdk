@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description The ID of the visualization service.
+     *
      * @example gws-rhz99q8rc****
      *
      * @var string
@@ -16,6 +18,8 @@ class clusterInfo extends Model
     public $clusterId;
 
     /**
+     * @description The time when the visualization service was created.
+     *
      * @example 2019-05-15T06:05:40.000Z
      *
      * @var string
@@ -23,6 +27,8 @@ class clusterInfo extends Model
     public $createTime;
 
     /**
+     * @description The number of visualization instances.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,13 @@ class clusterInfo extends Model
     public $instanceCount;
 
     /**
+     * @description The status of the visualization services. Valid values:
+     *
+     *   creating: The service is being created.
+     *   starting: The service is being started.
+     *   running: The service is running.
+     *   deleted: The service is deleted.
+     *
      * @example running
      *
      * @var string
@@ -37,7 +50,7 @@ class clusterInfo extends Model
     public $status;
 
     /**
-     * @description VPC ID。
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1nq8oshqudln3hy****
      *

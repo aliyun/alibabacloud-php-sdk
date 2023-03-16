@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class imagegw extends Model
 {
     /**
+     * @description The default address of the image repository.
+     *
      * @example registry-1.docker.io
      *
      * @var string
@@ -17,6 +19,8 @@ class imagegw extends Model
     public $defaultImageLocation;
 
     /**
+     * @description The time when the image expires.
+     *
      * @example 90:00:00
      *
      * @var string
@@ -24,11 +28,15 @@ class imagegw extends Model
     public $imageExpirationTimeout;
 
     /**
+     * @description An array of the image repository addresses.
+     *
      * @var locations
      */
     public $locations;
 
     /**
+     * @description The information about the image gateway database.
+     *
      * @example mongodb://localhost
      *
      * @var string
@@ -36,6 +44,8 @@ class imagegw extends Model
     public $mongoDBURI;
 
     /**
+     * @description The timeout period for pulling images.
+     *
      * @example 300
      *
      * @var int
@@ -43,6 +53,8 @@ class imagegw extends Model
     public $pullUpdateTimeout;
 
     /**
+     * @description The time when the file was updated.
+     *
      * @example 2018-07-18T17:46:47
      *
      * @var string

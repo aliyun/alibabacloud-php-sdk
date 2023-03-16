@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageGatewayConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -17,6 +19,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description The password that is used to log on to the database instance.
+     *
      * @example 13****
      *
      * @var string
@@ -24,6 +28,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $DBPassword;
 
     /**
+     * @description The URI of the database.
+     *
      * @example dds-uf6628e4287716b433270.mongodb.rds.aliyuncs.com:3717/admin
      *
      * @var string
@@ -31,6 +37,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $DBServerInfo;
 
     /**
+     * @description The type of the database. Set the value to mongodb.
+     *
      * @example mongodb
      *
      * @var string
@@ -38,6 +46,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $DBType;
 
     /**
+     * @description The username of the account that is used to log on to the database.
+     *
      * @example root
      *
      * @var string
@@ -45,6 +55,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $DBUsername;
 
     /**
+     * @description The default repository service. Set the value to registry-1.docker.io.
+     *
      * @example registry-1.docker.io
      *
      * @var string
@@ -52,6 +64,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $defaultRepoLocation;
 
     /**
+     * @description The timeout period for deleting images.
+     *
      * @example 12:00:00
      *
      * @var string
@@ -59,6 +73,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $imageExpirationTimeout;
 
     /**
+     * @description The timeout period for pulling images.
+     *
      * @example 300
      *
      * @var int
@@ -66,6 +82,8 @@ class ModifyImageGatewayConfigRequest extends Model
     public $pullUpdateTimeout;
 
     /**
+     * @description The information about the repository.
+     *
      * @var repo[]
      */
     public $repo;

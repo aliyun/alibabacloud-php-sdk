@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetGWSClusterPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 142951B5-815A-4324-B598-6E1C11FBF6E4
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSClustersRequest extends Model
 {
     /**
+     * @description The IDs of the visualization services.
+     *
      * @example gws-rhz99q8rc****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeGWSClustersRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class DescribeGWSClustersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
