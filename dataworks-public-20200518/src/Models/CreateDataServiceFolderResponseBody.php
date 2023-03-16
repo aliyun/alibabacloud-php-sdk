@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceFolderResponseBody extends Model
 {
     /**
+     * @description The ID of the created folder.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDataServiceFolderResponseBody extends Model
     public $folderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-E****
      *
      * @var string

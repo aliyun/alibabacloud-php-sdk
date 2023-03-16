@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scriptErrorCodes extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example 1001
      *
      * @var string
@@ -16,6 +18,8 @@ class scriptErrorCodes extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example fail to call
      *
      * @var string
@@ -23,6 +27,8 @@ class scriptErrorCodes extends Model
     public $errorMessage;
 
     /**
+     * @description The solution used to fix the error.
+     *
      * @example retry
      *
      * @var string

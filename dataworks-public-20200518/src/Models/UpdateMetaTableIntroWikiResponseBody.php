@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableIntroWikiResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example abcde
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMetaTableIntroWikiResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The updated instructions.
+     *
      * @example true
      *
      * @var bool

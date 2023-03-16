@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableFullInfoRequest extends Model
 {
     /**
+     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID of the cluster.
+     *
      * @example C-010A704DA760****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the data source. Only emr is supported.
+     *
      * @example emr
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](~~185662~~) operation to query the name of the metadatabase.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $databaseName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $pageSize;
 
     /**
+     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](~~173916~~) operation to query the GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -51,6 +63,8 @@ class GetMetaTableFullInfoRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](~~173916~~) operation to query the name of the metatable.
+     *
      * @example abc
      *
      * @var string

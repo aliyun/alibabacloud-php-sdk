@@ -13116,10 +13116,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIProjectConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+     *   *
+     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfigWithOptions($request, $runtime)
     {
@@ -13156,9 +13158,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIProjectConfigRequest $request
+     * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+     *   *
+     * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
      *
-     * @return UpdateDIProjectConfigResponse
+     * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
      */
     public function updateDIProjectConfig($request)
     {

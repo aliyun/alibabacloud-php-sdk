@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataServicePublishedApiRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 10001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataServicePublishedApiRequest extends Model
     public $apiId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10002
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDataServicePublishedApiRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10003
      *
      * @var int

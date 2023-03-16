@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceGroupsResponseBody extends Model
 {
     /**
+     * @description The paging result for the business processes.
+     *
      * @var groupPagingResult
      */
     public $groupPagingResult;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string

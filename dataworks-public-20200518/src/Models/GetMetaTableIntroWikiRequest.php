@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableIntroWikiRequest extends Model
 {
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaTableIntroWikiRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The version of the instructions.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceApiAuthorityResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDataServiceApiAuthorityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the authorization was successful.
+     *
      * @example true
      *
      * @var bool

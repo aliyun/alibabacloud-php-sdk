@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCategoryRequest extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateMetaCategoryRequest extends Model
     public $categoryId;
 
     /**
+     * @description The remarks of the category.
+     *
      * @example category name
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateMetaCategoryRequest extends Model
     public $comment;
 
     /**
+     * @description The name of the category.
+     *
      * @example category name
      *
      * @var string

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the default global configuration of synchronization solutions was modified. Valid values:
+     *
+     *   success: The default global configuration of synchronization solutions was modified.
+     *   fail: The default global configuration of synchronization solutions failed to be modified.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;

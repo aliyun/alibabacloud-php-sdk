@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class registrationErrorCodes extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -16,6 +18,8 @@ class registrationErrorCodes extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -23,6 +27,8 @@ class registrationErrorCodes extends Model
     public $errorMessage;
 
     /**
+     * @description The solution used to fix the error.
+     *
      * @example retry
      *
      * @var string

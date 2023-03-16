@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaColumnLineageRequest extends Model
 {
     /**
+     * @description The ID of the E-MapReduce (EMR) cluster. Configure this parameter only when you query data in an EMR compute engine instance.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaColumnLineageRequest extends Model
     public $clusterId;
 
     /**
+     * @description The GUID of the field.
+     *
      * @example odps.engine_name.table_name.column_name
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMetaColumnLineageRequest extends Model
     public $columnGuid;
 
     /**
+     * @description The name of the field.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class GetMetaColumnLineageRequest extends Model
     public $columnName;
 
     /**
+     * @description The type of the data source. Valid values: odps and emr.
+     *
      * @example emr
      *
      * @var string
@@ -37,6 +45,8 @@ class GetMetaColumnLineageRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the database.
+     *
      * @example abc
      *
      * @var string
@@ -44,6 +54,8 @@ class GetMetaColumnLineageRequest extends Model
     public $databaseName;
 
     /**
+     * @description Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+     *
      * @example up
      *
      * @var string
@@ -51,6 +63,8 @@ class GetMetaColumnLineageRequest extends Model
     public $direction;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class GetMetaColumnLineageRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +81,8 @@ class GetMetaColumnLineageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example abc
      *
      * @var string

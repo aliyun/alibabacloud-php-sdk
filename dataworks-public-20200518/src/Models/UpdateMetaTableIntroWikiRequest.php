@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableIntroWikiRequest extends Model
 {
     /**
+     * @description The details of the instructions on how to use the metatable.
+     *
      * @example abc
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMetaTableIntroWikiRequest extends Model
     public $content;
 
     /**
+     * @description The GUID of the metatable. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     *
      * @example odps.test.table1
      *
      * @var string

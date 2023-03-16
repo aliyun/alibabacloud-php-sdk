@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the EMR cluster.
+     *
      * @example C-010A704DA760****
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The fields in the metatable.
+     *
      * @var columnList[]
      */
     public $columnList;
 
     /**
+     * @description The remarks of the metatable.
+     *
      * @example comment
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $comment;
 
     /**
+     * @description The time when the metatable was created. You can convert the timestamp to the related date based on the time zone that you use.
+     *
      * @example 1589870293000
      *
      * @var int
@@ -36,6 +44,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The amount of storage resources that are consumed by the metatable. Unit: bytes.
+     *
      * @example 10
      *
      * @var int
@@ -43,6 +53,8 @@ class data extends Model
     public $dataSize;
 
     /**
+     * @description The name of the database.
+     *
      * @example abc
      *
      * @var string
@@ -50,6 +62,11 @@ class data extends Model
     public $databaseName;
 
     /**
+     * @description The type of the environment in which the metatable resides. Valid values:
+     *
+     *   0: indicates that the metatable resides in the development environment.
+     *   1: indicates that the metatable resides in the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -57,6 +74,13 @@ class data extends Model
     public $envType;
 
     /**
+     * @description The scope in which the metatable is visible. Valid values:
+     *
+     *   0: indicates that the metatable is visible to workspace members.
+     *   1: indicates that the metatable is visible to users within a tenant.
+     *   2: indicates that the metatable is visible to all tenants.
+     *   3: indicates that the metatable is visible only to the metatable owner.
+     *
      * @example 1
      *
      * @var int
@@ -64,6 +88,8 @@ class data extends Model
     public $isVisible;
 
     /**
+     * @description The time when the metatable was last accessed. You can convert the timestamp to the related date based on the time zone that you use.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -71,6 +97,8 @@ class data extends Model
     public $lastAccessTime;
 
     /**
+     * @description The time when the schema of the metatable was last changed. You can convert the timestamp to the related date based on the time zone that you use.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -78,6 +106,8 @@ class data extends Model
     public $lastDdlTime;
 
     /**
+     * @description The time when the metatable was last updated. You can convert the timestamp to the related date based on the time zone that you use.
+     *
      * @example 1589870294000
      *
      * @var int
@@ -85,6 +115,8 @@ class data extends Model
     public $lastModifyTime;
 
     /**
+     * @description The lifecycle of the metatable. Unit: days.
+     *
      * @example 5
      *
      * @var int
@@ -92,6 +124,8 @@ class data extends Model
     public $lifeCycle;
 
     /**
+     * @description The storage path of the Hive metatable.
+     *
      * @example hdfs://localhost:777/user/hadoop/test.txt
      *
      * @var string
@@ -99,6 +133,8 @@ class data extends Model
     public $location;
 
     /**
+     * @description The ID of the metatable owner.
+     *
      * @example 123
      *
      * @var string
@@ -106,6 +142,8 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description The partition key.
+     *
      * @example abc
      *
      * @var string
@@ -113,6 +151,8 @@ class data extends Model
     public $partitionKeys;
 
     /**
+     * @description The ID of the workspace to which the metatable belongs.
+     *
      * @example 22
      *
      * @var int
@@ -120,6 +160,8 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The name of the workspace to which the metatable belongs.
+     *
      * @example test
      *
      * @var string
@@ -132,6 +174,8 @@ class data extends Model
     public $schema;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -139,6 +183,8 @@ class data extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example table_name
      *
      * @var string
@@ -146,6 +192,8 @@ class data extends Model
     public $tableName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 12345
      *
      * @var int
@@ -153,6 +201,8 @@ class data extends Model
     public $tenantId;
 
     /**
+     * @description The total number of fields.
+     *
      * @example 22
      *
      * @var int

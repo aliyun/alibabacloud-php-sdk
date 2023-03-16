@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authorizationRecords extends Model
 {
     /**
+     * @description The time when the access permissions on the API were granted to other users.
+     *
      * @example 2020-06-23T00:21:01+0800
      *
      * @var string
@@ -16,6 +18,8 @@ class authorizationRecords extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the user who granted other users the access permissions on the API.
+     *
      * @example 12345
      *
      * @var string
@@ -23,6 +27,8 @@ class authorizationRecords extends Model
     public $creatorId;
 
     /**
+     * @description The end time of the validity period of the authorization.
+     *
      * @example 2020-06-24T00:21:01+0800
      *
      * @var string
@@ -30,6 +36,8 @@ class authorizationRecords extends Model
     public $endTime;
 
     /**
+     * @description The ID of the workspace to which the access permissions on the API are granted.
+     *
      * @example 10004
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddToMetaCategoryRequest extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class AddToMetaCategoryRequest extends Model
     public $categoryId;
 
     /**
+     * @description The GUID of the metatable.
+     *
      * @example odps.engine_name.table_name
      *
      * @var string

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @description The reason why the data source and resource group failed the connectivity test. If data source and the resource group passed the connectivity test, this parameter is left empty.
+     *
      * @var string
      */
     public $connectMessage;
 
     /**
+     * @description The result of the connectivity test. Valid values:
+     *
+     *   true: The data source and the resource group passed the connectivity test.
+     *   false: The data source and the resource group failed the connectivity test. You can troubleshoot issues based on the ConnectMessage parameter.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $connectStatus;

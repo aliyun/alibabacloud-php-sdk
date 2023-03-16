@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wizardConnection extends Model
 {
     /**
+     * @description The ID of the data source.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class wizardConnection extends Model
     public $connectionId;
 
     /**
+     * @description The name of the table in the data source.
+     *
      * @example t
      *
      * @var string

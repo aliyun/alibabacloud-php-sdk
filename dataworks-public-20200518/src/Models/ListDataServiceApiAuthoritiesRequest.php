@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApiAuthoritiesRequest extends Model
 {
     /**
+     * @description The keyword in the name of the API. The keyword can be used to search for the API whose name contains the keyword.
+     *
+     * @example My API name
+     *
      * @var string
      */
     public $apiNameKeyword;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +27,8 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +36,8 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10000
      *
      * @var int
@@ -35,6 +45,8 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10001
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scriptResponseParameters extends Model
 {
     /**
+     * @description The name of the associated field. This parameter is supported only if the API is generated in wizard mode.
+     *
      * @example column2
      *
      * @var string
@@ -16,6 +18,8 @@ class scriptResponseParameters extends Model
     public $columnName;
 
     /**
+     * @description The sample value.
+     *
      * @example example2
      *
      * @var string
@@ -23,6 +27,8 @@ class scriptResponseParameters extends Model
     public $exampleValue;
 
     /**
+     * @description The data type of the parameter. Valid values: 0, 1, 2, 3, 4, and 5. The value 0 indicates the STRING data type, the value 1 indicates the INT data type, the value 2 indicates the LONG data type, the value 3 indicates the FLOAT data type, the value 4 indicates the DOUBLE data type, and the value 5 indicates the BOOLEAN data type.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class scriptResponseParameters extends Model
     public $parameterDataType;
 
     /**
+     * @description The description.
+     *
      * @example description2
      *
      * @var string
@@ -37,6 +45,8 @@ class scriptResponseParameters extends Model
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example param2
      *
      * @var string

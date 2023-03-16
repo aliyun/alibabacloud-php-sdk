@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lastInstance extends Model
 {
     /**
+     * @description The timestamp of the predicted time when the instance finished running.
+     *
      * @example 1553443200000
      *
      * @var int
@@ -16,6 +18,8 @@ class lastInstance extends Model
     public $endCast;
 
     /**
+     * @description The timestamp of the actual time when the instance finished running.
+     *
      * @example 1553443200000
      *
      * @var int
@@ -23,6 +27,8 @@ class lastInstance extends Model
     public $finishTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 12345
      *
      * @var int
@@ -30,6 +36,8 @@ class lastInstance extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1234
      *
      * @var int
@@ -37,11 +45,17 @@ class lastInstance extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
+     * @example Node name
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the node owner.
+     *
      * @example 9527952795****
      *
      * @var string
@@ -49,6 +63,8 @@ class lastInstance extends Model
     public $owner;
 
     /**
+     * @description The ID of the workspace to which the node belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -56,6 +72,8 @@ class lastInstance extends Model
     public $projectId;
 
     /**
+     * @description The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+     *
      * @example SUCCESS
      *
      * @var string

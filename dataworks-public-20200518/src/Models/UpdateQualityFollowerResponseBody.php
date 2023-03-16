@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityFollowerResponseBody extends Model
 {
     /**
+     * @description Indicates whether the subscription relationship is updated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The error code returned.
+     *
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example You have no permission
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 576b9457-2cf5-4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

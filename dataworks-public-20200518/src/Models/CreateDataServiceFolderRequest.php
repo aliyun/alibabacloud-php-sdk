@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceFolderRequest extends Model
 {
     /**
+     * @description The name of the folder.
+     *
+     * @example Test folder
+     *
      * @var string
      */
     public $folderName;
 
     /**
+     * @description The ID of the desired workflow to which the folder belongs.
+     *
      * @example 1000abcd
      *
      * @var string
@@ -21,6 +27,8 @@ class CreateDataServiceFolderRequest extends Model
     public $groupId;
 
     /**
+     * @description The ID of the desired parent folder of the folder. The ID of the root folder in a workflow is 0. The ID of the folder created by users in a workflow is greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -28,6 +36,8 @@ class CreateDataServiceFolderRequest extends Model
     public $parentId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -35,6 +45,8 @@ class CreateDataServiceFolderRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

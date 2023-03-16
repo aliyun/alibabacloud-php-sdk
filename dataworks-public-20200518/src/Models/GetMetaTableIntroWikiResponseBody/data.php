@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the metatable.
+     *
+     * @example \# Business requirements\n\n\&lt;a name=\&quot;xiw5n\&quot;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The time when the metatable was created.
+     *
      * @example 1584444247000
      *
      * @var int
@@ -21,6 +27,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The creator of the metatable.
+     *
      * @example abc
      *
      * @var string
@@ -28,6 +36,8 @@ class data extends Model
     public $creator;
 
     /**
+     * @description The name of the user who created the metatable.
+     *
      * @example abc
      *
      * @var string
@@ -35,6 +45,8 @@ class data extends Model
     public $creatorName;
 
     /**
+     * @description The time when the metatable was modified.
+     *
      * @example 1584444247000
      *
      * @var int
@@ -42,6 +54,8 @@ class data extends Model
     public $modifiedTime;
 
     /**
+     * @description The version number.
+     *
      * @example 1
      *
      * @var int

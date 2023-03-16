@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
+     * @description The description of the field.
+     *
      * @example data comment
      *
      * @var string
@@ -16,6 +18,8 @@ class columnList extends Model
     public $caption;
 
     /**
+     * @description The GUID of the field.
+     *
      * @example odps.engine_name.table_name.1
      *
      * @var string
@@ -23,6 +27,8 @@ class columnList extends Model
     public $columnGuid;
 
     /**
+     * @description The name of the field.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class columnList extends Model
     public $columnName;
 
     /**
+     * @description The data type of the field.
+     *
      * @example string
      *
      * @var string
@@ -37,6 +45,8 @@ class columnList extends Model
     public $columnType;
 
     /**
+     * @description The remarks of the field.
+     *
      * @example comment
      *
      * @var string
@@ -44,6 +54,11 @@ class columnList extends Model
     public $comment;
 
     /**
+     * @description Indicates whether the field is a foreign key. Valid values:
+     *
+     *   true: The field is a foreign key.
+     *   false: The field is not a foreign key.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +66,11 @@ class columnList extends Model
     public $isForeignKey;
 
     /**
+     * @description Indicates whether the field is a partition field. Valid values:
+     *
+     *   true: The field is a partition field.
+     *   false: The field is not a partition field.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +78,11 @@ class columnList extends Model
     public $isPartitionColumn;
 
     /**
+     * @description Indicates whether the field is the primary key. Valid values:
+     *
+     *   true: The field is the primary key.
+     *   false: The field is not the primary key.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +90,8 @@ class columnList extends Model
     public $isPrimaryKey;
 
     /**
+     * @description The ordinal number of the field.
+     *
      * @example 1
      *
      * @var int

@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class wizardDetails extends Model
 {
     /**
+     * @description Indicates whether the entries were returned by page.
+     *
      * @example true
      *
      * @var bool
@@ -19,16 +21,22 @@ class wizardDetails extends Model
     public $isPagedResponse;
 
     /**
+     * @description The data source information of the API generated in wizard mode.
+     *
      * @var wizardConnection
      */
     public $wizardConnection;
 
     /**
+     * @description The request parameters of the API generated in wizard mode.
+     *
      * @var wizardRequestParameters[]
      */
     public $wizardRequestParameters;
 
     /**
+     * @description The response parameters of the API generated in wizard mode.
+     *
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;

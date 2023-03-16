@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class apiAuthorizationList extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 10002
      *
      * @var int
@@ -17,11 +19,17 @@ class apiAuthorizationList extends Model
     public $apiId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example My API name
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The path of the API.
+     *
      * @example /test/1
      *
      * @var string
@@ -29,6 +37,8 @@ class apiAuthorizationList extends Model
     public $apiPath;
 
     /**
+     * @description The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
+     *
      * @example 0
      *
      * @var int
@@ -36,11 +46,15 @@ class apiAuthorizationList extends Model
     public $apiStatus;
 
     /**
+     * @description The authorization records.
+     *
      * @var authorizationRecords[]
      */
     public $authorizationRecords;
 
     /**
+     * @description The time when the API was created.
+     *
      * @example 2020-06-23T00:21:01+0800
      *
      * @var string
@@ -48,6 +62,8 @@ class apiAuthorizationList extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the API owner.
+     *
      * @example 12345
      *
      * @var string
@@ -55,6 +71,8 @@ class apiAuthorizationList extends Model
     public $creatorId;
 
     /**
+     * @description The ID of the group.
+     *
      * @example ab123
      *
      * @var string
@@ -62,6 +80,8 @@ class apiAuthorizationList extends Model
     public $groupId;
 
     /**
+     * @description The time when the API was last updated.
+     *
      * @example 2020-06-23T00:21:01+0800
      *
      * @var string
@@ -69,6 +89,8 @@ class apiAuthorizationList extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10000
      *
      * @var int
@@ -76,6 +98,8 @@ class apiAuthorizationList extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10001
      *
      * @var int
