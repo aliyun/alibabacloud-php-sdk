@@ -1797,6 +1797,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
         if (!Utils::isUnset($request->firewallType)) {
             $query['FirewallType'] = $request->firewallType;
         }

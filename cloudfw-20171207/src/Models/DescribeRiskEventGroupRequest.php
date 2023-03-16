@@ -115,6 +115,11 @@ class DescribeRiskEventGroupRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $eventName;
+
+    /**
      * @description The type of the firewall. Valid values:
      *
      *   **VpcFirewall**: virtual private cloud (VPC) firewall
@@ -262,6 +267,7 @@ class DescribeRiskEventGroupRequest extends Model
         'dstIP'                => 'DstIP',
         'dstNetworkInstanceId' => 'DstNetworkInstanceId',
         'endTime'              => 'EndTime',
+        'eventName'            => 'EventName',
         'firewallType'         => 'FirewallType',
         'lang'                 => 'Lang',
         'noLocation'           => 'NoLocation',
@@ -309,6 +315,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventName) {
+            $res['EventName'] = $this->eventName;
         }
         if (null !== $this->firewallType) {
             $res['FirewallType'] = $this->firewallType;
@@ -386,6 +395,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventName'])) {
+            $model->eventName = $map['EventName'];
         }
         if (isset($map['FirewallType'])) {
             $model->firewallType = $map['FirewallType'];
