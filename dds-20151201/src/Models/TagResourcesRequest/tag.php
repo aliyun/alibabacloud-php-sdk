@@ -11,11 +11,11 @@ class tag extends Model
     /**
      * @description The key of tag.
      *
-     * The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-     * It can be up to 64 characters in length.
-     * The key cannot be an empty string.
+     * N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
      *
-     * @example env
+     * - **Tag.1.Key** specifies the key of the first tag.
+     * - **Tag.2.Key** specifies the key of the second tag.
+     * @example Development team
      *
      * @var string
      */
@@ -24,8 +24,11 @@ class tag extends Model
     /**
      * @description The value of tag.
      *
-     * - The value can be an empty string.
-     * @example test
+     * N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
+     *
+     * - **Tag.1.Value** specifies the value of the first tag.
+     * - **Tag.2.Value** specifies the value of the second tag.
+     * @example MongoDB 4.0 environment
      *
      * @var string
      */

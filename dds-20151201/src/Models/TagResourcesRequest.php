@@ -38,7 +38,7 @@ class TagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The resource IDs.
+     * @description The list of resource IDs.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -66,7 +66,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags that you want to associate with the resources. You can specify up to 20 tags.
+     * @description The tags that are attached to the resources.
      *
      * @var tag[]
      */

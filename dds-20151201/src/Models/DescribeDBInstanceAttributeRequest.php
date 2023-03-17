@@ -18,7 +18,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The engine of the instance. The value is set to **MongoDB**.
+     * @description The database engine of the instance. Set the value to **MongoDB**.
      *
      * @example MongoDB
      *
@@ -27,6 +27,11 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $engine;
 
     /**
+     * @description 实例是否已删除，取值说明：
+     * - **false**：实例正常运行，查询运行中实例信息。
+     * - **true**：实例已删除，查询被删除实例的信息。
+     * @example false
+     *
      * @var bool
      */
     public $isDelete;

@@ -31,6 +31,11 @@ class DescribeParametersRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $extraParam;
+
+    /**
      * @description The ID of the mongos or shard in the specified sharded cluster instance.
      *
      * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
@@ -67,6 +72,7 @@ class DescribeParametersRequest extends Model
     protected $_name = [
         'characterType'        => 'CharacterType',
         'DBInstanceId'         => 'DBInstanceId',
+        'extraParam'           => 'ExtraParam',
         'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -87,6 +93,9 @@ class DescribeParametersRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->extraParam) {
+            $res['ExtraParam'] = $this->extraParam;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -123,6 +132,9 @@ class DescribeParametersRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ExtraParam'])) {
+            $model->extraParam = $map['ExtraParam'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];

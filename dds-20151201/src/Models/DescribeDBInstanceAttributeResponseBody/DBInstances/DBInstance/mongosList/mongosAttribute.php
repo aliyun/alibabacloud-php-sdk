@@ -36,7 +36,7 @@ class mongosAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The instance type of the Mongos node.
+     * @description The instance type of the mongos node.
      *
      * @example dds.mongos.mid
      *
@@ -81,7 +81,7 @@ class mongosAttribute extends Model
     public $status;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The VPC ID of the node.
      *
      * > This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1n3i15v90el48nx****
@@ -91,7 +91,7 @@ class mongosAttribute extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The vSwitch ID of the node.
      *
      * > This parameter is returned if the network type of the instance is VPC.
      * @example vsw-bp1vj604nj5a9zz74****

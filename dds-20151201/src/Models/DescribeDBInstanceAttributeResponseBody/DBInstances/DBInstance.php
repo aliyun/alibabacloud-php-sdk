@@ -61,7 +61,7 @@ class DBInstance extends Model
     public $currentKernelVersion;
 
     /**
-     * @description The edition of the instance.
+     * @description The instance type.
      *
      * @example dds.mongo.mid
      *
@@ -88,6 +88,19 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
+     * @description The status of the orders generated for the instance. Valid values:
+     *
+     *   **all_completed**: All orders are being produced or complete.
+     *   **order_unpaid**: The instance has unpaid orders.
+     *   **order_wait_for_produce**: The order is being delivered for production.
+     *
+     * >  The order production process includes placing an order, paying for an order, delivering an order for production, producing an order, and complete.
+     *
+     *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
+     *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
+     *
+     * @example all_completed
+     *
      * @var string
      */
     public $DBInstanceOrderStatus;
@@ -95,7 +108,7 @@ class DBInstance extends Model
     /**
      * @description Indicates whether release protection is enabled for the instance. Valid values:
      *
-     *   **true**: Release protection is enabled.
+     *   **true**: enabled
      *   **false**: disabled
      *
      * @example false
@@ -127,7 +140,6 @@ class DBInstance extends Model
      *
      *   **replicate**: replica set instance
      *   **sharding**: sharded cluster instance
-     *   **serverless**: serverless instance
      *
      * @example replicate
      *
@@ -136,7 +148,7 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description 实例数据销毁时间，格式为yyyy-MM-ddTHH:mm:ssZ（UTC时间）。
+     * @description The time when the instance data was destroyed. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-12-10T16:00:00Z
      *
@@ -145,7 +157,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description The engine of the instance.
+     * @description The database engine of the instance.
      *
      * @example MongoDB
      *
@@ -154,7 +166,7 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The engine version of the instance.
+     * @description The database engine version of the instance.
      *
      *   **6.0**
      *   **5.0**
@@ -440,7 +452,7 @@ class DBInstance extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     **cloud_essd1** :ESSD PL1. **cloud_essd2**: ESSD of PL2. **cloud_essd3**: ESSD of PL3. **local_ssd**: local SSD.
+     **cloud_essd1** :ESSD PL1 **cloud_essd2**: ESSD of PL2. **cloud_essd3**: ESSD of PL3. **local_ssd**: local SSD.
      *
      * @example cloud_essd1
      *
