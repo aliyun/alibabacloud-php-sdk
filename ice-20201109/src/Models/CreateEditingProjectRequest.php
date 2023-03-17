@@ -56,6 +56,11 @@ class CreateEditingProjectRequest extends Model
     public $templateId;
 
     /**
+     * @var string
+     */
+    public $templateType;
+
+    /**
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
      *
      * @var string
@@ -76,6 +81,7 @@ class CreateEditingProjectRequest extends Model
         'materialMaps'   => 'MaterialMaps',
         'projectType'    => 'ProjectType',
         'templateId'     => 'TemplateId',
+        'templateType'   => 'TemplateType',
         'timeline'       => 'Timeline',
         'title'          => 'Title',
     ];
@@ -107,6 +113,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
@@ -146,6 +155,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];

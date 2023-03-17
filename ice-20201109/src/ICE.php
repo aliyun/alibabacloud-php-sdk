@@ -1037,6 +1037,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         if (!Utils::isUnset($request->timeline)) {
             $query['Timeline'] = $request->timeline;
         }
