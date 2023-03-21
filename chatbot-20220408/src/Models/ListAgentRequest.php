@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListAgentRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentName;
+
+    /**
+     * @var string
+     */
+    public $goodsCodes;
+
+    /**
      * @example 1
      *
      * @var int
@@ -22,6 +32,8 @@ class ListAgentRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'agentName'  => 'AgentName',
+        'goodsCodes' => 'GoodsCodes',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -33,6 +45,12 @@ class ListAgentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+        if (null !== $this->goodsCodes) {
+            $res['GoodsCodes'] = $this->goodsCodes;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -51,6 +69,12 @@ class ListAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+        if (isset($map['GoodsCodes'])) {
+            $model->goodsCodes = $map['GoodsCodes'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

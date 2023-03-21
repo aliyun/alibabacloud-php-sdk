@@ -2522,6 +2522,12 @@ class Chatbot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->agentName)) {
+            $query['AgentName'] = $request->agentName;
+        }
+        if (!Utils::isUnset($request->goodsCodes)) {
+            $query['GoodsCodes'] = $request->goodsCodes;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }

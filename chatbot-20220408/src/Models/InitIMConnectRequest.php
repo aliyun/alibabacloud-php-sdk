@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class InitIMConnectRequest extends Model
 {
     /**
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 8XNBzDucJv
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example QUM4SndaY3VPMjhkQldDZUNOR0ZaTmZ5R3NBY0FKWHJ4OGc4dERZbEJzcjNIKzFiS1RyTjhXRUpBYmVpQlpsakprNDRFVkdxcy9HWVk2RXZvalU3bHhxRkJlc1NBUXZwdHFKOTE2UTNwamQ4b1U4N3dEbmhyRjc4R2hOQStvMnMrYkV2dlVpSHNvWC96SEVNZWRqMjBuMXdjNklpamJzaDNWYllnUldDZGhJPQ==
+     *
      * @var string
      */
     public $userAccessToken;

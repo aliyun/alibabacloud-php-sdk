@@ -26,10 +26,16 @@ class data extends Model
      * @var string
      */
     public $agentName;
+
+    /**
+     * @var mixed[]
+     */
+    public $instanceInfos;
     protected $_name = [
-        'agentId'   => 'AgentId',
-        'agentKey'  => 'AgentKey',
-        'agentName' => 'AgentName',
+        'agentId'       => 'AgentId',
+        'agentKey'      => 'AgentKey',
+        'agentName'     => 'AgentName',
+        'instanceInfos' => 'InstanceInfos',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class data extends Model
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+        if (null !== $this->instanceInfos) {
+            $res['InstanceInfos'] = $this->instanceInfos;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class data extends Model
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+        if (isset($map['InstanceInfos'])) {
+            $model->instanceInfos = $map['InstanceInfos'];
         }
 
         return $model;
