@@ -16,7 +16,7 @@ class PredictModelResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $data;
 
