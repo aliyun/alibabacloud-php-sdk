@@ -264,6 +264,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($tmpReq->nodePool)) {
             $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
+        if (!Utils::isUnset($tmpReq->runtimePolicy)) {
+            $request->runtimePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimePolicy, 'RuntimePolicy', 'json');
+        }
         if (!Utils::isUnset($tmpReq->userInfo)) {
             $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
@@ -309,6 +312,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->promotionId)) {
             $body['PromotionId'] = $request->promotionId;
+        }
+        if (!Utils::isUnset($request->runtimePolicyShrink)) {
+            $body['RuntimePolicy'] = $request->runtimePolicyShrink;
         }
         if (!Utils::isUnset($request->sessionTimeout)) {
             $body['SessionTimeout'] = $request->sessionTimeout;

@@ -99,6 +99,11 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $promotionId;
 
     /**
+     * @var string
+     */
+    public $runtimePolicyShrink;
+
+    /**
      * @example 15
      *
      * @var int
@@ -129,6 +134,7 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         'preOpenAppId'         => 'PreOpenAppId',
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
+        'runtimePolicyShrink'  => 'RuntimePolicy',
         'sessionTimeout'       => 'SessionTimeout',
         'userInfoShrink'       => 'UserInfo',
         'users'                => 'Users',
@@ -182,6 +188,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         }
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+        if (null !== $this->runtimePolicyShrink) {
+            $res['RuntimePolicy'] = $this->runtimePolicyShrink;
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
@@ -245,6 +254,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         }
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+        if (isset($map['RuntimePolicy'])) {
+            $model->runtimePolicyShrink = $map['RuntimePolicy'];
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];

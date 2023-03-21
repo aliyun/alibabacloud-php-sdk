@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\runtimePolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\userInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -102,6 +103,11 @@ class CreateAppInstanceGroupRequest extends Model
     public $promotionId;
 
     /**
+     * @var runtimePolicy
+     */
+    public $runtimePolicy;
+
+    /**
      * @example 15
      *
      * @var int
@@ -132,6 +138,7 @@ class CreateAppInstanceGroupRequest extends Model
         'preOpenAppId'         => 'PreOpenAppId',
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
+        'runtimePolicy'        => 'RuntimePolicy',
         'sessionTimeout'       => 'SessionTimeout',
         'userInfo'             => 'UserInfo',
         'users'                => 'Users',
@@ -185,6 +192,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+        if (null !== $this->runtimePolicy) {
+            $res['RuntimePolicy'] = null !== $this->runtimePolicy ? $this->runtimePolicy->toMap() : null;
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
@@ -248,6 +258,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+        if (isset($map['RuntimePolicy'])) {
+            $model->runtimePolicy = runtimePolicy::fromMap($map['RuntimePolicy']);
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
