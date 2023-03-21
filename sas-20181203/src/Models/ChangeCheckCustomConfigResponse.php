@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInterceptionImageResponse extends Model
+class ChangeCheckCustomConfigResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListInterceptionImageResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListInterceptionImageResponseBody
+     * @var ChangeCheckCustomConfigResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListInterceptionImageResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListInterceptionImageResponse
+     * @return ChangeCheckCustomConfigResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListInterceptionImageResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListInterceptionImageResponseBody::fromMap($map['body']);
+            $model->body = ChangeCheckCustomConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

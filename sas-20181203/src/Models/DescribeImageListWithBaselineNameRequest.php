@@ -9,159 +9,86 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageListWithBaselineNameRequest extends Model
 {
     /**
-     * @description The name of the image baseline.
-     *
-     * @example ak_leak
-     *
      * @var string
      */
     public $baselineNameKey;
 
     /**
-     * @description The ID of the container cluster.
-     *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
-     * @example cc20a1024011c44b6a8710d6f8b****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example docker-law
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The ID of the container.
-     *
-     * @example c08d5fc1a329a4b88950a253d082f****
-     *
      * @var string
      */
     public $containerId;
 
     /**
-     * @description The search condition for the image baseline.
-     *
-     * @example Unauthorized access
-     *
      * @var string
      */
     public $criteria;
 
     /**
-     * @description The type of the search condition. Valid values:
-     *
-     *   **BaselineNameAlias**: baseline name
-     *   **BaselineClassAlias**: baseline category
-     *
-     * @example BaselineNameAlias
-     *
      * @var string
      */
     public $criteriaType;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The name of the image to which the container belongs.
-     *
-     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The SHA-256 value of the image digest.
-     *
-     * @example 2e6daffce524ffeae66cccaa90c8fc47de912346dcec295c27395b6d66db6423
-     *
      * @var string
      */
     public $imageDigest;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The namespace.
-     *
-     * @example test-002
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The pod.
-     *
-     * @example 22222-7xsqq
-     *
      * @var string
      */
     public $pod;
 
     /**
-     * @description The instance ID of the image repository.
-     *
-     * @example i-qewqrqcsadf****
-     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example libssh2
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The namespace to which the image repository belongs.
-     *
-     * @example libssh2
-     *
      * @var string
      */
     public $repoNamespace;
 
     /**
-     * @description The types of the assets that you want to scan.
-     *
      * @var string[]
      */
     public $scanRange;

@@ -15,22 +15,16 @@ class ListPluginForUuidResponseBody extends Model
     public $aegisUuidTargetPluginConfigList;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;

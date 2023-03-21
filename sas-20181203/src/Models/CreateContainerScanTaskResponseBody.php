@@ -15,15 +15,11 @@ class CreateContainerScanTaskResponseBody extends Model
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example 9F4E6157-9600-5588-86B9-38F09067****
-     *
      * @var string
      */
     public $requestId;

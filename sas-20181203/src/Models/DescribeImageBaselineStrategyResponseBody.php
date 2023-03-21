@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineStrategyResponseBody extends Model
 {
     /**
-     * @example 9F85AC10-A1FE-54D7-935A-F28D5256****
-     *
      * @var string
      */
     public $requestId;

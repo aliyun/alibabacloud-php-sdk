@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckResultRequest extends Model
 {
     /**
-     * @example ak_leak
-     *
      * @var string
      */
     public $criteria;
 
     /**
-     * @example BaselineNameAlias
-     *
      * @var string
      */
     public $criteriaType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example a910053dd4710173ecc9e9d8931f****
-     *
      * @var string
      */
     public $imageUuid;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example high,medium,low
-     *
      * @var string
      */
     public $riskLevel;

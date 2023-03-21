@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCodeResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
-     *
      * @var string
      */
     public $requestId;

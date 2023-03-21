@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class fixList extends Model
 {
     /**
-     * @example 105
-     *
      * @var int
      */
     public $riskId;

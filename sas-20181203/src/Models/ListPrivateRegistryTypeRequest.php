@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCheckConfigRequest extends Model
+class ListPrivateRegistryTypeRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -35,7 +33,7 @@ class GetCheckConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCheckConfigRequest
+     * @return ListPrivateRegistryTypeRequest
      */
     public static function fromMap($map = [])
     {

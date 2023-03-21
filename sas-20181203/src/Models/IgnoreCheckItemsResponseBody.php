@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class IgnoreCheckItemsResponseBody extends Model
 {
     /**
-     * @example 11EBEC99-B4B5-542E-8C17-B87B624C****
-     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcListResponseBody extends Model
 {
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of VPCs.
-     *
      * @var vpcList[]
      */
     public $vpcList;

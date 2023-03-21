@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateRegistryListRequest extends Model
 {
     /**
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeCycleTaskListResponseBody extends Model
 {
     /**
+     * @description An array that consists of periodic scan tasks.
+     *
      * @var cycleScheduleResponseList[]
      */
     public $cycleScheduleResponseList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
      *
      * @var string

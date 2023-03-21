@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRequest extends Model
 {
     /**
-     * @example cri-hfs6gaawhyu6****
-     *
      * @var string
      */
     public $imageInstanceId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $imageRegionId;
 
     /**
-     * @example crr-7i88t7lx3fmf****
-     *
      * @var string
      */
     public $imageRepoId;
 
     /**
-     * @example 1.8.0.15
-     *
      * @var string
      */
     public $imageTag;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningMachinesRequest extends Model
 {
     /**
-     * @example 58
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 43
-     *
      * @var int
      */
     public $riskId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;

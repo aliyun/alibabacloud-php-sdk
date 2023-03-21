@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoDetailRequest extends Model
 {
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example 1670555392000
-     *
      * @var int
      */
     public $incidentTime;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @example SAS_INCIDENT
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1627f2d7-aaa2-4ed1-b07a-xxxxxxxxxxxxxx
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @example cce1d28dxxxxxxxxxxxxxxxx
-     *
      * @var string
      */
     public $vertexId;

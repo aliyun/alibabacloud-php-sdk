@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class AddPrivateRegistryRequest extends Model
 {
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example [{"namespace":"aa","authToken":"aa"}]
-     *
      * @var string
      */
     public $extraParam;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $netType;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $protocolType;
 
     /**
-     * @example 114.55.**.**
-     *
      * @var string
      */
     public $registryHostIp;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $registryRegionId;
 
     /**
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;
 
     /**
-     * @example V2
-     *
      * @var string
      */
     public $registryVersion;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $transPerHour;
 
     /**
-     * @example xxxxx
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example vpc-wz9hs3e5*******908kd
-     *
      * @var string
      */
     public $vpcId;

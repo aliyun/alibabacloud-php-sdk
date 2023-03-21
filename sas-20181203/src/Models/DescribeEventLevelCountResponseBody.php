@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventLevelCountResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeEventLevelCountResponseBody extends Model
     public $code;
 
     /**
+     * @description The statistics of alerts by risk level.
+     *
      * @var eventLevels
      */
     public $eventLevels;
 
     /**
+     * @description The error message returned.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeEventLevelCountResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CE8CA5EA-24EF-5D41-B735-53ACE7XXXXX
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeEventLevelCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

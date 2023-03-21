@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeCheckConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 6EBB8614-746D-555D-AB69-C801AEC7DCE0
      *
      * @var string

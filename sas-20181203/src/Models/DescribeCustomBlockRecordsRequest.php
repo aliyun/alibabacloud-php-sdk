@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomBlockRecordsRequest extends Model
 {
     /**
+     * @description The IP address that you want to block by using the defense rule.
+     *
      * @example 117.66.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCustomBlockRecordsRequest extends Model
     public $blockIp;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCustomBlockRecordsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -35,6 +41,12 @@ class DescribeCustomBlockRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the defense rule. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: enabled
+     *   **2**: failed
+     *
      * @example 1
      *
      * @var int

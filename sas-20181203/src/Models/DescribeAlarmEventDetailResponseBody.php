@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventDetailResponseBody extends Model
 {
     /**
-     * @description The details about the alert event.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7EA50837-2F0B-5BCC-AB61-4968D88D75AD
-     *
      * @var string
      */
     public $requestId;

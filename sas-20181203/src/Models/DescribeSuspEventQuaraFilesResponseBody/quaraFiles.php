@@ -9,134 +9,76 @@ use AlibabaCloud\Tea\Model;
 class quaraFiles extends Model
 {
     /**
-     * @description The name of the event.
-     *
-     * @example WEBSHELL
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description The type of the event.
-     *
-     * @example WebshellQuaraEventType
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description The ID of the quarantined file.
-     *
-     * @example 26918
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The instance ID of the asset.
-     *
-     * @example i-2ze9t1qp36n1436m****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server on which the quarantined file is located.
-     *
-     * @example iZwz98dkiw3vbrtqrt5v****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server on which the quarantined file is located.
-     *
-     * @example 47.XX.XX.131
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The public IP address of the server on which the quarantined file is located.
-     *
-     * @example 47.XX.XX.131
-     *
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
      * @var string
      */
     public $ip;
 
     /**
-     * @description The download link of the quarantined file.
-     *
-     * @example https://xxx.xxx/xxx
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @description The MD5 hash value of the quarantined file.
-     *
-     * @example 5ddebe926acc7ed39a664409bfd0ec10
-     *
      * @var string
      */
     public $md5;
 
     /**
-     * @description The time when the quarantined file was last modified.
-     *
-     * @example 2020-06-11 20:37:08
-     *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @description The path to the quarantined file on the server.
-     *
-     * @example /var/www/html/webshell-sample-master/others/defc3e21bab59e2a2ab49f7eda99f65f83d4d349.jpg
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The status of the quarantined file. Valid values:
-     *
-     *   **quaraFailed**: The file fails to be quarantined.
-     *   **quaraDone**: The file is quarantined.
-     *   **quaraing**: The file is being quarantined.
-     *   **rollbackFailed**: The system fails to cancel quarantining the file.
-     *   **rollbackDone**: The system cancelled quarantining the file.
-     *   **rollbacking**: The system is cancelling quarantining the file.
-     *
-     * @example rollbackDone
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The unique ID of the event.
-     *
-     * @example 228f890e56eae9eec6a42c7ea801b538
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 04a0e735-ad32-4835-b635-0458d77b****
-     *
      * @var string
      */
     public $uuid;
@@ -147,6 +89,7 @@ class quaraFiles extends Model
         'instanceId'   => 'InstanceId',
         'instanceName' => 'InstanceName',
         'internetIp'   => 'InternetIp',
+        'intranetIp'   => 'IntranetIp',
         'ip'           => 'Ip',
         'link'         => 'Link',
         'md5'          => 'Md5',
@@ -181,6 +124,9 @@ class quaraFiles extends Model
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -235,6 +181,9 @@ class quaraFiles extends Model
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];

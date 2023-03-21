@@ -9,132 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyRequest extends Model
 {
     /**
-     * @description The type of the baseline check policy. Valid values:
-     *
-     *   **custom**: a custom baseline check policy
-     *   **common**: a standard baseline check policy
-     *
-     * @example common
-     *
      * @var string
      */
     public $customType;
 
     /**
-     * @description The new interval of the baseline check. Valid values:
-     *
-     *   **1**: every 2 days
-     *   **3**: every 4 days
-     *   **7**: every 8 days
-     *   **30**: every 31 days
-     *
-     * @example 1
-     *
      * @var string
      */
     public $cycleDays;
 
     /**
-     * @description The new time range during which the baseline check starts. Valid values:
-     *
-     *   **0**: The baseline check starts within the time range from 00:00 to 06:00.
-     *   **6**: The baseline check starts within the time range from 06:00 to 12:00.
-     *   **12**: The baseline check starts within the time range from 12:00 to 18:00.
-     *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
-     *
-     * >  This parameter is deprecated.
-     * @example 18
-     *
      * @var string
      */
     public $cycleStartTime;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy ends.
-     *
-     * @example 05:00:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the baseline check policy.
-     *
-     * @example 245
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The new name of the baseline check policy.
-     *
-     * @example testStrategy
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The custom configurations of the baseline. The value of this parameter is in the JSON format and contains the following fields:
-     *
-     *   **typeName**: the name of the baseline.
-     *
-     *   **checkDetails**: the details of the baseline. The value is in the JSON format.
-     *
-     *   **checkId**: the ID of the check item.
-     *
-     *   **rules**: the rule configurations. The value is in the JSON format.
-     *
-     *   **ruleId**: the ID of the rule.
-     *
-     *   **paramList**: the list of parameters in the rule. The value is in the JSON format.
-     *
-     *   **paramName**: the name of the parameter.
-     *   **value**: the value of the parameter.
-     *
-     * @example [{"typeName":"hc_centos_6_custom","checkDetails":[{"checkId":4,"rules":[{"ruleId":"pass_min_days_login_defs.must.cus","paramList":[{"paramName":"range_val","value":"7"}]}]}]}]
-     *
      * @var string
      */
     public $riskCustomParams;
 
     /**
-     * @description The subtype of the baselines. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
-     *
-     * @example hc_exploit_redis
-     *
      * @var string
      */
     public $riskSubTypeName;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.X.X
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy starts.
-     *
-     * @example 00:01:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The method that is used to apply the baseline check policy. Valid values:
-     *
-     *   **groupId**: asset groups
-     *   **uuid**: assets
-     *
-     * @example groupId
-     *
      * @var string
      */
     public $targetType;

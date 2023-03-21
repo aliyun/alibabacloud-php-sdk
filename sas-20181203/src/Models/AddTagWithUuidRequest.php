@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddTagWithUuidRequest extends Model
 {
     /**
+     * @description The name of the tag.
+     *
      * @example InternetIp
      *
      * @var string
@@ -16,6 +18,9 @@ class AddTagWithUuidRequest extends Model
     public $tagName;
 
     /**
+     * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 71f5313e-4355-4c59-86d1-557dda7b****,71f5313e-4355-4c59-86d1-557dda7b****
      *
      * @var string

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $authCount;
 
     /**
-     * @example 1815753600000
-     *
      * @var int
      */
     public $expire;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $flowRate;
 
     /**
-     * @example 900
-     *
      * @var int
      */
     public $remainAuthCount;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $saleVersion;
 
     /**
-     * @example SECONDS
-     *
      * @var string
      */
     public $timeUnit;

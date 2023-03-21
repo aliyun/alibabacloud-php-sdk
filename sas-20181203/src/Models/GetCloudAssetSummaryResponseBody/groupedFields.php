@@ -15,15 +15,11 @@ class groupedFields extends Model
     public $cloudAssetSummaryMetas;
 
     /**
-     * @example 919
-     *
      * @var int
      */
     public $instanceCountTotal;
 
     /**
-     * @example 544
-     *
      * @var int
      */
     public $instanceRiskCountTotal;

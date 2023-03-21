@@ -11,8 +11,6 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
@@ -28,15 +26,11 @@ class GetModuleConfigResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example 291B49F9-1685-4005-9D34-606B6F78****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

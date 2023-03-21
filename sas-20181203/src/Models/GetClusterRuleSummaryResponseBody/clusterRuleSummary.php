@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class clusterRuleSummary extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $closeRuleCount;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $interceptionCount7Day;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $interceptionSwitch;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $interceptionType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $openRuleCount;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $ruleCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $suggestRuleCount;

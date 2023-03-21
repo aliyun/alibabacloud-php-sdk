@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningMachineRequest extends Model
 {
     /**
-     * @example 8
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @example clusterId
-     *
      * @var string
      */
     public $containerFieldName;
 
     /**
-     * @example ce89cdd0ea732472a8703821b19e****
-     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 1161****
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 225
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @example hc_best_secruity
-     *
      * @var string
      */
     public $riskType;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $status;

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterVulStatisticsResponseBody extends Model
 {
     /**
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
-     *
      * @var string
      */
     public $requestId;

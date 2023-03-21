@@ -9,85 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulExportInfoResponseBody extends Model
 {
     /**
-     * @description The number of exported entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentCount;
 
     /**
-     * @description The status of the export task. Valid values:
-     *
-     * - **init**: The task is being initialized.
-     * - **exporting**: The task is in progress.
-     * - **success**: The task is complete.
-     * @example success
-     *
      * @var string
      */
     public $exportStatus;
 
     /**
-     * @description The name of the exported Excel file.
-     *
-     * @example app_20210917
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The ID of the vulnerability export task.
-     *
-     * @example 14356
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The URL at which you can download the exported Excel file.
-     *
-     * @example http://www.aliyun.com
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @description The message that shows the task result. The value is fixed as **success*, which indicates that the export task is completed.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The progress percentage of the asset export task.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 4C1AE3F3-18FA-4108-BXXX-AFA1A032756C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries in the Excel file.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;

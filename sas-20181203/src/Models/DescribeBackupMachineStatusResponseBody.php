@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupMachineStatusResponseBody extends Model
 {
     /**
+     * @description The backup status of the server.
+     *
      * @var backupMachineStatus
      */
     public $backupMachineStatus;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
      *
      * @var string

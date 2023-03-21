@@ -14,15 +14,11 @@ class ModifyInterceptionRuleSwitchRequest extends Model
     public $clusterId;
 
     /**
-     * @example 403287
-     *
      * @var string
      */
     public $ruleIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleSwitch;

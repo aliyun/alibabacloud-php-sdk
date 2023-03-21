@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareItemRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether to forcefully refresh the data that you want to query.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $forceFlush;
 
     /**
-     * @description The name of the software that you want to query.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;

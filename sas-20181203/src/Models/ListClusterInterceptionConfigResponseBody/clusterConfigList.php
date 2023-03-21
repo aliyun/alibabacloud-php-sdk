@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class clusterConfigList extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $clusterCNNFStatus;
 
     /**
-     * @example c9051d30d8a044b4d99e1cb5d25ac****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example container-opa-kill-02
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @example ManagedKubernetes
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $interceptionSwitch;
 
     /**
-     * @example 12
-     *
      * @var int
      */
     public $openRuleCount;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $supportCNNF;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $totalRuleCount;

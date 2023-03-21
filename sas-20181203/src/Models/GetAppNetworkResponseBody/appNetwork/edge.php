@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class edge extends Model
 {
     /**
-     * @example 102
-     *
      * @var string
      */
     public $dstNodeId;
 
     /**
-     * @example app
-     *
      * @var string
      */
     public $dstNodeType;
 
     /**
-     * @example 3534
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 8080
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @example 101
-     *
      * @var string
      */
     public $srcNodeId;
 
     /**
-     * @example app
-     *
      * @var string
      */
     public $srcNodeType;

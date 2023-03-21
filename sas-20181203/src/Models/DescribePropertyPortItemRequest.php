@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortItemRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether to forcefully refresh the data that you want to query.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $forceFlush;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The port number.
-     *
-     * @example 22
-     *
      * @var string
      */
     public $port;

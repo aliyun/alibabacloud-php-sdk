@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientConfStrategyResponseBody extends Model
 {
     /**
-     * @example 5BD95679-D63A-4151-97D0-188432F****
-     *
      * @var string
      */
     public $requestId;
@@ -22,8 +20,6 @@ class DescribeClientConfStrategyResponseBody extends Model
     public $targetList;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;

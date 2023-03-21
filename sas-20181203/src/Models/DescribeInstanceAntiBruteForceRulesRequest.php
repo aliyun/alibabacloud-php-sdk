@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAntiBruteForceRulesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10000**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -32,18 +24,11 @@ class DescribeInstanceAntiBruteForceRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 115.238.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description An array that consists of the UUIDs of the servers.
-     *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @var string[]
      */
     public $uuidList;

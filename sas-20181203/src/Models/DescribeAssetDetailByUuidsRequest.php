@@ -9,22 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidsRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The UUIDs of the ECS instances. Separate multiple UUIDs with commas (,).
-     *
-     * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****
-     *
      * @var string
      */
     public $uuids;

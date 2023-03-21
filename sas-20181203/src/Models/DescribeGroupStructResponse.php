@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAlarmEventListResponse extends Model
+class DescribeGroupStructResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeAlarmEventListResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeAlarmEventListResponseBody
+     * @var DescribeGroupStructResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeAlarmEventListResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAlarmEventListResponse
+     * @return DescribeGroupStructResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeAlarmEventListResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeAlarmEventListResponseBody::fromMap($map['body']);
+            $model->body = DescribeGroupStructResponseBody::fromMap($map['body']);
         }
 
         return $model;

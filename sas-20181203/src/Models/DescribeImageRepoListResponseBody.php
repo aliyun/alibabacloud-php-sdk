@@ -11,22 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoListResponseBody extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $addTargetCount;
 
     /**
-     * @example 25
-     *
      * @var int
      */
     public $allTargetCount;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $delTargetCount;
@@ -42,8 +36,6 @@ class DescribeImageRepoListResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
-     *
      * @var string
      */
     public $requestId;

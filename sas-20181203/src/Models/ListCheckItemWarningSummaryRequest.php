@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningSummaryRequest extends Model
 {
     /**
-     * @example password
-     *
      * @var string
      */
     public $checkItemFuzzy;
 
     /**
-     * @example medium
-     *
      * @var string
      */
     public $checkLevel;
 
     /**
-     * @example hc.check.type.attack_defense
-     *
      * @var string
      */
     public $checkType;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $checkWarningStatus;
 
     /**
-     * @example clusterId
-     *
      * @var string
      */
     public $containerFieldName;
 
     /**
-     * @example c471f0f61b9c04f8380556e922cf1****
-     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 1161****
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example hc_best_secruity
-     *
      * @var string
      */
     public $riskType;

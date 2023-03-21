@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class scenarios extends Model
 {
     /**
-     * @description The code of the scenario. Valid values: Valid values:
-     * - **default**: the same alert type
-     * - **same_file_content**: the same file content rule
-     * - **same_ip**: the same IP address rule
-     * - **same_url**: the same URL rule
-     * @example same_url
-     *
      * @var string
      */
     public $code;

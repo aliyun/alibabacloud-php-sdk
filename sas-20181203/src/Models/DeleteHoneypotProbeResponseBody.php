@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotProbeResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 7FD1C1DC-AA67-510A-A022-5D23310C3658
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
-     * @example c870ec78ecbcb41d2a35c679823ef****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example testackpro
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @example kubernetes
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @example 1662038134000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 1.22.10-aliyun.1
-     *
      * @var string
      */
     public $currentVersion;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $instanceCount;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example Available
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $targetResult;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPoliciesRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example auto_oracle_Hpm
-     *
      * @var string
      */
     public $policyName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class machineList extends Model
 {
     /**
+     * @description The timestamp when the block action on the IP address becomes invalid.
+     *
      * @example 1671506882063
      *
      * @var int
@@ -16,6 +18,8 @@ class machineList extends Model
     public $blockExpireDate;
 
     /**
+     * @description The blocked IP address.
+     *
      * @example 10.12.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class machineList extends Model
     public $blockIp;
 
     /**
+     * @description The error code returned when the defense rule fails to block the IP address.
+     *
      * @example InstanceSecurityGroupLimitExceeded
      *
      * @var string
@@ -30,6 +36,8 @@ class machineList extends Model
     public $errorCode;
 
     /**
+     * @description The ID of the primary key in the table of records on the blocked IP address.
+     *
      * @example 112XX
      *
      * @var int
@@ -37,6 +45,8 @@ class machineList extends Model
     public $id;
 
     /**
+     * @description The name of the server.
+     *
      * @example record-test-***
      *
      * @var string
@@ -44,6 +54,8 @@ class machineList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address.
+     *
      * @example 120.79.XX.XX
      *
      * @var string
@@ -51,6 +63,8 @@ class machineList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -58,6 +72,8 @@ class machineList extends Model
     public $intranetIp;
 
     /**
+     * @description The port that is attacked.
+     *
      * @example 22/22
      *
      * @var string
@@ -65,6 +81,8 @@ class machineList extends Model
     public $port;
 
     /**
+     * @description The name of the defense rule.
+     *
      * @example AntiRuleName
      *
      * @var string
@@ -72,6 +90,11 @@ class machineList extends Model
     public $ruleName;
 
     /**
+     * @description The type of the defense rule. Valid values:
+     *
+     *   **userRule**: custom rule
+     *   **blinkRule**: system rule
+     *
      * @example userRule
      *
      * @var string
@@ -79,6 +102,12 @@ class machineList extends Model
     public $source;
 
     /**
+     * @description The status of the defense rule. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: enabled
+     *   **2**: failed
+     *
      * @example 2
      *
      * @var int
@@ -86,6 +115,8 @@ class machineList extends Model
     public $status;
 
     /**
+     * @description The UUID of the server on which access from the IP address is blocked.
+     *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1****
      *
      * @var string

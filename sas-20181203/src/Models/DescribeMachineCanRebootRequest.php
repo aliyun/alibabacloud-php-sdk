@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMachineCanRebootRequest extends Model
 {
     /**
-     * @example sys
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 5b268326-273e-44fc-a0e3-9482435c****
-     *
      * @var string
      */
     public $uuid;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $bind;
 
     /**
-     * @example i-bp1dp42hgn1xcq8l****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example win-oracl****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 8.210.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example 172.25.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
-     *
      * @var string
      */
     public $uuid;

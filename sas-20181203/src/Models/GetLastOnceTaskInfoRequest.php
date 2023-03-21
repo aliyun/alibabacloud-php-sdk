@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetLastOnceTaskInfoRequest extends Model
 {
     /**
-     * @example console_batch
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskType;

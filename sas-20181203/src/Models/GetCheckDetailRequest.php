@@ -9,28 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetCheckDetailRequest extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'checkId' => 'CheckId',
-        'lang'    => 'Lang',
+        'checkId'  => 'CheckId',
+        'lang'     => 'Lang',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -45,6 +40,9 @@ class GetCheckDetailRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -63,6 +61,9 @@ class GetCheckDetailRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

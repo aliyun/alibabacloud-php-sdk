@@ -9,104 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedInstancesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The name of the group to which the assets belong. Fuzzy search is supported.
-     *
-     * @example test-01
-     *
      * @var string
      */
     public $fieldValue;
 
     /**
-     * @description The filter condition that you want to use to query the assets. Valid values:
-     *
-     *   **groupId**: the group to which the assets belong
-     *   **regionId**: the region in which the assets reside
-     *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
-     *
-     * @example groupId
-     *
      * @var string
      */
     public $groupField;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The type of the assets that you want to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $machineTypes;
 
     /**
-     * @description Specifies whether to enable paged query. Default value: **true**. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $noPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The source of the server. Valid values:
-     *
-     *   **0**: an asset provided by Alibaba Cloud.
-     *   **1**: a third-party cloud server
-     *   **2**: a server in a data center
-     *   **3**, **4**, **5**, and **7**: other cloud asset
-     *   **8**: a lightweight asset
-     *
-     * @example 0
-     *
      * @var int
      */
     public $vendor;
 
     /**
-     * @description The source of the server. Separate multiple sources with commas (,).Valid values:
-     *
-     *   **0**: an asset provided by Alibaba Cloud.
-     *   **1**: a third-party cloud server
-     *   **2**: a server in a data center
-     *   **3**, **4**, **5**, and **7**: other cloud asset
-     *   **8**: a lightweight asset
-     *
-     * @example 0,8
-     *
      * @var string
      */
     public $vendors;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class warningRiskList extends Model
 {
     /**
-     * @example 105
-     *
      * @var int
      */
     public $riskId;

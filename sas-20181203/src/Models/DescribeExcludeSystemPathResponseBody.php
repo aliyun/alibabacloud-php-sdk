@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcludeSystemPathResponseBody extends Model
 {
     /**
+     * @description An array consisting of the directories that are excluded.
+     *
      * @var excludePaths[]
      */
     public $excludePaths;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example FBBEB173-1F43-505F-A876-C03ECDF6****
      *
      * @var string

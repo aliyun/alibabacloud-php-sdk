@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class targetConfigs extends Model
 {
     /**
-     * @example on
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $overAllConfig;
 
     /**
-     * @example cve
-     *
      * @var string
      */
     public $type;

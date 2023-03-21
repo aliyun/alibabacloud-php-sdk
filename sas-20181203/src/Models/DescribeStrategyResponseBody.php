@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 75C127E6-76CD-59A7-B6E4-1CBBDC98F2EB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the baseline check policies.
-     *
      * @var strategies[]
      */
     public $strategies;

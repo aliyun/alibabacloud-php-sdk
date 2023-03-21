@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRestoreJobResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BD4B24CE-E5C4-5727-B731-BE85F1D4****
      *
      * @var string

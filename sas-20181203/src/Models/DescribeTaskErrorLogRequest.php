@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskErrorLogRequest extends Model
 {
     /**
-     * @description The ID of the task that you create to fix an image vulnerability.
-     *
-     * @example ivf-6e520160-205d-4801-b8e9-9e7efd8c
-     *
      * @var string
      */
     public $buildTaskId;

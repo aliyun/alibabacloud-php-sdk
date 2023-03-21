@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineStrategyRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 8037
-     *
      * @var int
      */
     public $strategyId;

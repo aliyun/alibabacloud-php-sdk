@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class backupMachineStatus extends Model
 {
     /**
+     * @description The ID of the anti-ransomware agent.
+     *
      * @example c-000dbefaw9f7gnbw****
      *
      * @var string
@@ -17,6 +19,15 @@ class backupMachineStatus extends Model
     public $clientId;
 
     /**
+     * @description The status of the anti-ransomware agent. Valid values:
+     *
+     *   **ONLINE**: normal
+     *   **CLIENT_CONNECTION_ERROR**: abnormal
+     *   **UNINSTALLING**: being uninstalled
+     *   **UNINSTALL_FAILED**: failed to be uninstalled
+     *   **UPGRADING**: being upgraded
+     *   **UPGRADE_FAILED**: failed to be upgraded
+     *
      * @example ONLINE
      *
      * @var string
@@ -24,6 +35,8 @@ class backupMachineStatus extends Model
     public $clientStatus;
 
     /**
+     * @description The version of the anti-ransomware agent.
+     *
      * @example 2.11.0
      *
      * @var string
@@ -31,6 +44,8 @@ class backupMachineStatus extends Model
     public $clientVersion;
 
     /**
+     * @description The error code returned.
+     *
      * @example CLIENT_CONNECTION_ERROR
      *
      * @var string
@@ -38,11 +53,15 @@ class backupMachineStatus extends Model
     public $errorCode;
 
     /**
+     * @description An array that consists of the error information reported by the backup server.
+     *
      * @var errorList[]
      */
     public $errorList;
 
     /**
+     * @description The ID of the server.
+     *
      * @example i-2zeaqkb80vloxjcj****
      *
      * @var string
@@ -50,6 +69,8 @@ class backupMachineStatus extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -57,6 +78,8 @@ class backupMachineStatus extends Model
     public $regionId;
 
     /**
+     * @description The number of backup versions.
+     *
      * @example 7
      *
      * @var int
@@ -64,6 +87,12 @@ class backupMachineStatus extends Model
     public $savedBackupCount;
 
     /**
+     * @description The status of the anti-ransomware agent. Valid values:
+     *
+     *   **NOT_INSTALLED**: not installed
+     *   **CLIENT_CONNECTION_ERROR**: abnormal
+     *   **ACTIVATED**: normal
+     *
      * @example ACTIVATED
      *
      * @var string
@@ -71,6 +100,8 @@ class backupMachineStatus extends Model
     public $status;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example eb2c782e-64f2-4590-a86c-d90164df****
      *
      * @var string
@@ -78,6 +109,8 @@ class backupMachineStatus extends Model
     public $uuid;
 
     /**
+     * @description The ID of the backup vault in which the backup data is stored.
+     *
      * @example v-0005i2qh5fcr6seo****
      *
      * @var string

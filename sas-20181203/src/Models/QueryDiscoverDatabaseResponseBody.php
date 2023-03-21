@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDiscoverDatabaseResponseBody extends Model
 {
     /**
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 90
-     *
      * @var int
      */
     public $taskProgress;

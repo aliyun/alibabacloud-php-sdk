@@ -9,53 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The IDs of honeypots.
-     *
      * @var string[]
      */
     public $honeypotIds;
 
     /**
-     * @description The name of the honeypot.
-     *
-     * @example mx-rouyi
-     *
      * @var string
      */
     public $honeypotName;
 
     /**
-     * @description The ID of the management node to which the honeypot belongs.
-     *
-     * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The name of the management node to which the honeypot belongs.
-     *
-     * @example honeypot_master
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;

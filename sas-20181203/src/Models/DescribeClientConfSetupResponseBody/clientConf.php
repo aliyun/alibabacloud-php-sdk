@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class clientConf extends Model
 {
     /**
-     * @example {"mem":"200","cpu":"10","cpu_all":"0"}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example machineResource
-     *
      * @var string
      */
     public $strategyTag;
 
     /**
-     * @example major
-     *
      * @var string
      */
     public $strategyTagValue;

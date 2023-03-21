@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class checkAndRiskTypeList extends Model
 {
     /**
-     * @example 52
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @example hc_best_secruity
-     *
      * @var string
      */
     public $riskType;

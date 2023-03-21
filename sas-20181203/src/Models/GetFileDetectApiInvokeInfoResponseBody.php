@@ -15,8 +15,6 @@ class GetFileDetectApiInvokeInfoResponseBody extends Model
     public $data;
 
     /**
-     * @example 9f368b6e-d60a-43c5-bd6f-c7087f2d****
-     *
      * @var string
      */
     public $requestId;

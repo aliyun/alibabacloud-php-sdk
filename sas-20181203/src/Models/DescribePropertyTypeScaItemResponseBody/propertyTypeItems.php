@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class propertyTypeItems extends Model
 {
     /**
-     * @example Docker Component
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example docker_component
-     *
      * @var string
      */
     public $type;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleRequest extends Model
 {
     /**
-     * @example c17ef568f81884cdab402decd5fcd****
-     *
      * @var string
      */
     public $clusterId;
@@ -21,36 +19,26 @@ class ModifyInterceptionRuleRequest extends Model
     public $dstTarget;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $interceptType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $orderIndex;
 
     /**
-     * @example 500018
-     *
      * @var int
      */
     public $ruleId;
 
     /**
-     * @example tetsRule
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleSwitch;

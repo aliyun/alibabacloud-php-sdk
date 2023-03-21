@@ -10,34 +10,16 @@ use AlibabaCloud\Tea\Model;
 class suggestions extends Model
 {
     /**
-     * @description An array that consists of the details about the suggestion.
-     *
      * @var detail[]
      */
     public $detail;
 
     /**
-     * @description The penalty point of an item.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $points;
 
     /**
-     * @description The type of the unhandled security risk. Valid values:
-     *
-     *   **SS_REINFORCE**: missing configuration of key features, such as the antivirus feature
-     *   **SS_ALARM**: unhandled alerts
-     *   **SS_VUL**: unfixed vulnerabilities
-     *   **SS_HC**: baseline risks
-     *   **SS_AK**: AccessKey pair leaks
-     *   **SS_CLOUD_HC**: configuration risks of cloud services
-     *   **OTHER**: others
-     *
-     * @example SS_ALARM
-     *
      * @var string
      */
     public $suggestType;

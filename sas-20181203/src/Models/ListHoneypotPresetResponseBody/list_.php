@@ -14,43 +14,31 @@ class list_ extends Model
     public $controlNodeName;
 
     /**
-     * @example Metabase
-     *
      * @var string
      */
     public $honeypotImageDisplayName;
 
     /**
-     * @example metabase
-     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
-     * @example 3cc04a47-7229-418c-8101-f10a2887c90b
-     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
-     * @example c94eff5b-ea48-4805-8b7f-e04d3509b117
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @example WebMin-online
-     *
      * @var string
      */
     public $presetName;
 
     /**
-     * @example CUSTOM
-     *
      * @var string
      */
     public $presetType;

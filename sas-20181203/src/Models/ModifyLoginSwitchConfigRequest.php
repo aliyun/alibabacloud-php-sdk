@@ -9,26 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoginSwitchConfigRequest extends Model
 {
     /**
-     * @description The type of the alert that you want to enable or disable. Valid values:
-     *
-     *   **login\_common_ip**: alerts for unapproved logon IP addresses
-     *   **login\_common_time**: alerts for unapproved logon time ranges
-     *   **login\_common_account**: alerts for unapproved logon accounts
-     *
-     * @example login_common_account
-     *
      * @var string
      */
     public $item;
 
     /**
-     * @description Specifies whether to enable the logon security settings. Valid values:
-     *
-     *   **0**: disables the logon security settings
-     *   **1**: enables the logon security settings
-     *
-     * @example 0
-     *
      * @var int
      */
     public $status;

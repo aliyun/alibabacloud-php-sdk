@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageStatisticsResponseBody extends Model
 {
     /**
-     * @description The number of container images in your assets. Only Container Registry Enterprise Edition instances are counted.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $instanceCount;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of container images that have security risks. Only Container Registry Enterprise Edition instances are counted.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $riskInstanceCount;

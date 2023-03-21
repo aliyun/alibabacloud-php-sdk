@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAntiBruteForceRulesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 97286A-4A6B-4A4-95FA-EC7E3E2451
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array consisting of the servers to which the defense rule is applied.
-     *
      * @var rules[]
      */
     public $rules;

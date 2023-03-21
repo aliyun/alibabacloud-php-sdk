@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $highWarningCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $mediumWarningCount;

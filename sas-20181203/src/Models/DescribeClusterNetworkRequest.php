@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNetworkRequest extends Model
 {
     /**
-     * @example 1656038940435
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example 1656038740435
-     *
      * @var int
      */
     public $startTime;

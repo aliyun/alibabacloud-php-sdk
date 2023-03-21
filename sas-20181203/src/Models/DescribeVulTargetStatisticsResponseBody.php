@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetStatisticsResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
-     *
      * @var string
      */
     public $requestId;
@@ -36,8 +30,6 @@ class DescribeVulTargetStatisticsResponseBody extends Model
     public $targetStats;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;

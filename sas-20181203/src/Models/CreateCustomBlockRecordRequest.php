@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomBlockRecordRequest extends Model
 {
     /**
-     * @example 192.168.xx.xx
-     *
      * @var string
      */
     public $blockIp;
 
     /**
-     * @example in
-     *
      * @var string
      */
     public $bound;
 
     /**
-     * @example 1859094550000
-     *
      * @var int
      */
     public $expireTime;
@@ -35,8 +29,6 @@ class CreateCustomBlockRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 71c846d6-5c84-4714-acfc-58265bc3****,5013b5e8-1613-43a8-b4de-651db318****,df53f0ad-b3ba-4fe0-9ec7-f42a2ae2****
-     *
      * @var string
      */
     public $uuids;

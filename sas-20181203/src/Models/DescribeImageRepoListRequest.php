@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoListRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example repoName
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example zeus
-     *
      * @var string
      */
     public $fieldValue;
 
     /**
-     * @example count
-     *
      * @var string
      */
     public $operateType;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example script7
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @example libssh2
-     *
      * @var string
      */
     public $repoNamespace;
 
     /**
-     * @example Cluster
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @example containerNetwork
-     *
      * @var string
      */
     public $type;

@@ -15,8 +15,6 @@ class ListClusterCnnfStatusDetailResponseBody extends Model
     public $data;
 
     /**
-     * @example 64329F40-5C94-51D3-A400-37AA7BAC****
-     *
      * @var string
      */
     public $requestId;

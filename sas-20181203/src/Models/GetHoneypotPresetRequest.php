@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotPresetRequest extends Model
 {
     /**
-     * @example 207ca117-44b9-495d-84e7-50289b4c11c9
-     *
      * @var string
      */
     public $honeypotPresetId;

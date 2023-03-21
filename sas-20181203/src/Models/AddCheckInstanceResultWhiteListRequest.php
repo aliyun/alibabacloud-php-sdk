@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCheckInstanceResultWhiteListRequest extends Model
 {
     /**
+     * @description The ID of the group to which the check item belongs.
+     *
      * @example cQFq20UzZ49K6gRSJD1301****
      *
      * @var string
@@ -16,6 +18,8 @@ class AddCheckInstanceResultWhiteListRequest extends Model
     public $checkGroupId;
 
     /**
+     * @description The ID of the check item.
+     *
      * @example 132
      *
      * @var int
@@ -23,6 +27,8 @@ class AddCheckInstanceResultWhiteListRequest extends Model
     public $checkId;
 
     /**
+     * @description The instance IDs of assets.
+     *
      * @var string[]
      */
     public $instanceIds;

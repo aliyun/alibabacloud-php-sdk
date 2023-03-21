@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfStrategyRequest extends Model
 {
     /**
-     * @example machineResource
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @example auto
-     *
      * @var string
      */
     public $tagExt;
 
     /**
-     * @example advanced
-     *
      * @var string
      */
     public $tagValue;
 
     /**
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuid;

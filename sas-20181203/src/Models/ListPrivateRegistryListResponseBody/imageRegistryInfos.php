@@ -9,127 +9,91 @@ use AlibabaCloud\Tea\Model;
 class imageRegistryInfos extends Model
 {
     /**
-     * @example 1766185894******
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example 66485
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example JenkinsInfo
-     *
      * @var string
      */
     public $jenkinsEnv;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $netType;
 
     /**
-     * @example Harbor******
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example 90
-     *
      * @var int
      */
     public $persistenceDay;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $protocolType;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 114.55.XXX.XXX
-     *
      * @var string
      */
     public $registryHostIp;
 
     /**
-     * @example test1
-     *
      * @var string
      */
     public $registryName;
 
     /**
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;
 
     /**
-     * @example V1
-     *
      * @var string
      */
     public $registryVersion;
 
     /**
-     * @example 0da12bce-cc36-4c48-b3e6-2215fc3a****
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $transPerHour;
 
     /**
-     * @example RegistryUser
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example vpc-bp12897gqrex01zn0****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example 100.104.XXX.XXX
-     *
      * @var string
      */
     public $whiteList;

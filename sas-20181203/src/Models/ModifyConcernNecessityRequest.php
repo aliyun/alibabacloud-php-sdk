@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyConcernNecessityRequest extends Model
 {
     /**
-     * @example asap,nntf
-     *
      * @var string
      */
     public $concernNecessity;

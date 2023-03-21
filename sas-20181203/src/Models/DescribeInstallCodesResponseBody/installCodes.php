@@ -9,69 +9,36 @@ use AlibabaCloud\Tea\Model;
 class installCodes extends Model
 {
     /**
-     * @description The installation verification code for you to manually install the Security Center agent.
-     *
-     * @example 15v02r
-     *
      * @var string
      */
     public $captchaCode;
 
     /**
-     * @description The timestamp when the installation command expires. Unit: milliseconds.
-     *
-     * @example 1637810007000
-     *
      * @var int
      */
     public $expiredDate;
 
     /**
-     * @description The ID of the server group to which the server belongs.
-     *
-     * @example 9165712
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The name of the server group to which the server belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description Indicates whether an image is used to install the Security Center agent. Valid values:
-     *
-     *   **true**: An image is used to install the Security Center agent.
-     *   **false**: An image is not used to install the Security Center agent.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $onlyImage;
 
     /**
-     * @description The operating system of the server. Valid values:
-     *   **linux**: Linux.
-     *   **windows**: Windows.
-     *
-     * @example linux
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The name of the server provider.
-     *
-     * @example ALIYUN
-     *
      * @var string
      */
     public $vendorName;

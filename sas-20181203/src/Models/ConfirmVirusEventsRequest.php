@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ConfirmVirusEventsRequest extends Model
 {
     /**
+     * @description Specifies whether to handle all alert events. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,13 @@ class ConfirmVirusEventsRequest extends Model
     public $operationAll;
 
     /**
+     * @description The operation that you want to perform on the alert events. Valid values:
+     *
+     *   **default**: performs in-depth detection and removal
+     *   **ignore**: ignores the alert event
+     *   **advance\_mark\_mis_info**: adds the alert events to the whitelist
+     *   **manual_handled**: marks the alert events as manually handled
+     *
      * @example default
      *
      * @var string
@@ -23,6 +35,8 @@ class ConfirmVirusEventsRequest extends Model
     public $operationCode;
 
     /**
+     * @description The server on which you want to perform the alert events.
+     *
      * @example [{\"type\":\"machine\",\"list\":[\"3aedba3d-bd4d-4dfb-bb0d-xxxxxxxxxxxx\"]}]
      *
      * @var string

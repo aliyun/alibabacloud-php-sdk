@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCountNotScannedImageResponseBody extends Model
 {
     /**
-     * @example 28
-     *
      * @var int
      */
     public $notScannedCnt;
 
     /**
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
-     *
      * @var string
      */
     public $requestId;

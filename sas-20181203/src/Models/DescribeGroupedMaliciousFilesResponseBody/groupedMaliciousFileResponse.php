@@ -9,73 +9,36 @@ use AlibabaCloud\Tea\Model;
 class groupedMaliciousFileResponse extends Model
 {
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
-     *
-     * @example 1594907349000
-     *
      * @var int
      */
     public $firstScanTimestamp;
 
     /**
-     * @description The number of affected images.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $imageCount;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
-     *
-     * @example 1596533942000
-     *
      * @var int
      */
     public $latestScanTimestamp;
 
     /**
-     * @description The severity of the malicious image sample. Valid values:
-     *
-     *   **serious**
-     *   **suspicious**
-     *   **remind**
-     *
-     * @example serious
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The MD5 hash value of the malicious image sample.
-     *
-     * @example d836968041f7683b5459****
-     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
-     * @description The name of the malicious image sample.
-     *
-     * @example testFile
-     *
      * @var string
      */
     public $maliciousName;
 
     /**
-     * @description The handling status of the malicious image sample. Valid values:
-     *
-     *   **0**: unhandled
-     *   **1**: handled
-     *   **2**: verifying
-     *   **3**: added to the whitelist
-     *
-     * @example 0
-     *
      * @var int
      */
     public $status;

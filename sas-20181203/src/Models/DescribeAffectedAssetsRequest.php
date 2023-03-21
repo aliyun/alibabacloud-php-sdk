@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedAssetsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $current;
 
     /**
-     * @example serious,suspicious,remind
-     *
      * @var string
      */
     public $levels;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;

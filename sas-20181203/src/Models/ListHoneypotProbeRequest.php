@@ -14,8 +14,6 @@ class ListHoneypotProbeRequest extends Model
     public $currentPage;
 
     /**
-     * @example probe-test
-     *
      * @var string
      */
     public $displayName;
@@ -31,15 +29,11 @@ class ListHoneypotProbeRequest extends Model
     public $pageSize;
 
     /**
-     * @example online
-     *
      * @var string
      */
     public $probeStatus;
 
     /**
-     * @example host_probe
-     *
      * @var string
      */
     public $probeType;

@@ -10,277 +10,136 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the alert event.
-     *
-     * @example Login with unusual location
-     *
      * @var string
      */
     public $alarmEventAliasName;
 
     /**
-     * @description The description of the alert event.
-     *
-     * @example The detection model finds that self-mutation is running on your server. A self-mutation Trojan is a Trojan horse program with self-mutation function. It will change its hash or copy a large number of itself to different paths, and run in the background to avoid cleaning.
-     *
      * @var string
      */
     public $alarmEventDesc;
 
     /**
-     * @description The unique ID of the alert event.
-     *
-     * >  To query the details about an alert event, you must specify the unique ID of the alert event. You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query the unique IDs of alert events.
-     * @example 9f62555666f177aa84ee1eaf465a****
-     *
      * @var string
      */
     public $alarmUniqueInfo;
 
     /**
-     * @description The name of the container application.
-     *
-     * @example app:msdp-uat-service
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description Indicates whether the online handling of the alert event is supported. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $canBeDealOnLine;
 
     /**
-     * @description Indicates whether you can cancel marking the alert event as a false positive. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $canCancelFault;
 
     /**
-     * @description An array consisting of the cause of the alert event, which can be used to trace the alert event.
-     *
      * @var causeDetails[]
      */
     public $causeDetails;
 
     /**
-     * @description Indicates whether the Safeguard Mode For Major Activities mode is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $containHwMode;
 
     /**
-     * @description The ID of the container application.
-     *
-     * @example container_1606995441910_394868_01_000***
-     *
      * @var string
      */
     public $containerId;
 
     /**
-     * @description The ID of the image to which the container belongs.
-     *
-     * @example cadb7a725641
-     *
      * @var string
      */
     public $containerImageId;
 
     /**
-     * @description The name of the image to which the container belongs.
-     *
-     * @example jenkins/jenkins:latest
-     *
      * @var string
      */
     public $containerImageName;
 
     /**
-     * @description The data source of the alert event.
-     *
-     * @example aegis_***
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description The timestamp when the alert event ends. Unit: milliseconds.
-     *
-     * @example 1542366542000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The name of the instance.
-     *
-     * @example i-wz92q7m5hsbgfhdss***
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the associated instance.
-     *
-     * @example 172.16.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the associated instance.
-     *
-     * @example 172.25.30.**
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The ID of the Kubernetes cluster.
-     *
-     * @example c562cf0d68e9749ee9fe544a7ab2f****
-     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
-     * @description The name of the Kubernetes cluster.
-     *
-     * @example TestK8sCluser
-     *
      * @var string
      */
     public $k8sClusterName;
 
     /**
-     * @description The namespace of the Kubernetes cluster.
-     *
-     * @example sit-saic-trip
-     *
      * @var string
      */
     public $k8sNamespace;
 
     /**
-     * @description The ID of the Kubernetes cluster node.
-     *
-     * @example i-bp14a1ay8e0aa9t0l***
-     *
      * @var string
      */
     public $k8sNodeId;
 
     /**
-     * @description The name of the Kubernetes cluster node.
-     *
-     * @example cn-hangzhou.10.188.139.**
-     *
      * @var string
      */
     public $k8sNodeName;
 
     /**
-     * @description The name of the Kubernetes pod.
-     *
-     * @example myapp-pod
-     *
      * @var string
      */
     public $k8sPodName;
 
     /**
-     * @description The severity of the alert event. Valid values:
-     *
-     *   **serious**
-     *   **suspicious**
-     *   **remind**
-     *
-     * @example serious
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The solution to the alert event.
-     *
-     * @example An invalid logon source IP has been detected. If you recognize this logon attempt, we recommend that you add the current logon source IP to the valid logon source IP list to avoid future alerts. If you do not recognize this logon attempt, we recommend that you modify the password.
-     *
      * @var string
      */
     public $solution;
 
     /**
-     * @description The timestamp when the alert event starts. Unit: milliseconds.
-     *
-     * @example 1542378601000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The alert type of the alert event. Valid values:
-     *
-     *   Suspicious process
-     *   Webshell
-     *   Unusual logon
-     *   Exception
-     *   Sensitive file tampering
-     *   Malicious process (cloud threat detection)
-     *   Suspicious network connection
-     *   Other
-     *   Abnormal account
-     *   Application intrusion event
-     *   Cloud threat detection
-     *   Precise defense
-     *   Application whitelist
-     *   Persistent webshell
-     *   Web application threat detection
-     *   Malicious script
-     *   Threat intelligence
-     *   Malicious network activity
-     *   Cluster exception
-     *   Webshell (on-premises threat detection)
-     *   Vulnerability exploitation
-     *   Malicious process (on-premises threat detection)
-     *   Trusted exception
-     *
-     * @example Webshell
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The instance UUID of the asset.
-     *
-     * @example 6690a46c-0edb-4663-a641-3629d1a9****
-     *
      * @var string
      */
     public $uuid;

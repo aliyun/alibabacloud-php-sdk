@@ -34,6 +34,11 @@ class ListInterceptionHistoryRequest extends Model
     public $interceptionTypes;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -48,6 +53,7 @@ class ListInterceptionHistoryRequest extends Model
         'endTime'           => 'EndTime',
         'historyName'       => 'HistoryName',
         'interceptionTypes' => 'InterceptionTypes',
+        'lang'              => 'Lang',
         'pageSize'          => 'PageSize',
         'startTime'         => 'StartTime',
     ];
@@ -73,6 +79,9 @@ class ListInterceptionHistoryRequest extends Model
         }
         if (null !== $this->interceptionTypes) {
             $res['InterceptionTypes'] = $this->interceptionTypes;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -108,6 +117,9 @@ class ListInterceptionHistoryRequest extends Model
             if (!empty($map['InterceptionTypes'])) {
                 $model->interceptionTypes = $map['InterceptionTypes'];
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

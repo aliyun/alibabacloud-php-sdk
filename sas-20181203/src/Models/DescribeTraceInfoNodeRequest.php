@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoNodeRequest extends Model
 {
     /**
-     * @example WEBSHELL
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example 1635978934000
-     *
      * @var int
      */
     public $incidentTime;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @example SAS_ASSET
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 6f346617-eef9-45e6-b6d1-946xxxxxxxx
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @example 03da4e2350a3eb50cd25a18cexxxxxxx
-     *
      * @var string
      */
     public $vertexId;

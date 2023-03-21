@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class recoverableInfoList extends Model
 {
     /**
-     * @example 1671468180000
-     *
      * @var int
      */
     public $firstTime;
 
     /**
-     * @example 1671468180000
-     *
      * @var int
      */
     public $lastTime;
 
     /**
-     * @example 4529940.0
-     *
      * @var string
      */
     public $resetScn;
 
     /**
-     * @example 2021-01-30 08:04:36
-     *
      * @var int
      */
     public $resetTime;
 
     /**
-     * @example {
-     * }
      * @var string
      */
     public $restoreInfo;

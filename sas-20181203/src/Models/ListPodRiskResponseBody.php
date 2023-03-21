@@ -21,8 +21,6 @@ class ListPodRiskResponseBody extends Model
     public $podRiskList;
 
     /**
-     * @example 94254AD7-5026-5847-833B-403C2326BD6E
-     *
      * @var string
      */
     public $requestId;

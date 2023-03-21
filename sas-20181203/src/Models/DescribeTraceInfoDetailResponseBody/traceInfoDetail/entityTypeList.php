@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class entityTypeList extends Model
 {
     /**
-     * @example Deprecated
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @example #fff
-     *
      * @var string
      */
     public $displayColor;
 
     /**
-     * @example https://img.alicdn.com/tfs/TB176P5OgDqK1RjSZSyXXaxEVXa-49-48.png
-     *
      * @var string
      */
     public $displayIcon;
 
     /**
-     * @example [{"name":"${logtime}","value":"$!{time}"}]
-     *
      * @var string
      */
     public $displayTemplate;
 
     /**
-     * @example 2022-10-09T11:47Z
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 2022-10-09T11:47Z
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @example Alert
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example Deprecated
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @example Alert
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example *
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @example Deprecated
-     *
      * @var int
      */
     public $offset;

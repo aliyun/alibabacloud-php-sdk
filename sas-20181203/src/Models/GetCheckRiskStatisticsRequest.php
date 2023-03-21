@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetCheckRiskStatisticsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;

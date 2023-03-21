@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBruteForceSummaryResponseBody extends Model
 {
     /**
-     * @description The statistics of IP address blocking policies.
-     *
      * @var bruteForceSummary
      */
     public $bruteForceSummary;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example AE60EAE3-ABD0-897C-B0F16CAC6C7D
-     *
      * @var string
      */
     public $requestId;

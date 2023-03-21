@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppVulScanCycleRequest extends Model
 {
     /**
-     * @example 1week
-     *
      * @var string
      */
     public $cycle;

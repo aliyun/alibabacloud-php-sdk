@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
-     * @description The number of servers on which the process runs.
-     *
-     * @example 8888
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The name of the process.
-     *
-     * @example .ss
-     *
      * @var string
      */
     public $name;

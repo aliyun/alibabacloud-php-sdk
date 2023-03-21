@@ -9,24 +9,16 @@ use AlibabaCloud\Tea\Model;
 class attackEvent extends Model
 {
     /**
-     * @description The points in time when the number of attacks is collected in the trend chart.
-     *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The total number of attacks on the current day.
-     *
-     * @example 1096
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The numbers of attacks at all points in time.
-     *
      * @var string[]
      */
     public $valueArray;

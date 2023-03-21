@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpTagsRequest extends Model
 {
     /**
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 11
-     *
      * @var string
      */
     public $securityEventId;

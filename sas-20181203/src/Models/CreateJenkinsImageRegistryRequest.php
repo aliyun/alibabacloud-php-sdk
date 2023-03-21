@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateJenkinsImageRegistryRequest extends Model
 {
     /**
+     * @description The domain name of the image repository.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $domainName;
 
     /**
+     * @description The additional parameters of the image repository. The value of this parameter contains the following fields:
+     *
+     *   **namespace**: the namespace
+     *   **authToken**: the authorization token
+     *
      * @example [{\"namespace\":\"aa\",\"authToken\":\"aa\"}]
      *
      * @var string
@@ -23,6 +30,11 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $extraParam;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet
+     *   **2**: Virtual Private Cloud (VPC)
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +42,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $netType;
 
     /**
+     * @description The password.
+     *
      * @example Harbor********
      *
      * @var string
@@ -37,6 +51,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $password;
 
     /**
+     * @description The number of days during which assets can be retained.
+     *
      * @example 30
      *
      * @var int
@@ -44,6 +60,11 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $persistenceDay;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **1**: HTTP
+     *   **2**: HTTPS
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +72,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $protocolType;
 
     /**
+     * @description The region ID of the image repository.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -58,6 +81,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $regionId;
 
     /**
+     * @description The IP address of the image repository.
+     *
      * @example 114.55.XXX.XXX
      *
      * @var string
@@ -65,6 +90,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $registryHostIp;
 
     /**
+     * @description The alias of the image repository.
+     *
      * @example testRepo
      *
      * @var string
@@ -72,6 +99,10 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $registryName;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **CI/CD**: Jenkins
+     *
      * @example CI/CD
      *
      * @var string
@@ -79,6 +110,12 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $registryType;
 
     /**
+     * @description The version of the image repository. Default value: -. Valid values:
+     *
+     *   **-**: the default version
+     *   **V1**: V1.0
+     *   **V2**: V2.0
+     *
      * @example V1
      *
      * @var string
@@ -86,6 +123,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $registryVersion;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 41.121.XXX.XXX
      *
      * @var string
@@ -93,6 +132,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The number of images that can be scanned per hour.
+     *
      * @example 30
      *
      * @var int
@@ -100,6 +141,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $transPerHour;
 
     /**
+     * @description The username.
+     *
      * @example RegistryUser
      *
      * @var string
@@ -107,6 +150,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $userName;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-2ze4aoqgeu51ydfb8****
      *
      * @var string
@@ -114,6 +159,8 @@ class CreateJenkinsImageRegistryRequest extends Model
     public $vpcId;
 
     /**
+     * @description The whitelist of IP addresses.
+     *
      * @example 192.168.XXX.XXX
      *
      * @var string

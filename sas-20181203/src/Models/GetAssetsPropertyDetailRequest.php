@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetAssetsPropertyDetailRequest extends Model
 {
     /**
-     * @example lkm
-     *
      * @var string
      */
     public $biz;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example virtio
-     *
      * @var string
      */
     public $itemName;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $remark;
@@ -57,8 +45,6 @@ class GetAssetsPropertyDetailRequest extends Model
     public $searchCriteriaList;
 
     /**
-     * @example 38f72ea4-4c9f-4df1-bc6c-0f267614****
-     *
      * @var string
      */
     public $uuid;

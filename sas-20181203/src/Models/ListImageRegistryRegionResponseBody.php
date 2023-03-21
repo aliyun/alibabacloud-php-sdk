@@ -15,8 +15,6 @@ class ListImageRegistryRegionResponseBody extends Model
     public $regions;
 
     /**
-     * @example 291B49F9-1685-4005-9D34-606B6F78****
-     *
      * @var string
      */
     public $requestId;

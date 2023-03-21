@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
-     * @example 686188****
-     *
      * @var int
      */
     public $actualBytes;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $actualItems;
 
     /**
-     * @example 800
-     *
      * @var int
      */
     public $bytesDone;
 
     /**
-     * @example 3484541815****
-     *
      * @var int
      */
     public $bytesTotal;
 
     /**
-     * @example c-000dbefaw9f7gnbw****
-     *
      * @var string
      */
     public $clientId;
 
     /**
-     * @example 2.10.0
-     *
      * @var string
      */
     public $clientVersion;
 
     /**
-     * @example 1646793988
-     *
      * @var int
      */
     public $createdTime;
 
     /**
-     * @example s-0008ndhgrflh55i5****.csv
-     *
      * @var string
      */
     public $errorFile;
 
     /**
-     * @example i-2ze78zfakirgh1yl****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $itemsDone;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $itemsTotal;
 
     /**
-     * @example job-000a2q5vg6awgo01****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @example a0181606689c9562f092b3190bddb8a62bb5a24784424ba2102bc7fe92ae****
-     *
      * @var string
      */
     public $parentSnapshotHash;
 
     /**
-     * @example ["/home"]
-     *
      * @var string
      */
     public $path;
@@ -112,64 +84,46 @@ class snapshots extends Model
     public $paths;
 
     /**
-     * @example plan-000ee8gh2ljelsnb****
-     *
      * @var string
      */
     public $planId;
 
     /**
-     * @example us-east-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $retention;
 
     /**
-     * @example 9ee47cf12351e4ddecce8c12f4957d3946cd96fbe24cd4ab264c7200839d****
-     *
      * @var string
      */
     public $snapshotHash;
 
     /**
-     * @example s-0003ahfuqpjdztsg****
-     *
      * @var string
      */
     public $snapshotId;
 
     /**
-     * @example ECS_FILE
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @example COMPLETE
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example d332af48-1269-4a55-a6db-8543a80f****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @example v-000ccok3zmw7fbzz****
-     *
      * @var string
      */
     public $vaultId;

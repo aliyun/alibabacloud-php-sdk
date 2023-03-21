@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotSuspStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 9E3969FA-5ACC-4256-9FDE-BB6918CD0410
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array consisting of the top 5 VPCs or assets for which alerts are most frequently generated.
-     *
      * @var suspHoneyPotStatisticsResponse[]
      */
     public $suspHoneyPotStatisticsResponse;

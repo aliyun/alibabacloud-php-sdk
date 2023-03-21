@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockUnbindRequest extends Model
 {
     /**
-     * @example 8d217d3f-6999-43a6-a435-c7a6854180e9
-     *
      * @var string
      */
     public $uuid;

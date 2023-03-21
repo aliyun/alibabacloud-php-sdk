@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class edgeList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example a1d1fa39e5345dcef3f9712172cxxxxx
-     *
      * @var string
      */
     public $endId;
 
     /**
-     * @example 02b4bf933c8e3bb8b9465eee502xxxxx
-     *
      * @var string
      */
     public $startId;
 
     /**
-     * @example 2022-12-21 10:24:42
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @example trigger_file_alert
-     *
      * @var string
      */
     public $type;

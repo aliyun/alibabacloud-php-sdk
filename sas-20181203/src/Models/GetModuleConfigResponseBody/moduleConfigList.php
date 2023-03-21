@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class moduleConfigList extends Model
 {
     /**
-     * @example timescan
-     *
      * @var string
      */
     public $configName;
@@ -22,8 +20,6 @@ class moduleConfigList extends Model
     public $items;
 
     /**
-     * @example alihids
-     *
      * @var string
      */
     public $moduleName;

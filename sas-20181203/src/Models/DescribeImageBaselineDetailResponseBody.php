@@ -15,8 +15,6 @@ class DescribeImageBaselineDetailResponseBody extends Model
     public $baselineDetail;
 
     /**
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF4****
-     *
      * @var string
      */
     public $requestId;

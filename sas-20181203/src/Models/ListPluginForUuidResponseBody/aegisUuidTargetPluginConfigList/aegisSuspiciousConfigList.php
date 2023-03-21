@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class aegisSuspiciousConfigList extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $config;
 
     /**
-     * @example authorized
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $overallConfig;
 
     /**
-     * @example alisecguard
-     *
      * @var string
      */
     public $type;

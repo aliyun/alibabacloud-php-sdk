@@ -10,59 +10,31 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
-     * @description The metadata information about the details of the instances.
-     *
      * @var grids[]
      */
     public $grids;
 
     /**
-     * @description The search condition.
-     *
-     * @example RegionIdShow
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description Indicates whether the search condition is used. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $search;
 
     /**
-     * @description The value of the search condition.
-     *
-     * @example InstanceIdKey
-     *
      * @var string
      */
     public $searchKey;
 
     /**
-     * @description The display name of the search condition.
-     *
-     * @example Region
-     *
      * @var string
      */
     public $showName;
 
     /**
-     * @description The format of the check results for the instances. Valid values:
-     *
-     *   **text**
-     *   **link**
-     *
-     * @example text
-     *
      * @var string
      */
     public $type;

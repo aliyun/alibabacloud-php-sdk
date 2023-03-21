@@ -15,8 +15,6 @@ class DescribeTraceInfoNodeResponseBody extends Model
     public $node;
 
     /**
-     * @example F35F45B0-5D6B-4238-BE02-A62DXXXXXXXX
-     *
      * @var string
      */
     public $requestId;

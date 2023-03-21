@@ -15,8 +15,6 @@ class AddPrivateRegistryResponseBody extends Model
     public $data;
 
     /**
-     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
-     *
      * @var string
      */
     public $requestId;

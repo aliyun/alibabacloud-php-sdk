@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class groupedFileds extends Model
 {
     /**
-     * @description The number of assets to which the tag is added.
-     *
-     * @example 152
-     *
      * @var string
      */
     public $count;
 
     /**
-     * @description The name of the tag.
-     *
-     * @example InternetIp
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the tag.
-     *
-     * @example 3252366
-     *
      * @var int
      */
     public $tagId;

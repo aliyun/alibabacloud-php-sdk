@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerScanTaskRequest extends Model
 {
     /**
-     * @example c22143730ab6e40b09ec7c1c51d4d****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example c927cf190e886696db53cda0efb57145394ccf0bf9f525353fa5c22a26e4****
-     *
      * @var string
      */
     public $containerIds;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;

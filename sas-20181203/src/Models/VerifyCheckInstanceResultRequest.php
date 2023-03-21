@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class VerifyCheckInstanceResultRequest extends Model
 {
     /**
-     * @example 16
-     *
      * @var int
      */
     public $checkId;

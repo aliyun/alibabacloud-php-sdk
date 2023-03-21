@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetConfigRequest extends Model
 {
     /**
-     * @example cve
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example ae1527a9-2308-46ab-b10a-48ae7ff7****
-     *
      * @var string
      */
     public $uuid;

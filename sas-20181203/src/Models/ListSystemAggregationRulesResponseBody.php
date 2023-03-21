@@ -21,8 +21,6 @@ class ListSystemAggregationRulesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example 6800B790-B10A-5C2F-BEB3-F1D5CE61****
-     *
      * @var string
      */
     public $requestId;

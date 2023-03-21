@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotNodeRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $availableProbeNum;
 
     /**
-     * @example 67ab3f4c-3db5-4fc3-b51f-00f8bfabfa08
-     *
      * @var string
      */
     public $nodeId;

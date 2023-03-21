@@ -9,20 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVersionConfigRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that uses Security Center.
-     *
-     * >  You can call the [GetUser](~~28681~~) operation to query the IDs of Alibaba Cloud accounts.
-     * @example 127608589417****
-     *
      * @var string
      */
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

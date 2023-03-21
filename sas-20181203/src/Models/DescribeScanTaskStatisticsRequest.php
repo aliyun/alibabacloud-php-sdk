@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskStatisticsRequest extends Model
 {
     /**
-     * @example serious,suspicious,remind
-     *
      * @var string
      */
     public $levels;

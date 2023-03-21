@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of images to scan in the task.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $needAuthCount;
 
     /**
-     * @description The quota for container image scan to be consumed by the task.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $scanImageCount;

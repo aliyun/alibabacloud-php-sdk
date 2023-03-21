@@ -15,36 +15,26 @@ class strategy extends Model
     public $baselineItemList;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $selectedItemCount;
 
     /**
-     * @example 8257
-     *
      * @var int
      */
     public $strategyId;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $strategyName;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalItemCount;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $type;

@@ -9,23 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
-     * @description The UUID or group ID of the server.
-     *
-     * @example 0011ea53-738c-4bff-93be-ce6a1cc9****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The type of the server to which the configuration is applied. Valid values:
-     *
-     *   **uuid**: a server
-     *   **groupId**: a server group
-     *   **global**: all servers
-     *
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;

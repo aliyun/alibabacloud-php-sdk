@@ -14,15 +14,11 @@ class DescribeImageBaselineDetailRequest extends Model
     public $baselineItemKey;
 
     /**
-     * @example 06293273b67d19516cfcc712194f****
-     *
      * @var string
      */
     public $imageUuid;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;

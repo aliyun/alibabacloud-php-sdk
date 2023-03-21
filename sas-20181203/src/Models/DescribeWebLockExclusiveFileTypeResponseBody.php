@@ -14,15 +14,11 @@ class DescribeWebLockExclusiveFileTypeResponseBody extends Model
     public $exclusiveFileType;
 
     /**
-     * @example 9CCD7D51-5E81-5FF5-BD74-813DDD248430
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $totalCount;

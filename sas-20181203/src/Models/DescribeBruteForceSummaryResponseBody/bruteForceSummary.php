@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class bruteForceSummary extends Model
 {
     /**
-     * @description The total number of IP address blocking policies.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $allStrategyCount;
 
     /**
-     * @description The number of enabled IP address blocking policies.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $effectiveCount;

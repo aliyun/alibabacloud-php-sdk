@@ -9,169 +9,121 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @example 5-rce_web_1
-     *
      * @var string
      */
     public $containerName;
 
     /**
-     * @example 1649149566000
-     *
      * @var int
      */
     public $createTimestamp;
 
     /**
-     * @example localhost
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example /lib/modules/4****
-     *
      * @var string
      */
     public $filepath;
 
     /**
-     * @example registry-vpc.cn-beijing.aliyuncs.com/acs/aliyun-ingress-controller****
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @example i-hp35tftuh52wbp1g****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example hc-host-****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 47.42.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example 100.104.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @example 47.42.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example tcp
-     *
      * @var string
      */
     public $listenProtocol;
 
     /**
-     * @example alihids
-     *
      * @var string
      */
     public $moduleName;
 
     /**
-     * @example /lib/systemd/system****
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @example 755
-     *
      * @var string
      */
     public $pathMode;
 
     /**
-     * @example 813
-     *
      * @var string
      */
     public $pid;
 
     /**
-     * @example 80
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @example 1671186801000
-     *
      * @var int
      */
     public $processStarted;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example nginx
-     *
      * @var string
      */
     public $serverType;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $usedByCount;
 
     /**
-     * @example root
-     *
      * @var string
      */
     public $user;
 
     /**
-     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @example /usr/share/nginx/html
-     *
      * @var string
      */
     public $webPath;

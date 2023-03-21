@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class srcNode extends Model
 {
     /**
-     * @example arms-prometheus-ack-arms-prometheus
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example c56xxx1775dea0
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -35,15 +29,11 @@ class srcNode extends Model
     public $nodeIds;
 
     /**
-     * @example app
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @example abc-deployment-yacs-31144-39265-1384966-7f8c8cd578-h6mhb
-     *
      * @var string
      */
     public $podName;

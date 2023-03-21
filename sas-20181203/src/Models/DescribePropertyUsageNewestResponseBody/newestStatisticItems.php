@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class newestStatisticItems extends Model
 {
     /**
-     * @description The time when the account was created.
-     *
-     * @example 1566178646000
-     *
      * @var int
      */
     public $create;
 
     /**
-     * @description The username of the account.
-     *
-     * @example root
-     *
      * @var string
      */
     public $name;

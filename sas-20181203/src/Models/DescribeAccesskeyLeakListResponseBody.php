@@ -10,62 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccesskeyLeakListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about AccessKey pair leaks.
-     *
      * @var accessKeyLeakList[]
      */
     public $accessKeyLeakList;
 
     /**
-     * @description The number of AccessKey pair leaks that are unhandled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $akLeakCount;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 1612357897000
-     *
      * @var int
      */
     public $gmtLast;
 
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B37C9052-A73E-4707-A024-9247702852BE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of AccessKey pair leaks.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;

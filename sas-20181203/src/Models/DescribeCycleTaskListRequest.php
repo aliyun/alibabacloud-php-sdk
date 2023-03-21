@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCycleTaskListRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeCycleTaskListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,12 @@ class DescribeCycleTaskListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the task. Valid values:
+     *
+     *   **VIRUS\_VUL\_SCHEDULE_SCAN**: virus scan task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG\_VUL\_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -30,6 +40,12 @@ class DescribeCycleTaskListRequest extends Model
     public $taskName;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **VIRUS\_VUL\_SCHEDULE_SCAN**: virus scan task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG\_VUL\_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
      * @example IMAGE_SCAN
      *
      * @var string

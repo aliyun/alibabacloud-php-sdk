@@ -9,77 +9,65 @@ use AlibabaCloud\Tea\Model;
 class interceptionSummary extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $closeClusterCount;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $closeRuleCount;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $clusterCount;
 
     /**
-     * @example 0
-     *
+     * @var int
+     */
+    public $interceptionCountInDays;
+
+    /**
      * @var int
      */
     public $openClusterCount;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $openRuleCount;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $riskCount180Day;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $riskCount30Day;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $riskCountToday;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $ruleCount;
     protected $_name = [
-        'closeClusterCount' => 'CloseClusterCount',
-        'closeRuleCount'    => 'CloseRuleCount',
-        'clusterCount'      => 'ClusterCount',
-        'openClusterCount'  => 'OpenClusterCount',
-        'openRuleCount'     => 'OpenRuleCount',
-        'riskCount180Day'   => 'RiskCount180Day',
-        'riskCount30Day'    => 'RiskCount30Day',
-        'riskCountToday'    => 'RiskCountToday',
-        'ruleCount'         => 'RuleCount',
+        'closeClusterCount'       => 'CloseClusterCount',
+        'closeRuleCount'          => 'CloseRuleCount',
+        'clusterCount'            => 'ClusterCount',
+        'interceptionCountInDays' => 'InterceptionCountInDays',
+        'openClusterCount'        => 'OpenClusterCount',
+        'openRuleCount'           => 'OpenRuleCount',
+        'riskCount180Day'         => 'RiskCount180Day',
+        'riskCount30Day'          => 'RiskCount30Day',
+        'riskCountToday'          => 'RiskCountToday',
+        'ruleCount'               => 'RuleCount',
     ];
 
     public function validate()
@@ -97,6 +85,9 @@ class interceptionSummary extends Model
         }
         if (null !== $this->clusterCount) {
             $res['ClusterCount'] = $this->clusterCount;
+        }
+        if (null !== $this->interceptionCountInDays) {
+            $res['InterceptionCountInDays'] = $this->interceptionCountInDays;
         }
         if (null !== $this->openClusterCount) {
             $res['OpenClusterCount'] = $this->openClusterCount;
@@ -136,6 +127,9 @@ class interceptionSummary extends Model
         }
         if (isset($map['ClusterCount'])) {
             $model->clusterCount = $map['ClusterCount'];
+        }
+        if (isset($map['InterceptionCountInDays'])) {
+            $model->interceptionCountInDays = $map['InterceptionCountInDays'];
         }
         if (isset($map['OpenClusterCount'])) {
             $model->openClusterCount = $map['OpenClusterCount'];

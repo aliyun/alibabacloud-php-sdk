@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CancelOnceTaskRequest extends Model
 {
     /**
-     * @example ec9c0d88f36cc27765a98c554ee2****
-     *
      * @var string
      */
     public $taskId;

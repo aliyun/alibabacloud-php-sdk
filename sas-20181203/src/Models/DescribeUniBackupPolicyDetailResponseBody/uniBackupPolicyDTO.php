@@ -11,22 +11,16 @@ use AlibabaCloud\Tea\Model;
 class uniBackupPolicyDTO extends Model
 {
     /**
-     * @example admin
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example INSTALLED
-     *
      * @var string
      */
     public $agentStatus;
 
     /**
-     * @example ORACLE
-     *
      * @var string
      */
     public $databaseType;
@@ -42,50 +36,36 @@ class uniBackupPolicyDTO extends Model
     public $incPlan;
 
     /**
-     * @example i-2zefcy2id5d60m9t****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example sql-test-01
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @example auto_test_sql
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @example opening
-     *
      * @var string
      */
     public $policyStatus;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $retention;
 
     /**
-     * @example 5242880
-     *
      * @var int
      */
     public $speedLimiter;

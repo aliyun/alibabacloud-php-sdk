@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class JoinWebLockProcessWhiteListResponseBody extends Model
 {
     /**
-     * @example A47D621A-193E-5BDA-ADFA-A0D3133E199C
-     *
      * @var string
      */
     public $requestId;

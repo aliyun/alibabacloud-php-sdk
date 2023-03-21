@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedCheckWarningResponseBody extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example 6D9CDB47-6191-4415-BE63-7E8B12CD****
-     *
      * @var string
      */
     public $requestId;

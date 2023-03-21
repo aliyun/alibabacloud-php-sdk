@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SasInstallCodeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The installation verification code that is used to run the installation command when you manually install the Security Center agent.
-     *
-     * @example eDkhGP
-     *
      * @var string
      */
     public $data;

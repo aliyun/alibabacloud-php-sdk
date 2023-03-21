@@ -9,84 +9,41 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupedSecurityEventMarkMissListRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The handling method. Valid values:
-     *
-     *   **1**: Automatically Added to Whitelist
-     *   **2**: Defense Without Notification
-     *
-     * @example 1
-     *
      * @var string
      */
     public $disposalWay;
 
     /**
-     * @description The name of the alert event. The value indicates a subtype.
-     *
-     * @example Login with unusual location
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description The ID of the request source. Set the value to sas.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The condition that is used to query alert events by asset. You can specify a value of the following types:
-     *
-     *   The IP address of the asset.
-     *   The public IP address of the asset.
-     *   The private IP address of the asset.
-     *   The name of the asset.
-     *
-     * @example 222.185.XX.XX
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 113.66.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

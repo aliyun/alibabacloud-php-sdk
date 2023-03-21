@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventOnStageResponseBody extends Model
 {
     /**
-     * @example 24A20733-10A0-4AF6-BE6B-E332241XXXXX
-     *
      * @var string
      */
     public $requestId;

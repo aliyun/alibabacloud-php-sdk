@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @example In the Administrative Tools window, double-click Local Security Policy. In the Local Security Policy window that appears, choose Security Settings\\Local Policies\\Audit Policy, configure all audit policies as: `Success, Failure`.
-     *
      * @var string
      */
     public $advice;
 
     /**
-     * @example week_pa****
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @example 696
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @example Config the Event Audit policys
-     *
      * @var string
      */
     public $checkItem;
 
     /**
-     * @example high
-     *
      * @var string
      */
     public $checkLevel;
 
     /**
-     * @example Security audit
-     *
      * @var string
      */
     public $checkType;
 
     /**
-     * @example Config the Event Audit policys
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example hc_best_secruity
-     *
      * @var string
      */
     public $riskType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $warningMachineCount;

@@ -11,134 +11,71 @@ use AlibabaCloud\Tea\Model;
 class exposedChains extends Model
 {
     /**
-     * @description The information about all vulnerabilities on the server.
-     *
      * @var allVulList[]
      */
     public $allVulList;
 
     /**
-     * @description The server component that is exposed on the Internet.
-     *
-     * @example openssl,openssh
-     *
      * @var string
      */
     public $exposureComponent;
 
     /**
-     * @description The public IP address.
-     *
-     * @example 47.99.XX.XX
-     *
      * @var string
      */
     public $exposureIp;
 
     /**
-     * @description The port that is exposed on the Internet.
-     *
-     * @example 22
-     *
      * @var string
      */
     public $exposurePort;
 
     /**
-     * @description The resource from which the server is exposed. Valid values:
-     *
-     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **EIP**: an elastic IP address (EIP)
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
-     *
-     * @example INTERNET_IP
-     *
      * @var string
      */
     public $exposureType;
 
     /**
-     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
-     *
-     *   If the value of the ExposureType parameter is **INTERNET_IP**, the value of this parameter is an empty string.
-     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
-     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
-     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
-     *
-     * @example eip-bp1bkgowzam49rld3****
-     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
-     * @description The server group to which the server belongs.
-     *
-     * @example sg-bp1iw5enua6gf5i2xr7z
-     *
      * @var string
      */
     public $groupNo;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-bp116qem8npvchqc****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example worker-k8s-for-cs-c929ee2a145214f89a8b248005be5****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 47.99.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The information about the vulnerabilities that are exposed on the Internet and can be exploited by attackers.
-     *
      * @var realVulList[]
      */
     public $realVulList;
 
     /**
-     * @description The region in which the server resides.
-     *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
-     *
      * @var string
      */
     public $uuid;

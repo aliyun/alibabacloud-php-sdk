@@ -14,8 +14,6 @@ class data extends Model
     public $failInstances;
 
     /**
-     * @example ActionTrialUnauthorized
-     *
      * @var string
      */
     public $operateCode;

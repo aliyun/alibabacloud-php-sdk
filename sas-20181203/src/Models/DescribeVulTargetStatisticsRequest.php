@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetStatisticsRequest extends Model
 {
     /**
-     * @example cve
-     *
      * @var string
      */
     public $type;

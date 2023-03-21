@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $directed;
 
     /**
-     * @example #fff
-     *
      * @var string
      */
     public $displayColor;
 
     /**
-     * @example file
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example netflow_to_process
-     *
      * @var string
      */
     public $relationTypeId;
 
     /**
-     * @example Deprecated
-     *
      * @var string
      */
     public $showType;

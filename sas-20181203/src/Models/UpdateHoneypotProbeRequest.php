@@ -19,6 +19,11 @@ class UpdateHoneypotProbeRequest extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var bool
      */
     public $ping;
@@ -35,6 +40,7 @@ class UpdateHoneypotProbeRequest extends Model
     protected $_name = [
         'arp'           => 'Arp',
         'displayName'   => 'DisplayName',
+        'lang'          => 'Lang',
         'ping'          => 'Ping',
         'probeId'       => 'ProbeId',
         'serviceIpList' => 'ServiceIpList',
@@ -52,6 +58,9 @@ class UpdateHoneypotProbeRequest extends Model
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->ping) {
             $res['Ping'] = $this->ping;
@@ -79,6 +88,9 @@ class UpdateHoneypotProbeRequest extends Model
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Ping'])) {
             $model->ping = $map['Ping'];

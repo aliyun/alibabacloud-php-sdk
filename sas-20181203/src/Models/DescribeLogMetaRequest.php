@@ -9,35 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMetaRequest extends Model
 {
     /**
-     * @description The ID of the request source. Default value: **aegis**. Valid values:
-     *
-     *   **aegis**: Server Guard
-     *   **sas**: Security Center
-     *
-     * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 123.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

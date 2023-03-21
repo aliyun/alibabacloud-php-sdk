@@ -9,211 +9,111 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageGroupedVulListRequest extends Model
 {
     /**
-     * @description The alias of the vulnerability.
-     *
-     * @example High severity vulnerability that affects org.eclipse.jetty:jetty-server
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description The ID of the container cluster.
-     *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
-     * @example c60b77fe62093480db6164a3c2fa5****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
-     *
-     * @example CVE-2017-15420
-     *
      * @var string
      */
     public $cveId;
 
     /**
-     * @description The ID of the asset group.
-     *
-     * @example 1311
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The SHA-256 value of the image digest.
-     *
-     * @example w213412341dfsfasdfafadfasfasf
-     *
      * @var string
      */
     public $imageDigest;
 
     /**
-     * @description The layer of the image.
-     *
-     * @example b1f5b9420803ad0657cf21566e3e20acc08581e7f22991249ef3aa80b8b1c587
-     *
      * @var string
      */
     public $imageLayer;
 
     /**
-     * @description The tag that is added to the image.
-     *
-     * @example oval
-     *
      * @var string
      */
     public $imageTag;
 
     /**
-     * @description Specifies whether to query the vulnerabilities in the latest images. If you do not specify this parameter, the vulnerabilities in all images are queried. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
-     *
-     * @example 0
-     *
      * @var int
      */
     public $isLatest;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the vulnerability.
-     *
-     * @example debian:10:CVE-2019-9893
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The priority to fix the vulnerability. Valid values:
-     *
-     *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-     *   **later**: medium. You can fix the vulnerability based on your business requirements.
-     *   **nntf**: low. You can ignore the vulnerability.
-     *
-     * @example asap
-     *
      * @var string
      */
     public $necessity;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the patch that is used to fix the vulnerability.
-     *
-     * @example 1341512412
-     *
      * @var int
      */
     public $patchId;
 
     /**
-     * @description The ID of the image repository.
-     *
-     * @example qew****
-     *
      * @var string
      */
     public $repoId;
 
     /**
-     * @description The instance ID of the image repository.
-     *
-     * @example i-qewqrqcsadf****
-     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example libssh2
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The namespace to which the image repository belongs.
-     *
-     * @example libssh2
-     *
      * @var string
      */
     public $repoNamespace;
 
     /**
-     * @description The region ID of the image repository.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $repoRegionId;
 
     /**
-     * @description The types of the assets that you want to scan.
-     *
      * @var string[]
      */
     public $scanRange;
 
     /**
-     * @description The type of the vulnerability that you want to query. Valid values:
-     *
-     *   **cve**: image system vulnerability
-     *   **sca**: image application vulnerability
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The UUIDs of the assets. Separate multiple UUIDs with commas (,).
-     *
-     * @example uuid-13134124****
-     *
      * @var string
      */
     public $uuids;

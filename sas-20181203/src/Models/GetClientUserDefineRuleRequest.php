@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetClientUserDefineRuleRequest extends Model
 {
     /**
-     * @example 200****
-     *
      * @var int
      */
     public $id;

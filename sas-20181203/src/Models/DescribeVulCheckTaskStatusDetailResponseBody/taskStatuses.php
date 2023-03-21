@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class taskStatuses extends Model
 {
     /**
-     * @example 16190385
-     *
      * @var string
      */
     public $taskId;

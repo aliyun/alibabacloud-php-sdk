@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class OperateSuspiciousTargetConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example ABCD-PSD2-5256-1DSA-4222-JHBN
-     *
      * @var string
      */
     public $requestId;

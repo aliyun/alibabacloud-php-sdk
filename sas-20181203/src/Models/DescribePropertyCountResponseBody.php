@@ -9,109 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCountResponseBody extends Model
 {
     /**
-     * @description The number of startup items.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $autorun;
 
     /**
-     * @description The number of scheduled tasks.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $cron;
 
     /**
-     * @description The number of databases.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $database;
 
     /**
-     * @description The number of kernel modules.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $lkm;
 
     /**
-     * @description The number of ports.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The number of processes.
-     *
-     * @example 367
-     *
      * @var int
      */
     public $process;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of middleware assets.
-     *
-     * @example 112
-     *
      * @var int
      */
     public $sca;
 
     /**
-     * @description The number of software assets.
-     *
-     * @example 111
-     *
      * @var int
      */
     public $software;
 
     /**
-     * @description The number of accounts.
-     *
-     * @example 214
-     *
      * @var int
      */
     public $user;
 
     /**
-     * @description The number of websites.
-     *
-     * @example 65
-     *
      * @var int
      */
     public $web;
 
     /**
-     * @description The number of web services.
-     *
-     * @example 8
-     *
      * @var int
      */
     public $webserver;

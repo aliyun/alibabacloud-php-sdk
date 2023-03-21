@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientUserDefineRuleResponseBody extends Model
 {
     /**
-     * @example 5cbb3c39-88ec-429a-be26-5d0f62cc****
-     *
      * @var string
      */
     public $requestId;

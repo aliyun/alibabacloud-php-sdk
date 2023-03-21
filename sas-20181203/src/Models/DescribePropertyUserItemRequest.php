@@ -9,40 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserItemRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether to forcefully refresh the data that you want to query. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $forceFlush;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The information about the account.
-     *
-     * @example adm
-     *
      * @var string
      */
     public $user;

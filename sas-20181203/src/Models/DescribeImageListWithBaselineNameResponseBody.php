@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageListWithBaselineNameResponseBody extends Model
 {
     /**
-     * @description An array that consists of the images returned.
-     *
      * @var imageInfos[]
      */
     public $imageInfos;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 5B8C2156-2DB9-5A42-99E7-F2ED5AE9EA1F
-     *
      * @var string
      */
     public $requestId;

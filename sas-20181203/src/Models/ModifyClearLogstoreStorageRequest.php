@@ -9,40 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyClearLogstoreStorageRequest extends Model
 {
     /**
-     * @description The ID of the request source. Set the value to **sas**.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the Logstore that stores logs.
-     *
-     * @example sas_sls_storage
-     *
      * @var string
      */
     public $userLogStore;
 
     /**
-     * @description The name of the project.
-     *
-     * @example sas-log-1234(uid)-cn-hangzhou
-     *
      * @var string
      */
     public $userProject;

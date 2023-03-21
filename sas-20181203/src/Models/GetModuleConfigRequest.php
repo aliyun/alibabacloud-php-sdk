@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;

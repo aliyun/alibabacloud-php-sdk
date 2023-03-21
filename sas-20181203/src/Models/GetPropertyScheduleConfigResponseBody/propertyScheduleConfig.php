@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class propertyScheduleConfig extends Model
 {
     /**
-     * @example 1671630647018
-     *
      * @var int
      */
     public $nextScheduleTime;
 
     /**
-     * @example 3
-     *
      * @var string
      */
     public $scheduleTime;
 
     /**
-     * @example scheduler_account_period
-     *
      * @var string
      */
     public $type;

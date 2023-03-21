@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class assets extends Model
 {
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **namespace**: namespace
+     *   **clusters**: cluster
+     *   **applications**: application
+     *   **pods**: container group
+     *   **containers**: container
+     *   **images**: image
+     *   **hosts**: node
+     *
      * @example namespace
      *
      * @var string
@@ -16,6 +26,8 @@ class assets extends Model
     public $assetType;
 
     /**
+     * @description The number of assets that are at risk.
+     *
      * @example 16
      *
      * @var int
@@ -23,6 +35,8 @@ class assets extends Model
     public $riskCount;
 
     /**
+     * @description The total number of assets.
+     *
      * @example 30
      *
      * @var int

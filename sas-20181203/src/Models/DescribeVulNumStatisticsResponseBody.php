@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulNumStatisticsResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $appCnt;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $appNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $cmsDealedTotalNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $cmsNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $cveNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $emgNum;
 
     /**
-     * @example E22C89D2-FE13-5800-8746-9D0EF1827A59
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $scaNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $sysNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulAsapSum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulDealedTotalNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulLaterSum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulNntfSum;

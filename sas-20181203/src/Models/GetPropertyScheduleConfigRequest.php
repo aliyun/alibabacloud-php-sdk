@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPropertyScheduleConfigRequest extends Model
 {
     /**
-     * @example scheduler_sca_period
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
-     *
      * @var string
      */
     public $uuid;

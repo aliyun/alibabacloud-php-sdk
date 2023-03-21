@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetClusterRuleSummaryRequest extends Model
 {
     /**
-     * @example cc49d88d1exxx
-     *
      * @var string
      */
     public $clusterId;

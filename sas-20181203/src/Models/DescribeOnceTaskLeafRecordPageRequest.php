@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskLeafRecordPageRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 1668064495000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $relateInfo;
 
     /**
-     * @example console_batch
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example 1648438617000
-     *
      * @var int
      */
     public $startTime;
@@ -56,15 +44,11 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
     public $statusList;
 
     /**
-     * @example 1471d8ebb96795b41ede090b9758****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example CLIENT_PROBLEM_CHECK
-     *
      * @var string
      */
     public $taskType;

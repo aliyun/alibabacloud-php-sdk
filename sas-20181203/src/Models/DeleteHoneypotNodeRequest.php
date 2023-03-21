@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotNodeRequest extends Model
 {
     /**
-     * @example 670baeee-86c4-46b9-8200-a2c38141a453
-     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
+        'lang'   => 'Lang',
         'nodeId' => 'NodeId',
     ];
 
@@ -25,6 +29,9 @@ class DeleteHoneypotNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -40,6 +47,9 @@ class DeleteHoneypotNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

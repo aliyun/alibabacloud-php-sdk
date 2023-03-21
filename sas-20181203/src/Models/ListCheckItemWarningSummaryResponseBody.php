@@ -21,8 +21,6 @@ class ListCheckItemWarningSummaryResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example DC97C9EC-4B7D-5EFF-8A5E-A5CCC9ED****
-     *
      * @var string
      */
     public $requestId;

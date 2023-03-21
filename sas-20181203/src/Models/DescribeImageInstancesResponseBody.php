@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInstancesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the image.
+     *
      * @var imageInstanceList[]
      */
     public $imageInstanceList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string

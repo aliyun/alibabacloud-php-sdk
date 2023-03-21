@@ -10,53 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryResponseBody extends Model
 {
     /**
-     * @description The number of check items returned on the current page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number of the current page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 00BD7CE2-284A-4534-BD09-FB69836DD750
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of check items.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The statistics of check items.
-     *
      * @var warningSummarys[]
      */
     public $warningSummarys;

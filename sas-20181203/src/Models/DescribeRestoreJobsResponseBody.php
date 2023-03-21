@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreJobsResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 0ED92280-4363-57D3-A4D3-4D3FBC99B29F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the restoration tasks.
-     *
      * @var restoreJobs[]
      */
     public $restoreJobs;

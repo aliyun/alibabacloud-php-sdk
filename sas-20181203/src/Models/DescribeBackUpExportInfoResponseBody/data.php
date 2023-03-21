@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of exported entries.
+     *
      * @example 29
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $currentCount;
 
     /**
+     * @description The name of the file.
+     *
      * @example suspicious_event_20221203
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $fileName;
 
     /**
+     * @description The time when the export task was created.
+     *
      * @example 1671607025000
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the export task.
+     *
      * @example 273698***
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The URL at which you can download the archived information.
+     *
      * @example http://xxx.oss-cn-xxx.aliyuncs.com/export/assetInstance_20221221_1671606250570.zip
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $link;
 
     /**
+     * @description The error message that is returned when the export task fails.
+     *
      * @example success
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description The progress percentage of the export task.
+     *
      * @example 100
      *
      * @var int
@@ -58,6 +72,12 @@ class data extends Model
     public $progress;
 
     /**
+     * @description The status of the export task. Valid values:
+     *
+     *   **init**: The task is being initialized.
+     *   **exporting**: The task is in progress.
+     *   **success**: The task is complete.
+     *
      * @example success
      *
      * @var string
@@ -65,6 +85,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The total number of entries in the file.
+     *
      * @example 29
      *
      * @var int

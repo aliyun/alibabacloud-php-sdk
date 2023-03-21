@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class vulStat extends Model
 {
     /**
-     * @example 13
-     *
      * @var string
      */
     public $asapCount;
 
     /**
-     * @example 21
-     *
      * @var string
      */
     public $laterCount;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $nntfCount;

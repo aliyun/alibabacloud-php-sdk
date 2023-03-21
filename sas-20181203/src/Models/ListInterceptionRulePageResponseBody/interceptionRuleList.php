@@ -16,43 +16,31 @@ class interceptionRuleList extends Model
     public $dstTarget;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $interceptType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $orderIndex;
 
     /**
-     * @example 30****
-     *
      * @var int
      */
     public $ruleId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleSwitch;
 
     /**
-     * @example customize
-     *
      * @var string
      */
     public $ruleType;

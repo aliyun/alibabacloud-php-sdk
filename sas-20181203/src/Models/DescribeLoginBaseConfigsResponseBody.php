@@ -10,44 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoginBaseConfigsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the configurations.
-     *
      * @var baseConfigs[]
      */
     public $baseConfigs;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 2C2D4B3C-0524-17B1-93D2-DA50119F4E1E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $totalCount;

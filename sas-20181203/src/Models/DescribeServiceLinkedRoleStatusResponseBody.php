@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLinkedRoleStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 39CE98F4-88C0-4539-B906-6B542E5C07B9
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The status information about the service-linked role.
-     *
      * @var roleStatus
      */
     public $roleStatus;

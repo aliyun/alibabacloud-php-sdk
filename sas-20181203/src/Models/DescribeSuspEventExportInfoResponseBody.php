@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventExportInfoResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $exportStatus;
 
     /**
-     * @example suspicious_event_20221221_1671590521234.zip
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example 2022-12-20T15:18Z
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 2022-12-20T15:18Z
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @example 11
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example http://suspicious-xxxxxxx.oss-cn-shanghai.aliyuncs.com/xxxxxxxxxxx/suspicious_event_20221221_1671590525269.zip?Expires=1671594125&OSSAccessKeyId=LTAIxxxxxxxxxxxxxx&Signature=xxxxxxxxxxxxxxxxxx
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example id,eventSubType,eventDetail,level,status,ip,instanceName,desc,lastTime,operateTime,note
-     *
      * @var string
      */
     public $properties;
 
     /**
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578AXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example suspiciousEvent
-     *
      * @var string
      */
     public $type;

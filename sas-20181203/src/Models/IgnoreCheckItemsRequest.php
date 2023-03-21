@@ -15,22 +15,16 @@ class IgnoreCheckItemsRequest extends Model
     public $checkAndRiskTypeList;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example already config in another way
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;

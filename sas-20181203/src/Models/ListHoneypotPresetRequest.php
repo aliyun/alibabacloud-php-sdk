@@ -14,8 +14,6 @@ class ListHoneypotPresetRequest extends Model
     public $currentPage;
 
     /**
-     * @example ruoyi
-     *
      * @var string
      */
     public $honeypotImageName;
@@ -26,8 +24,6 @@ class ListHoneypotPresetRequest extends Model
     public $lang;
 
     /**
-     * @example d892b4fe-af0d-4486-ab2a-8a5180453c03
-     *
      * @var string
      */
     public $nodeId;
@@ -43,8 +39,6 @@ class ListHoneypotPresetRequest extends Model
     public $pageSize;
 
     /**
-     * @example mx-rouyi
-     *
      * @var string
      */
     public $presetName;

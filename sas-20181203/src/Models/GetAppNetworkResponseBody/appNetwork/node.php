@@ -14,36 +14,26 @@ class node extends Model
     public $containerIds;
 
     /**
-     * @example 1274
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example console
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @example app
-     *
      * @var string
      */
     public $type;

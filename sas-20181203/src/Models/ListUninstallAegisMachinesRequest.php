@@ -9,82 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListUninstallAegisMachinesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The operating system of the server.
-     *
-     * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **osType**, the value of the **Values** parameter indicates an operating system.
-     * @example linux
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The number of entries to return on each page. Default value: **5**.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region in which the server resides.
-     *
-     * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionIdStr;
 
     /**
-     * @description The region in which the server resides.
-     *
-     * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionNo;
 
     /**
-     * @description The information about the server that you want to query. The value can be the name or the public IP address of the server.
-     *
-     * @example 172.20.XX.XX
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 180.113.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The source of the server. Valid values:
-     *
-     *   **0**: an asset provided by Alibaba Cloud.
-     *   **1**: a third-party cloud server
-     *   **2**: a server in a data center
-     *   **3**, **4**, **5**, and **7**: other cloud asset
-     *   **8**: a lightweight asset
-     *
-     * @example 0
-     *
      * @var int
      */
     public $vendor;

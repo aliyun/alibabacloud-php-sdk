@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventOnStageRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;

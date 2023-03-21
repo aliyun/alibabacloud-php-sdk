@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The instance ID of the cloud service.
-     *
-     * @example rm-bp1e8t4q15sr3****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The total number of risk items detected in the current cloud service.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $riskCount;

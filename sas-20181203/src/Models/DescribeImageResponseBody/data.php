@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 0afb98d97f1a4030782fcf47e186909e5ad957bcc182d8be70334e0684b2****
-     *
      * @var string
      */
     public $digest;

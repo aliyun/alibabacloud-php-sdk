@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNoticeConfigResponseBody extends Model
 {
     /**
-     * @description An array that consists of the notification settings.
-     *
      * @var noticeConfigList[]
      */
     public $noticeConfigList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D185B7FF-E24C-422D-83D3-C2A25C7A2727
-     *
      * @var string
      */
     public $requestId;

@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskListCheckResultResponseBody extends Model
 {
     /**
-     * @description The number of risk items for each cloud service.
-     *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3BFB4989-A108-46A4-954E-FF7EF02D1078
-     *
      * @var string
      */
     public $requestId;

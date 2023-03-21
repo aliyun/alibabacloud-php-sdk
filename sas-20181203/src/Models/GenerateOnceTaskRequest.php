@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GenerateOnceTaskRequest extends Model
 {
     /**
-     * @example {"mode":1,"problemType":"offline","uuids":"inet-795dcad1-360f-49d2-b01e-b7da7f1c****"}
-     *
      * @var string
      */
     public $param;
 
     /**
-     * @example Manual
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example CLIENT_PROBLEM_CHECK
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @example CLIENT_PROBLEM_CHECK
-     *
      * @var string
      */
     public $taskType;

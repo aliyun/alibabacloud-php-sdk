@@ -9,109 +9,61 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
-     *
-     * @example 1649149566000
-     *
      * @var int
      */
     public $createTimestamp;
 
     /**
-     * @description The time at which the software is installed.
-     *
-     * @example 2022-04-07 10:54:49
-     *
      * @var string
      */
     public $installTime;
 
     /**
-     * @description The timestamp at which the software is installed. Unit: milliseconds.
-     *
-     * @example 1649066826000
-     *
      * @var int
      */
     public $installTimeDt;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-hp35tftuh52wbp1g****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example hc-host-****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 100.104.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The IP addresses of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The name of the software.
-     *
-     * @example aaa_base
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The installation path of the software.
-     *
-     * @example /etc/test
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @description The version of the software.
-     *
-     * @example 3.10.0
-     *
      * @var string
      */
     public $version;

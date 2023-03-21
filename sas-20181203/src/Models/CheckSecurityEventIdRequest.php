@@ -11,7 +11,7 @@ class CheckSecurityEventIdRequest extends Model
     /**
      * @description The IDs of alert events. You can specify up to 100 IDs. If you do not specify this parameter, the value of the response parameter **Data** is **false**. The value false indicates that no alert events are generated on the server.
      *
-     * >  You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query the IDs of alert events.
+     * > You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query the IDs of alert events.
      * @example ["1234567","98765432"]
      *
      * @var string[]
@@ -21,7 +21,7 @@ class CheckSecurityEventIdRequest extends Model
     /**
      * @description The UUID of the server.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 96ad2473-bc60-45ba-ad1c-932e2866****
      *
      * @var string

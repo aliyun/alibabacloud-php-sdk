@@ -15,22 +15,16 @@ class targetStats extends Model
     public $targets;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $uuidCount;
 
     /**
-     * @example cve
-     *
      * @var string
      */
     public $vulType;

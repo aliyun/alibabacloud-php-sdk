@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class checkWarnings extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example 2546
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @description The ID of the alert that is triggered by the check item.
-     *
-     * @example 212251441
-     *
      * @var int
      */
     public $checkWarningId;
@@ -32,77 +24,36 @@ class checkWarnings extends Model
     public $execErrorMessage;
 
     /**
-     * @description The fixing status of the check item. Valid values:
-     *
-     *   **0**: disabled
-     *   **1**: enabled
-     *
-     * @example 0
-     *
      * @var int
      */
     public $fixStatus;
 
     /**
-     * @description The name of the check item.
-     *
-     * @example passwordExpire
-     *
      * @var string
      */
     public $item;
 
     /**
-     * @description The risk level of the risk item. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example high
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The remarks.
-     *
-     * @example ignore
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The status of the check item. Valid values:
-     *
-     *   **1**: failed
-     *   **2**: verifying
-     *   **3**: passed
-     *   **5**: expired
-     *   **6**: ignored
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The type of the check item.
-     *
-     * @example hc.check.type.identity_auth
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The UUID of the server on which the baseline check is performed.
-     *
-     * @example d42f938c-d962-48a0-90f9-****
-     *
      * @var string
      */
     public $uuid;

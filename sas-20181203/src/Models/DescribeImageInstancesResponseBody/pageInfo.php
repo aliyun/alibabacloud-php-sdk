@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of images returned on the current page.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,8 @@ class pageInfo extends Model
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 69
      *
      * @var int

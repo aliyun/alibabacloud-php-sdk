@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyTypeScaItemRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;

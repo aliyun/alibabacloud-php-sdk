@@ -9,55 +9,31 @@ use AlibabaCloud\Tea\Model;
 class machineInfoStatistics extends Model
 {
     /**
-     * @description The ID of the server.
-     *
-     * @example i-wz9gd1os5talju****
-     *
      * @var string
      */
     public $machineInstanceId;
 
     /**
-     * @description The IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $machineIp;
 
     /**
-     * @description The name of the server.
-     *
-     * @example TestMachine
-     *
      * @var string
      */
     public $machineName;
 
     /**
-     * @description The name of the operating system that the server runs.
-     *
-     * @example windows
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The ID of the region in which the server resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 18375c64-eaa2-4702-92b0-4ee7******
-     *
      * @var string
      */
     public $uuid;

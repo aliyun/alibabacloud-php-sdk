@@ -9,22 +9,11 @@ use AlibabaCloud\Tea\Model;
 class countByStatus extends Model
 {
     /**
-     * @description The number of detected risk items.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The status of the check item after the check is finished. Valid values:
-     *
-     *   **pass**: The check item passes the check, which indicates that the check item is normal.
-     *   **failed**: The check item fails the check, which indicates that risks are detected for the check item.
-     *
-     * @example pass
-     *
      * @var string
      */
     public $status;

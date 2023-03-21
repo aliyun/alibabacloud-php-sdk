@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulTargetRequest extends Model
 {
     /**
-     * @example {\"vulType\":\"sys\"}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example [{\"target\": \"9cd5c684-7201-4de5-ad2c-cea89a5e****\", \"targetType\": \"uuid\", \"flag\": \"add\"}]
-     *
      * @var string
      */
     public $target;

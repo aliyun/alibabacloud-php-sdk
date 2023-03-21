@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryDiscoverDatabaseRequest extends Model
 {
     /**
-     * @example 7f7b051f-7d1c-46da-b253-a03f3a27****
-     *
      * @var string
      */
     public $createMark;

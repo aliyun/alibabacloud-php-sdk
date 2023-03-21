@@ -9,61 +9,31 @@ use AlibabaCloud\Tea\Model;
 class IgnoreHcCheckWarningsRequest extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * >  You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of check items.
-     * @example 21313
-     *
      * @var string
      */
     public $checkIds;
 
     /**
-     * @description The ID of the alert that is triggered by the check item. Separate multiple IDs with commas (,).
-     *
-     * >  You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts that are triggered by check items.
-     * @example 98146905,98146907
-     *
      * @var string
      */
     public $checkWarningIds;
 
     /**
-     * @description The reason for the current operation.
-     *
-     * @example ignore
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The ID of the risk item that you want to ignore or cancel ignoring.
-     *
-     * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
-     * @example 51
-     *
      * @var string
      */
     public $riskId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The type of the operation that you want to perform. Valid values:
-     *
-     *   **1**: ignores a risk item
-     *   **2**: cancels ignoring a risk item
-     *
-     * @example 1
-     *
      * @var int
      */
     public $type;

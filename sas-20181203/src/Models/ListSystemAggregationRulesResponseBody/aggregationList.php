@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class aggregationList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
@@ -21,8 +19,6 @@ class aggregationList extends Model
     public $name;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $ruleCount;

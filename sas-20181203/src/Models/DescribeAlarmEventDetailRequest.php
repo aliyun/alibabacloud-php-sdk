@@ -9,41 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventDetailRequest extends Model
 {
     /**
-     * @description The unique ID of the alert event.
-     *
-     * >  To query the details of an alert event, you must specify the unique ID of the alert event. You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query the unique IDs of alert events.
-     * @example 9f62555666f177aa84ee1eaf465a****
-     *
      * @var string
      */
     public $alarmUniqueInfo;
 
     /**
-     * @description The ID of the request source. Set the value to **sas**.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

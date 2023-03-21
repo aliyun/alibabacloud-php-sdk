@@ -9,79 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeNsasSuspEventTypeRequest extends Model
 {
     /**
-     * @description The name of the container field. Valid values:
-     *
-     *   **clusterId**: the ID of the cluster
-     *
-     * @example clusterId
-     *
      * @var string
      */
     public $containerFieldName;
 
     /**
-     * @description The value of the container field.
-     *
-     * @example ca3108551c83c4d949106e1ab9e1e****
-     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
-     * @description The ID of the request source. Set the value to **sas**, which indicates that the request is sent from Security Center.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the alert type.
-     *
-     * @example Unusual Logon
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The name of the server.
-     *
-     * @example testECS
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 180.212.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The UUIDs of servers. Separate multiple UUIDs with commas (,).
-     *
-     * >  You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
-     * @example f56406cb-916d-42db-b6f7-2ff79e34****
-     *
      * @var string
      */
     public $uuids;

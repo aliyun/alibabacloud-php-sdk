@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SaveSuspEventUserSettingResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example AE6229A0-BDBE-534C-A3F8-095EBXXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SaveSuspEventUserSettingRequest extends Model
 {
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example suspicious,serious,remind
-     *
      * @var string
      */
     public $levelsOn;

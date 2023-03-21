@@ -9,35 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotPresetRequest extends Model
 {
     /**
-     * @example metabase
-     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
-     * @example f75eddce-e9d3-4a88-af95-b10b6f656fda
-     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
-     * @example {\"portrait_option\":true,\"burp\":\"open\"}
-     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var string
      */
     public $meta;
 
     /**
-     * @example apc_web_python
-     *
      * @var string
      */
     public $presetName;
     protected $_name = [
         'honeypotImageName' => 'HoneypotImageName',
         'honeypotPresetId'  => 'HoneypotPresetId',
+        'lang'              => 'Lang',
         'meta'              => 'Meta',
         'presetName'        => 'PresetName',
     ];
@@ -54,6 +52,9 @@ class UpdateHoneypotPresetRequest extends Model
         }
         if (null !== $this->honeypotPresetId) {
             $res['HoneypotPresetId'] = $this->honeypotPresetId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
@@ -78,6 +79,9 @@ class UpdateHoneypotPresetRequest extends Model
         }
         if (isset($map['HoneypotPresetId'])) {
             $model->honeypotPresetId = $map['HoneypotPresetId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];

@@ -10,71 +10,41 @@ use AlibabaCloud\Tea\Model;
 class baseConfigs extends Model
 {
     /**
-     * @description The common logon account.
-     *
-     * @example 1582318****
-     *
      * @var string
      */
     public $account;
 
     /**
-     * @description The end time of the common logon time range.
-     *
-     * @example 07:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The common logon IP address.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The common logon location.
-     *
-     * @example Montenegro
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The start time of the common logon time range.
-     *
-     * @example 08:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The details of the servers to which the configuration is applied.
-     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
-     * @description The total number of servers.
-     *
-     * @example 172
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The number of servers to which the configuration is applied.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $uuidCount;

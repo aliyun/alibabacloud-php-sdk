@@ -9,55 +9,31 @@ use AlibabaCloud\Tea\Model;
 class checkPolicies extends Model
 {
     /**
-     * @description The requirement item ID of the check item.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $requirementId;
 
     /**
-     * @description The item display name of the check item.
-     *
-     * @example Alibaba cloud OSS best security practices
-     *
      * @var string
      */
     public $requirementShowName;
 
     /**
-     * @description The section ID of the check item.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $sectionId;
 
     /**
-     * @description The section display name of the check item.
-     *
-     * @example Log Audit
-     *
      * @var string
      */
     public $sectionShowName;
 
     /**
-     * @description The standard ID of the check item.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $standardId;
 
     /**
-     * @description The standard display name of the check item.
-     *
-     * @example Best security practices
-     *
      * @var string
      */
     public $standardShowName;

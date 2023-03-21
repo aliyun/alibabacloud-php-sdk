@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class logShipperStatus extends Model
 {
     /**
-     * @example yes
-     *
      * @var string
      */
     public $authStatus;
 
     /**
-     * @example yes
-     *
      * @var string
      */
     public $buyStatus;
 
     /**
-     * @example yes
-     *
      * @var string
      */
     public $openStatus;
 
     /**
-     * @example no
-     *
      * @var string
      */
     public $postPaidOpenStatus;
 
     /**
-     * @example yes
-     *
      * @var string
      */
     public $postPaidSupportStatus;
 
     /**
-     * @example Normal
-     *
      * @var string
      */
     public $slsProjectStatus;
 
     /**
-     * @example yes
-     *
      * @var string
      */
     public $slsServiceStatus;

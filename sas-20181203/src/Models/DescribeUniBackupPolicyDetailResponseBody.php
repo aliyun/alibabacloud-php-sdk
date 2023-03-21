@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPolicyDetailResponseBody extends Model
 {
     /**
-     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
-     *
      * @var string
      */
     public $requestId;

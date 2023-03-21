@@ -9,91 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcDetailRequest extends Model
 {
     /**
-     * @description The startup parameter of the process.
-     *
-     * @example ./8888
-     *
      * @var string
      */
     public $cmdline;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether fuzzy search by process name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $extend;
 
     /**
-     * @description The name of the process.
-     *
-     * @example 8888
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The timestamp when the process ends. Unit: milliseconds.
-     *
-     * @example 1649587453000
-     *
      * @var int
      */
     public $procTimeEnd;
 
     /**
-     * @description The timestamp when the process starts. Unit: milliseconds.
-     *
-     * @example 1648809853000
-     *
      * @var int
      */
     public $procTimeStart;
 
     /**
-     * @description The name or IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The user who runs the process.
-     *
-     * @example root
-     *
      * @var string
      */
     public $user;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
-     *
      * @var string
      */
     public $uuid;

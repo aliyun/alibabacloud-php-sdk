@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $authVersion;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $bind;
@@ -30,36 +26,26 @@ class list_ extends Model
     public $fixList;
 
     /**
-     * @example i-bp1a69mvjujbakxu****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example sql-test-0****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 8.210.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example 172.25.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $portOpen;
@@ -70,22 +56,16 @@ class list_ extends Model
     public $prompt;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
-     *
      * @var string
      */
     public $uuid;

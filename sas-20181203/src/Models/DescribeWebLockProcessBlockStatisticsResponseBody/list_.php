@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example cron
-     *
      * @var string
      */
     public $process;

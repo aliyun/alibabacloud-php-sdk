@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackUpExportInfoRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,10 @@ class DescribeBackUpExportInfoRequest extends Model
     public $currentPage;
 
     /**
+     * @description The type of archived information. Valid values:
+     *
+     *   **suspiciousExport**: alert event
+     *
      * @example suspiciousExport
      *
      * @var string
@@ -23,6 +29,11 @@ class DescribeBackUpExportInfoRequest extends Model
     public $exportType;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +41,8 @@ class DescribeBackUpExportInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

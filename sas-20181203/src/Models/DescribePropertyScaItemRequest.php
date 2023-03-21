@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaItemRequest extends Model
 {
     /**
-     * @example sca
-     *
      * @var string
      */
     public $biz;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $forceFlush;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example system_service
-     *
      * @var string
      */
     public $searchInfo;
 
     /**
-     * @example type
-     *
      * @var string
      */
     public $searchItem;

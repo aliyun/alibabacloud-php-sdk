@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniRecoverableListRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example msdb
-     *
      * @var string
      */
     public $database;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;

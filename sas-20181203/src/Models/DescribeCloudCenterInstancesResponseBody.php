@@ -11,36 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudCenterInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the assets.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 32A73759-4C0F-4801-BE98-901223ACEE9A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;

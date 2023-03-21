@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InstallUniBackupAgentResponseBody extends Model
 {
     /**
-     * @example 53ACA55D-0325-5056-A72D-D0EC0B9C****
-     *
      * @var string
      */
     public $requestId;

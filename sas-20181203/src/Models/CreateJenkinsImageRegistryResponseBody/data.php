@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The blacklist.
+     *
      * @example 61.9.XXX.XXX
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $blackList;
 
     /**
+     * @description The domain name of the image repository.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $domainName;
 
     /**
+     * @description The creation time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-10-16 18:17:16
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-11-21 10:40:01
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example 443496
      *
      * @var int
@@ -44,6 +54,11 @@ class data extends Model
     public $id;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet
+     *   **2**: VPC
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +66,8 @@ class data extends Model
     public $netType;
 
     /**
+     * @description The password.
+     *
      * @example Harbor******
      *
      * @var string
@@ -58,6 +75,8 @@ class data extends Model
     public $password;
 
     /**
+     * @description The number of days during which assets can be retained.
+     *
      * @example 30
      *
      * @var int
@@ -65,6 +84,11 @@ class data extends Model
     public $persistenceDay;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **1**: HTTP
+     *   **2**: HTTPS
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +96,8 @@ class data extends Model
     public $protocolType;
 
     /**
+     * @description The region ID of the image repository.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -79,6 +105,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The IP address of the image repository.
+     *
      * @example 1.13.XXX.XXX
      *
      * @var string
@@ -86,6 +114,8 @@ class data extends Model
     public $registryHostIp;
 
     /**
+     * @description The alias of the image repository.
+     *
      * @example fanyi
      *
      * @var string
@@ -93,6 +123,10 @@ class data extends Model
     public $registryName;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **CI/CD**: Jenkins
+     *
      * @example CI/CD
      *
      * @var string
@@ -100,6 +134,8 @@ class data extends Model
     public $registryType;
 
     /**
+     * @description The authentication token of the user.
+     *
      * @example 3c3c602c-fa1f-4bc0-992f-b4b2cac7****
      *
      * @var string
@@ -107,6 +143,8 @@ class data extends Model
     public $token;
 
     /**
+     * @description The number of images that can be scanned per hour.
+     *
      * @example 30
      *
      * @var int
@@ -114,6 +152,8 @@ class data extends Model
     public $transPerHour;
 
     /**
+     * @description The username.
+     *
      * @example RegistryUser
      *
      * @var string
@@ -121,6 +161,8 @@ class data extends Model
     public $userName;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-2vchkxmf2j9yjt3x2****
      *
      * @var string
@@ -128,6 +170,8 @@ class data extends Model
     public $vpcId;
 
     /**
+     * @description The whitelist.
+     *
      * @example 192.168.XXX.XXX
      *
      * @var string

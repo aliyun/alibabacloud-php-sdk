@@ -9,20 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScheduleConfigResponseBody extends Model
 {
     /**
-     * @description The configuration time. Unit: hours.
-     *
-     * >  The value **0** indicates that asset fingerprint collection is disabled for this type of asset.
-     * @example 3
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;

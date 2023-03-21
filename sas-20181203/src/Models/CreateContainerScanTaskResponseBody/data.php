@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canCreate;
 
     /**
-     * @example 1644286364150
-     *
      * @var int
      */
     public $collectTime;
 
     /**
-     * @example 1644286364150
-     *
      * @var int
      */
     public $execTime;
 
     /**
-     * @example 33
-     *
      * @var int
      */
     public $finishCount;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $result;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example fc98d58eb56f699d49bf7ebbd6d7****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 62
-     *
      * @var int
      */
     public $totalCount;

@@ -15,15 +15,11 @@ class DescribeWebLockFileTypeSummaryResponseBody extends Model
     public $list;
 
     /**
-     * @example 4BB99533-4FDC-5B9C-A5E4-5AE3E9BE5C78
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 639
-     *
      * @var int
      */
     public $totalCount;

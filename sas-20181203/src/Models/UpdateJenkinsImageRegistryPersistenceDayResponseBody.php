@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example 69F88BA1-004C-51E2-BF5C-A3220E5A****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $timeCost;

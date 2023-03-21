@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ExportSuspEventsResponseBody extends Model
 {
     /**
-     * @example suspicious_event_20221209
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example EF145C20-6A19-529A-8BDD-0671DXXXXXX
-     *
      * @var string
      */
     public $requestId;

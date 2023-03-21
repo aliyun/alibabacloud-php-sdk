@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The name of the check item type. Example: Identity authentication and permissions.
-     *
-     * @example Identity authentication and permissions
-     *
      * @var string
      */
     public $title;

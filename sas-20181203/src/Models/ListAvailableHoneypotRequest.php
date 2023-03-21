@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableHoneypotRequest extends Model
 {
     /**
-     * @description The ID of the management node to which the honeypot is deployed.
-     *
-     * @example 4341018b-8e01-43f6-b1d2-af29a2a4****
-     *
      * @var string
      */
     public $nodeId;

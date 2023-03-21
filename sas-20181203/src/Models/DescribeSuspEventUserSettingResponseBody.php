@@ -14,8 +14,6 @@ class DescribeSuspEventUserSettingResponseBody extends Model
     public $levelsOn;
 
     /**
-     * @example 028CF634-5268-5660-9575-48C9ED6XXXXX
-     *
      * @var string
      */
     public $requestId;

@@ -9,31 +9,16 @@ use AlibabaCloud\Tea\Model;
 class solution extends Model
 {
     /**
-     * @description The link to the solution to handle the risk item when the Type parameter is set to link.
-     *
-     * @example https://www.alibabacloud.com/help/en/object-storage-service/latest/tutorial-implement-data-sharing-across-departments-based-on-bucket-policies
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @description The type of the solution to handle to the risk item. Valid values:
-     *
-     *   **text**
-     *   **link**
-     *
-     * @example text
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The content of the solution to handle the risk item when the Type parameter is set to text.
-     *
-     * @example Enter the MSE product console - registration and configuration center - instance list, click the corresponding instance name to enter the instance details, find the public network whitelist setting option in the basic information, and configure the whitelist according to business needs. It is forbidden to configure 0.0.0.0 or the whitelist as null.
-     *
      * @var string
      */
     public $value;

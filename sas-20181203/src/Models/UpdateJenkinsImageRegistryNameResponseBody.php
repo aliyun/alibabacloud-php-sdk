@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryNameResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example 4347E985-6E64-467B-96EC-30D4EA9E****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $timeCost;

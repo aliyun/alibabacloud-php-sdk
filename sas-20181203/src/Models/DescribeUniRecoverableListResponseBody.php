@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniRecoverableListResponseBody extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example msdb
-     *
      * @var string
      */
     public $database;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -43,15 +35,11 @@ class DescribeUniRecoverableListResponseBody extends Model
     public $recoverableInfoList;
 
     /**
-     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 23
-     *
      * @var int
      */
     public $totalCount;

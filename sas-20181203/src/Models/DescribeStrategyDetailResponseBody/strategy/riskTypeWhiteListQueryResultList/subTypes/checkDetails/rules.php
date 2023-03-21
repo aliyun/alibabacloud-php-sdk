@@ -10,47 +10,26 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The default value of the rule.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $defaultValue;
 
     /**
-     * @description Indicates whether the rule is included in the policy. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $optional;
 
     /**
-     * @description An array that consists of the rule parameters.
-     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
-     * @description The description of the rule.
-     *
-     * @example Please customize the password expiration time detection standard as
-     *
      * @var string
      */
     public $ruleDesc;
 
     /**
-     * @description The ID of the rule.
-     *
-     * @example login_unlock_deny_pam_faillock.must.cus
-     *
      * @var string
      */
     public $ruleId;

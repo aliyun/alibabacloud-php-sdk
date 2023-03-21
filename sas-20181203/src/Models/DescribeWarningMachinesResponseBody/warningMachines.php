@@ -9,143 +9,71 @@ use AlibabaCloud\Tea\Model;
 class warningMachines extends Model
 {
     /**
-     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
-     *
-     *   **1**: Basic edition
-     *   **6**: Anti-virus edition
-     *   **5**: Advanced edition
-     *   **3**: Enterprise edition
-     *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
-     *
-     * @example 7
-     *
      * @var int
      */
     public $authVersion;
 
     /**
-     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $bind;
 
     /**
-     * @description The number of **high-risk** items on the server.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $highWarningCount;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-m5ee8b9nr3h30mhb****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example oracle-win-00****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The number of **low-risk** items on the server.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
-     * @description The number of **medium-risk** items on the server.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $mediumWarningCount;
 
     /**
-     * @description The number of the check items that passed the baseline check on the server.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $passCount;
 
     /**
-     * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $portOpen;
 
     /**
-     * @description The ID of the region in which the server is deployed.
-     *
-     * @example cn-qingdao
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The verification status of the risk item after the risk item is fixed. Valid values:
-     *
-     *   **1**: complete
-     *   **2**: verifying
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The UUID of the server on which the baseline check is performed.
-     *
-     * @example 9888955c-0076-49da-bd9c-34f5492b****
-     *
      * @var string
      */
     public $uuid;

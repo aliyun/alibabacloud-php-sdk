@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterVulStatisticsRequest extends Model
 {
     /**
-     * @example c471f0f61b9c04f8380556e922cf1****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example cve,app,sca
-     *
      * @var string
      */
     public $types;

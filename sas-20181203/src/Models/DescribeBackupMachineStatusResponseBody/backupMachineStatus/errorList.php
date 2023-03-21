@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorList extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example TARGET_NOT_EXIST
      *
      * @var string
@@ -16,6 +18,8 @@ class errorList extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example FAILED
      *
      * @var string

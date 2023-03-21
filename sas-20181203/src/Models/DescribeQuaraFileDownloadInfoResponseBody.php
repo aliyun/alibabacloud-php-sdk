@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeQuaraFileDownloadInfoResponseBody extends Model
 {
     /**
-     * @example https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
-     *
      * @var string
      */
     public $downloadUrl;
 
     /**
-     * @example bb62ef1311bc564377a0378d3axxxxxx
-     *
      * @var string
      */
     public $md5;
 
     /**
-     * @example /etc/test
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $quaraFileId;
 
     /**
-     * @example 29874225-EAAC-5415-8501-32DD20FXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 6d4ff40a22b15c86adecf2aa48xxxxx
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuid;

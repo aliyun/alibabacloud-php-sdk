@@ -9,61 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListRequest extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The string that allows you to search for servers in fuzzy match mode. You can enter a server name or IP address.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 116.30.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The protection status of the server that you want to query. Valid values:
-     *
-     *   **on**: protected
-     *   **off**: unprotected
-     *
-     * @example on
-     *
      * @var string
      */
     public $status;

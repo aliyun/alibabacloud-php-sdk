@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class baselineItemList extends Model
 {
     /**
-     * @example identification
-     *
      * @var string
      */
     public $classKey;
 
     /**
-     * @example duplicate_pwd_hash
-     *
      * @var string
      */
     public $itemKey;
 
     /**
-     * @example identification
-     *
      * @var string
      */
     public $nameKey;

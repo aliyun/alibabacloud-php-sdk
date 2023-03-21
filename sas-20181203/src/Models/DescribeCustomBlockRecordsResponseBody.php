@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomBlockRecordsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of the defense rules.
+     *
      * @var recordList[]
      */
     public $recordList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 028CF634-5268-5660-9575-48C9ED6B7T8Y
      *
      * @var string

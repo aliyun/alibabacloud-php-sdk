@@ -21,8 +21,6 @@ class FindContainerNetworkConnectResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example 8686CE6E-9BFA-5436-A9D9-77B984AEE7F8
-     *
      * @var string
      */
     public $requestId;

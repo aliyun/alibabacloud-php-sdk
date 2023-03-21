@@ -10,35 +10,21 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
-     * @description The description of the check item.
-     *
-     * @example Set password expiration time, force regular modification of password, reduce password leakage and guess risk.Use non-password login (e.g. key pair) please ignore this item.
-     *
      * @var string
      */
     public $checkDesc;
 
     /**
-     * @description The ID of the check item.
-     *
-     * @example 206
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @description The check item.
-     *
-     * @example Ensure password expiration period is set.
-     *
      * @var string
      */
     public $checkItem;
 
     /**
-     * @description An array that consists of the details of rules.
-     *
      * @var rules[]
      */
     public $rules;

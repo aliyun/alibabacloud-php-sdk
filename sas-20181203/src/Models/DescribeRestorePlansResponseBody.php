@@ -16,8 +16,6 @@ class DescribeRestorePlansResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
-     *
      * @var string
      */
     public $requestId;

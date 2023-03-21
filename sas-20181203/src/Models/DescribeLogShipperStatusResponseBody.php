@@ -15,8 +15,6 @@ class DescribeLogShipperStatusResponseBody extends Model
     public $logShipperStatus;
 
     /**
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413****
-     *
      * @var string
      */
     public $requestId;

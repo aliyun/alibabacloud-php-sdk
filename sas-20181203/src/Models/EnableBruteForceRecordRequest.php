@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class EnableBruteForceRecordRequest extends Model
 {
     /**
-     * @example 61.155.XX.XX
-     *
      * @var string
      */
     public $blockIp;
 
     /**
-     * @example in
-     *
      * @var string
      */
     public $bound;
 
     /**
-     * @example 116602XX
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 22/22
-     *
      * @var string
      */
     public $port;
@@ -42,8 +34,6 @@ class EnableBruteForceRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 71046acb-8bff-4c3b-9163-24deb007****
-     *
      * @var string
      */
     public $uuid;

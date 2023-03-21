@@ -10,47 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedTagsResponseBody extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description An array that consists of the statistics of the asset tags.
-     *
      * @var groupedFileds[]
      */
     public $groupedFileds;
 
     /**
-     * @description The HTTP status code of the request.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;

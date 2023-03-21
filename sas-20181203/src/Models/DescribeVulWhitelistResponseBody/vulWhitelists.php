@@ -9,72 +9,36 @@ use AlibabaCloud\Tea\Model;
 class vulWhitelists extends Model
 {
     /**
-     * @description The alias of the vulnerability.
-     *
-     * @example RHSA-2017:3263: curl security update
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description The ID of the rule.
-     *
-     * @example 1275
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the vulnerability.
-     *
-     * @example oval:com.redhat.rhsa:def:20173263
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The reason why the vulnerability is added to the whitelist.
-     *
-     * @example ignore
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The application scope of the rule. The value is a JSON string that contains the following fields:
-     *
-     *   **type**: the type of the asset to which the rule is applied. Valid values:
-     *
-     * -  **Uuid**: server
-     * -  **GroupId**: server group
-     *
-     *   **groupIds**: the IDs of server groups.
-     *
-     *   **uuids**: the UUIDs of servers.
-     *
-     * >  If this field is empty, the rule is applied to all assets.
-     * @example {"type":"GroupId","groupIds":[916****],"uuids":[]}
-     *
      * @var string
      */
     public $targetInfo;
 
     /**
-     * @description The type of the vulnerability.
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example [{
-     * }]
      * @var string
      */
     public $whitelist;

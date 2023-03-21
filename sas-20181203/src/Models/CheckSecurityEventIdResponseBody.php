@@ -11,7 +11,7 @@ class CheckSecurityEventIdResponseBody extends Model
     /**
      * @description Indicates whether the alert events are generated on the server. Valid values:
      *
-     *   **true**: yes
+     *   **true**
      *   **false**: no
      *
      * @example true

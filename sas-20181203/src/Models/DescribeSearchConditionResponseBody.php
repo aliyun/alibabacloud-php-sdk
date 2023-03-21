@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSearchConditionResponseBody extends Model
 {
     /**
-     * @description An array that consists of the filter conditions.
-     *
      * @var conditionList[]
      */
     public $conditionList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3AEC47AF-8CFA-485E-AC9A-3A8ABC06EA7F
-     *
      * @var string
      */
     public $requestId;

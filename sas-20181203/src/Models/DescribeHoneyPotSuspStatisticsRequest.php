@@ -9,36 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotSuspStatisticsRequest extends Model
 {
     /**
-     * @description The source of the request. Set the value to **honeypot**.
-     *
-     * @example honeypot
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The time range of the data to query. Unit: days.
-     *
-     * @example 30
-     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var int
      */
     public $statisticsDays;
 
     /**
-     * @description The type of the asset to query. Valid values:
-     *
-     *   **vpcInstanceId**: VPC
-     *   **uuid**: server
-     *
-     * @example vpcInstanceId
-     *
      * @var string
      */
     public $statisticsKeyType;
     protected $_name = [
         'from'              => 'From',
+        'lang'              => 'Lang',
         'statisticsDays'    => 'StatisticsDays',
         'statisticsKeyType' => 'StatisticsKeyType',
     ];
@@ -52,6 +43,9 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->statisticsDays) {
             $res['StatisticsDays'] = $this->statisticsDays;
@@ -73,6 +67,9 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['StatisticsDays'])) {
             $model->statisticsDays = $map['StatisticsDays'];

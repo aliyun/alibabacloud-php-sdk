@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class moduleConfigList extends Model
 {
     /**
-     * @description The name of the configuration.
-     *
-     * @example timescan
-     *
      * @var string
      */
     public $configName;
 
     /**
-     * @description The configuration items.
-     *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The name of the module.
-     *
-     * @example alihids
-     *
      * @var string
      */
     public $moduleName;

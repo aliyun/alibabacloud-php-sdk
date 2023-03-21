@@ -9,67 +9,36 @@ use AlibabaCloud\Tea\Model;
 class entityList extends Model
 {
     /**
-     * @description The ID of the asset group.
-     *
-     * @example 281801
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 172.19.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 100.104.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The IP address of the server.
-     *
-     * @example 101.132.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The operating system of the server. Valid values:
-     *
-     *   **linux**
-     *   **windows**
-     *
-     * @example windows
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuid;

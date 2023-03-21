@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class baselineItemInfos extends Model
 {
     /**
+     * @description The alias of the baseline type.
+     *
+     * @example AccessKey pair leak
+     *
      * @var string
      */
     public $baselineClassAlias;
 
     /**
+     * @description The key of the baseline type.
+     *
      * @example ak_leak
      *
      * @var string
@@ -21,11 +27,17 @@ class baselineItemInfos extends Model
     public $baselineClassKey;
 
     /**
+     * @description The alias of the baseline check item.
+     *
+     * @example AccessKey pair leak
+     *
      * @var string
      */
     public $baselineItemAlias;
 
     /**
+     * @description The key of the baseline check item.
+     *
      * @example ak_leak
      *
      * @var string
@@ -33,11 +45,17 @@ class baselineItemInfos extends Model
     public $baselineItemKey;
 
     /**
+     * @description The alias of the baseline.
+     *
+     * @example AccessKey pair leak
+     *
      * @var string
      */
     public $baselineNameAlias;
 
     /**
+     * @description The key of the baseline name.
+     *
      * @example ak_leak
      *
      * @var string
@@ -45,6 +63,13 @@ class baselineItemInfos extends Model
     public $baselineNameKey;
 
     /**
+     * @description The status of the baseline risk item. Valid values:
+     *
+     *   **0**: unfixed
+     *   **1**: fixed
+     *   **2**: pending verification
+     *   **3**: fixing failed
+     *
      * @example 0
      *
      * @var int
@@ -52,6 +77,11 @@ class baselineItemInfos extends Model
     public $status;
 
     /**
+     * @description Indicates whether the baseline check item is added to the whitelist. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 0
      *
      * @var int

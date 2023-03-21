@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCountResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C286491D-4A2F-589A-B63B-D2AD3DA9BD71
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of root domains.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $rootDomainsCount;
 
     /**
-     * @description The number of subdomains.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $subDomainsCount;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalDomainsCount;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $name;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulConfigRequest extends Model
 {
     /**
-     * @example on
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example cve
-     *
      * @var string
      */
     public $type;

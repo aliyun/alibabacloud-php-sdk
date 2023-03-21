@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageRepoResponses extends Model
 {
     /**
+     * @description The number of alerts that are generated for the image repository.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,11 @@ class imageRepoResponses extends Model
     public $alarmCount;
 
     /**
+     * @description Indicates whether alerts are generated for the image repository. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example NO
      *
      * @var string
@@ -23,13 +30,23 @@ class imageRepoResponses extends Model
     public $alarmStatus;
 
     /**
-     * @example [{"domains":["mucfc-test-registry-registry.cn-shenzhen.cr.aliyuncs.com"],"type":"internet"},{"domains":["mucfc-test-registry-registry-intranet.cn-shenzhen.cr.aliyuncs.com"],"type":"intranet"},{"domains":["mucfc-test-registry-registry-vpc.cn-shenzhen.cr.aliyuncs.com"],"type":"vpc"}]
+     * @description The address of the image repository.
      *
+     * @example [
+     * "domains": [
+     * "****.cn-shenzhen.cr.aliyuncs.com"
+     * "domains": [
+     * "****.cn-shenzhen.cr.aliyuncs.com"
+     * "domains": [
+     * "****.cn-shenzhen.cr.aliyuncs.com"
+     * ]
      * @var string
      */
     public $endpoints;
 
     /**
+     * @description The number of baseline risk items on the image repository.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +54,11 @@ class imageRepoResponses extends Model
     public $hcCount;
 
     /**
+     * @description Indicates whether baseline risk items are detected on the image repository. Valid values:
+     *
+     *   **NO**
+     *   **YES**
+     *
      * @example NO
      *
      * @var string
@@ -44,6 +66,8 @@ class imageRepoResponses extends Model
     public $hcStatus;
 
     /**
+     * @description The number of images.
+     *
      * @example 3
      *
      * @var int
@@ -51,6 +75,8 @@ class imageRepoResponses extends Model
     public $imageCount;
 
     /**
+     * @description The ID of the image.
+     *
      * @example i-uf6fsg6xlmorug5****
      *
      * @var string
@@ -58,6 +84,8 @@ class imageRepoResponses extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the image.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -65,6 +93,13 @@ class imageRepoResponses extends Model
     public $regionId;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **acr**
+     *   **harbor**
+     *   **quay**
+     *   **CI/CD**
+     *
      * @example acr
      *
      * @var string
@@ -72,6 +107,8 @@ class imageRepoResponses extends Model
     public $registryType;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example crr-2chlzf47w2rk****
      *
      * @var string
@@ -79,6 +116,8 @@ class imageRepoResponses extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example zeus
      *
      * @var string
@@ -86,6 +125,8 @@ class imageRepoResponses extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example test-dev
      *
      * @var string
@@ -93,6 +134,11 @@ class imageRepoResponses extends Model
     public $repoNamespace;
 
     /**
+     * @description Indicates whether the image repository is at risk. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example NO
      *
      * @var string
@@ -100,6 +146,8 @@ class imageRepoResponses extends Model
     public $riskStatus;
 
     /**
+     * @description The number of vulnerabilities detected on the image repository.
+     *
      * @example 0
      *
      * @var int
@@ -107,6 +155,11 @@ class imageRepoResponses extends Model
     public $vulCount;
 
     /**
+     * @description Indicates whether vulnerabilities are detected on the image repository. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example NO
      *
      * @var string

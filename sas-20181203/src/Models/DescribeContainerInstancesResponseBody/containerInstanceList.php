@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class containerInstanceList extends Model
 {
     /**
+     * @description The number of alerts.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class containerInstanceList extends Model
     public $alarmCount;
 
     /**
+     * @description Indicates whether alerts are generated for the container. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example YES
      *
      * @var string
@@ -23,6 +30,8 @@ class containerInstanceList extends Model
     public $alarmStatus;
 
     /**
+     * @description The name of the application.
+     *
      * @example alibaba-log-controller
      *
      * @var string
@@ -30,6 +39,8 @@ class containerInstanceList extends Model
     public $appName;
 
     /**
+     * @description The ID of cluster.
+     *
      * @example cfb41a869c71e4678a97021582dd8a****
      *
      * @var string
@@ -37,6 +48,8 @@ class containerInstanceList extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +57,8 @@ class containerInstanceList extends Model
     public $clusterName;
 
     /**
+     * @description The ID of the container.
+     *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f92155709d****
      *
      * @var string
@@ -51,6 +66,8 @@ class containerInstanceList extends Model
     public $containerId;
 
     /**
+     * @description The timestamp when the cluster was created. Unit: milliseconds.
+     *
      * @example 1670368337000
      *
      * @var int
@@ -58,6 +75,8 @@ class containerInstanceList extends Model
     public $createTimestamp;
 
     /**
+     * @description The number of baseline risks.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +84,11 @@ class containerInstanceList extends Model
     public $hcCount;
 
     /**
+     * @description Indicates whether baseline risks are detected. Valid values:
+     *
+     *   **NO**
+     *   **YES**
+     *
      * @example YES
      *
      * @var string
@@ -72,6 +96,8 @@ class containerInstanceList extends Model
     public $hcStatus;
 
     /**
+     * @description The IP address of the server.
+     *
      * @example 172.24.XX.XX
      *
      * @var string
@@ -79,6 +105,8 @@ class containerInstanceList extends Model
     public $hostIp;
 
     /**
+     * @description The image of the container.
+     *
      * @example docker.io/library/nginx:latest
      *
      * @var string
@@ -86,6 +114,8 @@ class containerInstanceList extends Model
     public $image;
 
     /**
+     * @description The digest value of the image.
+     *
      * @example 5b046e2de8c490819125193ee2eb71a66f2cc16c032dcd8b69ead4be1024****
      *
      * @var string
@@ -93,6 +123,8 @@ class containerInstanceList extends Model
     public $imageDigest;
 
     /**
+     * @description The ID of the image.
+     *
      * @example registry-vpc.cn-beijing.aliyuncs.com/acs/log-controller@sha256:5b046e2de8c490819125193ee2eb71a66f2cc16c032dcd8b69ead4be1024****
      *
      * @var string
@@ -100,6 +132,8 @@ class containerInstanceList extends Model
     public $imageId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example log-controller
      *
      * @var string
@@ -107,6 +141,8 @@ class containerInstanceList extends Model
     public $imageRepoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example acs
      *
      * @var string
@@ -114,6 +150,8 @@ class containerInstanceList extends Model
     public $imageRepoNamespace;
 
     /**
+     * @description The tag that is added to the image.
+     *
      * @example 0.3.1.0-dfa2010-aliyun
      *
      * @var string
@@ -121,6 +159,8 @@ class containerInstanceList extends Model
     public $imageRepoTag;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example 5f23dfbceec289a49ac94e035e2****
      *
      * @var string
@@ -128,6 +168,8 @@ class containerInstanceList extends Model
     public $imageUuid;
 
     /**
+     * @description The instance ID of the asset.
+     *
      * @example i-2zegzjyotydfkz9****
      *
      * @var string
@@ -135,6 +177,8 @@ class containerInstanceList extends Model
     public $instanceId;
 
     /**
+     * @description The namespace.
+     *
      * @example kube-system
      *
      * @var string
@@ -142,6 +186,8 @@ class containerInstanceList extends Model
     public $namespace;
 
     /**
+     * @description The node information.
+     *
      * @example test
      *
      * @var string
@@ -149,6 +195,8 @@ class containerInstanceList extends Model
     public $nodeInfo;
 
     /**
+     * @description The name of the node.
+     *
      * @example test
      *
      * @var string
@@ -156,6 +204,8 @@ class containerInstanceList extends Model
     public $nodeName;
 
     /**
+     * @description The pod.
+     *
      * @example alibaba-log-controller-6f847f8786-mk2mg
      *
      * @var string
@@ -163,6 +213,8 @@ class containerInstanceList extends Model
     public $pod;
 
     /**
+     * @description The IP address of the pod.
+     *
      * @example 172.24.XX.XX
      *
      * @var string
@@ -170,6 +222,8 @@ class containerInstanceList extends Model
     public $podIp;
 
     /**
+     * @description The region ID of the container.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -177,6 +231,8 @@ class containerInstanceList extends Model
     public $regionId;
 
     /**
+     * @description The number of risks.
+     *
      * @example 1
      *
      * @var string
@@ -184,6 +240,11 @@ class containerInstanceList extends Model
     public $riskCount;
 
     /**
+     * @description Indicates whether risks exist. Valid values:
+     *
+     *   **NO**
+     *   **YES**
+     *
      * @example YES
      *
      * @var string
@@ -191,6 +252,8 @@ class containerInstanceList extends Model
     public $riskStatus;
 
     /**
+     * @description The update identifier of the container.
+     *
      * @example 79cff74d-e967-5407-8a78-ee03b9****
      *
      * @var string
@@ -198,6 +261,8 @@ class containerInstanceList extends Model
     public $updateMark;
 
     /**
+     * @description The number of vulnerabilities that are detected in the container cluster.
+     *
      * @example 15
      *
      * @var int
@@ -205,6 +270,11 @@ class containerInstanceList extends Model
     public $vulCount;
 
     /**
+     * @description Indicates whether vulnerabilities are detected in the container. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example YES
      *
      * @var string

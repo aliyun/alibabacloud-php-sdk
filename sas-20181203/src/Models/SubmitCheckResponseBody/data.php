@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example Throttling
-     *
      * @var string
      */
     public $operateCode;

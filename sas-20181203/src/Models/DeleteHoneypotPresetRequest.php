@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotPresetRequest extends Model
 {
     /**
-     * @example 84104b7b-a2bc-41df-a190-12298f99f1ed
-     *
      * @var string
      */
     public $honeypotPresetId;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
         'honeypotPresetId' => 'HoneypotPresetId',
+        'lang'             => 'Lang',
     ];
 
     public function validate()
@@ -27,6 +31,9 @@ class DeleteHoneypotPresetRequest extends Model
         $res = [];
         if (null !== $this->honeypotPresetId) {
             $res['HoneypotPresetId'] = $this->honeypotPresetId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -42,6 +49,9 @@ class DeleteHoneypotPresetRequest extends Model
         $model = new self();
         if (isset($map['HoneypotPresetId'])) {
             $model->honeypotPresetId = $map['HoneypotPresetId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

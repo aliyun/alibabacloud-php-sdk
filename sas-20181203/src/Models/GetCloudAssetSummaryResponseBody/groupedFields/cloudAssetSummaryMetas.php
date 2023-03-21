@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class cloudAssetSummaryMetas extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $assetSubType;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $assetType;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $instanceCount;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $instanceRiskCount;

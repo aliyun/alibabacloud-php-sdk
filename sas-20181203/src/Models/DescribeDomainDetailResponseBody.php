@@ -10,53 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
-     * @description The total number of alerts in your website assets.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $alarmCount;
 
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description An array that consists of the details about the domain asset.
-     *
      * @var domainDetailItems[]
      */
     public $domainDetailItems;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3A85CFCF-05C8-451A-9E41-C0D5E96BA407
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The name of the root domain that corresponds to the domain.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $rootDomain;
 
     /**
-     * @description The total number of vulnerabilities in your website assets.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $vulCount;

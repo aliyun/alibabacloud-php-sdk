@@ -9,134 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListCheckResultRequest extends Model
 {
     /**
-     * @description The key that you want to use to search for check items in fuzzy match mode.
-     *
-     * @example OSS
-     *
      * @var string
      */
     public $checkKey;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The asset types of cloud services. Valid values:
-     *
-     *   **ECS**: Elastic Compute Service (ECS)
-     *   **SLB**: Server Load Balancer (SLB)
-     *   **RDS**: ApsaraDB RDS
-     *   **MONGODB**: ApsaraDB for MongoDB (MongoDB)
-     *   **KVSTORE**: ApsaraDB for Redis (Redis)
-     *   **ACR**: Container Registry
-     *   **CSK**: Container Service for Kubernetes (ACK)
-     *   **VPC**: Virtual Private Cloud (VPC)
-     *   **ACTIONTRAIL**: ActionTrail
-     *   **CDN**: Alibaba Cloud CDN (CDN)
-     *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
-     *   **RDC**: Apsara Devops
-     *   **RAM**: Resource Access Management (RAM)
-     *   **DDOS**: Anti-DDoS
-     *   **WAF**: Web Application Firewall (WAF)
-     *   **OSS**: Object Storage Service (OSS)
-     *   **POLARDB**: PolarDB
-     *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
-     *   **MSE**: Microservices Engine (MSE)
-     *   **NAS**: Apsara File Storage NAS (NAS)
-     *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
-     *   **EIP**: Elastic IP Address (EIP)
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description The language of the content within the request and the response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The IDs of requirement items.
-     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int[]
      */
     public $requirementIds;
 
     /**
-     * @description The severities of check items. Separate multiple severities with commas (,). Valid values:
-     *
-     *   **HIGH**
-     *   **MEDIUM**
-     *   **LOW**
-     *
      * @var string[]
      */
     public $riskLevels;
 
     /**
-     * @description The types of the conditions based on which check items are sorted. Valid values:
-     *
-     *   **RISK_LEVEL**: risk level
-     *   **STATUS**: state
-     *
      * @var string[]
      */
     public $sortTypes;
 
     /**
-     * @description The IDs of standards.
-     *
      * @var int[]
      */
     public $standardIds;
 
     /**
-     * @description The states of check items. Separate multiple states with commas (,). Valid values:
-     *
-     *   **PASS**
-     *   **NOT_PASS**
-     *   **CHECKING**
-     *   **NOT_CHECK**
-     *   **WHITELIST**
-     *
      * @var string[]
      */
     public $statuses;
 
     /**
-     * @description The cloud service providers. Valid values:
-     *
-     *   **ALIYUN**: Alibaba Cloud
-     *
+     * @var string[]
+     */
+    public $types;
+
+    /**
      * @var string[]
      */
     public $vendors;
@@ -147,11 +84,13 @@ class ListCheckResultRequest extends Model
         'instanceTypes'  => 'InstanceTypes',
         'lang'           => 'Lang',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'requirementIds' => 'RequirementIds',
         'riskLevels'     => 'RiskLevels',
         'sortTypes'      => 'SortTypes',
         'standardIds'    => 'StandardIds',
         'statuses'       => 'Statuses',
+        'types'          => 'Types',
         'vendors'        => 'Vendors',
     ];
 
@@ -180,6 +119,9 @@ class ListCheckResultRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->requirementIds) {
             $res['RequirementIds'] = $this->requirementIds;
         }
@@ -194,6 +136,9 @@ class ListCheckResultRequest extends Model
         }
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
+        }
+        if (null !== $this->types) {
+            $res['Types'] = $this->types;
         }
         if (null !== $this->vendors) {
             $res['Vendors'] = $this->vendors;
@@ -232,6 +177,9 @@ class ListCheckResultRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RequirementIds'])) {
             if (!empty($map['RequirementIds'])) {
                 $model->requirementIds = $map['RequirementIds'];
@@ -255,6 +203,11 @@ class ListCheckResultRequest extends Model
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
                 $model->statuses = $map['Statuses'];
+            }
+        }
+        if (isset($map['Types'])) {
+            if (!empty($map['Types'])) {
+                $model->types = $map['Types'];
             }
         }
         if (isset($map['Vendors'])) {

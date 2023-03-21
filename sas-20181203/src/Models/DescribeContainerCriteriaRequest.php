@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerCriteriaRequest extends Model
 {
     /**
-     * @example clusterId
-     *
      * @var string
      */
     public $groupField;
 
     /**
-     * @example cfb41a869c71e4678a97021582dd8a****
-     *
      * @var string
      */
     public $value;

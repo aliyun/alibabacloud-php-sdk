@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetImportantRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $importantCode;
 
     /**
-     * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
-     *
      * @var string
      */
     public $uuidList;

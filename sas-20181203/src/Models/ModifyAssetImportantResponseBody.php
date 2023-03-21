@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetImportantResponseBody extends Model
 {
     /**
-     * @example ServerError
-     *
      * @var string
      */
     public $errCode;
 
     /**
-     * @example ServerError
-     *
      * @var string
      */
     public $errMessage;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example 23C85959-1540-514B-93CF-2992C53A1B4F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

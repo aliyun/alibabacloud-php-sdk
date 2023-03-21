@@ -14,8 +14,6 @@ class ListPluginForUuidShrinkRequest extends Model
     public $typesShrink;
 
     /**
-     * @example bdb7071f-129d-4ceb-af80-4cf70c4571c6
-     *
      * @var string
      */
     public $uuid;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeQuaraFileDownloadInfoRequest extends Model
 {
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $quaraFileId;

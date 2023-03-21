@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class uniBackupPolicies extends Model
 {
     /**
-     * @example INSTALL_TIMEOUT
-     *
      * @var string
      */
     public $agentErrorMessage;
 
     /**
-     * @example INSTALLED
-     *
      * @var string
      */
     public $agentStatus;
 
     /**
-     * @example abc123
-     *
      * @var string
      */
     public $databaseName;
 
     /**
-     * @example MYSQL
-     *
      * @var string
      */
     public $databaseType;
 
     /**
-     * @example EXPIRED
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example AttachRamRoleError
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example i-9dp7mubt5wit6g0h****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example sql-test-001
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @example cf1bcad4063f11ed800000163e0e****
-     *
      * @var string
      */
     public $instanceUuid;
@@ -84,43 +64,31 @@ class uniBackupPolicies extends Model
     public $latestBackResult;
 
     /**
-     * @example 2022-01-01 00:00:11
-     *
      * @var string
      */
     public $latestBackupTime;
 
     /**
-     * @example creating
-     *
      * @var string
      */
     public $planStatus;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @example auto_oracle_37f
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @example opening
-     *
      * @var string
      */
     public $policyStatus;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $uniRegionId;

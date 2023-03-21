@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class overallList extends Model
 {
     /**
-     * @example on
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example 184
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example kdump_switch
-     *
      * @var string
      */
     public $type;

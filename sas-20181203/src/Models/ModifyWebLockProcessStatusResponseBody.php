@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockProcessStatusResponseBody extends Model
 {
     /**
-     * @example 6A540B52-2441-5493-902B-37376C412776
-     *
      * @var string
      */
     public $requestId;

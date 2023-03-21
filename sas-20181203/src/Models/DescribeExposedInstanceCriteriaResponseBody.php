@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceCriteriaResponseBody extends Model
 {
     /**
-     * @description The search conditions that are used to search for exposed assets.
-     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6D9CDB47-6191-4415-BE63-7E8B12CD4FBE
-     *
      * @var string
      */
     public $requestId;

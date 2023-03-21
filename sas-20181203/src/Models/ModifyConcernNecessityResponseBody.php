@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyConcernNecessityResponseBody extends Model
 {
     /**
-     * @example F059E190-A65B-5DF8-8709-2CC7791A5B65
-     *
      * @var string
      */
     public $requestId;

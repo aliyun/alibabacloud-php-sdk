@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example c8ca91e0907d94efaba7fb0827eb9****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $installed;
 
     /**
-     * @example i-bp180bogui4fc0z4****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 172.16.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example 10.42.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @example PLUGIN_OFFLINE
-     *
      * @var string
      */
     public $invalidType;
 
     /**
-     * @example security
-     *
      * @var string
      */
     public $machineName;
 
     /**
-     * @example ecs
-     *
      * @var int
      */
     public $machineType;
 
     /**
-     * @example alinet
-     *
      * @var string
      */
     public $pluginName;
 
     /**
-     * @example 3.3
-     *
      * @var string
      */
     public $pluginVersion;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 6690a46c-0edb-4663-a641-3629d1a9****
-     *
      * @var string
      */
     public $uuid;

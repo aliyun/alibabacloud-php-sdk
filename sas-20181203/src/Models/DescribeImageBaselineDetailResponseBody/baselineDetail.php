@@ -14,8 +14,6 @@ class baselineDetail extends Model
     public $advice;
 
     /**
-     * @example ak_leak
-     *
      * @var string
      */
     public $baselineClassAlias;
@@ -26,8 +24,6 @@ class baselineDetail extends Model
     public $baselineItemAlias;
 
     /**
-     * @example ak_leak
-     *
      * @var string
      */
     public $baselineItemKey;
@@ -43,22 +39,16 @@ class baselineDetail extends Model
     public $description;
 
     /**
-     * @example high
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @example /usr/aksk.txt:LTAI4GBEG5zaqX**********
-     *
      * @var string
      */
     public $prompt;
 
     /**
-     * @example async__c6f3b0b54613383b40bdce593ffe****
-     *
      * @var string
      */
     public $resultId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCheckResultWhiteListRequest extends Model
 {
     /**
+     * @description The IDs of the check items.
+     *
      * @var int[]
      */
     public $checkIds;

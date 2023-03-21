@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetRegistryScanDayNumRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $scanDayNum;

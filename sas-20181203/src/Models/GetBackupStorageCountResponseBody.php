@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetBackupStorageCountResponseBody extends Model
 {
     /**
-     * @description The details about the anti-ransomware capacity.
-     *
      * @var backupStorageCount
      */
     public $backupStorageCount;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 33C2CCFF-4BF8-5F88-9B5C-22F932F80E5A
-     *
      * @var string
      */
     public $requestId;

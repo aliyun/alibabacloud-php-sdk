@@ -14,22 +14,16 @@ class incPlan extends Model
     public $days;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $interval;
 
     /**
-     * @example daily
-     *
      * @var string
      */
     public $planType;
 
     /**
-     * @example 00:10:00
-     *
      * @var string
      */
     public $startTime;

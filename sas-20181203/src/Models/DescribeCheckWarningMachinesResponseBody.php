@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningMachinesResponseBody extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $count;
@@ -22,8 +20,6 @@ class DescribeCheckWarningMachinesResponseBody extends Model
     public $machines;
 
     /**
-     * @example B3D989EB-2E59-584C-8438-5DFAA34A****
-     *
      * @var string
      */
     public $requestId;

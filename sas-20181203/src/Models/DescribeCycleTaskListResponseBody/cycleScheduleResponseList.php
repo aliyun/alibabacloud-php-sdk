@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cycleScheduleResponseList extends Model
 {
     /**
+     * @description The ID of the task configuration.
+     *
      * @example 2cdbdeba8dd70586d5814d4cbf21****
      *
      * @var string
@@ -16,6 +18,11 @@ class cycleScheduleResponseList extends Model
     public $configId;
 
     /**
+     * @description Indicates whether the task is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,8 @@ class cycleScheduleResponseList extends Model
     public $enable;
 
     /**
+     * @description The first time when the task starts.
+     *
      * @example 1667491200000
      *
      * @var int
@@ -30,6 +39,8 @@ class cycleScheduleResponseList extends Model
     public $firstDateStr;
 
     /**
+     * @description The interval of the task.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +48,8 @@ class cycleScheduleResponseList extends Model
     public $intervalPeriod;
 
     /**
+     * @description The ID of the task when the task last runs.
+     *
      * @example 38730bb078f4a1461d4ed283994c****
      *
      * @var string
@@ -44,6 +57,8 @@ class cycleScheduleResponseList extends Model
     public $lastTaskId;
 
     /**
+     * @description The next time when the task starts. The value is a UNIX timestamp. Unit: milliseconds.
+     *
      * @example 1671184531000
      *
      * @var int
@@ -51,6 +66,8 @@ class cycleScheduleResponseList extends Model
     public $nextStartTimeStr;
 
     /**
+     * @description The additional information.
+     *
      * @example {"userAgreement":"yes","lang":"zh"}
      *
      * @var string
@@ -58,6 +75,11 @@ class cycleScheduleResponseList extends Model
     public $param;
 
     /**
+     * @description The unit of the scan interval. Valid values:
+     *
+     *   **day**: days
+     *   **hour**: hours
+     *
      * @example day
      *
      * @var string
@@ -65,6 +87,8 @@ class cycleScheduleResponseList extends Model
     public $periodUnit;
 
     /**
+     * @description The period of time before the task ends. Unit: hours.
+     *
      * @example 7
      *
      * @var int
@@ -72,6 +96,8 @@ class cycleScheduleResponseList extends Model
     public $targetEndTime;
 
     /**
+     * @description The period of time before the task starts for the next time. Unit: hours.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +105,8 @@ class cycleScheduleResponseList extends Model
     public $targetStartTime;
 
     /**
+     * @description The name of the task.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -86,6 +114,8 @@ class cycleScheduleResponseList extends Model
     public $taskName;
 
     /**
+     * @description The type of the task.
+     *
      * @example IMAGE_SCAN
      *
      * @var string

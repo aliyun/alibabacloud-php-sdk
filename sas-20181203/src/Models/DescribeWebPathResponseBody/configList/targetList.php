@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
-     * @example 82048187-bb9b-4e19-8320-7b4ddb97****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;

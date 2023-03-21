@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAgentInstallStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeAgentInstallStatusRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 59.46.XXX.XXX
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeAgentInstallStatusRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+     *
      * @example inet-eae014a7-16c4-4d4e-9f03-5208f4dc****,inet-eae047da-1e5a-41ce-828d-47606e9b****
      *
      * @var string

@@ -9,183 +9,131 @@ use AlibabaCloud\Tea\Model;
 class DescribeTotalStatisticsResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $account;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $health;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthdealedTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthhighTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthlowTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthmediumTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $healthseriousTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $newsuspicious;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $online;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $patch;
 
     /**
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspicious;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspiciousTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspiciousdealedTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspicioushighTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspiciouslowTotal;
 
     /**
-     * @example 28
-     *
      * @var int
      */
     public $suspiciousmediumTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $suspiciousseriousTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $trojan;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vul;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $vulAsapSum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulDealedTotal;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulLaterSum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulNntfSum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $vulTotal;

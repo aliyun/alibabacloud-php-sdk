@@ -14,19 +14,11 @@ class DescribeSimilarEventScenariosRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the alert to query.
-     *
-     * @example 12321
-     *
      * @var int
      */
     public $securityEventId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

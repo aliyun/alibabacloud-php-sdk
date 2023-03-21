@@ -9,24 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebPathRequest extends Model
 {
     /**
-     * @example {
-     * "webPathType": "customize",
-     * "webPath": "/root/www****"
-     * }
      * @var string
      */
     public $config;
 
     /**
-     * @example [{"target":"0186127a-d33e-4d0c-94fb-8f25f87bc69f","targetType":"uuid","flag":"add"}]
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @example web_path
-     *
      * @var string
      */
     public $type;

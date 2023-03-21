@@ -9,318 +9,166 @@ use AlibabaCloud\Tea\Model;
 class assetDetail extends Model
 {
     /**
-     * @description The type of the asset. Valid values:
-     *
-     *   **0**: ECS instance
-     *   **1**: Server Load Balancer (SLB) instance
-     *   **2**: NAT gateway
-     *   **3**: ApsaraDB RDS database
-     *   **4**: ApsaraDB for MongoDB database
-     *   **5**: ApsaraDB for Redis database
-     *   **6**: image
-     *   **7**: container
-     *
-     * @example 0
-     *
      * @var string
      */
     public $assetType;
 
     /**
-     * @description The timestamp when Security Center is authorized to protect the asset. Unit: milliseconds.
-     *
-     * @example 1627974044000
-     *
      * @var int
      */
     public $authModifyTime;
 
     /**
-     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
-     *
-     *   **1**: Basic edition (Unauthorized)
-     *   **6**: Anti-virus edition
-     *   **5**: Advanced edition
-     *   **3**: Enterprise edition
-     *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
-     *
-     * @example 7
-     *
      * @var int
      */
     public $authVersion;
 
     /**
-     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $bind;
 
     /**
-     * @description The status of the Security Center agent. Valid values:
-     *
-     *   **pause**: The Security Center agent suspends protection for your server.
-     *   **online**: The Security Center agent is protecting your server.
-     *   **offline**: The Security Center agent does not protect your server.
-     *
-     * @example online
-     *
      * @var string
      */
     public $clientStatus;
 
     /**
-     * @description The version of the Security Center agent.
-     *
-     * @example 2.0.0
-     *
      * @var string
      */
     public $clientVersion;
 
     /**
-     * @description The number of CPU cores.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description The details of the CPU.
-     *
-     * @example Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
-     *
      * @var string
      */
     public $cpuInfo;
 
     /**
-     * @description The timestamp when Security Center records the details of the server. Unit: milliseconds.
-     *
-     * @example 1603863599000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description An array that consists of the information about the disk.
-     *
      * @var string[]
      */
     public $diskInfoList;
 
     /**
-     * @description Indicates whether the asset is provided by Alibaba Cloud. Valid values:
-     *
-     *   **0**: yes
-     *   **1**: no
-     *
-     * @example 0
-     *
      * @var int
      */
     public $flag;
 
     /**
-     * @description The group to which the server belongs. By default, the servers that are not grouped belong to the **Default** group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $groupTrace;
 
     /**
-     * @description The name of the host.
-     *
-     * @example qewrqwerqs****
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-uf6h7p2fgk6rkk0g****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example i-fasdfasdfadfafa****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The IP address that is assigned to the Elastic Compute Service (ECS) instance.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The IP addresses of the server.
-     *
      * @var string[]
      */
     public $ipList;
 
     /**
-     * @description The kernel version of the operating system.
-     *
-     * @example 4.18.0-80.11.2.el8_0.x86_64
-     *
      * @var string
      */
     public $kernel;
 
     /**
-     * @description The media access control (MAC) addresses of the server.
-     *
      * @var string[]
      */
     public $macList;
 
     /**
-     * @description The memory size of the server. Unit: GB.
-     *
-     * @example 32
-     *
      * @var int
      */
     public $mem;
 
     /**
-     * @description The memory size of the server. Unit: MB.
-     *
-     * @example 512
-     *
      * @var int
      */
     public $memory;
 
     /**
-     * @description The operating system type of the server.
-     *
-     * @example linux
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The operating system version of the server.
-     *
-     * @example Linux 64bit
-     *
      * @var string
      */
     public $osDetail;
 
     /**
-     * @description The name of the operating system.
-     *
-     * @example -
-     *
      * @var string
      */
     public $osName;
 
     /**
-     * @description The region in which the server resides.
-     *
-     * @example cn-hangzhou-dg-a01
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The ID of the region in which the asset resides.
-     *
-     * @example cn-hanghzou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the region in which the server resides.
-     *
-     * @example China (Hohhot)
-     *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The operating system information about the server.
-     *
-     * @example CentOS Linux 8.0.1905
-     *
      * @var string
      */
     public $sysInfo;
 
     /**
-     * @description The tag that is added to the server.
-     *
-     * @example InternetIp
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) in which the server resides.
-     *
-     * @example vpc-bp1fs3bwonlfq503w****
-     *
      * @var string
      */
     public $vpcInstanceId;

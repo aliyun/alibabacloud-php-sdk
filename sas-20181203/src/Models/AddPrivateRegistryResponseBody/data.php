@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 1766185894104***
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example 273698***
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $netType;
 
     /**
-     * @example ***********
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $protocolType;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 114.55.**.**
-     *
      * @var string
      */
     public $registryHostIp;
 
     /**
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;
 
     /**
-     * @example V2
-     *
      * @var string
      */
     public $registryVersion;
 
     /**
-     * @example 3c3c602c-fa1f-4bc0-992f-b4b2cac7****
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $transPerHour;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example vpc-2vchkxmf2j9yjt3x2****
-     *
      * @var string
      */
     public $vpcId;

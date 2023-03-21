@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the baseline check policy.
-     *
-     * @example 8164239
-     *
      * @var int
      */
     public $strategyId;

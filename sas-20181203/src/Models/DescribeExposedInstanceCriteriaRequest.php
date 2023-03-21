@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceCriteriaRequest extends Model
 {
     /**
-     * @description The value of the search condition. Fuzzy match is supported.
-     *
-     * @example id
-     *
      * @var string
      */
     public $value;

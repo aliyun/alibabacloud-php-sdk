@@ -15,8 +15,6 @@ class DescribeImageInfoListResponseBody extends Model
     public $imageInfos;
 
     /**
-     * @example BC3B0DAE-CC0E-59E9-9383-6F060F22****
-     *
      * @var string
      */
     public $requestId;

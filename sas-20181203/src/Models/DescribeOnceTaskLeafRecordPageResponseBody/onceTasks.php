@@ -10,85 +10,61 @@ use AlibabaCloud\Tea\Model;
 class onceTasks extends Model
 {
     /**
-     * @example 1670307567000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $finish;
 
     /**
-     * @example 67
-     *
      * @var string
      */
     public $finishCount;
 
     /**
-     * @example 75
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example 1670307567000
-     *
      * @var int
      */
     public $realRunTime;
 
     /**
-     * @example TASK_NOT_SUPPORT_REGION
-     *
      * @var string
      */
     public $resultInfo;
 
     /**
-     * @example 1640102400000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $statusText;
 
     /**
-     * @example 238cf050a7270dd6940602e70f1e5a11eeaf4e02035f445b7f613ff5e064****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @example IMAGE
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @example 9fb50f2af8bb67c9fdb684194c83****
-     *
      * @var string
      */
     public $taskId;
@@ -99,22 +75,16 @@ class onceTasks extends Model
     public $taskImageInfo;
 
     /**
-     * @example IMAGE_SCAN
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @example IMAGE_SCAN
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @example 30
-     *
      * @var string
      */
     public $totalCount;

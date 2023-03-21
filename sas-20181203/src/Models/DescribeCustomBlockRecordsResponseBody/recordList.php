@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class recordList extends Model
 {
     /**
+     * @description The timestamp when the defense rule expires.
+     *
      * @example 1671506882063
      *
      * @var int
@@ -17,6 +19,8 @@ class recordList extends Model
     public $blockExpireDate;
 
     /**
+     * @description The blocked IP address.
+     *
      * @example 45.227.XX.XX
      *
      * @var string
@@ -24,6 +28,11 @@ class recordList extends Model
     public $blockIp;
 
     /**
+     * @description The direction of the traffic that is sent by the blocked IP address. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -31,6 +40,8 @@ class recordList extends Model
     public $bound;
 
     /**
+     * @description The number of servers to which the defense rule is applied.
+     *
      * @example 4
      *
      * @var int
@@ -38,6 +49,8 @@ class recordList extends Model
     public $enableCount;
 
     /**
+     * @description The ID of the defense rule.
+     *
      * @example 353376
      *
      * @var int
@@ -45,6 +58,8 @@ class recordList extends Model
     public $id;
 
     /**
+     * @description The total number of servers on which the IP address is blocked.
+     *
      * @example 6
      *
      * @var int
@@ -52,6 +67,8 @@ class recordList extends Model
     public $serverCount;
 
     /**
+     * @description The source of the defense rule. Valid values:
+     *
      * @example UserRule
      *
      * @var string
@@ -59,6 +76,12 @@ class recordList extends Model
     public $source;
 
     /**
+     * @description The status of the defense rule. Valid values:
+     *
+     *   **0**: invalid
+     *   **1**: enabled
+     *   **2**: failed
+     *
      * @example 1
      *
      * @var int
@@ -66,6 +89,8 @@ class recordList extends Model
     public $status;
 
     /**
+     * @description An array consisting of the servers to which the defense rule is applied.
+     *
      * @var targetList[]
      */
     public $targetList;

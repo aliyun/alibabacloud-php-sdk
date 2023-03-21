@@ -10,35 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUsageNewestResponseBody extends Model
 {
     /**
-     * @description The number of accounts.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $itemCount;
 
     /**
-     * @description An array that consists of the accounts.
-     *
      * @var newestStatisticItems[]
      */
     public $newestStatisticItems;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 27C78A20-0833-4519-B392-F7963CCFC6AC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The type of the accounts that are created on the server. The value is fixed as user, which indicates user accounts.
-     *
-     * @example user
-     *
      * @var string
      */
     public $type;

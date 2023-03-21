@@ -15,8 +15,6 @@ class DescribeImageCriteriaResponseBody extends Model
     public $criteriaList;
 
     /**
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
-     *
      * @var string
      */
     public $requestId;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyCycleTaskResponseBody extends Model
 {
     /**
-     * @example 1AA33E30-7192-5648-93CD-D0E476A2****
-     *
      * @var string
      */
     public $requestId;

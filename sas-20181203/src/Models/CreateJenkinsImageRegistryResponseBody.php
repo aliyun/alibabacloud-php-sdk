@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateJenkinsImageRegistryResponseBody extends Model
 {
     /**
+     * @description The result of creating the image repository.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class CreateJenkinsImageRegistryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1AF1E723-53F1-55BF-A4B2-15CB7A32****
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateJenkinsImageRegistryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time consumed. Unit: seconds.
+     *
      * @example 1
      *
      * @var int

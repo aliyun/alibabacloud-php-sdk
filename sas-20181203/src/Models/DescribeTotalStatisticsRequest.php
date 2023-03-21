@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeTotalStatisticsRequest extends Model
 {
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example 8076980
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example 222.185.XX.XX
-     *
      * @var string
      */
     public $remark;

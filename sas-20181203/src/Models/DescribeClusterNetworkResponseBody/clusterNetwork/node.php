@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $cnnfSwitch;
 
     /**
-     * @example cfeb7a9f99ce740e98c5595d0fe37****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $interceptionType;
 
     /**
-     * @example testwww
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example ON
-     *
      * @var string
      */
     public $netTopoSwitch;
 
     /**
-     * @example 3
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @example cluster
-     *
      * @var string
      */
     public $type;

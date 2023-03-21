@@ -15,36 +15,26 @@ class aegisUuidTargetPluginConfigList extends Model
     public $aegisSuspiciousConfigList;
 
     /**
-     * @example k5O5nd
-     *
      * @var string
      */
     public $pluginInstallCode;
 
     /**
-     * @example alisecguard
-     *
      * @var string
      */
     public $pluginName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $pluginOnlineInstalled;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $pluginOnlineStatus;
 
     /**
-     * @example 00_10
-     *
      * @var string
      */
     public $pluginVersion;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionRuleDetailRequest extends Model
 {
     /**
-     * @example c7f60fdabc84xxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 500002
-     *
      * @var string
      */
     public $ruleId;

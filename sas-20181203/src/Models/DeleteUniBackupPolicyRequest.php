@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteUniBackupPolicyRequest extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @example 123,124
-     *
      * @var string
      */
     public $policyIds;

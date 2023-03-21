@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMetaResponseBody extends Model
 {
     /**
-     * @description An array that consists of the configurations of the log analysis feature.
-     *
      * @var logMetaList[]
      */
     public $logMetaList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA04B21
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;

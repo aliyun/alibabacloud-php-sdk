@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockStatusResponseBody extends Model
 {
     /**
-     * @example 32
-     *
      * @var int
      */
     public $authCount;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $bindCount;
 
     /**
-     * @example 48
-     *
      * @var int
      */
     public $blockCount;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $dirCount;
 
     /**
-     * @example 1688090851000
-     *
      * @var int
      */
     public $expireTime;
 
     /**
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $whiteCount;

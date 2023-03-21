@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskErrorLogResponseBody extends Model
 {
     /**
-     * @description The error logs that are returned.
-     *
      * @var logs[]
      */
     public $logs;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example F929E952-EBFC-56C3-BD35-BF8B59024C69
-     *
      * @var string
      */
     public $requestId;

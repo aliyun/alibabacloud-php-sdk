@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
-     * @example 11
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 11
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 10.10.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @example 172.0.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $riskNum;
 
     /**
-     * @example 947d7514-258a-4b47-9dde-9dxxxxxxxxxx
-     *
      * @var string
      */
     public $uuid;

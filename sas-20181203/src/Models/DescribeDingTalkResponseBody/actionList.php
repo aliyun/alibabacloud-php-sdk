@@ -9,106 +9,56 @@ use AlibabaCloud\Tea\Model;
 class actionList extends Model
 {
     /**
-     * @description The name of the notification.
-     *
-     * @example Alert notification
-     *
      * @var string
      */
     public $actionName;
 
     /**
-     * @description The UID of the user.
-     *
-     * @example 12312412341
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description The list of notification settings.
-     *
-     * @example [{\"type\":\"vul\",\"configItemList\":[{\"key\":\"key\", \"valueList\":\"123\"}]}]
-     *
      * @var string
      */
     public $configList;
 
     /**
-     * @description The language of the content within notifications. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $dingTalkLang;
 
     /**
-     * @description The creation time. unit:millisecond.
-     *
-     * @example 1550828400000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description The modification time.
-     *
-     * @example 1550828400000
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description The group IDs.
-     *
-     * @example "123,456"
-     *
      * @var string
      */
     public $groupIdList;
 
     /**
-     * @description The ID of the notification.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The interval at which the notifications are sent.unit:minute.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $intervalTime;
 
     /**
-     * @description The status of the notification. Valid values:
-     *
-     *   **0**: disabled
-     *   **1**: enabled
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The parameters of the notification.
-     *
-     * @example https://oapi.dingtalk.com/robot/send
-     *
      * @var string
      */
     public $url;

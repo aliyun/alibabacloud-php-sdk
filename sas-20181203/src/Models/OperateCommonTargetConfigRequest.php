@@ -9,45 +9,31 @@ use AlibabaCloud\Tea\Model;
 class OperateCommonTargetConfigRequest extends Model
 {
     /**
-     * @example repoName
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example cafcmc-dev
-     *
      * @var string
      */
     public $fieldValue;
 
     /**
-     * @example 182.92.XXX.XXX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @example [
-     * "targetType": "uuid",
-     * "target": "f329a044-6a2f-49a0-9d33-352f6c1d****",
-     * ]
      * @var string
      */
     public $targetOperations;
 
     /**
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @example alidetect
-     *
      * @var string
      */
     public $type;

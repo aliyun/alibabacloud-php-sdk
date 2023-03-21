@@ -9,85 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckResultRequest extends Model
 {
     /**
-     * @description The type of the cloud service whose configuration assessment result you want to query. For more information about the description of the cloud service specified by this parameter, see the check item table in the "Response parameters" section of this topic.
-     *
-     * @example RDS
-     *
      * @var string
      */
     public $assetType;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The type of the check item that you want to query. Valid values:
-     *
-     *   **1**: identity authentication and permissions
-     *   **2**: network access control
-     *   **3**: log audit
-     *   **4**: data security
-     *   **5**: monitoring and alerting
-     *   **6**: basic security protection
-     *
-     * >  If you do not specify this parameter, all types of check items are queried by default.
-     * @example 1
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example 1
-     *
      * @var string[]
      */
     public $itemIds;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the check item. For more information about the description of the check item name, see the check item table in the "Response parameters" section of this topic.
-     *
-     * @example ALB_NetWorkAccessControl
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Specifies whether the check item is supported by the cloud service. Valid values:
-     *
-     *   **enabled**: The check item is supported by the cloud service.
-     *   **disabled**: The check item is not supported by the cloud service.
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $queryFlag;
@@ -98,39 +54,16 @@ class DescribeRiskCheckResultRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The risk level of the check item that you want to query. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example high
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The status of the check result. Valid values:
-     *
-     *   **pass**
-     *   **failed**
-     *   **running**
-     *   **waiting**
-     *   **ignored**
-     *   **falsePositive**
-     *
-     * @example pass
-     *
      * @var string
      */
     public $status;

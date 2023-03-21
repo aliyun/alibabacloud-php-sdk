@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoCriteriaRequest extends Model
 {
     /**
-     * @example 2.0.2
-     *
      * @var string
      */
     public $value;

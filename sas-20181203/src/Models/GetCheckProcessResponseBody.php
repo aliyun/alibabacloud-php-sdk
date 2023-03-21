@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetCheckProcessResponseBody extends Model
 {
     /**
-     * @example 80
-     *
      * @var int
      */
     public $finishCount;
 
     /**
-     * @example D18B5DAD-BA97-5552-AE48-83F59D5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 113
-     *
      * @var int
      */
     public $totalCount;

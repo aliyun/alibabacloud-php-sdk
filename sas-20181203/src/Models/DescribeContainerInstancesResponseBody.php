@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerInstancesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about containers.
+     *
      * @var containerInstanceList[]
      */
     public $containerInstanceList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
      *
      * @var string

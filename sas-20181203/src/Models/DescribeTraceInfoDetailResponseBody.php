@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoDetailResponseBody extends Model
 {
     /**
-     * @example 24A20733-10A0-4AF6-BE6B-XXXXXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,16 @@ use AlibabaCloud\Tea\Model;
 class grids extends Model
 {
     /**
-     * @description The search condition.
-     *
-     * @example RegionIdShow
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The display name of the search condition.
-     *
-     * @example Region
-     *
      * @var string
      */
     public $showName;
 
     /**
-     * @description The format of the check results for the instances. Valid values:
-     *
-     *   **text**
-     *   **link**
-     *
-     * @example text
-     *
      * @var string
      */
     public $type;

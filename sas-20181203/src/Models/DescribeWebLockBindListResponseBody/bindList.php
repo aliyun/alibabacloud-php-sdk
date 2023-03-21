@@ -9,133 +9,66 @@ use AlibabaCloud\Tea\Model;
 class bindList extends Model
 {
     /**
-     * @description The number of alerts.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $auditCount;
 
     /**
-     * @description The number of blocked tampering events.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $blockCount;
 
     /**
-     * @description The number of protected directories.
-     *
-     * @example 5
-     *
      * @var string
      */
     public $dirCount;
 
     /**
-     * @description The name of the server.
-     *
-     * @example testName
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 54.169.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The operating system that the server runs.
-     *
-     * @example Linux
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The starting progress percentage of web tamper proofing. Valid values: 0 to 100.
-     *
-     * @example 99
-     *
      * @var int
      */
     public $percent;
 
     /**
-     * @description The error code for web tamper proofing. Valid values:
-     *
-     *   **2001**: The Security Center agent is offline.
-     *   **9999**: The connection timed out.
-     *
-     * @example 2001
-     *
      * @var string
      */
     public $serviceCode;
 
     /**
-     * @description The error message for web tamper proofing. Valid values:
-     *
-     *   **client offline**: The Security Center agent is offline.
-     *   **timeout**: The connection timed out.
-     *
-     * @example client offline
-     *
      * @var string
      */
     public $serviceDetail;
 
     /**
-     * @description The status of web tamper proofing on the server. Valid values:
-     *
-     *   **stop**: Web tamper proofing is disabled.
-     *   **initializing**: Web tamper proofing is being enabled.
-     *   **exception**: Web tamper proofing is not running as expected.
-     *   **running**: Web tamper proofing is running.
-     *   **closing**: Web tamper proofing is being disabled.
-     *
-     * @example stop
-     *
      * @var string
      */
     public $serviceStatus;
 
     /**
-     * @description The protection status of the server. Valid values:
-     *
-     *   **on**: protected
-     *   **off**: unprotected
-     *
-     * @example on
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example inet-12345****
-     *
      * @var string
      */
     public $uuid;

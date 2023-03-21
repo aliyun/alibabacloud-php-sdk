@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RefreshContainerAssetsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 2090F329-3658-49AF-820B-C4157FC31BCB
-     *
      * @var string
      */
     public $requestId;

@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetLastOnceTaskInfoResponseBody extends Model
 {
     /**
-     * @example 1671184531000
-     *
      * @var int
      */
     public $collectTime;
 
     /**
-     * @example 67
-     *
      * @var int
      */
     public $finishCount;
 
     /**
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 3f65e1f1bb13118891a889d569a3****
-     *
      * @var int
      */
     public $taskId;
@@ -43,8 +35,6 @@ class GetLastOnceTaskInfoResponseBody extends Model
     public $taskInfo;
 
     /**
-     * @example 44
-     *
      * @var int
      */
     public $totalCount;

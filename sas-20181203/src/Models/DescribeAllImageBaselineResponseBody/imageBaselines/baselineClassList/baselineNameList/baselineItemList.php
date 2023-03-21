@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class baselineItemList extends Model
 {
     /**
+     * @description The alias of the baseline check item.
+     *
+     * @example Ensure that no accounts use the same Hash password.
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The key of the type for the baseline.
+     *
      * @example identification
      *
      * @var string
@@ -21,6 +27,8 @@ class baselineItemList extends Model
     public $classKey;
 
     /**
+     * @description The key of the name for the baseline check item.
+     *
      * @example duplicate_pwd_hash
      *
      * @var string
@@ -28,6 +36,8 @@ class baselineItemList extends Model
     public $itemKey;
 
     /**
+     * @description The key of the name for the baseline.
+     *
      * @example identification
      *
      * @var string

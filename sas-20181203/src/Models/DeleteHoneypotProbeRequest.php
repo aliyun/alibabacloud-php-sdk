@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotProbeRequest extends Model
 {
     /**
-     * @example 95f0f79c-f7e9-4b09-a6e3-95a4cb6d****
-     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var string
      */
     public $probeId;
     protected $_name = [
+        'lang'    => 'Lang',
         'probeId' => 'ProbeId',
     ];
 
@@ -25,6 +29,9 @@ class DeleteHoneypotProbeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->probeId) {
             $res['ProbeId'] = $this->probeId;
         }
@@ -40,6 +47,9 @@ class DeleteHoneypotProbeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['ProbeId'])) {
             $model->probeId = $map['ProbeId'];
         }

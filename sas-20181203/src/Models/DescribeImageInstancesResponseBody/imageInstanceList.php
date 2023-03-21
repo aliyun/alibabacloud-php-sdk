@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageInstanceList extends Model
 {
     /**
+     * @description The number of alerts that are generated on the image.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,11 @@ class imageInstanceList extends Model
     public $alarmCount;
 
     /**
+     * @description Indicates whether alerts are generated for the image. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example NO
      *
      * @var string
@@ -23,6 +30,11 @@ class imageInstanceList extends Model
     public $alarmStatus;
 
     /**
+     * @description Indicates whether the image was deployed. Valid values:
+     *
+     *   **0**: The image was not deployed.
+     *   **1**: The image was deployed.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +42,8 @@ class imageInstanceList extends Model
     public $deployed;
 
     /**
+     * @description The digest value of the image.
+     *
      * @example a5ccdd9b166b67e02954aa9b618fe19b7968bd56a15463d2ad7f2643ba5b****
      *
      * @var string
@@ -37,6 +51,8 @@ class imageInstanceList extends Model
     public $digest;
 
     /**
+     * @description The address of the image.
+     *
      * @example []
      *
      * @var string
@@ -44,6 +60,8 @@ class imageInstanceList extends Model
     public $endpoints;
 
     /**
+     * @description The number of baseline risks.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +69,11 @@ class imageInstanceList extends Model
     public $hcCount;
 
     /**
+     * @description Indicates whether the image baseline risks exist. Valid values:
+     *
+     *   **NO**
+     *   **YES**
+     *
      * @example NO
      *
      * @var string
@@ -58,6 +81,8 @@ class imageInstanceList extends Model
     public $hcStatus;
 
     /**
+     * @description The timestamp when the image was created. Unit: milliseconds.
+     *
      * @example 1600069948849
      *
      * @var string
@@ -65,6 +90,8 @@ class imageInstanceList extends Model
     public $imageCreate;
 
     /**
+     * @description The ID of the image.
+     *
      * @example c20987f18b130f9d144c9828df630417e2a9523148930dc3963e9d0dab30****
      *
      * @var string
@@ -72,6 +99,8 @@ class imageInstanceList extends Model
     public $imageId;
 
     /**
+     * @description The size of the image. Unit: MB.
+     *
      * @example 1604487690
      *
      * @var string
@@ -79,6 +108,8 @@ class imageInstanceList extends Model
     public $imageSize;
 
     /**
+     * @description The timestamp when the image was updated. Unit: milliseconds.
+     *
      * @example 1600069948849
      *
      * @var string
@@ -86,6 +117,8 @@ class imageInstanceList extends Model
     public $imageUpdate;
 
     /**
+     * @description The ID of the image instance.
+     *
      * @example 39010****
      *
      * @var string
@@ -93,6 +126,8 @@ class imageInstanceList extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the image.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -100,6 +135,13 @@ class imageInstanceList extends Model
     public $regionId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   **acr**
+     *   **harbor**
+     *   **quay**
+     *   **CI/CD**
+     *
      * @example acr
      *
      * @var string
@@ -107,6 +149,8 @@ class imageInstanceList extends Model
     public $registryType;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example f2b86d20bf0855af6aa268ce90fd****
      *
      * @var string
@@ -114,6 +158,8 @@ class imageInstanceList extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example sas-script-test
      *
      * @var string
@@ -121,6 +167,8 @@ class imageInstanceList extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example N/A
      *
      * @var string
@@ -128,6 +176,11 @@ class imageInstanceList extends Model
     public $repoNamespace;
 
     /**
+     * @description The type of the repository. Valid values:
+     *
+     *   **private**
+     *   **public**
+     *
      * @example private
      *
      * @var string
@@ -135,6 +188,11 @@ class imageInstanceList extends Model
     public $repoType;
 
     /**
+     * @description Indicates whether risks exist. Valid values:
+     *
+     *   **NO**: No risks exist.
+     *   **YES**: Risks exist.
+     *
      * @example NO
      *
      * @var string
@@ -142,6 +200,8 @@ class imageInstanceList extends Model
     public $riskStatus;
 
     /**
+     * @description The scan progress of the image. Valid values: 0 to 100.
+     *
      * @example 100
      *
      * @var int
@@ -149,6 +209,12 @@ class imageInstanceList extends Model
     public $scaProgress;
 
     /**
+     * @description The error code of the image scan result. Valid values:
+     *
+     *   **TASK_NOT_EXISTS**: The image scan task does not exist.
+     *   **TASK_NOT_SUPPORT_REGION**: The image scan task cannot be performed in the current region.
+     *   **forbid_create_repeat_task**: The image scan task already exists.
+     *
      * @example TASK_NOT_SUPPORT_REGION
      *
      * @var string
@@ -156,6 +222,23 @@ class imageInstanceList extends Model
     public $scaResult;
 
     /**
+     * @description The scan status of the image. Valid values:
+     *
+     *   **INIT**: The image scan task is to be started.
+     *   **START**: The image scan task is started.
+     *   **MESSAGE_SEND**: The message about the image scan task is sent.
+     *   **START_RUN**: The image scan task is started.
+     *   **DOWNLOAD**: The image scan result is downloaded.
+     *   **PRE_ANALYZER**: The image scan task is being processed.
+     *   **WEB_SHELL_ANALYZER**: The WebShell analysis is complete.
+     *   **CVE_ANALYZER**: The CVE analysis is complete.
+     *   **BIN_ANALYZER**: The binary analysis of the image is complete.
+     *   **OTHER_ANALYZER**: The extended analysis of the image is complete.
+     *   **SUCCESS**: The image scan task is complete.
+     *   **PRE_ANALYZER_SUCCESS**: The image scan task is processed.
+     *   **FAIL**: The image scan task fails.
+     *   **TIMEOUT**: The image scan task times out.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -163,6 +246,10 @@ class imageInstanceList extends Model
     public $scaStatus;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     *   **NORMAL**: The image is normal.
+     *
      * @example NORMAL
      *
      * @var string
@@ -170,6 +257,8 @@ class imageInstanceList extends Model
     public $status;
 
     /**
+     * @description The tag of the image.
+     *
      * @example mysql_5.7
      *
      * @var string
@@ -177,6 +266,8 @@ class imageInstanceList extends Model
     public $tag;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 12f80307-60aa-4efa-863a-56d72fb****
      *
      * @var string
@@ -184,6 +275,8 @@ class imageInstanceList extends Model
     public $uuid;
 
     /**
+     * @description The number of vulnerabilities in the image.
+     *
      * @example 0
      *
      * @var int
@@ -191,6 +284,11 @@ class imageInstanceList extends Model
     public $vulCount;
 
     /**
+     * @description Indicates whether vulnerabilities exist in the image. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example NO
      *
      * @var string

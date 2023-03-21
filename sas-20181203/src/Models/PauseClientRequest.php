@@ -9,20 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PauseClientRequest extends Model
 {
     /**
-     * @description The list of servers for which you want to enable or disable the Security Center agent.
-     *
-     * @example uuid-1211-sadsd-2131
-     *
      * @var string
      */
     public $uuids;
 
     /**
-     * @description The status of the Security Center agent. Valid values:
-     * - **0**: disabled
-     * - **1**: enabled
-     * @example 1
-     *
      * @var string
      */
     public $value;

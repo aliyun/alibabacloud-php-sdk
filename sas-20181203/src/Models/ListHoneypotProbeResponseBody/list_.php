@@ -15,71 +15,51 @@ class list_ extends Model
     public $controlNode;
 
     /**
-     * @example 1669363825000
-     *
      * @var int
      */
     public $deployTime;
 
     /**
-     * @example prod-pinpoint-hd1b
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 33.53.195.120
-     *
      * @var string
      */
     public $hostIp;
 
     /**
-     * @example windows
-     *
      * @var string
      */
     public $osType;
 
     /**
-     * @example 4d167bb3-dd09-4a6a-a179-d5d6a5b0afcf
-     *
      * @var string
      */
     public $probeId;
 
     /**
-     * @example host_probe
-     *
      * @var string
      */
     public $probeType;
 
     /**
-     * @example 18060096
-     *
      * @var string
      */
     public $probeVersion;
 
     /**
-     * @example unnormal
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @example vpc-5gu8iu68w9b472jbb2mlw
-     *
      * @var string
      */
     public $vpcId;

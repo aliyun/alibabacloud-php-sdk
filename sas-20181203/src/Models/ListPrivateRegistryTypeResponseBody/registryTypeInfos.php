@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class registryTypeInfos extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;

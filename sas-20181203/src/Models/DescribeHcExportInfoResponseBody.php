@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeHcExportInfoResponseBody extends Model
 {
     /**
-     * @example 148
-     *
      * @var int
      */
     public $currentCount;
 
     /**
-     * @example health_check_export_2022****
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example 2022-11-03T15:15Z
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 1082278
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example https://hc-export.oss-cn-shanghai.aliyuncs.com/export_hc/health_check_export_20221222_1671699255808.zip?Expires=1672304056&OSSAccessKeyId=****&Signature=****
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @example 89
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example 3C2C94CF-ED08-50C0-BC72-C5029251****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example exporting
-     *
      * @var string
      */
     public $resultStatus;
 
     /**
-     * @example 624
-     *
      * @var int
      */
     public $totalCount;

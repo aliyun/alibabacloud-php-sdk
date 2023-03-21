@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockDeleteConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 299D0992-271A-5750-ACEB-46D322862BFF
-     *
      * @var string
      */
     public $requestId;

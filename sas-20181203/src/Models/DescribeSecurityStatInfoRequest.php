@@ -9,31 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityStatInfoRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the account that is added to the resource directory as a member for multi-account control. You can use this parameter to query the security status of the account.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

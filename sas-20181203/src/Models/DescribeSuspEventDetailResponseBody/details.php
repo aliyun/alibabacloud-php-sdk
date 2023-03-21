@@ -9,33 +9,16 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
-     * @description The display name of the alert event.
-     *
-     * @example Trojan Path
-     *
      * @var string
      */
     public $nameDisplay;
 
     /**
-     * @description The format in which the details about the exception are displayed.
-     *
-     * Valid values:
-     *
-     *   **text**
-     *   **html**
-     *
-     * @example html
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The attribute information about the exception. For example, if the exception is associated with an alert that is triggered by an unusual logon, the information can include the time when the logon is initiated and the location from which the logon is initiated. If the exception is associated with an alert that is triggered by a webshell file, the information can include the path of the trojan file and the type of the trojan.
-     *
-     * @example getopt
-     *
      * @var string
      */
     public $value;

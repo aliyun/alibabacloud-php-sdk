@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class suspStatistics extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $remind;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $serious;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $suspicious;

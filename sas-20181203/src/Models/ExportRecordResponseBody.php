@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ExportRecordResponseBody extends Model
 {
     /**
-     * @description The name of the exported file.
-     *
-     * @example cms_20171101.xlsx
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The ID of the exported file.
-     *
-     * @example 131231
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
-     *
      * @var string
      */
     public $requestId;

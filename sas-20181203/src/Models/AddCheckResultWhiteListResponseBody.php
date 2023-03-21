@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddCheckResultWhiteListResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var mixed[]
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example C699E4E4-F2F4-58FC-A949-457FFE59****
      *
      * @var string

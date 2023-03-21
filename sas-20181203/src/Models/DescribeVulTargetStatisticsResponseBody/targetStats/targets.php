@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
-     * @example add
-     *
      * @var string
      */
     public $flag;
 
     /**
-     * @example 0011ea53-738c-4bff-93be-ce6a1cc9****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;

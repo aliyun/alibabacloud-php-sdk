@@ -9,31 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListRequest extends Model
 {
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.3.4
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The UUID of the server for which you want to query the configurations.
-     *
-     * @example inet-1234567****
-     *
      * @var string
      */
     public $uuid;

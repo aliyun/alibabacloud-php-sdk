@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListRuleTargetAllResponseBody extends Model
 {
     /**
-     * @example 30CBF632-109F-596F-97F2-451C8B2A****
-     *
      * @var string
      */
     public $requestId;

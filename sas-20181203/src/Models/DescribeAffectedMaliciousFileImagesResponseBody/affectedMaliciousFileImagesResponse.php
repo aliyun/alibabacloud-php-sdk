@@ -9,91 +9,51 @@ use AlibabaCloud\Tea\Model;
 class affectedMaliciousFileImagesResponse extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * @example c08d5fc1a329a4b88950a253d082f1****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example docker-law
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The ID of the container.
-     *
-     * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
-     *
      * @var string
      */
     public $containerId;
 
     /**
-     * @description The image digest.
-     *
-     * @example 6a5e1031a5858617f7d8a179ead6****
-     *
      * @var string
      */
     public $digest;
 
     /**
-     * @description The URL to download the malicious image sample.
-     *
-     * @example https://aegis-metadata-file.oss-cn-shanghai.aliyuncs.com/
-     *
      * @var string
      */
     public $downloadUrl;
 
     /**
-     * @description The path to the image file.
-     *
-     * @example /d836968041f7683b5605a****
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @description The timestamp of the first scan.
-     *
-     * @example 1594907349000
-     *
      * @var int
      */
     public $firstScanTimestamp;
 
     /**
-     * @description The text that is highlighted.
-     *
-     * @example {"ruleVersion":"highlight_20210908","ruleId":600106,"events":[[2,54]]}
-     *
      * @var string
      */
     public $highLight;
 
     /**
-     * @description The name of the image.
-     *
-     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The UUID of the image.
-     *
-     * @example e05c0de798217637868ef4****
-     *
      * @var string
      */
     public $imageUuid;
@@ -114,127 +74,66 @@ class affectedMaliciousFileImagesResponse extends Model
     public $intranetIp;
 
     /**
-     * @description The timestamp of the last scan.
-     *
-     * @example 1596522785000
-     *
      * @var int
      */
     public $latestScanTimestamp;
 
     /**
-     * @description The timestamp of the last verification.
-     *
-     * @example 1596522711000
-     *
      * @var int
      */
     public $latestVerifyTimestamp;
 
     /**
-     * @description The image layer.
-     *
-     * @example 27213ad3447f0209dd152a5cadea****
-     *
      * @var string
      */
     public $layer;
 
     /**
-     * @description The severity of the malicious image sample. Valid values:
-     *
-     *   **serious**
-     *   **suspicious**
-     *   **remind**
-     *
-     * @example serious
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The MD5 hash value of the malicious image sample.
-     *
-     * @example d836968041f768300d9605a****
-     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
-     * @description The namespace to which the image repository belongs.
-     *
-     * @example hanghai-namespace
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The pod.
-     *
-     * @example 22222-7xsqq
-     *
      * @var string
      */
     public $pod;
 
     /**
-     * @description The ID of the image repository.
-     *
-     * @example crr-vridcl4****
-     *
      * @var string
      */
     public $repoId;
 
     /**
-     * @description The ID of the container image.
-     *
-     * @example cri-datvail3m****
-     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example centos
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The region ID of the image repository.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $repoRegionId;
 
     /**
-     * @description The handling status of the malicious image sample. Valid values:
-     *
-     *   **0**: unhandled
-     *   **1**: handled
-     *   **2**: verifying
-     *   **3**: added to the whitelist
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The tag that is added to the image.
-     *
-     * @example 0.2
-     *
      * @var string
      */
     public $tag;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
-     * @example login_common_ip
-     *
      * @var string
      */
     public $item;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $status;

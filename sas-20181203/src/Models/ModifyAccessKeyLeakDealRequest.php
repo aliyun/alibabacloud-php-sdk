@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessKeyLeakDealRequest extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $id;
@@ -21,15 +19,11 @@ class ModifyAccessKeyLeakDealRequest extends Model
     public $idList;
 
     /**
-     * @example disabled.
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @example disable
-     *
      * @var string
      */
     public $type;

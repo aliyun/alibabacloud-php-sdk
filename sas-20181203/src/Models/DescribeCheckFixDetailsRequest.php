@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckFixDetailsRequest extends Model
 {
     /**
+     * @description The ID of the risk item.
+     *
+     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the IDs of risk items.
      * @example 58
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeCheckFixDetailsRequest extends Model
     public $checkIds;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +31,9 @@ class DescribeCheckFixDetailsRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of baselines.
      * @example 51
      *
      * @var int

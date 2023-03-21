@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoginSwitchConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
-     *
      * @var string
      */
     public $requestId;

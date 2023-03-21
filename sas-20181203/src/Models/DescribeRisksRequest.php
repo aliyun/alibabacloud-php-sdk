@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeRisksRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @example 75
-     *
      * @var int
      */
     public $riskId;
 
     /**
-     * @example docker
-     *
      * @var string
      */
     public $riskName;

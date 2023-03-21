@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
-     * @example docker_component
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @example 23
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example kubelet
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example Docker Component
-     *
      * @var string
      */
     public $typeDisplay;

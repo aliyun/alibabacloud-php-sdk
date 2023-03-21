@@ -9,86 +9,56 @@ use AlibabaCloud\Tea\Model;
 class securityEvent extends Model
 {
     /**
-     * @description The points in time when data of unhandled alerts is collected in the trend chart.
-     *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The risk levels of unhandled alerts.
-     *
      * @var string[]
      */
     public $levelsOn;
 
     /**
-     * @description The number of **remind** alerts on the current day.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $remindCount;
 
     /**
-     * @description The numbers of remind alerts at all points in time.
-     *
      * @var string[]
      */
     public $remindList;
 
     /**
-     * @description The number of **serious** alerts on the current day.
-     *
-     * @example 404
-     *
      * @var int
      */
     public $seriousCount;
 
     /**
-     * @description The numbers of serious alerts at all points in time.
-     *
      * @var string[]
      */
     public $seriousList;
 
     /**
-     * @description The number of **suspicious** alerts on the current day.
-     *
-     * @example 148
-     *
      * @var int
      */
     public $suspiciousCount;
 
     /**
-     * @description The numbers of suspicious alerts at all points in time.
-     *
      * @var string[]
      */
     public $suspiciousList;
 
     /**
-     * @description The time periods during which data of the same alert is collected.
-     *
      * @var string[]
      */
     public $timeArray;
 
     /**
-     * @description The total number of unhandled alerts on the current day.
-     *
-     * @example 552
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The numbers of unhandled alerts at all points in time.
-     *
      * @var string[]
      */
     public $valueArray;

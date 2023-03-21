@@ -14,120 +14,86 @@ class ExportSuspEventsRequest extends Model
     public $assetsTypeList;
 
     /**
-     * @example c4af4fdf38a98496a9b63c2be5dae****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example clusterId
-     *
      * @var string
      */
     public $containerFieldName;
 
     /**
-     * @example c819391d2d520485fa3e81e2dc2ea****
-     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @example Y
-     *
      * @var string
      */
     public $dealed;
 
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example serious,suspicious,remind
-     *
      * @var string
      */
     public $levels;
 
     /**
-     * @example WEBSHELL
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 20
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @example WEBSHELL
-     *
      * @var string
      */
     public $parentEventTypes;
 
     /**
-     * @example remark
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @example 2022-12-05 00:00:00
-     *
      * @var string
      */
     public $timeEnd;
 
     /**
-     * @example 2022-10-01 00:00:00
-     *
      * @var string
      */
     public $timeStart;

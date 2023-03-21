@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNsasSuspEventTypeResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the alert type.
-     *
      * @var eventTypes[]
      */
     public $eventTypes;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
-     *
      * @var string
      */
     public $requestId;

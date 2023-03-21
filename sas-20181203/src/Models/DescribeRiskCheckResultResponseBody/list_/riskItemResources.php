@@ -9,22 +9,11 @@ use AlibabaCloud\Tea\Model;
 class riskItemResources extends Model
 {
     /**
-     * @description The details about the check result.
-     *
      * @var mixed[]
      */
     public $contentResource;
 
     /**
-     * @description The title in the details. Valid values:
-     *
-     *   **bestPractice**: description
-     *   **influence**: risk
-     *   **suggestion**: solution
-     *   **helpResource**: reference
-     *
-     * @example bestPractice
-     *
      * @var string
      */
     public $resourceName;

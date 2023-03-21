@@ -15,8 +15,6 @@ class DescribeClientConfSetupResponseBody extends Model
     public $clientConf;
 
     /**
-     * @example 151F6EB6-D5F3-417A-AF7B-4D84975D****
-     *
      * @var string
      */
     public $requestId;

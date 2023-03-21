@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class bindPortList extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $bindPort;
 
     /**
-     * @example 80
-     *
      * @var int
      */
     public $endPort;
 
     /**
-     * @example portmap failed
-     *
      * @var string
      */
     public $err;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $fixed;
 
     /**
-     * @example 2512
-     *
      * @var int
      */
     public $id;
@@ -49,29 +39,21 @@ class bindPortList extends Model
     public $msg;
 
     /**
-     * @example tcp
-     *
      * @var string
      */
     public $proto;
 
     /**
-     * @example 22
-     *
      * @var int
      */
     public $startPort;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example 80
-     *
      * @var int
      */
     public $targetPort;

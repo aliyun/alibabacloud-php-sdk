@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class FindContainerNetworkConnectShrinkRequest extends Model
 {
     /**
-     * @example EDGE
-     *
      * @var string
      */
     public $criteriaType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -28,15 +24,11 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $dstNodeShrink;
 
     /**
-     * @example 1649260799999
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -47,8 +39,6 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $srcNodeShrink;
 
     /**
-     * @example 1666886400000
-     *
      * @var int
      */
     public $startTime;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionTargetDetailRequest extends Model
 {
     /**
-     * @example 402008
-     *
      * @var int
      */
     public $targetId;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
-     * @example START
-     *
      * @var string
      */
     public $status;

@@ -29,11 +29,6 @@ class ListHoneypotAlarmEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $riskLevelList;
@@ -47,7 +42,6 @@ class ListHoneypotAlarmEventsRequest extends Model
         'dealed'        => 'Dealed',
         'dstIp'         => 'DstIp',
         'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
         'riskLevelList' => 'RiskLevelList',
         'srcIp'         => 'SrcIp',
     ];
@@ -70,9 +64,6 @@ class ListHoneypotAlarmEventsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->riskLevelList) {
             $res['RiskLevelList'] = $this->riskLevelList;
@@ -103,9 +94,6 @@ class ListHoneypotAlarmEventsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RiskLevelList'])) {
             if (!empty($map['RiskLevelList'])) {

@@ -9,15 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotNodeRequest extends Model
 {
     /**
-     * @description The ID of the management node.
-     *
-     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
-     * @example d3dd3864-4e02-4abd-8b6a-8f5f6fec4715
-     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
+        'lang'   => 'Lang',
         'nodeId' => 'NodeId',
     ];
 
@@ -28,6 +29,9 @@ class GetHoneypotNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -43,6 +47,9 @@ class GetHoneypotNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

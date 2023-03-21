@@ -21,8 +21,6 @@ class GetAssetsPropertyDetailResponseBody extends Model
     public $propertys;
 
     /**
-     * @example 4C1AE3F3-18FA-4108-BBB9-AFA1A032****
-     *
      * @var string
      */
     public $requestId;

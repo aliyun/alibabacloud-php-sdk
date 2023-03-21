@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulNumStatisticsRequest extends Model
 {
     /**
-     * @example sas
-     *
      * @var string
      */
     public $from;

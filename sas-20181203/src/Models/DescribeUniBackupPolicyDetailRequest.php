@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPolicyDetailRequest extends Model
 {
     /**
-     * @example 123
-     *
      * @var string
      */
     public $policyId;

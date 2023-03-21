@@ -15,8 +15,6 @@ class VerifyCheckInstanceResultResponseBody extends Model
     public $data;
 
     /**
-     * @example B869E3A0-1147-539D-9920-47580700****
-     *
      * @var string
      */
     public $requestId;

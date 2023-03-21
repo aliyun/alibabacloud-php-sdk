@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
-     * @example login
-     *
      * @var string
      */
     public $name;
@@ -22,8 +20,6 @@ class node extends Model
     public $propertyList;
 
     /**
-     * @example Alert
-     *
      * @var string
      */
     public $type;

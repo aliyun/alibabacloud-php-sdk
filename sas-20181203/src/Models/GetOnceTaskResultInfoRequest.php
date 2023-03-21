@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetOnceTaskResultInfoRequest extends Model
 {
     /**
-     * @example 9dfa3a7eb9547781632785b49003****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskType;

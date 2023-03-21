@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class honeyPotProbeScanPort extends Model
 {
     /**
-     * @example 15389
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example {\"tcp\":\"1-65535\",\"udp\":\"1-65535\"}
-     *
      * @var string
      */
     public $ports;
 
     /**
-     * @example a46f5162-c70d-4e26-8ddf-7435feca9305
-     *
      * @var string
      */
     public $probeId;
@@ -35,8 +29,6 @@ class honeyPotProbeScanPort extends Model
     public $serviceIpList;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $status;

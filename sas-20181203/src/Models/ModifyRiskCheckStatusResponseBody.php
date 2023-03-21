@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyRiskCheckStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 48D2E9A9-A1B0-4295-B727-0995757C47E9
-     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class baselineNameList extends Model
 {
     /**
+     * @description The alias of the baseline.
+     *
+     * @example Identity authentication
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description An array that consists of baseline check items.
+     *
      * @var baselineItemList[]
      */
     public $baselineItemList;
 
     /**
+     * @description The key of the type for the baseline.
+     *
      * @example identification
      *
      * @var string
@@ -27,6 +35,8 @@ class baselineNameList extends Model
     public $classKey;
 
     /**
+     * @description The key of the name for the baseline.
+     *
      * @example identification
      *
      * @var string

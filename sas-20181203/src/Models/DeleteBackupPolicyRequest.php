@@ -11,6 +11,7 @@ class DeleteBackupPolicyRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy that you want to delete.
      *
+     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
      * @example 12
      *
      * @var int
@@ -18,7 +19,7 @@ class DeleteBackupPolicyRequest extends Model
     public $id;
 
     /**
-     * @description The version of the anti-ransomware policy that you want to delete. You can call the [DescribeBackupPolicies](~~322795~~) operation to query the versions of anti-ransomware policies. Valid values:
+     * @description The version of the anti-ransomware policy that you want to delete. You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies. Valid values:
      *
      *   **1.0.0**
      *   **2.0.0**

@@ -10,44 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListUninstallAegisMachinesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description An array that consists of the information about servers.
-     *
      * @var machineList[]
      */
     public $machineList;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 44
-     *
      * @var int
      */
     public $totalCount;

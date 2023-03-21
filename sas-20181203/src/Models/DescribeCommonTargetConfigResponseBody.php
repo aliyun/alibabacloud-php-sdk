@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonTargetConfigResponseBody extends Model
 {
     /**
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
-     *
      * @var string
      */
     public $requestId;

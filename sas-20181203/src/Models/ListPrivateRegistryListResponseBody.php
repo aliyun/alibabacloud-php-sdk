@@ -15,8 +15,6 @@ class ListPrivateRegistryListResponseBody extends Model
     public $imageRegistryInfos;
 
     /**
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
-     *
      * @var string
      */
     public $requestId;

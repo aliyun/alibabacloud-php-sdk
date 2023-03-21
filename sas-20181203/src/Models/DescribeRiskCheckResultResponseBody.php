@@ -10,62 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckResultResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description An array that consists of the check items.
-     *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description The total number of pages returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example AD271C07-4ACE-413D-AA9B-F14FD3B7717F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $totalCount;

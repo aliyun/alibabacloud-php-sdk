@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationsRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -26,19 +19,11 @@ class DescribeSecurityEventOperationsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the alert event that you want to handle.
-     *
-     * @example 61352054
-     *
      * @var int
      */
     public $securityEventId;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;

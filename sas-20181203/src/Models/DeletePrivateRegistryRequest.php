@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePrivateRegistryRequest extends Model
 {
     /**
+     * @description The ID of the image repository.
+     *
+     * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
      * @example 22233
      *
      * @var int

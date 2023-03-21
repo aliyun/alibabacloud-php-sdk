@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @example 5562414
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example i-uf6435dn4t59b9av****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example inStanceName****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example 2.2.X.X
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example a47e3713-ed22-4015-93a3-d88ebe6****
-     *
      * @var string
      */
     public $uuid;

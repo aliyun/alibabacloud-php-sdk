@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBackupMachinesResponseBody extends Model
 {
     /**
-     * @description An array consisting of the servers to which the anti-ransomware policy is applied.
-     *
      * @var machines[]
      */
     public $machines;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA04B21
-     *
      * @var string
      */
     public $requestId;

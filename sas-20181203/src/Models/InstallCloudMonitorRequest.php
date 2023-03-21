@@ -9,44 +9,26 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudMonitorRequest extends Model
 {
     /**
-     * @description The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](~~114948~~) operation to query the AccessKey ID.
-     *
-     * >  This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-     * @example usY*****R_U
-     *
      * @var string
      */
     public $agentAccessKey;
 
     /**
-     * @description The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](~~114948~~) operation to query the AccessKey secret.
-     *
-     * >  This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-     * @example UCxF2R1sIO90XlU9****
-     *
      * @var string
      */
     public $agentSecretKey;
 
     /**
-     * @description The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](~~183431~~).
-     *
-     * @example 3.5.6
-     *
      * @var string
      */
     public $argusVersion;
 
     /**
-     * @description The IDs of the servers on which you want to install the CloudMonitor agent. Separate multiple IDs with commas (,).
-     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
-     * @description The UUIDs of the servers on which you want to install the CloudMonitor agent. Separate multiple UUIDs with commas (,).
-     *
      * @var string[]
      */
     public $uuidList;

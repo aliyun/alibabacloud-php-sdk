@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyUniBackupPolicyShrinkRequest extends Model
 {
     /**
-     * @example sa
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example Sa@****
-     *
      * @var string
      */
     public $accountPassword;
@@ -33,36 +29,26 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
     public $incPlanShrink;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @example databak
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @example enabled
-     *
      * @var string
      */
     public $policyStatus;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $retention;
 
     /**
-     * @example 1048576
-     *
      * @var int
      */
     public $speedLimiter;

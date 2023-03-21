@@ -11,24 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the exposed asset.
-     *
      * @var exposedInstances[]
      */
     public $exposedInstances;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 598A4A61-ABA7-456B-8725-7378258276D9
-     *
      * @var string
      */
     public $requestId;

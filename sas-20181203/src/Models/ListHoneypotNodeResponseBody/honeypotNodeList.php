@@ -9,125 +9,66 @@ use AlibabaCloud\Tea\Model;
 class honeypotNodeList extends Model
 {
     /**
-     * @description Indicates whether the honeypot is allowed to access the Internet.
-     *
-     *   **true**: The honeypot is allowed to access the Internet.
-     *   **false**: The honeypot is not allowed to access the Internet.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $allowHoneypotAccessInternet;
 
     /**
-     * @description The time when the management node was created.
-     *
-     * @example 2022-08-04 15:52:56
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The type of the management node. Default value: **false**. Valid values:
-     *
-     *   **false**: non-default type
-     *   **true**: default type
-     *
-     * @example false
-     *
      * @var bool
      */
     public $defaultNode;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
-     *
-     * @example i-bp1fs3qsc1msa3512k****
-     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
-     * @description The maximum number of honeypots that can be deployed on the management node.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $honeypotTotalCount;
 
     /**
-     * @description The number of honeypots that are deployed on the management node.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $honeypotUsedCount;
 
     /**
-     * @description The ID of the management node.
-     *
-     * @example 7d110ca6-05ee-4149-8042-13ad1a41fd****
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The IP address of the management node.
-     *
-     * @example 119.180.XX.XX
-     *
      * @var string
      */
     public $nodeIp;
 
     /**
-     * @description The name of the management node.
-     *
-     * @example cyct_cnymu
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The maximum number of probes that can be used.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $probeTotalCount;
 
     /**
-     * @description The number of probes that are used.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $probeUsedCount;
 
     /**
-     * @description An array that consists of the allowed CIDR blocks.
-     *
      * @var string[]
      */
     public $securityGroupProbeIpList;
 
     /**
-     * @description The status of the management node. Valid values:
-     *
-     *   **1**: normal
-     *   **2**: abnormal
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalStatus;
