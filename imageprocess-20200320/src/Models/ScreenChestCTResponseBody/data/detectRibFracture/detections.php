@@ -24,26 +24,36 @@ class detections extends Model
     public $fracSOPInstanceUID;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fractureCategory;
 
     /**
+     * @example 0.7916666666666667
+     *
      * @var float
      */
     public $fractureConfidence;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $fractureId;
 
     /**
+     * @example L4
+     *
      * @var string
      */
     public $fractureLocation;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fractureSegment;

@@ -2,21 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTAdvanceRequest;
+namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeRequest;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
 class URLList extends Model
 {
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
+     * @example ["Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-050.dcm","Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-051.dcm",......]
      *
-     * @var Stream
+     * @var string
      */
-    public $URLObject;
+    public $URL;
     protected $_name = [
-        'URLObject' => 'URL',
+        'URL' => 'URL',
     ];
 
     public function validate()
@@ -26,8 +25,8 @@ class URLList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URLObject) {
-            $res['URL'] = $this->URLObject;
+        if (null !== $this->URL) {
+            $res['URL'] = $this->URL;
         }
 
         return $res;
@@ -42,7 +41,7 @@ class URLList extends Model
     {
         $model = new self();
         if (isset($map['URL'])) {
-            $model->URLObject = $map['URL'];
+            $model->URL = $map['URL'];
         }
 
         return $model;

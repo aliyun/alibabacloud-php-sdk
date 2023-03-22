@@ -15,6 +15,11 @@ class DetectLymphResponseBody extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @example 59598577-13C6-12A2-8CBF-A4DA4C9280A1
      *
      * @var string
@@ -22,6 +27,7 @@ class DetectLymphResponseBody extends Model
     public $requestId;
     protected $_name = [
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -34,6 +40,9 @@ class DetectLymphResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,6 +61,9 @@ class DetectLymphResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

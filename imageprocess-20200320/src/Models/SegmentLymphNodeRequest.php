@@ -4,46 +4,48 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
-use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureAdvanceRequest\URLList;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeRequest\URLList;
 use AlibabaCloud\Tea\Model;
 
-class DetectRibFractureAdvanceRequest extends Model
+class SegmentLymphNodeRequest extends Model
 {
     /**
-     * @example NIFTI
+     * @example CHEST
+     *
+     * @var string
+     */
+    public $bodyPart;
+
+    /**
+     * @example DICOM
      *
      * @var string
      */
     public $dataFormat;
 
     /**
-     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
+     * @example 1
      *
      * @var string
      */
     public $orgId;
 
     /**
-     * @var string
-     */
-    public $orgName;
-
-    /**
-     * @example HTTP_NII
+     * @example 1
      *
      * @var string
      */
-    public $sourceType;
+    public $orgName;
 
     /**
      * @var URLList[]
      */
     public $URLList;
     protected $_name = [
+        'bodyPart'   => 'BodyPart',
         'dataFormat' => 'DataFormat',
         'orgId'      => 'OrgId',
         'orgName'    => 'OrgName',
-        'sourceType' => 'SourceType',
         'URLList'    => 'URLList',
     ];
 
@@ -54,6 +56,9 @@ class DetectRibFractureAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bodyPart) {
+            $res['BodyPart'] = $this->bodyPart;
+        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
@@ -62,9 +67,6 @@ class DetectRibFractureAdvanceRequest extends Model
         }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
@@ -82,11 +84,14 @@ class DetectRibFractureAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectRibFractureAdvanceRequest
+     * @return SegmentLymphNodeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BodyPart'])) {
+            $model->bodyPart = $map['BodyPart'];
+        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
@@ -95,9 +100,6 @@ class DetectRibFractureAdvanceRequest extends Model
         }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {

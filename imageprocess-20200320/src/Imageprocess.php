@@ -60,6 +60,9 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeAdvanceRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARAdvanceRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARResponse;
@@ -2467,6 +2470,146 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->screenECWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentLymphNodeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SegmentLymphNodeResponse
+     */
+    public function segmentLymphNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bodyPart)) {
+            $body['BodyPart'] = $request->bodyPart;
+        }
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SegmentLymphNode',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SegmentLymphNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SegmentLymphNodeRequest $request
+     *
+     * @return SegmentLymphNodeResponse
+     */
+    public function segmentLymphNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentLymphNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentLymphNodeAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SegmentLymphNodeResponse
+     */
+    public function segmentLymphNodeAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageprocess',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentLymphNodeReq = new SegmentLymphNodeRequest([]);
+        OpenApiUtilClient::convert($request, $segmentLymphNodeReq);
+        if (!Utils::isUnset($request->URLList)) {
+            $i0 = 0;
+            foreach ($request->URLList as $item0) {
+                if (!Utils::isUnset($item0->URLObject)) {
+                    $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+                    $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+                    $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+                    $ossClient              = new OSS($ossConfig);
+                    $fileObj                = new FileField([
+                        'filename'    => $authResponse->body->objectKey,
+                        'content'     => $item0->URLObject,
+                        'contentType' => '',
+                    ]);
+                    $ossHeader = new header([
+                        'accessKeyId'         => $authResponse->body->accessKeyId,
+                        'policy'              => $authResponse->body->encodedPolicy,
+                        'signature'           => $authResponse->body->signature,
+                        'key'                 => $authResponse->body->objectKey,
+                        'file'                => $fileObj,
+                        'successActionStatus' => '201',
+                    ]);
+                    $uploadRequest = new PostObjectRequest([
+                        'bucketName' => $authResponse->body->bucket,
+                        'header'     => $ossHeader,
+                    ]);
+                    $ossClient->postObject($uploadRequest, $ossRuntime);
+                    $tmp      = @$segmentLymphNodeReq->URLList[$i0];
+                    $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                    $i0       = $i0 + 1;
+                }
+            }
+        }
+
+        return $this->segmentLymphNodeWithOptions($segmentLymphNodeReq, $runtime);
     }
 
     /**

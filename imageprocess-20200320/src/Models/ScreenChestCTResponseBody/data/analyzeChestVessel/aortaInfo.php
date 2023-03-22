@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aortaInfo extends Model
 {
     /**
+     * @description 1
+     *
      * @var float[]
      */
     public $area;
@@ -19,21 +21,29 @@ class aortaInfo extends Model
     public $coordinates;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $labelValue;
 
     /**
+     * @example 2722
+     *
      * @var float
      */
     public $maxArea;
 
     /**
+     * @example 416
+     *
      * @var int
      */
     public $maxAreaIndex;
 
     /**
+     * @example 63
+     *
      * @var float
      */
     public $maxDiameter;

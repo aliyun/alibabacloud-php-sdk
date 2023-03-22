@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
-use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectPancResponseBody\data;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DetectPancResponseBody extends Model
+class SegmentLymphNodeResponseBody extends Model
 {
     /**
      * @var data
@@ -20,7 +20,7 @@ class DetectPancResponseBody extends Model
     public $message;
 
     /**
-     * @example CA1C672A-4F85-1CD9-893D-3434C924C4B2
+     * @example B48DECE6-29FE-1967-92F1-2E072873851A
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class DetectPancResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DetectPancResponseBody
+     * @return SegmentLymphNodeResponseBody
      */
     public static function fromMap($map = [])
     {

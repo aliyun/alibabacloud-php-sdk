@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTAdvanceRequest;
+namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentLymphNodeAdvanceRequest;
 
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Stream;
 class URLList extends Model
 {
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
+     * @example ["Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-050.dcm","Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-051.dcm",......]
      *
      * @var Stream
      */
