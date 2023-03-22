@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskRequest;
@@ -786,6 +788,63 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppInstancesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAppInstancesResponse
+     */
+    public function listAppInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $query['AppInstanceId'] = $request->appInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppInstances',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAppInstancesRequest $request
+     *
+     * @return ListAppInstancesResponse
+     */
+    public function listAppInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppInstancesWithOptions($request, $runtime);
     }
 
     /**
