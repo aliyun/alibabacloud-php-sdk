@@ -162,6 +162,9 @@ class DocumentAutoml extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->binaryToText)) {
+            $query['BinaryToText'] = $request->binaryToText;
+        }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }

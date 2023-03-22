@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PredictTemplateModelRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $binaryToText;
+
+    /**
      * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/xxx/stage/upload/20230207/oss-Y96lOVVWdjui6QVGsHJk0JfNf1luQkGT.png?Expires=1675750767&OSSAccessKeyId=xxx&Signature=lzq1ZUi6j4vkXnDDMhDD4DQty5Q%3D
      *
      * @var string
@@ -20,8 +25,9 @@ class PredictTemplateModelRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'content' => 'Content',
-        'taskId'  => 'TaskId',
+        'binaryToText' => 'BinaryToText',
+        'content'      => 'Content',
+        'taskId'       => 'TaskId',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class PredictTemplateModelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->binaryToText) {
+            $res['BinaryToText'] = $this->binaryToText;
+        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -49,6 +58,9 @@ class PredictTemplateModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BinaryToText'])) {
+            $model->binaryToText = $map['BinaryToText'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
