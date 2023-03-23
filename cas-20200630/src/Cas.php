@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRevokeClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRevokeClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRootCACertificateRequest;
@@ -330,6 +332,61 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClientCertificateWithCsrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCustomCertificateResponse
+     */
+    public function createCustomCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiPassthrough)) {
+            $query['ApiPassthrough'] = $request->apiPassthrough;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->validity)) {
+            $query['Validity'] = $request->validity;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomCertificate',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomCertificateRequest $request
+     *
+     * @return CreateCustomCertificateResponse
+     */
+    public function createCustomCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -678,6 +735,9 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->countryCode)) {
             $query['CountryCode'] = $request->countryCode;
         }
+        if (!Utils::isUnset($request->extendedKeyUsages)) {
+            $query['ExtendedKeyUsages'] = $request->extendedKeyUsages;
+        }
         if (!Utils::isUnset($request->locality)) {
             $query['Locality'] = $request->locality;
         }
@@ -689,6 +749,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->parentIdentifier)) {
             $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->pathLenConstraint)) {
+            $query['PathLenConstraint'] = $request->pathLenConstraint;
         }
         if (!Utils::isUnset($request->state)) {
             $query['State'] = $request->state;

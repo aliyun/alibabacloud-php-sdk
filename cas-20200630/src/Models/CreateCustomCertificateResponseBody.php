@@ -6,32 +6,48 @@ namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCertificateWithExtensionResponseBody extends Model
+class CreateCustomCertificateResponseBody extends Model
 {
     /**
+     * @example -----BEGIN CERTIFICATE-----
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $certificate;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example 12345678-1234-1234-1234-123456789ABC
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example 084bde9cd233f0ddae33adc438cfbbbd****
+     *
+     * @var string
+     */
+    public $serialNumber;
     protected $_name = [
         'certificate'      => 'Certificate',
         'certificateChain' => 'CertificateChain',
         'identifier'       => 'Identifier',
         'requestId'        => 'RequestId',
+        'serialNumber'     => 'SerialNumber',
     ];
 
     public function validate()
@@ -53,6 +69,9 @@ class CreateCertificateWithExtensionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
+        }
 
         return $res;
     }
@@ -60,7 +79,7 @@ class CreateCertificateWithExtensionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCertificateWithExtensionResponseBody
+     * @return CreateCustomCertificateResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -76,6 +95,9 @@ class CreateCertificateWithExtensionResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
         }
 
         return $model;

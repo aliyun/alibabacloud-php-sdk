@@ -46,6 +46,11 @@ class CreateSubCACertificateRequest extends Model
     public $countryCode;
 
     /**
+     * @var string[]
+     */
+    public $extendedKeyUsages;
+
+    /**
      * @description The name of the city in which the organization is located. The value can contain letters.
      *
      * @example Hangzhou
@@ -83,6 +88,11 @@ class CreateSubCACertificateRequest extends Model
     public $parentIdentifier;
 
     /**
+     * @var int
+     */
+    public $pathLenConstraint;
+
+    /**
      * @description The name of the province, municipality, or autonomous region in which the organization is located. The value can contain letters.
      *
      * @example Zhejiang
@@ -101,15 +111,17 @@ class CreateSubCACertificateRequest extends Model
      */
     public $years;
     protected $_name = [
-        'algorithm'        => 'Algorithm',
-        'commonName'       => 'CommonName',
-        'countryCode'      => 'CountryCode',
-        'locality'         => 'Locality',
-        'organization'     => 'Organization',
-        'organizationUnit' => 'OrganizationUnit',
-        'parentIdentifier' => 'ParentIdentifier',
-        'state'            => 'State',
-        'years'            => 'Years',
+        'algorithm'         => 'Algorithm',
+        'commonName'        => 'CommonName',
+        'countryCode'       => 'CountryCode',
+        'extendedKeyUsages' => 'ExtendedKeyUsages',
+        'locality'          => 'Locality',
+        'organization'      => 'Organization',
+        'organizationUnit'  => 'OrganizationUnit',
+        'parentIdentifier'  => 'ParentIdentifier',
+        'pathLenConstraint' => 'PathLenConstraint',
+        'state'             => 'State',
+        'years'             => 'Years',
     ];
 
     public function validate()
@@ -128,6 +140,9 @@ class CreateSubCACertificateRequest extends Model
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
         }
+        if (null !== $this->extendedKeyUsages) {
+            $res['ExtendedKeyUsages'] = $this->extendedKeyUsages;
+        }
         if (null !== $this->locality) {
             $res['Locality'] = $this->locality;
         }
@@ -139,6 +154,9 @@ class CreateSubCACertificateRequest extends Model
         }
         if (null !== $this->parentIdentifier) {
             $res['ParentIdentifier'] = $this->parentIdentifier;
+        }
+        if (null !== $this->pathLenConstraint) {
+            $res['PathLenConstraint'] = $this->pathLenConstraint;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -167,6 +185,11 @@ class CreateSubCACertificateRequest extends Model
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
         }
+        if (isset($map['ExtendedKeyUsages'])) {
+            if (!empty($map['ExtendedKeyUsages'])) {
+                $model->extendedKeyUsages = $map['ExtendedKeyUsages'];
+            }
+        }
         if (isset($map['Locality'])) {
             $model->locality = $map['Locality'];
         }
@@ -178,6 +201,9 @@ class CreateSubCACertificateRequest extends Model
         }
         if (isset($map['ParentIdentifier'])) {
             $model->parentIdentifier = $map['ParentIdentifier'];
+        }
+        if (isset($map['PathLenConstraint'])) {
+            $model->pathLenConstraint = $map['PathLenConstraint'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

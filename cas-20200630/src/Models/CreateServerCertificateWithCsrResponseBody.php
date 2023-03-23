@@ -36,6 +36,10 @@ class CreateServerCertificateWithCsrResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The serial number of the server certificate.
+     *
+     * @example 0f29522da2dae7a1c4b6ab7132ad3c06
+     *
      * @var string
      */
     public $serialNumber;

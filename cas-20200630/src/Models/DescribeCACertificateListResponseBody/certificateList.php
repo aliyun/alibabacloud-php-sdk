@@ -199,7 +199,7 @@ class certificateList extends Model
      *   **OU**: the name of the department or branch in the organization
      *   **L**: the name of the city in which the organization is located
      *
-     * \<props="china">- **ST**: the name of the province, municipality, or autonomous region in which the organization is located \<props="intl">- **ST**: the name of the province or state in which the organization is located
+     * <props="china">- **ST**: the name of the province, municipality, or autonomous region in which the organization is located</props> <props="intl">- **ST**: the name of the province or state in which the organization is located</props>
      *
      *   **CN**: the common name or abbreviation of the organization
      *
