@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class JobSettings extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $advancedSettings;
+
+    /**
      * @example 166924
      *
      * @var string
@@ -58,6 +63,13 @@ class JobSettings extends Model
     public $errorMonitoringArgs;
 
     /**
+     * @example AcceptQuotaOverSold
+     *
+     * @var string
+     */
+    public $oversoldType;
+
+    /**
      * @example pid-123456
      *
      * @var string
@@ -69,6 +81,7 @@ class JobSettings extends Model
      */
     public $tags;
     protected $_name = [
+        'advancedSettings'                => 'AdvancedSettings',
         'businessUserId'                  => 'BusinessUserId',
         'caller'                          => 'Caller',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
@@ -76,6 +89,7 @@ class JobSettings extends Model
         'enableRDMA'                      => 'EnableRDMA',
         'enableTideResource'              => 'EnableTideResource',
         'errorMonitoringArgs'             => 'ErrorMonitoringArgs',
+        'oversoldType'                    => 'OversoldType',
         'pipelineId'                      => 'PipelineId',
         'tags'                            => 'Tags',
     ];
@@ -87,6 +101,9 @@ class JobSettings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedSettings) {
+            $res['AdvancedSettings'] = $this->advancedSettings;
+        }
         if (null !== $this->businessUserId) {
             $res['BusinessUserId'] = $this->businessUserId;
         }
@@ -108,6 +125,9 @@ class JobSettings extends Model
         if (null !== $this->errorMonitoringArgs) {
             $res['ErrorMonitoringArgs'] = $this->errorMonitoringArgs;
         }
+        if (null !== $this->oversoldType) {
+            $res['OversoldType'] = $this->oversoldType;
+        }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
@@ -126,6 +146,9 @@ class JobSettings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedSettings'])) {
+            $model->advancedSettings = $map['AdvancedSettings'];
+        }
         if (isset($map['BusinessUserId'])) {
             $model->businessUserId = $map['BusinessUserId'];
         }
@@ -146,6 +169,9 @@ class JobSettings extends Model
         }
         if (isset($map['ErrorMonitoringArgs'])) {
             $model->errorMonitoringArgs = $map['ErrorMonitoringArgs'];
+        }
+        if (isset($map['OversoldType'])) {
+            $model->oversoldType = $map['OversoldType'];
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];

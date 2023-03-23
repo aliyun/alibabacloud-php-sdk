@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $cpu;
+
+    /**
      * @example d-xxxxxxxx
      *
      * @var string
@@ -47,6 +52,11 @@ class CreateTensorboardRequest extends Model
      * @var int
      */
     public $maxRunningTimeMinutes;
+
+    /**
+     * @var int
+     */
+    public $memory;
 
     /**
      * @example {"mountpath":"/root/data/"}
@@ -97,12 +107,14 @@ class CreateTensorboardRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'cpu'                   => 'Cpu',
         'dataSourceId'          => 'DataSourceId',
         'dataSourceType'        => 'DataSourceType',
         'dataSources'           => 'DataSources',
         'displayName'           => 'DisplayName',
         'jobId'                 => 'JobId',
         'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
+        'memory'                => 'Memory',
         'options'               => 'Options',
         'sourceId'              => 'SourceId',
         'sourceType'            => 'SourceType',
@@ -119,6 +131,9 @@ class CreateTensorboardRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
@@ -142,6 +157,9 @@ class CreateTensorboardRequest extends Model
         }
         if (null !== $this->maxRunningTimeMinutes) {
             $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
@@ -176,6 +194,9 @@ class CreateTensorboardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
@@ -199,6 +220,9 @@ class CreateTensorboardRequest extends Model
         }
         if (isset($map['MaxRunningTimeMinutes'])) {
             $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
         }
         if (isset($map['Options'])) {
             $model->options = $map['Options'];

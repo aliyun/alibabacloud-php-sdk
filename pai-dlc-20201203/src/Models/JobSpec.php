@@ -28,6 +28,11 @@ class JobSpec extends Model
     public $image;
 
     /**
+     * @var ImageConfig
+     */
+    public $imageConfig;
+
+    /**
      * @example 1
      *
      * @var int
@@ -56,6 +61,7 @@ class JobSpec extends Model
         'ecsSpec'         => 'EcsSpec',
         'extraPodSpec'    => 'ExtraPodSpec',
         'image'           => 'Image',
+        'imageConfig'     => 'ImageConfig',
         'podCount'        => 'PodCount',
         'resourceConfig'  => 'ResourceConfig',
         'type'            => 'Type',
@@ -77,6 +83,9 @@ class JobSpec extends Model
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+        if (null !== $this->imageConfig) {
+            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toMap() : null;
         }
         if (null !== $this->podCount) {
             $res['PodCount'] = $this->podCount;
@@ -110,6 +119,9 @@ class JobSpec extends Model
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+        if (isset($map['ImageConfig'])) {
+            $model->imageConfig = ImageConfig::fromMap($map['ImageConfig']);
         }
         if (isset($map['PodCount'])) {
             $model->podCount = $map['PodCount'];

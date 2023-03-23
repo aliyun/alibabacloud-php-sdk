@@ -57,11 +57,21 @@ class historyPods extends Model
     public $podUid;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @example Failed
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $subStatus;
 
     /**
      * @example Worker
@@ -76,7 +86,9 @@ class historyPods extends Model
         'ip'            => 'Ip',
         'podId'         => 'PodId',
         'podUid'        => 'PodUid',
+        'resourceType'  => 'ResourceType',
         'status'        => 'Status',
+        'subStatus'     => 'SubStatus',
         'type'          => 'Type',
     ];
 
@@ -105,8 +117,14 @@ class historyPods extends Model
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subStatus) {
+            $res['SubStatus'] = $this->subStatus;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -141,8 +159,14 @@ class historyPods extends Model
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SubStatus'])) {
+            $model->subStatus = $map['SubStatus'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

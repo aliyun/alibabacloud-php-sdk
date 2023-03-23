@@ -175,6 +175,13 @@ class GetJobResponseBody extends Model
     public $resourceLevel;
 
     /**
+     * @example 0/10
+     *
+     * @var string
+     */
+    public $restartTimes;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -185,6 +192,13 @@ class GetJobResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @example Restarting
+     *
+     * @var string
+     */
+    public $subStatus;
 
     /**
      * @example /root/code/
@@ -251,8 +265,10 @@ class GetJobResponseBody extends Model
         'requestId'        => 'RequestId',
         'resourceId'       => 'ResourceId',
         'resourceLevel'    => 'ResourceLevel',
+        'restartTimes'     => 'RestartTimes',
         'settings'         => 'Settings',
         'status'           => 'Status',
+        'subStatus'        => 'SubStatus',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs'   => 'ThirdpartyLibs',
         'userCommand'      => 'UserCommand',
@@ -361,11 +377,17 @@ class GetJobResponseBody extends Model
         if (null !== $this->resourceLevel) {
             $res['ResourceLevel'] = $this->resourceLevel;
         }
+        if (null !== $this->restartTimes) {
+            $res['RestartTimes'] = $this->restartTimes;
+        }
         if (null !== $this->settings) {
             $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subStatus) {
+            $res['SubStatus'] = $this->subStatus;
         }
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
@@ -490,11 +512,17 @@ class GetJobResponseBody extends Model
         if (isset($map['ResourceLevel'])) {
             $model->resourceLevel = $map['ResourceLevel'];
         }
+        if (isset($map['RestartTimes'])) {
+            $model->restartTimes = $map['RestartTimes'];
+        }
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SubStatus'])) {
+            $model->subStatus = $map['SubStatus'];
         }
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];

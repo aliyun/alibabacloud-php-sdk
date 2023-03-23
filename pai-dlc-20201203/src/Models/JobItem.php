@@ -169,6 +169,13 @@ class JobItem extends Model
     public $status;
 
     /**
+     * @example Restarting
+     *
+     * @var string
+     */
+    public $subStatus;
+
+    /**
      * @example /root/code/
      *
      * @var string
@@ -232,6 +239,7 @@ class JobItem extends Model
         'resourceName'     => 'ResourceName',
         'settings'         => 'Settings',
         'status'           => 'Status',
+        'subStatus'        => 'SubStatus',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs'   => 'ThirdpartyLibs',
         'userCommand'      => 'UserCommand',
@@ -330,6 +338,9 @@ class JobItem extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subStatus) {
+            $res['SubStatus'] = $this->subStatus;
         }
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
@@ -444,6 +455,9 @@ class JobItem extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SubStatus'])) {
+            $model->subStatus = $map['SubStatus'];
         }
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];

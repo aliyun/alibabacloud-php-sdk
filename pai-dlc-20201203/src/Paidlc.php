@@ -242,6 +242,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->cpu)) {
+            $body['Cpu'] = $request->cpu;
+        }
         if (!Utils::isUnset($request->dataSourceId)) {
             $body['DataSourceId'] = $request->dataSourceId;
         }
@@ -259,6 +262,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
             $body['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
+        }
+        if (!Utils::isUnset($request->memory)) {
+            $body['Memory'] = $request->memory;
         }
         if (!Utils::isUnset($request->options)) {
             $body['Options'] = $request->options;
