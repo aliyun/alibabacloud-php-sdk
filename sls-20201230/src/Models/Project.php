@@ -42,14 +42,20 @@ class Project extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'createTime'     => 'createTime',
-        'lastModifyTime' => 'lastModifyTime',
-        'projectDesc'    => 'projectDesc',
-        'projectName'    => 'projectName',
-        'projectOwner'   => 'projectOwner',
-        'projectStatus'  => 'projectStatus',
-        'region'         => 'region',
+        'createTime'      => 'createTime',
+        'lastModifyTime'  => 'lastModifyTime',
+        'projectDesc'     => 'projectDesc',
+        'projectName'     => 'projectName',
+        'projectOwner'    => 'projectOwner',
+        'projectStatus'   => 'projectStatus',
+        'region'          => 'region',
+        'resourceGroupId' => 'resourceGroupId',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class Project extends Model
         }
         if (null !== $this->region) {
             $res['region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class Project extends Model
         }
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         return $model;
