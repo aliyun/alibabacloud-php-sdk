@@ -18,7 +18,7 @@ class systemParameter extends Model
     public $demoValue;
 
     /**
-     * @description The description.
+     * @description The description of the parameter.
      *
      * @example system parameters description
      *
@@ -27,7 +27,7 @@ class systemParameter extends Model
     public $description;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The location of the parameter. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example HEAD
      *
@@ -36,7 +36,7 @@ class systemParameter extends Model
     public $location;
 
     /**
-     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, CaProxy.
+     * @description The name of the parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @example CaClientIp
      *
@@ -45,7 +45,7 @@ class systemParameter extends Model
     public $parameterName;
 
     /**
-     * @description The name of the corresponding backend parameter.
+     * @description The name of the backend parameter that corresponds to the system parameter.
      *
      * @example clientIp
      *

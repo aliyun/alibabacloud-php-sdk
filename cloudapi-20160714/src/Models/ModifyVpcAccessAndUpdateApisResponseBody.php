@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAccessAndUpdateApisResponseBody extends Model
 {
     /**
-     * @description The task ID.
+     * @description The ID of the asynchronous task.
+     *
+     * >
+     *
+     *   If the associated API is updated, you can use the task ID in the **DescribeUpdateVpcInfoTask** operation to query the update result.
      *
      * @example 7b6d0cb72b2e4215b0129f675c889746
      *

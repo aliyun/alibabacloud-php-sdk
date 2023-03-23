@@ -18,7 +18,13 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $instanceId;
 
     /**
-     * @description The unique custom name for the authorization.
+     * @description The name of the VPC authorization.
+     *
+     * >
+     *
+     *   The name of a VPC authorization cannot be changed. You cannot use this parameter to change the name of a VPC authorization.
+     *
+     *   You must set this parameter to the name of the current VPC authorization.
      *
      * @example VpcName
      *
@@ -29,6 +35,10 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     /**
      * @description Specifies whether to update the associated API.
      *
+     **
+     *
+     **Warning:** If you want to update the VPC authorization of a published API, you must set this parameter to true. Otherwise, the update will not be synchronized to the backend service of the API.
+     *
      * @example true
      *
      * @var bool
@@ -36,7 +46,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $needBatchWork;
 
     /**
-     * @description The port number to be modified.
+     * @description The new port number.
      *
      * @example 80
      *
@@ -45,7 +55,11 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $port;
 
     /**
-     * @description Specifies whether to refresh the VPC authorization.
+     * @description Specifies whether to update the VPC authorization.
+     *
+     * >
+     *
+     *   If the ID of the instance in your VPC is changed but the IP address of the instance remains unchanged, you can set this parameter to true to update the VPC authorization.
      *
      * @example false
      *
@@ -59,7 +73,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The password.
+     * @description The token of the request.
      *
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
@@ -77,7 +91,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
     public $vpcId;
 
     /**
-     * @description The authorized backend host.
+     * @description The hostname of the backend service.
      *
      * @example iot.hu***ng.com
      *

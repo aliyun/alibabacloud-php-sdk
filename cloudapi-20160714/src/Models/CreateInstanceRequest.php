@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceRequest\tag;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceRequest\zoneVSwitchSecurityGroup;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
@@ -48,6 +49,11 @@ class CreateInstanceRequest extends Model
     public $httpsPolicy;
 
     /**
+     * @var string
+     */
+    public $instanceCidr;
+
+    /**
      * @description The name of the instance.
      *
      * @example ApigatewayInstance
@@ -64,6 +70,11 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $instanceSpec;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @example Month
@@ -87,6 +98,11 @@ class CreateInstanceRequest extends Model
     public $token;
 
     /**
+     * @var string
+     */
+    public $userVpcId;
+
+    /**
      * @description The zone.
      *
      * @example cn-beijing-MAZ3(c,e)
@@ -94,17 +110,26 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var zoneVSwitchSecurityGroup[]
+     */
+    public $zoneVSwitchSecurityGroup;
     protected $_name = [
-        'autoPay'      => 'AutoPay',
-        'chargeType'   => 'ChargeType',
-        'duration'     => 'Duration',
-        'httpsPolicy'  => 'HttpsPolicy',
-        'instanceName' => 'InstanceName',
-        'instanceSpec' => 'InstanceSpec',
-        'pricingCycle' => 'PricingCycle',
-        'tag'          => 'Tag',
-        'token'        => 'Token',
-        'zoneId'       => 'ZoneId',
+        'autoPay'                  => 'AutoPay',
+        'chargeType'               => 'ChargeType',
+        'duration'                 => 'Duration',
+        'httpsPolicy'              => 'HttpsPolicy',
+        'instanceCidr'             => 'InstanceCidr',
+        'instanceName'             => 'InstanceName',
+        'instanceSpec'             => 'InstanceSpec',
+        'instanceType'             => 'InstanceType',
+        'pricingCycle'             => 'PricingCycle',
+        'tag'                      => 'Tag',
+        'token'                    => 'Token',
+        'userVpcId'                => 'UserVpcId',
+        'zoneId'                   => 'ZoneId',
+        'zoneVSwitchSecurityGroup' => 'ZoneVSwitchSecurityGroup',
     ];
 
     public function validate()
@@ -126,11 +151,17 @@ class CreateInstanceRequest extends Model
         if (null !== $this->httpsPolicy) {
             $res['HttpsPolicy'] = $this->httpsPolicy;
         }
+        if (null !== $this->instanceCidr) {
+            $res['InstanceCidr'] = $this->instanceCidr;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
@@ -147,8 +178,20 @@ class CreateInstanceRequest extends Model
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
+        if (null !== $this->userVpcId) {
+            $res['UserVpcId'] = $this->userVpcId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->zoneVSwitchSecurityGroup) {
+            $res['ZoneVSwitchSecurityGroup'] = [];
+            if (null !== $this->zoneVSwitchSecurityGroup && \is_array($this->zoneVSwitchSecurityGroup)) {
+                $n = 0;
+                foreach ($this->zoneVSwitchSecurityGroup as $item) {
+                    $res['ZoneVSwitchSecurityGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -174,11 +217,17 @@ class CreateInstanceRequest extends Model
         if (isset($map['HttpsPolicy'])) {
             $model->httpsPolicy = $map['HttpsPolicy'];
         }
+        if (isset($map['InstanceCidr'])) {
+            $model->instanceCidr = $map['InstanceCidr'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
@@ -195,8 +244,20 @@ class CreateInstanceRequest extends Model
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }
+        if (isset($map['UserVpcId'])) {
+            $model->userVpcId = $map['UserVpcId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneVSwitchSecurityGroup'])) {
+            if (!empty($map['ZoneVSwitchSecurityGroup'])) {
+                $model->zoneVSwitchSecurityGroup = [];
+                $n                               = 0;
+                foreach ($map['ZoneVSwitchSecurityGroup'] as $item) {
+                    $model->zoneVSwitchSecurityGroup[$n++] = null !== $item ? zoneVSwitchSecurityGroup::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

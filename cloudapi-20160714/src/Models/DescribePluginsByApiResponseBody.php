@@ -28,7 +28,7 @@ class DescribePluginsByApiResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The returned plug-in information. It is an array consisting of PluginAttribute data.
+     * @description The plug-in information. The information is an array that consists of PluginAttribute data.
      *
      * @var plugins
      */

@@ -18,7 +18,7 @@ class serviceParameter extends Model
     public $location;
 
     /**
-     * @description The data type of the back-end service parameter. Valid values: STRING, NUMBER, BOOLEAN.
+     * @description The data type of the backend service parameter. Valid values: STRING, NUMBER, and BOOLEAN.
      *
      * @example String
      *

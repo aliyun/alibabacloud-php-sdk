@@ -18,7 +18,7 @@ class ipControlInfo extends Model
     public $createTime;
 
     /**
-     * @description Description
+     * @description The description of the ACL.
      *
      * @example description
      *
@@ -63,7 +63,7 @@ class ipControlInfo extends Model
     public $modifiedTime;
 
     /**
-     * @description The region in which the API is located.
+     * @description The ID of the region in which the ACL is deployed.
      *
      * @example cn-qingdao
      *

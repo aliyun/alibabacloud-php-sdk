@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyApiGroupNetworkPolicyResponse extends Model
+class DescribeInstancePacketsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifyApiGroupNetworkPolicyResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifyApiGroupNetworkPolicyResponseBody
+     * @var DescribeInstancePacketsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ModifyApiGroupNetworkPolicyResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyApiGroupNetworkPolicyResponse
+     * @return DescribeInstancePacketsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ModifyApiGroupNetworkPolicyResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyApiGroupNetworkPolicyResponseBody::fromMap($map['body']);
+            $model->body = DescribeInstancePacketsResponseBody::fromMap($map['body']);
         }
 
         return $model;

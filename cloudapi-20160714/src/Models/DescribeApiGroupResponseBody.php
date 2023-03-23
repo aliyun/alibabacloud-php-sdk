@@ -100,6 +100,11 @@ class DescribeApiGroupResponseBody extends Model
     public $customerConfigs;
 
     /**
+     * @var string
+     */
+    public $dedicatedInstanceType;
+
+    /**
      * @description The default domain name.
      *
      * @example mkt.api.gaore.com
@@ -299,38 +304,39 @@ class DescribeApiGroupResponseBody extends Model
      */
     public $vpcSlbIntranetDomain;
     protected $_name = [
-        'basePath'             => 'BasePath',
-        'billingStatus'        => 'BillingStatus',
-        'classicVpcSubDomain'  => 'ClassicVpcSubDomain',
-        'cloudMarketCommodity' => 'CloudMarketCommodity',
-        'cmsMonitorGroup'      => 'CmsMonitorGroup',
-        'compatibleFlags'      => 'CompatibleFlags',
-        'createdTime'          => 'CreatedTime',
-        'customDomains'        => 'CustomDomains',
-        'customTraceConfig'    => 'CustomTraceConfig',
-        'customerConfigs'      => 'CustomerConfigs',
-        'defaultDomain'        => 'DefaultDomain',
-        'description'          => 'Description',
-        'groupId'              => 'GroupId',
-        'groupName'            => 'GroupName',
-        'httpsPolicy'          => 'HttpsPolicy',
-        'illegalStatus'        => 'IllegalStatus',
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
-        'instanceVipList'      => 'InstanceVipList',
-        'ipv6Status'           => 'Ipv6Status',
-        'modifiedTime'         => 'ModifiedTime',
-        'passthroughHeaders'   => 'PassthroughHeaders',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
-        'rpcPattern'           => 'RpcPattern',
-        'stageItems'           => 'StageItems',
-        'status'               => 'Status',
-        'subDomain'            => 'SubDomain',
-        'trafficLimit'         => 'TrafficLimit',
-        'userLogConfig'        => 'UserLogConfig',
-        'vpcDomain'            => 'VpcDomain',
-        'vpcSlbIntranetDomain' => 'VpcSlbIntranetDomain',
+        'basePath'              => 'BasePath',
+        'billingStatus'         => 'BillingStatus',
+        'classicVpcSubDomain'   => 'ClassicVpcSubDomain',
+        'cloudMarketCommodity'  => 'CloudMarketCommodity',
+        'cmsMonitorGroup'       => 'CmsMonitorGroup',
+        'compatibleFlags'       => 'CompatibleFlags',
+        'createdTime'           => 'CreatedTime',
+        'customDomains'         => 'CustomDomains',
+        'customTraceConfig'     => 'CustomTraceConfig',
+        'customerConfigs'       => 'CustomerConfigs',
+        'dedicatedInstanceType' => 'DedicatedInstanceType',
+        'defaultDomain'         => 'DefaultDomain',
+        'description'           => 'Description',
+        'groupId'               => 'GroupId',
+        'groupName'             => 'GroupName',
+        'httpsPolicy'           => 'HttpsPolicy',
+        'illegalStatus'         => 'IllegalStatus',
+        'instanceId'            => 'InstanceId',
+        'instanceType'          => 'InstanceType',
+        'instanceVipList'       => 'InstanceVipList',
+        'ipv6Status'            => 'Ipv6Status',
+        'modifiedTime'          => 'ModifiedTime',
+        'passthroughHeaders'    => 'PassthroughHeaders',
+        'regionId'              => 'RegionId',
+        'requestId'             => 'RequestId',
+        'rpcPattern'            => 'RpcPattern',
+        'stageItems'            => 'StageItems',
+        'status'                => 'Status',
+        'subDomain'             => 'SubDomain',
+        'trafficLimit'          => 'TrafficLimit',
+        'userLogConfig'         => 'UserLogConfig',
+        'vpcDomain'             => 'VpcDomain',
+        'vpcSlbIntranetDomain'  => 'VpcSlbIntranetDomain',
     ];
 
     public function validate()
@@ -369,6 +375,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->customerConfigs) {
             $res['CustomerConfigs'] = $this->customerConfigs;
+        }
+        if (null !== $this->dedicatedInstanceType) {
+            $res['DedicatedInstanceType'] = $this->dedicatedInstanceType;
         }
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
@@ -477,6 +486,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['CustomerConfigs'])) {
             $model->customerConfigs = $map['CustomerConfigs'];
+        }
+        if (isset($map['DedicatedInstanceType'])) {
+            $model->dedicatedInstanceType = $map['DedicatedInstanceType'];
         }
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];

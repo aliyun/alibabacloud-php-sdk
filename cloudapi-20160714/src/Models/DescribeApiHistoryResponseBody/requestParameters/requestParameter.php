@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The name of the API parameter.
+     * @description The name of the parameter in the API request.
      *
      * @example age
      *
@@ -36,7 +36,7 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description The example value.
+     * @description The sample value of the parameter.
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description The description.
+     * @description The description of the parameter.
      *
      * @example modidyTest
      *
@@ -54,7 +54,7 @@ class requestParameter extends Model
     public $description;
 
     /**
-     * @description The order in the document.
+     * @description The order in which the parameter is sorted in the document.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description Indicates whether the document is public. Valid values: PUBLIC and PRIVATE.
+     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
      *
      * @example PUBLIC
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be entered when ParameterType is set to Int, Long, Float, Double, or String. Different values are separated with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     * @description The hash values that are specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -81,7 +81,7 @@ class requestParameter extends Model
     public $enumValue;
 
     /**
-     * @description JSON scheme
+     * @description The JSON scheme.
      *
      * @example {}
      *
@@ -90,7 +90,7 @@ class requestParameter extends Model
     public $jsonScheme;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The location of the parameter. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example HEAD
      *
@@ -99,7 +99,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The maximum parameter length when ParameterType is set to String.
+     * @description The maximum length of the parameter value if the **ParameterType** parameter is set to String.
      *
      * @example 123456
      *
@@ -108,7 +108,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The maximum parameter value when ParameterType is set to Int, Long, Float, or Double.
+     * @description The maximum value of the parameter if the **ParameterType** parameter is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -117,7 +117,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The minimum parameter length when ParameterType is set to String.
+     * @description The minimum length of the parameter value if the **ParameterType** parameter is set to String.
      *
      * @example 123456
      *
@@ -126,7 +126,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description The minimum parameter value when ParameterType is set to Int, Long, Float, or Double.
+     * @description The minimum value of the parameter if the **ParameterType** parameter is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression used for parameter validation when ParameterType is set to String.
+     * @description The regular expression that is used to validate the parameter if the **ParameterType** parameter is set to String.
      *
      * @example xxx
      *
@@ -153,7 +153,7 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Indicates whether the parameter is required. Valid values: REQUIRED and OPTIONAL.
+     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
      *
      * @example OPTIONAL
      *

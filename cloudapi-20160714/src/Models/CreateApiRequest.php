@@ -268,7 +268,6 @@ class CreateApiRequest extends Model
      *   **UNREGISTER**: unregistered APIs
      *   **NOTIFY**: downstream notification APIs
      *
-     * For more information, see [Two-way communication](~~66031~~).
      * @example COMMON
      *
      * @var string

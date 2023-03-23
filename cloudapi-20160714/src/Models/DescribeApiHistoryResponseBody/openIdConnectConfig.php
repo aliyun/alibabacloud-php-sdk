@@ -18,11 +18,8 @@ class openIdConnectConfig extends Model
     public $idTokenParamName;
 
     /**
-     * @description The OpenID Connect mode. Valid values:
-     *
-     *   **IDTOKEN: OpenID Connect calls the authentication API to issue tokens. If this value is specified, the PublicKeyId parameter and the PublicKey parameter are required.**
-     *   **BUSINESS: OpenID Connect calls the business API to verify identities by using existing tokens. If this value is specified, the IdTokenParamName parameter is required.
-     *
+     * @description *   ****
+     *   ****
      * @example IDTOKEN
      *
      * @var string

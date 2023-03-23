@@ -182,8 +182,26 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropConnectionsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropConnectionsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropPacketRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropPacketResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceHttpCodeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceHttpCodeResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceLatencyRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceLatencyResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceNewConnectionsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceNewConnectionsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancePacketsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancePacketsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceQpsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceQpsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceSlbConnectRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceSlbConnectResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceTrafficRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceTrafficResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlsRequest;
@@ -327,6 +345,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainWebSocketStatusRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainWebSocketStatusResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetGroupAuthAppCodeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetGroupAuthAppCodeResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetIpControlApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetIpControlApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetSignatureApisRequest;
@@ -1158,9 +1178,6 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -1440,11 +1457,17 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->httpsPolicy)) {
             $query['HttpsPolicy'] = $request->httpsPolicy;
         }
+        if (!Utils::isUnset($request->instanceCidr)) {
+            $query['InstanceCidr'] = $request->instanceCidr;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->instanceSpec)) {
             $query['InstanceSpec'] = $request->instanceSpec;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
@@ -1455,8 +1478,14 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->token)) {
             $query['Token'] = $request->token;
         }
+        if (!Utils::isUnset($request->userVpcId)) {
+            $query['UserVpcId'] = $request->userVpcId;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->zoneVSwitchSecurityGroup)) {
+            $query['ZoneVSwitchSecurityGroup'] = $request->zoneVSwitchSecurityGroup;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3612,8 +3641,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+     * You can call this operation to query the definition of a specified published version of an API.
+     *   * *   This operation is intended for API providers.
+     *   * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
      *   *
      * @param DescribeApiHistoryRequest $request DescribeApiHistoryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3658,8 +3688,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+     * You can call this operation to query the definition of a specified published version of an API.
+     *   * *   This operation is intended for API providers.
+     *   * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
      *   *
      * @param DescribeApiHistoryRequest $request DescribeApiHistoryRequest
      *
@@ -5496,6 +5527,501 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceDropConnectionsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeInstanceDropConnectionsResponse
+     */
+    public function describeInstanceDropConnectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceDropConnections',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceDropConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceDropConnectionsRequest $request
+     *
+     * @return DescribeInstanceDropConnectionsResponse
+     */
+    public function describeInstanceDropConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceDropConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceDropPacketRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceDropPacketResponse
+     */
+    public function describeInstanceDropPacketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceDropPacket',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceDropPacketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceDropPacketRequest $request
+     *
+     * @return DescribeInstanceDropPacketResponse
+     */
+    public function describeInstanceDropPacket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceDropPacketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceHttpCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeInstanceHttpCodeResponse
+     */
+    public function describeInstanceHttpCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceHttpCode',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceHttpCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceHttpCodeRequest $request
+     *
+     * @return DescribeInstanceHttpCodeResponse
+     */
+    public function describeInstanceHttpCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceHttpCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceLatencyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceLatencyResponse
+     */
+    public function describeInstanceLatencyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceLatency',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceLatencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceLatencyRequest $request
+     *
+     * @return DescribeInstanceLatencyResponse
+     */
+    public function describeInstanceLatency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceLatencyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceNewConnectionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeInstanceNewConnectionsResponse
+     */
+    public function describeInstanceNewConnectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceNewConnections',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceNewConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceNewConnectionsRequest $request
+     *
+     * @return DescribeInstanceNewConnectionsResponse
+     */
+    public function describeInstanceNewConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceNewConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstancePacketsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstancePacketsResponse
+     */
+    public function describeInstancePacketsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstancePackets',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstancePacketsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstancePacketsRequest $request
+     *
+     * @return DescribeInstancePacketsResponse
+     */
+    public function describeInstancePackets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancePacketsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceQpsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceQpsResponse
+     */
+    public function describeInstanceQpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceQps',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceQpsRequest $request
+     *
+     * @return DescribeInstanceQpsResponse
+     */
+    public function describeInstanceQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceQpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceSlbConnectRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceSlbConnectResponse
+     */
+    public function describeInstanceSlbConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSlbConnect',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceSlbConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceSlbConnectRequest $request
+     *
+     * @return DescribeInstanceSlbConnectResponse
+     */
+    public function describeInstanceSlbConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSlbConnectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceTrafficRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceTrafficResponse
+     */
+    public function describeInstanceTrafficWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceTraffic',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceTrafficRequest $request
+     *
+     * @return DescribeInstanceTrafficResponse
+     */
+    public function describeInstanceTraffic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceTrafficWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstancesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5613,9 +6139,9 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+     *   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      *   * *   You can filter the query results by ACL ID, name, or type.
-     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the [DescribeIpControlPolicyItems](https://help.aliyun.com/document_detail/65532.html?spm=a2c4g.11186623.2.14.615b13acrFZFaH) operation.
+     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
      *   *
      * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -5664,9 +6190,9 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+     *   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      *   * *   You can filter the query results by ACL ID, name, or type.
-     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the [DescribeIpControlPolicyItems](https://help.aliyun.com/document_detail/65532.html?spm=a2c4g.11186623.2.14.615b13acrFZFaH) operation.
+     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
      *   *
      * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
      *
@@ -6067,7 +6593,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * *   This operation is intended for API callers.
      *   * *   This operation supports pagination.
      *   *
      * @param DescribePluginsByApiRequest $request DescribePluginsByApiRequest
@@ -6084,6 +6610,12 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
@@ -6110,7 +6642,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * *   This operation is intended for API callers.
      *   * *   This operation supports pagination.
      *   *
      * @param DescribePluginsByApiRequest $request DescribePluginsByApiRequest
@@ -9180,10 +9712,12 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param ResetAppCodeRequest $request
-     * @param RuntimeOptions      $runtime
+     * The new AppCode takes effect about 2 seconds after you call this operation.
+     *   *
+     * @param ResetAppCodeRequest $request ResetAppCodeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAppCodeResponse
+     * @return ResetAppCodeResponse ResetAppCodeResponse
      */
     public function resetAppCodeWithOptions($request, $runtime)
     {
@@ -9217,9 +9751,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param ResetAppCodeRequest $request
+     * The new AppCode takes effect about 2 seconds after you call this operation.
+     *   *
+     * @param ResetAppCodeRequest $request ResetAppCodeRequest
      *
-     * @return ResetAppCodeResponse
+     * @return ResetAppCodeResponse ResetAppCodeResponse
      */
     public function resetAppCode($request)
     {
@@ -9802,6 +10338,55 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDomainWebSocketStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetGroupAuthAppCodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetGroupAuthAppCodeResponse
+     */
+    public function setGroupAuthAppCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authAppCode)) {
+            $query['AuthAppCode'] = $request->authAppCode;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGroupAuthAppCode',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetGroupAuthAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetGroupAuthAppCodeRequest $request
+     *
+     * @return SetGroupAuthAppCodeResponse
+     */
+    public function setGroupAuthAppCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGroupAuthAppCodeWithOptions($request, $runtime);
     }
 
     /**

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
-     * @description The ContentType header type used when you call the backend service over HTTP. Valid values:
+     * @description The ContentType header used when a backend HTTP service is called. Valid values:
      *
-     *   **DEFAULT: the default header in API Gateway**
-     *   **CUSTOM: a custom header**
-     *   **CLIENT: the ContentType header specified by the client**
+     *   **DEFAULT:** the default header in API Gateway
+     *   **CUSTOM:** a custom header
+     *   **CLIENT:** the ContentType header specified by the client
      *
      * @example DEFAULT
      *
@@ -67,7 +67,7 @@ class functionComputeConfig extends Model
     public $method;
 
     /**
-     * @description Indicates whether the backend only receives the service path.
+     * @description Indicates whether the backend receives only the service path.
      *
      * @example false
      *
@@ -94,7 +94,7 @@ class functionComputeConfig extends Model
     public $qualifier;
 
     /**
-     * @description The region where the API is located.
+     * @description The region in which the instance resides.
      *
      * @example cn-beijing
      *

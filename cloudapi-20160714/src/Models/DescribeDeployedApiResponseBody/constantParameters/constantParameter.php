@@ -18,7 +18,7 @@ class constantParameter extends Model
     public $constantValue;
 
     /**
-     * @description The description.
+     * @description The description of the parameter.
      *
      * @example 123
      *

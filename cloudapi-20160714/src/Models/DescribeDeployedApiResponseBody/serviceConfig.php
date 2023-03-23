@@ -21,8 +21,8 @@ class serviceConfig extends Model
     /**
      * @description Indicates whether the Mock mode is enabled. Valid values:
      *
-     *   **TRUE: The Mock mode is enabled.**
-     *   **FALSE: The Mock mode is not enabled.
+     *   **TRUE:** The Mock mode is enabled.
+     *   **FALSE:** The Mock mode is not enabled.
      *
      * @example TRUE
      *
@@ -47,7 +47,7 @@ class serviceConfig extends Model
     public $mockResult;
 
     /**
-     * @description The status code returned for service mocking.
+     * @description The status code returned for service mock.
      *
      * @example 200
      *
@@ -56,7 +56,7 @@ class serviceConfig extends Model
     public $mockStatusCode;
 
     /**
-     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
+     * @description The URL that is used to call the backend service. If the complete URL of a backend service is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
      *
      * @example http://api.a.com:8080
      *
@@ -65,7 +65,7 @@ class serviceConfig extends Model
     public $serviceAddress;
 
     /**
-     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The HTTP method that is used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
      * @example POST
      *
@@ -74,7 +74,7 @@ class serviceConfig extends Model
     public $serviceHttpMethod;
 
     /**
-     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, ServicePath is **\/object/add**.``
+     * @description The path that is used to call the backend service. If the complete URL of a backend service is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of the **ServicePath** parameter is `/object/add`.
      *
      * @example /object/add
      *
@@ -83,7 +83,7 @@ class serviceConfig extends Model
     public $servicePath;
 
     /**
-     * @description The backend service protocol. Currently, only HTTP, HTTPS, and FunctionCompute are supported.
+     * @description The backend service protocol. Only HTTP, HTTPS, and Function Compute are supported.
      *
      * @example HTTP
      *
@@ -101,9 +101,9 @@ class serviceConfig extends Model
     public $serviceTimeout;
 
     /**
-     * @description Indicates whether the VPC channel is enabled. Valid values:
+     * @description Indicates whether to enable the VPC channel. Valid values:
      *
-     *   **TRUE**: The VPC channel is enabled. You must create the corresponding VPC access authorization before you can enable a VPC channel.
+     *   **TRUE**: The VPC channel is enabled. You can enable a VPC channel only after you create the corresponding access authorization for the VPC.
      *   **FALSE**: The VPC channel is not enabled.
      *
      * @example TRUE

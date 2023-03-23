@@ -60,15 +60,6 @@ class CreateAppRequest extends Model
     public $securityToken;
 
     /**
-     * @description The creation mode. An app can be created by using the console or calling the API operation.
-     *
-     * @example console
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
      * @description The tag of objects that match the rule. You can specify multiple tags.
      *
      * @example Key， Value
@@ -83,7 +74,6 @@ class CreateAppRequest extends Model
         'appSecret'     => 'AppSecret',
         'description'   => 'Description',
         'securityToken' => 'SecurityToken',
-        'source'        => 'Source',
         'tag'           => 'Tag',
     ];
 
@@ -111,9 +101,6 @@ class CreateAppRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -153,9 +140,6 @@ class CreateAppRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

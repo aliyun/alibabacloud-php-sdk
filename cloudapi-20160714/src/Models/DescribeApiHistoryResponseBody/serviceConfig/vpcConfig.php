@@ -45,7 +45,7 @@ class vpcConfig extends Model
     public $vpcId;
 
     /**
-     * @description The VPC protocol.
+     * @description The protocol of the VPC.
      *
      * @example HTTP
      *

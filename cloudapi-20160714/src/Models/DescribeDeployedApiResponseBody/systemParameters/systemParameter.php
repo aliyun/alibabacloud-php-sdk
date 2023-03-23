@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemParameter extends Model
 {
     /**
-     * @description The example value.
+     * @description The example.
      *
      * @example 192.168.1.1
      *
@@ -18,7 +18,7 @@ class systemParameter extends Model
     public $demoValue;
 
     /**
-     * @description The description.
+     * @description The description of the parameter.
      *
      * @example QueryParamDTO
      *

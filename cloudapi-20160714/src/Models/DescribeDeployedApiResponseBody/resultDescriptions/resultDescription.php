@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
-     * @description The description.
+     * @description The description of the parameter.
      *
      * @example result description
      *

@@ -23,7 +23,7 @@ class serviceConfig extends Model
     public $aoneAppName;
 
     /**
-     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
+     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of **ServiceAddress** is `http://api.a.com:8080`.
      *
      * @example CUSTOM
      *
@@ -133,7 +133,7 @@ class serviceConfig extends Model
     public $servicePath;
 
     /**
-     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, ServicePath is **\/object/add**.``
+     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, **ServicePath** is `/object/add`.
      *
      * @example HTTP
      *

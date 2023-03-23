@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlsResponseBody extends Model
 {
     /**
-     * @description The information about the ACL. The information is an array of IpControlInfo data. The information does not include specific policies.
+     * @description The information about the ACL. The information is an array that consists of IpControlInfo data. The information does not include specific policies.
      *
      * @var ipControlInfos
      */

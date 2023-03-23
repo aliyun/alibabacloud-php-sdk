@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances;
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\instanceSpecAttributes;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\networkInterfaceAttributes;
 use AlibabaCloud\Tea\Model;
 
 class instanceAttribute extends Model
@@ -61,6 +62,11 @@ class instanceAttribute extends Model
     public $classicEgressAddress;
 
     /**
+     * @var string
+     */
+    public $connectVpcId;
+
+    /**
      * @description The time when the instance was created.
      *
      * @example 2021-10-22 15:36:53.0
@@ -68,6 +74,11 @@ class instanceAttribute extends Model
      * @var string
      */
     public $createdTime;
+
+    /**
+     * @var string
+     */
+    public $dedicatedInstanceType;
 
     /**
      * @description Indicates whether outbound IPv6 is supported.
@@ -127,6 +138,11 @@ class instanceAttribute extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceCidrBlock;
 
     /**
      * @description The ID of the instance.
@@ -196,6 +212,11 @@ class instanceAttribute extends Model
      * @var string
      */
     public $intranetSegments;
+
+    /**
+     * @var networkInterfaceAttributes
+     */
+    public $networkInterfaceAttributes;
 
     /**
      * @description The region where the instance is located.
@@ -301,40 +322,44 @@ class instanceAttribute extends Model
      */
     public $zoneLocalName;
     protected $_name = [
-        'aclId'                  => 'AclId',
-        'aclName'                => 'AclName',
-        'aclStatus'              => 'AclStatus',
-        'aclType'                => 'AclType',
-        'classicEgressAddress'   => 'ClassicEgressAddress',
-        'createdTime'            => 'CreatedTime',
-        'egressIpv6Enable'       => 'EgressIpv6Enable',
-        'expiredTime'            => 'ExpiredTime',
-        'httpsPolicies'          => 'HttpsPolicies',
-        'IPV6AclId'              => 'IPV6AclId',
-        'IPV6AclName'            => 'IPV6AclName',
-        'IPV6AclStatus'          => 'IPV6AclStatus',
-        'IPV6AclType'            => 'IPV6AclType',
-        'instanceChargeType'     => 'InstanceChargeType',
-        'instanceId'             => 'InstanceId',
-        'instanceName'           => 'InstanceName',
-        'instanceRpsLimit'       => 'InstanceRpsLimit',
-        'instanceSpec'           => 'InstanceSpec',
-        'instanceSpecAttributes' => 'InstanceSpecAttributes',
-        'instanceType'           => 'InstanceType',
-        'internetEgressAddress'  => 'InternetEgressAddress',
-        'intranetSegments'       => 'IntranetSegments',
-        'regionId'               => 'RegionId',
-        'status'                 => 'Status',
-        'supportIpv6'            => 'SupportIpv6',
-        'userVpcId'              => 'UserVpcId',
-        'userVswitchId'          => 'UserVswitchId',
-        'vipTypeList'            => 'VipTypeList',
-        'vpcEgressAddress'       => 'VpcEgressAddress',
-        'vpcIntranetEnable'      => 'VpcIntranetEnable',
-        'vpcOwnerId'             => 'VpcOwnerId',
-        'vpcSlbIntranetEnable'   => 'VpcSlbIntranetEnable',
-        'zoneId'                 => 'ZoneId',
-        'zoneLocalName'          => 'ZoneLocalName',
+        'aclId'                      => 'AclId',
+        'aclName'                    => 'AclName',
+        'aclStatus'                  => 'AclStatus',
+        'aclType'                    => 'AclType',
+        'classicEgressAddress'       => 'ClassicEgressAddress',
+        'connectVpcId'               => 'ConnectVpcId',
+        'createdTime'                => 'CreatedTime',
+        'dedicatedInstanceType'      => 'DedicatedInstanceType',
+        'egressIpv6Enable'           => 'EgressIpv6Enable',
+        'expiredTime'                => 'ExpiredTime',
+        'httpsPolicies'              => 'HttpsPolicies',
+        'IPV6AclId'                  => 'IPV6AclId',
+        'IPV6AclName'                => 'IPV6AclName',
+        'IPV6AclStatus'              => 'IPV6AclStatus',
+        'IPV6AclType'                => 'IPV6AclType',
+        'instanceChargeType'         => 'InstanceChargeType',
+        'instanceCidrBlock'          => 'InstanceCidrBlock',
+        'instanceId'                 => 'InstanceId',
+        'instanceName'               => 'InstanceName',
+        'instanceRpsLimit'           => 'InstanceRpsLimit',
+        'instanceSpec'               => 'InstanceSpec',
+        'instanceSpecAttributes'     => 'InstanceSpecAttributes',
+        'instanceType'               => 'InstanceType',
+        'internetEgressAddress'      => 'InternetEgressAddress',
+        'intranetSegments'           => 'IntranetSegments',
+        'networkInterfaceAttributes' => 'NetworkInterfaceAttributes',
+        'regionId'                   => 'RegionId',
+        'status'                     => 'Status',
+        'supportIpv6'                => 'SupportIpv6',
+        'userVpcId'                  => 'UserVpcId',
+        'userVswitchId'              => 'UserVswitchId',
+        'vipTypeList'                => 'VipTypeList',
+        'vpcEgressAddress'           => 'VpcEgressAddress',
+        'vpcIntranetEnable'          => 'VpcIntranetEnable',
+        'vpcOwnerId'                 => 'VpcOwnerId',
+        'vpcSlbIntranetEnable'       => 'VpcSlbIntranetEnable',
+        'zoneId'                     => 'ZoneId',
+        'zoneLocalName'              => 'ZoneLocalName',
     ];
 
     public function validate()
@@ -359,8 +384,14 @@ class instanceAttribute extends Model
         if (null !== $this->classicEgressAddress) {
             $res['ClassicEgressAddress'] = $this->classicEgressAddress;
         }
+        if (null !== $this->connectVpcId) {
+            $res['ConnectVpcId'] = $this->connectVpcId;
+        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->dedicatedInstanceType) {
+            $res['DedicatedInstanceType'] = $this->dedicatedInstanceType;
         }
         if (null !== $this->egressIpv6Enable) {
             $res['EgressIpv6Enable'] = $this->egressIpv6Enable;
@@ -386,6 +417,9 @@ class instanceAttribute extends Model
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+        if (null !== $this->instanceCidrBlock) {
+            $res['InstanceCidrBlock'] = $this->instanceCidrBlock;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -409,6 +443,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->intranetSegments) {
             $res['IntranetSegments'] = $this->intranetSegments;
+        }
+        if (null !== $this->networkInterfaceAttributes) {
+            $res['NetworkInterfaceAttributes'] = null !== $this->networkInterfaceAttributes ? $this->networkInterfaceAttributes->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -473,8 +510,14 @@ class instanceAttribute extends Model
         if (isset($map['ClassicEgressAddress'])) {
             $model->classicEgressAddress = $map['ClassicEgressAddress'];
         }
+        if (isset($map['ConnectVpcId'])) {
+            $model->connectVpcId = $map['ConnectVpcId'];
+        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['DedicatedInstanceType'])) {
+            $model->dedicatedInstanceType = $map['DedicatedInstanceType'];
         }
         if (isset($map['EgressIpv6Enable'])) {
             $model->egressIpv6Enable = $map['EgressIpv6Enable'];
@@ -500,6 +543,9 @@ class instanceAttribute extends Model
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+        if (isset($map['InstanceCidrBlock'])) {
+            $model->instanceCidrBlock = $map['InstanceCidrBlock'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -523,6 +569,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['IntranetSegments'])) {
             $model->intranetSegments = $map['IntranetSegments'];
+        }
+        if (isset($map['NetworkInterfaceAttributes'])) {
+            $model->networkInterfaceAttributes = networkInterfaceAttributes::fromMap($map['NetworkInterfaceAttributes']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

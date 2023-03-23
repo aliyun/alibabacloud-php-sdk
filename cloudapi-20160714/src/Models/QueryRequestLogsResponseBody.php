@@ -19,7 +19,7 @@ class QueryRequestLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about request logs returned.
+     * @description The list of request logs.
      *
      * @var requestLogs
      */

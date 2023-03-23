@@ -48,6 +48,16 @@ class DescribeDomainResponseBody extends Model
     public $certificatePrivateKey;
 
     /**
+     * @var int
+     */
+    public $certificateValidEnd;
+
+    /**
+     * @var int
+     */
+    public $certificateValidStart;
+
+    /**
      * @description Remarks about the domain name, such as the cause of an exception.
      *
      * @example BINDING
@@ -138,6 +148,8 @@ class DescribeDomainResponseBody extends Model
         'certificateId'         => 'CertificateId',
         'certificateName'       => 'CertificateName',
         'certificatePrivateKey' => 'CertificatePrivateKey',
+        'certificateValidEnd'   => 'CertificateValidEnd',
+        'certificateValidStart' => 'CertificateValidStart',
         'domainBindingStatus'   => 'DomainBindingStatus',
         'domainCNAMEStatus'     => 'DomainCNAMEStatus',
         'domainLegalStatus'     => 'DomainLegalStatus',
@@ -167,6 +179,12 @@ class DescribeDomainResponseBody extends Model
         }
         if (null !== $this->certificatePrivateKey) {
             $res['CertificatePrivateKey'] = $this->certificatePrivateKey;
+        }
+        if (null !== $this->certificateValidEnd) {
+            $res['CertificateValidEnd'] = $this->certificateValidEnd;
+        }
+        if (null !== $this->certificateValidStart) {
+            $res['CertificateValidStart'] = $this->certificateValidStart;
         }
         if (null !== $this->domainBindingStatus) {
             $res['DomainBindingStatus'] = $this->domainBindingStatus;
@@ -218,6 +236,12 @@ class DescribeDomainResponseBody extends Model
         }
         if (isset($map['CertificatePrivateKey'])) {
             $model->certificatePrivateKey = $map['CertificatePrivateKey'];
+        }
+        if (isset($map['CertificateValidEnd'])) {
+            $model->certificateValidEnd = $map['CertificateValidEnd'];
+        }
+        if (isset($map['CertificateValidStart'])) {
+            $model->certificateValidStart = $map['CertificateValidStart'];
         }
         if (isset($map['DomainBindingStatus'])) {
             $model->domainBindingStatus = $map['DomainBindingStatus'];

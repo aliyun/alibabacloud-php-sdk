@@ -18,7 +18,7 @@ class DescribePluginsByApiRequest extends Model
     public $apiId;
 
     /**
-     * @description The ID of the group to which the API to be queried belongs.
+     * @description The ID of the group to which the API belongs.
      *
      * @example 3c7a38392e764718ad7673e7b7f535d4
      *
@@ -27,16 +27,26 @@ class DescribePluginsByApiRequest extends Model
     public $groupId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The runtime environment of the API. Valid values:
+     * @description The environment in which the API is running. Valid values:
      *
-     *   **RELEASE**
-     *   **PRE: the pre-release environment**
-     *   **TEST**
+     *   **RELEASE**: production
+     *   **PRE**: staging
+     *   **TEST**: test
      *
      * @example RELEASE
      *
@@ -46,6 +56,8 @@ class DescribePluginsByApiRequest extends Model
     protected $_name = [
         'apiId'         => 'ApiId',
         'groupId'       => 'GroupId',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
         'stageName'     => 'StageName',
     ];
@@ -62,6 +74,12 @@ class DescribePluginsByApiRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -86,6 +104,12 @@ class DescribePluginsByApiRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

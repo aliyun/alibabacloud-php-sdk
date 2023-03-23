@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyApiGroupNetworkPolicyResponseBody extends Model
+class SetGroupAuthAppCodeResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class ModifyApiGroupNetworkPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyApiGroupNetworkPolicyResponseBody
+     * @return SetGroupAuthAppCodeResponseBody
      */
     public static function fromMap($map = [])
     {

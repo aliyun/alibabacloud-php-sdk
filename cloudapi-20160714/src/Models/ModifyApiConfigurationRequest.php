@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiConfigurationRequest extends Model
 {
     /**
-     * @description If **AuthType** is set to **APP**, this value must be passed to specify the signature algorithm. If you do not specify a value, HmacSHA256 is used by default. Valid values:
+     * @description If the **AuthType** parameter is set to **APP**, you must include this parameter to specify the signature algorithm. If you do not specify a value, HmacSHA256 is used by default. Valid values:
      *
      *   HmacSHA256
      *   HmacSHA1,HmacSHA256
@@ -39,12 +39,12 @@ class ModifyApiConfigurationRequest extends Model
     public $apiName;
 
     /**
-     * @description If **AuthType** is set to **APP**, the valid values are:
+     * @description If the **AuthType** parameter is set to **APP**, the valid values are:
      *
-     *   **DEFAULT**: The default value that is used if no other values are passed. This value means that the setting of the group is used.
+     *   **DEFAULT**: The default value that is used if no other values are passed. This value indicates that the settings of the group are used.
      *   **DISABLE**: The authentication is disabled.
-     *   **HEADER: AppCode can be placed in the Header parameter for authentication.**
-     *   **HEADER_QUERY: AppCode can be placed in the Header or Query parameter for authentication.
+     *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
+     *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
      *
      * @example DEFAULT
      *
@@ -65,7 +65,7 @@ class ModifyApiConfigurationRequest extends Model
     public $authType;
 
     /**
-     * @description The name of the backend service. This parameter takes effect only when UseBackendService is set to TRUE.
+     * @description The name of the backend service. This parameter takes effect only when the UseBackendService parameter is set to TRUE.
      *
      * @example testBackendService
      *
@@ -74,9 +74,9 @@ class ModifyApiConfigurationRequest extends Model
     public $backendName;
 
     /**
-     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
+     * @description This parameter takes effect only when the **RequestMode** parameter is set to **MAPPING**.
      *
-     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
+     * The format in which data is transmitted to the server for POST and PUT requests. Valid values: **FORM** and **STREAM**. FORM indicates that data is transmitted in the key-value pair format. STREAM indicates that data is transmitted as byte streams.
      * @example STREAM
      *
      * @var string
@@ -123,8 +123,8 @@ class ModifyApiConfigurationRequest extends Model
     public $description;
 
     /**
-     * @description *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
-     *   If you set **DisableInternet** to **false**, the limit if lifted.
+     * @description *   Specifies whether to call the API only in an internal network. If the **DisableInternet** parameter is set to **true**, the API can be called only in an internal network.
+     *   If the **DisableInternet** parameter is set to **false**, the API can be called over the Internet and in an internal network.
      *
      * @example false
      *
@@ -152,8 +152,8 @@ class ModifyApiConfigurationRequest extends Model
     public $failResultSample;
 
     /**
-     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
-     *   If you set **ForceNonceCheck** to **false**, the check is not performed. If you do not set this parameter, the original value is used.
+     * @description *   Specifies whether to forcibly check X-Ca-Nonce. If the **ForceNonceCheck** parameter is set to **true**, X-Ca-Nonce is forcibly checked. X-Ca-Nonce is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If the **ForceNonceCheck** parameter is set to **false**, X-Ca-Nonce is not checked. If you do not modify this parameter when you modify an API, the original value is used.
      *
      * @example true
      *
@@ -248,7 +248,7 @@ class ModifyApiConfigurationRequest extends Model
     public $requestParameters;
 
     /**
-     * @description The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
+     * @description The path of the API request. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the path of the API request is `/object/add`.
      *
      * @example /test/api
      *
@@ -309,10 +309,10 @@ class ModifyApiConfigurationRequest extends Model
     public $serviceParametersMap;
 
     /**
-     * @description The protocols that are used to access backend services. Valid values:
+     * @description The protocol that is used to access backend services. Valid values:
      *
-     *   HTTP: for backend services that use HTTP or HTTPS
-     *   VPC: for backend services that use VPC
+     *   Http: for backend services that use HTTP or HTTPS
+     *   Vpc: for backend services that use VPC
      *   FC: for Function Compute
      *   OSS: for Object Storage Service
      *   Mock: for backend services that use the Mock mode
@@ -326,7 +326,7 @@ class ModifyApiConfigurationRequest extends Model
     public $serviceProtocol;
 
     /**
-     * @description The timeout period of the backend service, in millisecond.
+     * @description The timeout period of the backend service. Unit: milliseconds.
      *
      * @example 10000
      *
@@ -335,10 +335,10 @@ class ModifyApiConfigurationRequest extends Model
     public $serviceTimeout;
 
     /**
-     * @description Specifies whether to use the created backend service. Valid values:
+     * @description Specifies whether to use the information about the created backend service. Valid values:
      *
-     *   TRUE: The created backend service is used.
-     *   FALSE: The custom backend service information is used.
+     *   TRUE: uses the information about the created backend service.
+     *   FALSE: uses the information about the custom backend service.
      *
      * @example TRUE
      *
@@ -349,8 +349,8 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description Specifies whether to make the API public. Valid values:
      *
-     *   **PUBLIC: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
-     *   **PRIVATE: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **PUBLIC:** The API is public. If this parameter is set to PUBLIC, the API is displayed on the APIs page for all users after the API is published to the production environment.
+     *   **PRIVATE:** The API is private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * @example PUBLIC
      *

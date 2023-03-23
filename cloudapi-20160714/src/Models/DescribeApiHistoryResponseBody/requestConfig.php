@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestConfig extends Model
 {
     /**
-     * @description The format in which data is transmitted to the server for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data is transmitted in the key-value pair format. STREAM indicates that data is transmitted as byte streams. This parameter takes effect only when the RequestMode parameter is set to MAPPING.
+     * @description The format in which data was transmitted to the server for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data was transmitted as forms that consist of key-value pairs. STREAM indicates that data was transmitted as byte streams. This parameter takes effect when the RequestMode parameter is set to MAPPING.
      *
      * @example STREAM
      *
@@ -34,7 +34,7 @@ class requestConfig extends Model
     public $postBodyDescription;
 
     /**
-     * @description The HTTP method that was used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The HTTP request method. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
      * @example POST
      *
@@ -43,7 +43,7 @@ class requestConfig extends Model
     public $requestHttpMethod;
 
     /**
-     * @description The request mode. Valid values:
+     * @description The request mode of the parameters. Valid values:
      *
      *   MAPPING: Parameters are mapped. Unknown parameters are filtered out.
      *   PASSTHROUGH: Parameters are passed through.
@@ -56,7 +56,7 @@ class requestConfig extends Model
     public $requestMode;
 
     /**
-     * @description API path
+     * @description The request path of the API.
      *
      * @example /api/billing/test/[type]
      *
@@ -65,7 +65,7 @@ class requestConfig extends Model
     public $requestPath;
 
     /**
-     * @description The protocol type supported by the API. Valid values: HTTP, HTTPS, and WebSocket. Separate multiple values with commas (,), such as "HTTP,HTTPS".
+     * @description The type of the protocol that is supported by the API. Valid values: HTTP, HTTPS, and WebSocket. Separate values with commas (,). Example: "HTTP,HTTPS".
      *
      * @example HTTP
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pluginAttribute extends Model
 {
     /**
-     * @description The creation time (UTC) of the plug-in.
+     * @description The time when the plug-in was created. The time is displayed in UTC.
      *
      * @example 2019-01-11T09:29:58Z
      *
@@ -18,16 +18,16 @@ class pluginAttribute extends Model
     public $createdTime;
 
     /**
-     * @description The plug-in description.
+     * @description The description of the plug-in.
      *
-     * @example Throttling
+     * @example Traffic throttling
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The last modification time (UTC) of the plug-in.
+     * @description The time when the plug-in was last modified. The time is displayed in UTC.
      *
      * @example 2019-01-11T09:29:58Z
      *
@@ -72,7 +72,7 @@ class pluginAttribute extends Model
     public $pluginType;
 
     /**
-     * @description The region where the plug-in is located.
+     * @description The region where the plug-in resides.
      *
      * @example cn-qingdao
      *

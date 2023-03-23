@@ -14,7 +14,7 @@ class ossConfig extends Model
     public $action;
 
     /**
-     * @description The OSS bucket.
+     * @description The name of the OSS bucket.
      *
      * @example phototest02
      *
@@ -28,7 +28,7 @@ class ossConfig extends Model
     public $key;
 
     /**
-     * @description The ID of the region where the OSS instance is located.
+     * @description The ID of the region where OSS is deployed.
      *
      * @example cn-hangzhou
      *

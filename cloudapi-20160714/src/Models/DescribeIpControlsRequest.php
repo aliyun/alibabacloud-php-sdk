@@ -20,7 +20,7 @@ class DescribeIpControlsRequest extends Model
     /**
      * @description The name of the ACL.
      *
-     * @example ACLtest
+     * @example ACL test
      *
      * @var string
      */
@@ -29,8 +29,8 @@ class DescribeIpControlsRequest extends Model
     /**
      * @description The type of the ACL. Valid values:
      *
-     *   **ALLOW**: an IP address whitelist
-     *   **REFUSE**: an IP address blacklist
+     *   **ALLOW**: a whitelist
+     *   **REFUSE**: a blacklist
      *
      * @example ALLOW
      *

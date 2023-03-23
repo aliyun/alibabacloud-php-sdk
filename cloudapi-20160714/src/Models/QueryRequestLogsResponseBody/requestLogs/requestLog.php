@@ -18,7 +18,7 @@ class requestLog extends Model
     public $apiId;
 
     /**
-     * @description The name of the API.
+     * @description The name of the API
      *
      * @example ApiName
      *
@@ -27,7 +27,32 @@ class requestLog extends Model
     public $apiName;
 
     /**
-     * @description The IP address of the client that sent the request.
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @var int
+     */
+    public $backendRequestEnd;
+
+    /**
+     * @var int
+     */
+    public $backendRequestStart;
+
+    /**
+     * @var int
+     */
+    public $backendResponseEnd;
+
+    /**
+     * @var int
+     */
+    public $backendResponseStart;
+
+    /**
+     * @description The IP address of the client that sends the request.
      *
      * @example 21.237.XXX.XXX
      *
@@ -72,7 +97,7 @@ class requestLog extends Model
     public $customTraceId;
 
     /**
-     * @description The requested domain name.
+     * @description The domain name of the request.
      *
      * @example 360bdd88695c48ae8085c7f2********-ap-southeast-1.alicloudapi.com
      *
@@ -81,7 +106,7 @@ class requestLog extends Model
     public $domain;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example X500ER
      *
@@ -99,7 +124,7 @@ class requestLog extends Model
     public $errorMessage;
 
     /**
-     * @description The specific error message that was returned by the backend service.
+     * @description The specific error message returned by the backend service.
      *
      * @example error msg
      *
@@ -108,7 +133,27 @@ class requestLog extends Model
     public $exception;
 
     /**
-     * @description The ID of the group to which the API belongs.
+     * @var int
+     */
+    public $frontRequestEnd;
+
+    /**
+     * @var int
+     */
+    public $frontRequestStart;
+
+    /**
+     * @var int
+     */
+    public $frontResponseEnd;
+
+    /**
+     * @var int
+     */
+    public $frontResponseStart;
+
+    /**
+     * @description The ID of the API group to which the API belongs.
      *
      * @example dc024277fe6c4cada79ba0bd6********
      *
@@ -117,7 +162,7 @@ class requestLog extends Model
     public $groupId;
 
     /**
-     * @description The name of the API group.
+     * @description The name of the API group to which the API belongs.
      *
      * @example GroupName
      *
@@ -144,7 +189,7 @@ class requestLog extends Model
     public $httpPath;
 
     /**
-     * @description The initial request ID when API Gateway calls an API. For example, if API-1 calls API-2, initialRequestId in the log of API-2 represents the ID of the request from API-1.
+     * @description The initial request ID when API Gateway calls an API. For example, if API-1 calls API-2, the initialRequestId parameter in the log of API-2 indicates the ID of the request from API-1.
      *
      * @example 95657ED9-2F6F-426F-BD99-79C8********
      *
@@ -153,7 +198,7 @@ class requestLog extends Model
     public $initialRequestId;
 
     /**
-     * @description The ID of the gateway instance to which the API belongs.
+     * @description The ID of the API Gateway instance to which the API belongs.
      *
      * @example apigateway-bj-ab2b********
      *
@@ -180,7 +225,7 @@ class requestLog extends Model
     public $region;
 
     /**
-     * @description The request body. The maximum size of the request body is 1,024 bytes.
+     * @description The request body. A request body cannot exceed 1,024 bytes in size.
      *
      * @example param=paramName
      *
@@ -234,7 +279,7 @@ class requestLog extends Model
     public $requestSize;
 
     /**
-     * @description The request time. The time is displayed in UTC.
+     * @description The request time, in UTC.
      *
      * @example 2022-10-29T03:59:59Z
      *
@@ -243,7 +288,7 @@ class requestLog extends Model
     public $requestTime;
 
     /**
-     * @description The response body. The maximum size of the response body is 1,024 bytes.
+     * @description The response body. A response body cannot exceed 1,024 bytes in size.
      *
      * @example param=paramName
      *
@@ -252,7 +297,7 @@ class requestLog extends Model
     public $responseBody;
 
     /**
-     * @description The response headers.
+     * @description The headers in the API response.
      *
      * @example content-type: application/x-www-form-urlencoded
      *
@@ -270,7 +315,7 @@ class requestLog extends Model
     public $responseSize;
 
     /**
-     * @description The total time that was consumed to access backend resources. The total time includes the time consumed to request a connection to the resources, the time consumed to establish the connection, and the time consumed to call the backend service. Unit: milliseconds.
+     * @description The total time consumed to access backend resources. The total time includes the time consumed to request a connection to the resources, the time consumed to establish the connection, and the time consumed to call the backend service. Unit: milliseconds.
      *
      * @example 324
      *
@@ -306,7 +351,7 @@ class requestLog extends Model
     public $statusCode;
 
     /**
-     * @description The total period of time that the request consumed. Unit: milliseconds.
+     * @description The total time consumed by the request. Unit: milliseconds.
      *
      * @example 1345
      *
@@ -323,41 +368,50 @@ class requestLog extends Model
      */
     public $plugin;
     protected $_name = [
-        'apiId'              => 'ApiId',
-        'apiName'            => 'ApiName',
-        'clientIp'           => 'ClientIp',
-        'clientNonce'        => 'ClientNonce',
-        'consumerAppId'      => 'ConsumerAppId',
-        'consumerAppKey'     => 'ConsumerAppKey',
-        'customTraceId'      => 'CustomTraceId',
-        'domain'             => 'Domain',
-        'errorCode'          => 'ErrorCode',
-        'errorMessage'       => 'ErrorMessage',
-        'exception'          => 'Exception',
-        'groupId'            => 'GroupId',
-        'groupName'          => 'GroupName',
-        'httpMethod'         => 'HttpMethod',
-        'httpPath'           => 'HttpPath',
-        'initialRequestId'   => 'InitialRequestId',
-        'instanceId'         => 'InstanceId',
-        'jwtClaims'          => 'JwtClaims',
-        'region'             => 'Region',
-        'requestBody'        => 'RequestBody',
-        'requestHeaders'     => 'RequestHeaders',
-        'requestId'          => 'RequestId',
-        'requestProtocol'    => 'RequestProtocol',
-        'requestQueryString' => 'RequestQueryString',
-        'requestSize'        => 'RequestSize',
-        'requestTime'        => 'RequestTime',
-        'responseBody'       => 'ResponseBody',
-        'responseHeaders'    => 'ResponseHeaders',
-        'responseSize'       => 'ResponseSize',
-        'serviceLatency'     => 'ServiceLatency',
-        'stageId'            => 'StageId',
-        'stageName'          => 'StageName',
-        'statusCode'         => 'StatusCode',
-        'totalLatency'       => 'TotalLatency',
-        'plugin'             => 'plugin',
+        'apiId'                => 'ApiId',
+        'apiName'              => 'ApiName',
+        'appName'              => 'AppName',
+        'backendRequestEnd'    => 'BackendRequestEnd',
+        'backendRequestStart'  => 'BackendRequestStart',
+        'backendResponseEnd'   => 'BackendResponseEnd',
+        'backendResponseStart' => 'BackendResponseStart',
+        'clientIp'             => 'ClientIp',
+        'clientNonce'          => 'ClientNonce',
+        'consumerAppId'        => 'ConsumerAppId',
+        'consumerAppKey'       => 'ConsumerAppKey',
+        'customTraceId'        => 'CustomTraceId',
+        'domain'               => 'Domain',
+        'errorCode'            => 'ErrorCode',
+        'errorMessage'         => 'ErrorMessage',
+        'exception'            => 'Exception',
+        'frontRequestEnd'      => 'FrontRequestEnd',
+        'frontRequestStart'    => 'FrontRequestStart',
+        'frontResponseEnd'     => 'FrontResponseEnd',
+        'frontResponseStart'   => 'FrontResponseStart',
+        'groupId'              => 'GroupId',
+        'groupName'            => 'GroupName',
+        'httpMethod'           => 'HttpMethod',
+        'httpPath'             => 'HttpPath',
+        'initialRequestId'     => 'InitialRequestId',
+        'instanceId'           => 'InstanceId',
+        'jwtClaims'            => 'JwtClaims',
+        'region'               => 'Region',
+        'requestBody'          => 'RequestBody',
+        'requestHeaders'       => 'RequestHeaders',
+        'requestId'            => 'RequestId',
+        'requestProtocol'      => 'RequestProtocol',
+        'requestQueryString'   => 'RequestQueryString',
+        'requestSize'          => 'RequestSize',
+        'requestTime'          => 'RequestTime',
+        'responseBody'         => 'ResponseBody',
+        'responseHeaders'      => 'ResponseHeaders',
+        'responseSize'         => 'ResponseSize',
+        'serviceLatency'       => 'ServiceLatency',
+        'stageId'              => 'StageId',
+        'stageName'            => 'StageName',
+        'statusCode'           => 'StatusCode',
+        'totalLatency'         => 'TotalLatency',
+        'plugin'               => 'plugin',
     ];
 
     public function validate()
@@ -372,6 +426,21 @@ class requestLog extends Model
         }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->backendRequestEnd) {
+            $res['BackendRequestEnd'] = $this->backendRequestEnd;
+        }
+        if (null !== $this->backendRequestStart) {
+            $res['BackendRequestStart'] = $this->backendRequestStart;
+        }
+        if (null !== $this->backendResponseEnd) {
+            $res['BackendResponseEnd'] = $this->backendResponseEnd;
+        }
+        if (null !== $this->backendResponseStart) {
+            $res['BackendResponseStart'] = $this->backendResponseStart;
         }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
@@ -399,6 +468,18 @@ class requestLog extends Model
         }
         if (null !== $this->exception) {
             $res['Exception'] = $this->exception;
+        }
+        if (null !== $this->frontRequestEnd) {
+            $res['FrontRequestEnd'] = $this->frontRequestEnd;
+        }
+        if (null !== $this->frontRequestStart) {
+            $res['FrontRequestStart'] = $this->frontRequestStart;
+        }
+        if (null !== $this->frontResponseEnd) {
+            $res['FrontResponseEnd'] = $this->frontResponseEnd;
+        }
+        if (null !== $this->frontResponseStart) {
+            $res['FrontResponseStart'] = $this->frontResponseStart;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -490,6 +571,21 @@ class requestLog extends Model
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['BackendRequestEnd'])) {
+            $model->backendRequestEnd = $map['BackendRequestEnd'];
+        }
+        if (isset($map['BackendRequestStart'])) {
+            $model->backendRequestStart = $map['BackendRequestStart'];
+        }
+        if (isset($map['BackendResponseEnd'])) {
+            $model->backendResponseEnd = $map['BackendResponseEnd'];
+        }
+        if (isset($map['BackendResponseStart'])) {
+            $model->backendResponseStart = $map['BackendResponseStart'];
+        }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
@@ -516,6 +612,18 @@ class requestLog extends Model
         }
         if (isset($map['Exception'])) {
             $model->exception = $map['Exception'];
+        }
+        if (isset($map['FrontRequestEnd'])) {
+            $model->frontRequestEnd = $map['FrontRequestEnd'];
+        }
+        if (isset($map['FrontRequestStart'])) {
+            $model->frontRequestStart = $map['FrontRequestStart'];
+        }
+        if (isset($map['FrontResponseEnd'])) {
+            $model->frontResponseEnd = $map['FrontResponseEnd'];
+        }
+        if (isset($map['FrontResponseStart'])) {
+            $model->frontResponseStart = $map['FrontResponseStart'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

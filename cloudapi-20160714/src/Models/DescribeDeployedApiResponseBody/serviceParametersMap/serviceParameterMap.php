@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceParameterMap extends Model
 {
     /**
-     * @description The name of the front-end input parameter.
+     * @description The name of the frontend input parameter.
      *
      * @example sex
      *

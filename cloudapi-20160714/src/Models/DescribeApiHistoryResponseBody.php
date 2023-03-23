@@ -21,7 +21,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiHistoryResponseBody extends Model
 {
     /**
-     * @description If **AuthType** is set to **APP**, this parameter is required and it is used to specify the signature algorithm. If you did not specify a value, HmacSHA256 is used by default. Valid values:
+     * @description The signature algorithm that is used if the **AuthType** parameter is set to **APP**. If no value is specified for the AllowSignatureMethod parameter, the default value HmacSHA256 is used. Valid values:
      *
      *   HmacSHA256
      *   HmacSHA1,HmacSHA256
@@ -44,19 +44,19 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The name of the API.
      *
-     * @example Backstage_MengMeng Broadcast_Seven Niu Cloud Push Stream Callback_Official
+     * @example Test API
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description The way in which AppCode authentication is supported. Default value: DEFAULT. Valid values:
+     * @description The type of AppCode authentication. Default value: DEFAULT. Valid values:
      *
-     *   DEFAULT: supported after being made available in Alibaba Cloud Marketplace.
-     *   DISABLE: not supported.
-     *   HEADER : supported only in the Header requests.
-     *   HEADER_QUERY: supported in the Header or Query requests.
+     *   DEFAULT: AppCode authentication is supported after the API is published in Alibaba Cloud Marketplace.
+     *   DISABLE: AppCode authentication is not supported.
+     *   HEADER: AppCode authentication is supported only in Header parameters.
+     *   HEADER_QUERY: AppCode authentication is supported in Header or Query parameters.
      *
      * @example HEADER
      *
@@ -65,13 +65,13 @@ class DescribeApiHistoryResponseBody extends Model
     public $appCodeAuthType;
 
     /**
-     * @description The authentication method of the API. Valid values:
+     * @description The type of the security authentication that is used for the API. Valid values:
      *
-     *   **APP: Only authorized applications can call the API.**
+     *   **APP**: The API can be called only by authorized applications.
      *
-     *   **ANONYMOUS: Anonymous users can call the API. Take note of the following rules:**
+     *   **ANONYMOUS**: The API can be anonymously called. Take note of the following information:
      *
-     *   All users who have obtained the API service information can call this API. API Gateway neither authenticates callers nor sets user-specific throttling policies. If this API is a public one, set throttling policies for it.
+     *   All users who have the permissions to obtain the API information can call this API. API Gateway neither authenticates callers nor configures user-specific throttling policies. You must configure throttling policies for public APIs.
      *
      * @example APP
      *
@@ -110,7 +110,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $customSystemParameters;
 
     /**
-     * @description The publishing time (UTC) of the API.
+     * @description The time when the API was published. The time is displayed in UTC.
      *
      * @example 2021-06-1113:57:38
      *
@@ -121,15 +121,15 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The description of the API.
      *
-     * @example Queries weather based on the region name
+     * @example Query the weather based on the region name
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description *   If the value of **DisableInternet** is set to **true**, API calls are limited within the VPC.
-     *   If the value of **DisableInternet** is set to **false**, the limit is lifted. The default value is false when you create an API.
+     * @description *   If the **DisableInternet** parameter is set to **true**, you call the API only over internal networks.
+     *   If the **DisableInternet** parameter is set to **false**, no limit is imposed on networks. When you create an API, the default value of this parameter is false.
      *
      * @example true
      *
@@ -138,7 +138,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $disableInternet;
 
     /**
-     * @description The sample error codes returned by the backend service.
+     * @description The sample error codes that are returned from the backend service.
      *
      * For more information, see [ErrorCodeSample](~~44392~~).
      * @var errorCodeSamples
@@ -146,7 +146,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $errorCodeSamples;
 
     /**
-     * @description The sample error response from the backend service.
+     * @description The sample error response that is returned from the backend service.
      *
      * @example {"errorCode":"fail","errorMessage":"param invalid"}
      *
@@ -155,8 +155,8 @@ class DescribeApiHistoryResponseBody extends Model
     public $failResultSample;
 
     /**
-     * @description *   If the value of **ForceNonceCheck** is set to **true**, X-Ca-Nonce must be checked during the request. This is the unique identifier of the request and is identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
-     *   If the value of **ForceNonceCheck** is set to **false**, the X-Ca-Nonce is not checked. The default value is false when you create an API.
+     * @description *   Indicates whether to forcefully check X-Ca-Nonce. X-Ca-Nonce is the unique identifier of a request and is generally identified by UUID. If the **ForceNonceCheck** parameter is set to **true**, X-Ca-Nonce is forcefully checked. After API Gateway receives this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If the **ForceNonceCheck** parameter is set to **false**, X-Ca-Nonce is not checked. When you create an API, the default value of this parameter is false.
      *
      * @example true
      *
@@ -183,7 +183,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The historical version number.
+     * @description The historical version number of the API.
      *
      * @example 20211022134156663
      *
@@ -192,14 +192,14 @@ class DescribeApiHistoryResponseBody extends Model
     public $historyVersion;
 
     /**
-     * @description The configuration items of the third-party OpenID Connect authentication method.
+     * @description The configuration items of third-party OpenID Connect authentication.
      *
      * @var openIdConnectConfig
      */
     public $openIdConnectConfig;
 
     /**
-     * @description The region where the API is located.
+     * @description The ID of the region where the API is deployed.
      *
      * @example cn-hangzhou
      *
@@ -208,7 +208,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     * @description The configuration items of API requests that are sent from the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](~~43985~~).
      * @var requestConfig
@@ -225,7 +225,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The parameters of API requests sent by the consumer to API Gateway.
+     * @description The parameters of API requests that are sent from the consumer to API Gateway.
      *
      * For more information, see [RequestParameter](~~43986~~).
      * @var requestParameters
@@ -233,7 +233,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $requestParameters;
 
     /**
-     * @description The return description of the API.
+     * @description The response of the API.
      *
      * @example {}
      *
@@ -242,14 +242,14 @@ class DescribeApiHistoryResponseBody extends Model
     public $resultBodyModel;
 
     /**
-     * @description The return description of the API.
+     * @description The descriptions that are returned for the API.
      *
      * @var resultDescriptions
      */
     public $resultDescriptions;
 
     /**
-     * @description The sample response.
+     * @description The sample response that is returned.
      *
      * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
      *
@@ -258,7 +258,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $resultSample;
 
     /**
-     * @description The format of the return data.
+     * @description The type of data that is returned.
      *
      * @example JSON
      *
@@ -267,14 +267,14 @@ class DescribeApiHistoryResponseBody extends Model
     public $resultType;
 
     /**
-     * @description The information about a backend service call.
+     * @description The information about backend service calls.
      *
      * @var serviceConfig
      */
     public $serviceConfig;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
+     * @description The parameters of API requests that are sent from API Gateway to the backend service.
      *
      * For more information, see [ServiceParameter](~~43988~~).
      * @var serviceParameters
@@ -282,7 +282,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $serviceParameters;
 
     /**
-     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     * @description The mappings between the parameters of requests sent from the consumer to API Gateway and the parameters of requests sent from API Gateway to the backend service.
      *
      * For more information, see [ServiceParameterMap](~~43989~~).
      * @var serviceParametersMap
@@ -290,11 +290,11 @@ class DescribeApiHistoryResponseBody extends Model
     public $serviceParametersMap;
 
     /**
-     * @description The environment to which the API is published.
+     * @description The environment to which the API is published. Valid values:
      *
-     *   **RELEASE**
-     *   **PRE**: the pre-release environment
-     *   **TEST**
+     *   **RELEASE**: production environment
+     *   **PRE**: pre-release environment
+     *   **TEST**: test environment
      *
      * @example RELEASE
      *
@@ -303,8 +303,6 @@ class DescribeApiHistoryResponseBody extends Model
     public $stageName;
 
     /**
-     * @description The status of the API you called.
-     *
      * @example 200
      *
      * @var string
@@ -312,7 +310,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $status;
 
     /**
-     * @description The common parameters of APIs in JSON format.
+     * @description The system parameters of the API in the JSON format.
      *
      * @var systemParameters
      */
@@ -321,8 +319,8 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description Indicates whether the API is public. Valid values:
      *
-     *   **PUBLIC: The API is public. Public APIs are displayed on the APIs page for all users after the APIs are published to the production environment.**
-     *   **PRIVATE: The API is private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **PUBLIC**: The API is public. If you publish the definition of a public API to the production environment, the definition is displayed on the APIs page for all users.
+     *   **PRIVATE**: The API is private. If you publish an API group that contains a private API in Alibaba Cloud Marketplace, the API is not displayed in Alibaba Cloud Marketplace.
      *
      * @example PUBLIC
      *
@@ -331,14 +329,13 @@ class DescribeApiHistoryResponseBody extends Model
     public $visibility;
 
     /**
-     * @description The type of the WebSocket API. Valid values:
+     * @description The type of the API that is used in bidirectional communication. Valid values:
      *
-     *   **COMMON**: general APIs
-     *   **REGISTER**: APIs for registration
-     *   **UNREGISTER**: APIs for deregistration
-     *   **NOTIFY**: APIs for downstream notification
+     *   **COMMON**: common API
+     *   **REGISTER**: registered API
+     *   **UNREGISTER**: unregistered API
+     *   **NOTIFY**: downstream notification API
      *
-     * For more information, see [Two-way communication](~~66031~~).
      * @example COMMON
      *
      * @var string

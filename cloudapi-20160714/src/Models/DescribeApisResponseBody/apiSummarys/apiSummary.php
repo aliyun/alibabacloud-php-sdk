@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponseBody\apiSummarys;
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponseBody\apiSummarys\apiSummary\deployedInfos;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponseBody\apiSummarys\apiSummary\tagList;
 use AlibabaCloud\Tea\Model;
 
 class apiSummary extends Model
@@ -97,6 +98,11 @@ class apiSummary extends Model
     public $regionId;
 
     /**
+     * @var tagList
+     */
+    public $tagList;
+
+    /**
      * @description Indicates whether the API is public. Valid values:
      *
      *   **PUBLIC**
@@ -119,6 +125,7 @@ class apiSummary extends Model
         'groupName'     => 'GroupName',
         'modifiedTime'  => 'ModifiedTime',
         'regionId'      => 'RegionId',
+        'tagList'       => 'TagList',
         'visibility'    => 'Visibility',
     ];
 
@@ -161,6 +168,9 @@ class apiSummary extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tagList) {
+            $res['TagList'] = null !== $this->tagList ? $this->tagList->toMap() : null;
         }
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
@@ -209,6 +219,9 @@ class apiSummary extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TagList'])) {
+            $model->tagList = tagList::fromMap($map['TagList']);
         }
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];

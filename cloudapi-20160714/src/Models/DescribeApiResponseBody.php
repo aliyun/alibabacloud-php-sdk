@@ -301,7 +301,6 @@ class DescribeApiResponseBody extends Model
      *   **UNREGISTER**: unregistered APIs
      *   **NOTIFY**: downstream notification
      *
-     * For more information, see [Two-way communication](~~66031~~).
      * @example JSON
      *
      * @var string
