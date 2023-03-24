@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccountSummaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 81313F5E-3C85-478F-BCC9-E1B70E4556DB
      *
      * @var string
@@ -17,6 +19,8 @@ class GetAccountSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The overview information of the Alibaba Cloud account.
+     *
      * @var summaryMap
      */
     public $summaryMap;

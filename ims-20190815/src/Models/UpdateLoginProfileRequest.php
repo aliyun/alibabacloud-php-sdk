@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateLoginProfileRequest extends Model
 {
     /**
+     * @description Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+     *
+     *   true. The value true indicates that the RAM user must bind an MFA device at the next logon.
+     *   false.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class UpdateLoginProfileRequest extends Model
     public $MFABindRequired;
 
     /**
+     * @description The new password that is used to log on to the console.
+     *
+     * The password must meet the complexity requirements.
      * @example mypassword
      *
      * @var string
@@ -23,6 +31,11 @@ class UpdateLoginProfileRequest extends Model
     public $password;
 
     /**
+     * @description Specifies whether the RAM user must reset the password at the next logon. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +43,11 @@ class UpdateLoginProfileRequest extends Model
     public $passwordResetRequired;
 
     /**
+     * @description The status of password-based logon. Valid values:
+     *
+     *   Active
+     *   Inactive
+     *
      * @example Active
      *
      * @var string
@@ -37,6 +55,8 @@ class UpdateLoginProfileRequest extends Model
     public $status;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

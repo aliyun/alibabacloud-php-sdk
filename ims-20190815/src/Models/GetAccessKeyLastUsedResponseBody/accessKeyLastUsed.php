@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accessKeyLastUsed extends Model
 {
     /**
+     * @description The time when the AccessKey pair was used for the last time.
+     *
      * @example 2020-10-16T01:37:37Z
      *
      * @var string
@@ -16,6 +18,8 @@ class accessKeyLastUsed extends Model
     public $lastUsedDate;
 
     /**
+     * @example Ram
+     *
      * @var string
      */
     public $serviceName;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetCredentialReportResponseBody extends Model
 {
     /**
+     * @description The content of the user credential report.
+     *
+     * The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
      * @example OVZWK4RMOVZW****
      *
      * @var string
@@ -16,6 +19,8 @@ class GetCredentialReportResponseBody extends Model
     public $content;
 
     /**
+     * @description The time when the user credential report was generated.
+     *
      * @example 2020-10-19T15:06:52Z
      *
      * @var string
@@ -23,6 +28,8 @@ class GetCredentialReportResponseBody extends Model
     public $generatedTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7A01826E-7601-44B0-B4DF-2B0C509836DE
      *
      * @var string

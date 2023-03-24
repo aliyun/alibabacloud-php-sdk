@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSAMLProviderRequest extends Model
 {
     /**
+     * @description The description.
+     *
      * @example This is a provider.
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateSAMLProviderRequest extends Model
     public $description;
 
     /**
+     * @description The metadata file, which is Base64 encoded.
+     *
+     * The file is provided by an IdP that supports SAML 2.0.
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateSAMLProviderRequest extends Model
     public $encodedSAMLMetadataDocument;
 
     /**
+     * @description The name of the IdP.
+     *
+     * The value can be up to 128 characters in length. The name can contain letters, digits,`  periods (.), hyphens (-), and underscores (_) `. The name cannot start or end with`  periods (.), hyphens (-), or underscores (_) `.
      * @example test-provider
      *
      * @var string

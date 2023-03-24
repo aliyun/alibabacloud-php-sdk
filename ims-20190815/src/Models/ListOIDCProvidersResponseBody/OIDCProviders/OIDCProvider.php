@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OIDCProvider extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
+     *
      * @example acs:ram::177242285274****:oidc-provider/TestOIDCProvider
      *
      * @var string
@@ -16,6 +18,8 @@ class OIDCProvider extends Model
     public $arn;
 
     /**
+     * @description The ID of the client. If multiple client IDs are returned, the client IDs are separated by commas (,).
+     *
      * @example 498469743454717****
      *
      * @var string
@@ -23,6 +27,8 @@ class OIDCProvider extends Model
     public $clientIds;
 
     /**
+     * @description The time when the OIDC IdP was created. The time is displayed in UTC.
+     *
      * @example 2021-11-11T06:56:03Z
      *
      * @var string
@@ -30,6 +36,8 @@ class OIDCProvider extends Model
     public $createDate;
 
     /**
+     * @description The description of the OIDC IdP.
+     *
      * @example This is a new OIDC Provider.
      *
      * @var string
@@ -37,6 +45,8 @@ class OIDCProvider extends Model
     public $description;
 
     /**
+     * @description The fingerprint of the HTTPS certificate. If multiple fingerprints are returned, the fingerprints are separated by commas (,).
+     *
      * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
      *
      * @var string
@@ -44,6 +54,8 @@ class OIDCProvider extends Model
     public $fingerprints;
 
     /**
+     * @description The timestamp when the OIDC IdP was created.
+     *
      * @example 1636613763000
      *
      * @var string
@@ -51,6 +63,8 @@ class OIDCProvider extends Model
     public $gmtCreate;
 
     /**
+     * @description The timestamp when the OIDC IdP was modified.
+     *
      * @example 1636706309000
      *
      * @var string
@@ -58,6 +72,8 @@ class OIDCProvider extends Model
     public $gmtModified;
 
     /**
+     * @description The URL of the issuer.
+     *
      * @example https://dev-xxxxxx.okta.com
      *
      * @var string
@@ -65,6 +81,8 @@ class OIDCProvider extends Model
     public $issuerUrl;
 
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string
@@ -72,6 +90,8 @@ class OIDCProvider extends Model
     public $OIDCProviderName;
 
     /**
+     * @description The time when the OIDC IdP was modified. The time is displayed in UTC.
+     *
      * @example 2021-11-12T08:38:29Z
      *
      * @var string

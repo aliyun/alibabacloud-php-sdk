@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 85836703-8D4F-485F-9726-4D1C730F957E
      *
      * @var string

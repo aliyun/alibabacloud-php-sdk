@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedRequest extends Model
 {
     /**
+     * @description The ID of the AccessKey pair that you want to query.
+     *
      * @example LTAI4GFTgcR8m8cZQDTH****
      *
      * @var string
@@ -16,6 +18,9 @@ class GetAccessKeyLastUsedRequest extends Model
     public $userAccessKeyId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
+     * If this parameter is empty, the AccessKey pair of the current user is queried.
      * @example test@example.onaliyun.com
      *
      * @var string

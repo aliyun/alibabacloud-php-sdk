@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class accountSecurityPracticeInfo extends Model
 {
     /**
+     * @description The information of the security report for the Alibaba Cloud account.
+     *
      * @var accountSecurityPracticeUserInfo
      */
     public $accountSecurityPracticeUserInfo;
 
     /**
+     * @description The security score of the Alibaba Cloud account.
+     *
      * @example 63
      *
      * @var int

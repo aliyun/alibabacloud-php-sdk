@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BindMFADeviceRequest extends Model
 {
     /**
+     * @description The first verification code.
+     *
+     * >  You can call the [CreateVirtualMFADevice](~~186179~~) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
      * @example 123456
      *
      * @var string
@@ -16,6 +19,9 @@ class BindMFADeviceRequest extends Model
     public $authenticationCode1;
 
     /**
+     * @description The second verification code.
+     *
+     * >  You can call the [CreateVirtualMFADevice](~~186179~~) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
      * @example 654321
      *
      * @var string
@@ -23,6 +29,9 @@ class BindMFADeviceRequest extends Model
     public $authenticationCode2;
 
     /**
+     * @description The serial number of the MFA device.
+     *
+     * >  You can call the [CreateVirtualMFADevice](~~186179~~) operation to obtain the serial number of the MFA device.
      * @example acs:ram::177242285274****:mfa/device001
      *
      * @var string
@@ -30,6 +39,8 @@ class BindMFADeviceRequest extends Model
     public $serialNumber;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

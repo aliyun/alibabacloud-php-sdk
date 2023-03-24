@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetUserMFAInfoResponseBody extends Model
 {
     /**
+     * @description Indicates whether the MFA device is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,11 +22,15 @@ class GetUserMFAInfoResponseBody extends Model
     public $isMFAEnable;
 
     /**
+     * @description The information about the MFA device.
+     *
      * @var MFADevice
      */
     public $MFADevice;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FCF7322A-20A9-4F68-8B7F-F86958839BC0
      *
      * @var string

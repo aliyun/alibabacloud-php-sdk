@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAccountMFAInfoResponseBody extends Model
 {
     /**
+     * @description Indicates whether MFA is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class GetAccountMFAInfoResponseBody extends Model
     public $isMFAEnable;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4BE83135-0B08-467C-B3A2-27B312FD0F57
      *
      * @var string

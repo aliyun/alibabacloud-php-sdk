@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
      * @example Dev-Team
      *
      * @var string

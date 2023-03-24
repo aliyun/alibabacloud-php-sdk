@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
      *
      * @var string
@@ -17,6 +19,8 @@ class GetUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the RAM user.
+     *
      * @var user
      */
     public $user;

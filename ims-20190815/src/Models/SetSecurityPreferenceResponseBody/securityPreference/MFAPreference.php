@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MFAPreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can manage their MFA devices.
+     *
      * @example false
      *
      * @var bool

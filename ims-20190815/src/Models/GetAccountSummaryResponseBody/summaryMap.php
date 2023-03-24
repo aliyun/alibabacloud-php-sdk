@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class summaryMap extends Model
 {
     /**
+     * @description The maximum number of AccessKey pairs that a RAM user can have.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class summaryMap extends Model
     public $accessKeysPerUserQuota;
 
     /**
+     * @description The maximum number of custom policies that can be added to a RAM user group.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class summaryMap extends Model
     public $attachedPoliciesPerGroupQuota;
 
     /**
+     * @description The maximum number of custom policies that can be added to a RAM role.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class summaryMap extends Model
     public $attachedPoliciesPerRoleQuota;
 
     /**
+     * @description The maximum number of custom policies that can be added to a RAM user.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class summaryMap extends Model
     public $attachedPoliciesPerUserQuota;
 
     /**
+     * @description The maximum number of system policies that can be added to a RAM user group.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class summaryMap extends Model
     public $attachedSystemPoliciesPerGroupQuota;
 
     /**
+     * @description The maximum number of system policies that can be added to a RAM role.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +63,8 @@ class summaryMap extends Model
     public $attachedSystemPoliciesPerRoleQuota;
 
     /**
+     * @description The maximum number of system policies that can be added to a RAM user.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +72,8 @@ class summaryMap extends Model
     public $attachedSystemPoliciesPerUserQuota;
 
     /**
+     * @description The number of RAM user groups.
+     *
      * @example 7
      *
      * @var int
@@ -65,6 +81,8 @@ class summaryMap extends Model
     public $groups;
 
     /**
+     * @description The maximum number of RAM user groups to which a RAM user can be added.
+     *
      * @example 5
      *
      * @var int
@@ -72,6 +90,8 @@ class summaryMap extends Model
     public $groupsPerUserQuota;
 
     /**
+     * @description The maximum number of RAM user groups that can be created.
+     *
      * @example 50
      *
      * @var int
@@ -79,6 +99,8 @@ class summaryMap extends Model
     public $groupsQuota;
 
     /**
+     * @description The number of virtual multi-factor authentication (MFA) devices.
+     *
      * @example 13
      *
      * @var int
@@ -86,6 +108,8 @@ class summaryMap extends Model
     public $MFADevices;
 
     /**
+     * @description The number of virtual MFA devices in use.
+     *
      * @example 2
      *
      * @var int
@@ -93,6 +117,8 @@ class summaryMap extends Model
     public $MFADevicesInUse;
 
     /**
+     * @description The number of custom policies.
+     *
      * @example 13
      *
      * @var int
@@ -100,6 +126,8 @@ class summaryMap extends Model
     public $policies;
 
     /**
+     * @description The maximum number of custom policies that can be created.
+     *
      * @example 1500
      *
      * @var int
@@ -107,6 +135,8 @@ class summaryMap extends Model
     public $policiesQuota;
 
     /**
+     * @description The maximum length of the policy content.
+     *
      * @example 2048
      *
      * @var int
@@ -114,6 +144,8 @@ class summaryMap extends Model
     public $policySizeQuota;
 
     /**
+     * @description The number of RAM roles.
+     *
      * @example 19
      *
      * @var int
@@ -121,6 +153,8 @@ class summaryMap extends Model
     public $roles;
 
     /**
+     * @description The maximum number of RAM roles that can be created.
+     *
      * @example 1000
      *
      * @var int
@@ -128,6 +162,8 @@ class summaryMap extends Model
     public $rolesQuota;
 
     /**
+     * @description The number of RAM users.
+     *
      * @example 9
      *
      * @var int
@@ -135,6 +171,8 @@ class summaryMap extends Model
     public $users;
 
     /**
+     * @description The maximum number of RAM users that can be created.
+     *
      * @example 1000
      *
      * @var int
@@ -142,6 +180,8 @@ class summaryMap extends Model
     public $usersQuota;
 
     /**
+     * @description The maximum number of policy versions.
+     *
      * @example 5
      *
      * @var int
@@ -149,6 +189,8 @@ class summaryMap extends Model
     public $versionsPerPolicyQuota;
 
     /**
+     * @description The maximum number of virtual MFA devices that can be created.
+     *
      * @example 1000
      *
      * @var int

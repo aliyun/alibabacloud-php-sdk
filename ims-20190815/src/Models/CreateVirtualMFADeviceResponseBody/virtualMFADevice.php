@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualMFADevice extends Model
 {
     /**
+     * @description The key of the MFA device.
+     *
      * @example LD3CJ23Z2VGEX6R7ZTQCOA4XL2KODS5PKH7442NLKYX2PVHSHYB7UT3TS5HA****
      *
      * @var string
@@ -16,6 +18,8 @@ class virtualMFADevice extends Model
     public $base32StringSeed;
 
     /**
+     * @description The Base64-encoded QR code of the key.
+     *
      * @example YXNkZmFzZDlmeW5hc2Q5OGZoODd4bXJmcThhaGU5aSBmYXNkZiBzYWRmIGFGIDRxd2VjIGEgdHEz****
      *
      * @var string
@@ -23,6 +27,8 @@ class virtualMFADevice extends Model
     public $QRCodePNG;
 
     /**
+     * @description The serial number of the MFA device.
+     *
      * @example acs:ram::177242285274****:mfa/device001
      *
      * @var string

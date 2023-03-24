@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddFingerprintToOIDCProviderRequest extends Model
 {
     /**
+     * @description The fingerprint of the HTTPS certificate.
+     *
+     * The fingerprint can be up to 40 characters in length.
      * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
      *
      * @var string
@@ -16,6 +19,8 @@ class AddFingerprintToOIDCProviderRequest extends Model
     public $fingerprint;
 
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string

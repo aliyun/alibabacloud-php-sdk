@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDefaultDomainResponseBody extends Model
 {
     /**
+     * @description The default domain name.
+     *
      * @example examplecompany.onaliyun.com
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDefaultDomainResponseBody extends Model
     public $defaultDomainName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 66815255-7CCE-4759-AC37-9755794C3626
      *
      * @var string

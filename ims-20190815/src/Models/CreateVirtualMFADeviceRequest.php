@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualMFADeviceRequest extends Model
 {
     /**
+     * @description The name of the MFA device.
+     *
+     * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
      * @example device001
      *
      * @var string

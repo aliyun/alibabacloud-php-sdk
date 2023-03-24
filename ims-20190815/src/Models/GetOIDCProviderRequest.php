@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOIDCProviderRequest extends Model
 {
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string

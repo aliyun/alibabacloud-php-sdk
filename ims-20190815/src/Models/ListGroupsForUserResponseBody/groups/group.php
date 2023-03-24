@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The description.
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The display name of the RAM user group.
+     *
      * @example Test-Team
      *
      * @var string
@@ -21,6 +25,8 @@ class group extends Model
     public $displayName;
 
     /**
+     * @description The ID of the RAM user group.
+     *
      * @example 740317625433843****
      *
      * @var string
@@ -28,6 +34,8 @@ class group extends Model
     public $groupId;
 
     /**
+     * @description The name of the RAM user group.
+     *
      * @example Test-Team
      *
      * @var string
@@ -35,6 +43,8 @@ class group extends Model
     public $groupName;
 
     /**
+     * @description The time when the RAM user was added.
+     *
      * @example 2020-10-20T06:57:00Z
      *
      * @var string

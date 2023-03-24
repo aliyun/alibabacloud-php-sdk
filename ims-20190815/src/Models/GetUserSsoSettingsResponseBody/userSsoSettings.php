@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userSsoSettings extends Model
 {
     /**
+     * @description The auxiliary domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class userSsoSettings extends Model
     public $auxiliaryDomain;
 
     /**
+     * @description The metadata file, which is Base64-encoded.
+     *
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -23,6 +27,8 @@ class userSsoSettings extends Model
     public $metadataDocument;
 
     /**
+     * @description Indicates whether user-based SSO is enabled.
+     *
      * @example false
      *
      * @var bool

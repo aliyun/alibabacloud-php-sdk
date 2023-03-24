@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateCredentialReportResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example BBCCA90A-A1F0-4B16-B355-692247197805
      *
      * @var string
@@ -16,6 +18,12 @@ class GenerateCredentialReportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The generation status of the user credential report. Valid values:
+     *
+     *   STARTED: The user credential report starts to generate.
+     *   INPROGRESS: The user credential report is being generated.
+     *   COMPLETED: The user credential report is generated.
+     *
      * @example STARTED
      *
      * @var string

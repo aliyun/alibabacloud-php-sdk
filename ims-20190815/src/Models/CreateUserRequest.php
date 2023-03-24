@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * The description must be 1 to 128 characters in length.
      * @example This is a cloud computing engineer.
      *
      * @var string
@@ -17,6 +20,9 @@ class CreateUserRequest extends Model
     public $comments;
 
     /**
+     * @description The display name of the RAM user.
+     *
+     * The name must be 1 to 24 characters in length.
      * @example test
      *
      * @var string
@@ -24,6 +30,9 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
+     * @description The email address of the RAM user.
+     *
+     * >  This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -31,6 +40,9 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
+     * @description The mobile phone number of the RAM user.
+     *
+     * >  This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -43,6 +55,9 @@ class CreateUserRequest extends Model
     public $tag;
 
     /**
+     * @description The logon name of the RAM user.
+     *
+     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (\_). The value of `<AccountAlias>.onaliyun.com` must be 1 to 64 characters in length.
      * @example test@example.onaliyun.com
      *
      * @var string

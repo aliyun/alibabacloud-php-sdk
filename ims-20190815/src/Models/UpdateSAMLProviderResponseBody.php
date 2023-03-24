@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSAMLProviderResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E5EDDFD2-3654-4F9F-9780-4AE7D81823EF
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateSAMLProviderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the IdP.
+     *
      * @var SAMLProvider
      */
     public $SAMLProvider;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The description.
+     *
      * @example This is a cloud computing engineer.
      *
      * @var string
@@ -17,6 +19,8 @@ class user extends Model
     public $comments;
 
     /**
+     * @description The time when the RAM user was created.
+     *
      * @example 2020-10-12T09:12:00Z
      *
      * @var string
@@ -24,6 +28,8 @@ class user extends Model
     public $createDate;
 
     /**
+     * @description The display name of the RAM user.
+     *
      * @example test
      *
      * @var string
@@ -31,6 +37,9 @@ class user extends Model
     public $displayName;
 
     /**
+     * @description The email address of the RAM user.
+     *
+     * >  This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -38,6 +47,8 @@ class user extends Model
     public $email;
 
     /**
+     * @description The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+     *
      * @example 2020-10-12T09:12:00Z
      *
      * @var string
@@ -45,6 +56,9 @@ class user extends Model
     public $lastLoginDate;
 
     /**
+     * @description The mobile phone number of the RAM user.
+     *
+     * >  This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -52,6 +66,12 @@ class user extends Model
     public $mobilePhone;
 
     /**
+     * @description The source of the RAM user. Valid values:
+     *
+     *   Manual: The RAM user is manually created in the RAM console.
+     *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
+     *   CloudSSO: The RAM user is mapped from a CloudSSO user.
+     *
      * @example CloudSSO
      *
      * @var string
@@ -59,11 +79,15 @@ class user extends Model
     public $provisionType;
 
     /**
+     * @description An array that consists of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The time when the information about the RAM user was updated.
+     *
      * @example 2020-10-13T07:39:22Z
      *
      * @var string
@@ -71,6 +95,8 @@ class user extends Model
     public $updateDate;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -78,6 +104,8 @@ class user extends Model
     public $userId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

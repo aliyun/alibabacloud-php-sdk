@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetSecurityPreferenceRequest extends Model
+class SetSecurityPreferenceShrinkRequest extends Model
 {
     /**
      * @description Specifies whether RAM users can change their passwords. Valid values:
@@ -117,9 +117,9 @@ class SetSecurityPreferenceRequest extends Model
     public $operationForRiskLogin;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $verificationTypes;
+    public $verificationTypesShrink;
     protected $_name = [
         'allowUserToChangePassword'         => 'AllowUserToChangePassword',
         'allowUserToManageAccessKeys'       => 'AllowUserToManageAccessKeys',
@@ -130,7 +130,7 @@ class SetSecurityPreferenceRequest extends Model
         'loginSessionDuration'              => 'LoginSessionDuration',
         'MFAOperationForLogin'              => 'MFAOperationForLogin',
         'operationForRiskLogin'             => 'OperationForRiskLogin',
-        'verificationTypes'                 => 'VerificationTypes',
+        'verificationTypesShrink'           => 'VerificationTypes',
     ];
 
     public function validate()
@@ -167,8 +167,8 @@ class SetSecurityPreferenceRequest extends Model
         if (null !== $this->operationForRiskLogin) {
             $res['OperationForRiskLogin'] = $this->operationForRiskLogin;
         }
-        if (null !== $this->verificationTypes) {
-            $res['VerificationTypes'] = $this->verificationTypes;
+        if (null !== $this->verificationTypesShrink) {
+            $res['VerificationTypes'] = $this->verificationTypesShrink;
         }
 
         return $res;
@@ -177,7 +177,7 @@ class SetSecurityPreferenceRequest extends Model
     /**
      * @param array $map
      *
-     * @return SetSecurityPreferenceRequest
+     * @return SetSecurityPreferenceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -210,9 +210,7 @@ class SetSecurityPreferenceRequest extends Model
             $model->operationForRiskLogin = $map['OperationForRiskLogin'];
         }
         if (isset($map['VerificationTypes'])) {
-            if (!empty($map['VerificationTypes'])) {
-                $model->verificationTypes = $map['VerificationTypes'];
-            }
+            $model->verificationTypesShrink = $map['VerificationTypes'];
         }
 
         return $model;

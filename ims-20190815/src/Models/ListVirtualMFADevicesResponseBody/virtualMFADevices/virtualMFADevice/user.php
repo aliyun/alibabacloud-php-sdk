@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The display name of the RAM user.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class user extends Model
     public $displayName;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -23,6 +27,8 @@ class user extends Model
     public $userId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@177242285274****.onaliyun.com
      *
      * @var string

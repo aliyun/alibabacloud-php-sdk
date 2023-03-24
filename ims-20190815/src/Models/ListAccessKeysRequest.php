@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAccessKeysRequest extends Model
 {
     /**
+     * @description The logon name of the RAM user.
+     *
+     * If this parameter is empty, the AccessKey pairs of the current user are queried.
      * @example test@example.onaliyun.com
      *
      * @var string

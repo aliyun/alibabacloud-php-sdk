@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetPasswordPolicyRequest extends Model
 {
     /**
+     * @description Specifies whether to disable logon after the password expires. Valid values:
+     *
+     *   true: After the password expires, you cannot use the password to log on to the console. You can log on to the console only after you reset the password by using your Alibaba Cloud account or as a RAM user that has administrative rights.
+     *   false: After the password expires, you can change the password to log on to the console. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class SetPasswordPolicyRequest extends Model
     public $hardExpire;
 
     /**
+     * @description The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
+     *
+     * The default value is 0, which indicates that the password retries are not limited.
      * @example 0
      *
      * @var int
@@ -23,6 +31,9 @@ class SetPasswordPolicyRequest extends Model
     public $maxLoginAttemps;
 
     /**
+     * @description The validity period of the password.
+     *
+     * The default value is 0, which indicates that the password never expires.
      * @example 0
      *
      * @var int
@@ -30,6 +41,9 @@ class SetPasswordPolicyRequest extends Model
     public $maxPasswordAge;
 
     /**
+     * @description The minimum number of unique characters in the password.
+     *
+     * The default value is 0, which indicates that no limits are imposed on the number of unique characters in a password.
      * @example 0
      *
      * @var int
@@ -37,6 +51,9 @@ class SetPasswordPolicyRequest extends Model
     public $minimumPasswordDifferentCharacter;
 
     /**
+     * @description The minimum number of characters in the password.
+     *
+     * Valid values: 8 to 32. Default value: 8.
      * @example 8
      *
      * @var int
@@ -44,6 +61,11 @@ class SetPasswordPolicyRequest extends Model
     public $minimumPasswordLength;
 
     /**
+     * @description Specifies whether to exclude the username from the password. Valid values:
+     *
+     *   true: A password cannot contain the username.
+     *   false: A password can contain the username. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +73,9 @@ class SetPasswordPolicyRequest extends Model
     public $passwordNotContainUserName;
 
     /**
+     * @description The policy for password history check.
+     *
+     * The default value is 0, which indicates that RAM users can reuse previous passwords.
      * @example 0
      *
      * @var int
@@ -58,6 +83,11 @@ class SetPasswordPolicyRequest extends Model
     public $passwordReusePrevention;
 
     /**
+     * @description Specifies whether the password must contain lowercase letters. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +95,11 @@ class SetPasswordPolicyRequest extends Model
     public $requireLowercaseCharacters;
 
     /**
+     * @description Specifies whether the password must contain digits. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -72,6 +107,11 @@ class SetPasswordPolicyRequest extends Model
     public $requireNumbers;
 
     /**
+     * @description Specifies whether the password must contain special characters. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -79,6 +119,11 @@ class SetPasswordPolicyRequest extends Model
     public $requireSymbols;
 
     /**
+     * @description Specifies whether the password must contain uppercase letters. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * The value can be up to 128 characters in length.
      * @var string
      */
     public $comments;
 
     /**
+     * @description The display name of the RAM user group.
+     *
+     * The name can be up to 24 characters in length.
      * @example Dev-Team
      *
      * @var string
@@ -21,6 +27,9 @@ class CreateGroupRequest extends Model
     public $displayName;
 
     /**
+     * @description The name of the RAM user group. You must specify this parameter.
+     *
+     * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example Dev-Team
      *
      * @var string

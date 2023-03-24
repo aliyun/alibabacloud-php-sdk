@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class passwordPolicy extends Model
 {
     /**
+     * @description Indicates whether to disable logon after the password expires.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class passwordPolicy extends Model
     public $hardExpire;
 
     /**
+     * @description The maximum number of password retries.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class passwordPolicy extends Model
     public $maxLoginAttemps;
 
     /**
+     * @description The validity period of the password.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class passwordPolicy extends Model
     public $maxPasswordAge;
 
     /**
+     * @description The minimum number of unique characters in the password.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class passwordPolicy extends Model
     public $minimumPasswordDifferentCharacter;
 
     /**
+     * @description The minimum number of characters in the password.
+     *
      * @example 8
      *
      * @var int
@@ -44,6 +54,8 @@ class passwordPolicy extends Model
     public $minimumPasswordLength;
 
     /**
+     * @description Indicates whether to exclude the username from the password.
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +63,8 @@ class passwordPolicy extends Model
     public $passwordNotContainUserName;
 
     /**
+     * @description The policy for password history check.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +72,8 @@ class passwordPolicy extends Model
     public $passwordReusePrevention;
 
     /**
+     * @description Indicates whether the password must contain lowercase letters.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +81,8 @@ class passwordPolicy extends Model
     public $requireLowercaseCharacters;
 
     /**
+     * @description Indicates whether the password must contain digits.
+     *
      * @example false
      *
      * @var bool
@@ -72,6 +90,8 @@ class passwordPolicy extends Model
     public $requireNumbers;
 
     /**
+     * @description Indicates whether the password must contain special characters.
+     *
      * @example false
      *
      * @var bool
@@ -79,6 +99,8 @@ class passwordPolicy extends Model
     public $requireSymbols;
 
     /**
+     * @description Indicates whether the password must contain uppercase letters.
+     *
      * @example false
      *
      * @var bool

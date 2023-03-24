@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateOIDCProviderRequest extends Model
 {
     /**
+     * @description The ID of the client. If you want to specify multiple fingerprints, separate the fingerprints with commas (,).
+     *
+     * >  If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](~~332057~~) or [RemoveClientIdFromOIDCProvider](~~332058~~).
      * @example 498469743454717****
      *
      * @var string
@@ -16,6 +19,9 @@ class UpdateOIDCProviderRequest extends Model
     public $clientIds;
 
     /**
+     * @description The description of the OIDC IdP.
+     *
+     * The description can be up to 256 characters in length.
      * @example This is a new OIDC Provider.
      *
      * @var string
@@ -23,6 +29,8 @@ class UpdateOIDCProviderRequest extends Model
     public $newDescription;
 
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string

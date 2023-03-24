@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddClientIdToOIDCProviderResponseBody extends Model
 {
     /**
+     * @description The information about the OIDC IdP.
+     *
      * @var OIDCProvider
      */
     public $OIDCProvider;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B49B8FA7-87FC-5308-AE75-5EC9E36C360A
      *
      * @var string

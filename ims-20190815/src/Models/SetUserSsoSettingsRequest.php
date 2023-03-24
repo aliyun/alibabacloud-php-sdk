@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetUserSsoSettingsRequest extends Model
 {
     /**
+     * @description The auxiliary domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class SetUserSsoSettingsRequest extends Model
     public $auxiliaryDomain;
 
     /**
+     * @description The metadata file, which is Base64-encoded.
+     *
+     * The file is provided by an IdP that supports SAML 2.0.
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -23,6 +28,11 @@ class SetUserSsoSettingsRequest extends Model
     public $metadataDocument;
 
     /**
+     * @description Specifies whether to enable SSO for the RAM user. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

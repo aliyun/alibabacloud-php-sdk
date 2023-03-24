@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSecurityPreferenceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 30C9068D-FBAA-4998-9986-8A562FED0BC3
      *
      * @var string
@@ -17,6 +19,8 @@ class GetSecurityPreferenceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of security preferences.
+     *
      * @var securityPreference
      */
     public $securityPreference;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangePasswordRequest extends Model
 {
     /**
+     * @description The new password that is used to log on to the console.
+     *
+     * The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](~~186691~~).
      * @example newpassword
      *
      * @var string
@@ -16,6 +19,8 @@ class ChangePasswordRequest extends Model
     public $newPassword;
 
     /**
+     * @description The old password that is used to log on to the console.
+     *
      * @example mypassword
      *
      * @var string

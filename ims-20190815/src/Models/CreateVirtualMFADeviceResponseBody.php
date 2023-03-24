@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualMFADeviceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C609CC97-10FE-43EB-BE32-BDC219D8F1E4
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateVirtualMFADeviceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information of the MFA device.
+     *
      * @var virtualMFADevice
      */
     public $virtualMFADevice;

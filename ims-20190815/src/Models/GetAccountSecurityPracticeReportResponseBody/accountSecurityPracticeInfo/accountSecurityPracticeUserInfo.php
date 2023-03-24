@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class accountSecurityPracticeUserInfo extends Model
 {
     /**
+     * @description Indicates whether MFA is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $bindMfa;
 
     /**
+     * @description The number of old AccessKey pairs for the Alibaba Cloud account.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +30,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $oldAkNum;
 
     /**
+     * @description The number of AccessKey pairs for the Alibaba Cloud account.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $rootWithAccessKey;
 
     /**
+     * @description The number of RAM users within the Alibaba Cloud account.
+     *
      * @example 9
      *
      * @var int
@@ -37,6 +48,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $subUser;
 
     /**
+     * @description The number of RAM users that have MFA devices bound.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +57,12 @@ class accountSecurityPracticeUserInfo extends Model
     public $subUserBindMfa;
 
     /**
+     * @description The complexity level of the password for the RAM user. Valid values:
+     *
+     *   low
+     *   mid
+     *   high
+     *
      * @example low
      *
      * @var string
@@ -51,6 +70,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $subUserPwdLevel;
 
     /**
+     * @description The number of RAM users that use the old AccessKey pairs.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +79,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $subUserWithOldAccessKey;
 
     /**
+     * @description The number of RAM users that have no AccessKey pairs.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +88,8 @@ class accountSecurityPracticeUserInfo extends Model
     public $subUserWithUnusedAccessKey;
 
     /**
+     * @description The number of AccessKey pairs that are not used for the Alibaba Cloud account.
+     *
      * @example 0
      *
      * @var int

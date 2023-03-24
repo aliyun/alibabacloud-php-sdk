@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -17,6 +19,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries to return. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true.
+     *
+     * Valid values: 1 to 100. Default value: 100.
      * @example 2
      *
      * @var int
@@ -34,6 +39,10 @@ class ListTagResourcesRequest extends Model
     public $resourcePrincipalName;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   user: a RAM user
+     *
      * @example user
      *
      * @var string

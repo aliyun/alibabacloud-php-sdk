@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accessKey extends Model
 {
     /**
+     * @description The AccessKey ID provided to you by Alibaba Cloud.
+     *
      * @example LTAI4G3HaMmeHpay2gcq****
      *
      * @var string
@@ -16,6 +18,8 @@ class accessKey extends Model
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret provided to you by Alibaba Cloud.
+     *
      * @example Y3MSLE6OgizS4qrz5LVFDoyZEL****
      *
      * @var string
@@ -23,6 +27,8 @@ class accessKey extends Model
     public $accessKeySecret;
 
     /**
+     * @description The time when the AccessKey pair was created.
+     *
      * @example 2020-10-15T08:08:54Z
      *
      * @var string
@@ -30,6 +36,11 @@ class accessKey extends Model
     public $createDate;
 
     /**
+     * @description The status of the AccessKey pair. Valid values:
+     *
+     *   Active
+     *   Inactive
+     *
      * @example Active
      *
      * @var string

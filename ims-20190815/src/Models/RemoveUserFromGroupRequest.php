@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
      * @example Test-Team
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveUserFromGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example alice@example.onaliyun.com
      *
      * @var string

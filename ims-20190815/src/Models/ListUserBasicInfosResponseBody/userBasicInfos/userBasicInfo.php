@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponseBody\userBasicInfos;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponseBody\userBasicInfos\userBasicInfo\tags;
 use AlibabaCloud\Tea\Model;
 
 class userBasicInfo extends Model
 {
     /**
+     * @description The display name of the RAM user.
+     *
      * @example test
      *
      * @var string
@@ -17,11 +18,8 @@ class userBasicInfo extends Model
     public $displayName;
 
     /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
+     * @description The ID of the RAM user.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -29,6 +27,8 @@ class userBasicInfo extends Model
     public $userId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
@@ -36,7 +36,6 @@ class userBasicInfo extends Model
     public $userPrincipalName;
     protected $_name = [
         'displayName'       => 'DisplayName',
-        'tags'              => 'Tags',
         'userId'            => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
@@ -50,9 +49,6 @@ class userBasicInfo extends Model
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -74,9 +70,6 @@ class userBasicInfo extends Model
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

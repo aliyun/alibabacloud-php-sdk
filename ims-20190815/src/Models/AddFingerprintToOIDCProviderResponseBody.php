@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddFingerprintToOIDCProviderResponseBody extends Model
 {
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @var OIDCProvider
      */
     public $OIDCProvider;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4B809BBC-0E78-544A-A91A-648926412E3E
      *
      * @var string

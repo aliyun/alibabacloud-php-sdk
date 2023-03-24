@@ -20,6 +20,10 @@ class TagResourcesRequest extends Model
     public $resourcePrincipalName;
 
     /**
+     * @description The type of the resource. Valid value:
+     *
+     *   user: a RAM user
+     *
      * @example user
      *
      * @var string

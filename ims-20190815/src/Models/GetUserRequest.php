@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
+     * @description The AccessKey ID of the RAM user.
+     *
+     * >  You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
      * @example LTAI4GFTgcR8m8cZQDTH****
      *
      * @var string
@@ -16,6 +19,9 @@ class GetUserRequest extends Model
     public $userAccessKeyId;
 
     /**
+     * @description The ID of the RAM user.
+     *
+     * >  You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
      * @example 20732900249392****
      *
      * @var string
@@ -23,6 +29,9 @@ class GetUserRequest extends Model
     public $userId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
+     * >  You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
      * @example test@example.onaliyun.com
      *
      * @var string

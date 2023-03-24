@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateSAMLProviderRequest extends Model
 {
     /**
+     * @description The new description.
+     *
+     * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
      * @example This is a new provider.
      *
      * @var string
@@ -16,6 +19,9 @@ class UpdateSAMLProviderRequest extends Model
     public $newDescription;
 
     /**
+     * @description The new metadata file.
+     *
+     * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -23,6 +29,8 @@ class UpdateSAMLProviderRequest extends Model
     public $newEncodedSAMLMetadataDocument;
 
     /**
+     * @description The name of the IdP whose information you want to modify.
+     *
      * @example test-provider
      *
      * @var string

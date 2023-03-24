@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the response is truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class ListTagResourcesResponseBody extends Model
     public $isTruncated;
 
     /**
+     * @description The marker. This parameter is returned only if the value of IsTruncated is true. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -24,6 +31,8 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4BE83135-0B08-467C-B3A2-27B312FD0F57
      *
      * @var string
@@ -31,6 +40,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array consisting of tags that are added to resources.
+     *
      * @var tagResources
      */
     public $tagResources;

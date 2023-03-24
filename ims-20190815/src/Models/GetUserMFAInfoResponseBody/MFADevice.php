@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MFADevice extends Model
 {
     /**
+     * @description The serial number of the MFA device.
+     *
      * @example acs:ram::177242285274****:mfa/device001
      *
      * @var string
@@ -16,6 +18,11 @@ class MFADevice extends Model
     public $serialNumber;
 
     /**
+     * @description The type of the MFA device. Valid values:
+     *
+     *   VMFA: virtual MFA device
+     *   U2F: Universal 2nd Factor (U2F) security key
+     *
      * @example VMFA
      *
      * @var string

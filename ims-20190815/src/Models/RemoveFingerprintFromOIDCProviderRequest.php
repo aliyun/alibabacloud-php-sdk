@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveFingerprintFromOIDCProviderRequest extends Model
 {
     /**
+     * @description The fingerprint that you want to remove.
+     *
      * @example 6938fd4d98bab03faadb97b34396831e3780****
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveFingerprintFromOIDCProviderRequest extends Model
     public $fingerprint;
 
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string

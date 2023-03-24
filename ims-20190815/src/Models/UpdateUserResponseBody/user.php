@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The description of the RAM user.
+     *
      * @example This is a cloud computing engineer.
      *
      * @var string
@@ -16,6 +18,8 @@ class user extends Model
     public $comments;
 
     /**
+     * @description The time when the RAM user was created.
+     *
      * @example 2020-10-12T09:12:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class user extends Model
     public $createDate;
 
     /**
+     * @description The display name of the RAM user.
+     *
      * @example new
      *
      * @var string
@@ -30,6 +36,9 @@ class user extends Model
     public $displayName;
 
     /**
+     * @description The email address of the RAM user.
+     *
+     * >  This parameter applies only to the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -37,6 +46,8 @@ class user extends Model
     public $email;
 
     /**
+     * @description The last time when the RAM user logged on to the console.
+     *
      * @example 2020-10-12T09:12:00Z
      *
      * @var string
@@ -44,6 +55,9 @@ class user extends Model
     public $lastLoginDate;
 
     /**
+     * @description The mobile phone number of the RAM user.
+     *
+     * >  This parameter applies only to the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -56,6 +70,8 @@ class user extends Model
     public $provisionType;
 
     /**
+     * @description The time when the information of the RAM user was updated.
+     *
      * @example 2020-10-13T09:19:49Z
      *
      * @var string
@@ -63,6 +79,8 @@ class user extends Model
     public $updateDate;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -70,6 +88,8 @@ class user extends Model
     public $userId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example new@example.onaliyun.com
      *
      * @var string

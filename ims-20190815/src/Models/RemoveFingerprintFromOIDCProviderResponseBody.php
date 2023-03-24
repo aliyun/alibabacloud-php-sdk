@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveFingerprintFromOIDCProviderResponseBody extends Model
 {
     /**
+     * @description The information about the OIDC IdP.
+     *
      * @var OIDCProvider
      */
     public $OIDCProvider;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C90CE971-4C7F-5D93-BD3E-2D0E79D03C01
      *
      * @var string

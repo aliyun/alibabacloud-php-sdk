@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MFADevice extends Model
 {
     /**
+     * @description The serial number of the MFA device.
+     *
      * @example acs:ram::151298381312****:mfa/device001
      *
      * @var string

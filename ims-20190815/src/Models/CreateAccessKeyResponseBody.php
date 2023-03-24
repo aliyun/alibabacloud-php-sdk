@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessKeyResponseBody extends Model
 {
     /**
+     * @description The information of the AccessKey pair.
+     *
      * @var accessKey
      */
     public $accessKey;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
      *
      * @var string

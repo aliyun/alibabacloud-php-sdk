@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the resources. Valid values:
+     *
+     *   true: remove all tags from the resources.
+     *   false: does not remove all tags from the resources. This is the default value.
+     *
+     * >  This parameter takes effect only when the TagKey.N parameter is not specified in the request.
      * @example false
      *
      * @var bool
@@ -26,6 +32,10 @@ class UntagResourcesRequest extends Model
     public $resourcePrincipalName;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   user: a RAM user
+     *
      * @example user
      *
      * @var string

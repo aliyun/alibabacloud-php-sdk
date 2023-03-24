@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserBasicInfosRequest extends Model
 {
     /**
+     * @description The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+     *
      * @example EXAMPLE
      *
      * @var string
@@ -17,6 +19,9 @@ class ListUserBasicInfosRequest extends Model
     public $marker;
 
     /**
+     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+     *
+     * Valid values: 1 to 1000. Default value: 100.
      * @example 100
      *
      * @var int

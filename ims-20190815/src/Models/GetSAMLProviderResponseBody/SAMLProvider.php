@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SAMLProvider extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the IdP.
+     *
      * @example acs:ram::177242285274****:saml-provider/test-provider
      *
      * @var string
@@ -16,6 +18,8 @@ class SAMLProvider extends Model
     public $arn;
 
     /**
+     * @description The creation time.
+     *
      * @example 2020-10-22T02:37:05Z
      *
      * @var string
@@ -23,6 +27,8 @@ class SAMLProvider extends Model
     public $createDate;
 
     /**
+     * @description The description.
+     *
      * @example This is a provider.
      *
      * @var string
@@ -30,6 +36,8 @@ class SAMLProvider extends Model
     public $description;
 
     /**
+     * @description The metadata file, which is Base64 encoded.
+     *
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -37,6 +45,8 @@ class SAMLProvider extends Model
     public $encodedSAMLMetadataDocument;
 
     /**
+     * @description The name of the IdP.
+     *
      * @example test-provider
      *
      * @var string
@@ -44,6 +54,8 @@ class SAMLProvider extends Model
     public $SAMLProviderName;
 
     /**
+     * @description The update time.
+     *
      * @example 2020-10-22T02:51:20Z
      *
      * @var string

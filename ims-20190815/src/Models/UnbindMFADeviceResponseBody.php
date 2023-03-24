@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UnbindMFADeviceResponseBody extends Model
 {
     /**
+     * @description The information of the MFA device.
+     *
      * @var MFADevice
      */
     public $MFADevice;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A26CB3E9-1021-452A-AC57-3134B3BA0E4C
      *
      * @var string

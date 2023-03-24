@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateLoginProfileRequest extends Model
 {
     /**
+     * @description Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+     *
+     *   true: MFA must be enabled. The RAM user must bind an MFA device at the next logon.
+     *   false: MFA is not enabled. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class CreateLoginProfileRequest extends Model
     public $MFABindRequired;
 
     /**
+     * @description The password that is used to log on to the console.
+     *
+     * The password must meet the complexity requirements.
      * @example mypassword
      *
      * @var string
@@ -23,6 +31,11 @@ class CreateLoginProfileRequest extends Model
     public $password;
 
     /**
+     * @description Specifies whether the RAM user must reset the password at the next logon. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +43,11 @@ class CreateLoginProfileRequest extends Model
     public $passwordResetRequired;
 
     /**
+     * @description The status of password-based logon. Valid values:
+     *
+     *   Active: Password-based logon is enabled. This is the default value.
+     *   Inactive: Password-based logon is disabled.
+     *
      * @example Active
      *
      * @var string
@@ -37,6 +55,8 @@ class CreateLoginProfileRequest extends Model
     public $status;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

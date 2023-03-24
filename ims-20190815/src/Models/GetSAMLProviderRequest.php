@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSAMLProviderRequest extends Model
 {
     /**
+     * @description The name of the IdP.
+     *
      * @example test-provider
      *
      * @var string

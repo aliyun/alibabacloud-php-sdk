@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAccessKeysResponseBody extends Model
 {
     /**
+     * @description The list of AccessKey pairs.
+     *
      * @var accessKeys
      */
     public $accessKeys;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
      *
      * @var string

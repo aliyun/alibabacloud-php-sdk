@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveClientIdFromOIDCProviderRequest extends Model
 {
     /**
+     * @description The client ID that you want to remove.
+     *
+     * The client ID can be up to 64 characters in length.
      * @example 498469743454717****
      *
      * @var string
@@ -16,6 +19,8 @@ class RemoveClientIdFromOIDCProviderRequest extends Model
     public $clientId;
 
     /**
+     * @description The name of the OIDC IdP.
+     *
      * @example TestOIDCProvider
      *
      * @var string

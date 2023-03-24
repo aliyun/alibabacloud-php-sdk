@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetUserSsoSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 87F2E3F6-28A0-43F3-A77F-F7760E62F61E
      *
      * @var string
@@ -17,6 +19,8 @@ class SetUserSsoSettingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The configurations of user-based SSO.
+     *
      * @var userSsoSettings
      */
     public $userSsoSettings;

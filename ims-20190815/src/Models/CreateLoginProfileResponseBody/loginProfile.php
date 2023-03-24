@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loginProfile extends Model
 {
     /**
+     * @description Indicates whether MFA must be enabled.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class loginProfile extends Model
     public $MFABindRequired;
 
     /**
+     * @description Indicates whether the RAM user must reset the password at the next logon.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class loginProfile extends Model
     public $passwordResetRequired;
 
     /**
+     * @description The status of password-based logon.
+     *
      * @example Active
      *
      * @var string
@@ -30,6 +36,8 @@ class loginProfile extends Model
     public $status;
 
     /**
+     * @description The update time.
+     *
      * @example 2020-10-14T03:47:51Z
      *
      * @var string
@@ -37,6 +45,8 @@ class loginProfile extends Model
     public $updateDate;
 
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

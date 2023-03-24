@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateLoginProfileResponseBody extends Model
 {
     /**
+     * @description The logon information.
+     *
      * @var loginProfile
      */
     public $loginProfile;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BCDB6A7F-2199-41D9-B577-4FA536A5ADE1
      *
      * @var string

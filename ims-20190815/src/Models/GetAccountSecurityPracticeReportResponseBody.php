@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAccountSecurityPracticeReportResponseBody extends Model
 {
     /**
+     * @description The information of the security report for the Alibaba Cloud account.
+     *
      * @var accountSecurityPracticeInfo
      */
     public $accountSecurityPracticeInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ABA822EE-85C2-4418-9577-A1831FC8466D
      *
      * @var string

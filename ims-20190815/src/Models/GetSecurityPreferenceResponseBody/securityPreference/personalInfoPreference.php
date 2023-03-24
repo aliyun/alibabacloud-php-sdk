@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class personalInfoPreference extends Model
 {
     /**
+     * @description Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
+     *
+     *   true: yes
+     *   false: no
+     *
      * @example true
      *
      * @var bool

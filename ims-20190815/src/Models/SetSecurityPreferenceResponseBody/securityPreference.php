@@ -8,34 +8,49 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\secu
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\loginProfilePreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\MFAPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\personalInfoPreference;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\verificationPreference;
 use AlibabaCloud\Tea\Model;
 
 class securityPreference extends Model
 {
     /**
+     * @description The AccessKey pair preference.
+     *
      * @var accessKeyPreference
      */
     public $accessKeyPreference;
 
     /**
+     * @description The logon preference.
+     *
      * @var loginProfilePreference
      */
     public $loginProfilePreference;
 
     /**
+     * @description The MFA preference.
+     *
      * @var MFAPreference
      */
     public $MFAPreference;
 
     /**
+     * @description The personal information preference.
+     *
      * @var personalInfoPreference
      */
     public $personalInfoPreference;
+
+    /**
+     * @var verificationPreference
+     */
+    public $verificationPreference;
     protected $_name = [
         'accessKeyPreference'    => 'AccessKeyPreference',
         'loginProfilePreference' => 'LoginProfilePreference',
         'MFAPreference'          => 'MFAPreference',
         'personalInfoPreference' => 'PersonalInfoPreference',
+        'verificationPreference' => 'VerificationPreference',
     ];
 
     public function validate()
@@ -56,6 +71,9 @@ class securityPreference extends Model
         }
         if (null !== $this->personalInfoPreference) {
             $res['PersonalInfoPreference'] = null !== $this->personalInfoPreference ? $this->personalInfoPreference->toMap() : null;
+        }
+        if (null !== $this->verificationPreference) {
+            $res['VerificationPreference'] = null !== $this->verificationPreference ? $this->verificationPreference->toMap() : null;
         }
 
         return $res;
@@ -80,6 +98,9 @@ class securityPreference extends Model
         }
         if (isset($map['PersonalInfoPreference'])) {
             $model->personalInfoPreference = personalInfoPreference::fromMap($map['PersonalInfoPreference']);
+        }
+        if (isset($map['VerificationPreference'])) {
+            $model->verificationPreference = verificationPreference::fromMap($map['VerificationPreference']);
         }
 
         return $model;

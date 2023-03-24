@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLoginProfileRequest extends Model
 {
     /**
+     * @description The logon name of the RAM user.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string

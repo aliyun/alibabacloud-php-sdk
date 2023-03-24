@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultDomainRequest extends Model
 {
     /**
+     * @description The default domain name.
+     *
+     * >  The default domain name cannot start or end with a hyphen (-) and cannot have two consecutive hyphens (-).
      * @example examplecompany.onaliyun.com
      *
      * @var string
