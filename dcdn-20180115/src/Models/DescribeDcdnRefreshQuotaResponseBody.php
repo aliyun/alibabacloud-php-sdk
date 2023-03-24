@@ -45,6 +45,16 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $dirRemain;
 
     /**
+     * @var string
+     */
+    public $ignoreParamsQuota;
+
+    /**
+     * @var string
+     */
+    public $ignoreParamsRemain;
+
+    /**
      * @description The maximum number of URLs that can be prefetched each day.
      *
      * @example 500
@@ -107,17 +117,19 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
      */
     public $urlRemain;
     protected $_name = [
-        'blockQuota'    => 'BlockQuota',
-        'blockRemain'   => 'BlockRemain',
-        'dirQuota'      => 'DirQuota',
-        'dirRemain'     => 'DirRemain',
-        'preloadQuota'  => 'PreloadQuota',
-        'preloadRemain' => 'PreloadRemain',
-        'regexQuota'    => 'RegexQuota',
-        'regexRemain'   => 'RegexRemain',
-        'requestId'     => 'RequestId',
-        'urlQuota'      => 'UrlQuota',
-        'urlRemain'     => 'UrlRemain',
+        'blockQuota'         => 'BlockQuota',
+        'blockRemain'        => 'BlockRemain',
+        'dirQuota'           => 'DirQuota',
+        'dirRemain'          => 'DirRemain',
+        'ignoreParamsQuota'  => 'IgnoreParamsQuota',
+        'ignoreParamsRemain' => 'IgnoreParamsRemain',
+        'preloadQuota'       => 'PreloadQuota',
+        'preloadRemain'      => 'PreloadRemain',
+        'regexQuota'         => 'RegexQuota',
+        'regexRemain'        => 'RegexRemain',
+        'requestId'          => 'RequestId',
+        'urlQuota'           => 'UrlQuota',
+        'urlRemain'          => 'UrlRemain',
     ];
 
     public function validate()
@@ -138,6 +150,12 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
         }
         if (null !== $this->dirRemain) {
             $res['DirRemain'] = $this->dirRemain;
+        }
+        if (null !== $this->ignoreParamsQuota) {
+            $res['IgnoreParamsQuota'] = $this->ignoreParamsQuota;
+        }
+        if (null !== $this->ignoreParamsRemain) {
+            $res['IgnoreParamsRemain'] = $this->ignoreParamsRemain;
         }
         if (null !== $this->preloadQuota) {
             $res['PreloadQuota'] = $this->preloadQuota;
@@ -183,6 +201,12 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
         }
         if (isset($map['DirRemain'])) {
             $model->dirRemain = $map['DirRemain'];
+        }
+        if (isset($map['IgnoreParamsQuota'])) {
+            $model->ignoreParamsQuota = $map['IgnoreParamsQuota'];
+        }
+        if (isset($map['IgnoreParamsRemain'])) {
+            $model->ignoreParamsRemain = $map['IgnoreParamsRemain'];
         }
         if (isset($map['PreloadQuota'])) {
             $model->preloadQuota = $map['PreloadQuota'];

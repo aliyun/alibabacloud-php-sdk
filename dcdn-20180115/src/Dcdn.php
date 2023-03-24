@@ -299,6 +299,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
@@ -318,6 +320,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishDcdnStagingConfigToProductionR
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
@@ -8977,6 +8981,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param GetDcdnKvRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDcdnKvResponse
+     */
+    public function getDcdnKvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDcdnKv',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDcdnKvRequest $request
+     *
+     * @return GetDcdnKvResponse
+     */
+    public function getDcdnKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
      * >  You can call this operation up to 100 times per second per account.
      *   *
      * @param ListDcdnRealTimeDeliveryProjectRequest $request ListDcdnRealTimeDeliveryProjectRequest
@@ -9503,6 +9547,57 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishRoutineCodeRevisionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PutDcdnKvRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PutDcdnKvResponse
+     */
+    public function putDcdnKvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutDcdnKv',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PutDcdnKvRequest $request
+     *
+     * @return PutDcdnKvResponse
+     */
+    public function putDcdnKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putDcdnKvWithOptions($request, $runtime);
     }
 
     /**
