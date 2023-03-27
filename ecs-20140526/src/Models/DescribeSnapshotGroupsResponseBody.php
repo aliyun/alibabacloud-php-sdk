@@ -12,7 +12,7 @@ class DescribeSnapshotGroupsResponseBody extends Model
     /**
      * @description The token used to start the next query.
      *
-     * >  If this parameter is empty, no more data is returned.
+     * > If the return value is empty, no more data exists.
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string

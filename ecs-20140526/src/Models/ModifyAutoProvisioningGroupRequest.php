@@ -19,7 +19,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $autoProvisioningGroupId;
 
     /**
-     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (`:`), underscores (`_`), and hyphens (`-`).
      *
      * @example apg-test
      *
@@ -30,8 +30,8 @@ class ModifyAutoProvisioningGroupRequest extends Model
     /**
      * @description The type of supplemental instances. When the sum of the PayAsYouGoTargetCapacity and SpotTargetCapacity values is smaller than the TotalTargetCapacity value, the auto provisioning group creates instances of the specified billing method to meet the target capacity. Valid values:
      *
-     *   PayAsYouGo: pay-as-you-go instances
-     *   Spot: preemptible instances
+     *   PayAsYouGo: pay-as-you-go instances.
+     *   Spot: preemptible instances.
      *
      * @example Spot
      *
@@ -52,7 +52,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
-     * @description The extended configurations of the launch template.
+     * @description The extended configurations.
      *
      * @var launchTemplateConfig[]
      */
@@ -61,7 +61,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     /**
      * @description The maximum price of preemptible instances in the auto provisioning group.
      *
-     * > When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used. The LaunchTemplateConfig.N.MaxPrice parameter is specified when the auto provisioning group is created, and cannot be modified.
+     * > When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used. The LaunchTemplateConfig.N.MaxPrice parameter is set when the auto provisioning group is created, and cannot be modified.
      * @example 0.5
      *
      * @var float
@@ -79,7 +79,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The target capacity of pay-as-you-go instances in the auto provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
+     * @description The target capacity of pay-as-you-go instances in the auto provisioning group. The value must be smaller than the TotalTargetCapacity value.
      *
      * @example 30
      *
@@ -88,7 +88,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $payAsYouGoTargetCapacity;
 
     /**
-     * @description The region ID of the auto provisioning group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the auto provisioning group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -107,7 +107,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The target capacity of preemptible instances in the auto provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
+     * @description The target capacity of preemptible instances in the auto provisioning group. The value must be smaller than the TotalTargetCapacity value.
      *
      * @example 30
      *

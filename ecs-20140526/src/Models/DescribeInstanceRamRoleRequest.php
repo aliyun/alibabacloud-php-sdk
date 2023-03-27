@@ -43,7 +43,7 @@ class DescribeInstanceRamRoleRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the instance RAM role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
+     * @description The name of the instance RAM role. You can call the [ListRoles](~~28713~~) operation provided by Resource Access Management (RAM) to query the instance RAM roles that you created. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
      *
      * @example EcsServiceRole-EcsDocGuideTest
      *

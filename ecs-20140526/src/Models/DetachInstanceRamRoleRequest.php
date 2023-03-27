@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DetachInstanceRamRoleRequest extends Model
 {
     /**
+     * @description The IDs of instances from which you want to detach an instance RAM role. It can be a JSON array that consists of up to 100 instance IDs. Separate multiple instance IDs with commas (,).
+     *
+     * @example ["i-bp67acfmxazb4p****", "i-bp67acfmxazb5p****", "i-bp67acfmxazb6p****"…]
+     *
      * @var string
      */
     public $instanceIds;
@@ -19,11 +23,19 @@ class DetachInstanceRamRoleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the instance RAM role to be detached. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you have created.
+     *
+     * @example RamRoleTest
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
+     * @description The region ID of the instances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

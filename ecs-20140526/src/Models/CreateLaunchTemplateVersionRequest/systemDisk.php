@@ -20,8 +20,8 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
      *
-     *   true: enables the performance burst feature.
-     *   false: does not enable the performance burst feature.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -35,7 +35,7 @@ class systemDisk extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
-     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk.
+     *   cloud_essd: enhanced SSD (ESSD) You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk. cloud_auto: ESSD AutoPL disk.
      *
      * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
@@ -95,7 +95,7 @@ class systemDisk extends Model
     public $iops;
 
     /**
-     * @description The performance level of the ESSD to be used as the system disk. Default value: PL0. Valid values:
+     * @description The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.

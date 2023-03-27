@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
 {
     /**
+     * @description The instance families that support deployment sets.
+     *
+     * @example ecs.i2g,ecs.i1,ecs.i2ne,ecs.i2gne
+     *
      * @var string
      */
     public $instanceTypeFamilies;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B7DB-A3DC7DE1C52E
+     *
      * @var string
      */
     public $requestId;

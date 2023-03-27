@@ -17,7 +17,7 @@ class availableSpotZone extends Model
     public $availableSpotResources;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-i
      *

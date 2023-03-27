@@ -20,6 +20,11 @@ class launchConfiguration extends Model
     public $arn;
 
     /**
+     * @var string
+     */
+    public $autoReleaseTime;
+
+    /**
      * @description The performance mode of the burstable instance. Valid values:
      *
      *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
@@ -334,6 +339,7 @@ class launchConfiguration extends Model
     public $userData;
     protected $_name = [
         'arn'                         => 'Arn',
+        'autoReleaseTime'             => 'AutoReleaseTime',
         'creditSpecification'         => 'CreditSpecification',
         'dataDisk'                    => 'DataDisk',
         'deploymentSetId'             => 'DeploymentSetId',
@@ -379,6 +385,9 @@ class launchConfiguration extends Model
                     $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->autoReleaseTime) {
+            $res['AutoReleaseTime'] = $this->autoReleaseTime;
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
@@ -496,6 +505,9 @@ class launchConfiguration extends Model
                     $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AutoReleaseTime'])) {
+            $model->autoReleaseTime = $map['AutoReleaseTime'];
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];

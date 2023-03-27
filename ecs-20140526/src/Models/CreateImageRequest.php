@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
-     * @description The system architecture of the system disk. If you specify a data disk snapshot to create the system disk of the custom image, you must use the Architecture parameter to specify the system architecture of the system disk. Valid values:
+     * @description The system architecture of the system disk. If you specify a data disk snapshot to create the system disk of the custom image, use the Architecture parameter to specify the system architecture of the system disk. Valid values:
      *
      *   i386
      *   x86\_64
@@ -30,7 +30,7 @@ class CreateImageRequest extends Model
      *   BIOS
      *   UEFI
      *
-     * > You must be aware of the boot modes supported by the specified image. When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image to ensure that instances that use this image can start as expected.
+     * > You must be familiar with the boot modes that are supported by the specified image. When you use this parameter to change the boot mode of the image, specify a boot mode that is supported by the image to ensure that instances that use this image can start as expected.
      * @example BIOS
      *
      * @var string
@@ -38,7 +38,7 @@ class CreateImageRequest extends Model
     public $bootMode;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -47,6 +47,8 @@ class CreateImageRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the custom image. The description must be 2 to 256 characters in length and cannot start with [http:// or https://.](http://https://。)
+     *
      * @example ImageTestDescription
      *
      * @var string
@@ -54,19 +56,19 @@ class CreateImageRequest extends Model
     public $description;
 
     /**
-     * @description The mode in which to check the source image. If you do not specify this parameter, the source image is not checked. Only Linux images can be checked. Set the value to Standard, which indicates standard check mode.
+     * @description The mode that you want to use to check the source image. If you do not specify this parameter, the source image is not checked. You can check only Linux images. Set the value to Standard, which specifies the standard check mode.
      *
      * The following items are checked in standard check mode:
      *
      *   Virtio: whether the virtio driver is installed.
-     *   Fstab: whether mounting configurations in the fstab file are correct.
-     *   Grub: whether GRand Unified Bootloader (GRUB) configurations are correct.
+     *   Fstab: whether the mounting configurations in the fstab file are valid.
+     *   Grub: whether the GRand Unified Bootloader (GRUB) configurations are valid.
      *   SystemImage: whether the image is valid. Do not import images that are in the ISO format or empty.
      *   CloudInit: whether cloud-init is installed.
      *   NVMe: whether the NVMe driver is installed.
      *   Selinux: whether SElinux is enabled.
      *   OnlineResizeFS: whether the root partition can be automatically resized.
-     *   Dhcp: whether Dynamic Host Configuration Protocol (DHCP) is enabled for network interface controllers (NICs).
+     *   Dhcp: whether Dynamic Host Configuration Protocol (DHCP) is enabled for network interfaces.
      *   RtcTimeMode: the RTC time mode.
      *   Platform: the platform. Example: Linux or Windows.
      *   OSVersion: the operating system version. Example: Centos 7.9.
@@ -83,13 +85,15 @@ class CreateImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description Details about the custom images.
+     * @description The information about the custom image.
      *
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
 
     /**
+     * @description The name of the family of the custom image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with acs: or aliyun. The name cannot contain [http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     *
      * @example hangzhou-daily-update
      *
      * @var string
@@ -97,6 +101,8 @@ class CreateImageRequest extends Model
     public $imageFamily;
 
     /**
+     * @description The name of the custom image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     *
      * @example TestCentOS
      *
      * @var string
@@ -106,7 +112,7 @@ class CreateImageRequest extends Model
     /**
      * @description The version of the custom image.
      *
-     * > If you specify an instance by setting `InstanceId` and the instance uses an Alibaba Cloud Marketplace image or a custom image derived from an Alibaba Cloud Marketplace image, this parameter must be left empty or set to the value of the ImageVersion parameter of the instance.
+     * > If you specify an instance by using the `InstanceId` parameter and the instance uses an Alibaba Cloud Marketplace image or a custom image that is created from an Alibaba Cloud Marketplace image, you must leave this parameter empty or set this parameter to the value of the ImageVersion parameter of the instance.
      * @example 2017011017
      *
      * @var string
@@ -114,7 +120,7 @@ class CreateImageRequest extends Model
     public $imageVersion;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance that is used to create the custom image.
      *
      * @example i-bp1g6zv0ce8oghu7****
      *
@@ -133,7 +139,7 @@ class CreateImageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The distribution of the operating system for the system disk in the custom image. If you specify a data disk snapshot to create the system disk of the custom image, you must use the Platform parameter to specify the distribution of the operating system for the system disk. Valid values:
+     * @description The distribution of the operating system for the system disk in the custom image. If you specify a data disk snapshot to create the system disk of the custom image, use the Platform parameter to specify the distribution of the operating system for the system disk. Valid values:
      *
      *   CentOS
      *   Ubuntu
@@ -156,7 +162,7 @@ class CreateImageRequest extends Model
     public $platform;
 
     /**
-     * @description The ID of the region in which to create the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the custom image that you want to create. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -165,9 +171,9 @@ class CreateImageRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the custom image. If you do not specify this parameter, the image is assigned to the default resource group.
+     * @description The ID of the resource group to which you want to assign the custom image. If you do not specify this parameter, the image is assigned to the default resource group.
      *
-     * > If you call the CopyImage operation as a Resource Access Management (RAM) user who is not authorized to manage the default resource group and do not specify the `ResourceGroupId` parameter, the `Forbbiden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group before you call the CreateImage operation again.
+     * > If you call the CreateImage operation as a RAM user who is not authorized to manage the default resource group and you do not specify the `ResourceGroupId` parameter, the `Forbidden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group before you call the CreateImage operation again.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -194,7 +200,7 @@ class CreateImageRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The tags of the custom image.
+     * @description The tags that you want to add to the custom image.
      *
      * @var tag[]
      */

@@ -36,9 +36,9 @@ class CreateDemandRequest extends Model
     public $demandDescription;
 
     /**
-     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the demand. The name must be 2 to 128 characters in length and start with a letter but cannot start with [http:// or https://](http://https://). It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
-     * The default value is the instance type name.
+     * The default value is the instance type.
      * @example k8s-node-demand
      *
      * @var string
@@ -46,9 +46,9 @@ class CreateDemandRequest extends Model
     public $demandName;
 
     /**
-     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard and use the UTC time. The format is yyyy-MM-dd hh:mm:ss.
      *
-     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. Typically, the interval between the two times cannot be more than 10 days.
+     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. In most cases, the interval between the two times cannot be more than 10 days.
      * @example 2019-12-10 12:05:00
      *
      * @var string
@@ -58,8 +58,8 @@ class CreateDemandRequest extends Model
     /**
      * @description The billing method of the instance. Default value: PostPaid. Valid values:
      *
-     *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
      *
      * @example PrePaid
      *
@@ -68,7 +68,7 @@ class CreateDemandRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Select instance types](~~58291~~) to learn about how to select instance types.
+     * @description The instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Select instance types](~~58291~~) to learn how to select instance types.
      *
      * @example ecs.c6.large
      *
@@ -100,7 +100,7 @@ class CreateDemandRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription period of the resource. Default value: Month. Valid values:
+     * @description The unit of the subscription period. Default value: Month. Valid values:
      *
      *   Day
      *   Week
@@ -113,7 +113,7 @@ class CreateDemandRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -132,9 +132,9 @@ class CreateDemandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard and use the UTC time. The default format is yyyy-MM-dd HH:mm:ss.
      *
-     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. Typically, the interval between the two times cannot be more than 10 days.
+     * If the value of seconds (ss) is not 00, the time is automatically set to the beginning of the specified minute (mm). The value of EndTime must be later than the value of Starttime. In most cases, the interval between the two times cannot be more than 10 days.
      * @example 2019-12-01 12:05:00
      *
      * @var string
@@ -142,9 +142,9 @@ class CreateDemandRequest extends Model
     public $startTime;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
      *
-     * This parameter is empty by default. If you do not specify a zone, the system randomly selects one.
+     * This parameter is empty by default, which indicates that the system randomly selects a zone.
      * @example cn-hangzhou-g
      *
      * @var string

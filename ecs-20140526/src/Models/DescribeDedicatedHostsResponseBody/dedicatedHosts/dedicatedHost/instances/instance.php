@@ -18,6 +18,11 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $instanceOwnerId;
+
+    /**
      * @description The instance type of the ECS instance created on the dedicated host.
      *
      * @example ecs.g5.large
@@ -31,9 +36,10 @@ class instance extends Model
      */
     public $socketId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
-        'socketId'     => 'SocketId',
+        'instanceId'      => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
+        'instanceType'    => 'InstanceType',
+        'socketId'        => 'SocketId',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class instance extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -66,6 +75,9 @@ class instance extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

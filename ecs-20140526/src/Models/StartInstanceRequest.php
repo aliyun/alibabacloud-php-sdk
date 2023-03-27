@@ -42,11 +42,6 @@ class StartInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $sourceRegionId;
     protected $_name = [
         'dryRun'               => 'DryRun',
         'initLocalDisk'        => 'InitLocalDisk',
@@ -55,7 +50,6 @@ class StartInstanceRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceRegionId'       => 'SourceRegionId',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->sourceRegionId) {
-            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SourceRegionId'])) {
-            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

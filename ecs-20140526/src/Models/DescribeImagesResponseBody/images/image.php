@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
-     * @description The image architecture. Valid values:
+     * @description The architecture of the image. Valid values:
      *
      *   i386
      *   x86\_64
@@ -26,12 +26,12 @@ class image extends Model
     public $architecture;
 
     /**
-     * @description The boot mode of the custom image. Valid values:
+     * @description The new boot mode of the image. Valid values:
      *
      *   BIOS
      *   UEFI
      *
-     * >  You must know which boot modes the specified image supports. When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image to ensure that instances which use this image can start normally.
+     * > You need to be aware of the boot modes supported by the specified image. When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image to ensure that instances that use this image can start as expected.
      * @example BIOS
      *
      * @var string
@@ -64,7 +64,7 @@ class image extends Model
     public $detectionOptions;
 
     /**
-     * @description The mappings between disks and snapshots in the image.
+     * @description The mappings between disks and snapshots that belong to the image.
      *
      * @var diskDeviceMappings
      */
@@ -119,7 +119,7 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only when you query shared images or community images.
+     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter is valid only when you query shared images or community images.
      *
      * @example 1234567890
      *
@@ -148,7 +148,9 @@ class image extends Model
     /**
      * @description Indicates whether the image is publicly available. Publicly available images include public images provided by Alibaba Cloud and custom images published as community images. Valid values:
      *
-     * - false: The image is not publicly available.
+     *   true: The image is publicly available.
+     *   false: The image is not publicly available.
+     *
      * @example false
      *
      * @var bool
@@ -194,7 +196,9 @@ class image extends Model
     /**
      * @description Indicates whether the image supports logons of non-root users. Valid values:
      *
-     * - false: The image does not support logons of non-root users.
+     *   true: The image supports logons of non-root users.
+     *   false: The image does not support logons of non-root users.
+     *
      * @example false
      *
      * @var bool
@@ -202,14 +206,14 @@ class image extends Model
     public $loginAsNonRootSupported;
 
     /**
-     * @description The Chinese name of the operating system.
+     * @description The display name of the operating system in Chinese.
      *
      * @var string
      */
     public $OSName;
 
     /**
-     * @description The English name of the operating system.
+     * @description The display name of the operating system in English.
      *
      * @example Windows Server  2016 Data Center Edition 64bit Chinese Edition
      *
@@ -218,7 +222,7 @@ class image extends Model
     public $OSNameEn;
 
     /**
-     * @description The type of the operating system. Valid values:
+     * @description The OS type of the image. Valid values:
      *
      *   windows
      *   linux

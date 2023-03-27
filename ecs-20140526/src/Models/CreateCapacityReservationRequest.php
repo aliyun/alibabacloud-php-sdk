@@ -16,7 +16,7 @@ class CreateCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -56,7 +56,7 @@ class CreateCapacityReservationRequest extends Model
     public $endTimeType;
 
     /**
-     * @description The total number of instances for which capacity of an instance type is reserved.
+     * @description The total number of instances for which to reserve the capacity of an instance type.
      *
      * @example 2
      *
@@ -86,10 +86,10 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system of a capacity reservation matches that of a regional reserved instance, the regional reserved instance can be applied to offset bills of the unused capacity of the capacity reservation. Valid values:
      *
-     *   Windows: Windows Server operating system
-     *   Linux: Linux and UNIX-like operating system
+     *   Windows: Windows Server operating system.
+     *   Linux: Linux and UNIX-like operating system.
      *
-     * > This parameter is unavailable.
+     * > This parameter is unavailable for public use.
      * @example Linux
      *
      * @var string

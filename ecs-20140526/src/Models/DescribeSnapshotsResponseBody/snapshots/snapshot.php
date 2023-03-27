@@ -12,7 +12,7 @@ class snapshot extends Model
     /**
      * @description The category of the snapshot.
      *
-     * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
      * @example standard
      *
      * @var string
@@ -47,10 +47,10 @@ class snapshot extends Model
     public $encrypted;
 
     /**
-     * @description Indicates whether the instant access feature is enabled. Valid values:
+     * @description Indicates whether the instant access feature was enabled. Valid values:
      *
-     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature was disabled.
      *
      * @example false
      *
@@ -59,7 +59,7 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description The duration of the instant access feature. The instant access feature is automatically disabled when the specified duration expires.
+     * @description The validity period of the instant access feature. The instant access feature is automatically disabled when the specified period expires.
      *
      * By default, the value of this parameter is the same as that of `RetentionDays`.
      * @example 30
@@ -69,7 +69,7 @@ class snapshot extends Model
     public $instantAccessRetentionDays;
 
     /**
-     * @description The ID of the KMS key used by the data disk.
+     * @description The ID of the KMS key used for the data disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -87,7 +87,7 @@ class snapshot extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The product code of the Alibaba Cloud Marketplace image.
+     * @description The product number inherited from Alibaba Cloud Marketplace.
      *
      * @example jxsc000****
      *
@@ -105,7 +105,7 @@ class snapshot extends Model
     public $progress;
 
     /**
-     * @description The remaining time that is required to create the snapshot. Unit: seconds.
+     * @description The remaining time required to create the snapshot. Unit: seconds.
      *
      * @example 38
      *
@@ -114,7 +114,7 @@ class snapshot extends Model
     public $remainTime;
 
     /**
-     * @description The ID of the resource group to which the snapshot belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -172,7 +172,7 @@ class snapshot extends Model
     public $snapshotType;
 
     /**
-     * @description The ID of the source disk. This parameter is retained even after the source disk for which the snapshot was created is released.
+     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
      *
      * @example d-bp67acfmxazb4ph****
      *
@@ -181,7 +181,7 @@ class snapshot extends Model
     public $sourceDiskId;
 
     /**
-     * @description The capacity of the source disk. Unit: GiB.
+     * @description The capacity of the source disk for which the snapshot was created. Unit: GiB.
      *
      * @example 40
      *
@@ -250,7 +250,7 @@ class snapshot extends Model
     public $tags;
 
     /**
-     * @description Indicates whether the snapshot has been used to create images or disks. Valid values:
+     * @description Indicates whether the snapshot has been used to create custom images or disks. Valid values:
      *
      *   image
      *   disk

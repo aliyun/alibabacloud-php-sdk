@@ -26,14 +26,14 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $associatedPublicIp;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var attachment
      */
     public $attachment;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var bondInterfaceSpecification
      */
@@ -68,14 +68,14 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description The IPv4 address prefixes of the ENI.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description The IPv6 address prefixes of the ENI.
      *
      * @var ipv6PrefixSets
      */
@@ -147,7 +147,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $privateIpAddress;
 
     /**
-     * @description Details about the private IP addresses of the ENI.
+     * @description Details about the private IP addresses.
      *
      * @var privateIpSets
      */
@@ -177,7 +177,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example 22
      *
@@ -195,7 +195,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group to which the associated instance belongs. If a resource group is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the instance belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
      * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
@@ -230,7 +230,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var slaveInterfaceSpecification
      */
@@ -245,7 +245,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      *   Detaching: The ENI is being detached from an instance.
      *   Deleting: The ENI is being deleted.
      *
-     * This parameter is empty by default, which indicates that ENIs in all states are queried.
+     * This parameter is empty by default, which indicates that all states are queried.
      * @example Available
      *
      * @var string
@@ -290,7 +290,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the ENI.
+     * @description The ID of the zone.
      *
      * @example cn-hangzhou-g
      *

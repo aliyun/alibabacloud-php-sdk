@@ -44,7 +44,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances that were queried.
+     * @description The total number of instances.
      *
      * @example 2
      *

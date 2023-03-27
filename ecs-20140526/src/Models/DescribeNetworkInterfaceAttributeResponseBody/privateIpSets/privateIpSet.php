@@ -20,7 +20,7 @@ class privateIpSet extends Model
      * @description Indicates whether the IP address is the primary private IP address. Valid values:
      *
      *   true: The IP address is the primary private IP address.
-     *   false: The IP address is a secondary private IP address.
+     *   false: The IP address is the secondary private IP address.
      *
      * @example true
      *

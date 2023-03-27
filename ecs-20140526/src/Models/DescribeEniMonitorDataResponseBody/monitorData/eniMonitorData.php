@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class eniMonitorData extends Model
 {
     /**
+     * @description The number of dropped packets received by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dropPacketRx;
 
     /**
+     * @description The number of dropped packets sent by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dropPacketTx;
 
     /**
+     * @description The ID of the secondary ENI.
+     *
+     * @example eni-bp19da36d6xdwey****
+     *
      * @var string
      */
     public $eniId;
 
     /**
+     * @description The average rate of data traffic received by the secondary ENI over the internal network. Unit: Kbit/s.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $intranetRx;
 
     /**
+     * @description The average rate of data traffic sent by the secondary ENI over the internal network. Unit: Kbit/s.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $intranetTx;
 
     /**
+     * @description The number of packets received by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $packetRx;
 
     /**
+     * @description The number of packets sent by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $packetTx;
 
     /**
+     * @description The timestamp of the monitored data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2018-05-21T03:22:00Z
+     *
      * @var string
      */
     public $timeStamp;

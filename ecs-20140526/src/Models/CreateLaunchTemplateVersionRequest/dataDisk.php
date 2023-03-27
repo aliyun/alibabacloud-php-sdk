@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy to apply to data disk N.
+     * @description The ID of the automatic snapshot policy to be applied to data disk N.
      *
      * @example sp-bp67acfmxazb4p****
      *
@@ -20,8 +20,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
      *
-     *   true: enables the performance burst feature.
-     *   false: does not enable the performance burst feature.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -35,7 +35,7 @@ class dataDisk extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD.
-     *   cloud_essd: ESSD
+     *   cloud_essd: ESSD cloud_auto: ESSD AutoPL disk
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -142,7 +142,7 @@ class dataDisk extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. If the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot.
+     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created based on the size of the specified snapshot.
      *
      * Use snapshots that were created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****

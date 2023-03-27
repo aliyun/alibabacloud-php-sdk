@@ -19,7 +19,9 @@ class detectionOptions extends Model
     /**
      * @description The state of the image check task. Valid values:
      *
-     * - Finished: The image check task is completed.
+     *   Processing: The image check task is in progress.
+     *   Finished: The image check task is completed.
+     *
      * @example Processing
      *
      * @var string

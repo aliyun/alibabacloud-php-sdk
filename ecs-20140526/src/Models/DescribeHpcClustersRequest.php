@@ -18,7 +18,7 @@ class DescribeHpcClustersRequest extends Model
     public $clientToken;
 
     /**
-     * @description The IDs of HPC clusters. The value is a JSON array that consists of up to 100 HPC cluster IDs. Separate the HPC cluster IDs with commas (,).
+     * @description The IDs of the HPC clusters. The value is a JSON array that consists of up to 100 HPC cluster IDs. Separate the HPC cluster IDs with commas (,).
      *
      * @example ["hpc-xxxxxxxxx", "hpc-yyyyyyyyy", … "hpc-zzzzzzzzz"]
      *

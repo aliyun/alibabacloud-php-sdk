@@ -47,7 +47,7 @@ class snapshotGroup extends Model
     public $name;
 
     /**
-     * @description >  This parameter is unavailable.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *

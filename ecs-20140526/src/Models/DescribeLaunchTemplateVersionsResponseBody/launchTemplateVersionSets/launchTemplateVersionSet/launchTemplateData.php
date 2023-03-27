@@ -44,7 +44,7 @@ class launchTemplateData extends Model
     public $deploymentSetId;
 
     /**
-     * @description The description of the instance.
+     * @description The description of the system disk.
      *
      * @example testInstanceDescription
      *
@@ -53,7 +53,7 @@ class launchTemplateData extends Model
     public $description;
 
     /**
-     * @description Indicates whether to enable the operating system configuration of the instance.
+     * @description Specifies whether to enable the operating system configuration of the instance.
      *
      * @example false
      *
@@ -82,10 +82,10 @@ class launchTemplateData extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud.
-     *   self: custom images that you create.
-     *   others: shared images from other Alibaba Cloud accounts.
-     *   marketplace: Alibaba Cloud Marketplace images.
+     *   system: public images provided by Alibaba Cloud
+     *   self: custom images that you create
+     *   others: shared images from other Alibaba Cloud accounts
+     *   marketplace: Alibaba Cloud Marketplace images
      *
      * @example system
      *
@@ -151,7 +151,7 @@ class launchTemplateData extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Specifies whether the instance is I/O optimized.
+     * @description Indicates whether the instance is I/O optimized.
      *
      * @example none
      *
@@ -169,7 +169,7 @@ class launchTemplateData extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The name of the key pair.
+     * @description The name of the key pair. This parameter is empty by default.
      *
      * @example testKeyPairName
      *
@@ -197,7 +197,7 @@ class launchTemplateData extends Model
     public $networkType;
 
     /**
-     * @description Indicates whether the username and password pair preset in the image is used.
+     * @description Indicates whether to use the password preset in the image.
      *
      * @example true
      *
@@ -206,7 +206,7 @@ class launchTemplateData extends Model
     public $passwordInherit;
 
     /**
-     * @description The subscription duration.
+     * @description The subscription duration of the resource.
      *
      * @example 1
      *
@@ -215,7 +215,7 @@ class launchTemplateData extends Model
     public $period;
 
     /**
-     * @description The private IP address of the instance.
+     * @description The private IP address to assign to the instance.
      *
      * @example 10.1.**.**
      *
@@ -224,7 +224,7 @@ class launchTemplateData extends Model
     public $privateIpAddress;
 
     /**
-     * @description The name of the instance RAM role.
+     * @description The name of the instance Resource Access Management (RAM) role.
      *
      * @example testRamRoleName
      *
@@ -242,7 +242,7 @@ class launchTemplateData extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether to enable security hardening.
+     * @description Indicates whether security hardening is enabled.
      *
      * @example active
      *
@@ -253,7 +253,7 @@ class launchTemplateData extends Model
     /**
      * @description The ID of the security group to which to assign the instance.
      *
-     * >  The `SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
+     * > `The SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -263,18 +263,18 @@ class launchTemplateData extends Model
     /**
      * @description The IDs of the security groups to which to assign the instance.
      *
-     * >  The `SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
+     * > `The SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
      *
      * Take note of the following items:
      *
-     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
-     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
+     *   The following protection periods are in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
+     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
      *
      * @example 1
      *
@@ -283,7 +283,7 @@ class launchTemplateData extends Model
     public $spotDuration;
 
     /**
-     * @description The maximum hourly price of the preemptible instance.
+     * @description The maximum hourly price of the instance.
      *
      * @example 0.98
      *
@@ -294,9 +294,9 @@ class launchTemplateData extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *
@@ -305,7 +305,7 @@ class launchTemplateData extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags of the instance.
+     * @description The tags to add to the instance.
      *
      * @var tags
      */
@@ -387,7 +387,6 @@ class launchTemplateData extends Model
 
     public function validate()
     {
-        Model::validateRequired('systemDisk', $this->systemDisk, true);
     }
 
     public function toMap()

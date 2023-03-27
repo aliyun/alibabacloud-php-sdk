@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class entry extends Model
 {
     /**
+     * @description The CIDR block in the entry in the prefix list.
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @description The description of the entry in the prefix list.
+     *
+     * @example Description Sample 01
+     *
      * @var string
      */
     public $description;

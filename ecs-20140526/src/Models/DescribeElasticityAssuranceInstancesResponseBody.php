@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssuranceInstancesResponseBody extends Model
 {
     /**
-     * @description Details about the instances that were created by using the elasticity assurance.
+     * @description Details about the instances that match and use the elasticity assurance.
      *
      * @var elasticityAssuranceItem
      */

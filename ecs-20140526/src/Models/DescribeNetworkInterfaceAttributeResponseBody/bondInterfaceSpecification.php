@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class bondInterfaceSpecification extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example null
      *
@@ -19,7 +19,7 @@ class bondInterfaceSpecification extends Model
     public $bondMode;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var slaveInterfaceSpecification
      */

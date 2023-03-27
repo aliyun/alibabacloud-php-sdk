@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class schedulerOptions extends Model
 {
     /**
-     * @description The ID of the dedicated host cluster in which to create the instance. After this parameter is specified, the system selects one dedicated host from the specified cluster to create the instance.
-     *
-     * When you specify both the `DedicatedHostId` and `SchedulerOptions.DedicatedHostClusterId` parameters, take note of the following items:
-     *
-     *   If the specified dedicated host belongs to the specified dedicated host cluster, the instance is preferentially deployed on the specified dedicated host.
-     *   If the specified dedicated host does not belong to the specified dedicated host cluster, the instance cannot be created.
-     *
-     * You can call the [DescribeDedicatedHostClusters](~~184145~~) operation to query the list of dedicated host cluster IDs.
-     * @example dc-bp12wlf6am0vz9v2****
-     *
      * @var string
      */
     public $dedicatedHostClusterId;

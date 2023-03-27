@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceVncUrlRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1hzoinajzkh91h****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class DescribeInstanceVncUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

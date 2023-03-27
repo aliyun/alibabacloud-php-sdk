@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the security group.
+     * @description The tag keys of the security group.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The tag value of the security group.
+     * @description The tag values of the security group.
      *
      * @example TestValue
      *

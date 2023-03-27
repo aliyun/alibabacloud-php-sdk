@@ -46,7 +46,7 @@ class activationList extends Model
     public $description;
 
     /**
-     * @description Indicates whether the activation code is disabled.
+     * @description Indicates whether the activation code was disabled.
      *
      * @example false
      *
@@ -73,7 +73,7 @@ class activationList extends Model
     public $instanceName;
 
     /**
-     * @description The IP addresses of hosts that are allowed to use the activation code.
+     * @description The IP address range of hosts that are allowed to use the activation code.
      *
      * @example 0.0.0.0/0
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskChargeTypeResponseBody extends Model
 {
     /**
-     * @description The ID of the generated order.
+     * @description The ID of the order.
      *
      * @example 1234567890
      *

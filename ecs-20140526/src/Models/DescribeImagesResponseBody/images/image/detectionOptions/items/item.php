@@ -18,7 +18,7 @@ class item extends Model
     public $name;
 
     /**
-     * @description The risk that the check item may have.
+     * @description The risk that is detected on the check item.
      *
      * @example NVMe.NotInstallded
      *
@@ -27,9 +27,13 @@ class item extends Model
     public $riskCode;
 
     /**
-     * @description Indicates the severity of the risk that the check item of the imported custom image has. If the check item is at risk, this parameter is returned. If the check item is not at risk, this parameter is not returned.
+     * @description Indicates the severity of the risk that is detected on the check item of the imported custom image. If the system detects a risk on the check item, this parameter is returned. If the system does not detect a risk on the check item, this parameter is not returned.
      *
-     * - Medium: The check item has a medium risk, which may affect the startup performance or configurations of the instance. We recommend that you handle the risk.
+     * Valid values:
+     *
+     *   High: The check item is a high-risk item that may affect the startup of the instance. We strongly recommended that you fix this item at your earliest convenience.
+     *   Medium: The check item is a medium-risk item that may affect the startup performance or configurations of the instance. We recommend that you fix this item.
+     *
      * @example High
      *
      * @var string

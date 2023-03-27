@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class healthStatus extends Model
 {
     /**
+     * @description The code of the health state.
+     *
+     * @example 64
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The name of the health state.
+     *
+     * @example Warning
+     *
      * @var string
      */
     public $name;

@@ -19,7 +19,7 @@ class CreateSecurityGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the security group. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     * @description The description of the security group. The description must be 2 to 256 characters in length. The description can contain letters and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example testDescription
@@ -39,7 +39,7 @@ class CreateSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The ID of the region in which to create the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +48,7 @@ class CreateSecurityGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the security group belongs.
+     * @description The ID of the resource group to which to assign the security group.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -69,7 +69,7 @@ class CreateSecurityGroupRequest extends Model
     /**
      * @description The name of the security group.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`. This parameter is empty by default.
+     * The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). This parameter is empty by default.
      * @example testSecurityGroupName
      *
      * @var string
@@ -79,8 +79,8 @@ class CreateSecurityGroupRequest extends Model
     /**
      * @description The type of the security group. Valid values:
      *
-     *   normal: basic security group
-     *   enterprise: advanced security group For more information, see [Advanced security groups](~~120621~~).
+     *   normal: basic security group.
+     *   enterprise: advanced security group. For more information, see [Advanced security groups](~~120621~~).
      *
      * @example enterprise
      *
@@ -98,7 +98,7 @@ class CreateSecurityGroupRequest extends Model
     public $serviceManaged;
 
     /**
-     * @description The tags that are bound to the security group.
+     * @description The tags to add to the security group.
      *
      * @var tag[]
      */
@@ -107,7 +107,7 @@ class CreateSecurityGroupRequest extends Model
     /**
      * @description The ID of the VPC in which to create the security group.
      *
-     * > The VpcId parameter is required only when you want to create security groups of the VPC type. In regions that support the classic network, you can create security groups of the classic network type without specifying the VpcId parameter.
+     * > If the specified region supports the classic network, you can create security groups of the classic network type without specifying the VpcId parameter. If the specified region does not support the classic network, you must specify the VpcId parameter to create security groups of the VPC type.
      * @example vpc-bp1opxu1zkhn00gzv****
      *
      * @var string

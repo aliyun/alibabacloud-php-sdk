@@ -12,13 +12,13 @@ class DescribeSpotAdviceResponseBody extends Model
     /**
      * @description Details about preemptible instances in the zones of the specified region.
      *
-     * >  The return values are sorted based on the historical percentages of average preemptible instance prices relative to pay-as-you-go instance prices for instance types.
+     * > The returned values are sorted based on the historical percentages of average preemptible instance prices relative to pay-as-you-go instance prices for instance types.
      * @var availableSpotZones
      */
     public $availableSpotZones;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
      *

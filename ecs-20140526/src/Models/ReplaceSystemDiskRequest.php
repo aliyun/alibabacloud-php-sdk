@@ -16,99 +16,51 @@ class ReplaceSystemDiskRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The operating system architecture. Valid values:
-     *
-     *   i386
-     *   x86\_64
-     *
-     * @example i386
-     *
      * @var string
      */
     public $architecture;
 
     /**
-     * @description This parameter is unavailable.
-     *
      * @var arn[]
      */
     public $arn;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The ID of the disk to be used to replace the operating system.
-     *
-     * > This feature is in invitational preview. To use this feature, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
-     * @example d-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description > This parameter is unavailable.
-     *
-     * @example hide
-     *
      * @var string
      */
     public $encryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt the disk. Valid values:
-     *
-     *   true: encrypts the disk.
-     *   false: does not encrypt the disk.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $encrypted;
 
     /**
-     * @description The ID of the image to be used to replace the system disk.
-     *
-     * If the `DiskId` parameter is not specified, this parameter is required.
-     * @example m-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key to use for the system disk.
-     *
-     * @example e522b26d-abf6-4e0d-b5da-04b7******3c
-     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
-     * @description The name of the key pair.
-     *
-     * > This parameter is applicable only to Linux instances. You can bind an SSH key pair to the instance as a logon credential. After the key pair is bound, the username and password logon method is disabled for the instance.
-     * @example testKeyPairName
-     *
      * @var string
      */
     public $keyPairName;
@@ -124,35 +76,16 @@ class ReplaceSystemDiskRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to reset the password for the instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
-     *
-     * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \" < > , . ? /
-     *
-     * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
-     * @example EcsV587!
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description Specifies whether to use the preset password of the image.
-     *
-     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty. Before you use this parameter, make sure that a password is preset for the image.
-     * @example false
-     *
      * @var bool
      */
     public $passwordInherit;
 
     /**
-     * @description The operating system distribution. Valid values:
-     *
-     *   CentOS
-     *   Ubuntu
-     *
-     * @example CentOS
-     *
      * @var string
      */
     public $platform;
@@ -168,24 +101,11 @@ class ReplaceSystemDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to use Security Center Basic after the system disk is replaced. Valid values:
-     *
-     *   Active: uses Security Center Basic after the system disk is replaced. This value is applicable only to public images.
-     *   Deactive: does not use Security Center Basic after the system disk is replaced. This value is applicable to all images.
-     *
-     * Default value: Deactive.
-     * @example Active
-     *
      * @var string
      */
     public $securityEnhancementStrategy;
 
     /**
-     * @description Specifies whether to use the system configurations for virtual machines provided by Alibaba Cloud (Windows: NTP and KMS. Linux: NTP and YUM).
-     *
-     * > This parameter takes effect only when you attach a system disk whose device name is /dev/xvda.
-     * @example true
-     *
      * @var bool
      */
     public $useAdditionalService;

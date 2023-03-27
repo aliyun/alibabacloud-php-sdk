@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class arn extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > This parameter is unavailable.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class arn extends Model
     public $assumeRoleFor;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *
@@ -27,7 +27,7 @@ class arn extends Model
     public $roleType;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *

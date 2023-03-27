@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationInstancesResponseBody extends Model
 {
     /**
-     * @description Details about the instances that were created by using the capacity reservation.
+     * @description Details about the instances that match the capacity reservation.
      *
      * @var capacityReservationItem
      */
     public $capacityReservationItem;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The maximum number of entries returned per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class DescribeCapacityReservationInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries that meet the query criteria.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

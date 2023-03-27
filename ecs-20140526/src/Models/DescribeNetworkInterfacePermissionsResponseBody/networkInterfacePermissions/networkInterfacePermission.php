@@ -27,7 +27,7 @@ class networkInterfacePermission extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The ID of the permission on the ENI.
+     * @description The ID of the ENI permission.
      *
      * @example eni-perm-bp1cs4lwn56lfb****
      *
@@ -36,7 +36,7 @@ class networkInterfacePermission extends Model
     public $networkInterfacePermissionId;
 
     /**
-     * @description The permission on the ENI.
+     * @description The ENI permission.
      *
      * @example InstanceAttach
      *
@@ -45,12 +45,12 @@ class networkInterfacePermission extends Model
     public $permission;
 
     /**
-     * @description The status of the permission on the ENI. Valid values:
+     * @description The state of the ENI permission. Valid values:
      *
      *   Pending: The permission is being granted.
-     *   Granted: The permission has been granted.
+     *   Granted: The permission is granted.
      *   Revoking: The permission is being revoked.
-     *   Revoked: The permission has been revoked.
+     *   Revoked: The permission is revoked.
      *
      * @example Granted
      *

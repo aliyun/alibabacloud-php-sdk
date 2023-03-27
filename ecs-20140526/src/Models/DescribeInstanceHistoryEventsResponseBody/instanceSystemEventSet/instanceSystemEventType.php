@@ -69,7 +69,7 @@ class instanceSystemEventType extends Model
     public $impactLevel;
 
     /**
-     * @description The ID of the instance that you query.
+     * @description The ID of the instance.
      *
      * @example i-uf678mass4zvr9n1****
      *
@@ -96,11 +96,11 @@ class instanceSystemEventType extends Model
     public $reason;
 
     /**
-     * @description The type of a resource. Valid values:
+     * @description The type of the resource. Valid values:
      *
-     *   instance: ECS instance.
-     *   ddh: dedicated host.
-     *   managehost: physical machine in a smart hosting pool.
+     *   instance: ECS instance
+     *   ddh: dedicated host
+     *   managehost: physical machine in a smart hosting pool
      *
      * @example instance
      *

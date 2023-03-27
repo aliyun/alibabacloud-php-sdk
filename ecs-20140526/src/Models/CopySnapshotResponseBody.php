@@ -11,7 +11,7 @@ class CopySnapshotResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example C8B26B44-0189-443E-9816-D951F59623A9
+     * @example C8B26B44-0189-443E-9816-D951F596****
      *
      * @var string
      */

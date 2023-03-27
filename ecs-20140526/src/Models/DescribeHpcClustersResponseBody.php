@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHpcClustersResponseBody extends Model
 {
     /**
-     * @description Details about the HPC clusters.
+     * @description Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
      *
      * @var hpcClusters
      */
@@ -44,7 +44,7 @@ class DescribeHpcClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of HPC clusters queried.
+     * @description The total number of the HPC clusters.
      *
      * @example 2
      *

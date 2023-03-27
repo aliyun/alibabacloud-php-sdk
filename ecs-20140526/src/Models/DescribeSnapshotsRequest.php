@@ -16,7 +16,7 @@ class DescribeSnapshotsRequest extends Model
     public $filter;
 
     /**
-     * @description The category of the snapshot. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
      *   Standard: normal snapshot
      *   Flash: local snapshot
@@ -43,10 +43,10 @@ class DescribeSnapshotsRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned, and the request is made.
+     *   true: performs a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -113,7 +113,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The number of the page to return. Pages start from page 1.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -140,7 +140,7 @@ class DescribeSnapshotsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the snapshot belongs. If a resource group is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the snapshot belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
      * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
@@ -187,11 +187,11 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotName;
 
     /**
-     * @description The type of the snapshot. Default value: all. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
      *   auto: automatic snapshot
      *   user: manual snapshot
-     *   all: all snapshot types
+     *   all: This parameter indicates all snapshot types.
      *
      * @example all
      *
@@ -218,7 +218,7 @@ class DescribeSnapshotsRequest extends Model
      *   progressing: The snapshot is being created.
      *   accomplished: The snapshot is created.
      *   failed: The snapshot fails to be created.
-     *   all: This value indicates all snapshot states.
+     *   all: This parameter indicates all snapshot states.
      *
      * @example all
      *

@@ -10,56 +10,100 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupEgressRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.Description` to specify the description of security group rule N.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $destCidrIp;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.DestGroupId` to specify the ID of the destination security group.
+     *
+     * @example sg-bp67acfmxa123b****
+     *
      * @var string
      */
     public $destGroupId;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.DestGroupOwnerAccount` to specify the Alibaba Cloud account that manages the destination security group.
+     *
+     * @example Test@aliyun.com
+     *
      * @var string
      */
     public $destGroupOwnerAccount;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.DestGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the destination security group.
+     *
+     * @example 12345678910
+     *
      * @var int
      */
     public $destGroupOwnerId;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.DestPrefixListId` to specify the ID of the destination prefix list.
+     *
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
      * @var string
      */
     public $destPrefixListId;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+     *
+     * @example 2001:db8:1233:1a00::***
+     *
      * @var string
      */
     public $ipv6DestCidrIp;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
+     *
+     * @example 2001:db8:1234:1a00::***
+     *
      * @var string
      */
     public $ipv6SourceCidrIp;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.NicType` to specify the NIC type.
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $nicType;
@@ -75,26 +119,44 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
+     * @description Details about the security group rules.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.Policy` to specify whether to allow outbound access.
+     *
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.PortRange` to specify the range of destination ports.
+     *
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.Priority` to specify the rule priority.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -110,21 +172,36 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The IDs of security group rules. You can specify up to 100 rule IDs.
+     *
+     * When you revoke security group egress by security group rule ID, the parameter is required.
      * @var string[]
      */
     public $securityGroupRuleId;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
+     * @description This parameter is discontinued. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
+     *
+     * @example 22/22
+     *
      * @var string
      */
     public $sourcePortRange;

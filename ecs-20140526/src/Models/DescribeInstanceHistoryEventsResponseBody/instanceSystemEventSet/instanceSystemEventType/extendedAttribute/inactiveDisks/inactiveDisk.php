@@ -18,16 +18,16 @@ class inactiveDisk extends Model
     public $creationTime;
 
     /**
-     * @description The category of the cloud disk or local disk. Valid values:
+     * @description The category of the disk. Valid values:
      *
-     *   cloud: basic disk.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   cloud_essd: enhanced SSD (ESSD).
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: enhanced SSD (ESSD) cloud_auto: ESSD AutoPL disk
      *   local_ssd_pro: I/O-intensive local disk.
-     *   local_hdd_pro: throughput-intensive local disk.
-     *   ephemeral: retired local disk.
-     *   ephemeral_ssd: retired local SSD.
+     *   local_hdd_pro: throughput-intensive local disk
+     *   ephemeral: retired local disk
+     *   ephemeral_ssd: retired local SSD
      *
      * @example cloud_efficiency
      *
@@ -47,8 +47,8 @@ class inactiveDisk extends Model
     /**
      * @description The type of the disk. Valid values:
      *
-     *   system: system disk.
-     *   data: data disk.
+     *   system: system disk
+     *   data: data disk
      *
      * @example data
      *

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceByTagsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1C1E5359-71D7-44D8-8FAA-0327B549157X
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of Resource data.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The total number of resources returned.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;

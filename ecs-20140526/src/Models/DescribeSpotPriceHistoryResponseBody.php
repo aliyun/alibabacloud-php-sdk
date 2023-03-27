@@ -20,7 +20,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $currency;
 
     /**
-     * @description The start row of the next page. It is the value of the `Offset` parameter.
+     * @description The start line of the next page. It is the value of the `Offset` request parameter.
      *
      * @example 1000
      *
@@ -38,7 +38,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the spot prices.
+     * @description Details about the price history of the preemptible instance.
      *
      * @var spotPrices
      */

@@ -20,9 +20,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     *   If the value of `ss` is not `00`, the time is automatically rounded to the nearest minute based on the value of `mm`.
-     *   The specified time must be at least 30 minutes later than the current time.
-     *   The specified time can be at most three years from the current time.
+     *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
+     *   The release time must be at least 30 minutes later than the current time.
+     *   The specified time must be at most three years from the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -38,7 +38,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $dataDisk;
 
     /**
-     * @description The ID of the deployment set to which to deploy the instance.
+     * @description The ID of the deployment set.
      *
      * @example ds-bp1brhwhoqinyjd6****
      *
@@ -47,7 +47,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $deploymentSetId;
 
     /**
-     * @description The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     * @description The instance description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * @example testDescription
      *
@@ -65,7 +65,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $enableVmOsConfig;
 
     /**
-     * @description The hostname of the instance.
+     * @description The instance hostname.
      *
      *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
      *   For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
@@ -78,7 +78,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $hostName;
 
     /**
-     * @description The ID of the image to use to create the Elastic Compute Service (ECS) instance. You can call the [DescribeImages](~~25534~~) operation to query available images.
+     * @description The ID of the image to use to create the instance. You can call the [DescribeImages](~~25534~~) operation to query available images.
      *
      * @example win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
      *
@@ -100,7 +100,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @description The billing method of the instance. Valid values:
      *
      *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
-     *   PostPaid: pay-as-you-go
+     *   PostPaid: pay-as-you-go.
      *
      * @example PrePaid
      *
@@ -132,7 +132,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      *   PayByBandwidth: pay-by-bandwidth
      *   PayByTraffic: pay-by-traffic
      *
-     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -182,9 +182,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The name of the key pair.
+     * @description The name of the key pair. This parameter is empty by default.
      *
-     *   For Windows instances, this parameter is ignored The `Password` parameter is valid even if the KeyPairName parameter is specified.
+     *   For Windows instances, this parameter is ignored The `Password` parameter takes effect even if the KeyPairName parameter is specified.
      *   For Linux instances, the password-based logon method is disabled by default.
      *
      * @example testKeyPairName
@@ -241,12 +241,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to use the password that is preconfigured in the image. Valid values:
+     * @description Specifies whether to use the preset password of the image. Valid values:
      *
-     *   true: uses the password that is preconfigured in the mage.
-     *   false: does not use the password that is preconfigured in the image.
+     *   true: uses the preset password of the image.
+     *   false: does not use the preset password of the image.
      *
-     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty and make sure that the selected image has a password preconfigured.
+     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty and make sure that the selected image has a password preset.
      * @example false
      *
      * @var bool
@@ -265,7 +265,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The private IP address to assign to the instance.
      *
-     * To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
+     * To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
      * @example 10.1.**.**
      *
      * @var string
@@ -282,7 +282,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -313,7 +313,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @description Specifies whether to enable security hardening for the operating system. Valid values:
      *
      *   Active: enables security hardening. This value is applicable only to public images.
-     *   Deactive: disables security hardening. This value is applicable to all image types.
+     *   Deactive: does not enable security hardening. This value is applicable to all images.
      *
      * @example Active
      *
@@ -332,7 +332,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the instance. The valid values of N depend on the maximum number of security groups to which the instance can belong. For more information, see [Quantity limits](~~25412~~).
+     * @description The ID of security group N to which to assign the instance. The valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Limits](~~25412~~).
      *
      * > The `SecurityGroupId` parameter and the `SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp15ed6xe1yxeycg7****
@@ -342,7 +342,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
      *
      *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
      *   A value of 0 indicates that no protection period is configured for the preemptible instance.
@@ -364,11 +364,11 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The preemption policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
      *
-     *   NoSpot: The instance is a pay-as-you-go instance.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
      *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *
@@ -377,7 +377,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags to add to the instance.
+     * @description The tags to add to the image template.
      *
      * @var tag[]
      */

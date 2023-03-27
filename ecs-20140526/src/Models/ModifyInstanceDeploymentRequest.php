@@ -36,7 +36,7 @@ class ModifyInstanceDeploymentRequest extends Model
      * When you migrate an instance from a shared host to a dedicated host or between dedicated hosts, take note of the following items:
      *
      *   To migrate the instance to a specific dedicated host, specify this parameter.
-     *   To migrate the instance to a system-selected dedicated host, leave this parameter empty and set `Tenancy` to host.
+     *   To migrate the instance to a dedicated host that the system automatically selects, leave this parameter empty and set `Tenancy` to host.
      *
      * For information about the automatic deployment feature, see [Features of dedicated hosts](~~118938~~).
      * @example dh-bp67acfmxazb4ph****
@@ -46,9 +46,9 @@ class ModifyInstanceDeploymentRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The number of the deployment set group in which to deploy the instance in the destination deployment set. This parameter is valid only when the destination deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
+     * @description The number of the deployment set group in which to deploy the instance in the destination deployment set. This parameter takes effect only when the destination deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
      *
-     * > If you call this operation to deploy an instance to a deployment set that uses the high availability group strategy (`AvailablilityGroup`) and leave this parameter empty, the system evenly distributes instances among the deployment set groups in the deployment set. If you call this operation to change the deployment set of an instance and specify the current deployment set of the instance as the destination deployment set, the system evenly distributes instances again among the deployment set groups in the deployment set.
+     * > If you call this operation to deploy an instance to a deployment set that uses the high availability group strategy (`AvailablilityGroup`) and leave this parameter empty, the system evenly distributes instances among the deployment set groups in the deployment set. If you specify the current deployment set of the instance as the destination deployment set in the request, the system evenly distributes instances again among the deployment set groups in the deployment set.
      * @example 3
      *
      * @var int
@@ -68,7 +68,7 @@ class ModifyInstanceDeploymentRequest extends Model
     /**
      * @description Specifies whether to forcefully change the host of the instance when the deployment set of the instance is changed. Valid values:
      *
-     *   true: forcefully changes the host of the instance when the deployment set of the instance is changed. Hosts can be forcefully changed only for instances in the Running (Running) or Stopped (Stopped) state. The instances that are in the Stopped (Stopped) state do not include pay-as-you-go instances that are stopped in economical mode.
+     *   true: forcefully changes the host of the instance when the deployment set of the instance is changed. Hosts can be forcefully changed only for instances in the Running or Stopped state. The instances that are in the Stopped state do not include pay-as-you-go instances that are stopped in economical mode.
      *
      **
      *
@@ -84,7 +84,7 @@ class ModifyInstanceDeploymentRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example i-bp67acfmxazb4ph***
      *
@@ -141,8 +141,8 @@ class ModifyInstanceDeploymentRequest extends Model
     /**
      * @description Specifies whether to remove the specified instance from the specified deployment set. Valid values:
      *
-     *   true: removes the instance from the deployment set.
-     *   false: does not remove the instance from the deployment set.
+     *   true
+     *   false
      *
      * > If you set this parameter to true, you must specify the InstanceId and DeploymentSetId parameters and make sure that the specified instance belongs to the specified deployment set.
      * @example false
@@ -162,7 +162,7 @@ class ModifyInstanceDeploymentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to deploy the instance on a dedicated host. Set the value to host to deploy the instance on a dedicated host.
+     * @description Specifies whether to deploy the instance on a dedicated host. Set the value to host.
      *
      * @example host
      *

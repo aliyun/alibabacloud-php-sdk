@@ -17,7 +17,7 @@ class DescribeCapacityReservationInstancesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     * Default value: 10.
+     * Default value: 10
      * @example 10
      *
      * @var int
@@ -25,7 +25,7 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the query. The token is obtained from the response of the previous request.
+     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *

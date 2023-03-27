@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description Indicates whether the instant access feature is enabled. Valid values:
+     * @description Indicates whether the instant access feature was enabled. Valid values:
      *
-     * - false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature was disabled.
+     *
      * @example true
      *
      * @var bool
@@ -47,7 +49,7 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the source disk. This parameter is retained even after the source disk of the snapshot is released.
+     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
      *
      * @example d-j6c3ogynmvpi6wy7****
      *
@@ -58,7 +60,9 @@ class snapshot extends Model
     /**
      * @description The type of the source disk. Valid values:
      *
-     * - data: data disk
+     *   system: system disk
+     *   data: data disk
+     *
      * @example system
      *
      * @var string
@@ -66,7 +70,7 @@ class snapshot extends Model
     public $sourceDiskType;
 
     /**
-     * @description The tags of the snapshots in the snapshot-consistent group. The default value contains the details of the instance to which the snapshot-consistent group belongs.
+     * @description The tags of the snapshots in the snapshot-consistent group. The default value contains the details of the instance to which the snapshot belongs.
      *
      * @var tags
      */

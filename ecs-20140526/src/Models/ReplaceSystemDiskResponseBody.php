@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReplaceSystemDiskResponseBody extends Model
 {
     /**
-     * @description The ID of the new system disk.
-     *
-     * @example d-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;

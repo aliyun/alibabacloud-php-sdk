@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
-     * @description The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](~~25378~~).
+     * @description The instance type in the extended configuration. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](~~25378~~).
      *
      * @example ecs.g5.large
      *
@@ -18,7 +18,7 @@ class launchTemplateConfig extends Model
     public $instanceType;
 
     /**
-     * @description The maximum price of preemptible instances in extended configuration N.
+     * @description The highest price of preemptible instances that is specified in the extended configuration.
      *
      * @example 3
      *
@@ -27,7 +27,7 @@ class launchTemplateConfig extends Model
     public $maxPrice;
 
     /**
-     * @description The priority of extended configuration N. A value of 0 indicates the highest priority. The value must be greater than 0.
+     * @description The priority of the extended configuration. A value of 0 indicates the highest priority. The value must be greater than 0.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class launchTemplateConfig extends Model
     public $priority;
 
     /**
-     * @description The ID of the vSwitch in extended configuration N. The zone of the ECS instances created from the extended configuration is determined by the vSwitch.
+     * @description The ID of the vSwitch in extended configuration. The zone of the instances created from the extended configuration is determined by the vSwitch.
      *
      * @example vsw-sn5bsitu4lfzgc5o7****
      *
@@ -45,7 +45,7 @@ class launchTemplateConfig extends Model
     public $vSwitchId;
 
     /**
-     * @description The weight of the instance type specified in extended configuration N. A greater weight indicates that a single instance has more computing power and that fewer instances are required. The value must be greater than 0.
+     * @description The weight of the instance type in the extended configuration. A greater weight indicates that a single instance has more computing power and that fewer instances are required. The value must be greater than 0.
      *
      * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster to be created by the auto provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
      *

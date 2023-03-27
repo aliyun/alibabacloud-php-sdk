@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class reservedInstanceRenewAttribute extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @example ecsri-ajdfaj****
+     *
      * @var string
      */
     public $reservedInstanceId;

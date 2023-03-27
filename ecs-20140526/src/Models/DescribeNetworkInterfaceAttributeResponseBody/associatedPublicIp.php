@@ -18,7 +18,7 @@ class associatedPublicIp extends Model
     public $allocationId;
 
     /**
-     * @description The EIP of the ENI.
+     * @description The EIP.
      *
      * @example 116.62.**.**
      *

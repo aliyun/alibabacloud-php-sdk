@@ -63,14 +63,14 @@ class DescribeInvocationResultsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The state of the execution. Valid values:
+     * @description The execution state of the command. Valid values:
      *
      *   Running
      *   Finished
      *   Failed
      *   Stopped
      *
-     * >  To improve compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
+     * > To ensure compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
      * @example Running
      *
      * @var string
@@ -88,7 +88,7 @@ class DescribeInvocationResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
      * Default value: 1.
      * @example 1
@@ -117,9 +117,8 @@ class DescribeInvocationResultsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -137,7 +136,7 @@ class DescribeInvocationResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The list of tags.
      *
      * @var tag[]
      */

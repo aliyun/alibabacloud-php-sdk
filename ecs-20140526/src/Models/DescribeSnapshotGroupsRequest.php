@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotGroupsRequest extends Model
 {
     /**
+     * @description This parameter is unavailable.
+     *
      * @example hide
      *
      * @var string[]
@@ -45,7 +47,7 @@ class DescribeSnapshotGroupsRequest extends Model
     public $name;
 
     /**
-     * @description The query token. Set the value to the NextToken value that is returned in the last call to the DescribeSnapshotGroups operation.
+     * @description The token that determines the start point of the next query. Set the value to the NextToken value that is returned from the last call.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -92,6 +94,8 @@ class DescribeSnapshotGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of snapshot-consistent group N. Valid values of N: 1 to 10.
+     *
      * @example ssg-j6ciyh3k52qp7ovm****
      *
      * @var string[]
@@ -99,6 +103,12 @@ class DescribeSnapshotGroupsRequest extends Model
     public $snapshotGroupId;
 
     /**
+     * @description The state of snapshot-consistent group N. Valid values of the second N: 1, 2, and 3. Valid values:
+     *
+     *   progressing: The snapshot-consistent group is being created.
+     *   accomplished: The snapshot-consistent group is created.
+     *   failed: The snapshot-consistent group fails to be created.
+     *
      * @example accomplished
      *
      * @var string[]
@@ -106,6 +116,8 @@ class DescribeSnapshotGroupsRequest extends Model
     public $status;
 
     /**
+     * @description The tags of the snapshot-consistent group.
+     *
      * @var tag[]
      */
     public $tag;

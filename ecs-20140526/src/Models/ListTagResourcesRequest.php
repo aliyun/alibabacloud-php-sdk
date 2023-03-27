@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
@@ -26,11 +30,19 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of resource N. Valid values of N: 1 to 50.
+     *
+     * @example i-bp1j6qtvdm8w0z1o****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -46,16 +58,42 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   instance: ECS instance
+     *   disk: disk
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   volume: storage volume
+     *   eni: elastic network interface (ENI)
+     *   ddh: dedicated host
+     *   ddhcluster: dedicated host cluster
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *   reservedinstance: reserved instance
+     *   snapshotpolicy: automatic snapshot policy
+     *   elasticityassurance: elasticity assurance
+     *   capacityreservation: capacity reservation
+     *   command: Cloud Assistant command.
+     *   invocation: Cloud Assistant command execution result
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags that are added to the resources.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The regular expression used to filter tags.
+     *
      * @var tagFilter[]
      */
     public $tagFilter;

@@ -15,6 +15,10 @@ class ReleaseCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description Specifies whether to perform a dry run. Set the value to false. false: does not perform a dry run and sends the request. The operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -30,6 +34,10 @@ class ReleaseCapacityReservationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

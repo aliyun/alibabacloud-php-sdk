@@ -9,21 +9,52 @@ use AlibabaCloud\Tea\Model;
 class StopInstancesRequest extends Model
 {
     /**
+     * @description The batch operation mode. Valid values:
+     *
+     *   AllTogether: In this mode, if all instances are stopped, a success message is returned. If an instance fails the verification, all instances fail to stop and an error message is returned.
+     *   SuccessFirst: In this mode, each instance is separately stopped. The response contains the operation results for each instance.
+     *
+     * Default value: AllTogether.
+     * @example AllTogether
+     *
      * @var string
      */
     public $batchOptimization;
 
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     *
+     *   true: The validity of the request is checked, but the request is not made. Check items include the request format, instance status, and whether the required parameters are specified. If the check fails, the corresponding error message is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
+     *
+     * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the check succeeds.
+     *
+     *   false: The validity of the request is checked, and the request is made if the check succeeds.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcibly stop the instance. Valid values:
+     *
+     *   true: forcibly stops the instance. This operation is equivalent to the typical power-off operation. Cache data that is not written to storage in the instance will be lost.
+     *   false: normally stops the instance.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
 
     /**
+     * @description The list of instance ID.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $instanceId;
@@ -39,6 +70,10 @@ class StopInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +89,14 @@ class StopInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The stop mode of the pay-as-you-go instance. Valid values:
+     *
+     *   StopCharging: economical mode. For information about how `StopCharging` takes effect, see the "Prerequisites" section in [Economical mode](~~63353~~).
+     *   KeepCharging: standard mode. After the instances are stopped in standard mode, you continue to be charged for them.
+     *
+     * Default value: If the prerequisites required for enabling the economical mode are met and you have enabled this mode in the ECS console, the default value is `StopCharging`. For more information, see "Enable the economical mode" in [Economical mode](~~63353#default~~). Otherwise, the default value is `KeepCharging`.
+     * @example KeepCharging
+     *
      * @var string
      */
     public $stoppedMode;

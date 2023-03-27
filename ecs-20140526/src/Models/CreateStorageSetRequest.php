@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStorageSetRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,7 +18,7 @@ class CreateStorageSetRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the storage set.
+     * @description The description of the storage set. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * @example testDescription
      *
@@ -37,21 +37,17 @@ class CreateStorageSetRequest extends Model
     public $maxPartitionNumber;
 
     /**
-     * @example Hide
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region in which to create the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -60,15 +56,11 @@ class CreateStorageSetRequest extends Model
     public $regionId;
 
     /**
-     * @example Hide
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $resourceOwnerId;
@@ -76,6 +68,7 @@ class CreateStorageSetRequest extends Model
     /**
      * @description The name of the storage set.
      *
+     * The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      * @example testStorageSetName
      *
      * @var string
@@ -83,7 +76,7 @@ class CreateStorageSetRequest extends Model
     public $storageSetName;
 
     /**
-     * @description The zone in which to create the storage set. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone in which to create the storage set. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

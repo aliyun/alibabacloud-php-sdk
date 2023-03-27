@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateVersionResponseBody\launchTemplateVersions;
 use AlibabaCloud\Tea\Model;
 
 class DeleteLaunchTemplateVersionResponseBody extends Model
 {
+    /**
+     * @var launchTemplateVersions
+     */
+    public $launchTemplateVersions;
+
     /**
      * @description The ID of the request.
      *
@@ -17,7 +23,8 @@ class DeleteLaunchTemplateVersionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'launchTemplateVersions' => 'LaunchTemplateVersions',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +34,9 @@ class DeleteLaunchTemplateVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->launchTemplateVersions) {
+            $res['LaunchTemplateVersions'] = null !== $this->launchTemplateVersions ? $this->launchTemplateVersions->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +52,9 @@ class DeleteLaunchTemplateVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LaunchTemplateVersions'])) {
+            $model->launchTemplateVersions = launchTemplateVersions::fromMap($map['LaunchTemplateVersions']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

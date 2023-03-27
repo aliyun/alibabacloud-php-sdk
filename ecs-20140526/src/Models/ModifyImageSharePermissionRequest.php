@@ -9,23 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
+     * @description The ID of Alibaba Cloud account N with which you want to share the custom image. Valid values of N: 1 to 10. If the value of N is greater than 10, this parameter is ignored.
+     *
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $addAccount;
 
     /**
+     * @description The ID of the custom image.
+     *
+     * @example m-bp18ygjuqnwhechc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @example true
+     * @description Specifies whether to publish or unpublish a community image. Valid values:
+     *
+     *   true: publishes the custom image as a community image.
+     *   false: unpublishes a community image. The unpublish operation takes effect only on community images.
+     *
+     * Default value: false
+     * @example false
      *
      * @var bool
      */
     public $isPublic;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $launchPermission;
@@ -41,11 +59,19 @@ class ModifyImageSharePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of Alibaba Cloud account N from which you want to unshare the custom image. Valid values of N: 1 to 10. If the value of N is greater than 10, this parameter is ignored.
+     *
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $removeAccount;

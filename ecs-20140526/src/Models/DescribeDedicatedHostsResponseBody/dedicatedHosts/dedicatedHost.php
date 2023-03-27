@@ -129,6 +129,11 @@ class dedicatedHost extends Model
     public $dedicatedHostName;
 
     /**
+     * @var int
+     */
+    public $dedicatedHostOwnerId;
+
+    /**
      * @description The type of the dedicated host.
      *
      * @example ddh.g5
@@ -311,6 +316,7 @@ class dedicatedHost extends Model
         'dedicatedHostClusterId'              => 'DedicatedHostClusterId',
         'dedicatedHostId'                     => 'DedicatedHostId',
         'dedicatedHostName'                   => 'DedicatedHostName',
+        'dedicatedHostOwnerId'                => 'DedicatedHostOwnerId',
         'dedicatedHostType'                   => 'DedicatedHostType',
         'description'                         => 'Description',
         'expiredTime'                         => 'ExpiredTime',
@@ -335,7 +341,6 @@ class dedicatedHost extends Model
 
     public function validate()
     {
-        Model::validateRequired('schedulerOptions', $this->schedulerOptions, true);
     }
 
     public function toMap()
@@ -376,6 +381,9 @@ class dedicatedHost extends Model
         }
         if (null !== $this->dedicatedHostName) {
             $res['DedicatedHostName'] = $this->dedicatedHostName;
+        }
+        if (null !== $this->dedicatedHostOwnerId) {
+            $res['DedicatedHostOwnerId'] = $this->dedicatedHostOwnerId;
         }
         if (null !== $this->dedicatedHostType) {
             $res['DedicatedHostType'] = $this->dedicatedHostType;
@@ -484,6 +492,9 @@ class dedicatedHost extends Model
         }
         if (isset($map['DedicatedHostName'])) {
             $model->dedicatedHostName = $map['DedicatedHostName'];
+        }
+        if (isset($map['DedicatedHostOwnerId'])) {
+            $model->dedicatedHostOwnerId = $map['DedicatedHostOwnerId'];
         }
         if (isset($map['DedicatedHostType'])) {
             $model->dedicatedHostType = $map['DedicatedHostType'];

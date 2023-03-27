@@ -36,7 +36,7 @@ class spotPriceType extends Model
     public $networkType;
 
     /**
-     * @description The price for a pay-as-you-go instance that has the same configuration as the specified preemptible instance.
+     * @description The price for a pay-as-you-go instance that has the same configurations as the preemptible instance.
      *
      * @example 0.354
      *
@@ -45,7 +45,7 @@ class spotPriceType extends Model
     public $originPrice;
 
     /**
-     * @description The spot price of the preemptible instance.
+     * @description The spot price (market price) of the preemptible instance.
      *
      * @example 0.036
      *

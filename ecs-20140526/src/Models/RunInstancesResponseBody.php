@@ -10,35 +10,21 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesResponseBody extends Model
 {
     /**
-     * @description The IDs of the instances (`InstanceIdSet`).
-     *
      * @var instanceIdSets
      */
     public $instanceIdSets;
 
     /**
-     * @description The ID of the order. This parameter is returned only when `InstanceChargeType` is set to PrePaid.
-     *
-     * @example 123456****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The transaction price.
-     *
-     * @example 0.165
-     *
      * @var float
      */
     public $tradePrice;

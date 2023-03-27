@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The IDs of capacity reservations. The value can be a JSON array that consists of up to 100 capacity reservation IDs. Separate the IDs with commas (,).
+     *
+     * @example ["crp-bp1gubrkqutenqdd****", "crp-bp67acfmxazb5****"]
+     *
      * @var string
      */
     public $ids;

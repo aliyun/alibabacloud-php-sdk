@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHpcClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the HPC cluster.
+     * @description The ID of cluster.
      *
      * @example hpc-pnlg1ds9rky4****
      *

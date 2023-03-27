@@ -39,7 +39,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $eventCycleStatus;
 
     /**
-     * @description The ID of system event N. Valid values of N: 1 to 100. You can specify multiple event IDs by repeatedly listing this parameter.
+     * @description The ID of system event N. Valid values of N: 1 to 100. Specify multiple event IDs in the repeated list form.
      *
      * @example e-uf64yvznlao4jl2c****
      *
@@ -61,7 +61,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
      *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
      *
-     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable to only instance system events, but not to disk system events.
+     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance system events, but not to disk system events.
      * @example SystemMaintenance.Reboot
      *
      * @var string
@@ -78,7 +78,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $impactLevel;
 
     /**
-     * @description The lifecycle state of system event N. Valid values of N: 1 to 7. You can specify multiple states by repeatedly listing this parameter. Valid values:
+     * @description The lifecycle state of system event N. Valid values of N: 1 to 7. Specify multiple states in the repeated list form. Valid values:
      *
      *   Scheduled
      *   Avoided
@@ -95,7 +95,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $instanceEventCycleStatus;
 
     /**
-     * @description The type of system event N. Valid values of N: 1 to 30. You can specify multiple types by repeatedly listing this parameter. Valid values:
+     * @description The type of system event N. Valid values of N: 1 to 30. Specify multiple types in the repeated list form. Valid values:
      *
      *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
      *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
@@ -108,7 +108,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
      *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
      *
-     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable to only instance system events, but not to disk system events.
+     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance system events, but not to disk system events.
      * @example SystemMaintenance.Reboot
      *
      * @var string[]
@@ -173,7 +173,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of resource N. Valid values of N: 1 to 100. You can specify multiple resource IDs by repeatedly listing this parameter. Valid values:
+     * @description The ID of resource N. Valid values of N: 1 to 100. Specify multiple resource IDs in the repeated list form. Valid values:
      *
      *   When the `ResourceType` parameter is set to instance, the ResourceId.N parameter specifies the ID of instance N.
      *   When the `ResourceType` parameter is set to ddh, the ResourceId.N parameter specifies the ID of dedicated host N.
@@ -197,11 +197,11 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of resource. Valid values:
      *
-     *   instance: ECS instance.
-     *   ddh: dedicated host.
-     *   managehost: physical machine in a smart hosting pool.
+     *   instance: Elastic Compute Service (ECS) instance
+     *   ddh: dedicated host
+     *   managehost: physical machine in a smart hosting pool
      *
      * Default value: instance.
      * @example instance

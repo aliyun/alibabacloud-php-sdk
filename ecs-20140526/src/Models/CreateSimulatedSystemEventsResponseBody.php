@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSimulatedSystemEventsResponseBody extends Model
 {
     /**
-     * @description The IDs of the simulated events.
+     * @description The IDs of the simulated system events.
      *
      * @var eventIdSet
      */

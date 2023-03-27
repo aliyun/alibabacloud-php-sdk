@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1iudwa5b1tqag1****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,11 @@ class ModifyInstanceVpcAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The new private IP address of the instance.
+     *
+     * By default, if this parameter is not specified, a private IP address is randomly assigned from the CIDR block of the specified vSwitch.
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
@@ -39,16 +48,36 @@ class ModifyInstanceVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of security group N to which the instance belongs after the VPC is changed. This parameter is required only when the `VpcId` parameter is specified.
+     *
+     *   The specified security groups must be of the same type.
+     *   You can specify one or more security groups. The valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Limits](~~25412~~).
+     *   The specified security groups must belong to the VPC specified by the `VpcId` parameter.
+     *
+     * @example sg-o6w9l8bc8dgmkw87****
+     *
      * @var string[]
      */
     public $securityGroupId;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
+     *   If this parameter is set to the ID of the current vSwitch, the vSwitch of the instance remains unchanged.
+     *   If this parameter is set to the ID of a different vSwitch and the `VpcId` parameter is not specified, the new vSwitch must belong to the same zone and VPC as the current vSwitch.
+     *   If the `VpcId` parameter is specified, the vSwitch specified by this parameter must belong to the specified VPC and to the same zone as the current vSwitch.
+     *
+     * @example vsw-bp1s5fnvk4gn3tw12****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the new VPC.
+     *
+     * @example vpc-bp1vwnn14rqpyiczj****
+     *
      * @var string
      */
     public $vpcId;

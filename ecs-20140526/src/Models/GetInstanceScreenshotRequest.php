@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceScreenshotRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1gbz20g229bvu5****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class GetInstanceScreenshotRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +47,11 @@ class GetInstanceScreenshotRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to wake up hibernating instances.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $wakeUp;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateVersionSet extends Model
 {
     /**
-     * @description The time when the launch template was created.
+     * @description The time when the launch template version was created.
      *
      * @example 2022-01-17T08:22:43Z
      *
@@ -19,7 +19,7 @@ class launchTemplateVersionSet extends Model
     public $createTime;
 
     /**
-     * @description The creator of the launch template.
+     * @description The creator of the launch template version.
      *
      * @example 123456789****
      *
@@ -53,7 +53,7 @@ class launchTemplateVersionSet extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template.
+     * @description The name of the launch template version.
      *
      * @example testLaunchTemplateName
      *
@@ -62,7 +62,7 @@ class launchTemplateVersionSet extends Model
     public $launchTemplateName;
 
     /**
-     * @description The time when the launch template was modified.
+     * @description The time when the launch template version was modified.
      *
      * @example 2022-01-17T08:40:00Z
      *

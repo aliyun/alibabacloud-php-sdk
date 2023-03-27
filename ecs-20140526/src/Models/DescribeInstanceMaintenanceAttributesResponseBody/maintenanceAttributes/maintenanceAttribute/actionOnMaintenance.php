@@ -19,7 +19,7 @@ class actionOnMaintenance extends Model
     public $defaultValue;
 
     /**
-     * @description The list of the supported maintenance actions.
+     * @description Details about the supported maintenance actions.
      *
      * @var supportedValues
      */

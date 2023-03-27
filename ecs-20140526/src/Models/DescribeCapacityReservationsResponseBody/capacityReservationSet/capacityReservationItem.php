@@ -11,91 +11,178 @@ use AlibabaCloud\Tea\Model;
 class capacityReservationItem extends Model
 {
     /**
+     * @description Details about the allocated resources.
+     *
      * @var allocatedResources
      */
     public $allocatedResources;
 
     /**
+     * @description The description of the capacity reservation.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the capacity reservation expires.
+     *
+     * @example 2021-02-19T03:02Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The release mode of the capacity reservation. Valid values:
+     *
+     *   Limited: The capacity reservation is automatically released at the specified time.
+     *   Unlimited: The capacity reservation is manually released. You can release it at anytime.
+     *
+     * @example Unlimited
+     *
      * @var string
      */
     public $endTimeType;
 
     /**
+     * @description The billing method of instances to be created by using the capacity reservation. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The operating system type of instances to be created by using the capacity reservation. Valid values:
+     *
+     *   windows
+     *   linux
+     *
+     * @example linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The ID of the capacity reservation.
+     *
+     * @example crp-bp1gubrkqutenqdd****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @description The type of the private pool associated with the capacity reservation. Valid values:
+     *
+     *   Open: open private pool
+     *   Target: targeted private pool
+     *
+     * @example Open
+     *
      * @var string
      */
     public $privatePoolOptionsMatchCriteria;
 
     /**
+     * @description The name of the capacity reservation.
+     *
+     * @example crpTestName
+     *
      * @var string
      */
     public $privatePoolOptionsName;
 
     /**
+     * @description The region ID of the capacity reservation.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the reserved instance used with the capacity reservation.
+     *
+     * @example ri-bpzhex2ulpzf53****
+     *
      * @var string
      */
     public $reservedInstanceId;
 
     /**
+     * @description The ID of the resource group to which the capacity reservation belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the savings plan used with the capacity reservation.
+     *
+     * @example spn-c29b5e18pJMT****
+     *
      * @var string
      */
     public $savingPlanId;
 
     /**
+     * @description The time when the capacity reservation takes effect.
+     *
+     * @example 2021-02-19T02:01Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The mode in which the capacity reservation takes effect. Valid values:
+     *
+     * - Later: The capacity reservation takes effect at the specified time.
+     * @example Now
+     *
      * @var string
      */
     public $startTimeType;
 
     /**
+     * @description The state of the capacity reservation. Valid values:
+     *
+     *   Pending: The capacity reservation is being initialized.
+     *   Preparing: The capacity reservation is being prepared.
+     *   Prepared: The capacity reservation is to take effect.
+     *   Active: The capacity reservation is in effect.
+     *   Released: The capacity reservation has been released manually or automatically when it expired.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the capacity reservation.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $timeSlot;

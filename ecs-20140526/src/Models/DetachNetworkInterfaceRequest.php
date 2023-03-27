@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachNetworkInterfaceRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -56,9 +56,9 @@ class DetachNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The trunk network card ID.
+     * @description The ID of the trunk ENI.
      *
-     * > This parameter is not online yet and cannot be used.
+     * >  This parameter is unavailable for use.
      * @example eni-f8zapqwj1v1j4ia3****
      *
      * @var string

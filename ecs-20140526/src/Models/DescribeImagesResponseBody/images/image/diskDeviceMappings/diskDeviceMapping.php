@@ -11,7 +11,7 @@ class diskDeviceMapping extends Model
     /**
      * @description The device name of the disk. Example: /dev/xvdb.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
+     * > This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
      * @example /dev/xvda
      *
      * @var string
@@ -64,7 +64,7 @@ class diskDeviceMapping extends Model
     public $remainTime;
 
     /**
-     * @description The size of the disk.
+     * @description The size of the cloud disk.
      *
      * @example 60
      *

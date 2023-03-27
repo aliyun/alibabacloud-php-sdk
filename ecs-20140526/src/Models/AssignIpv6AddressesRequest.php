@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description IPv6 address N to assign to the ENI. Valid values of N: 1 to 10.
      *
      * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
@@ -84,6 +89,7 @@ class AssignIpv6AddressesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'ipv6Address'          => 'Ipv6Address',
         'ipv6AddressCount'     => 'Ipv6AddressCount',
         'ipv6Prefix'           => 'Ipv6Prefix',
@@ -103,6 +109,9 @@ class AssignIpv6AddressesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
         }
@@ -145,6 +154,9 @@ class AssignIpv6AddressesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
                 $model->ipv6Address = $map['Ipv6Address'];

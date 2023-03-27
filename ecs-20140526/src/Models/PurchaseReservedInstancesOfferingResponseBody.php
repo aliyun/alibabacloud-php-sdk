@@ -19,7 +19,7 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the reserved instance.
+     * @description The IDs of the reserved instances.
      *
      * @var reservedInstanceIdSets
      */

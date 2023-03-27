@@ -19,6 +19,8 @@ class networkInterface extends Model
     public $description;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example ecs.s2.xlarge
      *
      * @var string
@@ -35,6 +37,11 @@ class networkInterface extends Model
     public $networkInterfaceName;
 
     /**
+     * @description The communication mode of the primary ENI. Valid values:
+     *
+     *   Standard: The TCP communication mode is used.
+     *   HighPerformance: Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *
      * @example Standard
      *
      * @var string
@@ -53,7 +60,7 @@ class networkInterface extends Model
     /**
      * @description The ID of the security group to which to assign the secondary ENI. The security group and the ENI must belong to the same VPC.
      *
-     * >  The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
+     * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -63,13 +70,13 @@ class networkInterface extends Model
     /**
      * @description The IDs of the security groups to which to assign the secondary ENI.
      *
-     * >  The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
+     * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect the ENI.
+     * @description The ID of the vSwitch to which to connect the secondary ENI.
      *
      * @example vsw-bp67acfmxazb4p****
      *

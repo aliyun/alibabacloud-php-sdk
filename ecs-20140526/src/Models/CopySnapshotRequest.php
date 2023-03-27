@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotRequest extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > This parameter is currently in invitational preview and unavailable for public use.
      *
      * @var arn[]
      */
@@ -27,7 +27,7 @@ class CopySnapshotRequest extends Model
     public $destinationRegionId;
 
     /**
-     * @description The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     * @description The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example CopySnapshotDemo
@@ -37,7 +37,7 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotDescription;
 
     /**
-     * @description The name of the new snapshot. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     * @description The name of the new snapshot. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example CopySnapshotDemo
@@ -47,10 +47,10 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotName;
 
     /**
-     * @description Specifies whether to query only encrypted cloud disks.
+     * @description Specifies whether to encrypt the disk. Valid values:
      *
-     *   true: queries only encrypted cloud disks.
-     *   false: does not query encrypted cloud disks.
+     *   true: encrypts the disk.
+     *   false: does not encrypt the disk.
      *
      * Default value: false.
      * @example false
@@ -60,7 +60,7 @@ class CopySnapshotRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used for the data disk.
+     * @description The customer master keys (CMK) managed by Key Management Service (KMS) in the destination region.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -74,7 +74,7 @@ class CopySnapshotRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the source snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the source snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-chengdu
      *
@@ -83,7 +83,7 @@ class CopySnapshotRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description This parameter is unavailable.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -102,9 +102,9 @@ class CopySnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The retention period of the new snapshot. Unit: days. The new snapshot will be automatically released when it expires. Valid values: 1 to 65536.
+     * @description The retention period of the new snapshot. Unit: days. The new snapshot is automatically released when its retention period ends. Valid values: 1 to 65536.
      *
-     * This parameter is empty by default, which indicates that the snapshot will not be automatically released.
+     * This parameter is empty by default, which indicates that the snapshot is not automatically released.
      * @example 60
      *
      * @var int
@@ -121,7 +121,7 @@ class CopySnapshotRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The tags of the new snapshot.
+     * @description The tag key and value of the new snapshot.
      *
      * @var tag[]
      */

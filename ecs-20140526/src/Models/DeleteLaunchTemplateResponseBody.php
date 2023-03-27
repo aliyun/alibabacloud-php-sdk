@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $launchTemplateId;
+
+    /**
      * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -17,7 +22,8 @@ class DeleteLaunchTemplateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'launchTemplateId' => 'LaunchTemplateId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DeleteLaunchTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->launchTemplateId) {
+            $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +51,9 @@ class DeleteLaunchTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LaunchTemplateId'])) {
+            $model->launchTemplateId = $map['LaunchTemplateId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

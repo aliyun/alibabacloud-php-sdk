@@ -11,9 +11,15 @@ class ModifyLaunchTemplateDefaultVersionResponseBody extends Model
     /**
      * @var string
      */
+    public $launchTemplateId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'launchTemplateId' => 'LaunchTemplateId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ModifyLaunchTemplateDefaultVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->launchTemplateId) {
+            $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class ModifyLaunchTemplateDefaultVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LaunchTemplateId'])) {
+            $model->launchTemplateId = $map['LaunchTemplateId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

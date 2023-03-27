@@ -19,29 +19,21 @@ class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example AutoRenewal
-     *
      * @var string
      */
     public $renewalStatus;

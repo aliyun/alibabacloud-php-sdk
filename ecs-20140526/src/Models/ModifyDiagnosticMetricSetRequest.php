@@ -9,31 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiagnosticMetricSetRequest extends Model
 {
     /**
+     * @description The new description of the diagnostic metric set.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The IDs of diagnostic metrics.
+     *
      * @var string[]
      */
     public $metricIds;
 
     /**
+     * @description The ID of the diagnostic metric set.
+     *
+     * @example dms-uf6i0tv2refv8wz*****
+     *
      * @var string
      */
     public $metricSetId;
 
     /**
+     * @description The new name of the diagnostic metric set.
+     *
+     * @example remoteConnectError
+     *
      * @var string
      */
     public $metricSetName;
 
     /**
+     * @description The region ID of the diagnostic metric set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

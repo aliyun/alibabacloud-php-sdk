@@ -33,7 +33,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description The ID of the launch template.
      *
-     * You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
+     * You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
      * @example lt-bp168lnahrdwl39p****
      *
      * @var string
@@ -50,6 +50,8 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $launchTemplateName;
 
     /**
+     * @description Version N of the launch template.
+     *
      * @example 1
      *
      * @var int[]
@@ -97,7 +99,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     * Default value: 10.
+     * Default value: 10
      * @example 10
      *
      * @var int

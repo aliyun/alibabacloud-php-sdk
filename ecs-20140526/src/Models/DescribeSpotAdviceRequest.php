@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotAdviceRequest extends Model
 {
     /**
-     * @description The number of vCPUs of the instance type. For information about the valid values, see [Instance families](~~25378~~).
+     * @description The number of vCPUs of the instance type. For more information, see [Instance families](~~25378~~).
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class DescribeSpotAdviceRequest extends Model
     public $cores;
 
     /**
-     * @description The number of GPUs per GPU-accelerated instance. For information about the valid values, see [GPU-accelerated compute optimized instance types](~~108496~~).
+     * @description The number of GPUs that the GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](~~108496~~).
      *
      * @example 2
      *
@@ -45,9 +45,9 @@ class DescribeSpotAdviceRequest extends Model
     /**
      * @description The level of the instance family. Valid values:
      *
-     *   EntryLevel
-     *   EnterpriseLevel
-     *   CreditEntryLevel. For more information, see [Burstable instance overview](~~59977~~).
+     *   EntryLevel: entry level.
+     *   EnterpriseLevel: enterprise level.
+     *   CreditEntryLevel: credit-based entry level. For more information, see [Overview](~~59977~~) of burstable instances.
      *
      * This parameter is empty by default, which indicates that instance families of all levels are queried.
      * @example EntryLevel
@@ -57,7 +57,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceFamilyLevel;
 
     /**
-     * @description The instance family. For information about the valid values, see [Instance families](~~25378~~).
+     * @description The instance family. For more information, see [Instance families](~~25378~~).
      *
      * @example ecs.c5
      *
@@ -66,7 +66,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The list of instance types. You can enter up to 10 instance types.
+     * @description The instance types. You can specify to 10 instance types.
      *
      * @example ecs.c5.large
      *
@@ -75,7 +75,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceTypes;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB. For information about the valid values, see [Instance families](~~25378~~).
+     * @description The memory size of the instance type. Unit: GiB. For more information, see [Instance families](~~25378~~).
      *
      * @example 8.0
      *
@@ -84,7 +84,7 @@ class DescribeSpotAdviceRequest extends Model
     public $memory;
 
     /**
-     * @description The minimum number of vCPUs of the instance type. For information about the valid values, see [Instance families](~~25378~~).
+     * @description The minimum number of vCPUs of the instance type. For more information, see [Instance families](~~25378~~).
      *
      * @example 2
      *
@@ -93,7 +93,7 @@ class DescribeSpotAdviceRequest extends Model
     public $minCores;
 
     /**
-     * @description The minimum memory size of the instance type. For information about the valid values, see [Instance families](~~25378~~).
+     * @description The minimum memory size of the instance type. For more information, see [Instance families](~~25378~~).
      *
      * @example 8.0
      *
@@ -112,7 +112,7 @@ class DescribeSpotAdviceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

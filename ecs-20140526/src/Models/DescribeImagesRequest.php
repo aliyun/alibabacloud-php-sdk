@@ -13,8 +13,8 @@ class DescribeImagesRequest extends Model
     /**
      * @description The scenario in which to use the image. Default value: CreateEcs. Valid values:
      *
-     *   CreateEcs: instance creation
-     *   ChangeOS: replacement of the system disk or operating system
+     *   CreateEcs: creates an instance.
+     *   ChangeOS: replaces the system disk or operating system.
      *
      * @example CreateEcs
      *
@@ -23,7 +23,7 @@ class DescribeImagesRequest extends Model
     public $actionType;
 
     /**
-     * @description The image architecture. Valid values:
+     * @description The architecture of the image. Valid values:
      *
      *   i386
      *   x86\_64
@@ -36,10 +36,10 @@ class DescribeImagesRequest extends Model
     public $architecture;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     * @description Specifies whether to perform a dry run.
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned, and the request is made.
+     *   true: performs a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, the corresponding error message is returned. If the check passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
      *
      * Default value: false.
      * @example false
@@ -49,14 +49,14 @@ class DescribeImagesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The filters that used to query resources.
+     * @description The list of filter conditions used to query resources.
      *
      * @var filter[]
      */
     public $filter;
 
     /**
-     * @description The name of the image family. You can set this parameter to query images of the specified image family.
+     * @description The name of the image family. You can specify this parameter to query images of the specified image family.
      *
      * This parameter is empty by default.
      * @example hangzhou-daily-update
@@ -66,7 +66,7 @@ class DescribeImagesRequest extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image.
+     * @description The IDs of the images.
      *
      * @example m-bp1g7004ksh0oeuc****
      *
@@ -86,18 +86,18 @@ class DescribeImagesRequest extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud.
+     *   system: public images provided by Alibaba Cloud. These are not available in Alibaba Cloud Marketplace.
      *
-     *   self: your custom images.
+     *   self: custom images that you create.
      *
-     *   others: shared images from other Alibaba Cloud accounts or community images published by other Alibaba Cloud accounts. Take note of the following items:
+     *   others: shared images from other Alibaba Cloud accounts and community images that image providers released on the image platform of Alibaba Cloud Community. When you call this operation, take note of the following items:
      *
-     *   To query community images, you must set IsPublic to true.
-     *   To query shared images, you must set IsPublic to false or leave the IsPublic parameter empty.
+     *   To query community images, you must set the IsPublic parameter to true.
+     *   To query shared images, you must set the IsPublic parameter to false or leave the IsPublic parameter empty.
      *
-     *   marketplace: Alibaba Cloud Marketplace images. If Alibaba Cloud Marketplace images are returned in the response, you can use the images without subscription. You must pay attention to the billing details of Alibaba Cloud Marketplace images.
+     *   marketplace: an image maintained by Alibaba Cloud or Independent Software Vendors (ISVs) in the Alibaba Cloud Marketplace. These images need to be purchased together with an Elastic Compute Service (ECS) instance. Before you use Alibaba Cloud Marketplace images, take note of the billing details of the images.
      *
-     * This parameter is empty by default, which indicates that your custom images, public images provided by Alibaba Cloud, shared images from other Alibaba Cloud accounts, and community images published by other Alibaba Cloud accounts are queried.
+     * > This parameter is empty by default, which indicates that public images provided by Alibaba Cloud, custom images in your repository, shared images from other Alibaba Cloud accounts, and community images published by other Alibaba Cloud accounts are queried.
      * @example self
      *
      * @var string
@@ -105,7 +105,7 @@ class DescribeImagesRequest extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only when you query shared images or community images.
+     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter is valid only when you query shared images or community images.
      *
      * @example 1234567890
      *
@@ -123,10 +123,10 @@ class DescribeImagesRequest extends Model
     public $instanceType;
 
     /**
-     * @description Specifies whether to query published community images. Valid values:
+     * @description Indicates whether to query published community images. Valid values:
      *
-     *   true: queries published community images. When you set this parameter to true, you must set ImageOwnerAlias to others.
-     *   false: queries other image types than community images. The specific image types to be queried are determined by the ImageOwnerAlias value.
+     *   true: queries published community images. When you set this parameter to true, you must set the ImageOwnerAlias parameter to others.
+     *   false: queries image types other than community images. The specific image types to be queried are determined by the ImageOwnerAlias parameter.
      *
      * Default value: false.
      * @example false
@@ -186,7 +186,7 @@ class DescribeImagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return per page.
      *
      * Default value: 10.
      * @example 1
@@ -196,7 +196,7 @@ class DescribeImagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -205,8 +205,9 @@ class DescribeImagesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the custom image belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the custom image belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group are returned.
      *
+     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -226,7 +227,7 @@ class DescribeImagesRequest extends Model
     /**
      * @description Specifies whether the subscription image has expired.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example false
      *
      * @var bool
@@ -243,16 +244,16 @@ class DescribeImagesRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The state of the image. Default value: Available. Valid values:
+     * @description The state of the image. If you do not specify this parameter, only images in the Available state are returned. Valid values:
      *
-     * Creating: The image is being created.
-     * Waiting: The image is waiting to be processed.
-     * Available: The image is available.
-     * UnAvailable: The image is unavailable.
-     * CreateFailed: The image cannot be created.
-     * Deprecated: The image is discontinued.
+     *   Creating: The image is being created.
+     *   Waiting: The image is waiting to be processed.
+     *   Available: The image is available. This is the default value.
+     *   UnAvailable: The image is unavailable.
+     *   CreateFailed: The image cannot be created.
+     *   Deprecated: The image is discontinued.
      *
-     * You can specify multiple values. Separate the values with commas (,).
+     * Default value: Available. You can specify multiple values for this parameter. Separate the values with commas (,).
      * @example Available
      *
      * @var string
@@ -260,16 +261,16 @@ class DescribeImagesRequest extends Model
     public $status;
 
     /**
-     * @description The tags that used to query resources. You can specify up to 20 tags.
+     * @description The list of tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description Specifies whether the image is running on an Elastic Compute Service (ECS) instance. Valid values:
+     * @description Specifies whether the image is running on an ECS instance. Valid values:
      *
-     *   instance: The image is already in use and running on an ECS instance.
+     *   instance: The image is in use and running on an ECS instance.
      *   none: The image is not in use.
      *
      * @example instance

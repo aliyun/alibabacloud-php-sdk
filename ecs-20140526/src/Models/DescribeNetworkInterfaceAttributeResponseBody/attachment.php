@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example hide
      *
@@ -19,7 +19,7 @@ class attachment extends Model
     public $deviceIndex;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example hide
      *
@@ -28,18 +28,15 @@ class attachment extends Model
     public $instanceId;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var memberNetworkInterfaceIds
      */
     public $memberNetworkInterfaceIds;
 
     /**
-     * @description The index of the network interface controller (NIC).
-     *
-     *   If the ENI is in the Available state or if no NIC index was specified when the ENI was attached, this parameter has no value.
-     *   If the ENI is in the InUse state and an NIC index was specified when the ENI was attached, the specified NIC index is returned as the value of this parameter.
-     *
+     * @description 网卡挂载指定的物理网卡索引。
+     * - 如果网卡是已挂载（InUse）状态且挂载时指定，此值表示网卡挂载指定的物理网卡索引。
      * @example 0
      *
      * @var int
@@ -47,7 +44,7 @@ class attachment extends Model
     public $networkCardIndex;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example hide
      *

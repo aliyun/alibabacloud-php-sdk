@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateLaunchTemplateVersionResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $launchTemplateId;
+
+    /**
      * @description The version number of the launch template.
      *
      * @example 2
@@ -26,6 +31,7 @@ class CreateLaunchTemplateVersionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'launchTemplateId'            => 'LaunchTemplateId',
         'launchTemplateVersionNumber' => 'LaunchTemplateVersionNumber',
         'requestId'                   => 'RequestId',
     ];
@@ -37,6 +43,9 @@ class CreateLaunchTemplateVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->launchTemplateId) {
+            $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
         if (null !== $this->launchTemplateVersionNumber) {
             $res['LaunchTemplateVersionNumber'] = $this->launchTemplateVersionNumber;
         }
@@ -55,6 +64,9 @@ class CreateLaunchTemplateVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LaunchTemplateId'])) {
+            $model->launchTemplateId = $map['LaunchTemplateId'];
+        }
         if (isset($map['LaunchTemplateVersionNumber'])) {
             $model->launchTemplateVersionNumber = $map['LaunchTemplateVersionNumber'];
         }

@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
-     * @description Specifies whether to force delete the snapshot that has been used to create disks. Valid values:
+     * @description Specifies whether to forcefully delete the snapshot that has been used to create disks. Valid values:
      *
-     *   true: force deletes the snapshot. After the snapshot is force deleted, the disks created from this snapshot cannot be re-initialized.
-     *   false: does not force delete the snapshot.
+     *   true: forcefully deletes the snapshot. After the snapshot is forcefully deleted, the disks created from this snapshot cannot be re-initialized.
+     *   false: does not forcefully delete the snapshot.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -22,29 +22,21 @@ class DeleteSnapshotRequest extends Model
     public $force;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

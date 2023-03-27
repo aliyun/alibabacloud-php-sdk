@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHpcClusterRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value must contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,7 +18,7 @@ class CreateHpcClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the HPC cluster. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     * @description The description of the HPC cluster. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example testHPCDescription
@@ -28,7 +28,7 @@ class CreateHpcClusterRequest extends Model
     public $description;
 
     /**
-     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. It can contain letters, digits, underscores (\_), and hyphens (-).
+     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      *
      * @example hpc-Cluster-01
      *
@@ -37,6 +37,8 @@ class CreateHpcClusterRequest extends Model
     public $name;
 
     /**
+     * @description RAM用户的账号登录名称。
+     *
      * @example ECSforCloud@Alibaba.com
      *
      * @var string
@@ -44,6 +46,8 @@ class CreateHpcClusterRequest extends Model
     public $ownerAccount;
 
     /**
+     * @description RAM用户的虚拟账号ID。
+     *
      * @example 1234567890
      *
      * @var int
@@ -51,7 +55,7 @@ class CreateHpcClusterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -60,6 +64,8 @@ class CreateHpcClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
      * @example ECSforCloud
      *
      * @var string
@@ -67,6 +73,8 @@ class CreateHpcClusterRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description 资源主账号的ID，亦即UID。
+     *
      * @example 1234567890
      *
      * @var int

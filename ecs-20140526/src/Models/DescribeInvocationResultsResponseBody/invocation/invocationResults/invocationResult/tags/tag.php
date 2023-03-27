@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the command.
+     * @description The tag key of the command task.
      *
      * @example owner
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The tag value of the command.
+     * @description The tag value of the command task.
      *
      * @example zhangsan
      *

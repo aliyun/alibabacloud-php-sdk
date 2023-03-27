@@ -77,6 +77,11 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $eipAddress;
 
     /**
+     * @var bool
+     */
+    public $enableJumboFrame;
+
+    /**
      * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://icms.alibaba-inc.com/content/ecs/api?l=1&m=277&n=10049).
      *
      * @example 2017-12-10T04:04Z
@@ -307,6 +312,7 @@ class DescribeInstanceAttributeResponseBody extends Model
         'dedicatedHostAttribute'  => 'DedicatedHostAttribute',
         'description'             => 'Description',
         'eipAddress'              => 'EipAddress',
+        'enableJumboFrame'        => 'EnableJumboFrame',
         'expiredTime'             => 'ExpiredTime',
         'hostName'                => 'HostName',
         'imageId'                 => 'ImageId',
@@ -361,6 +367,9 @@ class DescribeInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = null !== $this->eipAddress ? $this->eipAddress->toMap() : null;
+        }
+        if (null !== $this->enableJumboFrame) {
+            $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -469,6 +478,9 @@ class DescribeInstanceAttributeResponseBody extends Model
         }
         if (isset($map['EipAddress'])) {
             $model->eipAddress = eipAddress::fromMap($map['EipAddress']);
+        }
+        if (isset($map['EnableJumboFrame'])) {
+            $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

@@ -9,41 +9,87 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the performance burst feature for disk N. Valid values:
+     *
+     *   true: enables the performance burst feature.
+     *   false: disables the performance burst feature.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
+     * @description Specifies whether to delete the automatic snapshots of the disk when the disk is released. By default, this parameter is left empty, which specifies that the current value remains unchanged.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteAutoSnapshot;
 
     /**
+     * @description Specifies whether to release the disk together with the associated instance. By default, this parameter is left empty, which specifies that the current value remains unchanged.
+     *
+     * If you set the `DeleteWithInstance` parameter to `false` in one of the following cases, an error is returned:
+     *
+     *   The disk is a local disk.
+     *   The disk is a basic disk and not removable. If the Portable attribute of a disk is set to false, the disk is not removable.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @description The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example TestDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the disk.
+     *
+     * >  You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
+     * @example d-bp1famypsnar20bv****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The IDs of the disks whose attributes you want to modify. Valid values of N: 0 to 100.
+     *
+     * >  You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
+     * @example d-bp1famypsnar20bv****
+     *
      * @var string[]
      */
     public $diskIds;
 
     /**
+     * @description The name of the disk. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example MyDiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @description Specifies whether to enable the automatic snapshot policy feature for the disk.
+     *
+     *   true: enables the automatic snapshot policy feature for the disk.
+     *   false: disables the automatic snapshot policy feature for the disk.
+     *
+     * > : By default, the automatic snapshot policy feature is enabled for new disks. You need to only apply an automatic snapshot policy to a disk for the policy to take effect.
+     * @example true
+     *
      * @var bool
      */
     public $enableAutoSnapshot;
@@ -59,6 +105,10 @@ class ModifyDiskAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

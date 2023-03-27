@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy to apply to data disk.
+     * @description The ID of the automatic snapshot policy to apply to data disk N.
      *
      * @example sp-m5e7fa9ute44ssa****
      *
@@ -18,7 +18,10 @@ class dataDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description This parameter is unavailable.
+     * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -32,7 +35,7 @@ class dataDisk extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
+     *   cloud_essd: ESSD cloud_auto: ESSD AutoPL disk
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -64,9 +67,8 @@ class dataDisk extends Model
     public $description;
 
     /**
-     * @description The mount point of data disk.
+     * @description > This parameter will be removed in the future. To ensure future compatibility, we recommend that you do not use this parameter.
      *
-     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example null
      *
      * @var string
@@ -83,7 +85,7 @@ class dataDisk extends Model
     public $diskName;
 
     /**
-     * @description Specifies whether to encrypt data disk N.
+     * @description Specifies whether to encrypt the data disk.
      *
      * @example false
      *
@@ -92,9 +94,9 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The performance level of the ESSD used as data disk N. The N value must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Default value: PL1. Valid values:
+     * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Default value: PL1. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
@@ -107,8 +109,9 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description This parameter is unavailable.
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
+     * > This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int
@@ -139,9 +142,9 @@ class dataDisk extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16. When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created based on the size of the specified snapshot.
+     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created based on the size of the specified snapshot.
      *
-     * Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * Use snapshots that were created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string

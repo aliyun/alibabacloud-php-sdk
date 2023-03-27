@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
+     * @description The number of tasks that Cloud Assistant was running on the instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $activeTaskCount;
 
     /**
+     * @description Indicates whether Cloud Assistant is running on the instance. Valid values:
+     *
+     *   true: Heartbeats are detected within 1 minute.
+     *   false: No heartbeats are detected within 1 minute.
+     *
+     * @example true
+     *
      * @var string
      */
     public $cloudAssistantStatus;
 
     /**
+     * @description The version number of the Cloud Assistant client. This parameter is empty if the Cloud Assistant client is not installed or is not running.
+     *
+     * @example 2.2.0.106
+     *
      * @var string
      */
     public $cloudAssistantVersion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1iudwa5b1tqa****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of tasks that Cloud Assistant completed on the instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $invocationCount;
 
     /**
+     * @description The most recent heartbeat time of Cloud Assistant. The value is updated once every minute.
+     *
+     * @example 2021-03-15T09:00:00Z
+     *
      * @var string
      */
     public $lastHeartbeatTime;
 
     /**
+     * @description The time when commands were last run.
+     *
+     * @example 2021-03-15T08:00:00Z
+     *
      * @var string
      */
     public $lastInvokedTime;
 
     /**
+     * @description The operating system of the instance. Valid values:
+     *
+     *   Windows
+     *   Linux
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description Indicates whether Cloud Assistant supports Session Manager on the instance. If Cloud Assistant does not support Session Manager on the instance, an early Cloud Assistant version may be installed on the instance or Session Manager may not be supported in the specified region.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportSessionManager;

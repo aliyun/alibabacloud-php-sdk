@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var ipv4PrefixSet
      */

@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class extendedAttribute extends Model
 {
     /**
+     * @var string
+     */
+    public $canAccept;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description The device name of the local disk.
      *
      * @example /dev/vda
@@ -40,8 +50,8 @@ class extendedAttribute extends Model
     /**
      * @description The type of the host. Valid values:
      *
-     *   ddh: dedicated host.
-     *   managehost: physical machine in a smart hosting pool.
+     *   ddh: dedicated host
+     *   managehost: physical machine in a smart hosting pool
      *
      * @example ddh
      *
@@ -50,14 +60,14 @@ class extendedAttribute extends Model
     public $hostType;
 
     /**
-     * @description Details about the inactive cloud disks or local disks that have been released and must be removed.
+     * @description Details about the inactive cloud disks or local disks that have been released and must be cleared.
      *
      * @var inactiveDisks
      */
     public $inactiveDisks;
 
     /**
-     * @description The migration solution of the instance. Valid value: MigrationOptions. Instances can be migrated only by using migration plans.
+     * @description The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
      *
      * @var migrationOptions
      */
@@ -73,6 +83,21 @@ class extendedAttribute extends Model
     public $onlineRepairPolicy;
 
     /**
+     * @var string
+     */
+    public $punishDomain;
+
+    /**
+     * @var string
+     */
+    public $punishType;
+
+    /**
+     * @var string
+     */
+    public $punishUrl;
+
+    /**
      * @description The rack number of the cloud box.
      *
      * @example A01
@@ -81,6 +106,8 @@ class extendedAttribute extends Model
      */
     public $rack;
     protected $_name = [
+        'canAccept'          => 'CanAccept',
+        'code'               => 'Code',
         'device'             => 'Device',
         'diskId'             => 'DiskId',
         'hostId'             => 'HostId',
@@ -88,6 +115,9 @@ class extendedAttribute extends Model
         'inactiveDisks'      => 'InactiveDisks',
         'migrationOptions'   => 'MigrationOptions',
         'onlineRepairPolicy' => 'OnlineRepairPolicy',
+        'punishDomain'       => 'PunishDomain',
+        'punishType'         => 'PunishType',
+        'punishUrl'          => 'PunishUrl',
         'rack'               => 'Rack',
     ];
 
@@ -98,6 +128,12 @@ class extendedAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->canAccept) {
+            $res['CanAccept'] = $this->canAccept;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
         }
@@ -119,6 +155,15 @@ class extendedAttribute extends Model
         if (null !== $this->onlineRepairPolicy) {
             $res['OnlineRepairPolicy'] = $this->onlineRepairPolicy;
         }
+        if (null !== $this->punishDomain) {
+            $res['PunishDomain'] = $this->punishDomain;
+        }
+        if (null !== $this->punishType) {
+            $res['PunishType'] = $this->punishType;
+        }
+        if (null !== $this->punishUrl) {
+            $res['PunishUrl'] = $this->punishUrl;
+        }
         if (null !== $this->rack) {
             $res['Rack'] = $this->rack;
         }
@@ -134,6 +179,12 @@ class extendedAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CanAccept'])) {
+            $model->canAccept = $map['CanAccept'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
         }
@@ -154,6 +205,15 @@ class extendedAttribute extends Model
         }
         if (isset($map['OnlineRepairPolicy'])) {
             $model->onlineRepairPolicy = $map['OnlineRepairPolicy'];
+        }
+        if (isset($map['PunishDomain'])) {
+            $model->punishDomain = $map['PunishDomain'];
+        }
+        if (isset($map['PunishType'])) {
+            $model->punishType = $map['PunishType'];
+        }
+        if (isset($map['PunishUrl'])) {
+            $model->punishUrl = $map['PunishUrl'];
         }
         if (isset($map['Rack'])) {
             $model->rack = $map['Rack'];

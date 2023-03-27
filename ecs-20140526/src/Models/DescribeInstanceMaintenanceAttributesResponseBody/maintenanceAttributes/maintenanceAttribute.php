@@ -18,7 +18,7 @@ class maintenanceAttribute extends Model
     public $actionOnMaintenance;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example i-bp67acfmxazb4p****
      *

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class detachInstanceRamRoleResult extends Model
 {
     /**
+     * @description The code that indicates whether the instance RAM role was detached. If 200 is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the instance from which you attempted to detach the instance RAM role.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The details about the instance RAM roles of the instances.
+     *
      * @var instanceRamRoleSets
      */
     public $instanceRamRoleSets;
 
     /**
+     * @description The message that indicates whether the instance RAM role was detached. If success is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the RAM role was detached.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
