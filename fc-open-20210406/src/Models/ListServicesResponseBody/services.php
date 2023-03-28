@@ -35,7 +35,7 @@ class services extends Model
      * @description Specifies whether to allow functions to access the Internet. Valid values:
      *
      *   **true**: allows functions in the specified service to access the Internet.
-     *   **false**: does not allow functions in the specified service to access the Internet.
+     *   **false**: does not allow functions to access the Internet.
      *
      * @example true
      *
@@ -104,7 +104,7 @@ class services extends Model
     public $serviceName;
 
     /**
-     * @description The configurations of Tracing Analysis. After you configure Tracing Analysis for a service in Function Compute, you can record the execution duration of a request, view the amount of cold start time for a function, and record the execution duration of a function. For more information, see [Overview](~~189804~~).
+     * @description The configuration of Tracing Analysis. After you configure Tracing Analysis for a service in Function Compute, you can record the execution duration of a request, view the amount of cold start time for a function, and record the execution duration of a function. For more information, see [Overview](~~189804~~).
      *
      * @var TracingConfig
      */

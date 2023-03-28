@@ -16,7 +16,7 @@ class RoutePolicy extends Model
     public $condition;
 
     /**
-     * @var PolicyItem
+     * @var PolicyItem[]
      */
     public $policyItems;
     protected $_name = [
@@ -35,7 +35,13 @@ class RoutePolicy extends Model
             $res['condition'] = $this->condition;
         }
         if (null !== $this->policyItems) {
-            $res['policyItems'] = null !== $this->policyItems ? $this->policyItems->toMap() : null;
+            $res['policyItems'] = [];
+            if (null !== $this->policyItems && \is_array($this->policyItems)) {
+                $n = 0;
+                foreach ($this->policyItems as $item) {
+                    $res['policyItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -53,7 +59,13 @@ class RoutePolicy extends Model
             $model->condition = $map['condition'];
         }
         if (isset($map['policyItems'])) {
-            $model->policyItems = PolicyItem::fromMap($map['policyItems']);
+            if (!empty($map['policyItems'])) {
+                $model->policyItems = [];
+                $n                  = 0;
+                foreach ($map['policyItems'] as $item) {
+                    $model->policyItems[$n++] = null !== $item ? PolicyItem::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -48,7 +48,7 @@ class functions extends Model
     public $cpu;
 
     /**
-     * @description The time when the function was created.
+     * @description The time when the function is created.
      *
      * @example 2016-08-15T15:00:00.000+0000
      *
@@ -89,7 +89,7 @@ class functions extends Model
     public $diskSize;
 
     /**
-     * @description The environment variables that you configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Overview](~~69777~~).
+     * @description The environment variables that you configured for the function. You can obtain the values of the environment variables from the function.
      *
      * @var string[]
      */
@@ -114,7 +114,7 @@ class functions extends Model
     public $functionName;
 
     /**
-     * @description GPU instance memory specifications of the function. Unit: MB. The value is a multiple of 1024.
+     * @description The GPU memory capacity for the function. Unit: MB. The memory capacity must be a multiple of 1024 MB.
      *
      * @example 2048
      *
@@ -166,9 +166,9 @@ class functions extends Model
     public $instanceLifecycleConfig;
 
     /**
-     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long term to start, you can specify a suitable soft concurrency to start the instance in advance.
+     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long time to start, you can specify a suitable soft concurrency to start the instance in advance.
      *
-     * The value must be less than or equal to that of **instanceConcurrency**.
+     * The value must be less than or equal to that of the **instanceConcurrency** parameter.
      * @example 5
      *
      * @var int
@@ -180,6 +180,9 @@ class functions extends Model
      *
      *   **e1**: elastic instance
      *   **c1**: performance instance
+     *   **fc.gpu.tesla.1**: GPU-accelerated instances (Tesla T4)
+     *   **fc.gpu.ampere.1**: GPU-accelerated instances (Ampere A10)
+     *   **g1**: same fc.gpu.tesla.1
      *
      * @example e1
      *
@@ -199,8 +202,7 @@ class functions extends Model
     /**
      * @description An array that consists of the information of layers.
      *
-     *
-     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file with the same name in the layer with a larger subscript.
+     * > If multiple layers exist, the layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name and a larger subscript in the layer.
      * @var string[]
      */
     public $layers;

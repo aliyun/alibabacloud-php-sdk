@@ -27,7 +27,7 @@ class UpdateFunctionResponseBody extends Model
     public $codeChecksum;
 
     /**
-     * @description The size of the function code package that is returned by the system. Unit: byte.
+     * @description The size of the function code package that is returned by the system. Unit: bytes.
      *
      * @example 1024
      *
@@ -45,7 +45,7 @@ class UpdateFunctionResponseBody extends Model
     public $cpu;
 
     /**
-     * @description The time when the function is created.
+     * @description The time when the function was created.
      *
      * @example 2016-08-15T15:00:00.000+0000
      *
@@ -68,7 +68,7 @@ class UpdateFunctionResponseBody extends Model
     public $customDNS;
 
     /**
-     * @description The custom health check configurations of the function. This parameter is applicable to only custom runtimes and custom containers.
+     * @description The custom health check configuration of the function. This parameter is applicable only to custom runtimes and custom containers.
      *
      * @var CustomHealthCheckConfig
      */
@@ -125,6 +125,8 @@ class UpdateFunctionResponseBody extends Model
     public $functionName;
 
     /**
+     * @description The GPU memory capacity for the function. Unit: MB. The value must be a multiple of 1,024.
+     *
      * @example 2048
      *
      * @var int
@@ -141,7 +143,7 @@ class UpdateFunctionResponseBody extends Model
     public $handler;
 
     /**
-     * @description The timeout period for the execution of the initializer function. Unit: seconds. Default value: 3. Minimum value: 1. When the period ends, the execution of the initializer function is terminated.
+     * @description The timeout period for the execution of the Initializer hook. Unit: seconds. Default value: 3. Minimum value: 1. When the period ends, the execution of the Initializer hook is terminated.
      *
      * @example 60
      *
@@ -150,7 +152,7 @@ class UpdateFunctionResponseBody extends Model
     public $initializationTimeout;
 
     /**
-     * @description The handler of the initializer function. The format is determined by the programming language.
+     * @description The handler of the Initializer hook. The format is determined by the programming language.
      *
      * @example index.handler
      *
@@ -175,7 +177,7 @@ class UpdateFunctionResponseBody extends Model
     public $instanceLifecycleConfig;
 
     /**
-     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long time to start, you can specify a suitable soft concurrency to start the instance in advance.
+     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the value of soft concurrency, an instance scale-up is triggered. For example, if your instance requires a long time to start, you can specify a suitable soft concurrency to start the instance in advance.
      *
      * The value must be less than or equal to that of the **instanceConcurrency** parameter.
      * @example 5
@@ -189,6 +191,9 @@ class UpdateFunctionResponseBody extends Model
      *
      *   **e1**: elastic instance
      *   **c1**: performance instance
+     *   **fc.gpu.tesla.1**: GPU-accelerated instance (Tesla T4)
+     *   **fc.gpu.ampere.1**: GPU-accelerated instance (Ampere A10)
+     *   **g1**: same as **fc.gpu.tesla.1**
      *
      * @example e1
      *
@@ -206,9 +211,9 @@ class UpdateFunctionResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The information about layers.
+     * @description An array that consists of the information of layers.
      *
-     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name and a larger subscript in the layer.
+     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name as a layer with a larger subscript.
      * @var string[]
      */
     public $layers;

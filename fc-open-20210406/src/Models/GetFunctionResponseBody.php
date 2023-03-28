@@ -61,7 +61,7 @@ class GetFunctionResponseBody extends Model
     public $customContainerConfig;
 
     /**
-     * @description The custom Domain Name System (DNS) configurations of the function.
+     * @description The custom DNS configurations of the function.
      *
      * @var CustomDNS
      */
@@ -100,7 +100,7 @@ class GetFunctionResponseBody extends Model
     public $diskSize;
 
     /**
-     * @description The environment variables that you configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Overview](~~69777~~).
+     * @description The environment variables that are configured for the function. You can obtain the values of the environment variables from the function. For more information, see [Environment variables](~~69777~~).
      *
      * @var string[]
      */
@@ -125,6 +125,8 @@ class GetFunctionResponseBody extends Model
     public $functionName;
 
     /**
+     * @description The GPU memory capacity for the function. Unit: MB. The memory capacity must be a multiple of 1024 MB.
+     *
      * @example 2048
      *
      * @var int
@@ -175,9 +177,9 @@ class GetFunctionResponseBody extends Model
     public $instanceLifecycleConfig;
 
     /**
-     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long term to start, you can specify a suitable soft concurrency to start the instance in advance.
+     * @description The soft concurrency of the instance. You can use this parameter to implement graceful scale-up of instances. If the number of concurrent requests on an instance is greater than the number of the soft concurrency, the instance scale-up is triggered. For example, if your instance requires a long time to start, you can specify a suitable soft concurrency to start the instance in advance.
      *
-     * The value must be less than or equal to that of **instanceConcurrency**.
+     * The value must be less than or equal to that of the **instanceConcurrency** parameter.
      * @example 5
      *
      * @var int
@@ -189,6 +191,9 @@ class GetFunctionResponseBody extends Model
      *
      *   **e1**: elastic instance
      *   **c1**: performance instance
+     *   **fc.gpu.tesla.1**: GPU-accelerated instances (Tesla T4)
+     *   **fc.gpu.ampere.1**: GPU-accelerated instances (Ampere A10)
+     *   **g1**: same fc.gpu.tesla.1
      *
      * @example e1
      *
@@ -206,14 +211,20 @@ class GetFunctionResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description An array that consists of the information of layers.
+     * @description The list of layers (ARN V1 version).
      *
-     * >  Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file with the same name in the layer with a larger subscript.
+     **
+     *
+     **Warning:** This parameter is to be deprecated. Use layersArnV2.
+     *
      * @var string[]
      */
     public $layers;
 
     /**
+     * @description The list of layers (ARN V2 version).
+     *
+     * > If multiple layers exist, the layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name and a larger subscript in the layer.
      * @var string[]
      */
     public $layersArnV2;
@@ -228,7 +239,7 @@ class GetFunctionResponseBody extends Model
     public $memorySize;
 
     /**
-     * @description The runtime environment of the function. Valid values: **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore2.1**, **custom** and **custom-container**.
+     * @description The runtime environment of the function. Valid values: **nodejs16**, **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore2.1**, **custom**, and **custom-container**.
      *
      * @example python3
      *

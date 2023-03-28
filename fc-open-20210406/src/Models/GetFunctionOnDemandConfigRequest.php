@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionOnDemandConfigRequest extends Model
 {
     /**
-     * @description The alias of the service or LATEST.
+     * @description Service alias or LATEST. Other versions are not supported.
      *
      * @example prod
      *

@@ -18,7 +18,7 @@ class ListFunctionsRequest extends Model
     public $limit;
 
     /**
-     * @description The token used to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
+     * @description The token required to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
      *
      * @example 8bj81uI8n****
      *

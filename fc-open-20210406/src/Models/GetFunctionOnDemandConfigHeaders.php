@@ -20,16 +20,16 @@ class GetFunctionOnDemandConfigHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the yyyy-mm-ddhh:mm:ss format.
+     * @description The time on which the function is invoked. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
      *
-     * @example 2022-01-01 12:00:00
+     * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
      */
     public $xFcDate;
 
     /**
-     * @description The trace ID of the request for Function Compute API, which is also the unique ID of the request.
+     * @description The unique ID of the trace.
      *
      * @example asdf****
      *

@@ -11,7 +11,7 @@ class UpdateFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ETag value of the resource. The value is used to ensure that the modified resource is consistent with the resource to be modified. The ETag value is returned in the responses of the [CreateFunction](~~415747~~), [GetFunction](~~415750~~), and [UpdateFunction](~~415749~~) operations.
+     * @description The parameter that is used to ensure that the modified resource is consistent with the resource to be modified. The value of this parameter is returned in the responses of the [CreateFunction](~~415747~~), [GetFunction](~~415750~~), and [UpdateFunction](~~415749~~) operations.
      *
      * @example e19d5cd5af0378da05f63f891c7467af
      *
