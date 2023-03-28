@@ -10,21 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ResetDisksRequest extends Model
 {
     /**
-     * @description The disks that you want to roll back.
-     *
      * @var disk[]
      */
     public $disk;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
-     *
-     *   true: performs a dry run. The system checks the required parameters, request format, and resource status limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
@@ -40,10 +30,6 @@ class ResetDisksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the disks that you want to roll back. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

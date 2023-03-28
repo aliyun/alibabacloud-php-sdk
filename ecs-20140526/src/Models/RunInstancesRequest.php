@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\dataDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\hibernationOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\networkInterface;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\networkOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\privatePoolOptions;
@@ -163,6 +164,11 @@ class RunInstancesRequest extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var imageOptions
+     */
+    public $imageOptions;
 
     /**
      * @var string
@@ -418,6 +424,7 @@ class RunInstancesRequest extends Model
         'httpTokens'                  => 'HttpTokens',
         'imageFamily'                 => 'ImageFamily',
         'imageId'                     => 'ImageId',
+        'imageOptions'                => 'ImageOptions',
         'instanceChargeType'          => 'InstanceChargeType',
         'instanceName'                => 'InstanceName',
         'instanceType'                => 'InstanceType',
@@ -570,6 +577,9 @@ class RunInstancesRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageOptions) {
+            $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toMap() : null;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -830,6 +840,9 @@ class RunInstancesRequest extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageOptions'])) {
+            $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];

@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class associatedPublicIp extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
-     *
-     * @example null
-     *
      * @var string
      */
     public $allocationId;
 
     /**
-     * @description The EIP of the ENI.
-     *
-     * @example 116.62.**.**
-     *
      * @var string
      */
     public $publicIpAddress;

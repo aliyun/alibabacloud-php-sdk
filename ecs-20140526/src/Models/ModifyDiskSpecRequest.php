@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
+     * @description The new category of the disk. Valid values:
+     *
+     *   cloud_essd: ESSD
+     *   cloud_ssd: standard SSD
+     *   cloud_efficiency: ultra disk
+     *
+     * >  The preceding values are listed in descending order of disk performance. The disk cannot be downgraded if it is a subscription disk.
+     * @example cloud_essd
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-bp131n0q38u3a4zi****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     *
+     *   true: The validity of the request is checked but the request is not made. Check items include the required parameters, request format, service limits, and available ECS resources. If the check fails, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+     *   false: The validity of the request is checked. If the check succeeds, a 2xx HTTP status code is returned and the request is made.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -34,11 +55,28 @@ class ModifyDiskSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The new performance level of the ESSD. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * Default value: PL1.
+     * @example PL2
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description 是否修改ESSD AutoPL云盘预配置读写IOPS。取值范围：0~min{50000, 1000*容量-基准性能}。
+     *
+     * 基准性能=min{1,800+50*容量, 50,000}
+     *
+     * > 当DiskCategory取值为cloud_auto时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](~~368372~~)和[修改ESSD AutoPL云盘预配置信息](~~413275~~)。
+     * @example 50000
+     *
      * @var int
      */
     public $provisionedIops;

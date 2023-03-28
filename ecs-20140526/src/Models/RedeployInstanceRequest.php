@@ -9,20 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RedeployInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to forcibly stop the instance that is in the Running state.
-     *
-     * > A forcible stop is equivalent to a power outage and unsaved data may be lost. We recommend that you redeploy instances that are in the Stopped state.
-     * @example false
-     *
      * @var bool
      */
     public $forceStop;
 
     /**
-     * @description The ID of the instance that is in the Running or Stopped state.
-     *
-     * @example i-bp1azkttqpldxgted****
-     *
      * @var string
      */
     public $instanceId;

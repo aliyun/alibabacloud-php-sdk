@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
-     * @description The IDs of the disks that you want to roll back. You can specify up to 10 disk IDs.
-     *
-     * @example d-j6cf7l0ewidb78lq****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description The IDs of the disk snapshots that are contained in the instance snapshot. You can specify up to 10 disk snapshot IDs.
-     *
-     * @example s-j6cdofbycydvg7ey****
-     *
      * @var string
      */
     public $snapshotId;

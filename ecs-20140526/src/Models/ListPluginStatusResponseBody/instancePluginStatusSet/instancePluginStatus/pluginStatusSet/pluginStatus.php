@@ -9,54 +9,26 @@ use AlibabaCloud\Tea\Model;
 class pluginStatus extends Model
 {
     /**
-     * @description The first time when Cloud Assistant reported the state of the plug-in.
-     *
-     * @example 2020-01-19T09:15:46Z
-     *
      * @var string
      */
     public $firstHeartbeatTime;
 
     /**
-     * @description The last time when Cloud Assistant reported the state of the plug-in.
-     *
-     * @example 2020-01-19T09:15:46Z
-     *
      * @var string
      */
     public $lastHeartbeatTime;
 
     /**
-     * @description The name of the plug-in.
-     *
-     * @example testName
-     *
      * @var string
      */
     public $pluginName;
 
     /**
-     * @description The state of the Cloud Assistant plug-in. Valid values:
-     *
-     * NotInstalled: The plug-in is not installed.
-     * Installed: The one-time plug-in is installed.
-     * Running: The long-running plug-in is running.
-     * Stopped: The long-running plug-in is not running.
-     * Crashed: The plug-in is abnormal.
-     * Removed: The plug-in is uninstalled.
-     * Unknown: The state of the plug-in is unknown.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $pluginStatus;
 
     /**
-     * @description The version of the plug-in
-     *
-     * @example 1.1
-     *
      * @var string
      */
     public $pluginVersion;

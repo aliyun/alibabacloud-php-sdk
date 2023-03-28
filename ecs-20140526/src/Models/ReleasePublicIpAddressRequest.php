@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ReleasePublicIpAddressRequest extends Model
 {
     /**
-     * @description > This parameter is unavailable.
-     *
-     * @example hide
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The public IP address of the instance.
-     *
-     * @example 121.40.**.**
-     *
      * @var string
      */
     public $publicIpAddress;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 2A4EA075-CB5B-41B7-B0EB-70D339F6****
-     *
      * @var string
      */
     public $requestId;

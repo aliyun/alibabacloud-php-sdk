@@ -10,44 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedInstancesResponseBody extends Model
 {
     /**
-     * @description Details about the managed instances.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 77115469-F2C5-4ECA-94F7-FA04F2FD****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of managed instances returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;

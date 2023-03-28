@@ -10,10 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair. The name must be unique. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
-     *
-     * @example testKeyPairName
-     *
      * @var string
      */
     public $keyPairName;
@@ -24,28 +20,16 @@ class ImportKeyPairRequest extends Model
     public $ownerId;
 
     /**
-     * @description The public key of the key pair.
-     *
-     * @example ABC1234567
-     *
      * @var string
      */
     public $publicKeyBody;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the key pair belongs.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -61,8 +45,6 @@ class ImportKeyPairRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags to add to the key pair.
-     *
      * @var tag[]
      */
     public $tag;

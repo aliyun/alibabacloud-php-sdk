@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * >  This parameter is returned only when the category of a subscription disk or the performance level of a subscription ESSD is modified.
+     * @example 20413515388****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID of changing the disk category.
+     *
+     * >  If you only modify the performance level of an ESSD, this parameter is not returned.
+     * @example t-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $taskId;

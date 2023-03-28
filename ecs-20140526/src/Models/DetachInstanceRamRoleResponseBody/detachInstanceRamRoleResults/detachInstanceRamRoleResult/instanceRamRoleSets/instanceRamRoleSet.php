@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceRamRoleSet extends Model
 {
     /**
-     * @description The ID of the instance from which the RAM role was detached.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the instance RAM role.
-     *
-     * @example RamRoleTest
-     *
      * @var string
      */
     public $ramRoleName;

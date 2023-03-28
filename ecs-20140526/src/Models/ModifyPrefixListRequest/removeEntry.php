@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class removeEntry extends Model
 {
     /**
-     * @description The CIDR block of entry N to be deleted from the prefix list. Valid values of N: 0 to 200.
-     *
-     * Take note of the following items when you delete the entries:
-     *
-     *   You cannot specify duplicate CIDR blocks.
-     *   The CIDR blocks cannot be the same as the `AddEntry.N.Cidr` values.
-     *
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $cidr;

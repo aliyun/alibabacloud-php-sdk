@@ -9,49 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DetachClassicLinkVpcRequest extends Model
 {
     /**
-     * @description The ID of the classic network-type instance.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region ID of the classic network-type instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC to which the instance is linked.
-     *
-     * @example vpc-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $vpcId;

@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @description The price.
-     *
      * @var price
      */
     public $price;
 
     /**
-     * @description Details about the promotion rules.
-     *
      * @var rules
      */
     public $rules;

@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ResetDisksResponseBody extends Model
 {
     /**
-     * @description The information about the rollback operations on one or more disks.
-     *
      * @var operationProgressSet
      */
     public $operationProgressSet;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3D66C85C-AA97-4A00-B0ED-2D9A80FE782C
-     *
      * @var string
      */
     public $requestId;

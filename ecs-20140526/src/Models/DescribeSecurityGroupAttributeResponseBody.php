@@ -10,74 +10,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupAttributeResponseBody extends Model
 {
     /**
-     * @description The description of the security group.
-     *
-     * @example This is description.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The access control policy of the security group. Valid values:
-     *
-     *   Accept: All instances in the security group can communicate with each other.
-     *   drop: All instances in the security group are isolated from each other.
-     *
-     * @example Accept
-     *
      * @var string
      */
     public $innerAccessPolicy;
 
     /**
-     * @description Details about the security group rules.
-     *
      * @var permissions
      */
     public $permissions;
 
     /**
-     * @description The region ID of the security group.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the destination security group.
-     *
-     * @example sg-bp1gxw6bznjjvhu3****
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The name of the destination security group.
-     *
-     * @example SecurityGroupName Sample
-     *
      * @var string
      */
     public $securityGroupName;
 
     /**
-     * @description The ID of the VPC. If a VPC ID is returned, the network type of the security group is VPC. If no VPC ID is returned, the network type of the security group is classic network.
-     *
-     * @example vpc-bp1opxu1zkhn00gzv****
-     *
      * @var string
      */
     public $vpcId;

@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacePermissionsRequest extends Model
 {
     /**
-     * @description The ID of the ENI. You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query range.
-     *
-     * @example eni-bp17pdijfczax****
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description The IDs of ENI permissions. You can specify up to 100 ENI permission IDs.
-     *
-     * @example eni-perm-bp1cs4lwn56lfb****
-     *
      * @var string[]
      */
     public $networkInterfacePermissionId;
@@ -37,30 +29,16 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
-     *
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region ID of the ENI permission. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
+namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDedicatedHostAutoReleaseTimeResponseBody extends Model
+class imageOptions extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $loginAsNonRoot;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'loginAsNonRoot' => 'LoginAsNonRoot',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class ModifyDedicatedHostAutoReleaseTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->loginAsNonRoot) {
+            $res['LoginAsNonRoot'] = $this->loginAsNonRoot;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class ModifyDedicatedHostAutoReleaseTimeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDedicatedHostAutoReleaseTimeResponseBody
+     * @return imageOptions
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['LoginAsNonRoot'])) {
+            $model->loginAsNonRoot = $map['LoginAsNonRoot'];
         }
 
         return $model;

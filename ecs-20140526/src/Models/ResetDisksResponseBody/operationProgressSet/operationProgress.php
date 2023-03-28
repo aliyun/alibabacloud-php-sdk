@@ -10,37 +10,21 @@ use AlibabaCloud\Tea\Model;
 class operationProgress extends Model
 {
     /**
-     * @description The error code that is returned if the request failed. This parameter is empty if the operation is successful.
-     *
-     * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-     * @example 400
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message that is returned if the request failed. This parameter is empty if the operation is successful.
-     *
-     * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-     * @example testErrorMsg
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Indicates whether the operation is successful. If the operation is successful, Success is returned. If the operation failed, an error code and an error message are returned.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $operationStatus;
 
     /**
-     * @description The information about the resources.
-     *
      * @var relatedItemSet
      */
     public $relatedItemSet;

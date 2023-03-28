@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudAssistantRequest extends Model
 {
     /**
+     * @description The IDs of instances. You can specify up to 50 instance IDs in a single request.
+     *
+     * @example i-bp1iudwa5b1tqa****
+     *
      * @var string[]
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class InstallCloudAssistantRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

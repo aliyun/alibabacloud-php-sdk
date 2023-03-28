@@ -9,30 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description The description of the ENI. The description must be 2 to 255 characters in length and cannot start with http:// or https://.
-     *
-     * This parameter is empty by default.
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the ENI.
-     *
-     * @example eni-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
-     *
-     * This parameter is empty by default.
-     * @example eniTestName
-     *
      * @var string
      */
     public $networkInterfaceName;
@@ -48,23 +34,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of queues per ENI. Valid values: 1 to 2048.
-     *
-     *   You can modify the number of queues supported only by the secondary ENI.
-     *   You can modify the number of queues supported by the secondary ENI only when the ENI is in the `Available` state, or the secondary ENI is bound (`InUse`) to an instance that is in the `Stopped` state.
-     *   The number of queues supported by the secondary ENI cannot exceed the maximum number of queues that the instance allows for each ENI. The total number of queues for all ENIs on the instance cannot exceed the queue quota that the instance allows. To obtain information about the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
-     *
-     * @example 8
-     *
      * @var int
      */
     public $queueNumber;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query thecurrent list of regions.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -80,9 +54,6 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The list of security group IDs. You can specify up to 5 security group IDs.
-     *
-     * >  After you modify the security group, the modification takes effect after a short delay.
      * @var string[]
      */
     public $securityGroupId;

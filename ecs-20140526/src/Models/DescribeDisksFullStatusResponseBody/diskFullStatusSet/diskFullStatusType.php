@@ -12,50 +12,31 @@ use AlibabaCloud\Tea\Model;
 class diskFullStatusType extends Model
 {
     /**
-     * @description The name of the EBS device that is attached to an instance. Example: /dev/xvdb.
-     *
-     * > This parameter will be deprecated in the future. To ensure future compatibility, we recommend that you do not use this parameter.
-     * @example null
-     *
      * @var string
      */
     public $device;
 
     /**
-     * @description The events about the EBS device.
-     *
      * @var diskEventSet
      */
     public $diskEventSet;
 
     /**
-     * @description The ID of EBS device N.
-     *
-     * @example d-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description The health status of the EBS device.
-     *
      * @var healthStatus
      */
     public $healthStatus;
 
     /**
-     * @description The ID of the instance that you query.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The lifecycle status of the EBS device.
-     *
      * @var status
      */
     public $status;

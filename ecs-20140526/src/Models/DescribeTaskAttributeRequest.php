@@ -9,40 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskAttributeRequest extends Model
 {
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region ID of the task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the task. You can call the [DescribeTasks](~~25622~~) operation to query the list of task IDs.
-     *
-     * @example t-ce946ntx4wr****
-     *
      * @var string
      */
     public $taskId;

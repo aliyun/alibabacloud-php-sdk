@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypesResponseBody extends Model
 {
     /**
-     * @description Details about the instance types.
-     *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
-     * @description The query token returned in this call.
-     *
-     * @example e71d8a535bd9cc11
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 00827261-20B7-4562-83F2-4DF39876A45A
-     *
      * @var string
      */
     public $requestId;

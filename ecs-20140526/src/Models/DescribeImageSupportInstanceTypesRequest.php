@@ -10,6 +10,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesRequest extends Model
 {
     /**
+     * @description The scenario in which the instance type is used. Default value: CreateEcs. Valid values:
+     *
+     *   CreateEcs: instance creation
+     *   Upgrade: instance type upgrade
+     *   Downgrade: instance type downgrade
+     *   RenewDowngrade: renewal and configuration downgrade
+     *
+     * @example CreateEcs
+     *
+     * @var string
+     */
+    public $actionType;
+
+    /**
      * @description The list of filters to querying resources.
      *
      * @var filter[]
@@ -49,6 +63,7 @@ class DescribeImageSupportInstanceTypesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'actionType'           => 'ActionType',
         'filter'               => 'Filter',
         'imageId'              => 'ImageId',
         'ownerId'              => 'OwnerId',
@@ -64,6 +79,9 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actionType) {
+            $res['ActionType'] = $this->actionType;
+        }
         if (null !== $this->filter) {
             $res['Filter'] = [];
             if (null !== $this->filter && \is_array($this->filter)) {
@@ -100,6 +118,9 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActionType'])) {
+            $model->actionType = $map['ActionType'];
+        }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];

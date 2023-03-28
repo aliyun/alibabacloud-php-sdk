@@ -11839,13 +11839,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The full status information of an EBS device includes the lifecycle status provided by the `Status` parameter, health status provided by the `HealthStatus` parameter, and event type provided by the `EventType` parameter of the EBS device. You can filter the results based on these parameters.
-     *   * *   The release time, scheduled execution time, and actual execution time of each EBS device event are identical. If you specify a period of time by using the `EventTime.Start` and `EventTime.End` parameters, all events that occurred within this period are queried. You can query events that occurred within the last seven days.
-     *   *
-     * @param DescribeDisksFullStatusRequest $request DescribeDisksFullStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDisksFullStatusRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeDisksFullStatusResponse DescribeDisksFullStatusResponse
+     * @return DescribeDisksFullStatusResponse
      */
     public function describeDisksFullStatusWithOptions($request, $runtime)
     {
@@ -11918,12 +11915,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The full status information of an EBS device includes the lifecycle status provided by the `Status` parameter, health status provided by the `HealthStatus` parameter, and event type provided by the `EventType` parameter of the EBS device. You can filter the results based on these parameters.
-     *   * *   The release time, scheduled execution time, and actual execution time of each EBS device event are identical. If you specify a period of time by using the `EventTime.Start` and `EventTime.End` parameters, all events that occurred within this period are queried. You can query events that occurred within the last seven days.
-     *   *
-     * @param DescribeDisksFullStatusRequest $request DescribeDisksFullStatusRequest
+     * @param DescribeDisksFullStatusRequest $request
      *
-     * @return DescribeDisksFullStatusResponse DescribeDisksFullStatusResponse
+     * @return DescribeDisksFullStatusResponse
      */
     public function describeDisksFullStatus($request)
     {
@@ -12790,12 +12784,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
-     *   *
-     * @param DescribeImagePipelinesRequest $request DescribeImagePipelinesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DescribeImagePipelinesRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeImagePipelinesResponse DescribeImagePipelinesResponse
+     * @return DescribeImagePipelinesResponse
      */
     public function describeImagePipelinesWithOptions($request, $runtime)
     {
@@ -12859,11 +12851,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
-     *   *
-     * @param DescribeImagePipelinesRequest $request DescribeImagePipelinesRequest
+     * @param DescribeImagePipelinesRequest $request
      *
-     * @return DescribeImagePipelinesResponse DescribeImagePipelinesResponse
+     * @return DescribeImagePipelinesResponse
      */
     public function describeImagePipelines($request)
     {
@@ -12946,6 +12936,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
@@ -13726,13 +13719,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * * For information about the lifecycle states of an ECS instance, see [Instance states](~~25687~~).
-     *   * * You can also call this operation to query the list of ECS instances.
-     *   *
-     * @param DescribeInstanceStatusRequest $request DescribeInstanceStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DescribeInstanceStatusRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeInstanceStatusResponse DescribeInstanceStatusResponse
+     * @return DescribeInstanceStatusResponse
      */
     public function describeInstanceStatusWithOptions($request, $runtime)
     {
@@ -13787,12 +13777,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * * For information about the lifecycle states of an ECS instance, see [Instance states](~~25687~~).
-     *   * * You can also call this operation to query the list of ECS instances.
-     *   *
-     * @param DescribeInstanceStatusRequest $request DescribeInstanceStatusRequest
+     * @param DescribeInstanceStatusRequest $request
      *
-     * @return DescribeInstanceStatusResponse DescribeInstanceStatusResponse
+     * @return DescribeInstanceStatusResponse
      */
     public function describeInstanceStatus($request)
     {
@@ -13919,17 +13906,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you call this operation, take note of the following items:
-     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
-     *   *
-     * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param DescribeInstanceTypesRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
+     * @return DescribeInstanceTypesResponse
      */
     public function describeInstanceTypesWithOptions($request, $runtime)
     {
@@ -14077,16 +14057,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you call this operation, take note of the following items:
-     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
-     *   *
-     * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
+     * @param DescribeInstanceTypesRequest $request
      *
-     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
+     * @return DescribeInstanceTypesResponse
      */
     public function describeInstanceTypes($request)
     {
@@ -14530,13 +14503,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
-     *   *
-     * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param DescribeInvocationResultsRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DescribeInvocationResultsResponse DescribeInvocationResultsResponse
+     * @return DescribeInvocationResultsResponse
      */
     public function describeInvocationResultsWithOptions($request, $runtime)
     {
@@ -14609,12 +14579,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
-     *   *
-     * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
+     * @param DescribeInvocationResultsRequest $request
      *
-     * @return DescribeInvocationResultsResponse DescribeInvocationResultsResponse
+     * @return DescribeInvocationResultsResponse
      */
     public function describeInvocationResults($request)
     {
@@ -15312,13 +15279,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The `DescribeNetworkInterfaces` operation supports multiple pagination mechanisms. We recommend that you set `MaxResults` to specify the maximum number of entries to return in each request. The returned value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *   * > If you specify `MaxResults` or `NextToken`, the system returns results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
-     *   *
-     * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param DescribeNetworkInterfacesRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DescribeNetworkInterfacesResponse DescribeNetworkInterfacesResponse
+     * @return DescribeNetworkInterfacesResponse
      */
     public function describeNetworkInterfacesWithOptions($request, $runtime)
     {
@@ -15418,12 +15382,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The `DescribeNetworkInterfaces` operation supports multiple pagination mechanisms. We recommend that you set `MaxResults` to specify the maximum number of entries to return in each request. The returned value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *   * > If you specify `MaxResults` or `NextToken`, the system returns results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
-     *   *
-     * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
+     * @param DescribeNetworkInterfacesRequest $request
      *
-     * @return DescribeNetworkInterfacesResponse DescribeNetworkInterfacesResponse
+     * @return DescribeNetworkInterfacesResponse
      */
     public function describeNetworkInterfaces($request)
     {
@@ -15714,13 +15675,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can specify the `AddressFamily`, `PrefixListId.N`, and `PrefixListName` request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   *
-     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param DescribePrefixListsRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DescribePrefixListsResponse DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse
      */
     public function describePrefixListsWithOptions($request, $runtime)
     {
@@ -15778,12 +15736,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can specify the `AddressFamily`, `PrefixListId.N`, and `PrefixListName` request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   *
-     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
+     * @param DescribePrefixListsRequest $request
      *
-     * @return DescribePrefixListsResponse DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse
      */
     public function describePrefixLists($request)
     {
@@ -15793,21 +15748,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   The required parameters vary based on the types of resources whose prices you want to query.
-     *   *     *   When the `ResourceType` parameter is set to instance, you must specify the `InstanceType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to disk, you must specify both the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When the `ResourceType` parameter is set to disk, only pay-as-you-go prices of cloud disks are returned. In this scenario, the `PriceUnit` parameter must be set to `Hour`.
-     *   *     *   When the `ResourceType` parameter is set to ddh, you must specify the `DedicatedHostType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to ElasticityAssurance, you must specify the `InstanceType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to CapacityReservation, you must specify the `InstanceType` parameter.
-     *   * *   When the `ResourceType` parameter is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) price for network usage is returned.
-     *   * *   When the `ResourceType` parameter is set to instance, the prices of up to four data disks can be queried.
-     *   * *   By default, the `ChargeType` parameter is set to `PostPaid`. You can specify the `PriceUnit` parameter to query the prices of ECS resources that have different billing cycles.
-     *   *
-     * @param DescribePriceRequest $request DescribePriceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param DescribePriceRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @return DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -15925,20 +15869,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   The required parameters vary based on the types of resources whose prices you want to query.
-     *   *     *   When the `ResourceType` parameter is set to instance, you must specify the `InstanceType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to disk, you must specify both the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When the `ResourceType` parameter is set to disk, only pay-as-you-go prices of cloud disks are returned. In this scenario, the `PriceUnit` parameter must be set to `Hour`.
-     *   *     *   When the `ResourceType` parameter is set to ddh, you must specify the `DedicatedHostType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to ElasticityAssurance, you must specify the `InstanceType` parameter.
-     *   *     *   When the `ResourceType` parameter is set to CapacityReservation, you must specify the `InstanceType` parameter.
-     *   * *   When the `ResourceType` parameter is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) price for network usage is returned.
-     *   * *   When the `ResourceType` parameter is set to instance, the prices of up to four data disks can be queried.
-     *   * *   By default, the `ChargeType` parameter is set to `PostPaid`. You can specify the `PriceUnit` parameter to query the prices of ECS resources that have different billing cycles.
-     *   *
-     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param DescribePriceRequest $request
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @return DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -16113,16 +16046,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
-     *   * *   Take note of the following items:
-     *   *     *   If you set only the required parameters, the price for renewing a specified instance for one month is queried by default.
-     *   *     *   The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the synchronized expiration date-related parameter (`ExpectedRenewDay`) are mutually exclusive. You cannot set these parameters together to query the prices for renewing a specified instance for a period of time and to a synchronized expiration date at the same time.
-     *   *
-     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DescribeRenewalPriceRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
+     * @return DescribeRenewalPriceResponse
      */
     public function describeRenewalPriceWithOptions($request, $runtime)
     {
@@ -16177,15 +16104,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
-     *   * *   Take note of the following items:
-     *   *     *   If you set only the required parameters, the price for renewing a specified instance for one month is queried by default.
-     *   *     *   The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the synchronized expiration date-related parameter (`ExpectedRenewDay`) are mutually exclusive. You cannot set these parameters together to query the prices for renewing a specified instance for a period of time and to a synchronized expiration date at the same time.
-     *   *
-     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
+     * @param DescribeRenewalPriceRequest $request
      *
-     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
+     * @return DescribeRenewalPriceResponse
      */
     public function describeRenewalPrice($request)
     {
@@ -17061,14 +16982,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can specify multiple request parameters such as `RegionId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations.
-     *   * *   Only the specified parameters are used as filter conditions. If the `DiskIds` and `SnapshotLinkIds` parameters are set to empty JSON arrays, they are regarded as valid filter conditions and an empty result is returned.
-     *   *
-     * @param DescribeSnapshotLinksRequest $request DescribeSnapshotLinksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param DescribeSnapshotLinksRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DescribeSnapshotLinksResponse DescribeSnapshotLinksResponse
+     * @return DescribeSnapshotLinksResponse
      */
     public function describeSnapshotLinksWithOptions($request, $runtime)
     {
@@ -17123,13 +17040,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can specify multiple request parameters such as `RegionId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations.
-     *   * *   Only the specified parameters are used as filter conditions. If the `DiskIds` and `SnapshotLinkIds` parameters are set to empty JSON arrays, they are regarded as valid filter conditions and an empty result is returned.
-     *   *
-     * @param DescribeSnapshotLinksRequest $request DescribeSnapshotLinksRequest
+     * @param DescribeSnapshotLinksRequest $request
      *
-     * @return DescribeSnapshotLinksResponse DescribeSnapshotLinksResponse
+     * @return DescribeSnapshotLinksResponse
      */
     public function describeSnapshotLinks($request)
     {
@@ -17875,12 +17788,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If a tag key is specified and no tag values are specified, all tags that contain the tag key are returned. If a tag key-value pair is specified, only tags that exactly match the key-value pair are returned.
-     *   *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @return DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -17935,11 +17846,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If a tag key is specified and no tag values are specified, all tags that contain the tag key are returned. If a tag key-value pair is specified, only tags that exactly match the key-value pair are returned.
-     *   *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param DescribeTagsRequest $request
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @return DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -18843,14 +18752,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   After you detach an SSH key pair from an instance, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the detach operation to take effect.
-     *   * *   The username and password authentication method is automatically selected for an instance after you unbind an SSH key pair from the instance.
-     *   *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param DetachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPairWithOptions($request, $runtime)
     {
@@ -18893,13 +18798,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   After you detach an SSH key pair from an instance, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the detach operation to take effect.
-     *   * *   The username and password authentication method is automatically selected for an instance after you unbind an SSH key pair from the instance.
-     *   *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     * @param DetachKeyPairRequest $request
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPair($request)
     {
@@ -18909,22 +18810,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you call this operation, take note of the following items:
-     *   * *   Primary ENIs cannot be detached from ECS instances.
-     *   * *   The ENI must be in the Detaching (Detaching) or InUse (InUse) state.
-     *   * *   The instance must be in the Running (Running) or Stopped (Stopped) state.
-     *   * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state or events of the ENI to determine whether the ENI is detached. The following figure shows the transitions between the states of the ENI.
-     *   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/uemr/DetachNetworkInterface.png)
-     *   *     *   If the ENI is in the Detaching state, the ENI detachment request is sent and the ENI is being detached from its associated instance.
-     *   *     *   If the ENI is in the Available state, the ENI is detached from its associated instance.
-     *   *     *   If the ENI is stuck in the Detaching state, the ENI may fail to be detached from the associated instance due to specific reasons. For example, the ENI may fail to be detached because the operating system did not respond to the ENI detachment request. If this occurs, you can re-initiate the request to detach the ENI. If the problem persists, restart the instance.
-     *   * **For information about examples on how to call this operation, see **[Detach an ENI](~~471551~~).
-     *   *
-     * @param DetachNetworkInterfaceRequest $request DetachNetworkInterfaceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DetachNetworkInterfaceRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DetachNetworkInterfaceResponse DetachNetworkInterfaceResponse
+     * @return DetachNetworkInterfaceResponse
      */
     public function detachNetworkInterfaceWithOptions($request, $runtime)
     {
@@ -18976,21 +18865,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you call this operation, take note of the following items:
-     *   * *   Primary ENIs cannot be detached from ECS instances.
-     *   * *   The ENI must be in the Detaching (Detaching) or InUse (InUse) state.
-     *   * *   The instance must be in the Running (Running) or Stopped (Stopped) state.
-     *   * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state or events of the ENI to determine whether the ENI is detached. The following figure shows the transitions between the states of the ENI.
-     *   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/uemr/DetachNetworkInterface.png)
-     *   *     *   If the ENI is in the Detaching state, the ENI detachment request is sent and the ENI is being detached from its associated instance.
-     *   *     *   If the ENI is in the Available state, the ENI is detached from its associated instance.
-     *   *     *   If the ENI is stuck in the Detaching state, the ENI may fail to be detached from the associated instance due to specific reasons. For example, the ENI may fail to be detached because the operating system did not respond to the ENI detachment request. If this occurs, you can re-initiate the request to detach the ENI. If the problem persists, restart the instance.
-     *   * **For information about examples on how to call this operation, see **[Detach an ENI](~~471551~~).
-     *   *
-     * @param DetachNetworkInterfaceRequest $request DetachNetworkInterfaceRequest
+     * @param DetachNetworkInterfaceRequest $request
      *
-     * @return DetachNetworkInterfaceResponse DetachNetworkInterfaceResponse
+     * @return DetachNetworkInterfaceResponse
      */
     public function detachNetworkInterface($request)
     {
@@ -19000,13 +18877,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
-     *   *
-     * @param DisableActivationRequest $request DisableActivationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DisableActivationRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DisableActivationResponse DisableActivationResponse
+     * @return DisableActivationResponse
      */
     public function disableActivationWithOptions($request, $runtime)
     {
@@ -19052,12 +18926,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
-     *   *
-     * @param DisableActivationRequest $request DisableActivationRequest
+     * @param DisableActivationRequest $request
      *
-     * @return DisableActivationResponse DisableActivationResponse
+     * @return DisableActivationResponse
      */
     public function disableActivation($request)
     {
@@ -19564,14 +19435,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   ECS is a virtualized cloud-based service and cannot be connected to display devices. However, Alibaba Cloud caches system command outputs for the last start, restart, or shutdown of ECS instances. You can call the GetInstanceConsoleOutput operation to obtain the command outputs.
-     *   * *   The command outputs of instances that use the retired instance types cannot be obtained. For more information, see [Retired instance types](~~55263~~).
-     *   * *   The command outputs of Windows instances cannot be obtained.
-     *   *
-     * @param GetInstanceConsoleOutputRequest $request GetInstanceConsoleOutputRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param GetInstanceConsoleOutputRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return GetInstanceConsoleOutputResponse GetInstanceConsoleOutputResponse
+     * @return GetInstanceConsoleOutputResponse
      */
     public function getInstanceConsoleOutputWithOptions($request, $runtime)
     {
@@ -19620,13 +19487,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   ECS is a virtualized cloud-based service and cannot be connected to display devices. However, Alibaba Cloud caches system command outputs for the last start, restart, or shutdown of ECS instances. You can call the GetInstanceConsoleOutput operation to obtain the command outputs.
-     *   * *   The command outputs of instances that use the retired instance types cannot be obtained. For more information, see [Retired instance types](~~55263~~).
-     *   * *   The command outputs of Windows instances cannot be obtained.
-     *   *
-     * @param GetInstanceConsoleOutputRequest $request GetInstanceConsoleOutputRequest
+     * @param GetInstanceConsoleOutputRequest $request
      *
-     * @return GetInstanceConsoleOutputResponse GetInstanceConsoleOutputResponse
+     * @return GetInstanceConsoleOutputResponse
      */
     public function getInstanceConsoleOutput($request)
     {
@@ -19636,15 +19499,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ECS returns an instance screenshot that is in the JPG format and encoded in Base64. You must manually decode the screenshot. We recommend that you call this operation for troubleshooting and diagnosis. When you call this operation, take note of the following items:
-     *   * *   The instance must be in the Running state.
-     *   * *   You cannot obtain screenshots of instances whose instance types have been retired. For more information, see [Retired instance types](~~55263~~).
-     *   * *   If you want to call this operation on the same instance multiple times, you must wait at least 10 seconds between each call. Otherwise, the `Throttling` error code is returned.
-     *   *
-     * @param GetInstanceScreenshotRequest $request GetInstanceScreenshotRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param GetInstanceScreenshotRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return GetInstanceScreenshotResponse GetInstanceScreenshotResponse
+     * @return GetInstanceScreenshotResponse
      */
     public function getInstanceScreenshotWithOptions($request, $runtime)
     {
@@ -19693,14 +19551,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ECS returns an instance screenshot that is in the JPG format and encoded in Base64. You must manually decode the screenshot. We recommend that you call this operation for troubleshooting and diagnosis. When you call this operation, take note of the following items:
-     *   * *   The instance must be in the Running state.
-     *   * *   You cannot obtain screenshots of instances whose instance types have been retired. For more information, see [Retired instance types](~~55263~~).
-     *   * *   If you want to call this operation on the same instance multiple times, you must wait at least 10 seconds between each call. Otherwise, the `Throttling` error code is returned.
-     *   *
-     * @param GetInstanceScreenshotRequest $request GetInstanceScreenshotRequest
+     * @param GetInstanceScreenshotRequest $request
      *
-     * @return GetInstanceScreenshotResponse GetInstanceScreenshotResponse
+     * @return GetInstanceScreenshotResponse
      */
     public function getInstanceScreenshot($request)
     {
@@ -19900,26 +19753,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * * A maximum of 500 key pairs can be created in each region.
-     *   * * The key pair that you wan to import must support one of the following encryption methods:
-     *   *     * rsa
-     *   *     * dsa
-     *   *     * ssh-rsa
-     *   *     * ssh-dss
-     *   *     * ecdsa
-     *   *     * ssh-rsa-cert-v00@openssh.com
-     *   *     * ssh-dss-cert-v00@openssh.com
-     *   *     * ssh-rsa-cert-v01@openssh.com
-     *   *     * ssh-dss-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp256-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp384-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp521-cert-v01@openssh.com.
-     *   *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param ImportKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @return ImportKeyPairResponse
      */
     public function importKeyPairWithOptions($request, $runtime)
     {
@@ -19968,25 +19805,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * * A maximum of 500 key pairs can be created in each region.
-     *   * * The key pair that you wan to import must support one of the following encryption methods:
-     *   *     * rsa
-     *   *     * dsa
-     *   *     * ssh-rsa
-     *   *     * ssh-dss
-     *   *     * ecdsa
-     *   *     * ssh-rsa-cert-v00@openssh.com
-     *   *     * ssh-dss-cert-v00@openssh.com
-     *   *     * ssh-rsa-cert-v01@openssh.com
-     *   *     * ssh-dss-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp256-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp384-cert-v01@openssh.com
-     *   *     * ecdsa-sha2-nistp521-cert-v01@openssh.com.
-     *   *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * @param ImportKeyPairRequest $request
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @return ImportKeyPairResponse
      */
     public function importKeyPair($request)
     {
@@ -20068,10 +19889,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudAssistantRequest $request
-     * @param RuntimeOptions               $runtime
+     * After you call the InstallCloudAssistant operation and then the [RebootInstance](~~25502~~) operation, the Cloud Assistant client is installed and takes effect.
+     *   *
+     * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallCloudAssistantResponse
+     * @return InstallCloudAssistantResponse InstallCloudAssistantResponse
      */
     public function installCloudAssistantWithOptions($request, $runtime)
     {
@@ -20117,9 +19940,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudAssistantRequest $request
+     * After you call the InstallCloudAssistant operation and then the [RebootInstance](~~25502~~) operation, the Cloud Assistant client is installed and takes effect.
+     *   *
+     * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
      *
-     * @return InstallCloudAssistantResponse
+     * @return InstallCloudAssistantResponse InstallCloudAssistantResponse
      */
     public function installCloudAssistant($request)
     {
@@ -20129,25 +19954,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements to run the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-     *   *     *   The network type is virtual private cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-     *   *     *   The instances are in the Running (`Running`) state.
-     *   *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-     *   *     *   Before you run PowerShell commands, make sure that the PowerShell module is configured for the instances.
-     *   * *   If you set the `Timed` parameter to false, the command is run only once.
-     *   * *   If you set the `Timed` parameter to true, the command is run on a schedule.
-     *   *     *   The schedule is specified by the `Frequency` parameter. The execution results of a command do not affect the next command execution.
-     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following versions. A scheduled task can run a command at a specified interval, only once at a specified time, or at specific times based on a cron expression that includes a specific year or time zone. If the `ClientNeedUpgrade` error code is returned, you must update the Cloud Assistant client to the latest version. For more information, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
-     *   *           - Linux: 2.2.3.282
-     *   *           - Windows: 2.1.3.282
-     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-     *   * *   If you enable the custom parameter feature by setting the EnableParameter parameter to true when you create a command, you must specify custom parameters (`Parameters`) when you run the command.
-     *   *
-     * @param InvokeCommandRequest $tmpReq  InvokeCommandRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param InvokeCommandRequest $tmpReq
+     * @param RuntimeOptions       $runtime
      *
-     * @return InvokeCommandResponse InvokeCommandResponse
+     * @return InvokeCommandResponse
      */
     public function invokeCommandWithOptions($tmpReq, $runtime)
     {
@@ -20234,24 +20044,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements to run the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-     *   *     *   The network type is virtual private cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-     *   *     *   The instances are in the Running (`Running`) state.
-     *   *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-     *   *     *   Before you run PowerShell commands, make sure that the PowerShell module is configured for the instances.
-     *   * *   If you set the `Timed` parameter to false, the command is run only once.
-     *   * *   If you set the `Timed` parameter to true, the command is run on a schedule.
-     *   *     *   The schedule is specified by the `Frequency` parameter. The execution results of a command do not affect the next command execution.
-     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following versions. A scheduled task can run a command at a specified interval, only once at a specified time, or at specific times based on a cron expression that includes a specific year or time zone. If the `ClientNeedUpgrade` error code is returned, you must update the Cloud Assistant client to the latest version. For more information, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
-     *   *           - Linux: 2.2.3.282
-     *   *           - Windows: 2.1.3.282
-     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-     *   * *   If you enable the custom parameter feature by setting the EnableParameter parameter to true when you create a command, you must specify custom parameters (`Parameters`) when you run the command.
-     *   *
-     * @param InvokeCommandRequest $request InvokeCommandRequest
+     * @param InvokeCommandRequest $request
      *
-     * @return InvokeCommandResponse InvokeCommandResponse
+     * @return InvokeCommandResponse
      */
     public function invokeCommand($request)
     {
@@ -20261,12 +20056,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * A resource is a cloud service entity that you create in Alibaba Cloud, such as an ECS instance, elastic network interface (ENI), or image. A resource group is a collection of infrastructure for projects, environments, or stacks. In a resource group, you can manage resources and monitor and run tasks in a centralized manner without switching between Alibaba Cloud services.
-     *   *
-     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param JoinResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return JoinResourceGroupResponse JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse
      */
     public function joinResourceGroupWithOptions($request, $runtime)
     {
@@ -20315,11 +20108,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * A resource is a cloud service entity that you create in Alibaba Cloud, such as an ECS instance, elastic network interface (ENI), or image. A resource group is a collection of infrastructure for projects, environments, or stacks. In a resource group, you can manage resources and monitor and run tasks in a centralized manner without switching between Alibaba Cloud services.
-     *   *
-     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
+     * @param JoinResourceGroupRequest $request
      *
-     * @return JoinResourceGroupResponse JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse
      */
     public function joinResourceGroup($request)
     {
@@ -20329,21 +20120,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](~~25503~~) operation to add instances to or remove instances from a security group, and call the [ModifyNetworkInterfaceAttribute](~~58513~~) operation to add ENIs to or remove ENIs from a security group.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
-     *   * *   An instance can be added to up to five security groups.
-     *   * *   To add an instance to more security groups, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm). An instance can be added to up to 16 security groups.
-     *   * *
-     *   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
-     *   * *   The security group and the instance must belong to the same region.
-     *   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must be in the same VPC.
-     *   * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify the `InstanceId` and `NetworkInterfaceId` parameters at the same time.
-     *   *
-     * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param JoinSecurityGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return JoinSecurityGroupResponse JoinSecurityGroupResponse
+     * @return JoinSecurityGroupResponse
      */
     public function joinSecurityGroupWithOptions($request, $runtime)
     {
@@ -20392,20 +20172,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](~~25503~~) operation to add instances to or remove instances from a security group, and call the [ModifyNetworkInterfaceAttribute](~~58513~~) operation to add ENIs to or remove ENIs from a security group.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
-     *   * *   An instance can be added to up to five security groups.
-     *   * *   To add an instance to more security groups, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm). An instance can be added to up to 16 security groups.
-     *   * *
-     *   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
-     *   * *   The security group and the instance must belong to the same region.
-     *   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must be in the same VPC.
-     *   * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify the `InstanceId` and `NetworkInterfaceId` parameters at the same time.
-     *   *
-     * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
+     * @param JoinSecurityGroupRequest $request
      *
-     * @return JoinSecurityGroupResponse JoinSecurityGroupResponse
+     * @return JoinSecurityGroupResponse
      */
     public function joinSecurityGroup($request)
     {
@@ -20491,14 +20260,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-     *   * - 2.2.3.344 for Linux instances
-     *   * - 2.1.3.344 for Windows instances.
-     *   *
-     * @param ListPluginStatusRequest $request ListPluginStatusRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ListPluginStatusRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListPluginStatusResponse ListPluginStatusResponse
+     * @return ListPluginStatusResponse
      */
     public function listPluginStatusWithOptions($request, $runtime)
     {
@@ -20553,13 +20318,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-     *   * - 2.2.3.344 for Linux instances
-     *   * - 2.1.3.344 for Windows instances.
-     *   *
-     * @param ListPluginStatusRequest $request ListPluginStatusRequest
+     * @param ListPluginStatusRequest $request
      *
-     * @return ListPluginStatusResponse ListPluginStatusResponse
+     * @return ListPluginStatusResponse
      */
     public function listPluginStatus($request)
     {
@@ -20569,18 +20330,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     *   * *   `ResourceId.N`
-     *   * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
-     *   * *   `TagFilter.N`
-     *   * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all of the specified filter conditions are returned:
-     *   * *   Set 1: `Tag.N.Key, Tag.N.Value`, and `ResourceId.N`
-     *   * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N`, and `ResourceId.N`.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -20638,17 +20391,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     *   * *   `ResourceId.N`
-     *   * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
-     *   * *   `TagFilter.N`
-     *   * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all of the specified filter conditions are returned:
-     *   * *   Set 1: `Tag.N.Key, Tag.N.Value`, and `ResourceId.N`
-     *   * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N`, and `ResourceId.N`.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param ListTagResourcesRequest $request
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -20658,14 +20403,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If you modify the capacity or capacity-related settings of an auto provisioning group, the group executes the scheduling task once after the modification.
-     *   * *   You cannot modify an auto provisioning group when the group is being deleted.
-     *   *
-     * @param ModifyAutoProvisioningGroupRequest $request ModifyAutoProvisioningGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param ModifyAutoProvisioningGroupRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyAutoProvisioningGroupResponse ModifyAutoProvisioningGroupResponse
+     * @return ModifyAutoProvisioningGroupResponse
      */
     public function modifyAutoProvisioningGroupWithOptions($request, $runtime)
     {
@@ -20735,13 +20476,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If you modify the capacity or capacity-related settings of an auto provisioning group, the group executes the scheduling task once after the modification.
-     *   * *   You cannot modify an auto provisioning group when the group is being deleted.
-     *   *
-     * @param ModifyAutoProvisioningGroupRequest $request ModifyAutoProvisioningGroupRequest
+     * @param ModifyAutoProvisioningGroupRequest $request
      *
-     * @return ModifyAutoProvisioningGroupResponse ModifyAutoProvisioningGroupResponse
+     * @return ModifyAutoProvisioningGroupResponse
      */
     public function modifyAutoProvisioningGroup($request)
     {
@@ -21056,13 +20793,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can modify a command when it is being executed. After the command is modified, the new command content applies to subsequent executions.
-     *   * You cannot modify the command type. For example, you cannot change a shell command (RunShellScript) to a batch command (RunBatScript).
-     *   *
-     * @param ModifyCommandRequest $request ModifyCommandRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param ModifyCommandRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return ModifyCommandResponse ModifyCommandResponse
+     * @return ModifyCommandResponse
      */
     public function modifyCommandWithOptions($request, $runtime)
     {
@@ -21123,12 +20857,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can modify a command when it is being executed. After the command is modified, the new command content applies to subsequent executions.
-     *   * You cannot modify the command type. For example, you cannot change a shell command (RunShellScript) to a batch command (RunBatScript).
-     *   *
-     * @param ModifyCommandRequest $request ModifyCommandRequest
+     * @param ModifyCommandRequest $request
      *
-     * @return ModifyCommandResponse ModifyCommandResponse
+     * @return ModifyCommandResponse
      */
     public function modifyCommand($request)
     {
@@ -21138,14 +20869,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
-     *   * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
-     *   *
-     * @param ModifyDedicatedHostAttributeRequest $request ModifyDedicatedHostAttributeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param ModifyDedicatedHostAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return ModifyDedicatedHostAttributeResponse ModifyDedicatedHostAttributeResponse
+     * @return ModifyDedicatedHostAttributeResponse
      */
     public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
     {
@@ -21209,13 +20936,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
-     *   * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
-     *   *
-     * @param ModifyDedicatedHostAttributeRequest $request ModifyDedicatedHostAttributeRequest
+     * @param ModifyDedicatedHostAttributeRequest $request
      *
-     * @return ModifyDedicatedHostAttributeResponse ModifyDedicatedHostAttributeResponse
+     * @return ModifyDedicatedHostAttributeResponse
      */
     public function modifyDedicatedHostAttribute($request)
     {
@@ -21225,12 +20948,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The pay-as-you-go dedicated host is automatically released at the specified time. Make sure that the dedicated host is no longer needed and that its data is backed up.
-     *   *
-     * @param ModifyDedicatedHostAutoReleaseTimeRequest $request ModifyDedicatedHostAutoReleaseTimeRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param ModifyDedicatedHostAutoReleaseTimeRequest $request
+     * @param RuntimeOptions                            $runtime
      *
-     * @return ModifyDedicatedHostAutoReleaseTimeResponse ModifyDedicatedHostAutoReleaseTimeResponse
+     * @return ModifyDedicatedHostAutoReleaseTimeResponse
      */
     public function modifyDedicatedHostAutoReleaseTimeWithOptions($request, $runtime)
     {
@@ -21276,11 +20997,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The pay-as-you-go dedicated host is automatically released at the specified time. Make sure that the dedicated host is no longer needed and that its data is backed up.
-     *   *
-     * @param ModifyDedicatedHostAutoReleaseTimeRequest $request ModifyDedicatedHostAutoReleaseTimeRequest
+     * @param ModifyDedicatedHostAutoReleaseTimeRequest $request
      *
-     * @return ModifyDedicatedHostAutoReleaseTimeResponse ModifyDedicatedHostAutoReleaseTimeResponse
+     * @return ModifyDedicatedHostAutoReleaseTimeResponse
      */
     public function modifyDedicatedHostAutoReleaseTime($request)
     {
@@ -21290,14 +21009,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   If you enable auto-renewal for your subscription dedicated host, the dedicated host is automatically renewed nine days before expiration. The renewal fees are automatically paid at 08:00:00 (UTC+8). If the fees are not paid, they are paid at the same point in time the next day. Automatic payment stops after the fees are paid or after the dedicated host expires and is locked. Make sure that you have sufficient balance within your account.
-     *   * *   Subscription dedicated hosts can be automatically renewed along with the subscription Elastic Compute Service (ECS) instances hosted on the dedicated hosts. For more information, see the description of the AutoRenewWithEcs parameter.
-     *   *
-     * @param ModifyDedicatedHostAutoRenewAttributeRequest $request ModifyDedicatedHostAutoRenewAttributeRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * @param ModifyDedicatedHostAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
      *
-     * @return ModifyDedicatedHostAutoRenewAttributeResponse ModifyDedicatedHostAutoRenewAttributeResponse
+     * @return ModifyDedicatedHostAutoRenewAttributeResponse
      */
     public function modifyDedicatedHostAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -21355,13 +21070,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   If you enable auto-renewal for your subscription dedicated host, the dedicated host is automatically renewed nine days before expiration. The renewal fees are automatically paid at 08:00:00 (UTC+8). If the fees are not paid, they are paid at the same point in time the next day. Automatic payment stops after the fees are paid or after the dedicated host expires and is locked. Make sure that you have sufficient balance within your account.
-     *   * *   Subscription dedicated hosts can be automatically renewed along with the subscription Elastic Compute Service (ECS) instances hosted on the dedicated hosts. For more information, see the description of the AutoRenewWithEcs parameter.
-     *   *
-     * @param ModifyDedicatedHostAutoRenewAttributeRequest $request ModifyDedicatedHostAutoRenewAttributeRequest
+     * @param ModifyDedicatedHostAutoRenewAttributeRequest $request
      *
-     * @return ModifyDedicatedHostAutoRenewAttributeResponse ModifyDedicatedHostAutoRenewAttributeResponse
+     * @return ModifyDedicatedHostAutoRenewAttributeResponse
      */
     public function modifyDedicatedHostAutoRenewAttribute($request)
     {
@@ -21514,10 +21225,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDemandRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can call this operation to modify the demand information about instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
+     *   * > This operation is in internal preview and has not been officially released. We recommend that you do not use this operation.
+     *   *
+     * @param ModifyDemandRequest $request ModifyDemandRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDemandResponse
+     * @return ModifyDemandResponse ModifyDemandResponse
      */
     public function modifyDemandWithOptions($request, $runtime)
     {
@@ -21593,9 +21307,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDemandRequest $request
+     * You can call this operation to modify the demand information about instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
+     *   * > This operation is in internal preview and has not been officially released. We recommend that you do not use this operation.
+     *   *
+     * @param ModifyDemandRequest $request ModifyDemandRequest
      *
-     * @return ModifyDemandResponse
+     * @return ModifyDemandResponse ModifyDemandResponse
      */
     public function modifyDemand($request)
     {
@@ -21812,20 +21529,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * After you change the billing method, the payment (if any) is automatically completed. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
-     *   * When you call this operation, take note of the following items:
-     *   * *   You can change the billing method from subscription to pay-as-you-go for disks that are attached to a subscription instance.
-     *   * *   You can change the billing method from pay-as-you-go to subscription for data disks that are attached to a subscription or pay-as-you-go instance.
-     *   * *   The instance cannot be in the Stopped state due to overdue payments.
-     *   * *   You can change the billing method of each disk up to three times. Up to three refunds can be made for the price differences for each disk.
-     *   * *   The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   * *   You cannot change the billing method again within 5 minutes of a successful change.
-     *   * *   The billing method of disks with the multi-attach feature enabled must be pay-as-you-go and cannot be changed to subscription.
-     *   *
-     * @param ModifyDiskChargeTypeRequest $request ModifyDiskChargeTypeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param ModifyDiskChargeTypeRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ModifyDiskChargeTypeResponse ModifyDiskChargeTypeResponse
+     * @return ModifyDiskChargeTypeResponse
      */
     public function modifyDiskChargeTypeWithOptions($request, $runtime)
     {
@@ -21880,19 +21587,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * After you change the billing method, the payment (if any) is automatically completed. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
-     *   * When you call this operation, take note of the following items:
-     *   * *   You can change the billing method from subscription to pay-as-you-go for disks that are attached to a subscription instance.
-     *   * *   You can change the billing method from pay-as-you-go to subscription for data disks that are attached to a subscription or pay-as-you-go instance.
-     *   * *   The instance cannot be in the Stopped state due to overdue payments.
-     *   * *   You can change the billing method of each disk up to three times. Up to three refunds can be made for the price differences for each disk.
-     *   * *   The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   * *   You cannot change the billing method again within 5 minutes of a successful change.
-     *   * *   The billing method of disks with the multi-attach feature enabled must be pay-as-you-go and cannot be changed to subscription.
-     *   *
-     * @param ModifyDiskChargeTypeRequest $request ModifyDiskChargeTypeRequest
+     * @param ModifyDiskChargeTypeRequest $request
      *
-     * @return ModifyDiskChargeTypeResponse ModifyDiskChargeTypeResponse
+     * @return ModifyDiskChargeTypeResponse
      */
     public function modifyDiskChargeType($request)
     {
@@ -21902,10 +21599,21 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDiskSpecRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## Description
+     *   * When you call this operation, take note of the following items:
+     *   * *   To modify the performance level of an ESSD, take note of the following items:
+     *   *     *   For a subscription ESSD, you can only upgrade its performance level.
+     *   *     *   For a pay-as-you-go ESSD, You can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
+     *   *     *   The ESSD must be in the **In Use** (In_Use) or **Unattached** (Available) state.
+     *   *     *   If the ESSD is attached to an ECS instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be in the Expired state or stopped due to an overdue payment.
+     *   *     *   If you cannot upgrade the performance level of the ESSD due to its capacity, resize the ESSD by calling the [ResizeDisk](~~25522~~) operation and then try again. For more information, see [Enhanced SSDs](~~122389~~).
+     *   * *   For more information about the limits on changing the category of a disk, see the "Limits" section of the [Change the category of a disk](~~161980~~) topic.
+     *   * The new disk category or performance level takes effect immediately after this operation is executed. Alibaba Cloud calculates the bill based on the new disk category and performance level.
+     *   *
+     * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDiskSpecResponse
+     * @return ModifyDiskSpecResponse ModifyDiskSpecResponse
      */
     public function modifyDiskSpecWithOptions($request, $runtime)
     {
@@ -21957,9 +21665,20 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDiskSpecRequest $request
+     * ## Description
+     *   * When you call this operation, take note of the following items:
+     *   * *   To modify the performance level of an ESSD, take note of the following items:
+     *   *     *   For a subscription ESSD, you can only upgrade its performance level.
+     *   *     *   For a pay-as-you-go ESSD, You can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
+     *   *     *   The ESSD must be in the **In Use** (In_Use) or **Unattached** (Available) state.
+     *   *     *   If the ESSD is attached to an ECS instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be in the Expired state or stopped due to an overdue payment.
+     *   *     *   If you cannot upgrade the performance level of the ESSD due to its capacity, resize the ESSD by calling the [ResizeDisk](~~25522~~) operation and then try again. For more information, see [Enhanced SSDs](~~122389~~).
+     *   * *   For more information about the limits on changing the category of a disk, see the "Limits" section of the [Change the category of a disk](~~161980~~) topic.
+     *   * The new disk category or performance level takes effect immediately after this operation is executed. Alibaba Cloud calculates the bill based on the new disk category and performance level.
+     *   *
+     * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
      *
-     * @return ModifyDiskSpecResponse
+     * @return ModifyDiskSpecResponse ModifyDiskSpecResponse
      */
     public function modifyDiskSpec($request)
     {
@@ -22631,28 +22350,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons and all operations are prohibited on it.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Modify the hostname (`HostName`): After the hostname is modified, you must restart the instance by performing the operations described in [Restart an instance](~~25440~~) in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. The new hostname does not take effect if you restart the instance from within the operating system.
-     *   * *   Reset the password (`Password`):
-     *   *     *   The instance must not be in the **Starting** (`Starting`) state.
-     *   *     *   After the password is reset, you must restart the instance by performing the operations described in [Restart an instance](~~25440~~) in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. The new password does not take effect if you restart the instance from within the operating system.
-     *   * *   Modify user data (`UserData`):
-     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *   *     *   The instance must meet the conditions on user data. For more information, see [Overview of ECS instance user data](~~49121~~).
-     *   * *   Change the security group (`SecurityGroupIds.N`):
-     *   *     *   You can move an instance to a security group of a different type. Before you move an instance to a security group of a different type, we recommend that you evaluate the differences in rule configurations of the two security group types. This helps prevent business continuity issues when you switch security groups.
-     *   *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of the `SecurityGroupIds.N` parameter.
-     *   * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-     *   *     *   The instance must be in the Stopped (`Stopped`) state.
-     *   *     *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the instance type.
-     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-     *   *     *   If you set the NetworkInterfaceQueueNumber parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
-     *   *
-     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param ModifyInstanceAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
@@ -22728,27 +22429,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons and all operations are prohibited on it.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Modify the hostname (`HostName`): After the hostname is modified, you must restart the instance by performing the operations described in [Restart an instance](~~25440~~) in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. The new hostname does not take effect if you restart the instance from within the operating system.
-     *   * *   Reset the password (`Password`):
-     *   *     *   The instance must not be in the **Starting** (`Starting`) state.
-     *   *     *   After the password is reset, you must restart the instance by performing the operations described in [Restart an instance](~~25440~~) in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. The new password does not take effect if you restart the instance from within the operating system.
-     *   * *   Modify user data (`UserData`):
-     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *   *     *   The instance must meet the conditions on user data. For more information, see [Overview of ECS instance user data](~~49121~~).
-     *   * *   Change the security group (`SecurityGroupIds.N`):
-     *   *     *   You can move an instance to a security group of a different type. Before you move an instance to a security group of a different type, we recommend that you evaluate the differences in rule configurations of the two security group types. This helps prevent business continuity issues when you switch security groups.
-     *   *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of the `SecurityGroupIds.N` parameter.
-     *   * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-     *   *     *   The instance must be in the Stopped (`Stopped`) state.
-     *   *     *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the instance type.
-     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-     *   *     *   If you set the NetworkInterfaceQueueNumber parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
-     *   *
-     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
+     * @param ModifyInstanceAttributeRequest $request
      *
-     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -22899,22 +22582,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-     *   * When you call this operation, take note of the following items:
-     *   * * The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you have no overdue payments for them.
-     *   * * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the `AutoPay` parameter to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
-     *   * * **Change the billing method from subscription to pay-as-you-go**:
-     *   *     * Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
-     *   *     * After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   *     * **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only when the next month arrives. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
-     *   * * **Change the billing method from pay-as-you-go to subscription**:
-     *   *     * You can change the billing method of all data disks attached to an instance from pay-as-you-go to subscription.
-     *   *     * This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
-     *   *
-     * @param ModifyInstanceChargeTypeRequest $request ModifyInstanceChargeTypeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param ModifyInstanceChargeTypeRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
+     * @return ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeTypeWithOptions($request, $runtime)
     {
@@ -22981,21 +22652,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-     *   * When you call this operation, take note of the following items:
-     *   * * The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you have no overdue payments for them.
-     *   * * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the `AutoPay` parameter to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
-     *   * * **Change the billing method from subscription to pay-as-you-go**:
-     *   *     * Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
-     *   *     * After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   *     * **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only when the next month arrives. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
-     *   * * **Change the billing method from pay-as-you-go to subscription**:
-     *   *     * You can change the billing method of all data disks attached to an instance from pay-as-you-go to subscription.
-     *   *     * This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
-     *   *
-     * @param ModifyInstanceChargeTypeRequest $request ModifyInstanceChargeTypeRequest
+     * @param ModifyInstanceChargeTypeRequest $request
      *
-     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
+     * @return ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeType($request)
     {
@@ -23109,14 +22768,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * This operation is used to modify the maintenance policy of an instance. The maintenance policy consists of the following maintenance attributes:
-     *   * *   Maintenance window: the time period that you specify for maintenance.
-     *   * *   Maintenance action: the action that you specify in response to instance shutdown.
-     *   *
-     * @param ModifyInstanceMaintenanceAttributesRequest $request ModifyInstanceMaintenanceAttributesRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @param ModifyInstanceMaintenanceAttributesRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return ModifyInstanceMaintenanceAttributesResponse ModifyInstanceMaintenanceAttributesResponse
+     * @return ModifyInstanceMaintenanceAttributesResponse
      */
     public function modifyInstanceMaintenanceAttributesWithOptions($request, $runtime)
     {
@@ -23168,13 +22823,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * This operation is used to modify the maintenance policy of an instance. The maintenance policy consists of the following maintenance attributes:
-     *   * *   Maintenance window: the time period that you specify for maintenance.
-     *   * *   Maintenance action: the action that you specify in response to instance shutdown.
-     *   *
-     * @param ModifyInstanceMaintenanceAttributesRequest $request ModifyInstanceMaintenanceAttributesRequest
+     * @param ModifyInstanceMaintenanceAttributesRequest $request
      *
-     * @return ModifyInstanceMaintenanceAttributesResponse ModifyInstanceMaintenanceAttributesResponse
+     * @return ModifyInstanceMaintenanceAttributesResponse
      */
     public function modifyInstanceMaintenanceAttributes($request)
     {
@@ -23353,23 +23004,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, visit the [Elastic Compute Service](https://www.aliyun.com/price/product#/ecs/detail) product page.
-     *   * For information about ECS SDK for Python used to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following items:
-     *   * *   You must have no overdue payments in your account.
-     *   * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     *   * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
-     *   * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-     *   * *   The instance type and the public bandwidth of an instance cannot be changed together.
-     *   * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to throttling policies for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
-     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
-     *   *
-     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param ModifyInstanceSpecRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
@@ -23433,22 +23071,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, visit the [Elastic Compute Service](https://www.aliyun.com/price/product#/ecs/detail) product page.
-     *   * For information about ECS SDK for Python used to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following items:
-     *   * *   You must have no overdue payments in your account.
-     *   * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     *   * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
-     *   * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-     *   * *   The instance type and the public bandwidth of an instance cannot be changed together.
-     *   * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to throttling policies for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
-     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
-     *   *
-     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
+     * @param ModifyInstanceSpecRequest $request
      *
-     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpec($request)
     {
@@ -23952,18 +23577,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#section-jua-0tj-q5m) section in Network FAQ.
-     *   * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
-     *   *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. These two CIDR blocks are the same.
-     *   *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. These two CIDR blocks are the same.
-     *   * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, the entry to be deleted cannot have the 10.0.0.0/8 CIDR block specified.
-     *   * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) in the entry.
-     *   *
-     * @param ModifyPrefixListRequest $request ModifyPrefixListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ModifyPrefixListRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ModifyPrefixListResponse ModifyPrefixListResponse
+     * @return ModifyPrefixListResponse
      */
     public function modifyPrefixListWithOptions($request, $runtime)
     {
@@ -24021,17 +23638,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#section-jua-0tj-q5m) section in Network FAQ.
-     *   * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
-     *   *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. These two CIDR blocks are the same.
-     *   *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. These two CIDR blocks are the same.
-     *   * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, the entry to be deleted cannot have the 10.0.0.0/8 CIDR block specified.
-     *   * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) in the entry.
-     *   *
-     * @param ModifyPrefixListRequest $request ModifyPrefixListRequest
+     * @param ModifyPrefixListRequest $request
      *
-     * @return ModifyPrefixListResponse ModifyPrefixListResponse
+     * @return ModifyPrefixListResponse
      */
     public function modifyPrefixList($request)
     {
@@ -24041,23 +23650,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods, pricing schedule, and refund policies of [ECS](https://www.alibabacloud.com/product/ecs#pricing). For more information, see [Request a refund for the downgrade of resource specifications](~~201955~~).
-     *   * Before you change the instance type of a subscription instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the supported instance types. You can use ECS SDK for Python to query the instance types to which you can change. For more information, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following item:
-     *   * *   You cannot change the instance type of an expired instance. Renew the instance and try again.
-     *   * *   When you downgrade the instance type of an instance, take note of the following items:
-     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *   *     *   You must specify the operation type by setting the `OperatorType` parameter to downgrade.
-     *   *     *   You can downgrade the configurations of an instance for up to three times. In this case, you can apply for up to three refunds for price differences for an instance. Downgrade operations include instance type downgrades, bandwidth configuration downgrades, and the change of the disk billing method from subscription to pay-as-you-go.
-     *   *     *   The price difference is refunded to the payment account that you used to purchase the instance. You cannot apply for a refund for vouchers that you already redeemed.
-     *   * *   This operation is asynchronous. The system requires 5 to 10 seconds to change the instance type of an instance. For the instance type change to take effect, you must restart the instance in the ECS console or by calling the RebootInstance operation. If you restart only the operating system of the instance, the instance type change does not take effect.
-     *   *     *   If the instance is in the **Stopped** state, you need to only start the instance. You do not need to restart the instance after it enters the Running state.
-     *   *     *   If you set the `RebootWhenFinished` parameter to true for the instance, you do not need to restart the instance.
-     *   *
-     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param ModifyPrepayInstanceSpecRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($request, $runtime)
     {
@@ -24127,22 +23723,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods, pricing schedule, and refund policies of [ECS](https://www.alibabacloud.com/product/ecs#pricing). For more information, see [Request a refund for the downgrade of resource specifications](~~201955~~).
-     *   * Before you change the instance type of a subscription instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the supported instance types. You can use ECS SDK for Python to query the instance types to which you can change. For more information, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following item:
-     *   * *   You cannot change the instance type of an expired instance. Renew the instance and try again.
-     *   * *   When you downgrade the instance type of an instance, take note of the following items:
-     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *   *     *   You must specify the operation type by setting the `OperatorType` parameter to downgrade.
-     *   *     *   You can downgrade the configurations of an instance for up to three times. In this case, you can apply for up to three refunds for price differences for an instance. Downgrade operations include instance type downgrades, bandwidth configuration downgrades, and the change of the disk billing method from subscription to pay-as-you-go.
-     *   *     *   The price difference is refunded to the payment account that you used to purchase the instance. You cannot apply for a refund for vouchers that you already redeemed.
-     *   * *   This operation is asynchronous. The system requires 5 to 10 seconds to change the instance type of an instance. For the instance type change to take effect, you must restart the instance in the ECS console or by calling the RebootInstance operation. If you restart only the operating system of the instance, the instance type change does not take effect.
-     *   *     *   If the instance is in the **Stopped** state, you need to only start the instance. You do not need to restart the instance after it enters the Running state.
-     *   *     *   If you set the `RebootWhenFinished` parameter to true for the instance, you do not need to restart the instance.
-     *   *
-     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     * @param ModifyPrepayInstanceSpecRequest $request
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -24682,15 +24265,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   When InnerAccessPolicy is set to Accept for a security group, the instances in the security group can communicate with each other. In this case, the Accept internal access control policy takes precedence over user-created security group rules to keep instances in the security group accessible to each other.
-     *   * *   When InnerAccessPolicy is set to Drop for a security group, the instances in the security group are isolated from each other. In this case, user-created security group rules take precedence over the Drop internal access control policy and can be used to allow access between the instances. For example, you can call the [AuthorizeSecurityGroup](~~25554~~) operation to create an inbound security group rule that allows the instances in the security group to communicate with each other.
-     *   * *   You can call the [DescribeSecurityGroupAttribute](~~25555~~) operation to query the internal access policy of a security group.
-     *   *
-     * @param ModifySecurityGroupPolicyRequest $request ModifySecurityGroupPolicyRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param ModifySecurityGroupPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ModifySecurityGroupPolicyResponse ModifySecurityGroupPolicyResponse
+     * @return ModifySecurityGroupPolicyResponse
      */
     public function modifySecurityGroupPolicyWithOptions($request, $runtime)
     {
@@ -24739,14 +24317,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   When InnerAccessPolicy is set to Accept for a security group, the instances in the security group can communicate with each other. In this case, the Accept internal access control policy takes precedence over user-created security group rules to keep instances in the security group accessible to each other.
-     *   * *   When InnerAccessPolicy is set to Drop for a security group, the instances in the security group are isolated from each other. In this case, user-created security group rules take precedence over the Drop internal access control policy and can be used to allow access between the instances. For example, you can call the [AuthorizeSecurityGroup](~~25554~~) operation to create an inbound security group rule that allows the instances in the security group to communicate with each other.
-     *   * *   You can call the [DescribeSecurityGroupAttribute](~~25555~~) operation to query the internal access policy of a security group.
-     *   *
-     * @param ModifySecurityGroupPolicyRequest $request ModifySecurityGroupPolicyRequest
+     * @param ModifySecurityGroupPolicyRequest $request
      *
-     * @return ModifySecurityGroupPolicyResponse ModifySecurityGroupPolicyResponse
+     * @return ModifySecurityGroupPolicyResponse
      */
     public function modifySecurityGroupPolicy($request)
     {
@@ -25511,13 +25084,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the billing method of reserved instances. For more information, see [Reserved instances](~~100371~~).
-     *   * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](~~66186~~) operation to query available instance resources.
-     *   *
-     * @param PurchaseReservedInstancesOfferingRequest $request PurchaseReservedInstancesOfferingRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param PurchaseReservedInstancesOfferingRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return PurchaseReservedInstancesOfferingResponse PurchaseReservedInstancesOfferingResponse
+     * @return PurchaseReservedInstancesOfferingResponse
      */
     public function purchaseReservedInstancesOfferingWithOptions($request, $runtime)
     {
@@ -25602,12 +25172,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the billing method of reserved instances. For more information, see [Reserved instances](~~100371~~).
-     *   * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](~~66186~~) operation to query available instance resources.
-     *   *
-     * @param PurchaseReservedInstancesOfferingRequest $request PurchaseReservedInstancesOfferingRequest
+     * @param PurchaseReservedInstancesOfferingRequest $request
      *
-     * @return PurchaseReservedInstancesOfferingResponse PurchaseReservedInstancesOfferingResponse
+     * @return PurchaseReservedInstancesOfferingResponse
      */
     public function purchaseReservedInstancesOffering($request)
     {
@@ -25912,10 +25479,15 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   The ECS instances to which you want to restart are in the **Running** (`Running`) state.
+     *   * *   You can restart multiple instances at a time and use the `BatchOptimization` parameter to specify the batch operation mode.
+     *   * *   Instances can be forcefully restarted. A force restart (`ForceStop`) is equivalent to powering off traditional servers to restart them. This operation may lead to data loss if data in the instance operating system is not written to block storage devices.
+     *   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+     *   *
+     * @param RebootInstancesRequest $request RebootInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstancesWithOptions($request, $runtime)
     {
@@ -25967,9 +25539,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $request
+     * *   The ECS instances to which you want to restart are in the **Running** (`Running`) state.
+     *   * *   You can restart multiple instances at a time and use the `BatchOptimization` parameter to specify the batch operation mode.
+     *   * *   Instances can be forcefully restarted. A force restart (`ForceStop`) is equivalent to powering off traditional servers to restart them. This operation may lead to data loss if data in the instance operating system is not written to block storage devices.
+     *   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+     *   *
+     * @param RebootInstancesRequest $request RebootInstancesRequest
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstances($request)
     {
@@ -26109,32 +25686,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * RedeployInstance is an asynchronous operation. This operation migrates data before it restarts the instance. After the instance is redeployed, the instance enters the Running (`Running`) state. If the instance fails to be redeployed, the instance returns to the original physical server and the state before the redeployment.
-     *   * When you call this operation, take note of the following items:
-     *   * * The instance must be in the Running or Stopped state. After the instance is redeployed, the following changes occur to the status of the instance:
-     *   *   * If the instance is in the Running (`Running`) state, the instance enters the Stopping (`Stopping`) state.
-     *   *   * If the instance is in the Stopped (`Stopped`) state, the instance enters the Starting (`Starting`) state.
-     *   * * If an instance is deployed on a dedicated host, you cannot redeploy the instance.
-     *   * * If the `OperationLocks` parameter in the DescribeInstances response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons and cannot be redeployed.
-     *   * * If you receive notifications about simulated events that are created by calling the CreateSimulatedSystemEvent operation for an instance, you cannot redeploy the instance.
-     *   * * When you handle a local disk-related system event for an instance, if the damaged local disk is isolated but the **SystemMaintenance.RebootAndReInitErrorDisk** event is not sent, you can still call the RedeployInstance operation to redeploy the instance. The SystemMaintenance.RebootAndReInitErrorDisk event indicates that the instance is restarted and the damaged disks are reinitialized due to system maintenance. For more information, see [System events for ECS instances equipped with local disks](~~107693~~).
-     *   * The following table describes the system events that you can handle by calling the RedeployInstance operation. The table also provides the possible event status.
-     *   * |System event|Event status|
-     *   * |---|---|
-     *   * |Instance restart due to system maintenance (SystemMaintenance.Reboot)|Inquiring and Scheduled|
-     *   * |Instance redeployment due to system maintenance (SystemMaintenance.Redeploy)|Inquiring and Scheduled|
-     *   * |Instance restart and replacement of damaged disks due to system maintenance (SystemMaintenance.RebootAndIsolateErrorDisk)|Inquiring|
-     *   * |Instance restart and re-initialization of damaged disks due to system maintenance (SystemMaintenance.RebootAndReInitErrorDisk)|Inquiring|
-     *   * |Instance redeployment due to system errors (SystemFailure.Redeploy)|Inquiring and Scheduled|
-     *   * |For ECS instances that use only local disks: instance restart due to a system error (SystemFailure.Reboot)|Executing|
-     *   * |Isolation of damaged disks due to system maintenance (SystemMaintenance.IsolateErrorDisk)|Inquiring|
-     *   * |Re-initialization of damaged disks due to system maintenance (SystemMaintenance.ReInitErrorDisk)|Inquiring|
-     *   * **Note**When instances that use local disks are redeployed, the local disks are re-initialized and data in the local disks is cleared.
-     *   *
-     * @param RedeployInstanceRequest $request RedeployInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param RedeployInstanceRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return RedeployInstanceResponse RedeployInstanceResponse
+     * @return RedeployInstanceResponse
      */
     public function redeployInstanceWithOptions($request, $runtime)
     {
@@ -26177,31 +25732,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * RedeployInstance is an asynchronous operation. This operation migrates data before it restarts the instance. After the instance is redeployed, the instance enters the Running (`Running`) state. If the instance fails to be redeployed, the instance returns to the original physical server and the state before the redeployment.
-     *   * When you call this operation, take note of the following items:
-     *   * * The instance must be in the Running or Stopped state. After the instance is redeployed, the following changes occur to the status of the instance:
-     *   *   * If the instance is in the Running (`Running`) state, the instance enters the Stopping (`Stopping`) state.
-     *   *   * If the instance is in the Stopped (`Stopped`) state, the instance enters the Starting (`Starting`) state.
-     *   * * If an instance is deployed on a dedicated host, you cannot redeploy the instance.
-     *   * * If the `OperationLocks` parameter in the DescribeInstances response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons and cannot be redeployed.
-     *   * * If you receive notifications about simulated events that are created by calling the CreateSimulatedSystemEvent operation for an instance, you cannot redeploy the instance.
-     *   * * When you handle a local disk-related system event for an instance, if the damaged local disk is isolated but the **SystemMaintenance.RebootAndReInitErrorDisk** event is not sent, you can still call the RedeployInstance operation to redeploy the instance. The SystemMaintenance.RebootAndReInitErrorDisk event indicates that the instance is restarted and the damaged disks are reinitialized due to system maintenance. For more information, see [System events for ECS instances equipped with local disks](~~107693~~).
-     *   * The following table describes the system events that you can handle by calling the RedeployInstance operation. The table also provides the possible event status.
-     *   * |System event|Event status|
-     *   * |---|---|
-     *   * |Instance restart due to system maintenance (SystemMaintenance.Reboot)|Inquiring and Scheduled|
-     *   * |Instance redeployment due to system maintenance (SystemMaintenance.Redeploy)|Inquiring and Scheduled|
-     *   * |Instance restart and replacement of damaged disks due to system maintenance (SystemMaintenance.RebootAndIsolateErrorDisk)|Inquiring|
-     *   * |Instance restart and re-initialization of damaged disks due to system maintenance (SystemMaintenance.RebootAndReInitErrorDisk)|Inquiring|
-     *   * |Instance redeployment due to system errors (SystemFailure.Redeploy)|Inquiring and Scheduled|
-     *   * |For ECS instances that use only local disks: instance restart due to a system error (SystemFailure.Reboot)|Executing|
-     *   * |Isolation of damaged disks due to system maintenance (SystemMaintenance.IsolateErrorDisk)|Inquiring|
-     *   * |Re-initialization of damaged disks due to system maintenance (SystemMaintenance.ReInitErrorDisk)|Inquiring|
-     *   * **Note**When instances that use local disks are redeployed, the local disks are re-initialized and data in the local disks is cleared.
-     *   *
-     * @param RedeployInstanceRequest $request RedeployInstanceRequest
+     * @param RedeployInstanceRequest $request
      *
-     * @return RedeployInstanceResponse RedeployInstanceResponse
+     * @return RedeployInstanceResponse
      */
     public function redeployInstance($request)
     {
@@ -26211,12 +25744,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When the release mode of an immediate capacity reservation is set to manual release, you can call this operation to release the capacity reservation.
-     *   *
-     * @param ReleaseCapacityReservationRequest $request ReleaseCapacityReservationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param ReleaseCapacityReservationRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ReleaseCapacityReservationResponse ReleaseCapacityReservationResponse
+     * @return ReleaseCapacityReservationResponse
      */
     public function releaseCapacityReservationWithOptions($request, $runtime)
     {
@@ -26262,11 +25793,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When the release mode of an immediate capacity reservation is set to manual release, you can call this operation to release the capacity reservation.
-     *   *
-     * @param ReleaseCapacityReservationRequest $request ReleaseCapacityReservationRequest
+     * @param ReleaseCapacityReservationRequest $request
      *
-     * @return ReleaseCapacityReservationResponse ReleaseCapacityReservationResponse
+     * @return ReleaseCapacityReservationResponse
      */
     public function releaseCapacityReservation($request)
     {
@@ -26652,10 +26181,15 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * *   Before you call this operation, make sure that you are familiar with the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+     *   * *   You can call this operation to renew a subscription ECS instance for a period of time or to a synchronized expiration date.
+     *   * *   You cannot renew a subscription instance for a specific period of time and to a synchronized expiration date at the same time by calling this operation. The parameter pair (`Period` and `PeriodUnit`) that is related to the renewal period and the `ExpectedRenewDay` parameter are mutually exclusive.
+     *   * *   Your account must have sufficient credits.
+     *   *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
@@ -26707,9 +26241,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+     *   * *   You can call this operation to renew a subscription ECS instance for a period of time or to a synchronized expiration date.
+     *   * *   You cannot renew a subscription instance for a specific period of time and to a synchronized expiration date at the same time by calling this operation. The parameter pair (`Period` and `PeriodUnit`) that is related to the renewal period and the `ExpectedRenewDay` parameter are mutually exclusive.
+     *   * *   Your account must have sufficient credits.
+     *   *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -27035,12 +26574,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * This operation will be removed in the future. We recommend that you call the [ResetDisk](~~25520~~) operation to roll back a disk.
-     *   *
-     * @param ResetDisksRequest $request ResetDisksRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param ResetDisksRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return ResetDisksResponse ResetDisksResponse
+     * @return ResetDisksResponse
      */
     public function resetDisksWithOptions($request, $runtime)
     {
@@ -27086,11 +26623,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * This operation will be removed in the future. We recommend that you call the [ResetDisk](~~25520~~) operation to roll back a disk.
-     *   *
-     * @param ResetDisksRequest $request ResetDisksRequest
+     * @param ResetDisksRequest $request
      *
-     * @return ResetDisksResponse ResetDisksResponse
+     * @return ResetDisksResponse
      */
     public function resetDisks($request)
     {
@@ -27495,10 +27030,27 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RunCommandRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * Compared with the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, you can call the RunCommand operation once to create and run a command.
+     *   * When you call this operation, take note of the following items:
+     *   * *   The instances on which you want to run a command must reside in a virtual private cloud (VPC).
+     *   * *   The instances must be in the `Running` state.
+     *   * *   The Cloud Assistant client must be installed on the instances. For more information, see [InstallCloudAssistant](~~85916~~).
+     *   * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+     *   * *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   * *   You can specify the `TimeOut` parameter to specify a timeout period for executions of the command on instances. If an execution times out, the Cloud Assistant client forcibly terminates the command process.
+     *   *     *   If the one-time execution of a command times out, the execution state of the command changes to Failed. You can call the [InvokeRecordStatus](~~64845~~) operation to query the command execution state.
+     *   *     *   For a scheduled task, the timeout period takes effect on each execution of the command. When a command execution times out, the subsequent executions of the command are not affected. If a scheduled execution of a command times out, the execution state of the command changes to Failed. You can call the [InvokeRecordStatus](~~64845~~) operation to query the command execution state.
+     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following versions. A scheduled task can run a command at a specific interval, only once at a specific time, or at specific times based on a cron expression that includes a specific year or time zone. If the `ClientNeedUpgrade` error code is returned, you must update the Cloud Assistant client to the latest version. For more information, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
+     *   *           - Linux: 2.2.3.282
+     *   *           - Windows: 2.1.3.282
+     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+     *   * *   If you set the `EnableParameter` parameter to true, the custom parameter feature is enabled. If you specify the `CommandContent` parameter, you can specify custom parameters in the `{{parameter}}` format. After the command is run, the key-value pairs of the custom parameters are passed in.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can call the [DescribeAccountAttribute](~~73772~~) operation to query quotas.
+     *   *
+     * @param RunCommandRequest $tmpReq  RunCommandRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommandWithOptions($tmpReq, $runtime)
     {
@@ -27606,9 +27158,26 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param RunCommandRequest $request
+     * Compared with the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, you can call the RunCommand operation once to create and run a command.
+     *   * When you call this operation, take note of the following items:
+     *   * *   The instances on which you want to run a command must reside in a virtual private cloud (VPC).
+     *   * *   The instances must be in the `Running` state.
+     *   * *   The Cloud Assistant client must be installed on the instances. For more information, see [InstallCloudAssistant](~~85916~~).
+     *   * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+     *   * *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   * *   You can specify the `TimeOut` parameter to specify a timeout period for executions of the command on instances. If an execution times out, the Cloud Assistant client forcibly terminates the command process.
+     *   *     *   If the one-time execution of a command times out, the execution state of the command changes to Failed. You can call the [InvokeRecordStatus](~~64845~~) operation to query the command execution state.
+     *   *     *   For a scheduled task, the timeout period takes effect on each execution of the command. When a command execution times out, the subsequent executions of the command are not affected. If a scheduled execution of a command times out, the execution state of the command changes to Failed. You can call the [InvokeRecordStatus](~~64845~~) operation to query the command execution state.
+     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following versions. A scheduled task can run a command at a specific interval, only once at a specific time, or at specific times based on a cron expression that includes a specific year or time zone. If the `ClientNeedUpgrade` error code is returned, you must update the Cloud Assistant client to the latest version. For more information, see [Upgrade or disable upgrades for the Cloud Assistant client](~~134383~~).
+     *   *           - Linux: 2.2.3.282
+     *   *           - Windows: 2.1.3.282
+     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+     *   * *   If you set the `EnableParameter` parameter to true, the custom parameter feature is enabled. If you specify the `CommandContent` parameter, you can specify custom parameters in the `{{parameter}}` format. After the command is run, the key-value pairs of the custom parameters are passed in.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can call the [DescribeAccountAttribute](~~73772~~) operation to query quotas.
+     *   *
+     * @param RunCommandRequest $request RunCommandRequest
      *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -27695,6 +27264,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageOptions)) {
+            $query['ImageOptions'] = $request->imageOptions;
         }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
@@ -28372,14 +27944,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   If you call the DescribeInstances operation and the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instances are locked for security reasons and cannot be stopped.
-     *   * *   If the economical mode is enabled for pay-as-you-go instances, you can set `StoppedMode` to KeepCharging to enable the standard mode for the instances. Then, after the instances are stopped in standard mode, you continue to be charged for them, and their instance type resources and public IP addresses are retained.
-     *   * *   Batch operations are supported. You can use the `BatchOptimization` parameter to specify the batch operation mode.
-     *   *
-     * @param StopInstancesRequest $request StopInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param StopInstancesRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return StopInstancesResponse StopInstancesResponse
+     * @return StopInstancesResponse
      */
     public function stopInstancesWithOptions($request, $runtime)
     {
@@ -28434,13 +28002,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   If you call the DescribeInstances operation and the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instances are locked for security reasons and cannot be stopped.
-     *   * *   If the economical mode is enabled for pay-as-you-go instances, you can set `StoppedMode` to KeepCharging to enable the standard mode for the instances. Then, after the instances are stopped in standard mode, you continue to be charged for them, and their instance type resources and public IP addresses are retained.
-     *   * *   Batch operations are supported. You can use the `BatchOptimization` parameter to specify the batch operation mode.
-     *   *
-     * @param StopInstancesRequest $request StopInstancesRequest
+     * @param StopInstancesRequest $request
      *
-     * @return StopInstancesResponse StopInstancesResponse
+     * @return StopInstancesResponse
      */
     public function stopInstances($request)
     {
@@ -28722,10 +28286,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param UnassignIpv6AddressesRequest $request
-     * @param RuntimeOptions               $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   The ENI must be in the **Available** (Available) or **InUse** (InUse) state.
+     *   * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     *   *
+     * @param UnassignIpv6AddressesRequest $request UnassignIpv6AddressesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassignIpv6AddressesResponse
+     * @return UnassignIpv6AddressesResponse UnassignIpv6AddressesResponse
      */
     public function unassignIpv6AddressesWithOptions($request, $runtime)
     {
@@ -28777,9 +28345,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param UnassignIpv6AddressesRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   The ENI must be in the **Available** (Available) or **InUse** (InUse) state.
+     *   * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     *   *
+     * @param UnassignIpv6AddressesRequest $request UnassignIpv6AddressesRequest
      *
-     * @return UnassignIpv6AddressesResponse
+     * @return UnassignIpv6AddressesResponse UnassignIpv6AddressesResponse
      */
     public function unassignIpv6Addresses($request)
     {
@@ -28789,10 +28361,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param UnassignPrivateIpAddressesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
+     *   * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     *   *
+     * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassignPrivateIpAddressesResponse
+     * @return UnassignPrivateIpAddressesResponse UnassignPrivateIpAddressesResponse
      */
     public function unassignPrivateIpAddressesWithOptions($request, $runtime)
     {
@@ -28844,9 +28419,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param UnassignPrivateIpAddressesRequest $request
+     * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
+     *   * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     *   *
+     * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      *
-     * @return UnassignPrivateIpAddressesResponse
+     * @return UnassignPrivateIpAddressesResponse UnassignPrivateIpAddressesResponse
      */
     public function unassignPrivateIpAddresses($request)
     {

@@ -9,109 +9,61 @@ use AlibabaCloud\Tea\Model;
 class resourceTypeCount extends Model
 {
     /**
-     * @description The number of dedicated hosts to which the tag is added.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $ddh;
 
     /**
-     * @description The number of disks to which the tag is added.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $disk;
 
     /**
-     * @description The number of ENIs to which the tag is added.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $eni;
 
     /**
-     * @description The number of images to which the tag is added.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $image;
 
     /**
-     * @description The number of instances to which the tag is added.
-     *
-     * @example 45
-     *
      * @var int
      */
     public $instance;
 
     /**
-     * @description The number of key pairs to which the tag is added.
-     *
-     * @example 17
-     *
      * @var int
      */
     public $keyPair;
 
     /**
-     * @description The number of launch templates to which the tag is added.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $launchTemplate;
 
     /**
-     * @description The number of reserved instances to which the tag is added.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $reservedInstance;
 
     /**
-     * @description The number of security groups to which the tag is added.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $securitygroup;
 
     /**
-     * @description The number of snapshots to which the tag is added.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $snapshot;
 
     /**
-     * @description The number of automatic snapshot policies to which the tag is added.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $snapshotPolicy;
 
     /**
-     * @description The number of storage volumes to which the tag is added.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $volume;

@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoProvisioningGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B48A12CD-1295-4A38-A8F0-0E92C937****
-     *
      * @var string
      */
     public $requestId;

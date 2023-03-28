@@ -9,217 +9,121 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
-     * @description The time when the security group rule was created. The time is displayed in UTC.
-     *
-     * @example 2018-12-12T07:28:38Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The description of the security group.
-     *
-     * @example Description Sample 01
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The destination CIDR blocks for outbound access control.
-     *
-     * @example 0.0.0.0/0
-     *
      * @var string
      */
     public $destCidrIp;
 
     /**
-     * @description The ID of the destination security group for outbound access control.
-     *
-     * @example sg-bp1czdx84jd88i7v****
-     *
      * @var string
      */
     public $destGroupId;
 
     /**
-     * @description The name of the destination security group.
-     *
-     * @example testDestGroupName
-     *
      * @var string
      */
     public $destGroupName;
 
     /**
-     * @description The Alibaba Cloud account that manages the destination security group.
-     *
-     * @example 1234567890
-     *
      * @var string
      */
     public $destGroupOwnerAccount;
 
     /**
-     * @description The ID of the destination prefix list for outbound access control.
-     *
-     * @example pl-x1j1k5ykzqlixabc****
-     *
      * @var string
      */
     public $destPrefixListId;
 
     /**
-     * @description The name of the destination prefix list.
-     *
-     * @example DestPrefixListName Sample
-     *
      * @var string
      */
     public $destPrefixListName;
 
     /**
-     * @description The direction in which the security group rule is applied.
-     *
-     * @example ingress
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The transport layer protocol.
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $ipProtocol;
 
     /**
-     * @description The destination IPv6 CIDR block.
-     *
-     * @example 2001:db8:1233:1a00::***
-     *
      * @var string
      */
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block.
-     *
-     * @example 2001:db8:1234:1a00::***
-     *
      * @var string
      */
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The type of the network.
-     *
-     * @example intranet
-     *
      * @var string
      */
     public $nicType;
 
     /**
-     * @description The access control policy.
-     *
-     * @example Accept
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description The port range.
-     *
-     * @example 80/80
-     *
      * @var string
      */
     public $portRange;
 
     /**
-     * @description The priority of the rule.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $priority;
 
     /**
-     * @description The ID of the security group rule.
-     *
-     * @example sgr-bp12kewq32dfwrdi****
-     *
      * @var string
      */
     public $securityGroupRuleId;
 
     /**
-     * @description The source CIDR block for inbound access control.
-     *
-     * @example 0.0.0.0/0
-     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
-     * @description The source security group for inbound access control.
-     *
-     * @example sg-bp12kc4rqohaf2js****
-     *
      * @var string
      */
     public $sourceGroupId;
 
     /**
-     * @description The name of the source security group.
-     *
-     * @example testSourceGroupName1
-     *
      * @var string
      */
     public $sourceGroupName;
 
     /**
-     * @description The Alibaba Cloud account that manages the source security group.
-     *
-     * @example 1234567890
-     *
      * @var string
      */
     public $sourceGroupOwnerAccount;
 
     /**
-     * @description The source port number range.
-     *
-     * @example 80/80
-     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
-     * @description The ID of the source prefix list for inbound access control.
-     *
-     * @example pl-x1j1k5ykzqlixdcy****
-     *
      * @var string
      */
     public $sourcePrefixListId;
 
     /**
-     * @description The name of the source prefix list.
-     *
-     * @example SourcePrefixListName Sample
-     *
      * @var string
      */
     public $sourcePrefixListName;

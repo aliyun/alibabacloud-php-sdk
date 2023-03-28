@@ -9,23 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupPolicyRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The internal access policy of the security group. Valid values:
-     *
-     *   Accept: All instances in the security group can communicate with each other.
-     *   Drop: All instances in the security group are isolated from each other.
-     *
-     * These values are case-insensitive.
-     * @example Drop
-     *
      * @var string
      */
     public $innerAccessPolicy;
@@ -41,10 +29,6 @@ class ModifySecurityGroupPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,10 +44,6 @@ class ModifySecurityGroupPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group.
-     *
-     * @example sg-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $securityGroupId;

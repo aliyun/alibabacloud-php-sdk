@@ -9,382 +9,181 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypesRequest extends Model
 {
     /**
-     * @description The CPU architecture. Valid values:
-     *
-     *   X86
-     *   ARM
-     *
-     * @example X86
-     *
      * @var string
      */
     public $cpuArchitecture;
 
     /**
-     * @description The GPU model.
-     *
-     * > Fuzzy match is supported. For example, if an instance type provides NVIDIA V100 GPUs and you set this parameter to NVIDIA, information about the instance type is queried.
-     * @example NVIDIA V100
-     *
      * @var string
      */
     public $GPUSpec;
 
     /**
-     * @description The category of the instance type. Valid values:
-     *
-     *   General-purpose: general-purpose instance type
-     *   Compute-optimized: compute-optimized instance type
-     *   Memory-optimized: memory-optimized instance type
-     *   Big data: big data instance type
-     *   Local SSDs: instance type with local SSDs
-     *   High Clock Speed: instance type with high clock speeds
-     *   Enhanced: enhanced instance type
-     *   Shared: shared instance type
-     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type
-     *   Visual Compute-optimized: visual compute-optimized instance type
-     *   Heterogeneous Service: heterogeneous service instance type
-     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
-     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
-     *   ECS Bare Metal: ECS Bare Metal Instance type
-     *   Super Computing Cluster: Super Computing Cluster (SCC) instance type
-     *
-     * @example Big data
-     *
      * @var string
      */
     public $instanceCategory;
 
     /**
-     * @description The level of the instance family. Valid values:
-     *
-     *   EntryLevel: entry level (shared)
-     *   EnterpriseLevel: enterprise level
-     *   CreditEntryLevel: credit-based entry level
-     *
-     * @example EntryLevel
-     *
      * @var string
      */
     public $instanceFamilyLevel;
 
     /**
-     * @description The instance family to which the instance type belongs. For information about the valid values of this parameter, see [DescribeInstanceTypeFamilies](~~25621~~).
-     *
-     * For more information about instance families, see [Instance families](~~25378~~).
-     * @example ecs.g6
-     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
-     * @description Instance type N. Valid values of N: 1 to 10. If this parameter is empty, information about all instance types is queried.
-     *
-     * @example ecs.g6.large
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description The category of local disks. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
-     *
-     *   local_hdd_pro: local Serial Advanced Technology Attachment (SATA) HDDs, which are used by d1ne or d1 instances
-     *   local_ssd_pro: local Non-Volatile Memory Express (NVMe) SSDs, which are used by i2, i2g, i1, ga1, or gn5 instances
-     *
-     * @example local_ssd_pro
-     *
      * @var string
      */
     public $localStorageCategory;
 
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 1600.
-     *
-     * Default value: 1600.
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The maximum number of vCPUs. The value must be a positive integer.
-     *
-     * > If an instance type has more vCPUs than the specified value, information about the instance type is not queried.
-     * @example 10
-     *
      * @var int
      */
     public $maximumCpuCoreCount;
 
     /**
-     * @description The maximum clock speed.
-     *
-     * > If an instance type uses processors that have a higher clock speed than the specified value, information about the instance type is not queried.
-     * @example 3.2
-     *
      * @var float
      */
     public $maximumCpuSpeedFrequency;
 
     /**
-     * @description The maximum turbo frequency.
-     *
-     * > If an instance type uses processors that deliver a higher turbo frequency than the specified value, information about the instance type is not queried.
-     * @example 4.1
-     *
      * @var float
      */
     public $maximumCpuTurboFrequency;
 
     /**
-     * @description The maximum number of GPUs. The value must be a positive integer.
-     *
-     * > If an instance type provides more GPUs than the specified value, information about the instance type is not queried.
-     * @example 10
-     *
      * @var int
      */
     public $maximumGPUAmount;
 
     /**
-     * @description The maximum memory size. Unit: GiB.
-     *
-     * > If the memory size of an instance type is larger than the specified value, information about the instance type is not queried.
-     * @example 60
-     *
      * @var float
      */
     public $maximumMemorySize;
 
     /**
-     * @description The minimum baseline CPU performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
-     *
-     * > If a t5 or t6 instance type provides baseline CPU performance that is lower than the specified value, information about the instance type is not queried.
-     * @example 12
-     *
      * @var int
      */
     public $minimumBaselineCredit;
 
     /**
-     * @description The minimum number of vCPUs. The value must be a positive integer.
-     *
-     * > If an instance type has fewer vCPUs than the specified value, information about the instance type is not queried.
-     * @example 2
-     *
      * @var int
      */
     public $minimumCpuCoreCount;
 
     /**
-     * @description The minimum clock speed.
-     *
-     * > If an instance type uses processors that have a lower clock speed than the specified value, information about the instance type is not queried.
-     * @example 2.5
-     *
      * @var float
      */
     public $minimumCpuSpeedFrequency;
 
     /**
-     * @description The minimum turbo frequency.
-     *
-     * > If an instance type uses processors that deliver a lower turbo frequency than the specified value, information about the instance type is not queried.
-     * @example 3.2
-     *
      * @var float
      */
     public $minimumCpuTurboFrequency;
 
     /**
-     * @description The minimum number of cloud disks.
-     *
-     * > If an instance type supports fewer cloud disks than the specified value, information about the instance type is not queried.
-     * @example 4
-     *
      * @var int
      */
     public $minimumDiskQuantity;
 
     /**
-     * @description The minimum number of IPv6 addresses per ENI.
-     *
-     * > If an instance type supports fewer IPv6 addresses per ENI than the specified value, information about the instance type is not queried.
-     * @example 2
-     *
      * @var int
      */
     public $minimumEniIpv6AddressQuantity;
 
     /**
-     * @description The minimum number of IPv4 addresses per ENI.
-     *
-     * > If an instance type supports fewer IPv4 addresses per ENI than the specified value, information about the instance type is not queried.
-     * @example 2
-     *
      * @var int
      */
     public $minimumEniPrivateIpAddressQuantity;
 
     /**
-     * @description The minimum number of elastic network interfaces (ENIs).
-     *
-     * > If an instance type supports fewer ENIs than the specified value, information about the instance type is not queried.
-     * @example 4
-     *
      * @var int
      */
     public $minimumEniQuantity;
 
     /**
-     * @description The minimum number of ERIs.
-     *
-     * > If an instance type supports fewer ERIs than the specified value, information about the instance type is not queried.
-     * @example 0
-     *
      * @var int
      */
     public $minimumEriQuantity;
 
     /**
-     * @description The minimum number of GPUs. The value must be a positive integer.
-     *
-     * > If an instance type provides fewer GPUs than the specified value, information about the instance type is not queried.
-     * @example 3
-     *
      * @var int
      */
     public $minimumGPUAmount;
 
     /**
-     * @description The minimum initial CPU credits per t5 or t6 burstable instance.
-     *
-     * > If a t5 or t6 instance type provides less initial vCPU credits than the specified value, information about the instance type is not queried.
-     * @example 12
-     *
      * @var int
      */
     public $minimumInitialCredit;
 
     /**
-     * @description The minimum inbound internal bandwidth. Unit: Kbit/s.
-     *
-     * > If an instance type provides an inbound internal bandwidth that is lower than the specified value, information about the instance type is not queried.
-     * @example 12288
-     *
      * @var int
      */
     public $minimumInstanceBandwidthRx;
 
     /**
-     * @description The minimum outbound internal bandwidth. Unit: Kbit/s.
-     *
-     * > If an instance type provides an outbound internal bandwidth that is lower than the specified value, information about the instance type is not queried.
-     * @example 12288
-     *
      * @var int
      */
     public $minimumInstanceBandwidthTx;
 
     /**
-     * @description The minimum inbound packet forwarding rate over the internal network. Unit: pps.
-     *
-     * > If an instance type provides an inbound packet forwarding rate over the internal network that is lower than the specified value, information about the instance type is not queried.
-     * @example 15
-     *
      * @var int
      */
     public $minimumInstancePpsRx;
 
     /**
-     * @description The minimum outbound packet forwarding rate over the internal network. Unit: pps.
-     *
-     * > If an instance type provides an outbound packet forwarding rate over the internal network that is lower than the specified value, information about the instance type is not queried.
-     * @example 15
-     *
      * @var int
      */
     public $minimumInstancePpsTx;
 
     /**
-     * @description The minimum number of local disks.
-     *
-     * > If an instance type supports fewer local disks than the specified value, information about the instance type is not queried.
-     * @example 4
-     *
      * @var int
      */
     public $minimumLocalStorageAmount;
 
     /**
-     * @description The capacity of each local disk. Unit: GiB.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $minimumLocalStorageCapacity;
 
     /**
-     * @description The minimum memory size. Unit: GiB.
-     *
-     * > If the memory size of an instance type is smaller than the specified value, information about the instance type is not queried.
-     * @example 20
-     *
      * @var float
      */
     public $minimumMemorySize;
 
     /**
-     * @description The minimum default number of queues per primary network interface controller (NIC).
-     *
-     * > If an instance type supports fewer queues per primary NIC than the specified value, information about the instance type is not queried.
-     * @example 8
-     *
      * @var int
      */
     public $minimumPrimaryEniQueueNumber;
 
     /**
-     * @description The minimum number of queue pair (QP) queues per elastic RDMA interface (ERI).
-     *
-     * > If an instance type supports fewer QP queues per ERI than the specified value, information about the instance type is not queried.
-     * @example 8
-     *
      * @var int
      */
     public $minimumQueuePairNumber;
 
     /**
-     * @description The minimum default number of queues per secondary NIC.
-     *
-     * > If an instance type supports fewer queues per secondary NIC than the specified value, information about the instance type is not queried.
-     * @example 4
-     *
      * @var int
      */
     public $minimumSecondaryEniQueueNumber;
 
     /**
-     * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeInstanceTypes operation. Leave this parameter empty the first time you call this operation.
-     *
-     * @example e71d8a535bd9cc11
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Specifies whether cloud disks can be attached by using the NVMe protocol. Valid values:
-     *
-     *   required: Cloud disks can be attached by using the NVMe protocol.
-     *   unsupported: Cloud disk cannot be attached by using the NVMe protocol.
-     *
-     * @example required
-     *
      * @var string
      */
     public $nvmeSupport;
@@ -400,11 +199,6 @@ class DescribeInstanceTypesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The CPU model.
-     *
-     * > Fuzzy match is supported. For example, if an instance type uses Intel Xeon (Ice Lake) Platinum 8369B processors and you set this parameter to Intel, information about the instance type is queried.
-     * @example Intel Xeon(Ice Lake) Platinum 8369B
-     *
      * @var string
      */
     public $physicalProcessorModel;

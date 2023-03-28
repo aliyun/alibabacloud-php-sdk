@@ -19,28 +19,16 @@ class JoinResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which you want to assign the resource.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource. The value of this parameter varies based on the resource type. For example, when ResourceType is set to instance, the ResourceId refers to InstanceId.
-     *
-     * @example sg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceId;
@@ -56,22 +44,6 @@ class JoinResourceGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the ECS resource. Valid values:
-     *
-     *   instance: instance
-     *   disk: Elastic Block Storage device
-     *   snapshot: snapshot
-     *   image: image
-     *   securitygroup: security group
-     *   ddh: dedicated host
-     *   ddhcluster: dedicated host cluster
-     *   eni: ENI
-     *   keypair: SSH key pair
-     *   launchtemplate: launch template
-     *
-     * These values are case-sensitive.
-     * @example securitygroup
-     *
      * @var string
      */
     public $resourceType;

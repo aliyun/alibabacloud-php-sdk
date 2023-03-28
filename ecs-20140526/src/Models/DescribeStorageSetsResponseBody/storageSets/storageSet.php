@@ -9,64 +9,36 @@ use AlibabaCloud\Tea\Model;
 class storageSet extends Model
 {
     /**
-     * @description The time when the storage set was created.
-     *
-     * @example 2019-06-01T00:00:00Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the storage set.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the region to which the storage set belongs.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the storage set.
-     *
-     * @example ss-bp1d6tsvznfghy7y****
-     *
      * @var string
      */
     public $storageSetId;
 
     /**
-     * @description The name of the storage set.
-     *
-     * @example testStorageSetName
-     *
      * @var string
      */
     public $storageSetName;
 
     /**
-     * @description The maximum number of partitions supported by the storage set.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $storageSetPartitionNumber;
 
     /**
-     * @description The ID of the zone to which the storage set belongs.
-     *
-     * @example cn-hangzhou-g
-     *
      * @var string
      */
     public $zoneId;

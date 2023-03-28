@@ -9,35 +9,21 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $deviceIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
-     *
-     * @example null
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $networkCardIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
-     *
-     * @example null
-     *
      * @var string
      */
     public $trunkNetworkInterfaceId;

@@ -10,44 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelinesResponseBody extends Model
 {
     /**
-     * @description Details of the image templates.
-     *
      * @var imagePipeline
      */
     public $imagePipeline;
 
     /**
-     * @description The maximum number of entries returned per page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The query token returned in this call. For information about how to use this return value, see the "Description" section in this topic.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of image templates returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;

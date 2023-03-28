@@ -10,26 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListAssociationsResponseBody extends Model
 {
     /**
-     * @description The query token that is returned in this call. If the return value is empty, no more data is returned.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Details about the resources that are associated with the prefix list.
-     *
      * @var prefixListAssociations
      */
     public $prefixListAssociations;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
-     *
      * @var string
      */
     public $requestId;

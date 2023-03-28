@@ -10,36 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotPriceHistoryResponseBody extends Model
 {
     /**
-     * @description The currency unit of the price.
-     *
-     * Alibaba Cloud International site (alibabacloud.com): USD.
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description The start line of the next page. It is the value of the `Offset` request parameter.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $nextOffset;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Details about the price history of the preemptible instance.
-     *
      * @var spotPrices
      */
     public $spotPrices;

@@ -10,17 +10,11 @@ use AlibabaCloud\Tea\Model;
 class instancePluginStatus extends Model
 {
     /**
-     * @description The ID of the ECS instance.
-     *
-     * @example i-xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Details about the Cloud Assistant plug-in.
-     *
      * @var pluginStatusSet
      */
     public $pluginStatusSet;
