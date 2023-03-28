@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\advanceSetting;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\fileParameterList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\globalParameterList;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\headers;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\relationList;
 use AlibabaCloud\Tea\Model;
@@ -34,6 +35,11 @@ class scene extends Model
      * @var globalParameterList[]
      */
     public $globalParameterList;
+
+    /**
+     * @var headers[]
+     */
+    public $headers;
 
     /**
      * @var loadConfig
@@ -75,6 +81,7 @@ class scene extends Model
         'createTime'          => 'CreateTime',
         'fileParameterList'   => 'FileParameterList',
         'globalParameterList' => 'GlobalParameterList',
+        'headers'             => 'Headers',
         'loadConfig'          => 'LoadConfig',
         'modifiedTime'        => 'ModifiedTime',
         'relationList'        => 'RelationList',
@@ -111,6 +118,15 @@ class scene extends Model
                 $n = 0;
                 foreach ($this->globalParameterList as $item) {
                     $res['GlobalParameterList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->headers) {
+            $res['Headers'] = [];
+            if (null !== $this->headers && \is_array($this->headers)) {
+                $n = 0;
+                foreach ($this->headers as $item) {
+                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -171,6 +187,15 @@ class scene extends Model
                 $n                          = 0;
                 foreach ($map['GlobalParameterList'] as $item) {
                     $model->globalParameterList[$n++] = null !== $item ? globalParameterList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Headers'])) {
+            if (!empty($map['Headers'])) {
+                $model->headers = [];
+                $n              = 0;
+                foreach ($map['Headers'] as $item) {
+                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }
             }
         }
