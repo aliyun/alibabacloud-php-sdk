@@ -1,3 +1,6 @@
+2023-03-28 Version: 3.0.13
+- Support ARM API.
+
 2023-03-09 Version: 3.0.12
 - Support Disk API.
 

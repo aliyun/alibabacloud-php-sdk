@@ -58,6 +58,11 @@ class CreateARMServerInstancesRequest extends Model
     public $keyPairName;
 
     /**
+     * @var string
+     */
+    public $nameSpace;
+
+    /**
      * @example PrePaid
      *
      * @var string
@@ -99,6 +104,7 @@ class CreateARMServerInstancesRequest extends Model
         'imageId'      => 'ImageId',
         'instanceType' => 'InstanceType',
         'keyPairName'  => 'KeyPairName',
+        'nameSpace'    => 'NameSpace',
         'payType'      => 'PayType',
         'period'       => 'Period',
         'periodUnit'   => 'PeriodUnit',
@@ -133,6 +139,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->nameSpace) {
+            $res['NameSpace'] = $this->nameSpace;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -181,6 +190,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['NameSpace'])) {
+            $model->nameSpace = $map['NameSpace'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

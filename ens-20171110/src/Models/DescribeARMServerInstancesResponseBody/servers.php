@@ -36,6 +36,11 @@ class servers extends Model
     public $expiredTime;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @example cas-******
      *
      * @var string
@@ -67,6 +72,7 @@ class servers extends Model
         'creationTime' => 'CreationTime',
         'ensRegionId'  => 'EnsRegionId',
         'expiredTime'  => 'ExpiredTime',
+        'namespace'    => 'Namespace',
         'serverId'     => 'ServerId',
         'specName'     => 'SpecName',
         'state'        => 'State',
@@ -97,6 +103,9 @@ class servers extends Model
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
@@ -139,6 +148,9 @@ class servers extends Model
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];

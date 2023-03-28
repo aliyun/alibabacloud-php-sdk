@@ -1057,6 +1057,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->keyPairName)) {
             $query['KeyPairName'] = $request->keyPairName;
         }
+        if (!Utils::isUnset($request->nameSpace_)) {
+            $query['NameSpace'] = $request->nameSpace_;
+        }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
         }
