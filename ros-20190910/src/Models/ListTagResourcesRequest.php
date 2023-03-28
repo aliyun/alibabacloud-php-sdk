@@ -28,6 +28,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of resource IDs.
+     *
      * @example 6bc589b5-9c02-4944-8fc3-f3624234****
      *
      * @var string[]
@@ -49,6 +51,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

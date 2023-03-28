@@ -69,6 +69,8 @@ class CreateChangeSetRequest extends Model
     public $disableRollback;
 
     /**
+     * @description The callback URL that is used to receive stack event N.
+     *
      * @example http://my-site.com/ros-notify
      *
      * @var string[]
@@ -98,6 +100,8 @@ class CreateChangeSetRequest extends Model
     public $parallelism;
 
     /**
+     * @description The list of parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
@@ -135,6 +139,8 @@ class CreateChangeSetRequest extends Model
     public $replacementOption;
 
     /**
+     * @description The key-value mapping between strings.
+     *
      * @var resourcesToImport[]
      */
     public $resourcesToImport;

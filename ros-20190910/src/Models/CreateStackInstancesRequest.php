@@ -103,7 +103,7 @@ class CreateStackInstancesRequest extends Model
     public $operationPreferences;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameterOverrides[]
      */

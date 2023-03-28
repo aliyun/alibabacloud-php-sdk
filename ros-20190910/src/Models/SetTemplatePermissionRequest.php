@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetTemplatePermissionRequest extends Model
 {
     /**
+     * @description The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
+     *
      * @example 123456789
      *
      * @var string[]

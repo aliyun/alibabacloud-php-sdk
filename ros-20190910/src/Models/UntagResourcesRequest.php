@@ -30,6 +30,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description A list of resource IDs.
+     *
      * @example 46ec7b78-9d5e-4b21-aefd-448c90aa****
      *
      * @var string[]
@@ -51,6 +53,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag keys of the resource.
+     *
      * @example FinanceDept
      *
      * @var string[]

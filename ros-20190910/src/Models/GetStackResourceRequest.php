@@ -37,6 +37,8 @@ class GetStackResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of resource property N that you want to query.
+     *
      * @var string[]
      */
     public $resourceAttributes;

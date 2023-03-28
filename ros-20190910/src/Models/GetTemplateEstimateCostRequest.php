@@ -20,6 +20,8 @@ class GetTemplateEstimateCostRequest extends Model
     public $clientToken;
 
     /**
+     * @description The parameters.
+     *
      * @var parameters[]
      */
     public $parameters;

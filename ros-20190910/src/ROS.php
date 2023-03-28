@@ -4870,17 +4870,19 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateURL)) {
             $query['TemplateURL'] = $request->templateURL;
         }
         if (!Utils::isUnset($request->validationOption)) {
             $query['ValidationOption'] = $request->validationOption;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ValidateTemplate',

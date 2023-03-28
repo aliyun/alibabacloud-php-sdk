@@ -26,6 +26,8 @@ class CreateTemplateScratchRequest extends Model
     /**
      * @description The description of the scenario.
      *
+     * @example Replicate a VPC.
+     *
      * @var string
      */
     public $description;
@@ -95,6 +97,8 @@ class CreateTemplateScratchRequest extends Model
     public $sourceTag;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

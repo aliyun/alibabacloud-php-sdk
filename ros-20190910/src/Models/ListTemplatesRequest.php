@@ -67,6 +67,8 @@ class ListTemplatesRequest extends Model
     public $shareType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

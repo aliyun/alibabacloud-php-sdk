@@ -67,7 +67,7 @@ class ContinueCreateStackRequest extends Model
     public $parallelism;
 
     /**
-     * @description test
+     * @description The parameters of the template.
      *
      * @var parameters[]
      */
@@ -84,13 +84,15 @@ class ContinueCreateStackRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description test
+     * @description Option N that ROS adopts when ROS continues to create the stack.
      *
      * @var string[]
      */
     public $recreatingOptions;
 
     /**
+     * @description Resource N that ROS continues to create after the resource failed to be created.
+     *
      * @example WebServer
      *
      * @var string[]

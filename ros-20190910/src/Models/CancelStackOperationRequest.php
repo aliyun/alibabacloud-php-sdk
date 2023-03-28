@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelStackOperationRequest extends Model
 {
     /**
-     * @description test
+     * @description The operation N that you want to cancel on the stack.
      *
      * @var string[]
      */

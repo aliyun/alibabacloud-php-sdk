@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsRequest extends Model
 {
     /**
+     * @description The logical ID of the resource that is defined in the template.
+     *
      * @example WebServer
      *
      * @var string[]
@@ -45,6 +47,8 @@ class ListStackEventsRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of resource types.
+     *
      * @example ALIYUN::ECS::Instance
      *
      * @var string[]
@@ -61,6 +65,8 @@ class ListStackEventsRequest extends Model
     public $stackId;
 
     /**
+     * @description The state of the resource.
+     *
      * @example CREATE_IN_PROGRESS
      *
      * @var string[]

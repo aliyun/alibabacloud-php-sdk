@@ -30,7 +30,7 @@ class GetTemplateSummaryRequest extends Model
     public $clientToken;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameters[]
      */

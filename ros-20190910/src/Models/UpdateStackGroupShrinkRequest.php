@@ -125,7 +125,7 @@ class UpdateStackGroupShrinkRequest extends Model
     public $operationPreferencesShrink;
 
     /**
-     * @description test
+     * @description The list of parameters.
      *
      * @var parameters[]
      */

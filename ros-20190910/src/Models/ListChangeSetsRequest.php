@@ -18,6 +18,8 @@ class ListChangeSetsRequest extends Model
     public $changeSetId;
 
     /**
+     * @description The name of change set.
+     *
      * @example MyChangeSet
      *
      * @var string[]
@@ -25,6 +27,8 @@ class ListChangeSetsRequest extends Model
     public $changeSetName;
 
     /**
+     * @description The execution status of change set.
+     *
      * @example AVAILABLE
      *
      * @var string[]
@@ -70,6 +74,8 @@ class ListChangeSetsRequest extends Model
     public $stackId;
 
     /**
+     * @description The status of change set.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string[]

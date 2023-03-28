@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notSupportResources extends Model
 {
     /**
+     * @description The name of the resource property.
+     *
      * @example InstanceName
      *
      * @var string
@@ -16,6 +18,9 @@ class notSupportResources extends Model
     public $propertyName;
 
     /**
+     * @description The resource type.
+     *
+     * You can call the [ListResourceTypes](~~133957~~) operation to query the resource type.
      * @example ALIYUN::ECS::InstanceGroup
      *
      * @var string

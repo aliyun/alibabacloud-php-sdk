@@ -19,6 +19,8 @@ class DetectStackDriftRequest extends Model
     public $clientToken;
 
     /**
+     * @description The logical ID of resource.
+     *
      * @example ScalingRule
      *
      * @var string[]

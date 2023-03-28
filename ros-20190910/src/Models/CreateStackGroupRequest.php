@@ -62,7 +62,7 @@ class CreateStackGroupRequest extends Model
     public $executionRoleName;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameters[]
      */
@@ -113,6 +113,8 @@ class CreateStackGroupRequest extends Model
     public $stackGroupName;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

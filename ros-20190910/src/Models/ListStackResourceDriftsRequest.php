@@ -37,6 +37,8 @@ class ListStackResourceDriftsRequest extends Model
     public $regionId;
 
     /**
+     * @description The drift status of the resource.
+     *
      * @example MODIFIED
      *
      * @var string[]

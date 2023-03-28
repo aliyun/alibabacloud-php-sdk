@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceProvisionsRequest extends Model
 {
     /**
+     * @description The list of parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
@@ -26,6 +28,8 @@ class GetServiceProvisionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The services.
+     *
      * @var services[]
      */
     public $services;

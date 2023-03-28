@@ -67,6 +67,8 @@ class ListStackGroupsRequest extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

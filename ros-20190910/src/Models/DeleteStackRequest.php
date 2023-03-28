@@ -42,6 +42,8 @@ class DeleteStackRequest extends Model
     public $retainAllResources;
 
     /**
+     * @description The name of resource N that you want to retain.
+     *
      * @example WebServer
      *
      * @var string[]

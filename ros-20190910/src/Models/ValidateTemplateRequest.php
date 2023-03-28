@@ -28,11 +28,6 @@ class ValidateTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.
-     *
-     * You can specify only one of the TemplateBody and TemplateURL parameters.
-     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
-     *
      * @var string
      */
     public $templateBody;

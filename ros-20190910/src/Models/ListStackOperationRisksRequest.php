@@ -71,6 +71,8 @@ class ListStackOperationRisksRequest extends Model
     public $retainAllResources;
 
     /**
+     * @description The resource N that you want to retain in the stack.
+     *
      * @example WebServer
      *
      * @var string[]

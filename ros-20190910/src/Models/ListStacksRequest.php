@@ -81,11 +81,15 @@ class ListStacksRequest extends Model
     public $stackId;
 
     /**
+     * @description The ID of stack N.
+     *
      * @var string[]
      */
     public $stackIds;
 
     /**
+     * @description The name of stack N.
+     *
      * @example MyStack
      *
      * @var string[]
@@ -93,6 +97,8 @@ class ListStacksRequest extends Model
     public $stackName;
 
     /**
+     * @description The state N of the stack.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string[]
@@ -100,6 +106,8 @@ class ListStacksRequest extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

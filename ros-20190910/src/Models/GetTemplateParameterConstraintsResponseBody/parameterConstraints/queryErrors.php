@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryErrors extends Model
 {
     /**
+     * @description The error message.
+     *
      * @example ALIYUN::ECS::InstanceGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class queryErrors extends Model
     public $errorMessage;
 
     /**
+     * @description The name of the resource.
+     *
      * @example MyECS
      *
      * @var string
@@ -23,6 +27,8 @@ class queryErrors extends Model
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
      * @example InstanceType is needed while query DataDisk
      *
      * @var string

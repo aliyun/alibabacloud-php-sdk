@@ -127,7 +127,7 @@ class UpdateStackGroupRequest extends Model
     public $operationPreferences;
 
     /**
-     * @description test
+     * @description The list of parameters.
      *
      * @var parameters[]
      */

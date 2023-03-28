@@ -22,6 +22,8 @@ class CreateTemplateScratchShrinkRequest extends Model
     /**
      * @description The description of the scenario.
      *
+     * @example Replicate a VPC.
+     *
      * @var string
      */
     public $description;
@@ -91,6 +93,8 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $sourceTagShrink;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

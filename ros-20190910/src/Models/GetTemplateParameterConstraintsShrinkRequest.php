@@ -20,6 +20,8 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The name of parameter N in the template.
+     *
      * @var parameters[]
      */
     public $parameters;
@@ -50,6 +52,8 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example c754d2a4-28f1-46df-b557-9586173a****
      *
      * @var string

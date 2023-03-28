@@ -61,6 +61,8 @@ class CreateStackRequest extends Model
     public $disableRollback;
 
     /**
+     * @description The callback URL that is used to receive stack event N.
+     *
      * @example http://my-site.com/ros-event
      *
      * @var string[]
@@ -81,7 +83,7 @@ class CreateStackRequest extends Model
     public $parallelism;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameters[]
      */
@@ -147,7 +149,7 @@ class CreateStackRequest extends Model
     public $stackPolicyURL;
 
     /**
-     * @description test
+     * @description The tags.
      *
      * @var tags[]
      */

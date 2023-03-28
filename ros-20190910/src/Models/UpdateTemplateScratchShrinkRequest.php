@@ -21,6 +21,8 @@ class UpdateTemplateScratchShrinkRequest extends Model
     /**
      * @description The description of the scenario.
      *
+     * @example The description of the scenario.
+     *
      * @var string
      */
     public $description;

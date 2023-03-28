@@ -56,7 +56,7 @@ class PreviewStackRequest extends Model
     public $parallelism;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameters[]
      */

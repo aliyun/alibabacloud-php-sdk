@@ -63,6 +63,8 @@ class UpdateStackRequest extends Model
     public $parallelism;
 
     /**
+     * @description The parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
@@ -172,6 +174,8 @@ class UpdateStackRequest extends Model
     public $stackPolicyURL;
 
     /**
+     * @description The value of tag N that you want to add to the template.
+     *
      * @var tags[]
      */
     public $tags;

@@ -32,6 +32,8 @@ class UpdateStackTemplateByResourcesRequest extends Model
     public $dryRun;
 
     /**
+     * @description The logical ID of resource.
+     *
      * @example Vpc
      *
      * @var string[]

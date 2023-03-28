@@ -102,7 +102,7 @@ class CreateStackInstancesShrinkRequest extends Model
     public $operationPreferencesShrink;
 
     /**
-     * @description test
+     * @description The parameters.
      *
      * @var parameterOverrides[]
      */

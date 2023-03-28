@@ -64,6 +64,8 @@ class parameterConstraints extends Model
     public $illegalValueByRules;
 
     /**
+     * @description The unsupported resources in the template.
+     *
      * @var notSupportResources[]
      */
     public $notSupportResources;
@@ -78,6 +80,8 @@ class parameterConstraints extends Model
     public $parameterKey;
 
     /**
+     * @description The error details that are returned if the request fails.
+     *
      * @var queryErrors[]
      */
     public $queryErrors;

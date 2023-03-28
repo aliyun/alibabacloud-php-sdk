@@ -29,6 +29,8 @@ class CreateTemplateRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
