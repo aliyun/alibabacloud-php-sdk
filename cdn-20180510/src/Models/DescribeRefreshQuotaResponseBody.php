@@ -45,6 +45,16 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $dirRemain;
 
     /**
+     * @var string
+     */
+    public $ignoreParamsQuota;
+
+    /**
+     * @var string
+     */
+    public $ignoreParamsRemain;
+
+    /**
      * @description The maximum number of times that you can prefetch content to L1 nodes on the current day.
      *
      * @example 20
@@ -125,19 +135,21 @@ class DescribeRefreshQuotaResponseBody extends Model
      */
     public $urlRemain;
     protected $_name = [
-        'blockQuota'        => 'BlockQuota',
-        'blockRemain'       => 'BlockRemain',
-        'dirQuota'          => 'DirQuota',
-        'dirRemain'         => 'DirRemain',
-        'preloadEdgeQuota'  => 'PreloadEdgeQuota',
-        'preloadEdgeRemain' => 'PreloadEdgeRemain',
-        'preloadQuota'      => 'PreloadQuota',
-        'preloadRemain'     => 'PreloadRemain',
-        'regexQuota'        => 'RegexQuota',
-        'regexRemain'       => 'RegexRemain',
-        'requestId'         => 'RequestId',
-        'urlQuota'          => 'UrlQuota',
-        'urlRemain'         => 'UrlRemain',
+        'blockQuota'         => 'BlockQuota',
+        'blockRemain'        => 'BlockRemain',
+        'dirQuota'           => 'DirQuota',
+        'dirRemain'          => 'DirRemain',
+        'ignoreParamsQuota'  => 'IgnoreParamsQuota',
+        'ignoreParamsRemain' => 'IgnoreParamsRemain',
+        'preloadEdgeQuota'   => 'PreloadEdgeQuota',
+        'preloadEdgeRemain'  => 'PreloadEdgeRemain',
+        'preloadQuota'       => 'PreloadQuota',
+        'preloadRemain'      => 'PreloadRemain',
+        'regexQuota'         => 'RegexQuota',
+        'regexRemain'        => 'RegexRemain',
+        'requestId'          => 'RequestId',
+        'urlQuota'           => 'UrlQuota',
+        'urlRemain'          => 'UrlRemain',
     ];
 
     public function validate()
@@ -158,6 +170,12 @@ class DescribeRefreshQuotaResponseBody extends Model
         }
         if (null !== $this->dirRemain) {
             $res['DirRemain'] = $this->dirRemain;
+        }
+        if (null !== $this->ignoreParamsQuota) {
+            $res['IgnoreParamsQuota'] = $this->ignoreParamsQuota;
+        }
+        if (null !== $this->ignoreParamsRemain) {
+            $res['IgnoreParamsRemain'] = $this->ignoreParamsRemain;
         }
         if (null !== $this->preloadEdgeQuota) {
             $res['PreloadEdgeQuota'] = $this->preloadEdgeQuota;
@@ -209,6 +227,12 @@ class DescribeRefreshQuotaResponseBody extends Model
         }
         if (isset($map['DirRemain'])) {
             $model->dirRemain = $map['DirRemain'];
+        }
+        if (isset($map['IgnoreParamsQuota'])) {
+            $model->ignoreParamsQuota = $map['IgnoreParamsQuota'];
+        }
+        if (isset($map['IgnoreParamsRemain'])) {
+            $model->ignoreParamsRemain = $map['IgnoreParamsRemain'];
         }
         if (isset($map['PreloadEdgeQuota'])) {
             $model->preloadEdgeQuota = $map['PreloadEdgeQuota'];
