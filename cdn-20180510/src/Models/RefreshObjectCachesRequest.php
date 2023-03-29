@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RefreshObjectCachesRequest extends Model
 {
     /**
-     * @description The URLs from which content is refreshed. Format: **Accelerated domain name**\/**Paths or directories of files that you want to refresh**.
-     *
-     * Separate multiple URLs with line feed characters (\n) or a pair of carriage return and line feed characters (\r\n).
      * @example http://example.com/image/1.png\nhttp://aliyundoc.com/image/2.png
      *
      * @var string
