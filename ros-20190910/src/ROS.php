@@ -1054,6 +1054,9 @@ class ROS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->deleteOptions)) {
+            $query['DeleteOptions'] = $request->deleteOptions;
+        }
         if (!Utils::isUnset($request->ramRoleName)) {
             $query['RamRoleName'] = $request->ramRoleName;
         }

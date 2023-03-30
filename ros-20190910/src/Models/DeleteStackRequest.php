@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $deleteOptions;
+
+    /**
      * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
      *
      * The name of the RAM role can be up to 64 bytes in length.
@@ -59,6 +64,7 @@ class DeleteStackRequest extends Model
      */
     public $stackId;
     protected $_name = [
+        'deleteOptions'      => 'DeleteOptions',
         'ramRoleName'        => 'RamRoleName',
         'regionId'           => 'RegionId',
         'retainAllResources' => 'RetainAllResources',
@@ -73,6 +79,9 @@ class DeleteStackRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteOptions) {
+            $res['DeleteOptions'] = $this->deleteOptions;
+        }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
@@ -100,6 +109,11 @@ class DeleteStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteOptions'])) {
+            if (!empty($map['DeleteOptions'])) {
+                $model->deleteOptions = $map['DeleteOptions'];
+            }
+        }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }

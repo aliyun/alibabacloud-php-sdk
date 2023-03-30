@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\driftDetection;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\resourceCleaner;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\resourceImport;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateParameterConstraints;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateScratch;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
@@ -12,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 
 class GetFeatureDetailsResponseBody extends Model
 {
+    /**
+     * @var driftDetection
+     */
+    public $driftDetection;
+
     /**
      * @description The ID of the request.
      *
@@ -27,6 +34,11 @@ class GetFeatureDetailsResponseBody extends Model
      * @var resourceCleaner
      */
     public $resourceCleaner;
+
+    /**
+     * @var resourceImport
+     */
+    public $resourceImport;
 
     /**
      * @description Details of the template parameter constraint feature.
@@ -49,8 +61,10 @@ class GetFeatureDetailsResponseBody extends Model
      */
     public $terraform;
     protected $_name = [
+        'driftDetection'               => 'DriftDetection',
         'requestId'                    => 'RequestId',
         'resourceCleaner'              => 'ResourceCleaner',
+        'resourceImport'               => 'ResourceImport',
         'templateParameterConstraints' => 'TemplateParameterConstraints',
         'templateScratch'              => 'TemplateScratch',
         'terraform'                    => 'Terraform',
@@ -63,11 +77,17 @@ class GetFeatureDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->driftDetection) {
+            $res['DriftDetection'] = null !== $this->driftDetection ? $this->driftDetection->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->resourceCleaner) {
             $res['ResourceCleaner'] = null !== $this->resourceCleaner ? $this->resourceCleaner->toMap() : null;
+        }
+        if (null !== $this->resourceImport) {
+            $res['ResourceImport'] = null !== $this->resourceImport ? $this->resourceImport->toMap() : null;
         }
         if (null !== $this->templateParameterConstraints) {
             $res['TemplateParameterConstraints'] = null !== $this->templateParameterConstraints ? $this->templateParameterConstraints->toMap() : null;
@@ -90,11 +110,17 @@ class GetFeatureDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DriftDetection'])) {
+            $model->driftDetection = driftDetection::fromMap($map['DriftDetection']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ResourceCleaner'])) {
             $model->resourceCleaner = resourceCleaner::fromMap($map['ResourceCleaner']);
+        }
+        if (isset($map['ResourceImport'])) {
+            $model->resourceImport = resourceImport::fromMap($map['ResourceImport']);
         }
         if (isset($map['TemplateParameterConstraints'])) {
             $model->templateParameterConstraints = templateParameterConstraints::fromMap($map['TemplateParameterConstraints']);
