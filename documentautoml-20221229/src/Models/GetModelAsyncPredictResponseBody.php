@@ -6,22 +6,24 @@ namespace AlibabaCloud\SDK\DocumentAutoml\V20221229\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PredictTemplateModelResponseBody extends Model
+class GetModelAsyncPredictResponseBody extends Model
 {
     /**
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 
     /**
-     * @var mixed[]
+     * @example {
+     * }
+     * @var string
      */
     public $data;
 
     /**
-     * @example successful
+     * @example success
      *
      * @var string
      */
@@ -30,7 +32,7 @@ class PredictTemplateModelResponseBody extends Model
     /**
      * @description Id of the request
      *
-     * @example F25FBAB4-665A-5D85-8AEF-39AE29F7D588
+     * @example 3EAC98E6-8DD6-511F-8764-DEE8B6EB6BB4
      *
      * @var string
      */
@@ -68,7 +70,7 @@ class PredictTemplateModelResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return PredictTemplateModelResponseBody
+     * @return GetModelAsyncPredictResponseBody
      */
     public static function fromMap($map = [])
     {

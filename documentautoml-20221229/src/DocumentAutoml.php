@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\DocumentAutoml\V20221229;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\CreateModelAsyncPredictRequest;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\CreateModelAsyncPredictResponse;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\GetModelAsyncPredictRequest;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\GetModelAsyncPredictResponse;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictClassifierModelRequest;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictClassifierModelResponse;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictModelRequest;
@@ -49,6 +53,107 @@ class DocumentAutoml extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateModelAsyncPredictRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateModelAsyncPredictResponse
+     */
+    public function createModelAsyncPredictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->binaryToText)) {
+            $query['BinaryToText'] = $request->binaryToText;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateModelAsyncPredict',
+            'version'     => '2022-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateModelAsyncPredictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateModelAsyncPredictRequest $request
+     *
+     * @return CreateModelAsyncPredictResponse
+     */
+    public function createModelAsyncPredict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelAsyncPredictWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetModelAsyncPredictRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetModelAsyncPredictResponse
+     */
+    public function getModelAsyncPredictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asyncPredictId)) {
+            $query['AsyncPredictId'] = $request->asyncPredictId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetModelAsyncPredict',
+            'version'     => '2022-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModelAsyncPredictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetModelAsyncPredictRequest $request
+     *
+     * @return GetModelAsyncPredictResponse
+     */
+    public function getModelAsyncPredict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModelAsyncPredictWithOptions($request, $runtime);
     }
 
     /**
