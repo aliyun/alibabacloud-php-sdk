@@ -18,7 +18,7 @@ class curMetrics extends Model
     public $blockQps;
 
     /**
-     * @description The number of abnormal QPS.
+     * @description The abnormal QPS.
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class curMetrics extends Model
     public $passQps;
 
     /**
-     * @description The number of queries per second (QPS).
+     * @description The queries per second (QPS).
      *
      * @example 895
      *

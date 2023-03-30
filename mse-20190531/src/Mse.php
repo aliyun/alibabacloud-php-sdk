@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthConsumerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthConsumerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest;
@@ -66,6 +68,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRequest;
@@ -88,6 +94,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNamespaceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceRequest;
@@ -114,6 +122,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayOptionRequest;
@@ -191,10 +201,16 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteShrinkRequest;
@@ -270,6 +286,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNamespaceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdRequest;
@@ -298,6 +316,15 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceStatusRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceStatusResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameRequest;
@@ -305,6 +332,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteAuthResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteAuthShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteCORSRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteCORSResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteCORSShrinkRequest;
@@ -624,6 +654,85 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddGatewayAuthConsumerRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddGatewayAuthConsumerResponse
+     */
+    public function addGatewayAuthConsumerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->encodeType)) {
+            $query['EncodeType'] = $request->encodeType;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->jwks)) {
+            $query['Jwks'] = $request->jwks;
+        }
+        if (!Utils::isUnset($request->keyName)) {
+            $query['KeyName'] = $request->keyName;
+        }
+        if (!Utils::isUnset($request->keyValue)) {
+            $query['KeyValue'] = $request->keyValue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tokenName)) {
+            $query['TokenName'] = $request->tokenName;
+        }
+        if (!Utils::isUnset($request->tokenPass)) {
+            $query['TokenPass'] = $request->tokenPass;
+        }
+        if (!Utils::isUnset($request->tokenPosition)) {
+            $query['TokenPosition'] = $request->tokenPosition;
+        }
+        if (!Utils::isUnset($request->tokenPrefix)) {
+            $query['TokenPrefix'] = $request->tokenPrefix;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGatewayAuthConsumer',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddGatewayAuthConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddGatewayAuthConsumerRequest $request
+     *
+     * @return AddGatewayAuthConsumerResponse
+     */
+    public function addGatewayAuthConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGatewayAuthConsumerWithOptions($request, $runtime);
     }
 
     /**
@@ -1319,8 +1428,14 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -1491,7 +1606,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+     * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1578,7 +1693,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+     * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -2005,6 +2120,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2390,6 +2508,107 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGatewayAuthConsumerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteGatewayAuthConsumerResponse
+     */
+    public function deleteGatewayAuthConsumerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayAuthConsumer',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayAuthConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayAuthConsumerRequest $request
+     *
+     * @return DeleteGatewayAuthConsumerResponse
+     */
+    public function deleteGatewayAuthConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayAuthConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGatewayAuthConsumerResourceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteGatewayAuthConsumerResourceResponse
+     */
+    public function deleteGatewayAuthConsumerResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->idList)) {
+            $query['IdList'] = $request->idList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayAuthConsumerResource',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayAuthConsumerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayAuthConsumerResourceRequest $request
+     *
+     * @return DeleteGatewayAuthConsumerResourceResponse
+     */
+    public function deleteGatewayAuthConsumerResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayAuthConsumerResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2944,6 +3163,55 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param DeleteNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNamespaceResponse
+     */
+    public function deleteNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNamespaceRequest $request
+     *
+     * @return DeleteNamespaceResponse
+     */
+    public function deleteNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSecurityGroupRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3056,6 +3324,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->laneId)) {
             $query['LaneId'] = $request->laneId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3378,6 +3649,12 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
@@ -3699,6 +3976,55 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGatewayAuthConsumerDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetGatewayAuthConsumerDetailResponse
+     */
+    public function getGatewayAuthConsumerDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGatewayAuthConsumerDetail',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGatewayAuthConsumerDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGatewayAuthConsumerDetailRequest $request
+     *
+     * @return GetGatewayAuthConsumerDetailResponse
+     */
+    public function getGatewayAuthConsumerDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayAuthConsumerDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -4620,6 +4946,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5035,6 +5364,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -5627,6 +5959,128 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListGatewayAuthConsumerRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListGatewayAuthConsumerResponse
+     */
+    public function listGatewayAuthConsumerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerStatus)) {
+            $query['ConsumerStatus'] = $request->consumerStatus;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayAuthConsumer',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayAuthConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayAuthConsumerRequest $request
+     *
+     * @return ListGatewayAuthConsumerResponse
+     */
+    public function listGatewayAuthConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayAuthConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGatewayAuthConsumerResourceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListGatewayAuthConsumerResourceResponse
+     */
+    public function listGatewayAuthConsumerResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceStatus)) {
+            $query['ResourceStatus'] = $request->resourceStatus;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayAuthConsumerResource',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayAuthConsumerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayAuthConsumerResourceRequest $request
+     *
+     * @return ListGatewayAuthConsumerResourceResponse
+     */
+    public function listGatewayAuthConsumerResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayAuthConsumerResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListGatewayDomainRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5736,6 +6190,55 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGatewayRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGatewayRouteOnAuthRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListGatewayRouteOnAuthResponse
+     */
+    public function listGatewayRouteOnAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayRouteOnAuth',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayRouteOnAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayRouteOnAuthRequest $request
+     *
+     * @return ListGatewayRouteOnAuthResponse
+     */
+    public function listGatewayRouteOnAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayRouteOnAuthWithOptions($request, $runtime);
     }
 
     /**
@@ -6934,6 +7437,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7523,6 +8029,55 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param QueryNamespaceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryNamespaceResponse
+     */
+    public function queryNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryNamespaceRequest $request
+     *
+     * @return QueryNamespaceResponse
+     */
+    public function queryNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySlbSpecRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -7577,6 +8132,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->laneId)) {
             $query['LaneId'] = $request->laneId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8329,6 +8887,246 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateGatewayAuthConsumerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateGatewayAuthConsumerResponse
+     */
+    public function updateGatewayAuthConsumerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->encodeType)) {
+            $query['EncodeType'] = $request->encodeType;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->jwks)) {
+            $query['Jwks'] = $request->jwks;
+        }
+        if (!Utils::isUnset($request->keyName)) {
+            $query['KeyName'] = $request->keyName;
+        }
+        if (!Utils::isUnset($request->keyValue)) {
+            $query['KeyValue'] = $request->keyValue;
+        }
+        if (!Utils::isUnset($request->tokenName)) {
+            $query['TokenName'] = $request->tokenName;
+        }
+        if (!Utils::isUnset($request->tokenPass)) {
+            $query['TokenPass'] = $request->tokenPass;
+        }
+        if (!Utils::isUnset($request->tokenPosition)) {
+            $query['TokenPosition'] = $request->tokenPosition;
+        }
+        if (!Utils::isUnset($request->tokenPrefix)) {
+            $query['TokenPrefix'] = $request->tokenPrefix;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayAuthConsumer',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayAuthConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerRequest $request
+     *
+     * @return UpdateGatewayAuthConsumerResponse
+     */
+    public function updateGatewayAuthConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayAuthConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerResourceRequest $tmpReq
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateGatewayAuthConsumerResourceResponse
+     */
+    public function updateGatewayAuthConsumerResourceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayAuthConsumerResourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceList)) {
+            $request->resourceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceList, 'ResourceList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->resourceListShrink)) {
+            $query['ResourceList'] = $request->resourceListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayAuthConsumerResource',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayAuthConsumerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerResourceRequest $request
+     *
+     * @return UpdateGatewayAuthConsumerResourceResponse
+     */
+    public function updateGatewayAuthConsumerResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayAuthConsumerResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return UpdateGatewayAuthConsumerResourceStatusResponse
+     */
+    public function updateGatewayAuthConsumerResourceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->idList)) {
+            $query['IdList'] = $request->idList;
+        }
+        if (!Utils::isUnset($request->resourceStatus)) {
+            $query['ResourceStatus'] = $request->resourceStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayAuthConsumerResourceStatus',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayAuthConsumerResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request
+     *
+     * @return UpdateGatewayAuthConsumerResourceStatusResponse
+     */
+    public function updateGatewayAuthConsumerResourceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayAuthConsumerResourceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateGatewayAuthConsumerStatusResponse
+     */
+    public function updateGatewayAuthConsumerStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->consumerStatus)) {
+            $query['ConsumerStatus'] = $request->consumerStatus;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayAuthConsumerStatus',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayAuthConsumerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayAuthConsumerStatusRequest $request
+     *
+     * @return UpdateGatewayAuthConsumerStatusResponse
+     */
+    public function updateGatewayAuthConsumerStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayAuthConsumerStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGatewayDomainRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -8601,6 +9399,66 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGatewayRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayRouteAuthRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGatewayRouteAuthResponse
+     */
+    public function updateGatewayRouteAuthWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayRouteAuthShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->authJSON)) {
+            $request->authJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authJSON, 'AuthJSON', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->authJSONShrink)) {
+            $query['AuthJSON'] = $request->authJSONShrink;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayRouteAuth',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayRouteAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayRouteAuthRequest $request
+     *
+     * @return UpdateGatewayRouteAuthResponse
+     */
+    public function updateGatewayRouteAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayRouteAuthWithOptions($request, $runtime);
     }
 
     /**

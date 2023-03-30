@@ -25,6 +25,8 @@ class ListApplicationsWithTagRulesRequest extends Model
      *
      * @example xjpc0h9h4d@xxx
      *
+     * @deprecated
+     *
      * @var string
      */
     public $appId;
@@ -37,6 +39,13 @@ class ListApplicationsWithTagRulesRequest extends Model
      * @var string
      */
     public $appName;
+
+    /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @description The number of the page to return.
@@ -77,6 +86,7 @@ class ListApplicationsWithTagRulesRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'appName'        => 'AppName',
+        'namespace'      => 'Namespace',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
@@ -98,6 +108,9 @@ class ListApplicationsWithTagRulesRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -131,6 +144,9 @@ class ListApplicationsWithTagRulesRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

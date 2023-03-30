@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The update time.
+     * @description The modification time.
      *
      * @example 2021-12-30T06:41:52.000+0000
      *

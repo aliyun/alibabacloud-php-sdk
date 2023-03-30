@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class historyItems extends Model
 {
     /**
-     * @description The tags of the application.
+     * @description The application tag.
      *
      * @example gateway
      *
@@ -54,7 +54,7 @@ class historyItems extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The type of the configuration file.
+     * @description The format of the configuration file.
      *
      * @example yaml
      *

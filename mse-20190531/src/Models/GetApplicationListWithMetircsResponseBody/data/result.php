@@ -29,7 +29,7 @@ class result extends Model
     public $appName;
 
     /**
-     * @description The metric about the application.
+     * @description The current metrics.
      *
      * @var curMetrics[]
      */
@@ -84,7 +84,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The ID of the region where the instance resides.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -93,7 +93,7 @@ class result extends Model
     public $regionId;
 
     /**
-     * @description The service source.
+     * @description The source.
      *
      * @example edasmsc
      *

@@ -39,6 +39,8 @@ class GetApplicationListWithMetircsRequest extends Model
     public $appName;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -53,7 +55,7 @@ class GetApplicationListWithMetircsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The number of entries to return on each page. Default value: 10
      *
      * @example 10
      *
@@ -62,7 +64,7 @@ class GetApplicationListWithMetircsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the instance resides. Examples:
+     * @description The ID of the region where the Microservices Engine (MSE) instance resides. Examples:
      *
      *   cn-hangzhou: China (Hangzhou)
      *   cn-beijing: China (Beijing)

@@ -48,7 +48,7 @@ class UpdateBlackWhiteListRequest extends Model
     public $id;
 
     /**
-     * @description Specifies whether to modify the whitelist.
+     * @description Specifies whether to enable the whitelist feature.
      *
      * @example true
      *

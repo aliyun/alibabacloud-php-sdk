@@ -75,7 +75,7 @@ class ListNacosHistoryConfigsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
      * @example cn-hangzhou
      *

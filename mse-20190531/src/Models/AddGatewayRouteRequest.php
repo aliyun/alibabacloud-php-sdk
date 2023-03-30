@@ -51,7 +51,7 @@ class AddGatewayRouteRequest extends Model
     public $domainId;
 
     /**
-     * @description The IDs of domains.
+     * @description The list of domain IDs.
      *
      * @example [0,94]
      *
@@ -112,6 +112,10 @@ class AddGatewayRouteRequest extends Model
     public $name;
 
     /**
+     * @description Routing policy Json string.
+     *
+     * @example {"CORS":"{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}","Timeout":"{\"unitNum\":10,\"timeUnit\":\"s\",\"status\":\"off\"}","Retry":"{\"attempts\":2,\"retryOn\":[\"5xx\"],\"status\":\"off\"}","HTTPRewrite":"{\"pathType\":\"EQUAL\",\"path\":\"/o\",\"status\":\"off\"}","Waf":"{\"enabled\":false}","HeaderOp":"{\"status\":\"off\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Add\",\"key\":\"kkk\",\"value\":\"ll\"}]}"}
+     *
      * @var string
      */
     public $policies;
@@ -131,7 +135,7 @@ class AddGatewayRouteRequest extends Model
     public $redirectJSON;
 
     /**
-     * @description The sequence number of the route. (A small value indicates a high priority.)
+     * @description The sequence number of the route. A small value indicates a high priority.
      *
      * @example 1
      *
@@ -140,12 +144,17 @@ class AddGatewayRouteRequest extends Model
     public $routeOrder;
 
     /**
+     * @description RouteType:
+     *
+     * Op: Control routing.
+     * @example Op
+     *
      * @var string
      */
     public $routeType;
 
     /**
-     * @description The information about services.
+     * @description The services.
      *
      * @var services[]
      */

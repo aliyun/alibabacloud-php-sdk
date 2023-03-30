@@ -165,7 +165,7 @@ class AddGatewayRequest extends Model
     public $vSwitchId2;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) in which the instances reside.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp15mncnrtm83uauxd1xb
      *
@@ -174,7 +174,7 @@ class AddGatewayRequest extends Model
     public $vpc;
 
     /**
-     * @description The sample rate of Tracing Analysis. Valid values: \[1,100].
+     * @description The sampling rate of Tracing Analysis. Valid values: \[1,100].
      *
      * @example 10
      *

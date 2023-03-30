@@ -120,6 +120,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;

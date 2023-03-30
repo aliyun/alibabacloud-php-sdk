@@ -19,8 +19,8 @@ class data extends Model
     /**
      * @description Indicates whether the service is a temporary service. Valid values:
      *
-     *   `true`: The service is a temporary service.
-     *   `false`: The service is not a temporary service.
+     *   `true`: yes
+     *   `false`: no
      *
      * @example true
      *

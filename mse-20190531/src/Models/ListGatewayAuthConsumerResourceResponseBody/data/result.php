@@ -1,0 +1,147 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceResponseBody\data;
+
+use AlibabaCloud\Tea\Model;
+
+class result extends Model
+{
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $consumerId;
+
+    /**
+     * @example gw-5017305290e14centbrveca****
+     *
+     * @var string
+     */
+    public $gatewayUniqueId;
+
+    /**
+     * @example 2022-01-07 18:07:57
+     *
+     * @var string
+     */
+    public $gmtCreate;
+
+    /**
+     * @example 2022-01-07 18:07:57
+     *
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $resourceStatus;
+
+    /**
+     * @example 3091
+     *
+     * @var int
+     */
+    public $routeId;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $routeName;
+    protected $_name = [
+        'consumerId'      => 'ConsumerId',
+        'gatewayUniqueId' => 'GatewayUniqueId',
+        'gmtCreate'       => 'GmtCreate',
+        'gmtModified'     => 'GmtModified',
+        'id'              => 'Id',
+        'resourceStatus'  => 'ResourceStatus',
+        'routeId'         => 'RouteId',
+        'routeName'       => 'RouteName',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->consumerId) {
+            $res['ConsumerId'] = $this->consumerId;
+        }
+        if (null !== $this->gatewayUniqueId) {
+            $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->resourceStatus) {
+            $res['ResourceStatus'] = $this->resourceStatus;
+        }
+        if (null !== $this->routeId) {
+            $res['RouteId'] = $this->routeId;
+        }
+        if (null !== $this->routeName) {
+            $res['RouteName'] = $this->routeName;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ConsumerId'])) {
+            $model->consumerId = $map['ConsumerId'];
+        }
+        if (isset($map['GatewayUniqueId'])) {
+            $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['ResourceStatus'])) {
+            $model->resourceStatus = $map['ResourceStatus'];
+        }
+        if (isset($map['RouteId'])) {
+            $model->routeId = $map['RouteId'];
+        }
+        if (isset($map['RouteName'])) {
+            $model->routeName = $map['RouteName'];
+        }
+
+        return $model;
+    }
+}

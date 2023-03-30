@@ -25,9 +25,18 @@ class ApplyTagPoliciesRequest extends Model
      *
      * @example h5pohqu3gd@xxx
      *
+     * @deprecated
+     *
      * @var string
      */
     public $appId;
+
+    /**
+     * @example example-app
+     *
+     * @var string
+     */
+    public $appName;
 
     /**
      * @description Specifies whether to enable the routing rule.
@@ -37,6 +46,13 @@ class ApplyTagPoliciesRequest extends Model
      * @var bool
      */
     public $enable;
+
+    /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @description Optional. The ID of the namespace.
@@ -76,7 +92,9 @@ class ApplyTagPoliciesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
+        'appName'        => 'AppName',
         'enable'         => 'Enable',
+        'namespace'      => 'Namespace',
         'namespaceId'    => 'NamespaceId',
         'region'         => 'Region',
         'rules'          => 'Rules',
@@ -96,8 +114,14 @@ class ApplyTagPoliciesRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -129,8 +153,14 @@ class ApplyTagPoliciesRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

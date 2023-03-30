@@ -77,8 +77,8 @@ class AddGatewaySlbRequest extends Model
     /**
      * @description The type of the service source. Valid values:
      *
-     *   PUB_NET: public network
-     *   PRIVATE_NET: private network
+     *   PUB_NET: Internet
+     *   PRIVATE_NET: VPC
      *
      * @example PUB_NET
      *

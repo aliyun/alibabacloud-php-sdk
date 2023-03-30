@@ -30,6 +30,8 @@ class DeleteSwimmingLaneGroupRequest extends Model
     public $groupId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;

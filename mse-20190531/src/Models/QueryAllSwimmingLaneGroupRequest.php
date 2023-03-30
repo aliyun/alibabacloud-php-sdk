@@ -21,6 +21,8 @@ class QueryAllSwimmingLaneGroupRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;

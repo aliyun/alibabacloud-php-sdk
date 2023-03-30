@@ -83,7 +83,7 @@ class ListMigrationTaskResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries.
      *
      * @example 2
      *

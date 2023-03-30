@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayRouteResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class DeleteGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */

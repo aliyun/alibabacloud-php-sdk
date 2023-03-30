@@ -9,31 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example abcde@abcde,abcde@abcde
+     *
      * @var string
      */
     public $appIds;
 
     /**
-     * @var string
-     */
-    public $dbGrayEnable;
-
-    /**
-     * @var string
-     */
-    public $enable;
-
-    /**
+     * @example mse:abcde@abcde
+     *
      * @var string
      */
     public $entryApp;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example Client
+     *
      * @var string
      */
     public $messageQueueFilterSide;
@@ -44,11 +42,15 @@ class data extends Model
     public $messageQueueGrayEnable;
 
     /**
+     * @example swimmingGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -59,28 +61,20 @@ class data extends Model
     public $recordCanaryDetail;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
-     * @var string
-     */
-    public $source;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
+     * @example 12345
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
         'appIds'                 => 'AppIds',
-        'dbGrayEnable'           => 'DbGrayEnable',
-        'enable'                 => 'Enable',
         'entryApp'               => 'EntryApp',
         'id'                     => 'Id',
         'messageQueueFilterSide' => 'MessageQueueFilterSide',
@@ -89,8 +83,6 @@ class data extends Model
         'namespace'              => 'Namespace',
         'recordCanaryDetail'     => 'RecordCanaryDetail',
         'region'                 => 'Region',
-        'source'                 => 'Source',
-        'status'                 => 'Status',
         'userId'                 => 'UserId',
     ];
 
@@ -103,12 +95,6 @@ class data extends Model
         $res = [];
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
-        }
-        if (null !== $this->dbGrayEnable) {
-            $res['DbGrayEnable'] = $this->dbGrayEnable;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
         }
         if (null !== $this->entryApp) {
             $res['EntryApp'] = $this->entryApp;
@@ -134,12 +120,6 @@ class data extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -157,12 +137,6 @@ class data extends Model
         $model = new self();
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
-        }
-        if (isset($map['DbGrayEnable'])) {
-            $model->dbGrayEnable = $map['DbGrayEnable'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
         }
         if (isset($map['EntryApp'])) {
             $model->entryApp = $map['EntryApp'];
@@ -187,12 +161,6 @@ class data extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

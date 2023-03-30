@@ -26,16 +26,16 @@ class CreateClusterRequest extends Model
      *
      * \[Professional Edition]
      *
-     *   `MSE_SC_2_4_60_c`: 2 CPU cores and 4 GB of memory
-     *   `MSE_SC_1_2_60_c`: 1 CPU core and 2 GB of memory
-     *   `MSE_SC_4_8_60_c`: 4 CPU cores and 8 GB of memory
-     *   `MSE_SC_8_16_60_c`: 8 CPU cores and 16 GB of memory
-     *   `MSE_SC_16_32_60_c`: 16 CPU cores and 32 GB of memory
+     *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
+     *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
+     *   `MSE_SC_4_8_60_c`: 4 vCPUs and 8 GB of memory
+     *   `MSE_SC_8_16_60_c`: 8 vCPUs and 16 GB of memory
+     *   `MSE_SC_16_32_60_c`: 16 vCPUs and 32 GB of memory
      *
      * \[Developer Edition]
      *
-     *   `MSE_SC_1_2_60_c`: 1 CPU core and 2 GB of memory
-     *   `MSE_SC_2_4_60_c`: 2 CPU cores and 4 GB of memory
+     *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
+     *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
      *
      * @example MSE_SC_2_4_60_c
      *
@@ -84,7 +84,7 @@ class CreateClusterRequest extends Model
     public $connectionType;
 
     /**
-     * @description The disk type of the MSE instance. Valid values:
+     * @description The disk type. Valid values:
      *
      *   alicloud-disk-ssd
      *   alicloud-disk-essd-pl1
@@ -113,7 +113,7 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The name of the MSE instance.
+     * @description The name of the instance.
      *
      * @example tanshuyingtest001
      *
@@ -122,7 +122,7 @@ class CreateClusterRequest extends Model
     public $instanceName;
 
     /**
-     * @description Configure this parameter unless otherwise specified. Valid values:
+     * @description Set this parameter unless otherwise specified. Valid values:
      *
      *   `mse_pro`: Professional Edition
      *   `mse_dev`: Developer Edition
@@ -203,7 +203,7 @@ class CreateClusterRequest extends Model
     public $requestPars;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~457230~~).
+     * @description The ID of the resource group. For the details of resource groups, see [View basic information of a resource group](~~457230~~).
      *
      * @example rg-aekzcqmoay3dlyq
      *

@@ -30,6 +30,8 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     public $appId;
 
     /**
+     * @example example-app
+     *
      * @var string
      */
     public $appName;
@@ -56,6 +58,8 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     public $filterSide;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;

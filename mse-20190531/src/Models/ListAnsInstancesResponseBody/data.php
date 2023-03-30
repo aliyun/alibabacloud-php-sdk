@@ -57,7 +57,7 @@ class data extends Model
     public $enabled;
 
     /**
-     * @description Indicates whether the information about the temporary node is obtained. Valid values:
+     * @description Indicates whether the information about the ephemeral node is obtained. Valid values:
      *
      *   `true`: yes
      *   `false`: no
@@ -69,7 +69,7 @@ class data extends Model
     public $ephemeral;
 
     /**
-     * @description The number of failed checks.
+     * @description The number of counted failures.
      *
      * @example 0
      *
@@ -165,7 +165,7 @@ class data extends Model
     public $metadata;
 
     /**
-     * @description The number of successful checks.
+     * @description The number of counted successes.
      *
      * @example 0
      *

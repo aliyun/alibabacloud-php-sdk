@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateBlackWhiteListResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class UpdateBlackWhiteListResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Request
+     * @description The message returned.
      *
      * @example You are not authorized to perform this operation.
      *

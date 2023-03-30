@@ -60,7 +60,7 @@ class filterParams extends Model
     public $serviceProtocol;
 
     /**
-     * @description The type of the service source.
+     * @description The source type.
      *
      * @example MSE
      *

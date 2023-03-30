@@ -42,7 +42,7 @@ class UpdateNacosServiceRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-cn-st21ri2****
      *
      * @var string

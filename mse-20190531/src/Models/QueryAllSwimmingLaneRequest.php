@@ -28,9 +28,17 @@ class QueryAllSwimmingLaneRequest extends Model
      * @var int
      */
     public $groupId;
+
+    /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'namespace'      => 'Namespace',
     ];
 
     public function validate()
@@ -45,6 +53,9 @@ class QueryAllSwimmingLaneRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         return $res;
@@ -63,6 +74,9 @@ class QueryAllSwimmingLaneRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         return $model;

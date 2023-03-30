@@ -30,6 +30,20 @@ class GetAppMessageQueueRouteRequest extends Model
     public $appId;
 
     /**
+     * @example example-app
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The region where the instance resides. Examples:
      *
      *   `cn-hangzhou`: China (Hangzhou)
@@ -46,6 +60,8 @@ class GetAppMessageQueueRouteRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
+        'appName'        => 'AppName',
+        'namespace'      => 'Namespace',
         'region'         => 'Region',
     ];
 
@@ -61,6 +77,12 @@ class GetAppMessageQueueRouteRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -82,6 +104,12 @@ class GetAppMessageQueueRouteRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -117,6 +117,13 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $name;
 
     /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The region ID.
      *
      * @example cn-beijing
@@ -171,6 +178,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         'id'                           => 'Id',
         'licenseKey'                   => 'LicenseKey',
         'name'                         => 'Name',
+        'namespace'                    => 'Namespace',
         'regionId'                     => 'RegionId',
         'source'                       => 'Source',
         'status'                       => 'Status',
@@ -226,6 +234,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -295,6 +306,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -27,7 +27,7 @@ class DeleteMigrationTaskResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code
+     * @description The HTTP status code returned.
      *
      * @example 200
      *

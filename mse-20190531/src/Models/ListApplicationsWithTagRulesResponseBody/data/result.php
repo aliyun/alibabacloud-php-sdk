@@ -28,6 +28,13 @@ class result extends Model
     public $appName;
 
     /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The information about the rules.
      *
      * @var routeRules[]
@@ -45,6 +52,7 @@ class result extends Model
     protected $_name = [
         'appId'       => 'AppId',
         'appName'     => 'AppName',
+        'namespace'   => 'Namespace',
         'routeRules'  => 'RouteRules',
         'routeStatus' => 'RouteStatus',
     ];
@@ -61,6 +69,9 @@ class result extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->routeRules) {
             $res['RouteRules'] = [];
@@ -91,6 +102,9 @@ class result extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RouteRules'])) {
             if (!empty($map['RouteRules'])) {

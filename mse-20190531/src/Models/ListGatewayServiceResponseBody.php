@@ -19,7 +19,7 @@ class ListGatewayServiceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The response parameters.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class ListGatewayServiceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example You are not authorized to perform this operation.
      *

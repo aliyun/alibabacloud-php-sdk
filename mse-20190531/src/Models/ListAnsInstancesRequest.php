@@ -21,7 +21,7 @@ class ListAnsInstancesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the Nacos instance.
      *
      * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-09k1q11****
@@ -31,7 +31,7 @@ class ListAnsInstancesRequest extends Model
     public $clusterId;
 
     /**
-     * @description The alias of the cluster.
+     * @description The alias of the Nacos instance.
      *
      * @example mse-7413****
      *
@@ -51,7 +51,7 @@ class ListAnsInstancesRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+     * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse_prepaid_public_cn-tl327w****
      *
      * @var string

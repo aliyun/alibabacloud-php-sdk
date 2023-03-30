@@ -18,7 +18,7 @@ class curMetricsFm extends Model
     public $blockQps;
 
     /**
-     * @description The number of abnormal QPS.
+     * @description The abnormal QPS.
      *
      * @example 100
      *

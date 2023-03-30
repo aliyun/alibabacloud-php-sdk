@@ -18,7 +18,7 @@ class AddGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The response data.
+     * @description The returned data.
      *
      * @example 555
      *
@@ -27,6 +27,8 @@ class AddGatewayRouteResponseBody extends Model
     public $data;
 
     /**
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
@@ -43,7 +45,7 @@ class AddGatewayRouteResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request was successfully processed.
+     * @example The request is successfully processed.
      *
      * @var string
      */

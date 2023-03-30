@@ -22,7 +22,7 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description The time when the migration task was created.
+     * @description The creation time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -31,7 +31,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the migration task was updated.
+     * @description The modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *

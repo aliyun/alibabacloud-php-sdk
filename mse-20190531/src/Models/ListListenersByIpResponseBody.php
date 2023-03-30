@@ -19,7 +19,7 @@ class ListListenersByIpResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 202
      *
@@ -37,7 +37,7 @@ class ListListenersByIpResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */
@@ -83,7 +83,7 @@ class ListListenersByIpResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of returned instances.
      *
      * @example 6
      *

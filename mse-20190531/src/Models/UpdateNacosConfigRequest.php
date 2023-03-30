@@ -48,7 +48,7 @@ class UpdateNacosConfigRequest extends Model
     public $content;
 
     /**
-     * @description The ID of the configuration file.
+     * @description The ID of the configuration.
      *
      * @example ky-check-****.yml
      *
@@ -59,7 +59,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The description of the configuration.
      *
-     * @example Basic configuration
+     * @example Basic configurations
      *
      * @var string
      */

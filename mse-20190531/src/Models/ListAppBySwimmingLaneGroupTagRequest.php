@@ -30,6 +30,13 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     public $groupId;
 
     /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The tag.
      *
      * @example gray
@@ -40,6 +47,7 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'namespace'      => 'Namespace',
         'tag'            => 'Tag',
     ];
 
@@ -55,6 +63,9 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -76,6 +87,9 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

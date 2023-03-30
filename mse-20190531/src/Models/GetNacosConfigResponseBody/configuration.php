@@ -72,7 +72,7 @@ class configuration extends Model
     public $group;
 
     /**
-     * @description The MD5 value of the configuration.
+     * @description The message digest of the configuration.
      *
      * @example 123rfsdf3
      *

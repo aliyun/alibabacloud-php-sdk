@@ -30,7 +30,7 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specifies whether to disable the risk item notification feature.
+     * @description Specifies whether to disable the notification feature if the risk item occurs.
      *
      *   true: disabled
      *   false: enabled
@@ -69,7 +69,7 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
     public $requestPars;
 
     /**
-     * @description The code of the risk.
+     * @description The ID of the risk item.
      *
      * @example 30010010001
      *

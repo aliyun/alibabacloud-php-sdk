@@ -40,7 +40,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the job.
      *
      * @example 1
      *

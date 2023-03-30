@@ -37,7 +37,7 @@ class result extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the service was created.
+     * @description The creation time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -46,7 +46,7 @@ class result extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the service was last modified.
+     * @description The modification time.
      *
      * @example 2022-01-07 18:07:57
      *
@@ -55,7 +55,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The group.
+     * @description The name of the group.
      *
      * @example test
      *
@@ -115,7 +115,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The IP addresses of the service.
+     * @description The IP addresses.
      *
      * @var string[]
      */
@@ -156,7 +156,7 @@ class result extends Model
     public $ports;
 
     /**
-     * @description The name of the service registered with the service registry.
+     * @description The name of the service that is registered with the service registry.
      *
      * @example test
      *
