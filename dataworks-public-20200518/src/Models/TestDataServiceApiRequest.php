@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class TestDataServiceApiRequest extends Model
 {
     /**
-     * @description API Id
+     * @description The ID of the DataService Studio API on which the test is performed.
      *
      * @example 12343
      *
@@ -22,6 +22,8 @@ class TestDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @description The data of the request body.
+     *
      * @example {"name":"test"}
      *
      * @var string
@@ -29,21 +31,29 @@ class TestDataServiceApiRequest extends Model
     public $bodyContent;
 
     /**
+     * @description The request parameters that are contained in the request body.
+     *
      * @var bodyParams[]
      */
     public $bodyParams;
 
     /**
+     * @description The request parameters that are contained in the request header.
+     *
      * @var headParams[]
      */
     public $headParams;
 
     /**
+     * @description The request parameters that are contained in the request path.
+     *
      * @var pathParams[]
      */
     public $pathParams;
 
     /**
+     * @description The request parameters that are contained in the query.
+     *
      * @var queryParam[]
      */
     public $queryParam;

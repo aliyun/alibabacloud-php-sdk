@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApiTestRequest extends Model
 {
     /**
+     * @description The ID of the DataService Studio API on which tests are performed.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDataServiceApiTestRequest extends Model
     public $apiId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int

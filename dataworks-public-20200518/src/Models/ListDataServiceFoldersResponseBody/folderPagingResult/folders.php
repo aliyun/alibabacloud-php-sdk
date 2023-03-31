@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class folders extends Model
 {
     /**
+     * @description The time when the folder was created.
+     *
      * @example 2020-09-24T18:37:51+0800
      *
      * @var string
@@ -16,6 +18,8 @@ class folders extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example 11
      *
      * @var int
@@ -23,6 +27,8 @@ class folders extends Model
     public $folderId;
 
     /**
+     * @description The name of the folder.
+     *
      * @example test1
      *
      * @var string
@@ -30,6 +36,8 @@ class folders extends Model
     public $folderName;
 
     /**
+     * @description The ID of the business process to which the folder belongs.
+     *
      * @example ds_1234
      *
      * @var string
@@ -37,6 +45,8 @@ class folders extends Model
     public $groupId;
 
     /**
+     * @description The time when the folder was last modified.
+     *
      * @example 2020-09-24T18:37:51+0800
      *
      * @var string
@@ -44,6 +54,8 @@ class folders extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the parent folder. The ID of the root folder in a business process is 0, and the ID of a folder created by a user in a business process is greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class folders extends Model
     public $parentId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -58,6 +72,8 @@ class folders extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the DataService Studio API on which the test is performed.
+     *
      * @example 2343
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $apiId;
 
     /**
+     * @description The time that is consumed to complete the test.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $costTime;
 
     /**
+     * @description The time when the test was initiated.
+     *
      * @example 1651824913000
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The request parameters configured for the test.
+     *
      * @example {"name":"test"}
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $paramMap;
 
     /**
+     * @description The status code returned for the test. If the test is not complete, this parameter is not returned.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $retCode;
 
     /**
+     * @description The result returned for the test.
+     *
      * @example {"id":2}
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $retResult;
 
     /**
+     * @description The status of the test. Valid values: RUNNING and FINISHED.
+     *
      * @example FINISHED
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the test.
+     *
      * @example 123
      *
      * @var int

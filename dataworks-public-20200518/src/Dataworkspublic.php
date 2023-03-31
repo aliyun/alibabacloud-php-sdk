@@ -1481,6 +1481,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->registrationDetails)) {
             $body['RegistrationDetails'] = $request->registrationDetails;
         }
+        if (!Utils::isUnset($request->requestContentType)) {
+            $body['RequestContentType'] = $request->requestContentType;
+        }
         if (!Utils::isUnset($request->requestMethod)) {
             $body['RequestMethod'] = $request->requestMethod;
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bodyParams extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
      * @example name
      *
      * @var string
@@ -16,6 +18,8 @@ class bodyParams extends Model
     public $paramKey;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example test
      *
      * @var string

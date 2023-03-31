@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AppCode for simple authentication. You can select simple authentication or signature authentication when you call an API operation.
+     *
      * @example CODE123
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $applicationCode;
 
     /**
+     * @description The ID of the application.
+     *
      * @example 10000
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $applicationId;
 
     /**
+     * @description The AppKey for signature authentication. You can select simple authentication or signature authentication when you call an API operation.
+     *
      * @example KEY123
      *
      * @var string
@@ -30,11 +36,17 @@ class data extends Model
     public $applicationKey;
 
     /**
+     * @description The name of the application.
+     *
+     * @example Test application
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The AppSecret for signature authentication. You can select simple authentication or signature authentication when you call an API operation.
+     *
      * @example SECRET123
      *
      * @var string
@@ -42,6 +54,8 @@ class data extends Model
     public $applicationSecret;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int

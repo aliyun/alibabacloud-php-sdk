@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can view the information about the application in the API Gateway console.
+     *
      * @example 10000
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataServiceApplicationRequest extends Model
     public $applicationId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDataServiceApplicationRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

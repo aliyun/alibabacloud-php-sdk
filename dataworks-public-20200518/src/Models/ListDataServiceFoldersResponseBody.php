@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceFoldersResponseBody extends Model
 {
     /**
+     * @description The paging result for the folders.
+     *
      * @var folderPagingResult
      */
     public $folderPagingResult;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string

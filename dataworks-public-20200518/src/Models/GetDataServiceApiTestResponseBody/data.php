@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the API on which the test is performed.
+     *
      * @example 12343
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $apiId;
 
     /**
+     * @description The time consumed for the test.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $costTime;
 
     /**
+     * @description The debugging information.
+     *
      * @example [<span style=\"color: #92D581;\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\"color: #92D581;\">INFO</span>]
      *
      * @var string
@@ -37,6 +43,8 @@ class data extends Model
     public $nodesDebugInfo;
 
     /**
+     * @description The request parameters configured for the test.
+     *
      * @example {"name":"test"}
      *
      * @var string
@@ -44,6 +52,8 @@ class data extends Model
     public $paramMap;
 
     /**
+     * @description The status code returned for the test. If the test is not complete, this parameter is not returned.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +61,8 @@ class data extends Model
     public $retCode;
 
     /**
+     * @description The result returned for the test.
+     *
      * @example {"id":2}
      *
      * @var string
@@ -58,6 +70,8 @@ class data extends Model
     public $retResult;
 
     /**
+     * @description The status of the test. Valid values: RUNNING and FINISHED.
+     *
      * @example FINISHED
      *
      * @var string

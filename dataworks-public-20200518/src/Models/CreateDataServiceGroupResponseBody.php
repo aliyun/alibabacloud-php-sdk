@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the business process.
+     *
      * @example ds_12345
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDataServiceGroupResponseBody extends Model
     public $groupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string

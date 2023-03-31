@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headParams extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
      * @example requestId
      *
      * @var string
@@ -16,6 +18,8 @@ class headParams extends Model
     public $paramKey;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example abcd
      *
      * @var string

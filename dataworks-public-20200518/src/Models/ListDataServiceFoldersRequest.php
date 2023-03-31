@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceFoldersRequest extends Model
 {
     /**
+     * @description The keyword in folder names. The keyword is used to search for folders whose names contain this keyword.
+     *
+     * @example Keyword in folder names
+     *
      * @var string
      */
     public $folderNameKeyword;
 
     /**
+     * @description The ID of the business process to which the folders belong.
+     *
      * @example ds_123abc
      *
      * @var string
@@ -21,6 +27,8 @@ class ListDataServiceFoldersRequest extends Model
     public $groupId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +36,8 @@ class ListDataServiceFoldersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +45,8 @@ class ListDataServiceFoldersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -42,6 +54,8 @@ class ListDataServiceFoldersRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int

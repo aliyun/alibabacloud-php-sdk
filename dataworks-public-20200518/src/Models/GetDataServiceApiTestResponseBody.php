@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceApiTestResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example adssdsewe
      *
      * @var string

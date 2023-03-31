@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pathParams extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
      * @example path1
      *
      * @var string
@@ -16,6 +18,8 @@ class pathParams extends Model
     public $paramKey;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example api
      *
      * @var string

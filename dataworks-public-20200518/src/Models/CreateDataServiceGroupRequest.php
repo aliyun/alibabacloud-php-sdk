@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceGroupRequest extends Model
 {
     /**
+     * @description The ID of the API group that is associated with the business process in the API Gateway console. You can log on to the API Gateway console and go to the Group Details page to view the ID.
+     *
      * @example 1000abcd
      *
      * @var string
@@ -16,16 +18,26 @@ class CreateDataServiceGroupRequest extends Model
     public $apiGatewayGroupId;
 
     /**
+     * @description The description of the business process.
+     *
+     * @example Test business process
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the business process.
+     *
+     * @example Business process name
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 10001
      *
      * @var int
@@ -33,6 +45,8 @@ class CreateDataServiceGroupRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 10002
      *
      * @var int
