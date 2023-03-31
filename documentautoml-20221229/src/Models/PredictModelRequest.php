@@ -35,11 +35,17 @@ class PredictModelRequest extends Model
      * @var string
      */
     public $modelVersion;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'binaryToText' => 'BinaryToText',
         'content'      => 'Content',
         'modelId'      => 'ModelId',
         'modelVersion' => 'ModelVersion',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class PredictModelRequest extends Model
         }
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class PredictModelRequest extends Model
         }
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

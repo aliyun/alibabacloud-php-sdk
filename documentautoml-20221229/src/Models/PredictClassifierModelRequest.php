@@ -28,10 +28,16 @@ class PredictClassifierModelRequest extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'autoPrediction' => 'AutoPrediction',
         'classifierId'   => 'ClassifierId',
         'content'        => 'Content',
+        'body'           => 'body',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class PredictClassifierModelRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class PredictClassifierModelRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

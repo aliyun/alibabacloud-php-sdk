@@ -47,6 +47,11 @@ class CreateModelAsyncPredictRequest extends Model
      * @var string
      */
     public $serviceVersion;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'binaryToText'   => 'BinaryToText',
         'content'        => 'Content',
@@ -54,6 +59,7 @@ class CreateModelAsyncPredictRequest extends Model
         'modelVersion'   => 'ModelVersion',
         'serviceName'    => 'ServiceName',
         'serviceVersion' => 'ServiceVersion',
+        'body'           => 'body',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class CreateModelAsyncPredictRequest extends Model
         }
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -110,6 +119,9 @@ class CreateModelAsyncPredictRequest extends Model
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

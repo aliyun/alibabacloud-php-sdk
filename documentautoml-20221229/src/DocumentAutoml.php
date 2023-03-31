@@ -85,6 +85,7 @@ class DocumentAutoml extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CreateModelAsyncPredict',
@@ -177,6 +178,7 @@ class DocumentAutoml extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->body,
         ]);
         $params = new Params([
             'action'      => 'PredictClassifierModel',
@@ -229,6 +231,7 @@ class DocumentAutoml extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->body,
         ]);
         $params = new Params([
             'action'      => 'PredictModel',
@@ -278,6 +281,7 @@ class DocumentAutoml extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->body,
         ]);
         $params = new Params([
             'action'      => 'PredictTemplateModel',

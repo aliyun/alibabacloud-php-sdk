@@ -24,10 +24,16 @@ class PredictTemplateModelRequest extends Model
      * @var int
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $body;
     protected $_name = [
         'binaryToText' => 'BinaryToText',
         'content'      => 'Content',
         'taskId'       => 'TaskId',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class PredictTemplateModelRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class PredictTemplateModelRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;
