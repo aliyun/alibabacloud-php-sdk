@@ -11,7 +11,7 @@ class DescribeAuditRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -28,9 +28,9 @@ class DescribeAuditRecordsRequest extends Model
     public $database;
 
     /**
-     * @description The end of the time range that is specified to query the audit log. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * >  The end time must be within 24 hours from the start time. Otherwise, the query fails.
+     * > The end time must be within 24 hours from the start time. Otherwise, the query fails.
      * @example 2019-03-13T13:11:14Z
      *
      * @var string
@@ -38,12 +38,11 @@ class DescribeAuditRecordsRequest extends Model
     public $endTime;
 
     /**
-     * @description The form of the audit log that the operation returns. Valid values:
+     * @description The form of the audit log that the operation returns. Default value: File. Valid values:
      *
-     *   **File**: triggers the generation of audit logs. If this parameter is set to File, only common parameters are returned.
+     *   **File** triggers the generation of audit logs. If this parameter is set to File, only common parameters are returned.
      *   **Stream**: returns data streams.
      *
-     * Default value: **Stream**.
      * @example Stream
      *
      * @var string
@@ -51,9 +50,9 @@ class DescribeAuditRecordsRequest extends Model
     public $form;
 
     /**
-     * @description The ID of the mongos node or shard node whose audit logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+     * @description The ID of the mongos node or shard node whose parameter modification records you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
      *
-     * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+     * > This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bp128a003436****
      *
      * @var string
@@ -63,8 +62,8 @@ class DescribeAuditRecordsRequest extends Model
     /**
      * @description The order of time in which the log entries to return are sorted. Valid values:
      *
-     *   asc: The log entries are sorted by time in ascending order.
-     *   desc: The log entries are sorted by time in descending order.
+     *   **asc**: The log entries are sorted by time in ascending order.
+     *   **desc**: The log entries are sorted by time in descending order.
      *
      * @example asc
      *
@@ -83,7 +82,7 @@ class DescribeAuditRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The number of the page to return. Pages start from page 1. Valid values: any non-zero positive integer. Default value: 1.
      *
      * @example 1
      *
@@ -92,7 +91,7 @@ class DescribeAuditRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     * @description The number of entries to return per page. Default value: 30. Valid values: **30**, **50**, and **100**.
      *
      * @example 30
      *
@@ -134,9 +133,9 @@ class DescribeAuditRecordsRequest extends Model
     public $startTime;
 
     /**
-     * @description The user of the database. If you do not specify this parameter, this operation returns records of all users.
+     * @description The account of the database. If you do not specify this parameter, this operation returns records of all accounts.
      *
-     * @example root
+     * @example test
      *
      * @var string
      */

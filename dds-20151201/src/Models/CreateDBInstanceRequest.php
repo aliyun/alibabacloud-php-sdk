@@ -161,6 +161,11 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @var string
+     */
+    public $globalSecurityGroupIds;
+
+    /**
      * @description The zone where the hidden node is deployed for multi-zone deployment. Valid values:
      *
      *   **cn-hangzhou-g**: Hangzhou Zone G
@@ -412,41 +417,42 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accountPassword'       => 'AccountPassword',
-        'autoRenew'             => 'AutoRenew',
-        'backupId'              => 'BackupId',
-        'businessInfo'          => 'BusinessInfo',
-        'chargeType'            => 'ChargeType',
-        'clientToken'           => 'ClientToken',
-        'clusterId'             => 'ClusterId',
-        'couponNo'              => 'CouponNo',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'databaseNames'         => 'DatabaseNames',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'hiddenZoneId'          => 'HiddenZoneId',
-        'networkType'           => 'NetworkType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'period'                => 'Period',
-        'readonlyReplicas'      => 'ReadonlyReplicas',
-        'regionId'              => 'RegionId',
-        'replicationFactor'     => 'ReplicationFactor',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'restoreTime'           => 'RestoreTime',
-        'secondaryZoneId'       => 'SecondaryZoneId',
-        'securityIPList'        => 'SecurityIPList',
-        'securityToken'         => 'SecurityToken',
-        'srcDBInstanceId'       => 'SrcDBInstanceId',
-        'storageEngine'         => 'StorageEngine',
-        'storageType'           => 'StorageType',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'accountPassword'        => 'AccountPassword',
+        'autoRenew'              => 'AutoRenew',
+        'backupId'               => 'BackupId',
+        'businessInfo'           => 'BusinessInfo',
+        'chargeType'             => 'ChargeType',
+        'clientToken'            => 'ClientToken',
+        'clusterId'              => 'ClusterId',
+        'couponNo'               => 'CouponNo',
+        'DBInstanceClass'        => 'DBInstanceClass',
+        'DBInstanceDescription'  => 'DBInstanceDescription',
+        'DBInstanceStorage'      => 'DBInstanceStorage',
+        'databaseNames'          => 'DatabaseNames',
+        'engine'                 => 'Engine',
+        'engineVersion'          => 'EngineVersion',
+        'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
+        'hiddenZoneId'           => 'HiddenZoneId',
+        'networkType'            => 'NetworkType',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'period'                 => 'Period',
+        'readonlyReplicas'       => 'ReadonlyReplicas',
+        'regionId'               => 'RegionId',
+        'replicationFactor'      => 'ReplicationFactor',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'restoreTime'            => 'RestoreTime',
+        'secondaryZoneId'        => 'SecondaryZoneId',
+        'securityIPList'         => 'SecurityIPList',
+        'securityToken'          => 'SecurityToken',
+        'srcDBInstanceId'        => 'SrcDBInstanceId',
+        'storageEngine'          => 'StorageEngine',
+        'storageType'            => 'StorageType',
+        'vSwitchId'              => 'VSwitchId',
+        'vpcId'                  => 'VpcId',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -497,6 +503,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->globalSecurityGroupIds) {
+            $res['GlobalSecurityGroupIds'] = $this->globalSecurityGroupIds;
         }
         if (null !== $this->hiddenZoneId) {
             $res['HiddenZoneId'] = $this->hiddenZoneId;
@@ -614,6 +623,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['GlobalSecurityGroupIds'])) {
+            $model->globalSecurityGroupIds = $map['GlobalSecurityGroupIds'];
         }
         if (isset($map['HiddenZoneId'])) {
             $model->hiddenZoneId = $map['HiddenZoneId'];

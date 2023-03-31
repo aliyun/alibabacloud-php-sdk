@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @var string
+     */
+    public $characterType;
+
+    /**
      * @description The valid values of the parameter.
      *
      * @example [33554432-268435456]
@@ -68,6 +73,7 @@ class parameter extends Model
      */
     public $parameterValue;
     protected $_name = [
+        'characterType'        => 'CharacterType',
         'checkingCode'         => 'CheckingCode',
         'forceRestart'         => 'ForceRestart',
         'modifiableStatus'     => 'ModifiableStatus',
@@ -83,6 +89,9 @@ class parameter extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->characterType) {
+            $res['CharacterType'] = $this->characterType;
+        }
         if (null !== $this->checkingCode) {
             $res['CheckingCode'] = $this->checkingCode;
         }
@@ -113,6 +122,9 @@ class parameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CharacterType'])) {
+            $model->characterType = $map['CharacterType'];
+        }
         if (isset($map['CheckingCode'])) {
             $model->checkingCode = $map['CheckingCode'];
         }

@@ -11,7 +11,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  If you specify this parameter to the ID of a sharded cluster instance, you must also specify the `NodeId` parameter.
+     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the `NodeId` parameter.
      * @example dds-bp1fc7e65108****
      *
      * @var string
@@ -30,8 +30,12 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * > * The end time must be later than the start time.
-     * > * The end time must be within 24 hours from the start time. Otherwise, the query fails.
+     * >
+     *
+     *   The end time must be later than the start time.
+     *
+     *   The end time must be within 24 hours from the start time. Otherwise, the query fails.
+     *
      * @example 2021-08-16T14:13Z
      *
      * @var string
@@ -41,7 +45,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The ID of the shard node.
      *
-     * >  This parameter is required only when you specify the `DBInstanceId` parameter to the ID of a sharded cluster instance.
+     * > This parameter is required only when you specify the `DBInstanceId` parameter to the ID of a sharded cluster instance.
      * @example d-bp18b06ebc21****
      *
      * @var string
@@ -71,7 +75,7 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
      *
      * @example 1
      *

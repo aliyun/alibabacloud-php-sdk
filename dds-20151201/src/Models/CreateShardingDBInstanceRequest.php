@@ -108,6 +108,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @var string
+     */
+    public $globalSecurityGroupIds;
+
+    /**
      * @description The secondary zone 2 for multi-zone deployment. Valid values:
      *
      *   **cn-hangzhou-g**: Hangzhou Zone G
@@ -361,36 +366,37 @@ class CreateShardingDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accountPassword'       => 'AccountPassword',
-        'autoRenew'             => 'AutoRenew',
-        'chargeType'            => 'ChargeType',
-        'clientToken'           => 'ClientToken',
-        'configServer'          => 'ConfigServer',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'hiddenZoneId'          => 'HiddenZoneId',
-        'mongos'                => 'Mongos',
-        'networkType'           => 'NetworkType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'period'                => 'Period',
-        'protocolType'          => 'ProtocolType',
-        'regionId'              => 'RegionId',
-        'replicaSet'            => 'ReplicaSet',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'restoreTime'           => 'RestoreTime',
-        'secondaryZoneId'       => 'SecondaryZoneId',
-        'securityIPList'        => 'SecurityIPList',
-        'securityToken'         => 'SecurityToken',
-        'srcDBInstanceId'       => 'SrcDBInstanceId',
-        'storageEngine'         => 'StorageEngine',
-        'storageType'           => 'StorageType',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'accountPassword'        => 'AccountPassword',
+        'autoRenew'              => 'AutoRenew',
+        'chargeType'             => 'ChargeType',
+        'clientToken'            => 'ClientToken',
+        'configServer'           => 'ConfigServer',
+        'DBInstanceDescription'  => 'DBInstanceDescription',
+        'engine'                 => 'Engine',
+        'engineVersion'          => 'EngineVersion',
+        'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
+        'hiddenZoneId'           => 'HiddenZoneId',
+        'mongos'                 => 'Mongos',
+        'networkType'            => 'NetworkType',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'period'                 => 'Period',
+        'protocolType'           => 'ProtocolType',
+        'regionId'               => 'RegionId',
+        'replicaSet'             => 'ReplicaSet',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'restoreTime'            => 'RestoreTime',
+        'secondaryZoneId'        => 'SecondaryZoneId',
+        'securityIPList'         => 'SecurityIPList',
+        'securityToken'          => 'SecurityToken',
+        'srcDBInstanceId'        => 'SrcDBInstanceId',
+        'storageEngine'          => 'StorageEngine',
+        'storageType'            => 'StorageType',
+        'vSwitchId'              => 'VSwitchId',
+        'vpcId'                  => 'VpcId',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -429,6 +435,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->globalSecurityGroupIds) {
+            $res['GlobalSecurityGroupIds'] = $this->globalSecurityGroupIds;
         }
         if (null !== $this->hiddenZoneId) {
             $res['HiddenZoneId'] = $this->hiddenZoneId;
@@ -549,6 +558,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['GlobalSecurityGroupIds'])) {
+            $model->globalSecurityGroupIds = $map['GlobalSecurityGroupIds'];
         }
         if (isset($map['HiddenZoneId'])) {
             $model->hiddenZoneId = $map['HiddenZoneId'];

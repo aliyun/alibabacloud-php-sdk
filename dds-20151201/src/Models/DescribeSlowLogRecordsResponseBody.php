@@ -19,7 +19,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $engine;
 
     /**
-     * @description Details about the slow query logs.
+     * @description Details of the slow query logs.
      *
      * @var items
      */
@@ -53,7 +53,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

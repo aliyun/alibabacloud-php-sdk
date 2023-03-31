@@ -17,7 +17,7 @@ class DescribeAuditRecordsResponseBody extends Model
     public $items;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeAuditRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of returned entries.
      *
      * @example 40
      *

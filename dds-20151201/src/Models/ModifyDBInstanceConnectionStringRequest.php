@@ -38,6 +38,11 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newConnectionString;
 
     /**
+     * @var int
+     */
+    public $newPort;
+
+    /**
      * @description The ID of the mongos in the specified sharded cluster instance. Only one mongos ID can be specified in each call.
      *
      * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
@@ -75,6 +80,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         'currentConnectionString' => 'CurrentConnectionString',
         'DBInstanceId'            => 'DBInstanceId',
         'newConnectionString'     => 'NewConnectionString',
+        'newPort'                 => 'NewPort',
         'nodeId'                  => 'NodeId',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
@@ -98,6 +104,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (null !== $this->newConnectionString) {
             $res['NewConnectionString'] = $this->newConnectionString;
+        }
+        if (null !== $this->newPort) {
+            $res['NewPort'] = $this->newPort;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -137,6 +146,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (isset($map['NewConnectionString'])) {
             $model->newConnectionString = $map['NewConnectionString'];
+        }
+        if (isset($map['NewPort'])) {
+            $model->newPort = $map['NewPort'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];

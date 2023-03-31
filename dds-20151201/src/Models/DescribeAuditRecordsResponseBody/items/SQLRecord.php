@@ -11,7 +11,7 @@ class SQLRecord extends Model
     /**
      * @description The account of the database.
      *
-     * @example root
+     * @example test
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class SQLRecord extends Model
     public $executeTime;
 
     /**
-     * @description The IP address of the client.
+     * @description The IP addresses of the client.
      *
      * @example 11.xxx.xxx.xxx
      *
@@ -72,7 +72,7 @@ class SQLRecord extends Model
     public $tableName;
 
     /**
-     * @description The ID of the thread that is recorded in the SQL audit log entry.
+     * @description The ID of the thread.
      *
      * @example 140682188297984
      *
@@ -81,7 +81,7 @@ class SQLRecord extends Model
     public $threadID;
 
     /**
-     * @description The duration of the statement execution. Unit: microseconds.
+     * @description The execution time of the statement. Unit: microseconds.
      *
      * @example 700
      *

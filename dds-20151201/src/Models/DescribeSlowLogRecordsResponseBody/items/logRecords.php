@@ -11,7 +11,7 @@ class logRecords extends Model
     /**
      * @description The username of the database account that performs the operation.
      *
-     * @example root
+     * @example test
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class logRecords extends Model
     public $hostAddress;
 
     /**
-     * @description The data entries that are scanned during indexing.
+     * @description The number of rows involved in index scans.
      *
      * @example 0
      *
@@ -72,7 +72,7 @@ class logRecords extends Model
     public $queryTimes;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of rows returned by the SQL statement.
      *
      * @example 0
      *
