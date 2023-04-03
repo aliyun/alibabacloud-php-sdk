@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class GetTxtRecordForVerifyResponseBody extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * >  If you do not specify this parameter, it is not returned.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The host record.
+     *
+     * @example aliyunRetrieval
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The value of the DNS record.
+     *
+     * >  The validity period is three days.
+     * @example c99419e6997f41daaa3e*****
+     *
      * @var string
      */
     public $value;

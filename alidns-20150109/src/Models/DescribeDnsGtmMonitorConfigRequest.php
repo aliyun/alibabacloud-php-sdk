@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmMonitorConfigRequest extends Model
 {
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the health check task.
+     *
+     * @example MonitorConfigId1
+     *
      * @var string
      */
     public $monitorConfigId;

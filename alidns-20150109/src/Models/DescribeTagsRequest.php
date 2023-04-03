@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The page number to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Default value: 200.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of the resources from which you want to query tags. Set the value to DOMAIN.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;

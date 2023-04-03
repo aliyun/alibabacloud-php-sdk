@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
+     * @description The weight of the address.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The mode of the address. Valid values:
+     *
+     *   **SMART**: smart return
+     *   **ONLINE**: always online
+     *   **OFFLINE**: always offline
+     *
+     * @example SMART
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The address.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $value;

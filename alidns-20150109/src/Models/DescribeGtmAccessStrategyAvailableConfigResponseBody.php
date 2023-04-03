@@ -11,23 +11,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
 {
     /**
+     * @description The returned list of address pools.
+     *
      * @var addrPools
      */
     public $addrPools;
 
     /**
+     * @description The returned lines of access regions.
+     *
      * @var lines
      */
     public $lines;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C2851BA9-CE56-49AF-8D12-4FC6A49EE688
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $suggestSetDefaultLine;
     protected $_name = [
-        'addrPools' => 'AddrPools',
-        'lines'     => 'Lines',
-        'requestId' => 'RequestId',
+        'addrPools'             => 'AddrPools',
+        'lines'                 => 'Lines',
+        'requestId'             => 'RequestId',
+        'suggestSetDefaultLine' => 'SuggestSetDefaultLine',
     ];
 
     public function validate()
@@ -45,6 +59,9 @@ class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->suggestSetDefaultLine) {
+            $res['SuggestSetDefaultLine'] = $this->suggestSetDefaultLine;
         }
 
         return $res;
@@ -66,6 +83,9 @@ class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SuggestSetDefaultLine'])) {
+            $model->suggestSetDefaultLine = $map['SuggestSetDefaultLine'];
         }
 
         return $model;

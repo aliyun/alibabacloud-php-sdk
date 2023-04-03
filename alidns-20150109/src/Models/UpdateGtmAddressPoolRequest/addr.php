@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
+     * @description The weight of the address pool that you want to modify.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The mode of the address pool that you want to modify.
+     *
+     *   **SMART**: Intelligent return
+     *   **ONLINE**: Always online
+     *   **OFFLINE**: Always offline
+     *
+     * @example SMART
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The addresses in the address pool.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $value;

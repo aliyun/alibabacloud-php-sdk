@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class UpdateGtmInstanceGlobalConfigRequest extends Model
 {
     /**
+     * @description The alert group of the GTM instance. Currently, only one alert group is supported.
+     *
+     * >  This parameter is required for the first update, but is optional for later updates.
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The CNAME record of a domain name, which must be the primary domain name. When **CnameMode** is **CUSTOM**, this parameter is required for access.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $cnameCustomDomainName;
 
     /**
+     * @description Specifies whether the CNAME record is user-defined or automatically assigned by the system. Valid values:
+     *
+     *   **SYSTEM_ASSIGN**: Assigned by the system
+     *   **CUSTOM**: User-defined
+     *
+     * @example SYSTEM_ASSIGN
+     *
      * @var string
      */
     public $cnameMode;
 
     /**
+     * @description The ID of the GTM instance whose configuration you want to modify.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the GTM instance.
+     *
+     * >  This parameter is required for the first update, but is not required for later updates.
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The load balancing policy. Valid values:
+     *
+     *   **ALL_RR**: Load balancing
+     *
+     *   **RATIO**: Weighted round robin
+     *
+     * > This parameter is required for the first update, but is optional for later updates.
+     * @example RATIO
+     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
+     * @description The time when the modification takes effect.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description The primary domain name.
+     *
+     * >  This parameter is required for the first update, but is optional for later updates.
+     * @example www.example.com
+     *
      * @var string
      */
     public $userDomainName;

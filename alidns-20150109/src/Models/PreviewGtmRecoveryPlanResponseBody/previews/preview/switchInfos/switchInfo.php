@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class switchInfo extends Model
 {
     /**
+     * @description The formatted message content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The name of the switching policy for address pools.
+     *
+     * @example strategy-name-example-1
+     *
      * @var string
      */
     public $strategyName;

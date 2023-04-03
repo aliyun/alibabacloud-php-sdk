@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDohSubDomainStatisticsSummaryResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0F32959D-417B-4D66-8463-68606605E3E2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics list.
+     *
      * @var statistics[]
      */
     public $statistics;
 
     /**
+     * @description Total number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description Total number of pages returned.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $totalPages;

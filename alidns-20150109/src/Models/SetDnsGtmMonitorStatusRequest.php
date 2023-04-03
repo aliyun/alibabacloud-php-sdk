@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SetDnsGtmMonitorStatusRequest extends Model
 {
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the health check task.
+     *
+     * @example MonitorConfigId1
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description Specifies whether to enable the health check feature. Valid values:
+     *
+     *   OPEN: enable
+     *   CLOSE: disable
+     *
+     * @example open
+     *
      * @var string
      */
     public $status;

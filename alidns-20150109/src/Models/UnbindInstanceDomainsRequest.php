@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnbindInstanceDomainsRequest extends Model
 {
     /**
+     * @description The list of domain names.
+     *
+     * Separate multiple domain names with commas (,). A maximum of 100 domain names can be entered.
+     * @example example.com,example.net
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

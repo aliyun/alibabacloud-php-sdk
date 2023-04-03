@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDohDomainStatisticsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0F32959D-417B-4D66-8463-68606605E3E2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics list.
+     *
      * @var statistics[]
      */
     public $statistics;

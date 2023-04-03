@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
+     * @description The number of queries.
+     *
+     * @example 15292887
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The UNIX timestamp representing the collection time.
+     *
+     * @example 1556640000000
+     *
      * @var int
      */
     public $timestamp;

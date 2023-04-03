@@ -10,81 +10,140 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategyResponseBody extends Model
 {
     /**
+     * @description The access policy.
+     *
+     * @example AUTO
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The access status. Valid values:
+     *
+     *   **DEFAULT**: Indicates normal when the default address pool is accessed.
+     *   **FAILOVER**: Indicates an exception when a failover address pool is accessed.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $accessStatus;
 
     /**
+     * @description Indicates whether health check is enabled for the default address pool.
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $defaultAddrPoolMonitorStatus;
 
     /**
+     * @description The name of the default address pool.
+     *
      * @var string
      */
     public $defaultAddrPoolName;
 
     /**
+     * @description The availability status of the default address pool.
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $defaultAddrPoolStatus;
 
     /**
+     * @description The ID of the default address pool.
+     *
+     * @example hra0i1
+     *
      * @var string
      */
     public $defultAddrPoolId;
 
     /**
+     * @description The ID of the failover address pool.
+     *
+     * @example hra0i2
+     *
      * @var string
      */
     public $failoverAddrPoolId;
 
     /**
+     * @description Indicates whether health check is enabled for the failover address pool.
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $failoverAddrPoolMonitorStatus;
 
     /**
+     * @description The name of the failover address pool.
+     *
      * @var string
      */
     public $failoverAddrPoolName;
 
     /**
+     * @description The availability status of the failover address pool.
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $failoverAddrPoolStatus;
 
     /**
+     * @description The ID of the GTM instance whose access policy details you want to query.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The returned lines of access regions.
+     *
      * @var lines
      */
     public $lines;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BA1608CA-834C-4E63-8682-8AF0B11ED72D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the access policy queried.
+     *
+     * @example hra0hs
+     *
      * @var string
      */
     public $strategyId;
 
     /**
+     * @description The mode of traffic scheduling.
+     *
+     * @example SELF_DEFINED
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The name of the access policy queried.
+     *
      * @var string
      */
     public $strategyName;

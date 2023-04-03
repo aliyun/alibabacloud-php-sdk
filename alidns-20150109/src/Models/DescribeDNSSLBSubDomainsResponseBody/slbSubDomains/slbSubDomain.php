@@ -15,21 +15,37 @@ class slbSubDomain extends Model
     public $lineAlgorithms;
 
     /**
+     * @description Indicates whether weighted round-robin is enabled for the subdomain.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $open;
 
     /**
+     * @description The number of DNS records added for the subdomain.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $recordCount;
 
     /**
+     * @description The subdomain.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $subDomain;
 
     /**
+     * @description The type of the DNS record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
+     *
+     * @example A
+     *
      * @var string
      */
     public $type;

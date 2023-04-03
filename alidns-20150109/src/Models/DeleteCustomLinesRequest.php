@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomLinesRequest extends Model
 {
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The unique IDs of the custom lines that you want to delete. Separate the unique IDs with commas (,).
+     *
+     * @example 1234,1235
+     *
      * @var string
      */
     public $lineIds;

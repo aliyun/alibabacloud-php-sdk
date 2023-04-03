@@ -14,16 +14,28 @@ class usedQuota extends Model
     public $dingtalkUsedCount;
 
     /**
+     * @description The total number of emails that were sent.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $emailUsedCount;
 
     /**
+     * @description The total number of short messages that were sent.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $smsUsedCount;
 
     /**
+     * @description The number of detection tasks that were created.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $taskUsedCount;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
+     * @description The number of queries.
+     *
+     * @example 35509014
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The domain name.
+     *
+     * @example ali-gslb.com
+     *
      * @var string
      */
     public $domainName;

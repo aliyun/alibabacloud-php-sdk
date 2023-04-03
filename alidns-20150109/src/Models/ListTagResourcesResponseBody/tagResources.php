@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
+     * @example dns-example.com
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. The returned parameter value is fixed to DOMAIN.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example abcd
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example abcd
+     *
      * @var string
      */
     public $tagValue;

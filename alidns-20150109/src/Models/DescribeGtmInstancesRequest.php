@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstancesRequest extends Model
 {
     /**
+     * @description The keyword that you use for query. Exact match is supported by instance ID or instance name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies whether additional information is required. Default value: **false**.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $needDetailAttributes;
 
     /**
+     * @description The page number to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-xxxxx
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -16,26 +16,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
 {
     /**
+     * @description The available address pools of the domain name type.
+     *
      * @var domainAddrPools
      */
     public $domainAddrPools;
 
     /**
+     * @description The available address pools of the IPv4 type.
+     *
      * @var ipv4AddrPools
      */
     public $ipv4AddrPools;
 
     /**
+     * @description The available address pools of the IPv6 type.
+     *
      * @var ipv6AddrPools
      */
     public $ipv6AddrPools;
 
     /**
+     * @description The source regions.
+     *
      * @var lines
      */
     public $lines;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C2851BA9-CE56-49AF-8D12-4FC6A49EE688
+     *
      * @var string
      */
     public $requestId;
@@ -56,6 +68,10 @@ class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
     public $selectedIpv6Lines;
 
     /**
+     * @description Indicates whether we recommend that you set the source region to global.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $suggestSetDefaultLine;

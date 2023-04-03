@@ -10,36 +10,60 @@ use AlibabaCloud\Tea\Model;
 class AddDomainResponseBody extends Model
 {
     /**
+     * @description The Domain Name System (DNS) servers that resolve the domain name.
+     *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 00efd71a-770e-4255-b54e-6fe5659baffe
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description The domain name.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example MyGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+     *
+     * @example xn--fsq270a.com
+     *
      * @var string
      */
     public $punyCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

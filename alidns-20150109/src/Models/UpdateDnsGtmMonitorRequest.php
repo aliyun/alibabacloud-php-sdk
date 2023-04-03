@@ -10,41 +10,122 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmMonitorRequest extends Model
 {
     /**
+     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description The health check interval. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The monitored nodes.
+     *
      * @var ispCityNode[]
      */
     public $ispCityNode;
 
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the health check configuration.
+     *
+     * @example MonitorConfigId1
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     *
+     *   HTTP or HTTPS:
+     *
+     *   port: the port to check.
+     *
+     *   host: the host configuration.
+     *
+     *   path: the health check URL.
+     *
+     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal.
+     *
+     *   failureRate: the failure rate.
+     *
+     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is only required for the HTTPS protocol. Valid values:
+     *
+     *   true: enables SNI.
+     *   false: disables SNI.
+     *
+     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *
+     *   PING:
+     *
+     *   failureRate: the failure rate.
+     *
+     *   packetNum: the number of ping packets.
+     *
+     *   packetLossRate: the loss rate of ping packets.
+     *
+     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *
+     *   TCP:
+     *
+     *   port: the port to check.
+     *
+     *   failureRate: the failure rate.
+     *
+     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *
+     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     *
      * @var string
      */
     public $monitorExtendInfo;
 
     /**
+     * @description The protocol used for the health check. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   PING
+     *   TCP
+     *
+     * @example http
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The health check timeout period. Unit: milliseconds.
+     *
+     * @example 30000
+     *
      * @var int
      */
     public $timeout;

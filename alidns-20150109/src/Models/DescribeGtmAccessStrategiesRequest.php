@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategiesRequest extends Model
 {
     /**
+     * @description The ID of the GTM instance whose access policies you want to query.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

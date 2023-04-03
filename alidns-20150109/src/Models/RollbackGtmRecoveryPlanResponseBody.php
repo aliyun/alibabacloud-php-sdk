@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RollbackGtmRecoveryPlanResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 853805EA-3D47-47D5-9A1A-A45C24313ABD
+     *
      * @var string
      */
     public $requestId;

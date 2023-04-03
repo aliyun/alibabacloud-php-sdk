@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class failoverAddrPool extends Model
 {
     /**
+     * @description The number of addresses in the address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrCount;
 
     /**
+     * @description The ID of the address pool.
+     *
+     * @example pool1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The weight of the address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The name of the address pool.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;

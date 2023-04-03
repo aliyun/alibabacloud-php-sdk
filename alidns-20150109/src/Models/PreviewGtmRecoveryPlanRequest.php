@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class PreviewGtmRecoveryPlanRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on per page. Maximum value: **20**. Default value: **5**.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the disaster recovery plan that you want to preview.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $recoveryPlanId;

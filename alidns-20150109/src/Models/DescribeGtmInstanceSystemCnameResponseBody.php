@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceSystemCnameResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The CNAME record assigned by the system.
+     *
+     * @example gtm-cn-mp91004xxxx.gtm-a2b4.com
+     *
      * @var string
      */
     public $systemCname;

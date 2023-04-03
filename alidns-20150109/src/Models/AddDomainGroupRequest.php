@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddDomainGroupRequest extends Model
 {
     /**
+     * @description The name of the domain name group.
+     *
+     * @example MyGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

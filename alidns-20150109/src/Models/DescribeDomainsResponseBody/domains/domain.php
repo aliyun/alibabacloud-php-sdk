@@ -11,86 +11,146 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @description Indicates whether the domain name is an Alibaba Cloud HiChina domain name.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $aliDomain;
 
     /**
+     * @example 2019-01-30T05:25Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1660546144000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The list of DNS servers of the domain name in the DNS system.
+     *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 00efd71a-770e-4255-b54e-6fe5659baffe
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description The domain name.
+     *
+     * @example abc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example mygroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The expiration time of the instance.
+     *
+     * @example 2020-03-14T16:00Z
+     *
      * @var string
      */
     public $instanceEndTime;
 
     /**
+     * @description Indicates whether the instance expired.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $instanceExpired;
 
     /**
+     * @description The ID of the Alibaba Cloud DNS instance.
+     *
+     * @example i-7bg
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The punycode is returned for Chinese domain names and is left blank for English domain names.
+     *
+     * @example abc.com
+     *
      * @var string
      */
     public $punyCode;
 
     /**
+     * @description The number of DNS records of the domain name.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $recordCount;
 
     /**
+     * @description The email address of the registrant.
+     *
+     * @example test@example.com
+     *
      * @var string
      */
     public $registrantEmail;
 
     /**
+     * @description The description.
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example rg-acf
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether to query the starmark of the domain name.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $starmark;
@@ -101,11 +161,17 @@ class domain extends Model
     public $tags;
 
     /**
+     * @description The version code of the Alibaba Cloud DNS instance.
+     *
+     * @example version_enterprise_basic
+     *
      * @var string
      */
     public $versionCode;
 
     /**
+     * @description The version name of the Alibaba Cloud DNS instance.
+     *
      * @var string
      */
     public $versionName;

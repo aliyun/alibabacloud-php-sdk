@@ -14,16 +14,40 @@ class alertConfig extends Model
     public $dingtalkNotice;
 
     /**
+     * @description Indicates whether email notifications were configured. Valid values:
+     *
+     *   true: configured
+     *   false | null: not configured
+     *
+     * @example true
+     *
      * @var string
      */
     public $emailNotice;
 
     /**
+     * @description The type of the alert event. Valid values:
+     *
+     *   ADDR_ALERT: The address is unavailable.
+     *   ADDR_RESUME: The address is restored and becomes available.
+     *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool group is unavailable.
+     *   ADDR_POOL_GROUP_AVAILABLE: The address pool group is restored and becomes available.
+     *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
+     *
+     * @example ADDR_ALERT
+     *
      * @var string
      */
     public $noticeType;
 
     /**
+     * @description Indicates whether SMS notifications were configured. Valid values:
+     *
+     *   true: configured
+     *   false | null: not configured
+     *
+     * @example true
+     *
      * @var string
      */
     public $smsNotice;

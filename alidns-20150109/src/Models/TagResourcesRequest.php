@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The domain name.
+     *
+     * @example dns-example.com
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;

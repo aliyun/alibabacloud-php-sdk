@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsResponseBody extends Model
 {
     /**
+     * @description The returned page number. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: 200.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 89184F33-48A1-4401-9C0F-40E45DB091AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The total number of tags returned.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

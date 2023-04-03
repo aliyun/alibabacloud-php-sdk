@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainStatisticsSummaryRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     *
+     * The default value is the day when you perform the operation.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The keyword for searches in %KeyWord% mode. The value is not case-sensitive.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Minimum value: **1**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search mode of the keyword. Valid values:
+     *
+     *   **LIKE**: fuzzy match (default).
+     *   **EXACT**: exact match.
+     *
+     * @example LIKE
+     *
      * @var string
      */
     public $searchMode;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     *
+     * You can only query DNS records of the last 90 days.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The threshold of query volume that can be obtained. You can also obtain data about a domain name with the query volume less than or equal to the threshold. For example, if you set this parameter to 100, you can query domain names with less than 100 queries.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $threshold;

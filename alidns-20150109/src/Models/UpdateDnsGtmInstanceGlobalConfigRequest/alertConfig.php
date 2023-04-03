@@ -14,16 +14,22 @@ class alertConfig extends Model
     public $dingtalkNotice;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $emailNotice;
 
     /**
+     * @example ADDR_ALERT
+     *
      * @var string
      */
     public $noticeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $smsNotice;

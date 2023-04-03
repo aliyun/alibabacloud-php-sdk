@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAvailableAlertGroupResponseBody extends Model
 {
     /**
+     * @description The available alert groups of the GTM instance.
+     *
      * @var string
      */
     public $availableAlertGroup;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+     *
      * @var string
      */
     public $requestId;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLinesResponseBody extends Model
 {
     /**
+     * @description The list of custom lines.
+     *
      * @var customLines[]
      */
     public $customLines;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries that were returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of custom lines.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The number of pages that were returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

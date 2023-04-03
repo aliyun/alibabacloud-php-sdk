@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainRecordRequest extends Model
 {
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * This parameter is returned when you add a DNS record or when you query the list of DNS records.
+     * @example 9999985
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;

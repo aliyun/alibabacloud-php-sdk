@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmMonitorAvailableConfigRequest extends Model
 {
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

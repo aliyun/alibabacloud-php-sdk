@@ -9,66 +9,122 @@ use AlibabaCloud\Tea\Model;
 class recoveryPlan extends Model
 {
     /**
+     * @description The time when the disaster recovery plan was created.
+     *
+     * @example 2019-08-11T06:45Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the disaster recovery plan was created.
+     *
+     * @example 1565499867000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The number of faulty address pools.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $faultAddrPoolNum;
 
     /**
+     * @description The last time when the disaster recovery plan was executed.
+     *
+     * @example 2019-08-11T06:44Z
+     *
      * @var string
      */
     public $lastExecuteTime;
 
     /**
+     * @description The UNIX timestamp that indicates the last time when the disaster recovery plan was executed.
+     *
+     * @example 1565505898000
+     *
      * @var int
      */
     public $lastExecuteTimestamp;
 
     /**
+     * @description The last time when the disaster recovery plan was rolled back.
+     *
+     * @example 2019-08-11T06:45Z
+     *
      * @var string
      */
     public $lastRollbackTime;
 
     /**
+     * @description The UNIX timestamp that indicates the last time when the disaster recovery plan was rolled back.
+     *
+     * @example 1565505919000
+     *
      * @var int
      */
     public $lastRollbackTimestamp;
 
     /**
+     * @description The name of the disaster recovery plan.
+     *
+     * @example name-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the disaster recovery plan.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $recoveryPlanId;
 
     /**
+     * @description The remarks about the disaster recovery plan.
+     *
+     * @example remark-example
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The status of the disaster recovery plan. Valid values:
+     *
+     *   **UNEXECUTED**: The plan is not executed.
+     *   **EXECUTED**: The plan is executed.
+     *   **ROLLED_BACK**: The plan is rolled back.
+     *
+     * @example UNEXECUTED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The last time when the disaster recovery plan was updated.
+     *
+     * @example 2019-08-11T06:45Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The UNIX timestamp that indicates the last time when the disaster recovery plan was updated.
+     *
+     * @example 1565505919000
+     *
      * @var int
      */
     public $updateTimestamp;

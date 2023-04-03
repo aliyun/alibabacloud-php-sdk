@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
+     * @description The code of the city where the monitored node is deployed.
+     *
+     * @example 503
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description The display name of the city where the monitored node is deployed.
+     *
+     * @example Zhangjiakou
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description Indicates whether the monitored node is selected for the health check by default.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultSelected;
 
     /**
+     * @description The name of the group to which the monitored node belongs.
+     *
+     * Valid values: Overseas Nodes, BGP Nodes, and ISP Nodes.
+     * @example Overseas Nodes
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the group to which the monitored node belongs.
+     *
+     * Valid values: BGP, OVERSEAS, and ISP.
+     * @example OVERSEAS
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @description The code of the Internet service provider (ISP) to which the monitored node belongs.
+     *
+     *   If the value of the GroupType parameter is BGP or OVERSEAS, the value of IspCode is 465 by default.
+     *   If the value of the GroupType parameter is not BGP or OVERSEAS, valid values of IspCode are 232, 132, and 5. and is used together with CityCode.
+     *
+     * @example 465
+     *
      * @var string
      */
     public $ispCode;
 
     /**
+     * @description The display name of the ISP to which the monitored node belongs.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispName;
 
     /**
+     * @description Indicates whether the monitored node is deployed in the Chinese mainland.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mainland;

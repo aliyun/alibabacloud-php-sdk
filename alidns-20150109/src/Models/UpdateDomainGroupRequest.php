@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainGroupRequest extends Model
 {
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The new name of the domain name group.
+     *
+     * @example NewName
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

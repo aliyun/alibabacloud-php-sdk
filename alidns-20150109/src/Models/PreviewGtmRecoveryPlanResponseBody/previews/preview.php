@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class preview extends Model
 {
     /**
+     * @description The ID of the GTM instance to which the previewed disaster recovery plan belongs.
+     *
+     * @example instance-example
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the GTM instance to which the previewed disaster recovery plan belongs.
+     *
+     * @example name-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The returned information of the switching policies for address pools.
+     *
      * @var switchInfos
      */
     public $switchInfos;
 
     /**
+     * @description The user\"s domain name or domain name list.
+     *
+     * @example 30.yyy.com
+     *
      * @var string
      */
     public $userDomainName;

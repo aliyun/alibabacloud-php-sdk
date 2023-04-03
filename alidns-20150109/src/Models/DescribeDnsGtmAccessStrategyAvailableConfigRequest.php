@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The type of the access policy. Valid values:
+     *
+     *   GEO: geographical location-based
+     *   LATENCY: latency-based
+     *
+     * @example geo
+     *
      * @var string
      */
     public $strategyMode;

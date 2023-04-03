@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @description The code of the parent line for the access region. If no parent line exists, leave this parameter blank.
+     *
+     * @example telecom
+     *
      * @var string
      */
     public $fatherCode;
 
     /**
+     * @description The code of the access region group.
+     *
+     * @example ISP
+     *
      * @var string
      */
     public $groupCode;
 
     /**
+     * @description The name of the access region group.
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The code for the line of the access region.
+     *
+     * @example cn_telecom_hubei
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @description The name for the line of the access region.
+     *
      * @var string
      */
     public $lineName;
 
     /**
+     * @description The current status of the line. Valid values:
+     *
+     * - **FORBIDDEN**: Unavailable
+     * - **OPTIONAL**: Availabe
+     * @example FORBIDDEN
+     *
      * @var string
      */
     public $status;

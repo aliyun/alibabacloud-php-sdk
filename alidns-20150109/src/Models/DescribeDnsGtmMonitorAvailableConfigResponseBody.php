@@ -13,26 +13,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmMonitorAvailableConfigResponseBody extends Model
 {
     /**
+     * @description The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv4 addresses.
+     *
      * @var domainIpv4IspCityNodes
      */
     public $domainIpv4IspCityNodes;
 
     /**
+     * @description The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv6 addresses.
+     *
      * @var domainIpv6IspCityNodes
      */
     public $domainIpv6IspCityNodes;
 
     /**
+     * @description The monitored nodes that can be used to perform health checks on address pools that contain public IPv4 addresses.
+     *
      * @var ipv4IspCityNodes
      */
     public $ipv4IspCityNodes;
 
     /**
+     * @description The monitored nodes that can be used to perform health checks on address pools that contain public IPv6 addresses.
+     *
      * @var ipv6IspCityNodes
      */
     public $ipv6IspCityNodes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;

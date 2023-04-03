@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmLogsRequest extends Model
 {
     /**
+     * @example 1363453340000
+     *
      * @var int
      */
     public $endTimestamp;
 
     /**
+     * @description The ID of the GTM instance whose logs you want to query.
+     *
+     * @example gtm-cn-xxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The keyword for searching logs, in case-insensitive "%Keyword%" format.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on per page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * @example 1363453340000
+     *
      * @var int
      */
     public $startTimestamp;

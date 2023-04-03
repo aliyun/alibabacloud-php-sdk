@@ -15,26 +15,44 @@ class UpdateGtmAddressPoolRequest extends Model
     public $addr;
 
     /**
+     * @description The ID of the address pool that you want to modify.
+     *
+     * @example 1234abc
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The minimum number of available addresses in the address pool.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minAvailableAddrNum;
 
     /**
+     * @description The name of the address pool that you want to modify.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the address pool that you want to modify.
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

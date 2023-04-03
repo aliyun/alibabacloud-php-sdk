@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategiesResponseBody extends Model
 {
     /**
+     * @description The number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CCC9971-CEC9-4132-824B-4AE611C07623
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned list of access policies of the GTM instance.
+     *
      * @var strategies
      */
     public $strategies;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

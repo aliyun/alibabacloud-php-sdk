@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomLinesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordLogsRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The keyword for searches in %KeyWord% mode. The value is not case-sensitive.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format.
+     *
+     * @example 2015-12-12
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format.
+     *
+     * @example 2015-12-12
+     *
      * @var string
      */
     public $endDate;

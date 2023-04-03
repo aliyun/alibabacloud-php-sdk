@@ -15,56 +15,109 @@ class UpdateDnsGtmInstanceGlobalConfigRequest extends Model
     public $alertConfig;
 
     /**
+     * @description The name of the alert group in the JSON format.
+     *
+     * @example alertGroup1
+     *
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The type of the CNAME domain name that is used to access the instance. Valid value:
+     *
+     *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+     *
+     * @example public
+     *
      * @var string
      */
     public $cnameType;
 
     /**
+     * @description Specifies whether to enable force updates. Valid values:
+     *
+     *   true: enables force update without a conflict alert.
+     *   false: disables force update. If a conflict occurs, the system displays an alert. null: This valid value of ForceUpdate provides the same information as the false value.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceUpdate;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance. This parameter is required only for the first update.
+     *
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies whether to use a custom CNAME domain name or a CNAME domain name assigned by the system to access the instance over the Internet. Valid values:
+     *
+     *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+     *   CUSTOM: a custom CNAME domain name
+     *
+     * @example custom
+     *
      * @var string
      */
     public $publicCnameMode;
 
     /**
+     * @description The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+     *
+     * @example test.rr
+     *
      * @var string
      */
     public $publicRr;
 
     /**
+     * @description The service domain name that is used over the Internet.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $publicUserDomainName;
 
     /**
+     * @description The CNAME domain name that is used to access the instance over the Internet, which is the primary domain name. This parameter is required when the PublicCnameMode parameter is set to CUSTOM.
+     *
+     * >  You must use the primary domain name. Do not include the hostname specified by the PublicRr parameter.
+     * @example gtm-003.com
+     *
      * @var string
      */
     public $publicZoneName;
 
     /**
+     * @description The global time to live (TTL).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ttl;

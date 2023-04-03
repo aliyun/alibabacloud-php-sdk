@@ -10,51 +10,95 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The alert notification methods.
+     *
      * @var alertConfig[]
      */
     public $alertConfig;
 
     /**
+     * @description The alert group.
+     *
+     * @example testgroup
+     *
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The access type of the CNAME domain name.
+     *
+     *   The value was set to PUBLIC, which indicates Internet access.
+     *
+     * @example public
+     *
      * @var string
      */
     public $cnameType;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example instanceTest
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access GTM over the Internet. Valid values:
+     *
+     *   CUSTOM: a custom CNAME domain name
+     *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+     *
+     * @example custom
+     *
      * @var string
      */
     public $publicCnameMode;
 
     /**
+     * @example test.rr
+     *
      * @var string
      */
     public $publicRr;
 
     /**
+     * @description The website domain name that the user uses on the Internet.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $publicUserDomainName;
 
     /**
+     * @description The domain name that is used to access GTM over the Internet.
+     *
+     * @example test.rr.gtm-003.com
+     *
      * @var string
      */
     public $publicZoneName;
 
     /**
+     * @description The type of the access policy. Valid values:
+     *
+     *   LATENCY: latency-based
+     *   GEO: geographical location-based
+     *
+     * @example geo
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The global time to live (TTL).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ttl;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLinesRequest extends Model
 {
     /**
+     * @description The domain name for which the custom lines to be queried are configured.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

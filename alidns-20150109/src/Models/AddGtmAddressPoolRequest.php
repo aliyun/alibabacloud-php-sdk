@@ -11,66 +11,144 @@ use AlibabaCloud\Tea\Model;
 class AddGtmAddressPoolRequest extends Model
 {
     /**
+     * @description The addresses in the address pool.
+     *
      * @var addr[]
      */
     public $addr;
 
     /**
+     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description The ID of the GTM instance for which you want to create an address pool.
+     *
+     * @example gtm-cn-xxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The health check interval. Unit: seconds. Set the value to 60.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The monitored nodes.
+     *
      * @var ispCityNode[]
      */
     public $ispCityNode;
 
     /**
+     * @description The language of the values of specific response parameters.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The minimum number of available addresses in the address pool.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minAvailableAddrNum;
 
     /**
+     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     *
+     * HTTP or HTTPS:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
+     *   host: the host configuration.
+     *   path: the health check URL.
+     *
+     * PING:
+     *
+     *   packetNum: the number of ping packets.
+     *   packetLossRate: the loss rate of ping packets.
+     *   failureRate: the failure rate.
+     *
+     * TCP:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *
+     * @example {"host":"aliyun.com","port":80}
+     *
      * @var string
      */
     public $monitorExtendInfo;
 
     /**
+     * @description Specifies whether to enable the health check. Valid values:
+     *
+     *   **OPEN**: enables the health check.
+     *   **CLOSE**: disables the health check. This is the default value.
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $monitorStatus;
 
     /**
+     * @description The name of the address pool that you want to create.
+     *
+     * @example Alibaba Cloud cluster
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The protocol used for the health check. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   PING
+     *   TCP
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The type of the address pool. Valid values:
+     *
+     *   **IP**: IPv4 address
+     *   **DOMAIN**: domain name
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;

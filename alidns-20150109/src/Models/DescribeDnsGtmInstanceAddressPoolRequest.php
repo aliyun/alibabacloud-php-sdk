@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceAddressPoolRequest extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * @example testpool1
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

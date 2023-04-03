@@ -9,61 +9,107 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The resolution line.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description Indicates whether the DNS record is locked.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $locked;
 
     /**
+     * @description The priority of the MX record.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The hostname.
+     *
+     * @example www
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * @example 9999985
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The description of the DNS record.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The status of the DNS record.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The Time-to-Live (TTL) of the DNS record.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $TTL;
 
     /**
+     * @description The type of the DNS record.
+     *
+     * @example CNAME
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The record value.
+     *
+     * @example example.net
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The weight of the DNS record.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $weight;

@@ -11,66 +11,116 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceResponseBody extends Model
 {
     /**
+     * @description The configurations of the instance.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2020-10-14T06:58Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the instance was created.
+     *
+     * @example 1602656937000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2020-10-14T06:58Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the instance expires.
+     *
+     * @example 1602656937000
+     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instanceid1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The billing method. Valid value:
+     *
+     *   Subscription: You can pay in advance for the use of resources.
+     *
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 84314904-D047-4176-A0EC-256D7F68C7F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example resourcegroupid1
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The total number of SMS notifications.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $smsQuota;
 
     /**
+     * @description The total number of detection tasks.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $taskQuota;
 
     /**
+     * @description The used quota.
+     *
      * @var usedQuota
      */
     public $usedQuota;
 
     /**
+     * @description The version of the instance.
+     *
+     * @example versioncode1
+     *
      * @var string
      */
     public $versionCode;

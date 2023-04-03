@@ -138,6 +138,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainRecordInfoRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainRecordInfoResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainRecordsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainRecordsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainResolveStatisticsSummaryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainResolveStatisticsSummaryResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainStatisticsRequest;
@@ -210,6 +212,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUserInfoRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUserInfoResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordResolveStatisticsSummaryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordResolveStatisticsSummaryResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordStatisticsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordStatisticsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordStatisticsSummaryRequest;
@@ -360,10 +364,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddCustomLineRequest $request
-     * @param RuntimeOptions       $runtime
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     *   *
+     * @param AddCustomLineRequest $request AddCustomLineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCustomLineResponse
+     * @return AddCustomLineResponse AddCustomLineResponse
      */
     public function addCustomLineWithOptions($request, $runtime)
     {
@@ -400,9 +407,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddCustomLineRequest $request
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     *   *
+     * @param AddCustomLineRequest $request AddCustomLineRequest
      *
-     * @return AddCustomLineResponse
+     * @return AddCustomLineResponse AddCustomLineResponse
      */
     public function addCustomLine($request)
     {
@@ -649,10 +659,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmMonitorRequest $request
-     * @param RuntimeOptions          $runtime
+     * ***
+     *   *
+     * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDnsGtmMonitorResponse
+     * @return AddDnsGtmMonitorResponse AddDnsGtmMonitorResponse
      */
     public function addDnsGtmMonitorWithOptions($request, $runtime)
     {
@@ -701,9 +713,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmMonitorRequest $request
+     * ***
+     *   *
+     * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
      *
-     * @return AddDnsGtmMonitorResponse
+     * @return AddDnsGtmMonitorResponse AddDnsGtmMonitorResponse
      */
     public function addDnsGtmMonitor($request)
     {
@@ -713,10 +727,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRequest $request
-     * @param RuntimeOptions   $runtime
+     * You can check whether a domain name is valid based on the following topic:
+     *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *   *
+     * @param AddDomainRequest $request AddDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomainWithOptions($request, $runtime)
     {
@@ -753,9 +770,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRequest $request
+     * You can check whether a domain name is valid based on the following topic:
+     *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *   *
+     * @param AddDomainRequest $request AddDomainRequest
      *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomain($request)
     {
@@ -1278,10 +1298,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ChangeDomainOfDnsProductRequest $request
-     * @param RuntimeOptions                  $runtime
+     * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+     *   *
+     * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeDomainOfDnsProductResponse
+     * @return ChangeDomainOfDnsProductResponse ChangeDomainOfDnsProductResponse
      */
     public function changeDomainOfDnsProductWithOptions($request, $runtime)
     {
@@ -1321,9 +1343,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ChangeDomainOfDnsProductRequest $request
+     * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+     *   *
+     * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
      *
-     * @return ChangeDomainOfDnsProductResponse
+     * @return ChangeDomainOfDnsProductResponse ChangeDomainOfDnsProductResponse
      */
     public function changeDomainOfDnsProduct($request)
     {
@@ -1661,10 +1685,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
+     *   * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
+     *   *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -1695,9 +1722,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
+     *   * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
+     *   *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1707,10 +1737,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+     *   *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroupWithOptions($request, $runtime)
     {
@@ -1741,9 +1773,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainGroupRequest $request
+     * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+     *   *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroup($request)
     {
@@ -1940,10 +1974,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubDomainRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     *   *
+     * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubDomainRecordsResponse
+     * @return DeleteSubDomainRecordsResponse DeleteSubDomainRecordsResponse
      */
     public function deleteSubDomainRecordsWithOptions($request, $runtime)
     {
@@ -1983,9 +2019,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubDomainRecordsRequest $request
+     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     *   *
+     * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
      *
-     * @return DeleteSubDomainRecordsResponse
+     * @return DeleteSubDomainRecordsResponse DeleteSubDomainRecordsResponse
      */
     public function deleteSubDomainRecords($request)
     {
@@ -2044,10 +2082,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeBatchResultDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * Before you call this operation, make sure that the batch tasks have been executed.
+     *   *
+     * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBatchResultDetailResponse
+     * @return DescribeBatchResultDetailResponse DescribeBatchResultDetailResponse
      */
     public function describeBatchResultDetailWithOptions($request, $runtime)
     {
@@ -2090,9 +2130,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeBatchResultDetailRequest $request
+     * Before you call this operation, make sure that the batch tasks have been executed.
+     *   *
+     * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      *
-     * @return DescribeBatchResultDetailResponse
+     * @return DescribeBatchResultDetailResponse DescribeBatchResultDetailResponse
      */
     public function describeBatchResultDetail($request)
     {
@@ -3088,10 +3130,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsProductInstancesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *   *
+     * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsProductInstancesResponse
+     * @return DescribeDnsProductInstancesResponse DescribeDnsProductInstancesResponse
      */
     public function describeDnsProductInstancesWithOptions($request, $runtime)
     {
@@ -3134,9 +3178,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsProductInstancesRequest $request
+     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *   *
+     * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      *
-     * @return DescribeDnsProductInstancesResponse
+     * @return DescribeDnsProductInstancesResponse DescribeDnsProductInstancesResponse
      */
     public function describeDnsProductInstances($request)
     {
@@ -3565,10 +3611,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * In this example, the domain name is bound to an Alibaba Cloud DNS instance of Enterprise Ultimate Edition. For more information about valid lines, see the return values of the RecordLines parameter.
+     *   *
+     * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainInfoResponse
+     * @return DescribeDomainInfoResponse DescribeDomainInfoResponse
      */
     public function describeDomainInfoWithOptions($request, $runtime)
     {
@@ -3602,9 +3650,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainInfoRequest $request
+     * In this example, the domain name is bound to an Alibaba Cloud DNS instance of Enterprise Ultimate Edition. For more information about valid lines, see the return values of the RecordLines parameter.
+     *   *
+     * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
      *
-     * @return DescribeDomainInfoResponse
+     * @return DescribeDomainInfoResponse DescribeDomainInfoResponse
      */
     public function describeDomainInfo($request)
     {
@@ -3678,10 +3728,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainNsRequest $request
-     * @param RuntimeOptions          $runtime
+     * >  This operation queries the authoritative server of the registry to obtain the name servers of a domain name. If the domain name is in the serverHold or clientHold state, an exception may occur.
+     *   *
+     * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainNsResponse
+     * @return DescribeDomainNsResponse DescribeDomainNsResponse
      */
     public function describeDomainNsWithOptions($request, $runtime)
     {
@@ -3712,9 +3764,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainNsRequest $request
+     * >  This operation queries the authoritative server of the registry to obtain the name servers of a domain name. If the domain name is in the serverHold or clientHold state, an exception may occur.
+     *   *
+     * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
      *
-     * @return DescribeDomainNsResponse
+     * @return DescribeDomainNsResponse DescribeDomainNsResponse
      */
     public function describeDomainNs($request)
     {
@@ -3773,10 +3827,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainRecordsRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   You can specify the DomainName, PageNumber, and PageSize parameters to query the DNS records of a domain name.
+     *   * *   You can also specify the RRKeyWord, TypeKeyWord, or ValueKeyWord parameter to query the DNS records that contain the specified keyword.
+     *   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+     *   *
+     * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainRecordsResponse
+     * @return DescribeDomainRecordsResponse DescribeDomainRecordsResponse
      */
     public function describeDomainRecordsWithOptions($request, $runtime)
     {
@@ -3846,9 +3904,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainRecordsRequest $request
+     * *   You can specify the DomainName, PageNumber, and PageSize parameters to query the DNS records of a domain name.
+     *   * *   You can also specify the RRKeyWord, TypeKeyWord, or ValueKeyWord parameter to query the DNS records that contain the specified keyword.
+     *   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+     *   *
+     * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
      *
-     * @return DescribeDomainRecordsResponse
+     * @return DescribeDomainRecordsResponse DescribeDomainRecordsResponse
      */
     public function describeDomainRecords($request)
     {
@@ -3858,10 +3920,79 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request
+     * @param RuntimeOptions                                $runtime
      *
-     * @return DescribeDomainStatisticsResponse
+     * @return DescribeDomainResolveStatisticsSummaryResponse
+     */
+    public function describeDomainResolveStatisticsSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainResolveStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request
+     *
+     * @return DescribeDomainResolveStatisticsSummaryResponse
+     */
+    public function describeDomainResolveStatisticsSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainResolveStatisticsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Real-time data is collected per hour.
+     *   *
+     * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainStatisticsResponse DescribeDomainStatisticsResponse
      */
     public function describeDomainStatisticsWithOptions($request, $runtime)
     {
@@ -3901,9 +4032,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainStatisticsRequest $request
+     * Real-time data is collected per hour.
+     *   *
+     * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
      *
-     * @return DescribeDomainStatisticsResponse
+     * @return DescribeDomainStatisticsResponse DescribeDomainStatisticsResponse
      */
     public function describeDomainStatistics($request)
     {
@@ -3977,10 +4110,15 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   You can specify the PageNumber and PageSize parameters to query domain names.
+     *   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+     *   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+     *   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *   *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
@@ -4029,9 +4167,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
+     * *   You can specify the PageNumber and PageSize parameters to query domain names.
+     *   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+     *   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+     *   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *   *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -5757,10 +5900,85 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request
+     * @param RuntimeOptions                                $runtime
      *
-     * @return DescribeRecordStatisticsResponse
+     * @return DescribeRecordResolveStatisticsSummaryResponse
+     */
+    public function describeRecordResolveStatisticsSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordResolveStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request
+     *
+     * @return DescribeRecordResolveStatisticsSummaryResponse
+     */
+    public function describeRecordResolveStatisticsSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRecordResolveStatisticsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Real-time data is collected per hour.
+     *   *
+     * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRecordStatisticsResponse DescribeRecordStatisticsResponse
      */
     public function describeRecordStatisticsWithOptions($request, $runtime)
     {
@@ -5803,9 +6021,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordStatisticsRequest $request
+     * Real-time data is collected per hour.
+     *   *
+     * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
      *
-     * @return DescribeRecordStatisticsResponse
+     * @return DescribeRecordStatisticsResponse DescribeRecordStatisticsResponse
      */
     public function describeRecordStatistics($request)
     {
@@ -6252,10 +6472,15 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   You can specify ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     *   * *   Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you specify only Tag.N.Value, an error message is returned.
+     *   * *   If you specify Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -6295,9 +6520,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * *   You can specify ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     *   * *   Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you specify only Tag.N.Value, an error message is returned.
+     *   * *   If you specify Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -6307,10 +6537,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ModifyHichinaDomainDNSRequest $request
-     * @param RuntimeOptions                $runtime
+     * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+     *   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+     *   *
+     * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHichinaDomainDNSResponse
+     * @return ModifyHichinaDomainDNSResponse ModifyHichinaDomainDNSResponse
      */
     public function modifyHichinaDomainDNSWithOptions($request, $runtime)
     {
@@ -6344,9 +6577,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ModifyHichinaDomainDNSRequest $request
+     * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+     *   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+     *   *
+     * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
      *
-     * @return ModifyHichinaDomainDNSResponse
+     * @return ModifyHichinaDomainDNSResponse ModifyHichinaDomainDNSResponse
      */
     public function modifyHichinaDomainDNS($request)
     {
@@ -6892,10 +7128,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDnsGtmAccessModeRequest $request
-     * @param RuntimeOptions             $runtime
+     * ****
+     *   *
+     * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDnsGtmAccessModeResponse
+     * @return SetDnsGtmAccessModeResponse SetDnsGtmAccessModeResponse
      */
     public function setDnsGtmAccessModeWithOptions($request, $runtime)
     {
@@ -6929,9 +7167,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDnsGtmAccessModeRequest $request
+     * ****
+     *   *
+     * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
      *
-     * @return SetDnsGtmAccessModeResponse
+     * @return SetDnsGtmAccessModeResponse SetDnsGtmAccessModeResponse
      */
     public function setDnsGtmAccessMode($request)
     {
@@ -7547,10 +7787,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomLineRequest $request
-     * @param RuntimeOptions          $runtime
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     *   *
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomLineResponse
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
      */
     public function updateCustomLineWithOptions($request, $runtime)
     {
@@ -7587,9 +7830,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomLineRequest $request
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     *   *
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      *
-     * @return UpdateCustomLineResponse
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
      */
     public function updateCustomLine($request)
     {

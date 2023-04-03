@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class recordLog extends Model
 {
     /**
+     * @description The operation that you performed.
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The time when the operation was performed.
+     *
+     * @example 2015-12-12T09:23Z
+     *
      * @var string
      */
     public $actionTime;
 
     /**
+     * @description The UNIX timestamp representing the time of the operation.
+     *
+     * @example 134514540000
+     *
      * @var int
      */
     public $actionTimestamp;
 
     /**
+     * @description The IP address of the operator.
+     *
+     * @example 182.92.253.XX
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The returned operation message.
+     *
      * @var string
      */
     public $message;

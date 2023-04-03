@@ -9,31 +9,54 @@ use AlibabaCloud\Tea\Model;
 class AddGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The line codes of access regions.
+     *
+     * @example ["default", "drpeng"]
+     *
      * @var string
      */
     public $accessLines;
 
     /**
+     * @description The ID of the default address pool.
+     *
+     * @example hrsix
+     *
      * @var string
      */
     public $defaultAddrPoolId;
 
     /**
+     * @description The ID of the failover address pool.
+     *
+     * If the failover address pool is not set, pass the **Empty** value.
+     * @example hrsyw
+     *
      * @var string
      */
     public $failoverAddrPoolId;
 
     /**
+     * @description The ID of the GTM instance for which you want to create an access policy.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the access policy.
+     *
      * @var string
      */
     public $strategyName;

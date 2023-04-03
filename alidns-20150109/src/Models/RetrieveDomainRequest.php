@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RetrieveDomainRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

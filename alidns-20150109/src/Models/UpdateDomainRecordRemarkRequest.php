@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRecordRemarkRequest extends Model
 {
     /**
+     * @description The language type.
+     *
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The description of your DNS record.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;

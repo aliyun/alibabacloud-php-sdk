@@ -10,61 +10,126 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmMonitorConfigResponseBody extends Model
 {
     /**
+     * @description The time when the health check configuration was created.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates the time when the health check configuration was created.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description The health check interval. Unit: seconds. The value is 60.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The monitored nodes.
+     *
      * @var ispCityNodes
      */
     public $ispCityNodes;
 
     /**
+     * @description The ID of the health check configuration.
+     *
+     * @example 1234abc
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     *
+     * HTTP or HTTPS:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
+     *   host: the host configuration.
+     *   path: the health check URL.
+     *
+     * PING:
+     *
+     *   packetNum: the number of ping packets.
+     *   packetLossRate: the loss rate of ping packets.
+     *   failureRate: the failure rate.
+     *
+     * TCP:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *
+     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     *
      * @var string
      */
     public $monitorExtendInfo;
 
     /**
+     * @description The protocol used for the health check.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The time when the health check configuration was last updated.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The timestamp that indicates the time when the health check configuration was last updated.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $updateTimestamp;

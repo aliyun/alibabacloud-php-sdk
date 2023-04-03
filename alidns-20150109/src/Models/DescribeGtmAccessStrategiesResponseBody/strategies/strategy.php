@@ -10,86 +10,158 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @description The access policy. Valid values:
+     *
+     *   **AUTO**: Automatic switch
+     *   **DEFAULT**: Default address pool
+     *   **FAILOVER**: Failover address pool
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The access status. Valid values:
+     *
+     *   **DEFAULT**: The default address pool is currently accessed.
+     *   **FAILOVER**: The failover address pool is currently accessed.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $accessStatus;
 
     /**
+     * @description The time when the access policy was created.
+     *
+     * @example 2018-08-09T00:10Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1533773400000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The ID of the default address pool.
+     *
+     * @example hra0i1
+     *
      * @var string
      */
     public $defaultAddrPoolId;
 
     /**
+     * @description Indicates whether health check was enabled for the default address pool. Valid values:
+     *
+     *   **OPEN**: Enabled
+     *   **CLOSE**: Disabled
+     *   **UNCONFIGURED**: Not configured
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $defaultAddrPoolMonitorStatus;
 
     /**
+     * @description The name of the default address pool.
+     *
      * @var string
      */
     public $defaultAddrPoolName;
 
     /**
+     * @description The availability status of the default address pool. Valid values:
+     *
+     *   **AVAILABLE**: Available
+     *   **NOT_AVAILABLE**: Unavailable
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $defaultAddrPoolStatus;
 
     /**
+     * @description The ID of the failover address pool.
+     *
+     * @example hra0i2
+     *
      * @var string
      */
     public $failoverAddrPoolId;
 
     /**
+     * @description Indicates whether health check was enabled for the failover address pool.
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $failoverAddrPoolMonitorStatus;
 
     /**
+     * @description The name of the failover address pool.
+     *
      * @var string
      */
     public $failoverAddrPoolName;
 
     /**
+     * @description The availability status of the failover address pool.
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $failoverAddrPoolStatus;
 
     /**
+     * @description The ID of the GTM instance whose access policies you want to query.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The returned lines of access regions.
+     *
      * @var lines
      */
     public $lines;
 
     /**
+     * @description The ID of the access policy.
+     *
+     * @example hra0hs
+     *
      * @var string
      */
     public $strategyId;
 
     /**
+     * @description The mode of the access policy. **SELF_DEFINED** indicates that the access policy is user-defined.
+     *
+     * @example SELF_DEFINED
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The name of the access policy.
+     *
      * @var string
      */
     public $strategyName;

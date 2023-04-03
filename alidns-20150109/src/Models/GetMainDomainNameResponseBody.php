@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetMainDomainNameResponseBody extends Model
 {
     /**
+     * @description The level of the entered domain name.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $domainLevel;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The host record.
+     *
+     * @example www
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

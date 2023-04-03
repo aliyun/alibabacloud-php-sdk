@@ -15,16 +15,26 @@ class UpdateCustomLineRequest extends Model
     public $ipSegment;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The unique ID of the custom line.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $lineId;
 
     /**
+     * @description The new name of the custom line.
+     *
      * @var string
      */
     public $lineName;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstancesResponseBody extends Model
 {
     /**
+     * @description The list of queried instances.
+     *
      * @var gtmInstances
      */
     public $gtmInstances;
 
     /**
+     * @description The returned page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 193B0163-7F93-42DF-AB05-ACEEB7D22707
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

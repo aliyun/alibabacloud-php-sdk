@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmAddressPoolRequest extends Model
 {
     /**
+     * @description The addresses in the address pool.
+     *
      * @var addr[]
      */
     public $addr;
 
     /**
+     * @description The ID of the address pool.
+     *
+     * @example testpool1
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The load balancing policy for the address pool. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
+     * @description The name of the address pool.
+     *
+     * @example testpoolname
+     *
      * @var string
      */
     public $name;

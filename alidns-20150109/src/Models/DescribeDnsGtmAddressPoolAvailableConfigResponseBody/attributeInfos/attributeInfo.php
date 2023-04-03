@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class attributeInfo extends Model
 {
     /**
+     * @description The parent line code of the source region.
+     *
+     * @example telecom
+     *
      * @var string
      */
     public $fatherCode;
 
     /**
+     * @description The code of the source region group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $groupCode;
 
     /**
+     * @description The name of the request source group.
+     *
+     * @example global
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The line code of the source region.
+     *
+     * @example default
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @description The line name of the source region.
+     *
+     * @example global
+     *
      * @var string
      */
     public $lineName;

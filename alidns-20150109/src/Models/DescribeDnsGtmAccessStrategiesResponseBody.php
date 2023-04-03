@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAccessStrategiesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CCC9971-CEC9-4132-824B-4AE611C07623
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The access policies.
+     *
      * @var strategies
      */
     public $strategies;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalPages;

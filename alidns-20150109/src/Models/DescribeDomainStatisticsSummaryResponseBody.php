@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainStatisticsSummaryResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CC625C21-8832-4683-BF10-C3CFB1A4FA13
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of query volume records.
+     *
      * @var statistics
      */
     public $statistics;
 
     /**
+     * @description The total number of data records.
+     *
+     * @example 68
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of returned pages.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $totalPages;

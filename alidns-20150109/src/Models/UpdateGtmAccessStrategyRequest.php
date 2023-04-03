@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class UpdateGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The line codes of access regions.
+     *
+     * @example ["default", "mobile"]
+     *
      * @var string
      */
     public $accessLines;
 
     /**
+     * @description The ID of the default address pool.
+     *
+     * @example hrsix
+     *
      * @var string
      */
     public $defaultAddrPoolId;
 
     /**
+     * @description The ID of the failover address pool.
+     *
+     * @example hrsyw
+     *
      * @var string
      */
     public $failoverAddrPoolId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy that you want to query for the GTM instance.
+     *
+     * @example hrmxc
+     *
      * @var string
      */
     public $strategyId;
 
     /**
+     * @description The name of the access policy.
+     *
      * @var string
      */
     public $strategyName;

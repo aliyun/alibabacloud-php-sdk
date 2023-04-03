@@ -10,26 +10,42 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example 4698691
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the resource.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key-value pairs of tags.
+     *
      * @var tag[]
      */
     public $tag;

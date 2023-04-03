@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetMainDomainNameRequest extends Model
 {
     /**
+     * @description The input string. The string can be up to 128 characters in length.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $inputString;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

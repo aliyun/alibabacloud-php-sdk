@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

@@ -9,61 +9,115 @@ use AlibabaCloud\Tea\Model;
 class addrPool extends Model
 {
     /**
+     * @description The number of addresses in the address pool.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $addrCount;
 
     /**
+     * @description The ID of the address pool.
+     *
+     * @example 1234abc
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The time when this address pool was created.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1527690629357
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The minimum number of available addresses in the address pool.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minAvailableAddrNum;
 
     /**
+     * @description The health check ID of the address pool.
+     *
+     * @example 100abc
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description Indicates whether health check was enabled for the address pool. Valid values:
+     *
+     *   **OPEN**: Enabled
+     *   **CLOSE**: Disabled
+     *   **UNCONFIGURED**: Not configured
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $monitorStatus;
 
     /**
+     * @description The name of the address pool.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The availability status of the address pool. Valid values:
+     *
+     *   **AVAILABLE**: Available
+     *   **NOT_AVAILABLE**: Unavailable
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the address pool. Valid values:
+     *
+     *   **IP**: IP address
+     *   **DOMAIN**: Domain name
+     *
+     * @example IP
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The last time when the address pool was updated.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description A timestamp that indicates the last time the address pool was updated.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $updateTimestamp;

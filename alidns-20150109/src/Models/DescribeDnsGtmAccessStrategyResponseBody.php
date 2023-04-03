@@ -12,131 +12,265 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAccessStrategyResponseBody extends Model
 {
     /**
+     * @description The primary/secondary switchover policy for address pool groups. Valid values:
+     *
+     *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
+     *   DEFAULT: uses the primary address pool group.
+     *   FAILOVER: uses the secondary address pool group.
+     *
+     * @example auto
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The time when the access policy was created.
+     *
+     * @example 2018-08-09T00:10Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates when the access policy was created.
+     *
+     * @example 1533773400000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The status of the primary address pool group. Valid values:
+     *
+     *   AVAILABLE: available
+     *   NOT_AVAILABLE: unavailable
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $defaultAddrPoolGroupStatus;
 
     /**
+     * @description The type of the primary address pool. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $defaultAddrPoolType;
 
     /**
+     * @description The address pools in the primary address pool group.
+     *
      * @var defaultAddrPools
      */
     public $defaultAddrPools;
 
     /**
+     * @description The number of available addresses in the primary address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultAvailableAddrNum;
 
     /**
+     * @description Indicates whether scheduling optimization for latency resolution was enabled for the primary address pool group. Valid values:
+     *
+     *   OPEN: enabled
+     *   CLOSE: disabled
+     *
+     * @example open
+     *
      * @var string
      */
     public $defaultLatencyOptimization;
 
     /**
+     * @description The load balancing policy of the primary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $defaultLbaStrategy;
 
     /**
+     * @description The maximum number of addresses returned from the primary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultMaxReturnAddrNum;
 
     /**
+     * @description The minimum number of available addresses in the primary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultMinAvailableAddrNum;
 
     /**
+     * @description The type of the active address pool group. Valid values:
+     *
+     *   DEFAULT: the primary address pool group
+     *   FAILOVER: the secondary address pool group
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $effectiveAddrPoolGroupType;
 
     /**
+     * @description The status of the secondary address pool group. Valid values:
+     *
+     *   AVAILABLE: available
+     *   NOT_AVAILABLE: unavailable
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $failoverAddrPoolGroupStatus;
 
     /**
+     * @description The type of the secondary address pool. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $failoverAddrPoolType;
 
     /**
+     * @description The address pools in the secondary address pool group.
+     *
      * @var failoverAddrPools
      */
     public $failoverAddrPools;
 
     /**
+     * @description The number of available addresses in the secondary address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failoverAvailableAddrNum;
 
     /**
+     * @description Indicates whether scheduling optimization for latency resolution was enabled for the secondary address pool group. Valid values:
+     *
+     *   OPEN: enabled
+     *   CLOSE: disabled
+     *
+     * @example open
+     *
      * @var string
      */
     public $failoverLatencyOptimization;
 
     /**
+     * @description The load balancing policy of the secondary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $failoverLbaStrategy;
 
     /**
+     * @description The maximum number of addresses returned from the secondary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failoverMaxReturnAddrNum;
 
     /**
+     * @description The minimum number of available addresses in the secondary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failoverMinAvailableAddrNum;
 
     /**
+     * @description The ID of the associated instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The source regions.
+     *
      * @var lines
      */
     public $lines;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BA1608CA-834C-4E63-8682-8AF0B11ED72D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the access policy.
+     *
+     * @example strategyId1
+     *
      * @var string
      */
     public $strategyId;
 
     /**
+     * @description The type of the access policy. Valid values:
+     *
+     *   GEO: geographical location-based
+     *   LATENCY: latency-based
+     *
+     * @example geo
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The name of the access policy.
+     *
+     * @example strategyName1
+     *
      * @var string
      */
     public $strategyName;

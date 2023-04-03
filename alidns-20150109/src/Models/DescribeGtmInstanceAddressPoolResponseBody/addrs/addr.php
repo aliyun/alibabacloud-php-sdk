@@ -9,46 +9,87 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
+     * @description The ID of the address.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $addrId;
 
     /**
+     * @description Indicates whether health check was enabled for the address. Valid values:
+     *
+     *   **OK**: Normal
+     *   **ALERT**: Alert
+     *
+     * @example OK
+     *
      * @var string
      */
     public $alertStatus;
 
     /**
+     * @description The time when the address pool was created.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1527690629357
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The weight of the address.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The mode of the address. Valid values:
+     *
+     *   **SMART**: Intelligent return
+     *   **ONLINE**: Always online
+     *   **OFFLINE**: Always offline
+     *
+     * @example SMART
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The last time when the address was updated.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description A timestamp that indicates the last time when the address was updated.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $updateTimestamp;
 
     /**
+     * @description The address.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $value;

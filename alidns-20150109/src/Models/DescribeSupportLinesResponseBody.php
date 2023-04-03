@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportLinesResponseBody extends Model
 {
     /**
+     * @description The list of Alibaba Cloud DNS lines.
+     *
      * @var recordLines
      */
     public $recordLines;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CFDA0830-7D6E-4C13-8632-B57C7EDCF079
+     *
      * @var string
      */
     public $requestId;

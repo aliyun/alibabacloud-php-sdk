@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The timestamp.
+     *
+     * @example 1544976000000
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The number of IPv4-based HTTP requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v4HttpCount;
 
     /**
+     * @description The number of IPv4-based HTTPS requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v4HttpsCount;
 
     /**
+     * @description The number of IPv6-based HTTP requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v6HttpCount;
 
     /**
+     * @description The number of IPv6-based HTTPS requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v6HttpsCount;

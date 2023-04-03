@@ -12,116 +12,200 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainInfoResponseBody extends Model
 {
     /**
+     * @description Indicates whether the domain name is an Alibaba Cloud HiChina domain name.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $aliDomain;
 
     /**
+     * @description The available time to live (TTL) values.
+     *
      * @var availableTtls
      */
     public $availableTtls;
 
     /**
+     * @description The time when the domain name was added to Alibaba Cloud CDN.
+     *
+     * @example 2015-12-12T09:23Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The information about DNS servers.
+     *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 00efd71a-770e-4255-b54e-6fe5659baffe
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example mygroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Indicates whether blackhole filtering was triggered.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inBlackHole;
 
     /**
+     * @description Indicates whether traffic scrubbing was started.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inClean;
 
     /**
+     * @description The ID of the Alibaba Cloud DNS instance.
+     *
+     * @example i-7bg
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of line.
+     *
+     * @example region_province
+     *
      * @var string
      */
     public $lineType;
 
     /**
+     * @description The minimum TTL.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minTtl;
 
     /**
+     * @description The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $punyCode;
 
     /**
+     * @description The tree-based lines.
+     *
+     * @example {"default":{},"unicom":{},"telecom":{},"mobile":{},"edu":{},"oversea":{},"baidu":{},"biying":{},"google":{}}
+     *
      * @var string
      */
     public $recordLineTreeJson;
 
     /**
+     * @description The information about lines.
+     *
      * @var recordLines
      */
     public $recordLines;
 
     /**
+     * @description Indicates whether the lines are regional lines.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $regionLines;
 
     /**
+     * @description The description of the domain name.
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek3dj3wvclgcxo
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether secondary DNS is allowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $slaveDns;
 
     /**
+     * @description The version of the Alibaba Cloud DNS instance.
+     *
+     * @example version1
+     *
      * @var string
      */
     public $versionCode;
 
     /**
+     * @description The edition of the Alibaba Cloud DNS instance.
+     *
      * @var string
      */
     public $versionName;

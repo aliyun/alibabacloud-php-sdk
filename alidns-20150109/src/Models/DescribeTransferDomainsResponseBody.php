@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransferDomainsResponseBody extends Model
 {
     /**
+     * @description The list of domain names that were transferred between accounts.
+     *
      * @var domainTransfers
      */
     public $domainTransfers;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of domain names.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

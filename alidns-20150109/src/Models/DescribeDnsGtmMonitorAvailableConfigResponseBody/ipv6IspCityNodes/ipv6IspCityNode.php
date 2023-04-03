@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class ipv6IspCityNode extends Model
 {
     /**
+     * @description The code of the city where the monitored node is deployed.
+     *
+     * @example 503
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description The display name of the city where the monitored node is deployed.
+     *
+     * @example Zhangjiakou
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description Indicates whether the monitored node is selected for the health check by default.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultSelected;
 
     /**
+     * @description The name of the group to which the monitored node belongs.
+     *
+     * @example BGP Nodes
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the group to which the monitored node belongs. Valid values:
+     *
+     *   BGP: BGP nodes
+     *   OVERSEAS: nodes outside the Chinese mainland
+     *   ISP: ISP nodes
+     *
+     * @example BGP
+     *
      * @var string
      */
     public $groupType;
@@ -40,11 +64,19 @@ class ipv6IspCityNode extends Model
     public $ips;
 
     /**
+     * @description The code of the ISP to which the monitored node belongs.
+     *
+     * @example 465
+     *
      * @var string
      */
     public $ispCode;
 
     /**
+     * @description The display name of the ISP to which the monitored node belongs.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispName;

@@ -9,41 +9,75 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubDomainRecordsRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The resolution line.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **500**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The subdomain. For example, assume that the SubDomain parameter is set to a.www.example.com.
+     *
+     * If the DomainName parameter is set to a.www.example.com, the DNS records of the subdomain whose domain name is a.www.example.com and hostname is "@" are queried.
+     * @example a.www.example.com
+     *
      * @var string
      */
     public $subDomain;
 
     /**
+     * @description The type of DNS records to query. If you do not specify this parameter, all types of DNS records corresponding to the subdomain are returned.
+     *
+     * DNS record types include **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**. The value is not case-sensitive.
+     * @example MX
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;

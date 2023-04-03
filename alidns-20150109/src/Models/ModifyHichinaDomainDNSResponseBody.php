@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyHichinaDomainDNSResponseBody extends Model
 {
     /**
+     * @description The list of DNS servers after the domain name is changed.
+     *
      * @var newDnsServers
      */
     public $newDnsServers;
 
     /**
+     * @description The list of DNS servers before the domain name is changed.
+     *
      * @var originalDnsServers
      */
     public $originalDnsServers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class TransferDomainRequest extends Model
 {
     /**
+     * @description The list of domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
+     *
+     * @example test1.com,test2.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The detailed information.
+     *
+     * @example test domain transfer
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the user to which domain names were transferred.
+     *
+     * @example 12345678
+     *
      * @var int
      */
     public $targetUserId;

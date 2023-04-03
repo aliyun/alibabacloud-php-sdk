@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordStatisticsRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example dns-example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,21 +23,40 @@ class DescribeRecordStatisticsRequest extends Model
     public $domainType;
 
     /**
+     * @description The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     *
+     * The default value is the day when you perform the operation.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The DNS record.
+     *
+     * The host record. For example, to resolve `www.dns-exmaple.com`, you must set Rr to www.
+     * @example www
+     *
      * @var string
      */
     public $rr;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     *
+     * You can only query DNS records of the last 90 days.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $startDate;

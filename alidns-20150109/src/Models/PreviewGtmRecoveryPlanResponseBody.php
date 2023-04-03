@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class PreviewGtmRecoveryPlanResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The returned preview information of the disaster recovery plan.
+     *
      * @var previews
      */
     public $previews;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 853805EA-3D47-47D5-9A1A-A45C24313ABD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalPages;

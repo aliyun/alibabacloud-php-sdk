@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ipv4AddrPool extends Model
 {
     /**
+     * @description The number of addresses in the address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrCount;
 
     /**
+     * @description The ID of the address pool.
+     *
+     * @example pool1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the address pool.
+     *
+     * @example testpool
+     *
      * @var string
      */
     public $name;

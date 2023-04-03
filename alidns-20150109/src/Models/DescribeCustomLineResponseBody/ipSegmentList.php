@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ipSegmentList extends Model
 {
     /**
+     * @description The end IP address.
+     *
+     * @example 11.1.1.3
+     *
      * @var string
      */
     public $endIp;
 
     /**
+     * @description The start IP address.
+     *
+     * @example 11.1.1.2
+     *
      * @var string
      */
     public $startIp;

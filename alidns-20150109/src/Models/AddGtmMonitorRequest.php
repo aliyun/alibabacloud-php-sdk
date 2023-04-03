@@ -10,41 +10,95 @@ use AlibabaCloud\Tea\Model;
 class AddGtmMonitorRequest extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description The health check interval. Unit: seconds. Set the value to 60.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The monitored nodes.
+     *
      * @var ispCityNode[]
      */
     public $ispCityNode;
 
     /**
+     * @description The language of the values of specific response parameters.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     *
+     * HTTP or HTTPS:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
+     *   host: the host configuration.
+     *   path: the health check URL.
+     *
+     * PING:
+     *
+     *   packetNum: the number of ping packets.
+     *   packetLossRate: the loss rate of ping packets.
+     *   failureRate: the failure rate.
+     *
+     * TCP:
+     *
+     *   port: the port to check.
+     *   failureRate: the failure rate.
+     *
+     * @example {\"code\":200,\"path\":\"/index.htm\",\"host\":\"aliyun.com\"}
+     *
      * @var string
      */
     public $monitorExtendInfo;
 
     /**
+     * @description The protocol used for the health check. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   PING
+     *   TCP
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $timeout;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance to query.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

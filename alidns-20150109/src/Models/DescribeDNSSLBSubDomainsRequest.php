@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeDNSSLBSubDomainsRequest extends Model
 {
     /**
+     * @description The domain name whose subdomains you want to query.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language of the domain name.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +50,10 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     public $rr;
 
     /**
+     * @description The IP address of the client that you use to query subdomains.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;

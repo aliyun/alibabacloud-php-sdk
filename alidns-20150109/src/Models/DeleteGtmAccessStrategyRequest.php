@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy that you want to delete.
+     *
+     * @example hrskc
+     *
      * @var string
      */
     public $strategyId;

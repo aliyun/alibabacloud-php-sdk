@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAvailableAlertGroupRequest extends Model
 {
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

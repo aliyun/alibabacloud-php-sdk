@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class SetDNSSLBStatusRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language of the subdomain.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example telecom
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description Specifies whether to enable or disable weighted round-robin. Valid values:
+     *
+     *   **true**: enables weighted round-robin. This is the default value.
+     *   **false**: disables weighted round-robin.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $open;
 
     /**
+     * @description The subdomain for which you want to configure weighted round-robin. Do not set the value to a string such as aliyun.com. Instead, set the value to @.aliyun.com.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $subDomain;
 
     /**
+     * @description The type of the DNS record. Valid values: A and AAAA. Default value: A.
+     *
+     * @example A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The IP address of the client that you use to configure weighted round-robin.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;

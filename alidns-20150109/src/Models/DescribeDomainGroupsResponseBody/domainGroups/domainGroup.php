@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class domainGroup extends Model
 {
     /**
+     * @description The number of domain name groups.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example MyGroup
+     *
      * @var string
      */
     public $groupName;

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceAddressPoolsResponseBody extends Model
 {
     /**
+     * @description The returned address pools.
+     *
      * @var addrPools
      */
     public $addrPools;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

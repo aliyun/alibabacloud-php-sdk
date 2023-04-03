@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
+     * @description The code of the monitored city node.
+     *
+     * @example 572
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description The display name of the monitored city node.
+     *
+     * @example Qingdao
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The code of the country or region.
+     *
+     * @example 001
+     *
      * @var string
      */
     public $countryCode;
 
     /**
+     * @description The display name of the country or region.
+     *
+     * @example China
+     *
      * @var string
      */
     public $countryName;
 
     /**
+     * @description The code of the monitored Internet service provider (ISP) node.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $ispCode;
 
     /**
+     * @description The name of the ISP.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispName;

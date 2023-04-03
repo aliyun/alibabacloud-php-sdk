@@ -11,61 +11,107 @@ use AlibabaCloud\Tea\Model;
 class gtmInstances extends Model
 {
     /**
+     * @description The configurations of the instance.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2020-10-14T06:58Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates when the instance was created.
+     *
+     * @example 1602658709000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2020-10-14T06:58Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The timestamp that indicates when the instance expires.
+     *
+     * @example 1602658709000
+     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The billing method of the instance.
+     *
+     *   The value is set to Subscription.
+     *
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example resourceGroupid123
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The total number of SMS notifications.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $smsQuota;
 
     /**
+     * @description The total number of detection tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskQuota;
 
     /**
+     * @description The used quota.
+     *
      * @var usedQuota
      */
     public $usedQuota;
 
     /**
+     * @description The version of the instance.
+     *
+     * @example testVersion1
+     *
      * @var string
      */
     public $versionCode;

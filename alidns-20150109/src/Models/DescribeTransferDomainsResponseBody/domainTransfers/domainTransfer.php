@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class domainTransfer extends Model
 {
     /**
+     * @description The time when the task for transferring domain names was created.
+     *
+     * @example 2019-10-30T07:16Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UNIX timestamp representing when the task for transferring domain names was created.
+     *
+     * @example 1572419764000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The domain name.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the user from which the domain name was transferred.
+     *
+     * @example 2222
+     *
      * @var int
      */
     public $fromUserId;
 
     /**
+     * @description The ID of the domain name that was transferred.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the user to which the domain name was transferred.
+     *
+     * @example 111111
+     *
      * @var int
      */
     public $targetUserId;

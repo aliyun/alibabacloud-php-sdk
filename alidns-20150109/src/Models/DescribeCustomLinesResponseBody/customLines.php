@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class customLines extends Model
 {
     /**
+     * @description The code of the custom line.
+     *
+     * @example hra0yc-597
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The unique ID of the custom line.
+     *
+     * @example 597
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the custom line.
+     *
+     * @example hra0yd-597
+     *
      * @var string
      */
     public $name;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CopyGtmConfigRequest extends Model
 {
     /**
+     * @description The type of the object that you want to copy. Only the INSTANCE type is supported.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $copyType;
 
     /**
+     * @description The language that specific response parameters will use.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the source object. Only instance IDs are supported.
+     *
+     * @example gtm-cn-0pp1j84v60d
+     *
      * @var string
      */
     public $sourceId;
 
     /**
+     * @description The ID of the target object. Only instance IDs are supported.
+     *
+     * @example gtm-cn-v0h1gaujg06
+     *
      * @var string
      */
     public $targetId;

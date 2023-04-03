@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceAddressPoolsRequest extends Model
 {
     /**
+     * @description The ID of the GTM instance that you want to query.
+     *
+     * @example gtmtest
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

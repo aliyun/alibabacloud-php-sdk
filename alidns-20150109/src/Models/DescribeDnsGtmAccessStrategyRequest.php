@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy.
+     *
+     * @example strategyId1
+     *
      * @var string
      */
     public $strategyId;

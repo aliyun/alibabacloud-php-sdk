@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateGtmRecoveryPlanRequest extends Model
 {
     /**
+     * @description The list of faulty address pools.
+     *
+     * @example ["hra0or"]
+     *
      * @var string
      */
     public $faultAddrPool;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the disaster recovery plan.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the disaster recovery plan.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $recoveryPlanId;
 
     /**
+     * @description The remarks about the disaster recovery plan.
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;

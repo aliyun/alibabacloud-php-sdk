@@ -10,66 +10,127 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
 {
     /**
+     * @description The number of addresses in the address pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrCount;
 
     /**
+     * @description The ID of the address pool.
+     *
+     * @example testpool1
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The addresses in the address pool.
+     *
      * @var addrs
      */
     public $addrs;
 
     /**
+     * @description The time when the address pool was created.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates the time when the address pool was created.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The load balancing policy for the address pool. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
+     * @description The ID of the health check configuration.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description Indicates the status of the health check. Valid values:
+     *
+     *   OPEN: The health check is enabled.
+     *   CLOSE: The health check is disabled.
+     *   UNCONFIGURED: The health check is not configured.
+     *
+     * @example open
+     *
      * @var string
      */
     public $monitorStatus;
 
     /**
+     * @description The name of the address pool.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The type of the address pool. Valid values:
+     *
+     *   IPV4: IPv4 address
+     *   IPV6: IPv6 address
+     *   DOMAIN: domain name
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The time when the address pool was last updated.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The timestamp that indicates the time when the address pool was last updated.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $updateTimestamp;

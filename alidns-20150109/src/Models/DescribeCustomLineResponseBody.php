@@ -10,31 +10,51 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLineResponseBody extends Model
 {
     /**
+     * @description The code of the custom line. The code is used when you configure a resolution record.
+     *
+     * @example hra0yc-597
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The domain name for which the custom line is configured.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The unique ID of the custom line.
+     *
+     * @example 597
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The list of CIDR blocks.
+     *
      * @var ipSegmentList[]
      */
     public $ipSegmentList;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
+     *
      * @var string
      */
     public $requestId;

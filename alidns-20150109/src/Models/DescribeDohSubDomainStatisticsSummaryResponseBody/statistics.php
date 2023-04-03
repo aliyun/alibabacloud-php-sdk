@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The number of HTTP requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $httpCount;
 
     /**
+     * @description The number of HTTPS requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $httpsCount;
 
     /**
+     * @description The number of IP addresses.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $ipCount;
 
     /**
+     * @description The subdomain.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $subDomain;
 
     /**
+     * @description Total number of requests.
+     *
+     * @example 14141592653
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The number of IPv4-based HTTP requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v4HttpCount;
 
     /**
+     * @description The number of IPv4-based HTTPS requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v4HttpsCount;
 
     /**
+     * @description The number of IPv6-based HTTP requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v6HttpCount;
 
     /**
+     * @description The number of IPv6-based HTTPS requests.
+     *
+     * @example 3141592653
+     *
      * @var int
      */
     public $v6HttpsCount;

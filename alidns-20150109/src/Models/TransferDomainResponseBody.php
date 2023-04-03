@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TransferDomainResponseBody extends Model
 {
     /**
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 112233
+     *
      * @var int
      */
     public $taskId;

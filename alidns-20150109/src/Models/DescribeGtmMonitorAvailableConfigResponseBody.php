@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmMonitorAvailableConfigResponseBody extends Model
 {
     /**
+     * @description The monitored nodes.
+     *
      * @var ispCityNodes
      */
     public $ispCityNodes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;

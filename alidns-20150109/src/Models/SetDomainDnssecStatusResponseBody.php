@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetDomainDnssecStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

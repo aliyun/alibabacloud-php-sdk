@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SwitchDnsGtmInstanceStrategyModeRequest extends Model
 {
     /**
+     * @description The ID of the GTM instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The access policy type. Valid values:
+     *
+     *   GEO: geographical location-based
+     *   LATENCY: latency-based
+     *
+     * @example GEO
+     *
      * @var string
      */
     public $strategyMode;

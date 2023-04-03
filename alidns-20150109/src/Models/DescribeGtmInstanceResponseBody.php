@@ -9,86 +9,160 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceResponseBody extends Model
 {
     /**
+     * @description The number of access policies of the GTM instance.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $accessStrategyNum;
 
     /**
+     * @description The number of address pools of the GTM instance.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $addressPoolNum;
 
     /**
+     * @description The alert group of the GTM instance.
+     *
+     * @example \[\\"Daily test - R\&D group\\"]
+     *
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The domain name of the GTM instance to which the service domain name is mapped by using a CNAME record.
+     *
+     * @example instance1.14.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description Indicates whether the CNAME is a custom domain name or is assigned by the system. Valid values:
+     *
+     *   **SYSTEM_ASSIGN**
+     *   **CUSTOM**
+     *
+     * @example SYSTEM_ASSIGN
+     *
      * @var string
      */
     public $cnameMode;
 
     /**
+     * @description The time when the GTM instance was created.
+     *
+     * @example 2018-06-06T11:34Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates the time when the GTM instance was created.
+     *
+     * @example 1528284856000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The time when the GTM instance expires.
+     *
+     * @example 2018-06-06T11:34Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The timestamp that indicates the time when the GTM instance expires.
+     *
+     * @example 1528284856000
+     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
+     * @description The ID of the GTM instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the GTM instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The load balancing policy. Valid values:
+     *
+     *   **ALL_RR**: round robin
+     *   **RATIO**: weighted round-robin
+     *
+     * @example RATIO
+     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E41AA251-F9BA-48C6-99B2-2B82B26A573A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-testgroupid
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The global time to live (TTL).
+     *
+     * @example 60
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description The domain name of the application.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $userDomainName;
 
     /**
+     * @description The version code.
+     *
+     * @example biaozhun
+     *
      * @var string
      */
     public $versionCode;

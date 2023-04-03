@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class instanceDomains extends Model
 {
     /**
+     * @description The time when the domain name was bound with the instance.
+     *
+     * @example 2020-03-09T02:15Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the domain name was bound with the instance.
+     *
+     * @example 1583720154000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

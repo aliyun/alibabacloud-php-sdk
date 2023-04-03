@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesRequest extends Model
 {
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The version code of the Alibaba Cloud DNS instance.
+     *
+     * @example version1
+     *
      * @var string
      */
     public $versionCode;

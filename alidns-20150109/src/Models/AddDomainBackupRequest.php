@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class AddDomainBackupRequest extends Model
 {
     /**
+     * @description The domain name for which you want to create a backup task.
+     *
+     * @example test.aliyun.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The backup cycle. Valid values:
+     *
+     *   **DAY**: Backs up data once every day.
+     *   **HOUR**: Backs up data once every hour.
+     *
+     * @example HOUR
+     *
      * @var string
      */
     public $periodType;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ChangeDomainOfDnsProductRequest extends Model
 {
     /**
+     * @description Specifies whether to force bind a domain name to the instance.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The ID of the Alibaba Cloud DNS instance.
+     *
+     * @example i-7sb
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The domain name that you want to bind to the instance. If you do not specify this parameter, this operation unbinds the original domain name from the instance.
+     *
+     * @example newdomain.com
+     *
      * @var string
      */
     public $newDomain;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;

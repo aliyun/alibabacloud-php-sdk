@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class defaultAddrPool extends Model
 {
     /**
+     * @description The ID of the address pool in the primary address pool group.
+     *
+     * @example pool1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The weight of the address pool in the primary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;

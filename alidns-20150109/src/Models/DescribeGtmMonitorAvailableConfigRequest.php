@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmMonitorAvailableConfigRequest extends Model
 {
     /**
+     * @description The language of the values of specific response parameters.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

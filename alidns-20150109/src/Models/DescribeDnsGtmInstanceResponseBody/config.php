@@ -10,51 +10,97 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The alert notification method.
+     *
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
+     * @description The name of the alert group.
+     *
+     * @example alertgroup1
+     *
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The type of the CNAME domain name that is used to access the instance. Valid value:
+     *
+     *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+     *
+     * @example public
+     *
      * @var string
      */
     public $cnameType;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example instancetest1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The domain name that is used to access the instance over the Internet.
+     *
+     * @example test.rr.gtm-003.com
+     *
      * @var string
      */
     public $pubicZoneName;
 
     /**
+     * @description Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access the instance over the Internet. Valid values:
+     *
+     *   CUSTOM: A custom CNAME domain name is used.
+     *   SYSTEM_ASSIGN: A CNAME domain name assigned by the system is used.
+     *
+     * @example custom
+     *
      * @var string
      */
     public $publicCnameMode;
 
     /**
+     * @description The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+     *
+     * @example test.rr
+     *
      * @var string
      */
     public $publicRr;
 
     /**
+     * @description The service domain name that is used over the Internet.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $publicUserDomainName;
 
     /**
+     * @description The type of the access policy. Valid values:
+     *
+     *   LATENCY: Latency-based
+     *   GEO: Geographical location-based
+     *
+     * @example GEO
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The global time to live (TTL).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ttl;

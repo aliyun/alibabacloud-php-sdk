@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceAddressPoolsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;

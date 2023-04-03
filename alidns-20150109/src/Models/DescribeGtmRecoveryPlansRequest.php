@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmRecoveryPlansRequest extends Model
 {
     /**
+     * @description The keyword for the query. Fuzzy match is supported by disaster recovery plan name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The page number to return. The page number starts from **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

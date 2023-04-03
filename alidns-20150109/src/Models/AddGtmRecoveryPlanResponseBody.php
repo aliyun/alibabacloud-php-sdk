@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddGtmRecoveryPlanResponseBody extends Model
 {
     /**
+     * @description The ID of the disaster recovery plan created.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $recoveryPlanId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;

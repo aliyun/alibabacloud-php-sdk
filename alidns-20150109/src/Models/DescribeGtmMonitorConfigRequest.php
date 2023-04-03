@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmMonitorConfigRequest extends Model
 {
     /**
+     * @description The language of the values of specific response parameters.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the health check configuration.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $monitorConfigId;

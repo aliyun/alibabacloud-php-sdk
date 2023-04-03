@@ -9,26 +9,45 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example The type of the resource.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description Resource Type
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Specifies whether to remove all tags from the specified resource. Default value: false. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example The domain name.
+     *
      * @var string[]
      */
     public $tagKey;

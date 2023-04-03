@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class SetDnsGtmAccessModeRequest extends Model
 {
     /**
+     * @description The primary/secondary switchover policy for address pool groups. Valid values:
+     *
+     *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
+     *   DEFAULT: uses the primary address pool group.
+     *   FAILOVER: uses the secondary address pool group.
+     *
+     * @example auto
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example strategyId
+     *
      * @var string
      */
     public $strategyId;

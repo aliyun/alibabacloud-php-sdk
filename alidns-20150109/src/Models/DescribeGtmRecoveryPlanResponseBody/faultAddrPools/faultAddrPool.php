@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class faultAddrPool extends Model
 {
     /**
+     * @description The ID of the address pool.
+     *
+     * @example hra0oq
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The name of the address pool.
+     *
      * @var string
      */
     public $addrPoolName;
 
     /**
+     * @description The list of addresses in the address pool.
+     *
      * @var addrs
      */
     public $addrs;
 
     /**
+     * @description The ID of the GTM instance.
+     *
+     * @example instance-zwy-38
+     *
      * @var string
      */
     public $instanceId;

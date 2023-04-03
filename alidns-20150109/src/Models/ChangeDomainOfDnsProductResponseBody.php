@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ChangeDomainOfDnsProductResponseBody extends Model
 {
     /**
+     * @description The original domain name that was bound to the instance. If the value of this parameter is empty, the instance is bound with a domain name for the first time.
+     *
+     * @example originaldomain.com
+     *
      * @var string
      */
     public $originalDomain;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

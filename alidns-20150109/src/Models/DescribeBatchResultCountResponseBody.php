@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchResultCountResponseBody extends Model
 {
     /**
+     * @description The type of the batch operation.
+     *
+     * @example DOMAIN_ADD
+     *
      * @var string
      */
     public $batchType;
 
     /**
+     * @description The total number of domain names or DNS records that failed to be processed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $failedCount;
 
     /**
+     * @description The cause of the execution failure.
+     *
+     * @example failed_reason
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **-1**: No task for importing domain names or DNS records is submitted.
+     *   **0**: The task is being processed.
+     *   **1**: The task is completed.
+     *   **2**: The task failed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The total number of successfully processed domain names or DNS records.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @description The ID of the last task.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description The total number of DNS records that were processed in batches.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

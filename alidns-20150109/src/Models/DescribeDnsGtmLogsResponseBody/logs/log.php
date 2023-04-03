@@ -9,41 +9,69 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
+     * @description The formatted message content.
+     *
+     * @example addtest-pool-1
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the object on which the operation was performed.
+     *
+     * @example 121212
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The name of the object on which the operation was performed.
+     *
+     * @example test-pool-1
+     *
      * @var string
      */
     public $entityName;
 
     /**
+     * @description The type of the object on which the operation was performed.
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @description The ID of the record.
+     *
+     * @example 6726
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The operation performed.
+     *
      * @var string
      */
     public $operAction;
 
     /**
+     * @description The time when the operation was performed.
+     *
+     * @example 2018-01-24T07:35Z
+     *
      * @var string
      */
     public $operTime;
 
     /**
+     * @description The timestamp of the operation.
+     *
+     * @example 1516779348000
+     *
      * @var int
      */
     public $operTimestamp;

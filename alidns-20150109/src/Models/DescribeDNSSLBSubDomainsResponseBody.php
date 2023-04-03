@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDNSSLBSubDomainsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of subdomains returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the subdomains.
+     *
      * @var slbSubDomains
      */
     public $slbSubDomains;
 
     /**
+     * @description The number of domain name groups.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

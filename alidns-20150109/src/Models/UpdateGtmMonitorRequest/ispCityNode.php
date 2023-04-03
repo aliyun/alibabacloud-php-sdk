@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
+     * @description The code of the city where the monitored node is deployed.
+     *
+     * @example 572
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+     *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
+     *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+     *
+     * @example 465
+     *
      * @var string
      */
     public $ispCode;

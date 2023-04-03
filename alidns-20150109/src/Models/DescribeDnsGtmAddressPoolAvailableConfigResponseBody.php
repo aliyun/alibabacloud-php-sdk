@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends Model
 {
     /**
+     * @description The supported source regions.
+     *
      * @var attributeInfos
      */
     public $attributeInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 199C3699-9A7B-41A1-BB5A-F1E862D3CB38
+     *
      * @var string
      */
     public $requestId;

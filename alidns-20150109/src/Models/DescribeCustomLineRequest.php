@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLineRequest extends Model
 {
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The unique ID of the custom line.
+     *
+     * @example 597
+     *
      * @var int
      */
     public $lineId;

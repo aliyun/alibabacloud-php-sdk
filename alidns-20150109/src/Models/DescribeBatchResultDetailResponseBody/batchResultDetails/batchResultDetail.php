@@ -9,81 +9,141 @@ use AlibabaCloud\Tea\Model;
 class batchResultDetail extends Model
 {
     /**
+     * @description The type of the batch operation.
+     *
+     * @example DOMAIN_ADD
+     *
      * @var string
      */
     public $batchType;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The line code.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The new host record.
+     *
+     * @example demo-batch-7
+     *
      * @var string
      */
     public $newRr;
 
     /**
+     * @description The new record value.
+     *
+     * @example 192.0.2.254
+     *
      * @var string
      */
     public $newValue;
 
     /**
+     * @description The time when the operation was performed.
+     *
+     * @example 2019-08-22 18:02:58
+     *
      * @var string
      */
     public $operateDateStr;
 
     /**
+     * @description The priority of an MX-type DNS record.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The cause of the execution failure.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * @example 123456789
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The description of the DNS record.
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The host record.
+     *
+     * @example www
+     *
      * @var string
      */
     public $rr;
 
     /**
+     * @description The status of the DNS record.
+     *
      * @var string
      */
     public $rrStatus;
 
     /**
+     * @description The execution result. Valid values:**true**: The execution succeeded.**false**: The execution failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @description The TTL of the DNS record.
+     *
+     * @example 600
+     *
      * @var string
      */
     public $ttl;
 
     /**
+     * @description The type of the DNS record.
+     *
+     * @example A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the DNS record.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $value;

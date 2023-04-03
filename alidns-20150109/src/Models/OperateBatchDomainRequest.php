@@ -15,11 +15,24 @@ class OperateBatchDomainRequest extends Model
     public $domainRecordInfo;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The type of the batch operation. Valid values:
+     *
+     *   **DOMAIN_ADD**: adds domain names in batches.
+     *   **DOMAIN_DEL**: deletes domain names in batches.
+     *   **RR_ADD**: adds DNS records in batches.
+     *   **RR_DEL**: deletes DNS records in batches. (If RR or VALUE exists, DNS records corresponding to the specified RR or VALUE are deleted. If both of them exist, DNS records corresponding to the specified RR and VALUE are deleted. If no RR or VALUE is specified, the DNS records corresponding to the DomainName parameter are deleted.)
+     *
+     * @example RR_ADD
+     *
      * @var string
      */
     public $type;

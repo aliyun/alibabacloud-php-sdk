@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmLogsResponseBody extends Model
 {
     /**
+     * @description The list of logs returned.
+     *
      * @var logs
      */
     public $logs;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 50C60A29-2E93-425A-ABA8-068686E28873
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
+     * @example 224
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 224
+     *
      * @var int
      */
     public $totalPages;

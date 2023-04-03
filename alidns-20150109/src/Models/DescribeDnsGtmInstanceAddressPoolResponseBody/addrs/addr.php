@@ -9,51 +9,102 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
+     * @description The address.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $addr;
 
     /**
+     * @description The status of the last health check on the address. Valid values:
+     *
+     *   OK: No active alerts are triggered.
+     *   ALERT: Alerts are triggered based on the alert rules.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $alertStatus;
 
     /**
+     * @description The source region of the address.
+     *
+     *   lineCode: the line code of the source region of the address. This parameter is deprecated, and lineCodes prevails.
+     *   lineName: the line name of the source region of the address. This parameter is deprecated.
+     *   lineCodes: the line codes of the source regions of the address.
+     *
+     * @example "lineCode":"aliyun_r_cn-zhangjiakou", "lineName": "Alibaba Cloud_China (Zhangjiakou)", "lineCodes": \["aliyun_r_cn-zhangjiakou"]
+     *
      * @var string
      */
     public $attributeInfo;
 
     /**
+     * @description The time when the address was added into the address pool.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp that indicates the time when the address was added into the address pool.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The weight of the address.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lbaWeight;
 
     /**
+     * @description The mode of the address. Valid values:
+     *
+     *   SMART: smart return
+     *   ONLINE: always online
+     *   OFFLINE: always offline
+     *
+     * @example online
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The description of the address.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The time when the address was last updated.
+     *
+     * @example 2017-12-28T13:08Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The timestamp that indicates the time when the address was last updated.
+     *
+     * @example 1527690629357
+     *
      * @var int
      */
     public $updateTimestamp;

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineRequest extends Model
 {
     /**
+     * @description The domain name for which you configure the custom line.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -20,11 +24,17 @@ class AddCustomLineRequest extends Model
     public $ipSegment;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $lineName;

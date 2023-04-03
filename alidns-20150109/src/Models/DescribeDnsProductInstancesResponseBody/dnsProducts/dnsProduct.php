@@ -9,161 +9,281 @@ use AlibabaCloud\Tea\Model;
 class dnsProduct extends Model
 {
     /**
+     * @description The number of times you can change domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $bindCount;
 
     /**
+     * @description The number of domain names that can be bound to the DNS instance.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $bindDomainCount;
 
     /**
+     * @description The number of domain names that have been bound to the DNS instance.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $bindDomainUsedCount;
 
     /**
+     * @description The number of times you have changed domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $bindUsedCount;
 
     /**
+     * @description The DDoS protection traffic. Unit: GB.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $DDosDefendFlow;
 
     /**
+     * @description The DDoS protection frequency. Unit: 10,000 QPS.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $DDosDefendQuery;
 
     /**
+     * @description The number of IP addresses supported by a domain name or line.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $dnsSLBCount;
 
     /**
+     * @description The DNS security policy. Valid values:
+     *
+     *   **no**: not required.
+     *   **basic**: anti-DDoS basic.
+     *   **advanced**: anti-DDoS advanced.
+     *
+     * @example no
+     *
      * @var string
      */
     public $dnsSecurity;
 
     /**
+     * @description The bound domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The time at which the instance expired.
+     *
+     * @example 2015-12-12T09:23Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The UNIX timestamp representing the expiration time of the instance.
+     *
+     * @example 1474335170000
+     *
      * @var int
      */
     public $endTimestamp;
 
     /**
+     * @description Indicates whether global server load balancing (GSLB) was allowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $gslb;
 
     /**
+     * @description The list of ISP lines.
+     *
      * @var string
      */
     public $ISPLines;
 
     /**
+     * @description The list of ISP line subdivisions.
+     *
      * @var string
      */
     public $ISPRegionLines;
 
     /**
+     * @description Indicates whether the request for domain name resolution was in the black hole.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inBlackHole;
 
     /**
+     * @description Indicates whether the request for domain name resolution was being cleared.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inClean;
 
     /**
+     * @description The ID of the Alibaba Cloud DNS instance.
+     *
+     * @example i-8fj
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The monitoring frequency. Unit: minutes.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $monitorFrequency;
 
     /**
+     * @description The number of monitored nodes.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $monitorNodeCount;
 
     /**
+     * @description The number of monitoring tasks.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $monitorTaskCount;
 
     /**
+     * @description DDoS protection traffic outside China. Unit: GB.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $overseaDDosDefendFlow;
 
     /**
+     * @description The type of the overseas line.
+     *
      * @var string
      */
     public $overseaLine;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description Indicates whether regional lines were allowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $regionLines;
 
     /**
+     * @description The list of search engine lines.
+     *
      * @var string
      */
     public $searchEngineLines;
 
     /**
+     * @description The time when the DNS instance was purchased.
+     *
+     * @example 2015-12-12T09:23Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The UNIX timestamp representing when the DNS instance was purchased.
+     *
+     * @example 1474335170000
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description The number of subdomain name levels.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $subDomainLevel;
 
     /**
+     * @description The minimum TTL. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $TTLMinValue;
 
     /**
+     * @description The URL forwarding quantity.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $URLForwardCount;
 
     /**
+     * @description The version code of the Alibaba Cloud DNS instance.
+     *
+     * @example version1
+     *
      * @var string
      */
     public $versionCode;
 
     /**
+     * @description The version name of the Alibaba Cloud DNS instance.
+     *
      * @var string
      */
     public $versionName;

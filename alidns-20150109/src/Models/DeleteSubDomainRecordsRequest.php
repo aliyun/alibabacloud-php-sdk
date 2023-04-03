@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubDomainRecordsRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The host record.
+     *
+     * For example, to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it blank.
+     * @example www
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The type of the DNS record. If you do not specify this parameter, all DNS record types corresponding to the subdomain name are returned.
+     *
+     * DNS record types include **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**. The value is not case-sensitive.
+     * @example A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;

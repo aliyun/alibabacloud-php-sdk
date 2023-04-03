@@ -16,26 +16,56 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultAddrPool;
 
     /**
+     * @description The type of the primary address pool. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $defaultAddrPoolType;
 
     /**
+     * @description Specifies whether to enable scheduling optimization for latency resolution for the primary address pool group. Valid values:
+     *
+     *   OPEN: enable
+     *   CLOSE: disable
+     *
+     * @example open
+     *
      * @var string
      */
     public $defaultLatencyOptimization;
 
     /**
+     * @description The load balancing policy of the primary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $defaultLbaStrategy;
 
     /**
+     * @description The maximum number of addresses returned from the primary address pool group.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $defaultMaxReturnAddrNum;
 
     /**
+     * @description The minimum number of available addresses in the primary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultMinAvailableAddrNum;
@@ -46,51 +76,104 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverAddrPool;
 
     /**
+     * @description The type of the secondary address pool. Valid values:
+     *
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $failoverAddrPoolType;
 
     /**
+     * @description Specifies whether to enable scheduling optimization for latency resolution for the secondary address pool group. Valid values:
+     *
+     *   OPEN: enable
+     *   CLOSE: disable
+     *
+     * @example open
+     *
      * @var string
      */
     public $failoverLatencyOptimization;
 
     /**
+     * @description The load balancing policy of the secondary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
+     *
+     * @example all_rr
+     *
      * @var string
      */
     public $failoverLbaStrategy;
 
     /**
+     * @description The maximum number of addresses returned from the secondary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failoverMaxReturnAddrNum;
 
     /**
+     * @description The minimum number of available addresses in the secondary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failoverMinAvailableAddrNum;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The line codes of source regions. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Telecom & Media Group.
+     *
+     * @example ["default", "drpeng"]
+     *
      * @var string
      */
     public $lines;
 
     /**
+     * @description The type of the access policy. Valid values:
+     *
+     *   GEO: geographical location-based
+     *   LATENCY: latency-based
+     *
+     * @example geo
+     *
      * @var string
      */
     public $strategyMode;
 
     /**
+     * @description The name of the access policy.
+     *
+     * @example testStrategyName
+     *
      * @var string
      */
     public $strategyName;

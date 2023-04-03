@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmMonitorResponseBody extends Model
 {
     /**
+     * @description The ID of the health check configuration.
+     *
+     * @example MonitorConfigId1
+     *
      * @var string
      */
     public $monitorConfigId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
      * @var string
      */
     public $requestId;

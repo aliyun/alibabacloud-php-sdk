@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class recordLine extends Model
 {
     /**
+     * @description The code of the parent line. This parameter is left empty if the line has no parent line.
+     *
+     * @example internal
+     *
      * @var string
      */
     public $fatherCode;
 
     /**
+     * @description The code of the line.
+     *
+     * @example cn_region_xibei
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @description The name of the parent line.
+     *
      * @var string
      */
     public $lineDisplayName;
 
     /**
+     * @description The name of the line.
+     *
      * @var string
      */
     public $lineName;

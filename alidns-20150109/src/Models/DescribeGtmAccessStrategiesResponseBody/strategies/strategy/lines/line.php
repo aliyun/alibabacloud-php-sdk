@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @description The code of the access region group.
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $groupCode;
 
     /**
+     * @description The name of the access region group.
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The code for the line of the access region.
+     *
+     * @example default
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @description The name for the line of the access region.
+     *
      * @var string
      */
     public $lineName;

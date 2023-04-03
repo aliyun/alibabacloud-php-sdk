@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names that are bound to the instance.
+     *
      * @var instanceDomains[]
      */
     public $instanceDomains;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 68386699-8B9E-4D5B-BC4C-75A28F6C2A00
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalPages;

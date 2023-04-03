@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceSystemCnameRequest extends Model
 {
     /**
+     * @description The ID of the Global Traffic Manager (GTM) instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

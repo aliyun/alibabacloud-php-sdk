@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetTxtRecordForVerifyRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The function verified by using the TXT record. Valid values:
+     *
+     *   ADD_SUBDOMAIN
+     *   RETRIEVAL
+     *
+     * @example ADD_SUB_DOMAIN
+     *
      * @var string
      */
     public $type;

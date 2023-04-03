@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAvailableAlertGroupRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

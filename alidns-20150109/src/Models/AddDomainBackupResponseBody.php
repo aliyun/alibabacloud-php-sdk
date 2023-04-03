@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddDomainBackupResponseBody extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example test.aliyun.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The backup cycle.
+     *
+     * @example DAY
+     *
      * @var string
      */
     public $periodType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FD552816-FCC8-4832-B4A2-2DA0C2BA1688
+     *
      * @var string
      */
     public $requestId;

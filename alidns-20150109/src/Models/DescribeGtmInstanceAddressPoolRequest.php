@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceAddressPoolRequest extends Model
 {
     /**
+     * @description The ID of the address pool that you want to query.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $addrPoolId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

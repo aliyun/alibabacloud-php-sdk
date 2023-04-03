@@ -10,76 +10,132 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmRecoveryPlanResponseBody extends Model
 {
     /**
+     * @description The time when the disaster recovery plan was created.
+     *
+     * @example 2019-08-11T05:04Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1565499867000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The number of faulty address pools.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $faultAddrPoolNum;
 
     /**
+     * @description The list of faulty address pools.
+     *
      * @var faultAddrPools
      */
     public $faultAddrPools;
 
     /**
+     * @description The last time when the recovery plan was executed.
+     *
+     * @example 2019-08-11T05:04Z
+     *
      * @var string
      */
     public $lastExecuteTime;
 
     /**
+     * @description A timestamp that indicates the last time when the recovery plan was executed.
+     *
+     * @example 1565505898000
+     *
      * @var int
      */
     public $lastExecuteTimestamp;
 
     /**
+     * @description The last time when the disaster recovery plan was rolled back.
+     *
+     * @example 2019-08-11T06:45Z
+     *
      * @var string
      */
     public $lastRollbackTime;
 
     /**
+     * @description A timestamp that indicates the last time when the disaster recovery plan was rolled back.
+     *
+     * @example 1565505919000
+     *
      * @var int
      */
     public $lastRollbackTimestamp;
 
     /**
+     * @description The name of the disaster recovery plan queried.
+     *
+     * @example name-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the disaster recovery plan queried.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $recoveryPlanId;
 
     /**
+     * @description The remarks on the disaster recovery plan.
+     *
+     * @example remark-example
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A5F4315-D6E8-435E-82DF-24F4C97D6999
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the disaster recovery plan queried.
+     *
+     * @example UNEXECUTED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The last time when the disaster recovery plan was updated.
+     *
+     * @example 2019-08-11T06:45Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description A timestamp that indicates the last time when the disaster recovery plan was updated.
+     *
+     * @example 1565499867000
+     *
      * @var int
      */
     public $updateTimestamp;

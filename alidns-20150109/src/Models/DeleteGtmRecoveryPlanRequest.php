@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteGtmRecoveryPlanRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the disaster recovery plan that you want to delete.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $recoveryPlanId;

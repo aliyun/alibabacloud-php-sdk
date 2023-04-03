@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceStatusResponseBody extends Model
 {
     /**
+     * @description The number of available addresses.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrAvailableNum;
 
     /**
+     * @description The number of unavailable addresses.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrNotAvailableNum;
 
     /**
+     * @description The number of unavailable address pool groups.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $addrPoolGroupNotAvailableNum;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of access policies that are unavailable in the current active address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $strategyNotAvailableNum;
 
     /**
+     * @description The number of access policies switched to the secondary address pool group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $switchToFailoverStrategyNum;

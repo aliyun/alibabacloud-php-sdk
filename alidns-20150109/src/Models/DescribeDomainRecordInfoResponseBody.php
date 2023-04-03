@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRecordInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 00efd71a-770e-4255-b54e-6fe5659baffe
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the domain name group.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example MyGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The resolution line.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The lock status of the DNS record. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $locked;
 
     /**
+     * @description The priority of the MX-type DNS record.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The punycode is only returned for Chinese domain names.
+     *
+     * @example xn--fsq270a.com
+     *
      * @var string
      */
     public $punyCode;
 
     /**
+     * @description The host record.
+     *
+     * @example @
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * @example 9999985
+     *
      * @var string
      */
     public $recordId;
@@ -61,24 +101,49 @@ class DescribeDomainRecordInfoResponseBody extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
+     * @var string
+     */
     public $requestId;
 
     /**
+     * @description The status of the DNS record. Valid values: Enable and Disable.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The TTL of the resolution.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $TTL;
 
     /**
+     * @description The type of the DNS record.
+     *
+     * @example MX
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the DNS record.
+     *
+     * @example 192.0.2.254
+     *
      * @var string
      */
     public $value;
@@ -93,6 +158,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
         'punyCode'   => 'PunyCode',
         'RR'         => 'RR',
         'recordId'   => 'RecordId',
+        'remark'     => 'Remark',
         'requestId'  => 'RequestId',
         'status'     => 'Status',
         'TTL'        => 'TTL',
@@ -136,6 +202,9 @@ class DescribeDomainRecordInfoResponseBody extends Model
         }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -193,6 +262,9 @@ class DescribeDomainRecordInfoResponseBody extends Model
         }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchResultDetailRequest extends Model
 {
     /**
+     * @description The type of the batch operation. Valid values:
+     *
+     *   **DOMAIN_ADD**: adds domain names in batches.
+     *   **DOMAIN_DEL**: deletes domain names in batches.
+     *   **RR_ADD**: adds DNS records in batches.
+     *   **RR_DEL**: deletes DNS records in batches.
+     *
+     * @example DOMAIN_ADD
+     *
      * @var string
      */
     public $batchType;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 83618818
+     *
      * @var int
      */
     public $taskId;

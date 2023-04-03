@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetDNSSLBStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether weighted round-robin is enabled for the subdomain.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $open;
 
     /**
+     * @description The number of A records that are matched.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $recordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+     *
      * @var string
      */
     public $requestId;

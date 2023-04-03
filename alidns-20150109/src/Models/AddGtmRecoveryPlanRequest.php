@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class AddGtmRecoveryPlanRequest extends Model
 {
     /**
+     * @description The list of IDs of faulty address pools.
+     *
+     * @example ["hra0or"]
+     *
      * @var string
      */
     public $faultAddrPool;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the disaster recovery plan that you want to create.
+     *
+     * @example name-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The remarks on the disaster recovery plan.
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategyAvailableConfigRequest extends Model
 {
     /**
+     * @description The ID of the GTM instance for which you want to query the available configurations of the current access policy.
+     *
+     * @example gtm-cn-xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

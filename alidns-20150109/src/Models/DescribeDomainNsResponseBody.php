@@ -11,35 +11,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainNsResponseBody extends Model
 {
     /**
+     * @description Indicates whether all the name servers were Alibaba Cloud DNS servers.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allAliDns;
 
     /**
+     * @var string
+     */
+    public $detectFailedReasonCode;
+
+    /**
+     * @description The list of DNS servers for the domain name.
+     *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
+     * @description The list of DNS servers assigned by Alibaba Cloud.
+     *
      * @var expectDnsServers
      */
     public $expectDnsServers;
 
     /**
+     * @description Indicates whether the name servers included Alibaba Cloud DNS servers.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $includeAliDns;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16C7DC7A-2FA7-4D14-8B12-88A2BB6373DB
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'allAliDns'        => 'AllAliDns',
-        'dnsServers'       => 'DnsServers',
-        'expectDnsServers' => 'ExpectDnsServers',
-        'includeAliDns'    => 'IncludeAliDns',
-        'requestId'        => 'RequestId',
+        'allAliDns'              => 'AllAliDns',
+        'detectFailedReasonCode' => 'DetectFailedReasonCode',
+        'dnsServers'             => 'DnsServers',
+        'expectDnsServers'       => 'ExpectDnsServers',
+        'includeAliDns'          => 'IncludeAliDns',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -51,6 +73,9 @@ class DescribeDomainNsResponseBody extends Model
         $res = [];
         if (null !== $this->allAliDns) {
             $res['AllAliDns'] = $this->allAliDns;
+        }
+        if (null !== $this->detectFailedReasonCode) {
+            $res['DetectFailedReasonCode'] = $this->detectFailedReasonCode;
         }
         if (null !== $this->dnsServers) {
             $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
@@ -78,6 +103,9 @@ class DescribeDomainNsResponseBody extends Model
         $model = new self();
         if (isset($map['AllAliDns'])) {
             $model->allAliDns = $map['AllAliDns'];
+        }
+        if (isset($map['DetectFailedReasonCode'])) {
+            $model->detectFailedReasonCode = $map['DetectFailedReasonCode'];
         }
         if (isset($map['DnsServers'])) {
             $model->dnsServers = dnsServers::fromMap($map['DnsServers']);

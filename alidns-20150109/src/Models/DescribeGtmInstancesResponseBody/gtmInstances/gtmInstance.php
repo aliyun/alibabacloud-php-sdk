@@ -9,81 +9,151 @@ use AlibabaCloud\Tea\Model;
 class gtmInstance extends Model
 {
     /**
+     * @description The number of access policies.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $accessStrategyNum;
 
     /**
+     * @description The number of address pools.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $addressPoolNum;
 
     /**
+     * @description The name of the alert group.
+     *
+     * @example \[\\"R\&D group\\"]
+     *
      * @var string
      */
     public $alertGroup;
 
     /**
+     * @description The CNAME domain name that is used to access the instance.
+     *
+     * @example instance1.14.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The CNAME domain name used to access the instance. Valid values:
+     *
+     *   **SYSTEM_ASSIGN**: A CNAME domain name assigned by the system is used.
+     *   **CUSTOM**: A custom CNAME domain name is used.
+     *
+     * @example SYSTEM_ASSIGN
+     *
      * @var string
      */
     public $cnameMode;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2018-06-06T11:34Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the instance was created.
+     *
+     * @example 1528284856000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2018-06-06T11:34Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The UNIX timestamp that indicates when the instance expires.
+     *
+     * @example 1528284856000
+     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance1
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The load balancing policy that is used. Valid values:
+     *
+     *   **ALL_RR**: Load balancing
+     *   **RATIO**: Weighted round-robin
+     *
+     * @example RATIO
+     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfm2q2jqpjh***
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The global time to live (TTL).
+     *
+     * @example 60
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description The domain name of the user.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $userDomainName;
 
     /**
+     * @description The version code of the instance.
+     *
+     * @example biaozhun
+     *
      * @var string
      */
     public $versionCode;

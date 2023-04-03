@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class AddDomainRecordRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The resolution line. Default value: **default**.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The priority of an MX-type DNS record. Valid values: `[1,50]`.
+     *
+     * This parameter must be specified if the type of the DNS record is MX. A smaller value indicates a higher priority.
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The host record.
+     *
+     * For example, to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it blank.
+     * @example www
+     *
      * @var string
      */
     public $RR;
 
     /**
+     * @description The TTL of the resolution. Default value: 600. Unit: seconds.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $TTL;
 
     /**
+     * @description The type of the DNS record. DNS record types
+     *
+     * [dns records types](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/dns-record-types)
+     * @example A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The value of the DNS record.
+     *
+     * @example 192.0.2.254
+     *
      * @var string
      */
     public $value;

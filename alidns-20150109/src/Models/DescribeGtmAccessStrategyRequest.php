@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy that you want to query.
+     *
+     * @example hra0hs
+     *
      * @var string
      */
     public $strategyId;

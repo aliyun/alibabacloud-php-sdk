@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsRequest extends Model
 {
     /**
+     * @description The ID of the domain name group. If you do not specify this parameter, all domain names are queried by default.
+     *
+     * @example 2223
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+     *
+     * @example com
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-resourcegroupid01
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The search mode. Valid values:
+     *
+     *   **LIKE**: fuzzy match.
+     *   **EXACT**: exact match.
+     *
+     * @example LIKE
+     *
      * @var string
      */
     public $searchMode;
 
     /**
+     * @description Specifies whether to query the starmark of the domain name.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $starmark;

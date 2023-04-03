@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineResponseBody extends Model
 {
     /**
+     * @description The code of the custom line.
+     *
+     * @example hra0yc-597
+     *
      * @var string
      */
     public $lineCode;
 
     /**
+     * @description The unique ID of the custom line.
+     *
+     * @example 597
+     *
      * @var int
      */
     public $lineId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
+     *
      * @var string
      */
     public $requestId;

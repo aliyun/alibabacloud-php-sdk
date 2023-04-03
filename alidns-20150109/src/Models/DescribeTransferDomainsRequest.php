@@ -9,36 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransferDomainsRequest extends Model
 {
     /**
+     * @example alidns.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $fromUserId;
 
     /**
+     * @description The language type.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $targetUserId;
 
     /**
+     * @description The transfer type. Valid values:
+     *
+     *   IN: transferred to this account.
+     *   OUT: transferred from this account.
+     *
+     * @example IN
+     *
      * @var string
      */
     public $transferType;

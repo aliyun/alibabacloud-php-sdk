@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeDohUserInfoRequest extends Model
 {
     /**
+     * @description The end time for the query. Format: YYYY-MM-DD
+     *
+     * If you do not specify this parameter, the default value is the time when you perform the query.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The start time for the query. Format: YYYY-MM-DD
+     *
+     * You can query the user information of the last 90 days only. `Set the parameter to a value no earlier than 90 days from the current time`.
+     * @example 2019-07-04
+     *
      * @var string
      */
     public $startDate;

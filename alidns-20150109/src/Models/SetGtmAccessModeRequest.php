@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class SetGtmAccessModeRequest extends Model
 {
     /**
+     * @description The target access policy of the GTM instance. Valid values:
+     *
+     *   **AUTO**: Automatic switch
+     *   **DEFAULT**: Default address pool
+     *   **FAILOVER**: Failover address pool
+     *
+     * @example AUTO
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The language used by the user.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the access policy.
+     *
+     * @example hra0hx
+     *
      * @var string
      */
     public $strategyId;
