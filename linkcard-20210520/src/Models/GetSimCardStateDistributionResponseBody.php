@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSimCardStateDistributionResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetSimCardStateDistributionResponseBody extends Model
     public $data;
 
     /**
+     * @example InstanceId cannot be empty.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E4F94B97-1D64-4080-BFD2-67461667AA43
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

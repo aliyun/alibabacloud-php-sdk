@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCardLatestFlowRequest extends Model
 {
     /**
+     * @example 89860321******15668
+     *
      * @var string
      */
     public $iccid;

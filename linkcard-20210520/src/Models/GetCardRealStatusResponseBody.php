@@ -4,37 +4,47 @@
 
 namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\CardStatisticsResponseBody\data;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardRealStatusResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CardStatisticsResponseBody extends Model
+class GetCardRealStatusResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
+     * @example InstanceId cannot be empty.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example InstanceId cannot be empty.
+     *
      * @var string
      */
     public $localizedMessage;
 
     /**
+     * @example E4F94B97-1D64-4080-BFD2-67461667AA43
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -58,7 +68,13 @@ class CardStatisticsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -79,7 +95,7 @@ class CardStatisticsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CardStatisticsResponseBody
+     * @return GetCardRealStatusResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -88,7 +104,13 @@ class CardStatisticsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];

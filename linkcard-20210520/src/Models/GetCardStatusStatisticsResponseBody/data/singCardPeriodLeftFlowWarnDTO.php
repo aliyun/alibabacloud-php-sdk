@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class singCardPeriodLeftFlowWarnDTO extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $lessFlowPercentage10Count;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $lessFlowPercentage30Count;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSimCardStateDistributionRequest extends Model
 {
     /**
+     * @example CT-SC-M-2-100M
+     *
      * @var string
      */
     public $credentialNO;
 
     /**
+     * @example 202209
+     *
      * @var string
      */
     public $date;

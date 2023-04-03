@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardStatusStatisticsResponseBody\data;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddTagsToCardResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetCardStatusStatisticsResponseBody extends Model
+class AddTagsToCardResponseBody extends Model
 {
     /**
      * @example 200
@@ -17,7 +17,7 @@ class GetCardStatusStatisticsResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
@@ -27,13 +27,6 @@ class GetCardStatusStatisticsResponseBody extends Model
      * @var string
      */
     public $errorMessage;
-
-    /**
-     * @example InstanceId cannot be empty.
-     *
-     * @var string
-     */
-    public $localizedMessage;
 
     /**
      * @example E4F94B97-1D64-4080-BFD2-67461667AA43
@@ -49,12 +42,11 @@ class GetCardStatusStatisticsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
-        'data'             => 'Data',
-        'errorMessage'     => 'ErrorMessage',
-        'localizedMessage' => 'LocalizedMessage',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'code'         => 'Code',
+        'data'         => 'Data',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -68,13 +60,16 @@ class GetCardStatusStatisticsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->localizedMessage) {
-            $res['LocalizedMessage'] = $this->localizedMessage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -89,7 +84,7 @@ class GetCardStatusStatisticsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCardStatusStatisticsResponseBody
+     * @return AddTagsToCardResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -98,13 +93,16 @@ class GetCardStatusStatisticsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['LocalizedMessage'])) {
-            $model->localizedMessage = $map['LocalizedMessage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

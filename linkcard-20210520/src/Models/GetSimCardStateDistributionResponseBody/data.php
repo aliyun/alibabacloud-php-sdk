@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $cardCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $destoryedCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $shutDownCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $stopCount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $testCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $unusedCount;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $usingCount;

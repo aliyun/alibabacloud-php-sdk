@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetRealNameStatusShrinkRequest extends Model
+class GetCardRealStatusRequest extends Model
 {
     /**
      * @example 89860321******15668
@@ -16,12 +16,20 @@ class GetRealNameStatusShrinkRequest extends Model
     public $iccid;
 
     /**
+     * @example 144******1111
+     *
      * @var string
      */
-    public $listMsisdnsShrink;
+    public $msisdn;
+
+    /**
+     * @var string[]
+     */
+    public $serialNo;
     protected $_name = [
-        'iccid'             => 'Iccid',
-        'listMsisdnsShrink' => 'ListMsisdns',
+        'iccid'    => 'Iccid',
+        'msisdn'   => 'Msisdn',
+        'serialNo' => 'SerialNo',
     ];
 
     public function validate()
@@ -34,8 +42,11 @@ class GetRealNameStatusShrinkRequest extends Model
         if (null !== $this->iccid) {
             $res['Iccid'] = $this->iccid;
         }
-        if (null !== $this->listMsisdnsShrink) {
-            $res['ListMsisdns'] = $this->listMsisdnsShrink;
+        if (null !== $this->msisdn) {
+            $res['Msisdn'] = $this->msisdn;
+        }
+        if (null !== $this->serialNo) {
+            $res['SerialNo'] = $this->serialNo;
         }
 
         return $res;
@@ -44,7 +55,7 @@ class GetRealNameStatusShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetRealNameStatusShrinkRequest
+     * @return GetCardRealStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +63,13 @@ class GetRealNameStatusShrinkRequest extends Model
         if (isset($map['Iccid'])) {
             $model->iccid = $map['Iccid'];
         }
-        if (isset($map['ListMsisdns'])) {
-            $model->listMsisdnsShrink = $map['ListMsisdns'];
+        if (isset($map['Msisdn'])) {
+            $model->msisdn = $map['Msisdn'];
+        }
+        if (isset($map['SerialNo'])) {
+            if (!empty($map['SerialNo'])) {
+                $model->serialNo = $map['SerialNo'];
+            }
         }
 
         return $model;

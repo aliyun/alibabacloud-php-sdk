@@ -16,6 +16,9 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardShrinkRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddTagsToCardRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddTagsToCardResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddTagsToCardShrinkRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\DeleteDirectionalAddressRequest;
@@ -30,6 +33,9 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardFlowInfoRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardFlowInfoResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardLatestFlowRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardLatestFlowResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardRealStatusRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardRealStatusResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardRealStatusShrinkRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardStatusStatisticsResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsResponse;
@@ -338,6 +344,57 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDirectionalGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddTagsToCardRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddTagsToCardResponse
+     */
+    public function addTagsToCardWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddTagsToCardShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tagNameList)) {
+            $request->tagNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagNameList, 'TagNameList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        if (!Utils::isUnset($request->tagNameListShrink)) {
+            $query['TagNameList'] = $request->tagNameListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTagsToCard',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTagsToCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddTagsToCardRequest $request
+     *
+     * @return AddTagsToCardResponse
+     */
+    public function addTagsToCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addTagsToCardWithOptions($request, $runtime);
     }
 
     /**
@@ -672,6 +729,60 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCardLatestFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCardRealStatusRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCardRealStatusResponse
+     */
+    public function getCardRealStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetCardRealStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serialNo)) {
+            $request->serialNoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serialNo, 'SerialNo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        if (!Utils::isUnset($request->msisdn)) {
+            $query['Msisdn'] = $request->msisdn;
+        }
+        if (!Utils::isUnset($request->serialNoShrink)) {
+            $query['SerialNo'] = $request->serialNoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCardRealStatus',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCardRealStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCardRealStatusRequest $request
+     *
+     * @return GetCardRealStatusResponse
+     */
+    public function getCardRealStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCardRealStatusWithOptions($request, $runtime);
     }
 
     /**

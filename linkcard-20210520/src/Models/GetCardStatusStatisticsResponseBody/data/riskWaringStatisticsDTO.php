@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class riskWaringStatisticsDTO extends Model
 {
     /**
+     * @example 40
+     *
      * @var int
      */
     public $leftFlowPercentageWarnCount;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $stopCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $waringTotalCount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $warningCount;

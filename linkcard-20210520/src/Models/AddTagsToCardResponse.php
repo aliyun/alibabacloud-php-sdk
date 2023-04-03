@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CardStatisticsResponse extends Model
+class AddTagsToCardResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CardStatisticsResponse extends Model
     public $statusCode;
 
     /**
-     * @var CardStatisticsResponseBody
+     * @var AddTagsToCardResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class CardStatisticsResponse extends Model
     /**
      * @param array $map
      *
-     * @return CardStatisticsResponse
+     * @return AddTagsToCardResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class CardStatisticsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CardStatisticsResponseBody::fromMap($map['body']);
+            $model->body = AddTagsToCardResponseBody::fromMap($map['body']);
         }
 
         return $model;

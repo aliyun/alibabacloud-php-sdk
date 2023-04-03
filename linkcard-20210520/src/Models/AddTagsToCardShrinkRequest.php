@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetRealNameStatusShrinkRequest extends Model
+class AddTagsToCardShrinkRequest extends Model
 {
     /**
      * @example 89860321******15668
@@ -18,10 +18,10 @@ class GetRealNameStatusShrinkRequest extends Model
     /**
      * @var string
      */
-    public $listMsisdnsShrink;
+    public $tagNameListShrink;
     protected $_name = [
         'iccid'             => 'Iccid',
-        'listMsisdnsShrink' => 'ListMsisdns',
+        'tagNameListShrink' => 'TagNameList',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class GetRealNameStatusShrinkRequest extends Model
         if (null !== $this->iccid) {
             $res['Iccid'] = $this->iccid;
         }
-        if (null !== $this->listMsisdnsShrink) {
-            $res['ListMsisdns'] = $this->listMsisdnsShrink;
+        if (null !== $this->tagNameListShrink) {
+            $res['TagNameList'] = $this->tagNameListShrink;
         }
 
         return $res;
@@ -44,7 +44,7 @@ class GetRealNameStatusShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetRealNameStatusShrinkRequest
+     * @return AddTagsToCardShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +52,8 @@ class GetRealNameStatusShrinkRequest extends Model
         if (isset($map['Iccid'])) {
             $model->iccid = $map['Iccid'];
         }
-        if (isset($map['ListMsisdns'])) {
-            $model->listMsisdnsShrink = $map['ListMsisdns'];
+        if (isset($map['TagNameList'])) {
+            $model->tagNameListShrink = $map['TagNameList'];
         }
 
         return $model;

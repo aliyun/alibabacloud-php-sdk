@@ -14,6 +14,8 @@ class data extends Model
     public $desc;
 
     /**
+     * @example CERTIFIED
+     *
      * @var string
      */
     public $realNameStatus;

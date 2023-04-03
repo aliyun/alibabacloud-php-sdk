@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class errorStopStatisticsDTO extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $poolCount;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $sameFlowCardCount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $singleCardCount;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $totalCount;
