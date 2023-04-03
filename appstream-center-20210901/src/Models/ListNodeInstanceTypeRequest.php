@@ -21,6 +21,11 @@ class ListNodeInstanceTypeRequest extends Model
     /**
      * @var string
      */
+    public $nodeInstanceType;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
@@ -44,12 +49,13 @@ class ListNodeInstanceTypeRequest extends Model
      */
     public $productType;
     protected $_name = [
-        'bizRegionId' => 'BizRegionId',
-        'language'    => 'Language',
-        'osType'      => 'OsType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'productType' => 'ProductType',
+        'bizRegionId'      => 'BizRegionId',
+        'language'         => 'Language',
+        'nodeInstanceType' => 'NodeInstanceType',
+        'osType'           => 'OsType',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'productType'      => 'ProductType',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class ListNodeInstanceTypeRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->nodeInstanceType) {
+            $res['NodeInstanceType'] = $this->nodeInstanceType;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
@@ -94,6 +103,9 @@ class ListNodeInstanceTypeRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['NodeInstanceType'])) {
+            $model->nodeInstanceType = $map['NodeInstanceType'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];

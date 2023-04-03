@@ -863,6 +863,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
         }
+        if (!Utils::isUnset($request->nodeInstanceType)) {
+            $query['NodeInstanceType'] = $request->nodeInstanceType;
+        }
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
         }

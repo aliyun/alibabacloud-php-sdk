@@ -52,6 +52,11 @@ class appInstanceGroupModels extends Model
     public $appInstanceType;
 
     /**
+     * @var string
+     */
+    public $appPolicyId;
+
+    /**
      * @var apps[]
      */
     public $apps;
@@ -142,6 +147,7 @@ class appInstanceGroupModels extends Model
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'appInstanceType'      => 'AppInstanceType',
+        'appPolicyId'          => 'AppPolicyId',
         'apps'                 => 'Apps',
         'chargeType'           => 'ChargeType',
         'expiredTime'          => 'ExpiredTime',
@@ -181,6 +187,9 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->appInstanceType) {
             $res['AppInstanceType'] = $this->appInstanceType;
+        }
+        if (null !== $this->appPolicyId) {
+            $res['AppPolicyId'] = $this->appPolicyId;
         }
         if (null !== $this->apps) {
             $res['Apps'] = [];
@@ -262,6 +271,9 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['AppInstanceType'])) {
             $model->appInstanceType = $map['AppInstanceType'];
+        }
+        if (isset($map['AppPolicyId'])) {
+            $model->appPolicyId = $map['AppPolicyId'];
         }
         if (isset($map['Apps'])) {
             if (!empty($map['Apps'])) {
