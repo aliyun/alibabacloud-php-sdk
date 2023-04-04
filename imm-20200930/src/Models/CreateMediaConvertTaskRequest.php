@@ -21,13 +21,6 @@ class CreateMediaConvertTaskRequest extends Model
     public $notification;
 
     /**
-     * @example topic1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -60,7 +53,6 @@ class CreateMediaConvertTaskRequest extends Model
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
         'notification'     => 'Notification',
-        'notifyTopicName'  => 'NotifyTopicName',
         'projectName'      => 'ProjectName',
         'sources'          => 'Sources',
         'tags'             => 'Tags',
@@ -80,9 +72,6 @@ class CreateMediaConvertTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -128,9 +117,6 @@ class CreateMediaConvertTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

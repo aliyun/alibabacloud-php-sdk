@@ -54,13 +54,6 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example test-topic
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example 2
      *
      * @var int
@@ -121,7 +114,6 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         'imageFormat'            => 'ImageFormat',
         'margin'                 => 'Margin',
         'notificationShrink'     => 'Notification',
-        'notifyTopicName'        => 'NotifyTopicName',
         'padding'                => 'Padding',
         'projectName'            => 'ProjectName',
         'quality'                => 'Quality',
@@ -159,9 +151,6 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->padding) {
             $res['Padding'] = $this->padding;
@@ -219,9 +208,6 @@ class CreateImageSplicingTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['Padding'])) {
             $model->padding = $map['Padding'];

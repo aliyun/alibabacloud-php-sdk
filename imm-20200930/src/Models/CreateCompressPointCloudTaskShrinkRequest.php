@@ -31,13 +31,6 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example imm-regression-test-1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @var string
      */
     public $octreeOptionShrink;
@@ -93,7 +86,6 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         'credentialConfigShrink' => 'CredentialConfig',
         'kdtreeOptionShrink'     => 'KdtreeOption',
         'notificationShrink'     => 'Notification',
-        'notifyTopicName'        => 'NotifyTopicName',
         'octreeOptionShrink'     => 'OctreeOption',
         'pointCloudFieldsShrink' => 'PointCloudFields',
         'pointCloudFileFormat'   => 'PointCloudFileFormat',
@@ -122,9 +114,6 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->octreeOptionShrink) {
             $res['OctreeOption'] = $this->octreeOptionShrink;
@@ -173,9 +162,6 @@ class CreateCompressPointCloudTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['OctreeOption'])) {
             $model->octreeOptionShrink = $map['OctreeOption'];

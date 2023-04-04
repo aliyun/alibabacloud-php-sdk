@@ -26,24 +26,16 @@ class BatchIndexFileMetaRequest extends Model
     public $notification;
 
     /**
-     * @example test-topic
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example test-project
      *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'files'           => 'Files',
-        'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName'  => 'DatasetName',
+        'files'        => 'Files',
+        'notification' => 'Notification',
+        'projectName'  => 'ProjectName',
     ];
 
     public function validate()
@@ -67,9 +59,6 @@ class BatchIndexFileMetaRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -100,9 +89,6 @@ class BatchIndexFileMetaRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

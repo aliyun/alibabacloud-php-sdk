@@ -26,13 +26,6 @@ class IndexFileMetaShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example test-project
      *
      * @var string
@@ -42,7 +35,6 @@ class IndexFileMetaShrinkRequest extends Model
         'datasetName'        => 'DatasetName',
         'fileShrink'         => 'File',
         'notificationShrink' => 'Notification',
-        'notifyTopicName'    => 'NotifyTopicName',
         'projectName'        => 'ProjectName',
     ];
 
@@ -61,9 +53,6 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -88,9 +77,6 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

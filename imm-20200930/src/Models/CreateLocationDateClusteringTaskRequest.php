@@ -33,13 +33,6 @@ class CreateLocationDateClusteringTaskRequest extends Model
     public $notification;
 
     /**
-     * @example NotifyTopicName1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -64,7 +57,6 @@ class CreateLocationDateClusteringTaskRequest extends Model
         'dateOptions'     => 'DateOptions',
         'locationOptions' => 'LocationOptions',
         'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'tags'            => 'Tags',
         'userData'        => 'UserData',
@@ -88,9 +80,6 @@ class CreateLocationDateClusteringTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -124,9 +113,6 @@ class CreateLocationDateClusteringTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

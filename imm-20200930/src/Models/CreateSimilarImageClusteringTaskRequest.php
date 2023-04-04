@@ -21,11 +21,6 @@ class CreateSimilarImageClusteringTaskRequest extends Model
     /**
      * @var string
      */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
     public $projectName;
 
     /**
@@ -38,12 +33,11 @@ class CreateSimilarImageClusteringTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'tags'            => 'Tags',
-        'userData'        => 'UserData',
+        'datasetName'  => 'DatasetName',
+        'notification' => 'Notification',
+        'projectName'  => 'ProjectName',
+        'tags'         => 'Tags',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class CreateSimilarImageClusteringTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -88,9 +79,6 @@ class CreateSimilarImageClusteringTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

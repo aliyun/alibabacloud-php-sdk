@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistRequest;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\PresetReference;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetAudio;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetSubtitle;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo;
@@ -35,11 +34,6 @@ class targets extends Model
      * @var float
      */
     public $initialTranscode;
-
-    /**
-     * @var PresetReference
-     */
-    public $presetId;
 
     /**
      * @example 1.0
@@ -76,7 +70,6 @@ class targets extends Model
         'duration'         => 'Duration',
         'initialSegments'  => 'InitialSegments',
         'initialTranscode' => 'InitialTranscode',
-        'presetId'         => 'PresetId',
         'speed'            => 'Speed',
         'subtitle'         => 'Subtitle',
         'transcodeAhead'   => 'TranscodeAhead',
@@ -102,9 +95,6 @@ class targets extends Model
         }
         if (null !== $this->initialTranscode) {
             $res['InitialTranscode'] = $this->initialTranscode;
-        }
-        if (null !== $this->presetId) {
-            $res['PresetId'] = null !== $this->presetId ? $this->presetId->toMap() : null;
         }
         if (null !== $this->speed) {
             $res['Speed'] = $this->speed;
@@ -146,9 +136,6 @@ class targets extends Model
         }
         if (isset($map['InitialTranscode'])) {
             $model->initialTranscode = $map['InitialTranscode'];
-        }
-        if (isset($map['PresetId'])) {
-            $model->presetId = PresetReference::fromMap($map['PresetId']);
         }
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];

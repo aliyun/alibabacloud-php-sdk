@@ -31,13 +31,6 @@ class CreateLocationDateClusteringTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example NotifyTopicName1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -62,7 +55,6 @@ class CreateLocationDateClusteringTaskShrinkRequest extends Model
         'dateOptionsShrink'     => 'DateOptions',
         'locationOptionsShrink' => 'LocationOptions',
         'notificationShrink'    => 'Notification',
-        'notifyTopicName'       => 'NotifyTopicName',
         'projectName'           => 'ProjectName',
         'tagsShrink'            => 'Tags',
         'userData'              => 'UserData',
@@ -86,9 +78,6 @@ class CreateLocationDateClusteringTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -122,9 +111,6 @@ class CreateLocationDateClusteringTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

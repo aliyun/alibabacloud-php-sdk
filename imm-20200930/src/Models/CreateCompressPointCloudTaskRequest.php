@@ -31,13 +31,6 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $notification;
 
     /**
-     * @example imm-regression-test-1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @var OctreeOption
      */
     public $octreeOption;
@@ -93,7 +86,6 @@ class CreateCompressPointCloudTaskRequest extends Model
         'credentialConfig'     => 'CredentialConfig',
         'kdtreeOption'         => 'KdtreeOption',
         'notification'         => 'Notification',
-        'notifyTopicName'      => 'NotifyTopicName',
         'octreeOption'         => 'OctreeOption',
         'pointCloudFields'     => 'PointCloudFields',
         'pointCloudFileFormat' => 'PointCloudFileFormat',
@@ -122,9 +114,6 @@ class CreateCompressPointCloudTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->octreeOption) {
             $res['OctreeOption'] = null !== $this->octreeOption ? $this->octreeOption->toMap() : null;
@@ -173,9 +162,6 @@ class CreateCompressPointCloudTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['OctreeOption'])) {
             $model->octreeOption = OctreeOption::fromMap($map['OctreeOption']);

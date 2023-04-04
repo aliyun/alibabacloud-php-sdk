@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetVideoPlaylistResponse extends Model
+class ExtractDocumentTextResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetVideoPlaylistResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetVideoPlaylistResponseBody
+     * @var ExtractDocumentTextResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetVideoPlaylistResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetVideoPlaylistResponse
+     * @return ExtractDocumentTextResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetVideoPlaylistResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetVideoPlaylistResponseBody::fromMap($map['body']);
+            $model->body = ExtractDocumentTextResponseBody::fromMap($map['body']);
         }
 
         return $model;

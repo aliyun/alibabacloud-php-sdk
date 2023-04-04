@@ -20,13 +20,6 @@ class CreateFileUncompressionTaskRequest extends Model
     public $notification;
 
     /**
-     * @example topic1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example 123456
      *
      * @var string
@@ -66,7 +59,6 @@ class CreateFileUncompressionTaskRequest extends Model
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
         'notification'     => 'Notification',
-        'notifyTopicName'  => 'NotifyTopicName',
         'password'         => 'Password',
         'projectName'      => 'ProjectName',
         'selectedFiles'    => 'SelectedFiles',
@@ -87,9 +79,6 @@ class CreateFileUncompressionTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -126,9 +115,6 @@ class CreateFileUncompressionTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

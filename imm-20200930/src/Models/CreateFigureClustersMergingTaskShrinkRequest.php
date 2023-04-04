@@ -33,13 +33,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -71,7 +64,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         'from'               => 'From',
         'fromsShrink'        => 'Froms',
         'notificationShrink' => 'Notification',
-        'notifyTopicName'    => 'NotifyTopicName',
         'projectName'        => 'ProjectName',
         'tagsShrink'         => 'Tags',
         'to'                 => 'To',
@@ -96,9 +88,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -135,9 +124,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

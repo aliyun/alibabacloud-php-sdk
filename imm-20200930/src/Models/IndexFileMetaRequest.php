@@ -26,24 +26,16 @@ class IndexFileMetaRequest extends Model
     public $notification;
 
     /**
-     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example test-project
      *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'file'            => 'File',
-        'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName'  => 'DatasetName',
+        'file'         => 'File',
+        'notification' => 'Notification',
+        'projectName'  => 'ProjectName',
     ];
 
     public function validate()
@@ -61,9 +53,6 @@ class IndexFileMetaRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -88,9 +77,6 @@ class IndexFileMetaRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -29,13 +29,6 @@ class CreateFacesSearchingTaskRequest extends Model
     public $notification;
 
     /**
-     * @example test-topic
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example test-project
      *
      * @var string
@@ -61,14 +54,13 @@ class CreateFacesSearchingTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'maxResult'       => 'MaxResult',
-        'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'sources'         => 'Sources',
-        'topK'            => 'TopK',
-        'userData'        => 'UserData',
+        'datasetName'  => 'DatasetName',
+        'maxResult'    => 'MaxResult',
+        'notification' => 'Notification',
+        'projectName'  => 'ProjectName',
+        'sources'      => 'Sources',
+        'topK'         => 'TopK',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -86,9 +78,6 @@ class CreateFacesSearchingTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -128,9 +117,6 @@ class CreateFacesSearchingTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

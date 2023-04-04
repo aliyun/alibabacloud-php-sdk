@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\AttachOSSBucketResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchDeleteFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFigureClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFigureClusterResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFigureClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchGetFileMetaShrinkRequest;
@@ -45,9 +48,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskShrinkRequest;
@@ -119,6 +119,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetachOSSBucketResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageBodiesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageBodiesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageBodiesShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCarsRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCarsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCarsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageCodesShrinkRequest;
@@ -139,6 +142,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateDRMLicenseRequest;
@@ -161,6 +167,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetImageModerationResultRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetImageModerationResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
@@ -173,9 +181,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetTriggerRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoModerationResultRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoModerationResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\IndexFileMetaShrinkRequest;
@@ -525,6 +532,60 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param BatchGetFigureClusterRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchGetFigureClusterResponse
+     */
+    public function batchGetFigureClusterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchGetFigureClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->objectIds)) {
+            $request->objectIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectIdsShrink)) {
+            $query['ObjectIds'] = $request->objectIdsShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetFigureCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchGetFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchGetFigureClusterRequest $request
+     *
+     * @return BatchGetFigureClusterResponse
+     */
+    public function batchGetFigureCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGetFigureClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchGetFileMetaRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
@@ -604,9 +665,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -775,9 +833,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
@@ -987,9 +1042,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->octreeOptionShrink)) {
             $query['OctreeOption'] = $request->octreeOptionShrink;
         }
@@ -1187,80 +1239,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @deprecated : CreateDetectVideoLabelsTask is deprecated, please use imm::2020-09-30::CreateVideoLabelClassificationTask instead.
-     *   *
-     * Deprecated
-     *
-     * @param CreateDetectVideoLabelsTaskRequest $tmpReq  CreateDetectVideoLabelsTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateDetectVideoLabelsTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDetectVideoLabelsTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDetectVideoLabelsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated : CreateDetectVideoLabelsTask is deprecated, please use imm::2020-09-30::CreateVideoLabelClassificationTask instead.
-     *   *
-     * Deprecated
-     *
-     * @param CreateDetectVideoLabelsTaskRequest $request CreateDetectVideoLabelsTaskRequest
-     *
-     * @return CreateDetectVideoLabelsTaskResponse CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateFacesSearchingTaskRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -1286,9 +1264,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -1355,9 +1330,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -1431,9 +1403,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
@@ -1505,9 +1474,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
@@ -1586,9 +1552,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
@@ -1673,9 +1636,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -1770,9 +1730,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->padding)) {
             $query['Padding'] = $request->padding;
         }
@@ -1857,9 +1814,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
@@ -1941,9 +1895,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
@@ -2015,9 +1966,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -2123,9 +2071,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->pages)) {
             $query['Pages'] = $request->pages;
@@ -2307,9 +2252,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -2556,9 +2498,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
@@ -2636,9 +2575,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
@@ -3171,6 +3107,60 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DetectImageCarsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetectImageCarsResponse
+     */
+    public function detectImageCarsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetectImageCarsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageCars',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageCarsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageCarsRequest $request
+     *
+     * @return DetectImageCarsResponse
+     */
+    public function detectImageCars($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageCarsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectImageCodesRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
@@ -3544,6 +3534,60 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectTextAnomalyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExtractDocumentTextRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExtractDocumentTextResponse
+     */
+    public function extractDocumentTextWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExtractDocumentTextShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExtractDocumentText',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExtractDocumentTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExtractDocumentTextRequest $request
+     *
+     * @return ExtractDocumentTextResponse
+     */
+    public function extractDocumentText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->extractDocumentTextWithOptions($request, $runtime);
     }
 
     /**
@@ -4154,6 +4198,55 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetImageModerationResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetImageModerationResultResponse
+     */
+    public function getImageModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageModerationResult',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetImageModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetImageModerationResultRequest $request
+     *
+     * @return GetImageModerationResultResponse
+     */
+    public function getImageModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageModerationResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetOSSBucketAttachmentRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4436,65 +4529,29 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @param GetVideoModerationResultRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @param GetVideoPlaylistRequest $tmpReq  GetVideoPlaylistRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetVideoPlaylistResponse GetVideoPlaylistResponse
+     * @return GetVideoModerationResultResponse
      */
-    public function getVideoPlaylistWithOptions($tmpReq, $runtime)
+    public function getVideoModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new GetVideoPlaylistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
-            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->masterURI)) {
-            $query['MasterURI'] = $request->masterURI;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceDuration)) {
-            $query['SourceDuration'] = $request->sourceDuration;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->sourceStartTime)) {
-            $query['SourceStartTime'] = $request->sourceStartTime;
-        }
-        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
-            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoPlaylist',
+            'action'      => 'GetVideoModerationResult',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4505,23 +4562,19 @@ class Imm extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @param GetVideoModerationResultRequest $request
      *
-     * @param GetVideoPlaylistRequest $request GetVideoPlaylistRequest
-     *
-     * @return GetVideoPlaylistResponse GetVideoPlaylistResponse
+     * @return GetVideoModerationResultResponse
      */
-    public function getVideoPlaylist($request)
+    public function getVideoModerationResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getVideoPlaylistWithOptions($request, $runtime);
+        return $this->getVideoModerationResultWithOptions($request, $runtime);
     }
 
     /**
@@ -4550,9 +4603,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->notificationShrink)) {
             $query['Notification'] = $request->notificationShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;

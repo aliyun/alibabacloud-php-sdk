@@ -33,13 +33,6 @@ class CreateFigureClustersMergingTaskRequest extends Model
     public $notification;
 
     /**
-     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -67,15 +60,14 @@ class CreateFigureClustersMergingTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'from'            => 'From',
-        'froms'           => 'Froms',
-        'notification'    => 'Notification',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'tags'            => 'Tags',
-        'to'              => 'To',
-        'userData'        => 'UserData',
+        'datasetName'  => 'DatasetName',
+        'from'         => 'From',
+        'froms'        => 'Froms',
+        'notification' => 'Notification',
+        'projectName'  => 'ProjectName',
+        'tags'         => 'Tags',
+        'to'           => 'To',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -96,9 +88,6 @@ class CreateFigureClustersMergingTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -137,9 +126,6 @@ class CreateFigureClustersMergingTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

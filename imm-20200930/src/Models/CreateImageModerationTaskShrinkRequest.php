@@ -33,13 +33,6 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example topic1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -83,7 +76,6 @@ class CreateImageModerationTaskShrinkRequest extends Model
         'interval'               => 'Interval',
         'maxFrames'              => 'MaxFrames',
         'notificationShrink'     => 'Notification',
-        'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'reviewer'               => 'Reviewer',
         'scenesShrink'           => 'Scenes',
@@ -110,9 +102,6 @@ class CreateImageModerationTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -155,9 +144,6 @@ class CreateImageModerationTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

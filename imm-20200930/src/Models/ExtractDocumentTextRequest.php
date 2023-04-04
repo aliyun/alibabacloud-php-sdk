@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDetectVideoLabelsTaskRequest extends Model
+class ExtractDocumentTextRequest extends Model
 {
     /**
      * @var CredentialConfig
@@ -14,42 +14,22 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public $credentialConfig;
 
     /**
-     * @example MNS 通知的 Topic 名称
+     * @example immtest
      *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 源文件路径
+     * @example oss://test-bucket/test-object
      *
      * @var string
      */
     public $sourceURI;
-
-    /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
-     * @example 用户自定义信息
-     *
-     * @var string
-     */
-    public $userData;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
-        'notifyTopicName'  => 'NotifyTopicName',
         'projectName'      => 'ProjectName',
         'sourceURI'        => 'SourceURI',
-        'tags'             => 'Tags',
-        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -62,20 +42,11 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
-        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -84,7 +55,7 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDetectVideoLabelsTaskRequest
+     * @return ExtractDocumentTextRequest
      */
     public static function fromMap($map = [])
     {
@@ -92,20 +63,11 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
-        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
         }
 
         return $model;

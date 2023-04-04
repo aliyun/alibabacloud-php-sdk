@@ -19,13 +19,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example topic1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example 123456
      *
      * @var string
@@ -62,7 +55,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
         'notificationShrink'     => 'Notification',
-        'notifyTopicName'        => 'NotifyTopicName',
         'password'               => 'Password',
         'projectName'            => 'ProjectName',
         'sourceURI'              => 'SourceURI',
@@ -82,9 +74,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -118,9 +107,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

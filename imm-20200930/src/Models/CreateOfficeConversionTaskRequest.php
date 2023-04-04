@@ -89,13 +89,6 @@ class CreateOfficeConversionTaskRequest extends Model
     public $notification;
 
     /**
-     * @example topic1
-     *
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
      * @example 1,2-4,7
      *
      * @var string
@@ -238,7 +231,6 @@ class CreateOfficeConversionTaskRequest extends Model
         'maxSheetColumn'   => 'MaxSheetColumn',
         'maxSheetRow'      => 'MaxSheetRow',
         'notification'     => 'Notification',
-        'notifyTopicName'  => 'NotifyTopicName',
         'pages'            => 'Pages',
         'paperHorizontal'  => 'PaperHorizontal',
         'paperSize'        => 'PaperSize',
@@ -302,9 +294,6 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->pages) {
             $res['Pages'] = $this->pages;
@@ -410,9 +399,6 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['Pages'])) {
             $model->pages = $map['Pages'];

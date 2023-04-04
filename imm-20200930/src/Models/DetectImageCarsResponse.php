@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDetectVideoLabelsTaskResponse extends Model
+class DetectImageCarsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateDetectVideoLabelsTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateDetectVideoLabelsTaskResponseBody
+     * @var DetectImageCarsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class CreateDetectVideoLabelsTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateDetectVideoLabelsTaskResponse
+     * @return DetectImageCarsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class CreateDetectVideoLabelsTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateDetectVideoLabelsTaskResponseBody::fromMap($map['body']);
+            $model->body = DetectImageCarsResponseBody::fromMap($map['body']);
         }
 
         return $model;
