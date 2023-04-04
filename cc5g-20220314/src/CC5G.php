@@ -88,6 +88,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ModifyWirelessCloudConnectorFeatureRe
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ModifyWirelessCloudConnectorFeatureResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RebindCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RebindCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsRequest;
@@ -2188,6 +2190,58 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openCc5gServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RebindCardsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RebindCardsResponse
+     */
+    public function rebindCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->iccids)) {
+            $query['Iccids'] = $request->iccids;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebindCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebindCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebindCardsRequest $request
+     *
+     * @return RebindCardsResponse
+     */
+    public function rebindCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebindCardsWithOptions($request, $runtime);
     }
 
     /**
