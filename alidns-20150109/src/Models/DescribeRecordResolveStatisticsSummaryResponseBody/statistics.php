@@ -28,10 +28,16 @@ class statistics extends Model
      * @var string
      */
     public $domainType;
+
+    /**
+     * @var string
+     */
+    public $subDomain;
     protected $_name = [
         'count'      => 'Count',
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
+        'subDomain'  => 'SubDomain',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class statistics extends Model
         }
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
+        }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class statistics extends Model
         }
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
+        }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
         }
 
         return $model;
