@@ -250,6 +250,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
@@ -7966,6 +7968,75 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
+     */
+    public function updateGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->avatarUrl)) {
+            $body['avatarUrl'] = $request->avatarUrl;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $body['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->pathWithNamespace)) {
+            $body['pathWithNamespace'] = $request->pathWithNamespace;
+        }
+        if (!Utils::isUnset($request->visibilityLevel)) {
+            $body['visibilityLevel'] = $request->visibilityLevel;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/groups/modify',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
+     */
+    public function updateGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
