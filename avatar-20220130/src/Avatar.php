@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\LicenseAuthRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\LicenseAuthResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceShrinkRequest;
@@ -301,6 +303,55 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LicenseAuthRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return LicenseAuthResponse
+     */
+    public function licenseAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->license)) {
+            $query['License'] = $request->license;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LicenseAuth',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LicenseAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LicenseAuthRequest $request
+     *
+     * @return LicenseAuthResponse
+     */
+    public function licenseAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->licenseAuthWithOptions($request, $runtime);
     }
 
     /**
