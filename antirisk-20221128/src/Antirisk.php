@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagByAtokenRequest;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagByAtokenResponse;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenRequest;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -94,5 +96,54 @@ class Antirisk extends OpenApiClient
         $headers = [];
 
         return $this->getZidTagByAtokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetZidTagScoreByAtokenRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetZidTagScoreByAtokenResponse
+     */
+    public function getZidTagScoreByAtokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->atoken)) {
+            $query['atoken'] = $request->atoken;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetZidTagScoreByAtoken',
+            'version'     => '2022-11-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/anti/getZidTagScoreByAtoken',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetZidTagScoreByAtokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetZidTagScoreByAtokenRequest $request
+     *
+     * @return GetZidTagScoreByAtokenResponse
+     */
+    public function getZidTagScoreByAtoken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getZidTagScoreByAtokenWithOptions($request, $headers, $runtime);
     }
 }
