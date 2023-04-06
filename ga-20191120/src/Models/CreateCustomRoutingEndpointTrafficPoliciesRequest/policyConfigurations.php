@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
-     * @description The IP address of the destination to which to allow traffic.
+     * @description The IP address of the destination to which traffic is forwarded.
      *
      * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
      *
-     * You can specify up to 500 destination IP addresses for each endpoint.
+     * > This parameter is required.
      * @example 10.0.XX.XX
      *
      * @var string
@@ -22,6 +22,13 @@ class policyConfigurations extends Model
     public $address;
 
     /**
+     * @description The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+     *
+     * If you leave this parameter empty, traffic is forwarded to all destination ports.
+     *
+     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *
+     * You can specify port ranges for up to 500 traffic destinations in each endpoint and specify up to 10 port ranges for each traffic destination.
      * @var portRanges[]
      */
     public $portRanges;

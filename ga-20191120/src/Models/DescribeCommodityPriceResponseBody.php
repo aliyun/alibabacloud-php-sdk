@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommodityPriceResponseBody extends Model
 {
     /**
+     * @description The currency unit.
+     *
+     *   China site: **CNY**.
+     *   International site: **USD**.
+     *
      * @example CNY
      *
      * @var string
@@ -19,6 +24,8 @@ class DescribeCommodityPriceResponseBody extends Model
     public $currency;
 
     /**
+     * @description The discount.
+     *
      * @example 419.8
      *
      * @var float
@@ -26,11 +33,15 @@ class DescribeCommodityPriceResponseBody extends Model
     public $discountPrice;
 
     /**
+     * @description The details of the commodity module.
+     *
      * @var orderDetails[]
      */
     public $orderDetails;
 
     /**
+     * @description The original price.
+     *
      * @example 2099
      *
      * @var float
@@ -38,11 +49,16 @@ class DescribeCommodityPriceResponseBody extends Model
     public $originalPrice;
 
     /**
+     * @description The list of coupons.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @var promotions[]
      */
     public $promotions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -50,11 +66,15 @@ class DescribeCommodityPriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details about the discount rules.
+     *
      * @var ruleDetails[]
      */
     public $ruleDetails;
 
     /**
+     * @description The transaction price, which is equal to the original price minus the discount.
+     *
      * @example 1679.2
      *
      * @var float

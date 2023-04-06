@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class destinationConfigurations extends Model
 {
     /**
-     * @description The start port of the backend service port range of the endpoint group.
+     * @description The first backend service port for the endpoint group.
      *
-     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
      *
-     * You can specify up to 20 start ports of backend service port ranges for each endpoint group.
+     * You can specify at most 20 first backend service ports for each endpoint group.
      * @example 80
      *
      * @var int
@@ -21,16 +21,19 @@ class destinationConfigurations extends Model
     public $fromPort;
 
     /**
+     * @description The backend service protocol.
+     *
+     * You can specify up to four backend service protocols in each mapping configuration.
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The end port of the backend service port range of the endpoint group.
+     * @description The last backend service port for the endpoint group.
      *
-     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
      *
-     * You can specify up to 20 end ports of backend service port ranges for each endpoint group.
+     * You can specify at most 20 last backend service ports for each endpoint group.
      * @example 80
      *
      * @var int

@@ -29,10 +29,11 @@ class endpoints extends Model
     /**
      * @description The secondary address of the endpoint.
      *
-     * This parameter is returned when the accelerated IP address is associated with the secondary private IP address of an ECS instance or ENI.
+     * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**.
      *
-     *   When the endpoint type is **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
-     *   When the endpoint type is **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the primary or secondary private IP address of the primary ENI.
+     *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the primary or secondary private IP address of the secondary ENI.
+     *   If the endpoint type is **NLB**, **EndpointSubAddress** returns the primary private IP address of the NLB backend server.
      *
      * @example 172.16.XX.XX
      *
@@ -43,9 +44,10 @@ class endpoints extends Model
     /**
      * @description The type of endpoint. Valid values:
      *
-     *   **ENI**: ENI
-     *   **SLB**: CLB
-     *   **ECS**: ECS
+     *   **ENI**: ENI.
+     *   **SLB**: CLB instance.
+     *   **ECS**: ECS instance.
+     *   **NLB**: NLB instance.
      *
      * @example ENI
      *

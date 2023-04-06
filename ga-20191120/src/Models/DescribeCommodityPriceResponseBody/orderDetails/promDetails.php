@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class promDetails extends Model
 {
     /**
+     * @description The discounted price.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example 0.01
      *
      * @var float
@@ -16,6 +19,9 @@ class promDetails extends Model
     public $finalPromFee;
 
     /**
+     * @description The code of the discount option.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example youhui_quan
      *
      * @var string
@@ -23,6 +29,9 @@ class promDetails extends Model
     public $optionCode;
 
     /**
+     * @description The sub-type of the discount.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example deduct
      *
      * @var string
@@ -30,6 +39,9 @@ class promDetails extends Model
     public $promType;
 
     /**
+     * @description The ID of the discount item.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example 50003298014****
      *
      * @var string
@@ -37,6 +49,9 @@ class promDetails extends Model
     public $promotionId;
 
     /**
+     * @description The name of the discount item.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example coupon
      *
      * @var string

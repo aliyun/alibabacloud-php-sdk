@@ -19,7 +19,7 @@ class CreateIpSetsResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description Details about the acceleration regions.
+     * @description The details about the acceleration regions.
      *
      * @var ipSets[]
      */

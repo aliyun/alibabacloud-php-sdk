@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleDetails extends Model
 {
     /**
+     * @description The ID of the discount rule.
+     *
      * @example 102104100786****
      *
      * @var string
@@ -16,6 +18,10 @@ class ruleDetails extends Model
     public $ruleId;
 
     /**
+     * @description The name of the discount rule.
+     *
+     * @example GA New Customers Small II Specification Monthly Subscription - 20% Discount
+     *
      * @var string
      */
     public $ruleName;

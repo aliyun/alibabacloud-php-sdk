@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class orders extends Model
 {
     /**
+     * @description The billing method. Set the value to **PREPAY**, which specifies the subscription billing method.
+     *
      * @example PREPAY
      *
      * @var string
@@ -17,6 +19,18 @@ class orders extends Model
     public $chargeType;
 
     /**
+     * @description The commodity code.
+     *
+     * Examples for the China site (aliyun.com):
+     *
+     *   **ga_gapluspre_public_cn**: GA instance.
+     *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+     *
+     * Examples for the international site (alibabacloud.com):
+     *
+     *   **ga_pluspre_public_intl**: GA instance.
+     *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+     *
      * @example ga_gapluspre_public_cn
      *
      * @var string
@@ -24,11 +38,19 @@ class orders extends Model
     public $commodityCode;
 
     /**
+     * @description The information about the commodity module.
+     *
+     * The information varies based on the commodity module.
      * @var components[]
      */
     public $components;
 
     /**
+     * @description The subscription duration of the instance.
+     *
+     *   If the **PricingCycle** parameter is set to **Month**, the valid values of the Duration parameter are **1** to **9**.
+     *   If the **PricingCycle** parameter is set to **Year**, the valid values of the Duration parameter are **1** to **3**.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +58,12 @@ class orders extends Model
     public $duration;
 
     /**
+     * @description The type of order. Valid values:
+     *
+     *   **BUY**: purchase order
+     *   **RENEW**: renewal order
+     *   **UPGRADE**: upgrade order
+     *
      * @example BUY
      *
      * @var string
@@ -43,6 +71,11 @@ class orders extends Model
     public $orderType;
 
     /**
+     * @description The billing cycle of the GA instance. Valid values:
+     *
+     *   **Month**: billed on a monthly basis.
+     *   **Year**: billed on an annual basis.
+     *
      * @example Month
      *
      * @var string
@@ -50,6 +83,8 @@ class orders extends Model
     public $pricingCycle;
 
     /**
+     * @description The number of instances that you want to purchase.
+     *
      * @example 1
      *
      * @var int

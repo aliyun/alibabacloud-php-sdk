@@ -19,7 +19,7 @@ class ListBasicAcceleratorsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The page number of the page to return. Default value: **1**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class ListBasicAcceleratorsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -46,6 +46,8 @@ class ListBasicAcceleratorsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the basic GA instance belongs.
+     *
      * @example rg-aekzrnd67gq****
      *
      * @var string
@@ -55,13 +57,13 @@ class ListBasicAcceleratorsRequest extends Model
     /**
      * @description The status of the basic GA instance. Valid values:
      *
-     *   **init**: initializing
-     *   **active**: available
-     *   **configuring**: being configured
-     *   **binding**: being associated
-     *   **unbinding**: being disassociated
-     *   **Deleting**: being deleted
-     *   **finacialLocked**: locked due to overdue payments
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -70,6 +72,9 @@ class ListBasicAcceleratorsRequest extends Model
     public $state;
 
     /**
+     * @description The tags of the basic GA instance.
+     *
+     * You can specify up to 20 tags.
      * @var tag[]
      */
     public $tag;

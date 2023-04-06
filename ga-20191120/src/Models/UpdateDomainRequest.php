@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRequest extends Model
 {
     /**
-     * @example www.example.net
+     * @description The new accelerated domain name.
+     *
+     * Only primary domain names are supported, such as `example.net`.
+     * @example example.net
      *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,7 +28,9 @@ class UpdateDomainRequest extends Model
     public $regionId;
 
     /**
-     * @example www.example.com
+     * @description The accelerated domain name to be modified.
+     *
+     * @example example.com
      *
      * @var string
      */

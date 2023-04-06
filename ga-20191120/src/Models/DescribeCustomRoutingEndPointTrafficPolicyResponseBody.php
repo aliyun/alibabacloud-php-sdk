@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance to which the endpoint belongs.
+     * @description The ID of the GA instance with which the endpoint is associated.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,7 +19,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The IP address of the traffic policy.
+     * @description The IP address of the traffic destination.
      *
      * @example 10.0.XX.XX
      *
@@ -28,7 +28,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $address;
 
     /**
-     * @description The name of the vSwitch to which the traffic policy belongs.
+     * @description The name of the vSwitch to which the traffic destination belongs.
      *
      * @example vsw-test01
      *
@@ -46,7 +46,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint to which the traffic policy belongs.
+     * @description The ID of the endpoint to which the traffic destination belongs.
      *
      * @example ep-2zewuzypq5e6r3pfh****
      *
@@ -55,7 +55,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the listener to which the endpoint belongs.
+     * @description The ID of the listener with which the endpoint is associated.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -64,7 +64,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the traffic policy.
+     * @description The ID of the traffic destination.
      *
      * @example ply-bptest2****
      *
@@ -73,7 +73,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description The port range of the traffic policy.
+     * @description The port range of the traffic destination.
      *
      * @var portRanges[]
      */
@@ -89,6 +89,15 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the traffic destination.
+     *
+     *   **init**: being initialized.
+     *   **active**: running as expected.
+     *   **updating**: being updated.
+     *   **deleting**: being deleted.
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;

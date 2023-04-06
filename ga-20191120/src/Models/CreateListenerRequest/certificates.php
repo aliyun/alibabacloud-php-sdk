@@ -11,7 +11,7 @@ class certificates extends Model
     /**
      * @description The ID of the SSL certificate.
      *
-     * >  This parameter is required only if an HTTPS listener is created.
+     * > This parameter is required only when you create an HTTPS listener.
      * @example 449****-cn-hangzhou
      *
      * @var string

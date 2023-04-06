@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommodityPriceRequest extends Model
 {
     /**
+     * @description The commodity orders.
+     *
      * @var orders[]
      */
     public $orders;
 
     /**
+     * @description The coupon code.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example 50003298014****
      *
      * @var string
@@ -22,6 +27,8 @@ class DescribeCommodityPriceRequest extends Model
     public $promotionOptionNo;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

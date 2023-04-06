@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class propertyValueList extends Model
 {
     /**
+     * @description The sequence number of the attribute.
+     *
+     * The returned information varies based on the commodity module.
      * @example 1
      *
      * @var int
@@ -16,16 +19,29 @@ class propertyValueList extends Model
     public $orderIndex;
 
     /**
+     * @description The content of the attribute.
+     *
+     * The returned information varies based on the commodity module.
+     * @example 1 Month
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The message of the attribute.
+     *
+     * The returned information varies based on the commodity module.
+     * @example 1 Month
+     *
      * @var string
      */
     public $tips;
 
     /**
+     * @description The value of the attribute.
+     *
+     * The returned information varies based on the commodity module.
      * @example 1:Month
      *
      * @var string

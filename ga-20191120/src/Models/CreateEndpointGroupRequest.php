@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateEndpointGroupRequest extends Model
@@ -170,6 +171,11 @@ class CreateEndpointGroupRequest extends Model
     public $regionId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
      *
      * Valid values: **2** to **10**. Default value: **3**.
@@ -205,6 +211,7 @@ class CreateEndpointGroupRequest extends Model
         'name'                       => 'Name',
         'portOverrides'              => 'PortOverrides',
         'regionId'                   => 'RegionId',
+        'tag'                        => 'Tag',
         'thresholdCount'             => 'ThresholdCount',
         'trafficPercentage'          => 'TrafficPercentage',
     ];
@@ -275,6 +282,15 @@ class CreateEndpointGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->thresholdCount) {
             $res['ThresholdCount'] = $this->thresholdCount;
@@ -353,6 +369,15 @@ class CreateEndpointGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ThresholdCount'])) {
             $model->thresholdCount = $map['ThresholdCount'];

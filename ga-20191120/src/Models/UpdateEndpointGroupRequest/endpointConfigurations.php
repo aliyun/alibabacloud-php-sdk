@@ -11,8 +11,8 @@ class endpointConfigurations extends Model
     /**
      * @description Specifies whether to reserve client IP addresses. Default value: false. Valid values:
      *
-     *   **true**: reserves client IP addresses.
-     *   **false**: does not reserve client IP addresses.
+     *   **true:** reserves client IP addresses.
+     *   **false:** does not preserve client IP addresses.
      *
      * @example false
      *
@@ -32,17 +32,20 @@ class endpointConfigurations extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **Domain**: a custom domain name
-     *   **Ip**: a custom IP address
-     *   **PublicIp**: a public IP address provided by Alibaba Cloud
-     *   **ECS**: an Elastic Compute Service (ECS) instance
-     *   **SLB**: a Server Load Balancer (SLB) instance
-     *   **ALB**: an Application Load Balancer (ALB) instance
-     *   **OSS**: an Object Storage Service (OSS) bucket
+     *   **Domain:** a custom domain name
+     *   **Ip:** a custom IP address
+     *   **PublicIp:** a public IP address provided by Alibaba Cloud
+     *   **ECS:** an ECS instance
+     *   **SLB:** a Server Load Balancer (SLB) instance
+     *   **ALB:** an Application Load Balancer (ALB) instance
+     *   **OSS:** an Object Storage Service (OSS) bucket
      *
      * >
-     *   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system automatically creates the service-linked role.
+     *
+     *   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system creates the service-linked role.
+     *
      *   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
+     *
      *   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
      *
      * For more information, see [Service-linked roles](~~178360~~).
@@ -57,7 +60,7 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >  If the weight of an endpoint is set to 0, GA stops distributing network traffic to the endpoint. Proceed with caution.
+     * > If you set the weight of an endpoint to 0, GA does not route network traffic to the endpoint. Make sure that you are aware of the impact on your business before you set the endpoint weight to 0.
      * @example 20
      *
      * @var int

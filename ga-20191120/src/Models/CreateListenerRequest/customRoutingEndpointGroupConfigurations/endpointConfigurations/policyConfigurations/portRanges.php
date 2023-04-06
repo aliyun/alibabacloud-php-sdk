@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
-     * @description The first port of the port range of the destination that allows traffic. The value of this parameter must fall within the port range of the backend service.
+     * @description The first port of the destination port range. The value of this parameter must be in the port range of the endpoint group.
      *
      * This parameter takes effect only if **TrafficToEndpointPolicy** is set to **AllowCustom**.
      *
-     * You can specify up to 20 destination port ranges for each endpoint of a custom routing listener. You can specify up to five first ports for each destination.
+     * You can specify port ranges for up to 20 destinations in each endpoint of a custom routing listener. You can specify up to five first ports for each destination.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example 80
      *
      * @var int
@@ -23,13 +23,13 @@ class portRanges extends Model
     public $fromPort;
 
     /**
-     * @description The last port of the port range of the destination that allows traffic. The value of this parameter must fall within the port range of the backend service.
+     * @description The last port of the destination port range. The value of this parameter must be in the port range of the endpoint group.
      *
      * This parameter takes effect only if **TrafficToEndpointPolicy** is set to **AllowCustom**.
      *
-     * You can specify up to 20 destination port ranges for each endpoint of a custom routing listener. You can specify up to five last ports for each destination.
+     * You can specify port ranges for up to 20 destinations in each endpoint of a custom routing listener. You can specify up to five end ports for each destination.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example 80
      *
      * @var int

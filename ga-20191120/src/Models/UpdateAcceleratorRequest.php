@@ -18,9 +18,9 @@ class UpdateAcceleratorRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false**: disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
      *   **true**: enables automatic payment. Payments are automatically completed.
      *
      * @example false
@@ -32,10 +32,10 @@ class UpdateAcceleratorRequest extends Model
     /**
      * @description Specifies whether to automatically pay bills by using coupons. Default value: false. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: automatically pays bills by using coupons.
+     *   **false**: does not automatically pay bills by using coupons.
      *
-     * >  This parameter is required only if **AutoPay** is set to **true**.
+     * >  This parameter takes effect only if the **AutoPay** parameter is set to **true**.
      * @example false
      *
      * @var bool
@@ -45,9 +45,9 @@ class UpdateAcceleratorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567****
      *
      * @var string
@@ -101,9 +101,8 @@ class UpdateAcceleratorRequest extends Model
      *   **90**: Large VⅢ
      *   **100**: Super Large Ⅰ
      *   **200**: Super Large Ⅱ
-     *   **300**: Super Large Ⅲ
      *
-     * Each instance specification provides different capabilities. For more information, see the "Specifications of standard GA instances" section in [Overview](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string

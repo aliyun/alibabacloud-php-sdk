@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateCrossPrivateStateRequest extends Model
+class UpdateAcceleratorCrossBorderModeRequest extends Model
 {
     /**
      * @example ga-bp1odcab8tmno0hdq****
@@ -16,11 +16,18 @@ class UpdateCrossPrivateStateRequest extends Model
     public $acceleratorId;
 
     /**
-     * @example true
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
-     * @var bool
+     * @var string
      */
-    public $crossPrivateState;
+    public $clientToken;
+
+    /**
+     * @example bgpPro
+     *
+     * @var string
+     */
+    public $crossBorderMode;
 
     /**
      * @example cn-hangzhou
@@ -29,9 +36,10 @@ class UpdateCrossPrivateStateRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'acceleratorId'     => 'AcceleratorId',
-        'crossPrivateState' => 'CrossPrivateState',
-        'regionId'          => 'RegionId',
+        'acceleratorId'   => 'AcceleratorId',
+        'clientToken'     => 'ClientToken',
+        'crossBorderMode' => 'CrossBorderMode',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -44,8 +52,11 @@ class UpdateCrossPrivateStateRequest extends Model
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->crossPrivateState) {
-            $res['CrossPrivateState'] = $this->crossPrivateState;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->crossBorderMode) {
+            $res['CrossBorderMode'] = $this->crossBorderMode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -57,7 +68,7 @@ class UpdateCrossPrivateStateRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateCrossPrivateStateRequest
+     * @return UpdateAcceleratorCrossBorderModeRequest
      */
     public static function fromMap($map = [])
     {
@@ -65,8 +76,11 @@ class UpdateCrossPrivateStateRequest extends Model
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['CrossPrivateState'])) {
-            $model->crossPrivateState = $map['CrossPrivateState'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CrossBorderMode'])) {
+            $model->crossBorderMode = $map['CrossBorderMode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

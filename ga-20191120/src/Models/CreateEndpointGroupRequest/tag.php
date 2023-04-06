@@ -2,26 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesResponseBody\bandwidthPackages;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
-     * @description The tag key of the bandwidth plan.
-     *
-     * @example tag-key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value of the bandwidth plan.
-     *
-     * @example tag-value
-     *
      * @var string
      */
     public $value;
@@ -50,7 +42,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {

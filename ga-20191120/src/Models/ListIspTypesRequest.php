@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListIspTypesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceleratorId;
+
+    /**
+     * @description The type of the Global Accelerator (GA) instance to be queried. Valid values:
+     *
+     *   **basic**: basic GA instance
+     *   **standard**: standard GA instance
+     *
      * @example basic
      *
      * @var string
@@ -16,12 +26,15 @@ class ListIspTypesRequest extends Model
     public $acceleratorType;
 
     /**
+     * @description The ID of the acceleration region to be queried.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $businessRegionId;
     protected $_name = [
+        'acceleratorId'    => 'AcceleratorId',
         'acceleratorType'  => 'AcceleratorType',
         'businessRegionId' => 'BusinessRegionId',
     ];
@@ -33,6 +46,9 @@ class ListIspTypesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
         }
@@ -51,6 +67,9 @@ class ListIspTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
         }

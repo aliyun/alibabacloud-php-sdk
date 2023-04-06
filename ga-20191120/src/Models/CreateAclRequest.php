@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclRequest\aclEntries;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateAclRequest extends Model
@@ -74,6 +75,11 @@ class CreateAclRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'aclEntries'       => 'AclEntries',
         'aclName'          => 'AclName',
@@ -82,6 +88,7 @@ class CreateAclRequest extends Model
         'dryRun'           => 'DryRun',
         'regionId'         => 'RegionId',
         'resourceGroupId'  => 'ResourceGroupId',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -117,6 +124,15 @@ class CreateAclRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -156,6 +172,15 @@ class CreateAclRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

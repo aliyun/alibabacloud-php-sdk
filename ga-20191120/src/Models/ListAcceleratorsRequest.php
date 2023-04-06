@@ -46,14 +46,16 @@ class ListAcceleratorsRequest extends Model
     public $regionId;
 
     /**
-     * @example rg-aekztkx4zwc3m4a
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekztkx4zwc****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The state of the GA instance. Valid values:
+     * @description The status of the GA instance. Valid values:
      *
      *   **init**: The GA instance is being initialized.
      *   **active**: The GA instance is available.
@@ -70,6 +72,8 @@ class ListAcceleratorsRequest extends Model
     public $state;
 
     /**
+     * @description The tags of the GA instance.
+     *
      * @var tag[]
      */
     public $tag;

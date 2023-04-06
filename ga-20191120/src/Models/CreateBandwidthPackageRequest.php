@@ -4,14 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateBandwidthPackageRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false**: disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
      *   **true**: enables automatic payment. Payments are automatically completed.
      *
      * @example false
@@ -21,10 +22,10 @@ class CreateBandwidthPackageRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the bandwidth plan. Default value: false. Valid values:
+     * @description Specifies whether to enable auto-renewal. Valid values:
      *
      *   **true**: enables auto-renewal.
-     *   **false** disables auto-renewal.
+     *   **false** (default): disables auto-renewal.
      *
      * @example false
      *
@@ -33,11 +34,11 @@ class CreateBandwidthPackageRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period. Unit: months.
+     * @description The auto-renewal duration. Unit: months.
      *
      * Valid values: **1** to **12**. Default value: **1**.
      *
-     * >  This parameter is required only if **AutoRenew** is set to **true**.
+     * >  This parameter takes effect only if **AutoRenew** is set to **true**.
      * @example 1
      *
      * @var int
@@ -45,12 +46,12 @@ class CreateBandwidthPackageRequest extends Model
     public $autoRenewDuration;
 
     /**
-     * @description Specifies whether to automatically pay bills by using coupons. Default value: false. Valid values:
+     * @description Specifies whether to automatically pay bills by using coupons. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  This parameter is required only if **AutoPay** is set to **true**.
+     * >  This parameter takes effect only if **AutoPay** is set to **true**.
      * @example false
      *
      * @var string
@@ -58,9 +59,8 @@ class CreateBandwidthPackageRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description The bandwidth of the bandwidth plan. Unit: Mbit/s.
+     * @description The bandwidth value of the bandwidth plan. Unit: Mbit/s. Valid values: **2** to **2000**.
      *
-     * Valid values: **2** to **2000**.
      * @example 2
      *
      * @var int
@@ -68,9 +68,9 @@ class CreateBandwidthPackageRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The type of the bandwidth. Valid values:
+     * @description The type of bandwidth. Valid values:
      *
-     *   **Basic**: basic
+     *   **Basic**: standard
      *   **Enhanced**: enhanced
      *   **Advanced**: premium
      *
@@ -82,12 +82,11 @@ class CreateBandwidthPackageRequest extends Model
     public $bandwidthType;
 
     /**
-     * @description The metering method that is used when you use the pay-as-you-go billing method. Default value: PayByTraffic. Valid values:
+     * @description The metering method that is used when you use the pay-as-you-go billing method. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer
-     *   **PayBY95**: pay-by-95th-percentile
+     *   **PayByTraffic** (default): pay-by-data-transfer
+     *   **PayBY95**: pay-by-95th-percentile By default, the pay-by-95th-percentile metering method is unavailable. If you want to use the metering method, contact your account manager.
      *
-     * The pay-by-95th-percentile metering method is available only for users that are added to the whitelist. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex).
      * @example PayByTraffic
      *
      * @var string
@@ -97,7 +96,7 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description Area A to be connected. Set the value to **China-mainland**.
      *
-     * You can set this parameter only if you call this operation on the Alibaba Cloud International site.
+     * You can set this parameter only if you call this operation on the international site (alibabacloud.com).
      * @example China-mainland
      *
      * @var string
@@ -107,7 +106,7 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description Area B to be connected. Set the value to **Global**.
      *
-     * You can set this parameter only if you call this operation on the Alibaba Cloud International site.
+     * You can set this parameter only if you call this operation on the international site (alibabacloud.com).
      * @example Global
      *
      * @var string
@@ -115,12 +114,11 @@ class CreateBandwidthPackageRequest extends Model
     public $cbnGeographicRegionIdB;
 
     /**
-     * @description The billing method of the bandwidth plan. Default value: PREPAY. Valid values:
+     * @description The billing method. Valid values:
      *
-     *   **PREPAY**: subscription
-     *   **POSTPAY**: pay-as-you-go
+     *   **PREPAY** (default): subscription
+     *   **POSTPAY**: pay-as-you-go By default, the pay-as-you-go billing method is unavailable. If you want to use the billing method, contact your account manager.
      *
-     * The pay-as-you-go billing method is available only for users that are added to the whitelist. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex).
      * @example PREPAY
      *
      * @var string
@@ -130,9 +128,9 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567****
      *
      * @var string
@@ -142,8 +140,8 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description The subscription duration.
      *
-     *   If the **PricingCycle** parameter is set to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-     *   If the **PricingCycle** parameter is set to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+     *   If the **PricingCycle** parameter is set to **Month**, the valid values of the **Duration** parameter are **1** to **9**.
+     *   If the **PricingCycle** parameter is set to **Year**, the valid values of the **Duration** parameter are **1** to **3**.
      *
      * If **ChargeType** is set to **PREPAY**, this parameter is required.
      * @example 1
@@ -166,6 +164,11 @@ class CreateBandwidthPackageRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The coupon code.
+     *
+     * >  This parameter is available only on the international site.
+     * @example 50003298014****
+     *
      * @var string
      */
     public $promotionOptionNo;
@@ -173,7 +176,7 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used. Valid values: **30** to **100**.
      *
-     * >  This parameter is required only if **BillingType** is set to **PayBY95**.
+     * >  This parameter takes effect only if **BillingType** is set to **PayBY95**.
      * @example 30
      *
      * @var int
@@ -190,6 +193,8 @@ class CreateBandwidthPackageRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the bandwidth plan belongs.
+     *
      * @example rg-aekzrnd67gq****
      *
      * @var string
@@ -197,7 +202,12 @@ class CreateBandwidthPackageRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the bandwidth plan. Valid values:
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The type of bandwidth plan. Valid values:
      *
      *   **Basic**: a basic bandwidth plan
      *   **CrossDomain**: a cross-region acceleration bandwidth plan
@@ -226,6 +236,7 @@ class CreateBandwidthPackageRequest extends Model
         'ratio'                  => 'Ratio',
         'regionId'               => 'RegionId',
         'resourceGroupId'        => 'ResourceGroupId',
+        'tag'                    => 'Tag',
         'type'                   => 'Type',
     ];
 
@@ -286,6 +297,15 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -352,6 +372,15 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

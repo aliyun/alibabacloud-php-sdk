@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @description The ID of the GA instance that you want to query.
+     *
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDomainsRequest extends Model
     public $acceleratorId;
 
     /**
+     * @description The accelerated domain name that you want to query.
+     *
      * @example www.example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDomainsRequest extends Model
     public $domain;
 
     /**
+     * @description The page number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +54,13 @@ class ListDomainsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ICP filing status of the accelerated domain name that you want to query. Valid values:
+     *
+     *   **illegal:** The domain name is illegal.
+     *   **inactive:** The domain name has not completed ICP filing.
+     *   **active:** The domain name has a valid ICP filing.
+     *   **unknown:** The ICP filing status is unknown.
+     *
      * @example active
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class moduleDetails extends Model
 {
     /**
+     * @description The discount.
+     *
      * @example 40000.0
      *
      * @var float
@@ -16,6 +18,8 @@ class moduleDetails extends Model
     public $discountPrice;
 
     /**
+     * @description The code of the commodity module.
+     *
      * @example spec
      *
      * @var string
@@ -23,11 +27,17 @@ class moduleDetails extends Model
     public $moduleCode;
 
     /**
+     * @description The name of the commodity module.
+     *
+     * @example Specification
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @description The original price.
+     *
      * @example 200000.0
      *
      * @var float
@@ -35,6 +45,8 @@ class moduleDetails extends Model
     public $originalPrice;
 
     /**
+     * @description The discounted price.
+     *
      * @example 160000.0
      *
      * @var float

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
 {
     /**
-     * @description The IDs of the access policies of traffic.
+     * @description The IDs of the traffic destinations.
      *
      * @var string[]
      */

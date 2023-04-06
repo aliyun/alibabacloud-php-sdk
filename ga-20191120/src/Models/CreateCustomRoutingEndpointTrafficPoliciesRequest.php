@@ -12,9 +12,9 @@ class CreateCustomRoutingEndpointTrafficPoliciesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -22,8 +22,9 @@ class CreateCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint for which you want to create the access policies of traffic.
+     * @description The ID of the endpoint for which you want to create the traffic destinations.
      *
+     * > This parameter is required.
      * @example ep-2zewuzypq5e6r3pfh****
      *
      * @var string
@@ -31,6 +32,9 @@ class CreateCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $endpointId;
 
     /**
+     * @description The configurations of the traffic destinations.
+     *
+     * You can specify up to 500 traffic destinations for each endpoint.
      * @var policyConfigurations[]
      */
     public $policyConfigurations;

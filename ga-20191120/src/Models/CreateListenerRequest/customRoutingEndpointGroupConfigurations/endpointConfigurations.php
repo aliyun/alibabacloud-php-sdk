@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description The name of the endpoint vSwitch of the custom routing listener.
+     * @description The name of the vSwitch that is specified as an endpoint.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example vsw-test01
      *
      * @var string
@@ -20,22 +20,25 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
+     * @description The destination in the endpoint that is associated with the custom routing listener.
+     *
+     * You can specify at most 20 destinations in each endpoint of a custom routing listener.
+     *
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @var policyConfigurations[]
      */
     public $policyConfigurations;
 
     /**
-     * @description The traffic policy of the backend service of the endpoint that is associated with the custom routing listener. Valid values:
+     * @description The traffic policy for the endpoint that is associated with the custom routing listener. Valid values:
      *
-     *   **DenyAll** (default): denies all traffic to the specified backend service.
+     *   **DenyAll** (default): denies all traffic to the endpoint.
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
      *
-     *   **AllowAll**: allows all traffic to the specified backend service.
+     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
      *
-     *   **AllowCustom**: allows traffic to a specified destination.
-     *
-     * You must specify the IP address and port range of the destination. If the port range is empty, all ports are available.
-     *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example DenyAll
      *
      * @var string
@@ -43,11 +46,11 @@ class endpointConfigurations extends Model
     public $trafficToEndpointPolicy;
 
     /**
-     * @description The backend service type of the endpoint that is associated with the custom routing listener. Set the value to
+     * @description The service type of the endpoint that is associated with the custom routing listener.
      *
-     **PrivateSubNet**, which specifies a private CIDR block.
+     * Set the value to **PrivateSubNet**, which specifies a private CIDR block.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example PrivateSubNet
      *
      * @var string

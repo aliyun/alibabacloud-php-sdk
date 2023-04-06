@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description The name of the endpoint (vSwitch).
+     * @description The name of the vSwitch that is specified as an endpoint.
      *
      * @example vsw-test01
      *
@@ -19,20 +19,21 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
+     * @description The destination to which traffic is forwarded.
+     *
+     * You can specify up to 20 destinations for each endpoint.
      * @var policyConfigurations[]
      */
     public $policyConfigurations;
 
     /**
-     * @description The access policy of traffic to the endpoint. Defualt value: DenyAll. Valid values:
+     * @description The traffic policy that is used to process traffic to the endpoint. Valid values:
      *
-     *   **DenyAll**: denies all traffic to the endpoint.
-     *
+     *   **DenyAll** (default): denies all traffic to the endpoint.
      *   **AllowAll**: allows all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
      *
-     *   **AllowCustom**: allows traffic only to specified destinations in the endpoint
-     *
-     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges of destinations to which to allow traffic. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to all ports and the specified IP addresses in the destinations.
+     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
      * @example DenyAll
      *
      * @var string
@@ -40,9 +41,9 @@ class endpointConfigurations extends Model
     public $trafficToEndpointPolicy;
 
     /**
-     * @description The backend service type of the endpoint. Default value: PrivateSubNet.
+     * @description The type of endpoint.
      *
-     * Set the value to **PrivateSubNet**, which indicates private CIDR blocks.
+     * Set the value to **PrivateSubNet**, which specifies a private CIDR block. This is the default value.
      * @example PrivateSubNet
      *
      * @var string

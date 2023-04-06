@@ -37,7 +37,7 @@ class ListBandwidthPackagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -46,23 +46,25 @@ class ListBandwidthPackagesRequest extends Model
     public $regionId;
 
     /**
-     * @example rg-aek2ry6mp2clrla
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2ry6mp2c****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The state of the bandwidth plan. Valid values:
+     * @description The status of the bandwidth plan. Valid values:
      *
      *   **init**: The bandwidth plan is being initialized.
      *   **active**: The bandwidth plan is available.
-     *   **binded**: The bandwidth plan is associated with a GA instance.
+     *   **binded**: The bandwidth plan is associated.
      *   **binding**: The bandwidth plan is being associated.
      *   **unbinding**: The bandwidth plan is being disassociated.
      *   **updating**: The bandwidth plan is being updated.
      *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
-     *   **Locked**: The bandwidth plan is locked.
+     *   **locked**: The bandwidth plan is locked.
      *
      * @example active
      *
@@ -71,6 +73,8 @@ class ListBandwidthPackagesRequest extends Model
     public $state;
 
     /**
+     * @description The tag of the bandwidth plan.
+     *
      * @var tag[]
      */
     public $tag;
@@ -79,9 +83,9 @@ class ListBandwidthPackagesRequest extends Model
      * @description The type of the bandwidth plan. Valid values:
      *
      *   **Basic**: a basic bandwidth plan
-     *   **CrossDomain**: a cross-region acceleration bandwidth plan
+     *   **CrossDomain**: a cross-border acceleration bandwidth plan
      *
-     * If you call this operation on the Alibaba Cloud China Site (aliyun.com), you can only set Type to **Basic**.
+     * If you call this operation on the China site (aliyun.com), you can set Type only to **Basic**.
      * @example Basic
      *
      * @var string

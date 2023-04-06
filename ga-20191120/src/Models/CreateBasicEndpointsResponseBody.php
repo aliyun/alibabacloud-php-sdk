@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicEndpointsResponseBody extends Model
 {
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -19,7 +19,7 @@ class CreateBasicEndpointsResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The endpoints in the endpoint group.
+     * @description The endpoints that are associated with the basic GA instance.
      *
      * @var endpoints[]
      */

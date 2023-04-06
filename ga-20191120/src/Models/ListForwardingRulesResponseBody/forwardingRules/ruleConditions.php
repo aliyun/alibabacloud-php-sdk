@@ -13,6 +13,7 @@ class ruleConditions extends Model
     /**
      * @description The configuration of the domain name.
      *
+     * >  For GA instances created after July 12, 2022, all forwarding condition types and forwarding action types are supported. We recommend that you use **RuleConditionType** and **RuleConditionValue** to query forwarding conditions.
      * @var hostConfig
      */
     public $hostConfig;
@@ -20,6 +21,7 @@ class ruleConditions extends Model
     /**
      * @description The configuration of the path.
      *
+     * >  For GA instances created after July 12, 2022, all forwarding condition types and forwarding action types are supported. We recommend that you use **RuleConditionType** and **RuleConditionValue** to query forwarding conditions.
      * @var pathConfig
      */
     public $pathConfig;

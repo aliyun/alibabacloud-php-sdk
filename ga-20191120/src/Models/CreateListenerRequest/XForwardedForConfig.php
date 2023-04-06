@@ -14,7 +14,7 @@ class XForwardedForConfig extends Model
      *   **true**: yes
      *   **false** (default): no
      *
-     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -27,7 +27,7 @@ class XForwardedForConfig extends Model
      *   **true**: yes
      *   **false** (default): no
      *
-     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -35,12 +35,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForGaIdEnabled;
 
     /**
-     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listening ports of the GA instance. Valid values:
+     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listener ports of the GA instance. Valid values:
      *
      *   **true**: yes
      *   **false** (default): no
      *
-     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -53,7 +53,7 @@ class XForwardedForConfig extends Model
      *   **true**: yes
      *   **false** (default): no
      *
-     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -66,7 +66,7 @@ class XForwardedForConfig extends Model
      *   **true**: yes
      *   **false** (default): no
      *
-     * >  You can set this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool

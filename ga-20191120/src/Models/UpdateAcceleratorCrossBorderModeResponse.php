@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryCrossPrivatePermissionResponse extends Model
+class UpdateAcceleratorCrossBorderModeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryCrossPrivatePermissionResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryCrossPrivatePermissionResponseBody
+     * @var UpdateAcceleratorCrossBorderModeResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class QueryCrossPrivatePermissionResponse extends Model
     /**
      * @param array $map
      *
-     * @return QueryCrossPrivatePermissionResponse
+     * @return UpdateAcceleratorCrossBorderModeResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class QueryCrossPrivatePermissionResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = QueryCrossPrivatePermissionResponseBody::fromMap($map['body']);
+            $model->body = UpdateAcceleratorCrossBorderModeResponseBody::fromMap($map['body']);
         }
 
         return $model;

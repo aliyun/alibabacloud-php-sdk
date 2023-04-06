@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class promotions extends Model
 {
     /**
+     * @description The discounted amount.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example 0
      *
      * @var float
@@ -16,6 +19,9 @@ class promotions extends Model
     public $canPromFee;
 
     /**
+     * @description The code of the commodity to which the coupon applies.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example youhui_quan
      *
      * @var string
@@ -23,6 +29,9 @@ class promotions extends Model
     public $optionCode;
 
     /**
+     * @description The name of the coupon.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example youhuiquan_promotion_option_id_for_blank
      *
      * @var string
@@ -30,6 +39,14 @@ class promotions extends Model
     public $promotionName;
 
     /**
+     * @description The coupon code.
+     *
+     * >
+     *
+     *   `youhuiquan_promotion_option_id_for_blank` indicates coupons that do not apply.
+     *
+     *   This parameter is unavailable on the China site (aliyun.com).
+     *
      * @example 50003298014****
      *
      * @var string
@@ -37,6 +54,12 @@ class promotions extends Model
     public $promotionOptionNo;
 
     /**
+     * @description Indicates whether an item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @example false
      *
      * @var bool

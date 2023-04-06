@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The ID of the basic GA instance.
+     *
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -25,7 +27,7 @@ class endpoints extends Model
     public $endpointAddress;
 
     /**
-     * @description The ID of the endpoint group to which the endpoints belong.
+     * @description The ID of the endpoint group to which the endpoint belongs.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -45,10 +47,11 @@ class endpoints extends Model
     /**
      * @description The secondary address of the endpoint.
      *
-     * This parameter is returned when the accelerated IP address is associated with the secondary private IP address of an ECS instance or ENI.
+     * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**.
      *
-     *   When the endpoint type is **ECS**, **EndpointSubAddress** returns the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is returned.
-     *   When the endpoint type is **ENI**, **EndpointSubAddress** returns the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is returned.
+     *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the primary or secondary private IP address of the primary ENI.
+     *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the primary or secondary private IP address of the secondary ENI.
+     *   If the endpoint type is **NLB**, **EndpointSubAddress** returns the primary private IP address of the NLB backend server.
      *
      * @example 172.16.XX.XX
      *
@@ -57,6 +60,12 @@ class endpoints extends Model
     public $endpointSubAddress;
 
     /**
+     * @description The secondary address type of the endpoint.
+     *
+     *   **primary**: a primary private IP address.
+     *   **secondary**: a secondary private IP address.
+     *
+     * This parameter is returned if the type of the endpoint is set to **ECS**, **ENI**, or **NLB**. If the endpoint type is set to **NLB**, **primary** is returned.
      * @example primary
      *
      * @var string
@@ -66,9 +75,10 @@ class endpoints extends Model
     /**
      * @description The type of endpoint. Valid values:
      *
-     *   **ENI**: ENI
-     *   **SLB**: CLB
-     *   **ECS**: ECS
+     *   **ENI**: ENI.
+     *   **SLB**: CLB instance.
+     *   **ECS**: ECS instance.
+     *   **NLB**: NLB instance.
      *
      * @example ENI
      *
@@ -77,6 +87,9 @@ class endpoints extends Model
     public $endpointType;
 
     /**
+     * @description The zone ID of the endpoint.
+     *
+     * This parameter is returned only when the endpoint type is set to **NLB**.
      * @example cn-hangzhou-g
      *
      * @var string
@@ -84,6 +97,8 @@ class endpoints extends Model
     public $endpointZoneId;
 
     /**
+     * @description The name of the endpoint.
+     *
      * @example ep01
      *
      * @var string

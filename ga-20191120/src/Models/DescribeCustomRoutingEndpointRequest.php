@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointRequest extends Model
 {
     /**
+     * @description 待查询终端节点所属终端节点组ID。
+     *
+     * @example epg-bp1j184jhb9i9ubwf****
+     *
      * @var string
      */
     public $endpointGroup;
@@ -23,7 +27,7 @@ class DescribeCustomRoutingEndpointRequest extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

@@ -21,9 +21,9 @@ class CreateBasicEndpointsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -31,7 +31,7 @@ class CreateBasicEndpointsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -40,6 +40,8 @@ class CreateBasicEndpointsRequest extends Model
     public $endpointGroupId;
 
     /**
+     * @description The endpoints that are associated with the basic GA instance.
+     *
      * @var endpoints[]
      */
     public $endpoints;

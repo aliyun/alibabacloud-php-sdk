@@ -36,14 +36,14 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description The list of endpoint group IP addresses.
+     * @description A list of endpoint group IP addresses.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description The ID of the region where the endpoint group is created.
+     * @description The ID of the region where the endpoint group is deployed.
      *
      * @example cn-hangzhou
      *
@@ -77,12 +77,12 @@ class endpointGroups extends Model
     public $name;
 
     /**
-     * @description The status of the endpoint group.
+     * @description The status of the endpoint group. Valid values:
      *
-     *   **init**: being initialized
-     *   **active**: running as expected
-     *   **updating**: being updated
-     *   **deleting**: being deleted
+     *   **init**: The endpoint group is being initialized.
+     *   **active**: The endpoint group is running as expected.
+     *   **updating**: The endpoint group is being updated.
+     *   **deleting**: The endpoint group is being deleted.
      *
      * @example active
      *

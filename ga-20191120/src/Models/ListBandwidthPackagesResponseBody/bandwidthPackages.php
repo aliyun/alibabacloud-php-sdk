@@ -37,9 +37,9 @@ class bandwidthPackages extends Model
     /**
      * @description The type of the bandwidth. Valid values:
      *
-     *   **Basic**: basic bandwidth
-     *   **Enhanced**: enhanced bandwidth
-     *   **Advanced**: premium bandwidth
+     *   **Basic**: standard
+     *   **Enhanced**: enhanced
+     *   **Advanced**: premium
      *
      * @example Basic
      *
@@ -60,9 +60,9 @@ class bandwidthPackages extends Model
     public $billingType;
 
     /**
-     * @description Area A specified in the cross-region acceleration bandwidth plan. Only **China-mainland** (the Chinese mainland) is returned.
+     * @description Area A of the cross-border acceleration bandwidth plan. Only **China-mainland** (the Chinese mainland) is returned.
      *
-     * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+     * This parameter is returned only if you call this operation on the international site (alibabacloud.com).
      * @example China-mainland
      *
      * @var string
@@ -70,9 +70,9 @@ class bandwidthPackages extends Model
     public $cbnGeographicRegionIdA;
 
     /**
-     * @description Area B specified in the cross-region acceleration bandwidth plan. Only **Global** (global) is returned.
+     * @description Area B of the cross-border acceleration bandwidth plan. Only **Global** (global) is returned.
      *
-     * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+     * This parameter is returned only if you call this operation on the international site (alibabacloud.com).
      * @example Global
      *
      * @var string
@@ -125,7 +125,7 @@ class bandwidthPackages extends Model
     public $name;
 
     /**
-     * @description The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used.
+     * @description The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile metering method is used.
      *
      * @example 30
      *
@@ -143,23 +143,25 @@ class bandwidthPackages extends Model
     public $regionId;
 
     /**
-     * @example rg-aekztkx4zwc3m4a
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2ry6mp2c****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The state of the bandwidth plan. Valid values:
+     * @description The status of the bandwidth plan. Valid values:
      *
      *   **init**: The bandwidth plan is being initialized.
      *   **active**: The bandwidth plan is available.
-     *   **binded**: The bandwidth plan is associated with a GA instance.
+     *   **binded**: The bandwidth plan is associated.
      *   **binding**: The bandwidth plan is being associated.
      *   **unbinding**: The bandwidth plan is being disassociated.
      *   **updating**: The bandwidth plan is being updated.
      *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
-     *   **Locked**: The bandwidth plan is locked.
+     *   **locked**: The bandwidth plan is locked.
      *
      * @example active
      *
@@ -168,6 +170,8 @@ class bandwidthPackages extends Model
     public $state;
 
     /**
+     * @description The tag of the bandwidth plan.
+     *
      * @var tags[]
      */
     public $tags;
@@ -176,9 +180,9 @@ class bandwidthPackages extends Model
      * @description The type of the bandwidth plan. Valid values:
      *
      *   **Basic**: a basic bandwidth plan
-     *   **CrossDomain**: a cross-region acceleration bandwidth plan
+     *   **CrossDomain**: a cross-border acceleration bandwidth plan
      *
-     * If you call this operation on the Alibaba Cloud China Site (aliyun.com), only **Basic** is returned.
+     * If you call this operation on the China site (aliyun.com), only **Basic** is returned.
      * @example Basic
      *
      * @var string

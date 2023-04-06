@@ -21,10 +21,11 @@ class GetBasicAcceleratorResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The bandwidth billing method. Valid values:
+     * @description The bandwidth metering method.
      *
      *   **BandwidthPackage**: billed based on bandwidth plans.
-     *   **CDT**: billed based on data transfer.
+     *   **CDT**: billed by Cloud Data Transfer (CDT) and based on data transfer.
+     *   **CDT95**: billed by CDT and based on the 95th percentile bandwidth. This bandwidth metering method is available only to users that are included in the whitelist.
      *
      * @example CDT
      *
@@ -33,14 +34,14 @@ class GetBasicAcceleratorResponseBody extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description Details about the basic bandwidth plan that is associated with the basic GA instance.
+     * @description The details about the basic bandwidth plan that is associated with the basic GA instance.
      *
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -49,7 +50,7 @@ class GetBasicAcceleratorResponseBody extends Model
     public $basicEndpointGroupId;
 
     /**
-     * @description The ID of the region where the basic GA instance is deployed.
+     * @description The ID of the acceleration region.
      *
      * @example ips-bp11ilwqjdkjeg9r7****
      *
@@ -67,7 +68,7 @@ class GetBasicAcceleratorResponseBody extends Model
     public $cenId;
 
     /**
-     * @description The timestamp that indicates when the basic GA instance was created.
+     * @description The timestamp that indicates when the basic GA instance is created.
      *
      * @example 1637734547
      *
@@ -76,18 +77,23 @@ class GetBasicAcceleratorResponseBody extends Model
     public $createTime;
 
     /**
-     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     * @var bool
+     */
+    public $crossBorderStatus;
+
+    /**
+     * @description The details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This parameter is returned only when you call this operation on the International site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
-     * @description Indicates whether China Unicom cross-border communication is enabled.
+     * @description Indicates whether cross-border acceleration is enabled.
      *
-     *   **true**: China Unicom cross-border communication is enabled.
-     *   **false**: China Unicom cross-border communication is disabled.
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -107,6 +113,7 @@ class GetBasicAcceleratorResponseBody extends Model
     /**
      * @description The timestamp that indicates when the basic GA instance expires.
      *
+     * The time follows the UNIX time format. It is the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1640326547
      *
      * @var int
@@ -150,6 +157,8 @@ class GetBasicAcceleratorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the basic GA instance belongs.
+     *
      * @example rg-aekzrnd67gq****
      *
      * @var string
@@ -157,15 +166,15 @@ class GetBasicAcceleratorResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The state of the basic GA instance. Valid values:
+     * @description The status of the basic GA instance.
      *
-     *   **init**: The basic GA instance is being initialized.
-     *   **active**: The basic GA instance is available.
-     *   **configuring**: The basic GA instance is being configured.
-     *   **binding**: The basic GA instance is being associated.
-     *   **unbinding**: The basic GA instance is being disassociated.
-     *   **deleting**: The basic GA instance is being deleted.
-     *   **finacialLocked**: The basic GA instance is locked due to overdue payments.
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -174,6 +183,8 @@ class GetBasicAcceleratorResponseBody extends Model
     public $state;
 
     /**
+     * @description The tags of the basic GA instance.
+     *
      * @var tags[]
      */
     public $tags;
@@ -185,6 +196,7 @@ class GetBasicAcceleratorResponseBody extends Model
         'basicIpSetId'                => 'BasicIpSetId',
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
+        'crossBorderStatus'           => 'CrossBorderStatus',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
         'crossPrivateState'           => 'CrossPrivateState',
         'description'                 => 'Description',
@@ -225,6 +237,9 @@ class GetBasicAcceleratorResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossBorderStatus) {
+            $res['CrossBorderStatus'] = $this->crossBorderStatus;
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
@@ -297,6 +312,9 @@ class GetBasicAcceleratorResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossBorderStatus'])) {
+            $model->crossBorderStatus = $map['CrossBorderStatus'];
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);

@@ -63,6 +63,10 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 终端节点当前状态。
+     *
+     * @example active
+     *
      * @var string
      */
     public $state;
@@ -70,9 +74,9 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     /**
      * @description The access policy of traffic for the specified endpoint. Valid values:
      *
-     *   **AllowAll**: allows all traffic to the endpoint.
-     *   **DenyAll**: denies all traffic to the endpoint.
-     *   **AllowCustom**: allows traffic only to specified destinations.
+     *   **AllowAll:** allows all traffic to the endpoint.
+     *   **DenyAll:** denies all traffic to the endpoint.
+     *   **AllowCustom:** allows traffic only to specified destinations in the endpoint
      *
      * @example DenyAll
      *

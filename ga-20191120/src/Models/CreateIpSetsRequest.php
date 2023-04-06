@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIpSetsRequest extends Model
 {
     /**
+     * @description The information about the acceleration regions.
+     *
      * @var accelerateRegion[]
      */
     public $accelerateRegion;
@@ -26,9 +28,9 @@ class CreateIpSetsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
      *
      * @var string
@@ -36,7 +38,7 @@ class CreateIpSetsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

@@ -22,6 +22,11 @@ class DescribeAcceleratorResponseBody extends Model
     public $acceleratorId;
 
     /**
+     * @description The bandwidth metering method. Valid values:
+     *
+     *   **BandwidthPackage:** billed based on bandwidth plans.
+     *   **CDT**: billed based on data transfer.
+     *
      * @example CDT
      *
      * @var string
@@ -29,7 +34,7 @@ class DescribeAcceleratorResponseBody extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description Details about the basic bandwidth plan that is associated with the GA instance.
+     * @description The details about the basic bandwidth plan that is associated with the GA instance.
      *
      * @var basicBandwidthPackage
      */
@@ -45,7 +50,7 @@ class DescribeAcceleratorResponseBody extends Model
     public $cenId;
 
     /**
-     * @description The timestamp that indicates the time when the GA instance was created.
+     * @description The timestamp that indicates when the GA instance is created.
      *
      * @example 1650643200
      *
@@ -54,21 +59,35 @@ class DescribeAcceleratorResponseBody extends Model
     public $createTime;
 
     /**
-     * @example private
+     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
+     *
+     **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
+     *
+     * @example bpgPro
      *
      * @var string
      */
     public $crossBorderMode;
 
     /**
-     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     * @var bool
+     */
+    public $crossBorderStatus;
+
+    /**
+     * @description The details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
+     * @description Indicates whether cross-border acceleration is enabled.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var string
@@ -76,7 +95,7 @@ class DescribeAcceleratorResponseBody extends Model
     public $crossPrivateState;
 
     /**
-     * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance that is associated with the GA instance.
+     * @description The ID of the Anti-DDoS Pro/Premium instance that is associated with the GA instance.
      *
      * @example ddoscoo-cn-zz11vq7j****
      *
@@ -96,14 +115,14 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @description The canonical name (CNAME) that is assigned to the GA instance.
      *
-     * @example ga-bp1j80t5****.uisnetwork.com
+     * @example ga-bp15u1i2hmtbk8c3i****.aliyunga0019.com
      *
      * @var string
      */
     public $dnsName;
 
     /**
-     * @description The timestamp that indicates the time when the GA instance expires.
+     * @description The timestamp that indicates when the GA instance expires.
      *
      * @example 1653235200
      *
@@ -112,7 +131,7 @@ class DescribeAcceleratorResponseBody extends Model
     public $expiredTime;
 
     /**
-     * @description The billing method of the GA instance.
+     * @description The billing method of the GA instance. Only **PREPAY** is returned. This value indicates the subscription billing method.
      *
      * @example PREPAY
      *
@@ -155,6 +174,8 @@ class DescribeAcceleratorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmw2vwdbujqbq
      *
      * @var string
@@ -189,9 +210,8 @@ class DescribeAcceleratorResponseBody extends Model
      *   **90**: Large VⅢ
      *   **100**: Super Large Ⅰ
      *   **200**: Super Large Ⅱ
-     *   **300**: Super Large Ⅲ
      *
-     * Each instance specification provides different capabilities. For more information, see the "Specifications of standard GA instances" section in [Overview](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string
@@ -199,7 +219,7 @@ class DescribeAcceleratorResponseBody extends Model
     public $spec;
 
     /**
-     * @description The state of the GA instance. Valid values:
+     * @description The status of the GA instance. Valid values:
      *
      *   **init**: The GA instance is being initialized.
      *   **active**: The GA instance is available.
@@ -216,6 +236,8 @@ class DescribeAcceleratorResponseBody extends Model
     public $state;
 
     /**
+     * @description The tags of the GA instance.
+     *
      * @var tags[]
      */
     public $tags;
@@ -226,6 +248,7 @@ class DescribeAcceleratorResponseBody extends Model
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
         'crossBorderMode'             => 'CrossBorderMode',
+        'crossBorderStatus'           => 'CrossBorderStatus',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
         'crossPrivateState'           => 'CrossPrivateState',
         'ddosId'                      => 'DdosId',
@@ -268,6 +291,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (null !== $this->crossBorderMode) {
             $res['CrossBorderMode'] = $this->crossBorderMode;
+        }
+        if (null !== $this->crossBorderStatus) {
+            $res['CrossBorderStatus'] = $this->crossBorderStatus;
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
@@ -352,6 +378,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (isset($map['CrossBorderMode'])) {
             $model->crossBorderMode = $map['CrossBorderMode'];
+        }
+        if (isset($map['CrossBorderStatus'])) {
+            $model->crossBorderStatus = $map['CrossBorderStatus'];
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);

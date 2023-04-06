@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class destinationConfigurations extends Model
 {
     /**
-     * @description The first port of the backend service of the endpoint group that is associated with the custom routing listener.
+     * @description The first port used by the endpoint group that is associated with the custom routing listener.
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
      *
-     * You can specify at most 20 first ports of backend services for an endpoint group of a custom routing listener.
+     * You can specify up to 20 first ports for an endpoint group of a custom routing listener.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example 80
      *
      * @var int
@@ -23,18 +23,23 @@ class destinationConfigurations extends Model
     public $fromPort;
 
     /**
+     * @description The protocol used by the endpoint group that is associated with the custom routing listener.
+     *
+     * You can specify up to four protocols in each mapping configuration for an endpoint group of a custom routing listener.
+     *
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The last port of the backend service of the endpoint group that is associated with the custom routing listener.
+     * @description The last port used by the endpoint group that is associated with the custom routing listener.
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
      *
-     * You can specify at most 20 last ports of backend services for an endpoint group of a custom routing listener.
+     * You can specify up to 20 last ports for an endpoint group of a custom routing listener.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example 80
      *
      * @var int

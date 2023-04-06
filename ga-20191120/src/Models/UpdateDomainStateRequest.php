@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainStateRequest extends Model
 {
     /**
+     * @description The accelerated domain name whose ICP filing status you want to update.
+     *
      * @example www.example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDomainStateRequest extends Model
     public $domain;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

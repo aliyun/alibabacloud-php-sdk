@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends Model
 {
     /**
-     * @description The IDs of the endpoint group mapping configurations.
+     * @description The IDs of the mapping configurations.
      *
      * @var string[]
      */

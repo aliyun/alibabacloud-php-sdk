@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
-     * @description The IP address of the destination that allows traffic.
+     * @description The IP address of the destination to which traffic is forwarded.
      *
      * This parameter takes effect only if **TrafficToEndpointPolicy** is set to **AllowCustom**.
      *
      * You can specify up to 20 destination IP addresses for each endpoint of a custom routing listener.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example 10.0.XX.XX
      *
      * @var string
@@ -24,6 +24,15 @@ class policyConfigurations extends Model
     public $address;
 
     /**
+     * @description The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+     *
+     * If you leave this parameter empty, traffic is distributed to all destination ports.
+     *
+     * This parameter takes effect only if **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *
+     * You can specify port ranges for up to 20 destinations in each endpoint of a custom routing listener. You can specify up to five port ranges for each destination.
+     *
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @var portRanges[]
      */
     public $portRanges;

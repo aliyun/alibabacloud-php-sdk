@@ -21,6 +21,11 @@ class endpointConfigurations extends Model
     public $enableClientIPPreservation;
 
     /**
+     * @var bool
+     */
+    public $enableProxyProtocol;
+
+    /**
      * @description The IP address or domain name of the endpoint.
      *
      * @example 120.XX.XX.21
@@ -77,6 +82,7 @@ class endpointConfigurations extends Model
     public $weight;
     protected $_name = [
         'enableClientIPPreservation' => 'EnableClientIPPreservation',
+        'enableProxyProtocol'        => 'EnableProxyProtocol',
         'endpoint'                   => 'Endpoint',
         'probePort'                  => 'ProbePort',
         'probeProtocol'              => 'ProbeProtocol',
@@ -93,6 +99,9 @@ class endpointConfigurations extends Model
         $res = [];
         if (null !== $this->enableClientIPPreservation) {
             $res['EnableClientIPPreservation'] = $this->enableClientIPPreservation;
+        }
+        if (null !== $this->enableProxyProtocol) {
+            $res['EnableProxyProtocol'] = $this->enableProxyProtocol;
         }
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
@@ -123,6 +132,9 @@ class endpointConfigurations extends Model
         $model = new self();
         if (isset($map['EnableClientIPPreservation'])) {
             $model->enableClientIPPreservation = $map['EnableClientIPPreservation'];
+        }
+        if (isset($map['EnableProxyProtocol'])) {
+            $model->enableProxyProtocol = $map['EnableProxyProtocol'];
         }
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];

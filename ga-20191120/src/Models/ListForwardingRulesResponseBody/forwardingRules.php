@@ -39,7 +39,7 @@ class forwardingRules extends Model
     public $forwardingRuleName;
 
     /**
-     * @description The state of the forwarding rule.
+     * @description The status of the forwarding rule.
      *
      *   **active**: The forwarding rule is normal.
      *   **configuring**: The forwarding rule is being modified.

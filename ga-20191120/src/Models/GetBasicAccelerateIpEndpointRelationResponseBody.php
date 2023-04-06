@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
 {
     /**
-     * @description The ID of the accelerated IP address of the basic GA instance.
+     * @description The ID of the accelerated IP address.
      *
      * @example gaip-bp1****
      *
@@ -36,7 +36,7 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $endpointAddress;
 
     /**
-     * @description The ID of the endpoint that is associated with the basic GA instance.
+     * @description The ID of the endpoint.
      *
      * @example ep-bp14sz7ftcwwjgrdm****
      *
@@ -45,7 +45,7 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The name of the endpoint that is associated with the basic GA instance.
+     * @description The name of the endpoint.
      *
      * @example ep01
      *
@@ -58,8 +58,8 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
      *
      * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**.
      *
-     *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the secondary private IP address of the primary ENI. If the parameter is empty, the primary private IP address of the primary ENI is returned.
-     *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the secondary private IP address of the secondary ENI. If the parameter is empty, the primary private IP address of the secondary ENI is returned.
+     *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the primary or secondary private IP address of the primary ENI.
+     *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the primary or secondary private IP address of the secondary ENI.
      *   If the endpoint type is **NLB**, **EndpointSubAddress** returns the primary private IP address of the NLB backend server.
      *
      * @example 172.16.XX.XX
@@ -69,12 +69,12 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $endpointSubAddress;
 
     /**
-     * @description The type of secondary address of the endpoint. Valid values:
+     * @description The type of the secondary address of the endpoint.
      *
      *   **primary**: a primary private IP address.
      *   **secondary**: a secondary private IP address.
      *
-     * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**. If the endpoint type is **NLB**, only **primary** is returned.
+     * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**. If the endpoint type is set to **NLB**, **primary** is returned.
      * @example primary
      *
      * @var string
@@ -84,10 +84,10 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     /**
      * @description The type of endpoint. Valid values:
      *
-     *   **ENI**: Elastic Network Interface (ENI)
-     *   **SLB**: Classic Load Balancer (CLB)
-     *   **ECS**: Elastic Compute Service (ECS)
-     *   **NLB**: Network Load Balancer (NLB)
+     *   **ENI**: elastic network interface (ENI).
+     *   **SLB**: Classic Load Balancer (CLB) instance.
+     *   **ECS**: Elastic Compute Service (ECS) instance.
+     *   **NLB**: Network Load Balancer (NLB) instance.
      *
      * @example ENI
      *
@@ -96,7 +96,7 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $endpointType;
 
     /**
-     * @description The zone ID of the endpoint.
+     * @description The ID of the zone where the endpoint is created.
      *
      * This parameter is returned only when the endpoint type is **NLB**.
      * @example cn-hangzhou-g
@@ -124,7 +124,7 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the mapping between the accelerated IP address and endpoint.
+     * @description The association status between the accelerated IP address and endpoint.
      *
      * A value of **active** indicates that the accelerated IP address is associated with the endpoint.
      * @example active

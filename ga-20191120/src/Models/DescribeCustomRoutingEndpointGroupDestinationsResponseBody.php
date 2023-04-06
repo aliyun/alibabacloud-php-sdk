@@ -74,6 +74,8 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;

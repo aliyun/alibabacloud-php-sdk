@@ -26,7 +26,7 @@ class ListCustomRoutingEndpointGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class ListCustomRoutingEndpointGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

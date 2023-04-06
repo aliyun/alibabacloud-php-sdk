@@ -28,6 +28,8 @@ class CreateBasicIpSetRequest extends Model
     public $acceleratorId;
 
     /**
+     * @description The bandwidth allocated to the acceleration region. Unit: **Mbit/s**.
+     *
      * @example 2
      *
      * @var int
@@ -37,9 +39,9 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -47,7 +49,7 @@ class CreateBasicIpSetRequest extends Model
     public $clientToken;
 
     /**
-     * @description The line type of the elastic IP address (EIP) in the acceleration region. Default value: BGP. Valid values:
+     * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
      *   **BGP**: BGP (Multi-ISP) lines
      *   **BGP_PRO**: BGP (Multi-ISP) Pro lines If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
@@ -61,7 +63,7 @@ class CreateBasicIpSetRequest extends Model
      *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
      *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
      *
-     * >  The supported single-ISP type varies with the acceleration region.
+     * > Different acceleration regions support different single-ISP BGP lines.
      * @example BGP
      *
      * @var string

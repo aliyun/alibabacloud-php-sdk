@@ -36,6 +36,8 @@ class ipSets extends Model
     public $ipSetId;
 
     /**
+     * @description The line type of the EIP in the acceleration region.
+     *
      * @example BGP
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class orderDetails extends Model
 {
     /**
+     * @description The code of the commodity.
+     *
      * @example ga_gapluspre_public_cn
      *
      * @var string
@@ -18,11 +20,17 @@ class orderDetails extends Model
     public $commodityCode;
 
     /**
+     * @description The name of the commodity.
+     *
+     * @example Global Accelerator_Instance Type (Subscription)
+     *
      * @var string
      */
     public $commodityName;
 
     /**
+     * @description The discount.
+     *
      * @example 419.8
      *
      * @var float
@@ -30,11 +38,15 @@ class orderDetails extends Model
     public $discountPrice;
 
     /**
+     * @description The information about the commodity module.
+     *
      * @var moduleDetails[]
      */
     public $moduleDetails;
 
     /**
+     * @description The original price.
+     *
      * @example 2099
      *
      * @var float
@@ -42,11 +54,16 @@ class orderDetails extends Model
     public $originalPrice;
 
     /**
+     * @description The details about the discount.
+     *
+     * >  This parameter is unavailable on the China site (aliyun.com).
      * @var promDetails[]
      */
     public $promDetails;
 
     /**
+     * @description The number of instances that are purchased.
+     *
      * @example 1
      *
      * @var int
@@ -54,11 +71,15 @@ class orderDetails extends Model
     public $quantity;
 
     /**
+     * @description The IDs of the discount rules.
+     *
      * @var int[]
      */
     public $ruleIds;
 
     /**
+     * @description The transaction price, which is equal to the original price minus the discount.
+     *
      * @example 1679.2
      *
      * @var float

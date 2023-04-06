@@ -26,7 +26,7 @@ class ListBasicAcceleratorsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accelerators extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -16,6 +18,8 @@ class accelerators extends Model
     public $acceleratorId;
 
     /**
+     * @description The name of the GA instance.
+     *
      * @example Accelerator
      *
      * @var string

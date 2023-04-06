@@ -26,10 +26,10 @@ class ListAclsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description The token that is used for the next query. Valid values:
      *
-     *   If **NextToken** was not returned, it indicates that no additional results exist.
-     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
      *
      * @example FFmyTO70t****
      *

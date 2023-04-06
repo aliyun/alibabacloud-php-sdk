@@ -28,13 +28,13 @@ class acls extends Model
     public $aclName;
 
     /**
-     * @description The state of the network ACL. Valid values:
+     * @description The status of the network ACL. Valid values:
      *
      *   **init**: The network ACL is being initialized.
      *   **active**: The network ACL is available.
      *   **configuring**: The network ACL is being configured.
      *   **updating**: The network ACL is being updated.
-     *   **deleting**: The GA instance is being deleted.
+     *   **deleting:** The network ACL is being deleted.
      *
      * @example active
      *
@@ -55,13 +55,17 @@ class acls extends Model
     public $addressIPVersion;
 
     /**
-     * @example rg-acfnsq3noy22fkq
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2lgw4evw****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the network ACL.
+     *
      * @var tags[]
      */
     public $tags;

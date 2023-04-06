@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryCrossPrivatePermissionRequest extends Model
+class UpdateAcceleratorCrossBorderModeResponseBody extends Model
 {
     /**
-     * @example cn-hangzhou
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
      */
-    public $regionId;
+    public $requestId;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class QueryCrossPrivatePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class QueryCrossPrivatePermissionRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryCrossPrivatePermissionRequest
+     * @return UpdateAcceleratorCrossBorderModeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

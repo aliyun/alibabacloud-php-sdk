@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetIpsetsBandwidthLimitRequest extends Model
 {
     /**
+     * @description The ID of the GA instance to be queried.
+     *
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetIpsetsBandwidthLimitRequest extends Model
     public $acceleratorId;
 
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -11,9 +11,9 @@ class ListBasicEndpointsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,7 +21,7 @@ class ListBasicEndpointsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint group that you want to query.
+     * @description The ID of the endpoint group to which the endpoint that you want to query belongs.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -41,9 +41,10 @@ class ListBasicEndpointsRequest extends Model
     /**
      * @description The type of endpoint that you want to query. Valid values:
      *
-     *   **ENI**: elastic network interface (ENI)
-     *   **SLB**: Classic Load Balancer (CLB)
-     *   **ECS**: Elastic Compute Service (ECS)
+     *   **ENI**: elastic network interface (ENI).
+     *   **SLB**: Classic Load Balancer (CLB) instance.
+     *   **ECS**: Elastic Compute Service (ECS) instance.
+     *   **NLB**: Network Load Balancer (NLB) instance.
      *
      * @example ENI
      *
@@ -61,6 +62,9 @@ class ListBasicEndpointsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The name of the endpoint that you want to query.
+     *
+     * The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example ep01
      *
      * @var string

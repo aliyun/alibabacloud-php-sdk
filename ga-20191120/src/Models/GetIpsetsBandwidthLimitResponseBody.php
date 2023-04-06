@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetIpsetsBandwidthLimitResponseBody extends Model
 {
     /**
+     * @description The type of the bandwidth that is allocated.
+     *
+     *   **ShareBandwidth:** shared bandwidth.
+     *   **ExclusiveBandwidth:** dedicated bandwidth.
+     *
      * @example ShareBandwidth
      *
      * @var string
@@ -16,6 +21,8 @@ class GetIpsetsBandwidthLimitResponseBody extends Model
     public $bandwidthAllocationType;
 
     /**
+     * @description The maximum bandwidth of the acceleration area. Unit: Mbit/s.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +30,8 @@ class GetIpsetsBandwidthLimitResponseBody extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

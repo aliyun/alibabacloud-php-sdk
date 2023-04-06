@@ -18,6 +18,8 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $destinationId;
 
     /**
+     * @example epg-bp1j184jhb9i9ubwf****
+     *
      * @var string
      */
     public $endpointGroupId;

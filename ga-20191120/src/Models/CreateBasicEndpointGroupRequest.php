@@ -20,9 +20,9 @@ class CreateBasicEndpointGroupRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -59,6 +59,13 @@ class CreateBasicEndpointGroupRequest extends Model
     public $endpointGroupRegion;
 
     /**
+     * @description The secondary address of the endpoint.
+     *
+     * This parameter is required when the accelerated IP address is associated with the secondary private IP address of an ECS instance or an ENI.
+     *
+     *   If the endpoint type is **ECS**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
+     *   If the endpoint type is **ENI**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -66,10 +73,11 @@ class CreateBasicEndpointGroupRequest extends Model
     public $endpointSubAddress;
 
     /**
-     * @description The type of the endpoint. Valid values:
+     * @description The type of endpoint. Valid values:
      *
-     *   **ENI**: an ENI
-     *   **SLB**: a Server Load Balancer (SLB) instance
+     *   **ENI**: elastic network interface (ENI)
+     *   **SLB**: Classic Load Balancer (CLB) instance
+     *   **ECS**: Elastic Compute Service (ECS) instance
      *
      * @example ENI
      *

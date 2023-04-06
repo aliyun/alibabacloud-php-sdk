@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCommonAreasResponseBody extends Model
 {
     /**
+     * @description The information about the areas.
+     *
      * @var areas[]
      */
     public $areas;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
      *
      * @var string

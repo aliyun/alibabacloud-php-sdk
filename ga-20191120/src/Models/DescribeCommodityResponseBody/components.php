@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description The code of the commodity module.
+     *
+     * The returned information varies based on the commodity module.
+     * @example Duration
+     *
      * @var string
      */
     public $componentCode;
 
     /**
+     * @description The name of the commodity module.
+     *
+     * The returned information varies based on the commodity module.
+     * @example Duration
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @description The attributes of the commodity module.
+     *
+     * The returned information varies based on the commodity module.
      * @var properties[]
      */
     public $properties;

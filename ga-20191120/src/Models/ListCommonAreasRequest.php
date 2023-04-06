@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCommonAreasRequest extends Model
 {
     /**
+     * @description The IP version used to connect to the GA instance. Valid values:
+     *
+     *   **IPv4** (default): queries regions that support IPv4.
+     *   **IPv6** :queries regions that support IPv6.
+     *
      * @example IPv4
      *
      * @var string
@@ -16,6 +21,11 @@ class ListCommonAreasRequest extends Model
     public $ipVersion;
 
     /**
+     * @description Specifies whether to query regions where endpoint groups can be deployed.
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,11 @@ class ListCommonAreasRequest extends Model
     public $isEpg;
 
     /**
+     * @description Specifies whether to query regions supported by GA.
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example true
      *
      * @var bool

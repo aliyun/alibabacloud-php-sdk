@@ -13,9 +13,9 @@ class customRoutingEndpointGroupConfigurations extends Model
     /**
      * @description The description of the endpoint group that is associated with the custom routing listener.
      *
-     * You can enter the descriptions of at most five endpoint groups.
+     * You can specify at most five endpoint group descriptions.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example test
      *
      * @var string
@@ -23,11 +23,21 @@ class customRoutingEndpointGroupConfigurations extends Model
     public $description;
 
     /**
+     * @description The mapping configurations of the endpoint group that is associated with the custom routing listener.
+     *
+     * You can specify at most 20 mapping configurations for an endpoint group of a custom routing listener.
+     *
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @var destinationConfigurations[]
      */
     public $destinationConfigurations;
 
     /**
+     * @description The endpoint that is associated with the custom routing listener.
+     *
+     * You can configure at most 10 endpoints for an endpoint group of a custom routing listener.
+     *
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -35,9 +45,9 @@ class customRoutingEndpointGroupConfigurations extends Model
     /**
      * @description The region ID of the endpoint group that is associated with the custom routing listener.
      *
-     * You can enter the region IDs of at most five endpoint groups.
+     * You can enter the region IDs of up to five endpoint groups.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,9 +57,9 @@ class customRoutingEndpointGroupConfigurations extends Model
     /**
      * @description The name of the endpoint group that is associated with the custom routing listener.
      *
-     * You can enter the names of at most five endpoint groups.
+     * You can specify at most five endpoint group names.
      *
-     * >  You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
+     * > You can configure endpoint groups and endpoints for a custom routing listener only if the **Type** parameter is set to **CustomRouting**.
      * @example test
      *
      * @var string

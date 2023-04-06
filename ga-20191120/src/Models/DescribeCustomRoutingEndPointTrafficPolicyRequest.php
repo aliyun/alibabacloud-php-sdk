@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
 {
     /**
+     * @description The ID of the endpoint to which the traffic destination belongs.
+     *
+     * @example ep-bp1d2utp8qqe2a44t****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The ID of the traffic policy to be queried.
+     * @description The ID of the traffic destination to be queried.
      *
      * @example ply-bptest2****
      *

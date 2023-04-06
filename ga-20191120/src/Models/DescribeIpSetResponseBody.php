@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpSetResponseBody extends Model
 {
     /**
-     * @description The ID of the region that is accelerated.
+     * @description The ID of the acceleration region.
      *
      * @example cn-hangzhou
      *
@@ -52,7 +52,7 @@ class DescribeIpSetResponseBody extends Model
     public $ipSetId;
 
     /**
-     * @description The version of the accelerated IP address. Valid values:
+     * @description The version of the IP protocol. Valid values:
      *
      *   **IPv4**
      *   **IPv6**
@@ -64,6 +64,21 @@ class DescribeIpSetResponseBody extends Model
     public $ipVersion;
 
     /**
+     * @description The line type of the elastic IP address (EIP) in the acceleration region.
+     *
+     *   **BGP**: BGP (Multi-ISP) lines.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *
+     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
+     *
+     *   **ChinaTelecom**: China Telecom (single ISP).
+     *   **ChinaUnicom**: China Unicom (single ISP).
+     *   **ChinaMobile**: China Mobile (single ISP).
+     *   **ChinaTelecom_L2**: China Telecom (single ISP)\_L2.
+     *   **ChinaUnicom_L2**: China Unicom (single ISP)\_L2.
+     *   **ChinaMobile_L2**: China Mobile (single ISP)\_L2.
+     *
+     * >  The supported single-ISP line types vary based on the acceleration region.
      * @example BGP
      *
      * @var string
@@ -85,7 +100,7 @@ class DescribeIpSetResponseBody extends Model
      *   **init**: The acceleration region is being initialized.
      *   **active**: The acceleration region is in the running state.
      *   **updating**: The acceleration region is being configured.
-     *   **Deleting**: The acceleration region is being deleted.
+     *   **deleting:** The VPN gateway is being deleted.
      *
      * @example active
      *

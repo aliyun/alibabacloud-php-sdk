@@ -22,7 +22,7 @@ class destinationConfigurations extends Model
      *
      * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
      *
-     * You can specify up to 20 start ports of backend service port ranges in each request.
+     * You can specify up to 20 start ports in each request.
      * @example 80
      *
      * @var int
@@ -30,6 +30,13 @@ class destinationConfigurations extends Model
     public $fromPort;
 
     /**
+     * @description The backend service protocol of the endpoint group. Valid values:
+     *
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **tcp,udp**: TCP and UDP
+     *
+     * You can specify up to four backend service protocols in each configuration.
      * @var string[]
      */
     public $protocols;
@@ -39,7 +46,7 @@ class destinationConfigurations extends Model
      *
      * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
      *
-     * You can specify up to 20 end ports of backend service port ranges in each request.
+     * You can specify up to 20 end ports in each request.
      * @example 80
      *
      * @var int

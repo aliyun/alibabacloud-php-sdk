@@ -20,9 +20,9 @@ class ListForwardingRulesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4****
      *
      * @var string
@@ -57,9 +57,9 @@ class ListForwardingRulesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description The token that is used for the next query. Valid values:
      *
-     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
      *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -69,7 +69,7 @@ class ListForwardingRulesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

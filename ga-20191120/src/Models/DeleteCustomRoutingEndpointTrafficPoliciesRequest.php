@@ -13,7 +13,7 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,8 +21,9 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint for which you want to delete the access policies of traffic.
+     * @description The ID of the endpoint for which you want to delete traffic destinations.
      *
+     * >  This parameter is required.
      * @example ep-2zewuzypq5e6r3pfh****
      *
      * @var string
@@ -30,6 +31,9 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $endpointId;
 
     /**
+     * @description The IDs of the traffic destinations.
+     *
+     * You can specify the IDs of up to 9,000 traffic destinations.
      * @var string[]
      */
     public $policyIds;

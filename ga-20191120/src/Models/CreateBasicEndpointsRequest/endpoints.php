@@ -20,10 +20,11 @@ class endpoints extends Model
     /**
      * @description The secondary address of the endpoint.
      *
-     * This parameter is required when the accelerated IP address is associated with the secondary private IP address of an ECS instance or ENI.
+     * This parameter is required if the endpoint type is **ECS**, **ENI**, or **NLB**.
      *
-     *   When the endpoint type is **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
-     *   When the endpoint type is **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *   If the endpoint type is **ECS**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
+     *   If the endpoint type is **ENI**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *   This parameter is required if the endpoint type is **NLB**. **EndpointSubAddress** is the primary private IP address of the NLB backend server.
      *
      * @example 172.16.XX.XX
      *
@@ -32,6 +33,12 @@ class endpoints extends Model
     public $endpointSubAddress;
 
     /**
+     * @description The type of the secondary address of the endpoint. Valid values:
+     *
+     *   **primary**: a primary private IP address.
+     *   **secondary**: a secondary private IP address.
+     *
+     * This parameter is required if the endpoint type is **ECS**, **ENI**, or **NLB**. If the endpoint type is **NLB**, only **primary** is supported.
      * @example primary
      *
      * @var string
@@ -39,12 +46,14 @@ class endpoints extends Model
     public $endpointSubAddressType;
 
     /**
-     * @description The type of endpoint. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **ENI**: elastic network interface (ENI)
-     *   **SLB**: Classic Load Balancer (CLB)
-     *   **ECS**: Elastic Compute Service (ECS)
+     *   **ENI**: elastic network interface (ENI).
+     *   **SLB**: Classic Load Balancer (CLB) instance.
+     *   **ECS**: Elastic Compute Service (ECS) instance.
+     *   **NLB**: Network Load Balancer (NLB) instance.
      *
+     * >  This parameter is required.
      * @example ENI
      *
      * @var string
@@ -52,6 +61,9 @@ class endpoints extends Model
     public $endpointType;
 
     /**
+     * @description The ID of the zone where the endpoint resides.
+     *
+     * This parameter is required only if the endpoint type is **NLB**.
      * @example cn-hangzhou-g
      *
      * @var string
@@ -59,6 +71,9 @@ class endpoints extends Model
     public $endpointZoneId;
 
     /**
+     * @description The name of the endpoint.
+     *
+     * The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example ep01
      *
      * @var string

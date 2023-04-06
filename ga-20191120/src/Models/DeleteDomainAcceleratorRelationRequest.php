@@ -9,15 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainAcceleratorRelationRequest extends Model
 {
     /**
-     * @description The ID of the GA instance to be disassociated. You can enter up to 50 IDs.
+     * @description The ID of the GA instance to be disassociated. You can specify up to 50 IDs.
      *
-     * If you do not set this parameter, all GA instances associated with the specified domain name are disassociated.
+     * If you leave this parameter empty, all GA instances associated with the specified domain name are disassociated.
      * @var string[]
      */
     public $acceleratorIds;
 
     /**
-     * @description The domain name to be disassociated.
+     * @description The accelerated domain name to be disassociated.
      *
      * @example www.example.com
      *
@@ -26,7 +26,7 @@ class DeleteDomainAcceleratorRelationRequest extends Model
     public $domain;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

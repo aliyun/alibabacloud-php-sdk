@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainStateResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example www.example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDomainStateResponseBody extends Model
     public $domain;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -23,6 +27,13 @@ class UpdateDomainStateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ICP filing status of the accelerated domain name.
+     *
+     *   **illegal**: The domain name is illegal.
+     *   **inactive**: The domain name has not completed ICP filing.
+     *   **active**: The domain name has completed ICP filing.
+     *   **unknown**: The ICP filing status is unknown.
+     *
      * @example active
      *
      * @var string

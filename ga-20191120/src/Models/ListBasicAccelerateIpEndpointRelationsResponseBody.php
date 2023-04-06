@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAccelerateIpEndpointRelationsResponseBody extends Model
 {
     /**
-     * @description The mappings between the accelerated IP addresses and endpoints.
+     * @description A list of accelerated IP addresses and the endpoints with which the accelerated IP addresses are associated.
      *
      * @var accelerateIpEndpointRelations[]
      */
     public $accelerateIpEndpointRelations;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -26,10 +26,10 @@ class ListBasicAccelerateIpEndpointRelationsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The token that determines the start point of the query. Valid values:
      *
      *   If **NextToken** is not returned, it indicates that no additional results exist.
-     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -47,7 +47,7 @@ class ListBasicAccelerateIpEndpointRelationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

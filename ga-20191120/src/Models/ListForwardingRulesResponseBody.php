@@ -26,10 +26,10 @@ class ListForwardingRulesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description The token that is used for the next query. Valid values:
      *
-     *   If **NextToken** was not returned, it indicates that no additional results exist.
-     *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAccelerateIpEndpointRelationsRequest extends Model
 {
     /**
-     * @description The ID of the accelerated IP address of the basic GA instance.
+     * @description The ID of the accelerated IP address.
      *
      * @example gaip-bp1****
      *
@@ -29,9 +29,9 @@ class ListBasicAccelerateIpEndpointRelationsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -39,7 +39,7 @@ class ListBasicAccelerateIpEndpointRelationsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint that is associated with the basic GA instance.
+     * @description The ID of the endpoint.
      *
      * @example ep-bp14sz7ftcwwjgrdm****
      *
@@ -57,10 +57,10 @@ class ListBasicAccelerateIpEndpointRelationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The token that determines the start point of the query. Valid values:
      *
-     *   If this is your first and only query, ignore this parameter.
-     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *

@@ -21,6 +21,12 @@ class accelerators extends Model
     public $acceleratorId;
 
     /**
+     * @description The bandwidth billing method.
+     *
+     *   **BandwidthPackage**: billed based on bandwidth plans.
+     *   **CDT**: billed through Cloud Data Transfer (CDT) and based on data transfer.
+     *   **CDT95**: billed through CDT and based on the 95th percentile bandwidth. This bandwidth billing method is available only for users that are included in the whitelist.
+     *
      * @example BandwidthPackage
      *
      * @var string
@@ -35,7 +41,7 @@ class accelerators extends Model
     public $basicBandwidthPackage;
 
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -55,6 +61,7 @@ class accelerators extends Model
     /**
      * @description The timestamp that indicates when the basic GA instance was created.
      *
+     * The time follows the UNIX time format. It is the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1637734547
      *
      * @var int
@@ -62,9 +69,14 @@ class accelerators extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $crossBorderStatus;
+
+    /**
      * @description The details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
@@ -81,6 +93,7 @@ class accelerators extends Model
     /**
      * @description The timestamp that indicates when the basic GA instance expires.
      *
+     * The time follows the UNIX time format. It is the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1640326547
      *
      * @var int
@@ -115,6 +128,8 @@ class accelerators extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the basic GA instance belongs.
+     *
      * @example rg-aekzrnd67gq****
      *
      * @var string
@@ -122,15 +137,15 @@ class accelerators extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the basic GA instance. Valid values:
+     * @description The status of the basic GA instance.
      *
-     *   **init**: initializing
-     *   **active**: available
-     *   **configuring**: being configured
-     *   **binding**: being associated
-     *   **unbinding**: being disassociated
-     *   **Deleting**: being deleted
-     *   **finacialLocked**: locked due to overdue payments
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -139,12 +154,14 @@ class accelerators extends Model
     public $state;
 
     /**
+     * @description The tags of the basic GA instance.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Ignore this parameter.
+     * @description An invalid parameter.
      *
      * @example None
      *
@@ -158,6 +175,7 @@ class accelerators extends Model
         'basicEndpointGroupId'        => 'BasicEndpointGroupId',
         'basicIpSetId'                => 'BasicIpSetId',
         'createTime'                  => 'CreateTime',
+        'crossBorderStatus'           => 'CrossBorderStatus',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
         'description'                 => 'Description',
         'expiredTime'                 => 'ExpiredTime',
@@ -194,6 +212,9 @@ class accelerators extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossBorderStatus) {
+            $res['CrossBorderStatus'] = $this->crossBorderStatus;
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
@@ -260,6 +281,9 @@ class accelerators extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossBorderStatus'])) {
+            $model->crossBorderStatus = $map['CrossBorderStatus'];
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);

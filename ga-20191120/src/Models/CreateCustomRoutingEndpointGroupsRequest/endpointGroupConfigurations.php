@@ -13,7 +13,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The description of the endpoint group.
      *
-     * You can specify up to five endpoint group descriptions.
+     * You can specify at most five endpoint group descriptions.
      * @example test
      *
      * @var string
@@ -21,19 +21,25 @@ class endpointGroupConfigurations extends Model
     public $description;
 
     /**
+     * @description The mapping configuration of the endpoint group.
+     *
+     * You can specify at most 20 mapping configurations for each endpoint group.
      * @var destinationConfigurations[]
      */
     public $destinationConfigurations;
 
     /**
+     * @description The information about the endpoints.
+     *
+     * You can specify at most 10 endpoints for each endpoint group.
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The ID of the region in which to create the endpoint group.
+     * @description The ID of the region in which the endpoint group resides.
      *
-     * You can specify up to five region IDs.
+     * You can specify at most five region IDs.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,7 +49,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * You can specify up to five endpoint group names.
+     * You can specify at most five endpoint group names.
      * @example test
      *
      * @var string

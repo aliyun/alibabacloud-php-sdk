@@ -31,6 +31,11 @@ class accelerators extends Model
     public $bandwidth;
 
     /**
+     * @description The bandwidth metering method.
+     *
+     *   **BandwidthPackage**: billed based on bandwidth plans.
+     *   **CDT**: billed based on data transfer.
+     *
      * @example CDT
      *
      * @var string
@@ -38,7 +43,7 @@ class accelerators extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description Details about the basic bandwidth plan that is associated with the GA instance.
+     * @description The details about the basic bandwidth plan that is associated with the GA instance.
      *
      * @var basicBandwidthPackage
      */
@@ -54,7 +59,7 @@ class accelerators extends Model
     public $cenId;
 
     /**
-     * @description The timestamp that indicates the time when the GA instance was created.
+     * @description The timestamp that indicates when the GA instance is created.
      *
      * @example 1650643200
      *
@@ -63,22 +68,31 @@ class accelerators extends Model
     public $createTime;
 
     /**
-     * @example private
+     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
+     *
+     **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
+     *
+     * @example bpgPro
      *
      * @var string
      */
     public $crossBorderMode;
 
     /**
-     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     * @var bool
+     */
+    public $crossBorderStatus;
+
+    /**
+     * @description The details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
-     * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance that is associated with the GA instance.
+     * @description The ID of the Anti-DDoS Pro/Premium instance that is associated with the GA instance.
      *
      * @example ddoscoo-cn-zz11vq7j****
      *
@@ -98,14 +112,14 @@ class accelerators extends Model
     /**
      * @description The canonical name (CNAME) that is assigned to the GA instance.
      *
-     * @example ga-bp1j80t5****.uisnetwork.com
+     * @example ga-bp15u1i2hmtbk8c3i****.aliyunga0019.com
      *
      * @var string
      */
     public $dnsName;
 
     /**
-     * @description The timestamp that indicates the time when the GA instance expires.
+     * @description The timestamp that indicates when the GA instance expires.
      *
      * @example 1653235200
      *
@@ -148,14 +162,16 @@ class accelerators extends Model
     public $regionId;
 
     /**
-     * @example rg-aekzrnd67gq****
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekztkx4zwc****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The CNAME that is used to associate the GA instance with an Anti-DDoS Pro instance or an Anti-DDoS Premium instance.
+     * @description The CNAME that is used to associate the GA instance with an Anti-DDoS Pro/Premium instance.
      *
      * @example ga-bp1f609c76zg6zuna****-1.aliyunga0047.com
      *
@@ -182,9 +198,8 @@ class accelerators extends Model
      *   **90**: Large VⅢ
      *   **100**: Super Large Ⅰ
      *   **200**: Super Large Ⅱ
-     *   **300**: Super Large Ⅲ
      *
-     * Each instance specification provides different capabilities. For more information, see the "Specifications of standard GA instances" section in [Overview](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string
@@ -192,7 +207,7 @@ class accelerators extends Model
     public $spec;
 
     /**
-     * @description The state of the GA instance. Valid values:
+     * @description The status of the GA instance. Valid values:
      *
      *   **init**: The GA instance is being initialized.
      *   **active**: The GA instance is available.
@@ -209,12 +224,16 @@ class accelerators extends Model
     public $state;
 
     /**
+     * @description The tags of the GA instance.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
      * @description An invalid parameter.
+     *
+     * @example Invalid parameter
      *
      * @var string
      */
@@ -227,6 +246,7 @@ class accelerators extends Model
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
         'crossBorderMode'             => 'CrossBorderMode',
+        'crossBorderStatus'           => 'CrossBorderStatus',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
         'ddosId'                      => 'DdosId',
         'description'                 => 'Description',
@@ -271,6 +291,9 @@ class accelerators extends Model
         }
         if (null !== $this->crossBorderMode) {
             $res['CrossBorderMode'] = $this->crossBorderMode;
+        }
+        if (null !== $this->crossBorderStatus) {
+            $res['CrossBorderStatus'] = $this->crossBorderStatus;
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
@@ -355,6 +378,9 @@ class accelerators extends Model
         }
         if (isset($map['CrossBorderMode'])) {
             $model->crossBorderMode = $map['CrossBorderMode'];
+        }
+        if (isset($map['CrossBorderStatus'])) {
+            $model->crossBorderStatus = $map['CrossBorderStatus'];
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);

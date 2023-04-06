@@ -10,6 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommodityResponseBody extends Model
 {
     /**
+     * @description The commodity code.
+     *
+     * Examples for the China site (aliyun.com):
+     *
+     *   **ga_gapluspre_public_cn**: GA instance.
+     *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+     *
+     * Examples for the international site (alibabacloud.com):
+     *
+     *   **ga_pluspre_public_intl**: GA instance.
+     *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+     *
      * @example ga_gapluspre_public_cn
      *
      * @var string
@@ -17,16 +29,25 @@ class DescribeCommodityResponseBody extends Model
     public $commodityCode;
 
     /**
+     * @description The name of the commodity.
+     *
+     * @example Global Accelerator_Instance Type (Subscription)
+     *
      * @var string
      */
     public $commodityName;
 
     /**
+     * @description The information about the commodity modules.
+     *
+     * The returned information varies based on the commodity.
      * @var components[]
      */
     public $components;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

@@ -18,7 +18,7 @@ class GetBasicEndpointGroupResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The description of the endpoint group that is associated with the basic GA instance.
+     * @description The description of the endpoint group.
      *
      * @example BasicEndpointGroup
      *
@@ -36,7 +36,7 @@ class GetBasicEndpointGroupResponseBody extends Model
     public $endpointAddress;
 
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -54,6 +54,14 @@ class GetBasicEndpointGroupResponseBody extends Model
     public $endpointGroupRegion;
 
     /**
+     * @description The secondary address of the endpoint.
+     *
+     * This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**.
+     *
+     *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the primary or secondary private IP address of the primary ENI.
+     *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the primary or secondary private IP address of the secondary ENI.
+     *   If the endpoint type is **NLB**, **EndpointSubAddress** returns the primary private IP address of the NLB backend server.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -63,8 +71,10 @@ class GetBasicEndpointGroupResponseBody extends Model
     /**
      * @description The type of endpoint. Valid values:
      *
-     *   **ENI**: elastic network interface (ENI)
-     *   **SLB**: Server Load Balancer (SLB) instance
+     *   **ENI**: elastic network interface (ENI).
+     *   **SLB**: Classic Load Balancer (CLB) instance.
+     *   **ECS**: Elastic Compute Service (ECS) instance.
+     *   **NLB**: Network Load Balancer (NLB) instance
      *
      * @example ENI
      *
@@ -73,7 +83,7 @@ class GetBasicEndpointGroupResponseBody extends Model
     public $endpointType;
 
     /**
-     * @description The name of the endpoint group that is associated with the basic GA instance.
+     * @description The name of the endpoint group.
      *
      * @example group1
      *
@@ -91,12 +101,12 @@ class GetBasicEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the endpoint group.
+     * @description The status of the endpoint group. Valid values:
      *
-     *   **init**: The endpoint group is being initialized.
-     *   **active**: The endpoint group is running as expected.
-     *   **updating**: The endpoint group is being updated.
-     *   **deleting**: The endpoint group is being deleted.
+     *   **init**: being initialized.
+     *   **active**: running as expected.
+     *   **updating**: being updated.
+     *   **deleting**: being deleted.
      *
      * @example active
      *

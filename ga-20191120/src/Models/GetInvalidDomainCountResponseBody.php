@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInvalidDomainCountResponseBody extends Model
 {
     /**
+     * @description The number of invalid domain names.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetInvalidDomainCountResponseBody extends Model
     public $invalidDomainCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

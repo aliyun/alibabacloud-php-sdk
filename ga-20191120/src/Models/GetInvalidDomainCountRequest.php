@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInvalidDomainCountRequest extends Model
 {
     /**
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

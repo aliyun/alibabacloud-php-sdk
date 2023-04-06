@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
+     * @description The code of the attribute.
+     *
+     * The returned information varies based on the commodity module.
      * @example ord_time
      *
      * @var string
@@ -17,11 +20,19 @@ class properties extends Model
     public $code;
 
     /**
+     * @description The name of the attribute.
+     *
+     * The returned information varies based on the commodity module.
+     * @example Duration
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The list of attribute values of the commodity module.
+     *
+     * The returned information varies based on the commodity module.
      * @var propertyValueList[]
      */
     public $propertyValueList;

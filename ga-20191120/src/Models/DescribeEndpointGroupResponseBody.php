@@ -267,15 +267,6 @@ class DescribeEndpointGroupResponseBody extends Model
     public $thresholdCount;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @description The weight of the endpoint group. If the listener is associated with multiple endpoint groups, this parameter indicates the weight of the current endpoint group.
      *
      * @example 20
@@ -311,7 +302,6 @@ class DescribeEndpointGroupResponseBody extends Model
         'state'                          => 'State',
         'tags'                           => 'Tags',
         'thresholdCount'                 => 'ThresholdCount',
-        'totalCount'                     => 'TotalCount',
         'trafficPercentage'              => 'TrafficPercentage',
     ];
 
@@ -420,9 +410,6 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (null !== $this->thresholdCount) {
             $res['ThresholdCount'] = $this->thresholdCount;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->trafficPercentage) {
             $res['TrafficPercentage'] = $this->trafficPercentage;
@@ -543,9 +530,6 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (isset($map['ThresholdCount'])) {
             $model->thresholdCount = $map['ThresholdCount'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['TrafficPercentage'])) {
             $model->trafficPercentage = $map['TrafficPercentage'];

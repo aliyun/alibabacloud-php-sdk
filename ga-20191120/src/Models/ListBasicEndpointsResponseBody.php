@@ -17,7 +17,7 @@ class ListBasicEndpointsResponseBody extends Model
     public $endpoints;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -29,7 +29,7 @@ class ListBasicEndpointsResponseBody extends Model
      * @description The token that determines the start point of the query. Valid values:
      *
      *   If **NextToken** is not returned, it indicates that no additional results exist.
-     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
