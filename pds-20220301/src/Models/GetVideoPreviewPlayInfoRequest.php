@@ -9,34 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayInfoRequest extends Model
 {
     /**
+     * @example live_transcoding
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $getWithoutUrl;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example 264_480p
+     *
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var int
+     */
+    public $urlExpireSec;
     protected $_name = [
         'category'      => 'category',
         'driveId'       => 'drive_id',
@@ -44,6 +61,7 @@ class GetVideoPreviewPlayInfoRequest extends Model
         'getWithoutUrl' => 'get_without_url',
         'shareId'       => 'share_id',
         'templateId'    => 'template_id',
+        'urlExpireSec'  => 'url_expire_sec',
     ];
 
     public function validate()
@@ -70,6 +88,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['template_id'] = $this->templateId;
+        }
+        if (null !== $this->urlExpireSec) {
+            $res['url_expire_sec'] = $this->urlExpireSec;
         }
 
         return $res;
@@ -100,6 +121,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (isset($map['template_id'])) {
             $model->templateId = $map['template_id'];
+        }
+        if (isset($map['url_expire_sec'])) {
+            $model->urlExpireSec = $map['url_expire_sec'];
         }
 
         return $model;

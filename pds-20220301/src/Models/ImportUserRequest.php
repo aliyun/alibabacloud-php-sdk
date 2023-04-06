@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ImportUserRequest extends Model
 {
     /**
+     * @example 10000
+     *
      * @var string
      */
     public $authenticationDisplayName;
 
     /**
+     * @example mobile
+     *
      * @var string
      */
     public $authenticationType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoCreateDrive;
 
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $driveTotalSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example 130****
+     *
      * @var string
      */
     public $identity;
 
     /**
+     * @example pdsuer
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example g12
+     *
      * @var string
      */
     public $parentGroupId;

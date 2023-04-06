@@ -19,16 +19,22 @@ class requests extends Model
     public $headers;
 
     /**
+     * @example 93433894994ad2e1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example POST
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @example /file/get
+     *
      * @var string
      */
     public $url;

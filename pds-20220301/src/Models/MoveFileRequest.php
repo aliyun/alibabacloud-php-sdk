@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MoveFileRequest extends Model
 {
     /**
+     * @example ignore
+     *
      * @var string
      */
     public $checkNameMode;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example 6520943DC261
+     *
      * @var string
      */
     public $toParentFileId;

@@ -14,31 +14,43 @@ class SearchShareLinkRequest extends Model
     public $creators;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example created_at
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderDirection;
 
     /**
+     * @example created_at>=\"2022-01-18T02:50:00\" and created_at<\"2022-01-19T09:45:28\" and share_name_for_fuzzy match \"HD.mp4\" and status in [\"enabled\", \"disabled\"] and expired_time=\"1970-01-01T00:00:00\"
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $returnTotalCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class timeRange extends Model
 {
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $start;

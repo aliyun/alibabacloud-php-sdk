@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncTaskResponseBody extends Model
 {
     /**
+     * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+     *
      * @var string
      */
     public $asyncTaskId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $consumedProcess;
 
     /**
+     * @example InternalError
+     *
      * @var int
      */
     public $errCode;
 
     /**
+     * @example The request has been failed due to some unknown error. Please try again later.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example Succeed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $totalProcess;
 
     /**
+     * @example https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
+     *
      * @var string
      */
     public $url;

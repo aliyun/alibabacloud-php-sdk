@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetRevisionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example 40CB7794C929
+     *
      * @var string
      */
     public $revisionId;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $urlExpireSec;

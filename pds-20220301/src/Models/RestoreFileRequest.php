@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestoreFileRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+     *
      * @var string
      */
     public $fileId;

@@ -14,61 +14,85 @@ class UpdateShareLinkRequest extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableDownload;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disablePreview;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableSave;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $downloadCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $downloadLimit;
 
     /**
+     * @example 2020-06-28T11:33:00.000+08:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $previewCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $previewLimit;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reportCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $saveCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $saveLimit;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
@@ -79,16 +103,22 @@ class UpdateShareLinkRequest extends Model
     public $shareName;
 
     /**
+     * @example abcF123x
+     *
      * @var string
      */
     public $sharePwd;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $videoPreviewCount;

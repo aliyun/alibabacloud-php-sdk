@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SearchFileRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example not name=123
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $returnTotalCount;

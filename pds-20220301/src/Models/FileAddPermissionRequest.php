@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FileAddPermissionRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+     *
      * @var string
      */
     public $fileId;

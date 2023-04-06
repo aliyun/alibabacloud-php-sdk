@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListDriveRequest extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example c9b7a5aa04d14ae3867fdc886fa01da4
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $ownerType;

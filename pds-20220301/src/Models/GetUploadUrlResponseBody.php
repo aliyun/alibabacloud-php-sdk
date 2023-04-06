@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUploadUrlResponseBody extends Model
 {
     /**
+     * @example 2019-09-11T16:34:36.977Z
+     *
      * @var string
      */
     public $createAt;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
+     *
      * @var string
      */
     public $fileId;
@@ -34,6 +42,8 @@ class GetUploadUrlResponseBody extends Model
     public $partInfoList;
 
     /**
+     * @example 10166D06127B413BA1EC8ABB1144D111
+     *
      * @var string
      */
     public $uploadId;

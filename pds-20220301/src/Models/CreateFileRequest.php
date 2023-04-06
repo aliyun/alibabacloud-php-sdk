@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class CreateFileRequest extends Model
 {
     /**
+     * @example ignore
+     *
      * @var string
      */
     public $checkNameMode;
 
     /**
+     * @example 7C4A8D09CA3762AF61E59520943DC26494F8941B
+     *
      * @var string
      */
     public $contentHash;
 
     /**
+     * @example sha1
+     *
      * @var string
      */
     public $contentHashName;
 
     /**
+     * @example application/json
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @example 重要文件
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hidden;
@@ -55,26 +71,36 @@ class CreateFileRequest extends Model
     public $imageMediaMetadata;
 
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $localCreatedAt;
 
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $localModifiedAt;
 
     /**
+     * @example a.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $parallelUpload;
 
     /**
+     * @example fileid1
+     *
      * @var string
      */
     public $parentFileId;
@@ -85,21 +111,29 @@ class CreateFileRequest extends Model
     public $partInfoList;
 
     /**
+     * @example 7C4A8D09CA3762AF61E59520943DC26494F89411
+     *
      * @var string
      */
     public $preHash;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $type;

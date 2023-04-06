@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ScanFileRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDeltaResponseBody extends Model
 {
     /**
+     * @example 1WQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $cursor;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasMore;

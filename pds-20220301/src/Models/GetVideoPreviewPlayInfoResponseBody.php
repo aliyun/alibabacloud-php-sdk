@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayInfoResponseBody extends Model
 {
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example fileid1
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;

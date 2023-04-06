@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example image/resize,w_200
+     *
      * @var string
      */
     public $imageThumbnailProcess;
 
     /**
+     * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+     *
      * @var string
      */
     public $videoThumbnailProcess;

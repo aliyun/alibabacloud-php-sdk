@@ -14,6 +14,8 @@ class UpdateGroupRequest extends Model
     public $description;
 
     /**
+     * @example 2e43ec8427dd45f19431b7504649a1b4
+     *
      * @var string
      */
     public $groupId;

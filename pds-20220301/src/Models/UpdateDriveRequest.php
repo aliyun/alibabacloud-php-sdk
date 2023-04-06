@@ -14,21 +14,29 @@ class UpdateDriveRequest extends Model
     public $description;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example my_drive
+     *
      * @var string
      */
     public $driveName;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $totalSize;

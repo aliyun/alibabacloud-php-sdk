@@ -14,6 +14,8 @@ class Identity extends Model
     public $identityId;
 
     /**
+     * @example IT_User
+     *
      * @var string
      */
     public $identityType;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @example http://a.b.c/pds.jpg
+     *
      * @var string
      */
     public $avatar;
@@ -20,6 +22,8 @@ class UpdateUserRequest extends Model
     public $description;
 
     /**
+     * @example a@aliyunpds.com
+     *
      * @var string
      */
     public $email;
@@ -30,21 +34,29 @@ class UpdateUserRequest extends Model
     public $groupInfoList;
 
     /**
+     * @example pdsuer
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 13900001111
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
@@ -55,6 +67,8 @@ class UpdateUserRequest extends Model
     public $userData;
 
     /**
+     * @example c9b7a5aa04d14ae3867fdc886fa01da4
+     *
      * @var string
      */
     public $userId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadUrlRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $expireSec;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example 1.txt
+     *
      * @var string
      */
     public $fileName;

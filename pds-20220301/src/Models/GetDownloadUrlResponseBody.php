@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadUrlResponseBody extends Model
 {
     /**
+     * @example https://data-cdn.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+     *
      * @var string
      */
     public $cdnUrl;
 
     /**
+     * @example EA4942AA8761213890A5C386F88E6464D2C31CA1
+     *
      * @var string
      */
     public $contentHash;
 
     /**
+     * @example sha1
+     *
      * @var string
      */
     public $contentHashName;
 
     /**
+     * @example 5498595269368962671
+     *
      * @var string
      */
     public $crc64Hash;
 
     /**
+     * @example 2022-01-02T15:04:05.999Z07:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example https://data-vpc.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+     *
      * @var string
      */
     public $internalUrl;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example https://data.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+     *
      * @var string
      */
     public $url;

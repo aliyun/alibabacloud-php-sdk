@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetUploadUrlRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
+     *
      * @var string
      */
     public $fileId;
@@ -25,11 +29,15 @@ class GetUploadUrlRequest extends Model
     public $partInfoList;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example 10166D06127B413BA1EC8ABB1144D111
+     *
      * @var string
      */
     public $uploadId;

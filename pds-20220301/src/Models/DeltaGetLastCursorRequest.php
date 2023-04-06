@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeltaGetLastCursorRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 622fb09598ae66777c7040109a16f49381f6abe1
+     *
      * @var string
      */
     public $syncRootId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFacegroupsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;

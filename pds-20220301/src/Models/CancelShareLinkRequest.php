@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelShareLinkRequest extends Model
 {
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;

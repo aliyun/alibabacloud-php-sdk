@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileRequest extends Model
 {
     /**
+     * @example ignore
+     *
      * @var string
      */
     public $checkNameMode;
@@ -19,16 +21,22 @@ class UpdateFileRequest extends Model
     public $description;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hidden;
@@ -39,16 +47,22 @@ class UpdateFileRequest extends Model
     public $labels;
 
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $localModifiedAt;
 
     /**
+     * @example a.jpg
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $starred;

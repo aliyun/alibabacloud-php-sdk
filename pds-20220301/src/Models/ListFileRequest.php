@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListFileRequest extends Model
 {
     /**
+     * @example image
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example updated_at
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderDirection;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $parentFileId;
 
     /**
+     * @example available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $type;

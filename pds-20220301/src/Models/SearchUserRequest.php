@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SearchUserRequest extends Model
 {
     /**
+     * @example 123@pds.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example pdsuer
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example la
+     *
      * @var string
      */
     public $nickNameForFuzzy;
 
     /**
+     * @example 13900001111
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example pds
+     *
      * @var string
      */
     public $userName;

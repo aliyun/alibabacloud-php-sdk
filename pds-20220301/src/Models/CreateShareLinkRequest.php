@@ -14,46 +14,64 @@ class CreateShareLinkRequest extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableDownload;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disablePreview;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableSave;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $downloadLimit;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 2020-06-28T11:33:00.000+08:00
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example ["520b217f13adf4fc24f2191991b1664ce045b393"]
+     *
      * @var string[]
      */
     public $fileIdList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $previewLimit;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $saveLimit;
@@ -64,11 +82,15 @@ class CreateShareLinkRequest extends Model
     public $shareName;
 
     /**
+     * @example abcF123x
+     *
      * @var string
      */
     public $sharePwd;
 
     /**
+     * @example u123
+     *
      * @var string
      */
     public $userId;

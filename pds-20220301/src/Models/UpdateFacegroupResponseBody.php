@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateFacegroupResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example group-abc
+     *
      * @var string
      */
     public $groupId;

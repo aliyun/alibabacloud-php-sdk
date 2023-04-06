@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RestoreFileResponseBody extends Model
 {
     /**
+     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+     *
      * @var string
      */
     public $asyncTaskId;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+     *
      * @var string
      */
     public $fileId;

@@ -15,6 +15,8 @@ class BatchRequest extends Model
     public $requests;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $resource;

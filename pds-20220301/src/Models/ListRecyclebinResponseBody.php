@@ -14,6 +14,8 @@ class ListRecyclebinResponseBody extends Model
     public $items;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhM1
+     *
      * @var string
      */
     public $nextMarker;

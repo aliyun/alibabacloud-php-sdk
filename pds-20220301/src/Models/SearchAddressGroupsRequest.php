@@ -19,26 +19,36 @@ class SearchAddressGroupsRequest extends Model
     public $addressNames;
 
     /**
+     * @example 40.121,105.2121
+     *
      * @var string
      */
     public $brGeoPoint;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example image/resize,w_200
+     *
      * @var string
      */
     public $imageThumbnailProcess;
 
     /**
+     * @example 39.121,101.2121
+     *
      * @var string
      */
     public $tlGeoPoint;
 
     /**
+     * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+     *
      * @var string
      */
     public $videoThumbnailProcess;

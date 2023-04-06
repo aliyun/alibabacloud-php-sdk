@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListShareLinkRequest extends Model
 {
     /**
+     * @example c9b7a5aa04d14ae3867fdc886fa01da4
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeCancelled;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example share_name
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderDirection;

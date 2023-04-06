@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDriveRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $default;
@@ -19,31 +21,43 @@ class CreateDriveRequest extends Model
     public $description;
 
     /**
+     * @example my_drive
+     *
      * @var string
      */
     public $driveName;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $driveType;
 
     /**
+     * @example userid1
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $ownerType;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $totalSize;

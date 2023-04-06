@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ClearRecyclebinResponseBody extends Model
 {
     /**
+     * @example 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
+     *
      * @var string
      */
     public $asyncTaskId;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;

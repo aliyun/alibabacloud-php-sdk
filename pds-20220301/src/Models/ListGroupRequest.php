@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListGroupRequest extends Model
 {
     /**
-     * @var string
+     * @example 100
+     *
+     * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;

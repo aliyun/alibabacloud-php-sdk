@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetLinkInfoRequest extends Model
 {
     /**
+     * @example 86
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example 130***
+     *
      * @var string
      */
     public $identity;
 
     /**
+     * @example mobile
+     *
      * @var string
      */
     public $type;

@@ -14,11 +14,15 @@ class responses extends Model
     public $body;
 
     /**
+     * @example 93433894994ad2e1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $status;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListAddressGroupsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example image/resize,w_200
+     *
      * @var string
      */
     public $imageThumbnailProcess;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example video_thumbnail_process
+     *
      * @var string
      */
     public $videoThumbnailProcess;

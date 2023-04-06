@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DownloadFileRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example image/resize,m_fill,h_128,w_128,limit_0
+     *
      * @var string
      */
     public $imageThumbnailProcess;
 
     /**
+     * @example image/resize,w_200
+     *
      * @var string
      */
     public $officeThumbnailProcess;
 
     /**
+     * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+     *
      * @var string
      */
     public $videoThumbnailProcess;

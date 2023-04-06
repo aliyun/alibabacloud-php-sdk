@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListDeltaRequest extends Model
 {
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $cursor;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 622fb09598ae66777c7040109a16f49381f6abe1
+     *
      * @var string
      */
     public $syncRootId;

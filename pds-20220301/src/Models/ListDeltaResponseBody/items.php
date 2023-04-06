@@ -15,11 +15,15 @@ class items extends Model
     public $file;
 
     /**
+     * @example 122fb09598ae66777c7040109a16f49381f6abe2
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example create
+     *
      * @var string
      */
     public $op;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class WalkFileResponse extends Model
+class DeleteDomainResponse extends Model
 {
     /**
      * @var string[]
@@ -17,22 +17,15 @@ class WalkFileResponse extends Model
      * @var int
      */
     public $statusCode;
-
-    /**
-     * @var WalkFileResponseBody
-     */
-    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
         Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -44,9 +37,6 @@ class WalkFileResponse extends Model
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
-        }
 
         return $res;
     }
@@ -54,7 +44,7 @@ class WalkFileResponse extends Model
     /**
      * @param array $map
      *
-     * @return WalkFileResponse
+     * @return DeleteDomainResponse
      */
     public static function fromMap($map = [])
     {
@@ -64,9 +54,6 @@ class WalkFileResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
-        }
-        if (isset($map['body'])) {
-            $model->body = WalkFileResponseBody::fromMap($map['body']);
         }
 
         return $model;

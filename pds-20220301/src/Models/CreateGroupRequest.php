@@ -19,11 +19,15 @@ class CreateGroupRequest extends Model
     public $groupName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isRoot;
 
     /**
+     * @example 2e43ec8427dd45f19431b7504649a1b3
+     *
      * @var string
      */
     public $parentGroupId;

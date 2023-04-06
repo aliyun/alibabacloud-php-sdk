@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetShareLinkTokenRequest extends Model
 {
     /**
+     * @example 7200
+     *
      * @var int
      */
     public $expireSec;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example abcF123x
+     *
      * @var string
      */
     public $sharePwd;

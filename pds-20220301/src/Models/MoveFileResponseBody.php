@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class MoveFileResponseBody extends Model
 {
     /**
+     * @example 23ebd1a24dba4166b1527add476ef2866051b4d5del106
+     *
      * @var string
      */
     public $asyncTaskId;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $exist;
 
     /**
+     * @example fileid1
+     *
      * @var string
      */
     public $fileId;

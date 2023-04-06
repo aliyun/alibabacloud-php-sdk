@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class FilePutUserTagsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;

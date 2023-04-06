@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class VideoPreviewPlayMeta extends Model
 {
     /**
+     * @example live_transcoding
+     *
      * @var string
      */
     public $category;

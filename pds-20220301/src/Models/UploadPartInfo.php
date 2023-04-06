@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UploadPartInfo extends Model
 {
     /**
+     * @example 0CC175B9C0F1B6A831C399E269772661
+     *
      * @var string
      */
     public $etag;
@@ -25,11 +27,15 @@ class UploadPartInfo extends Model
     public $parallelSha1Ctx;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $partNumber;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $partSize;

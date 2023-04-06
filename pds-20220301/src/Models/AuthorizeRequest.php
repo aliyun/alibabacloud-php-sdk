@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeRequest extends Model
 {
     /**
+     * @example 47eUHhrzgWBvlLWj
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hideConsent;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $loginType;
 
     /**
+     * @example https://www.aliyunpds.com/sign/callback
+     *
      * @var string
      */
     public $redirectUri;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $responseType;
@@ -39,6 +49,8 @@ class AuthorizeRequest extends Model
     public $scope;
 
     /**
+     * @example customdata
+     *
      * @var string
      */
     public $state;

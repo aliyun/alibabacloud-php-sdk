@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class GetShareLinkByAnonymousResponseBody extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $accessCount;
 
     /**
+     * @example https://aliyunpds.com/a.jpg
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example c9b7a5aa04d14ae3867fdc886fa01da4
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @example AB***CD
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @example 136****00
+     *
      * @var string
      */
     public $creatorPhone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableDownload;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disablePreview;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableSave;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $downloadCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $downloadLimit;
 
     /**
+     * @example 2020-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $previewCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $previewLimit;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $reportCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $saveCount;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $saveDownloadLimit;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $saveLimit;
@@ -99,11 +133,15 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $shareName;
 
     /**
+     * @example 2019-08-20T06:51:27.292Z
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $videoPreviewCount;

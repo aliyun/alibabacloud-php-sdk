@@ -19,6 +19,8 @@ class liveTranscodingTaskList extends Model
     public $status;
 
     /**
+     * @example 264_720p
+     *
      * @var string
      */
     public $templateId;

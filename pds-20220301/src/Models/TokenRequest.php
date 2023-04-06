@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class TokenRequest extends Model
 {
     /**
+     * @example ey***asd
+     *
      * @var string
      */
     public $assertion;
 
     /**
+     * @example 1Zu***flH
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example 80D***3i5
+     *
      * @var string
      */
     public $clientSecret;
 
     /**
+     * @example 0045157fa8e24f4f9a0d9e3ff158c1e0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example refresh_token
+     *
      * @var string
      */
     public $grantType;
 
     /**
+     * @example https://aliyun.com/pds
+     *
      * @var string
      */
     public $redirectUri;
 
     /**
+     * @example 399623e13353490391266c7d48a13ed1
+     *
      * @var string
      */
     public $refreshToken;

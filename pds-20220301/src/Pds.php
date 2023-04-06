@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Pds\V20220301;
 
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeShrinkRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CompleteFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CompleteFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CopyFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CopyFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDomainRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDriveResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateFileRequest;
@@ -28,6 +32,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDomainRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDriveResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteFileRequest;
@@ -56,6 +62,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetAsyncTaskRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetAsyncTaskResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDefaultDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDefaultDriveResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetDomainRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDownloadUrlRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDownloadUrlResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDriveRequest;
@@ -92,16 +100,24 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ListAddressGroupsRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListAddressGroupsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDeltaRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDeltaResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListDomainsRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDriveResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListFacegroupsRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListFacegroupsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyDrivesRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyDrivesResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyGroupDriveRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyGroupDriveResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListReceivedFileRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListReceivedFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListRecyclebinRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListRecyclebinResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListRevisionRequest;
@@ -120,6 +136,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ParseKeywordsRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ParseKeywordsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreRevisionRequest;
@@ -128,6 +146,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ScanFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ScanFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchAddressGroupsRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchAddressGroupsResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchDomainsRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchDomainsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchDriveResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchFileRequest;
@@ -140,6 +160,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\TokenRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TokenResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDriveResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateFacegroupRequest;
@@ -175,16 +197,60 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeRequest $request
+     * @param string                $domainId
+     * @param AddGroupMemberRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return AuthorizeResponse
+     * @return AddGroupMemberResponse
      */
-    public function authorize($request)
+    public function addGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap              = [];
+        $hostMap['domain_id'] = $domainId;
+        $body                 = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['group_id'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $body['member_id'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->memberType)) {
+            $body['member_type'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGroupMember',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/group/add_member',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $domainId
+     * @param AddGroupMemberRequest $request
+     *
+     * @return AddGroupMemberResponse
+     */
+    public function addGroupMember($domainId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->authorizeWithOptions($request, $headers, $runtime);
+        return $this->addGroupMemberWithOptions($domainId, $request, $headers, $runtime);
     }
 
     /**
@@ -244,16 +310,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param BatchRequest $request
+     * @param AuthorizeRequest $request
      *
-     * @return BatchResponse
+     * @return AuthorizeResponse
      */
-    public function batch($request)
+    public function authorize($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->batchWithOptions($request, $headers, $runtime);
+        return $this->authorizeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -293,16 +359,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CancelShareLinkRequest $request
+     * @param BatchRequest $request
      *
-     * @return CancelShareLinkResponse
+     * @return BatchResponse
      */
-    public function cancelShareLink($request)
+    public function batch($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelShareLinkWithOptions($request, $headers, $runtime);
+        return $this->batchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -339,16 +405,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ClearRecyclebinRequest $request
+     * @param CancelShareLinkRequest $request
      *
-     * @return ClearRecyclebinResponse
+     * @return CancelShareLinkResponse
      */
-    public function clearRecyclebin($request)
+    public function cancelShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->clearRecyclebinWithOptions($request, $headers, $runtime);
+        return $this->cancelShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -385,16 +451,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CompleteFileRequest $request
+     * @param ClearRecyclebinRequest $request
      *
-     * @return CompleteFileResponse
+     * @return ClearRecyclebinResponse
      */
-    public function completeFile($request)
+    public function clearRecyclebin($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->completeFileWithOptions($request, $headers, $runtime);
+        return $this->clearRecyclebinWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -437,16 +503,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CopyFileRequest $request
+     * @param CompleteFileRequest $request
      *
-     * @return CopyFileResponse
+     * @return CompleteFileResponse
      */
-    public function copyFile($request)
+    public function completeFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->copyFileWithOptions($request, $headers, $runtime);
+        return $this->completeFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -492,16 +558,80 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateDriveRequest $request
+     * @param CopyFileRequest $request
      *
-     * @return CreateDriveResponse
+     * @return CopyFileResponse
      */
-    public function createDrive($request)
+    public function copyFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createDriveWithOptions($request, $headers, $runtime);
+        return $this->copyFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomainWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['domain_name'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->initDriveEnable)) {
+            $body['init_drive_enable'] = $request->initDriveEnable;
+        }
+        if (!Utils::isUnset($request->initDriveSize)) {
+            $body['init_drive_size'] = $request->initDriveSize;
+        }
+        if (!Utils::isUnset($request->parentDomainId)) {
+            $body['parent_domain_id'] = $request->parentDomainId;
+        }
+        if (!Utils::isUnset($request->sizeQuota)) {
+            $body['size_quota'] = $request->sizeQuota;
+        }
+        if (!Utils::isUnset($request->userCountQuota)) {
+            $body['user_count_quota'] = $request->userCountQuota;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -559,16 +689,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateFileRequest $request
+     * @param CreateDriveRequest $request
      *
-     * @return CreateFileResponse
+     * @return CreateDriveResponse
      */
-    public function createFile($request)
+    public function createDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createFileWithOptions($request, $headers, $runtime);
+        return $this->createDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -665,16 +795,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @param CreateFileRequest $request
      *
-     * @return CreateGroupResponse
+     * @return CreateFileResponse
      */
-    public function createGroup($request)
+    public function createFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createGroupWithOptions($request, $headers, $runtime);
+        return $this->createFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -720,16 +850,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateShareLinkRequest $request
+     * @param CreateGroupRequest $request
      *
-     * @return CreateShareLinkResponse
+     * @return CreateGroupResponse
      */
-    public function createShareLink($request)
+    public function createGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createShareLinkWithOptions($request, $headers, $runtime);
+        return $this->createGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -802,16 +932,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @param CreateShareLinkRequest $request
      *
-     * @return CreateUserResponse
+     * @return CreateShareLinkResponse
      */
-    public function createUser($request)
+    public function createShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createUserWithOptions($request, $headers, $runtime);
+        return $this->createShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -878,16 +1008,62 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDriveRequest $request
+     * @param CreateUserRequest $request
      *
-     * @return DeleteDriveResponse
+     * @return CreateUserResponse
      */
-    public function deleteDrive($request)
+    public function createUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDriveWithOptions($request, $headers, $runtime);
+        return $this->createUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomainWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $body['domain_id'] = $request->domainId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -924,16 +1100,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
+     * @param DeleteDriveRequest $request
      *
-     * @return DeleteFileResponse
+     * @return DeleteDriveResponse
      */
-    public function deleteFile($request)
+    public function deleteDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFileWithOptions($request, $headers, $runtime);
+        return $this->deleteDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -973,16 +1149,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * @param DeleteFileRequest $request
      *
-     * @return DeleteGroupResponse
+     * @return DeleteFileResponse
      */
-    public function deleteGroup($request)
+    public function deleteFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteGroupWithOptions($request, $headers, $runtime);
+        return $this->deleteFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1019,16 +1195,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteRevisionRequest $request
+     * @param DeleteGroupRequest $request
      *
-     * @return DeleteRevisionResponse
+     * @return DeleteGroupResponse
      */
-    public function deleteRevision($request)
+    public function deleteGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRevisionWithOptions($request, $headers, $runtime);
+        return $this->deleteGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1071,16 +1247,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @param DeleteRevisionRequest $request
      *
-     * @return DeleteUserResponse
+     * @return DeleteRevisionResponse
      */
-    public function deleteUser($request)
+    public function deleteRevision($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteUserWithOptions($request, $headers, $runtime);
+        return $this->deleteRevisionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1117,16 +1293,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeltaGetLastCursorRequest $request
+     * @param DeleteUserRequest $request
      *
-     * @return DeltaGetLastCursorResponse
+     * @return DeleteUserResponse
      */
-    public function deltaGetLastCursor($request)
+    public function deleteUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deltaGetLastCursorWithOptions($request, $headers, $runtime);
+        return $this->deleteUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1166,16 +1342,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DownloadFileRequest $request
+     * @param DeltaGetLastCursorRequest $request
      *
-     * @return DownloadFileResponse
+     * @return DeltaGetLastCursorResponse
      */
-    public function downloadFile($request)
+    public function deltaGetLastCursor($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->downloadFileWithOptions($request, $headers, $runtime);
+        return $this->deltaGetLastCursorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1224,16 +1400,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileAddPermissionRequest $request
+     * @param DownloadFileRequest $request
      *
-     * @return FileAddPermissionResponse
+     * @return DownloadFileResponse
      */
-    public function fileAddPermission($request)
+    public function downloadFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->fileAddPermissionWithOptions($request, $headers, $runtime);
+        return $this->downloadFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1276,16 +1452,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileDeleteUserTagsRequest $request
+     * @param FileAddPermissionRequest $request
      *
-     * @return FileDeleteUserTagsResponse
+     * @return FileAddPermissionResponse
      */
-    public function fileDeleteUserTags($request)
+    public function fileAddPermission($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->fileDeleteUserTagsWithOptions($request, $headers, $runtime);
+        return $this->fileAddPermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1328,16 +1504,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileListPermissionRequest $request
+     * @param FileDeleteUserTagsRequest $request
      *
-     * @return FileListPermissionResponse
+     * @return FileDeleteUserTagsResponse
      */
-    public function fileListPermission($request)
+    public function fileDeleteUserTags($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->fileListPermissionWithOptions($request, $headers, $runtime);
+        return $this->fileDeleteUserTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1377,16 +1553,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FilePutUserTagsRequest $request
+     * @param FileListPermissionRequest $request
      *
-     * @return FilePutUserTagsResponse
+     * @return FileListPermissionResponse
      */
-    public function filePutUserTags($request)
+    public function fileListPermission($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->filePutUserTagsWithOptions($request, $headers, $runtime);
+        return $this->fileListPermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1429,16 +1605,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileRemovePermissionRequest $request
+     * @param FilePutUserTagsRequest $request
      *
-     * @return FileRemovePermissionResponse
+     * @return FilePutUserTagsResponse
      */
-    public function fileRemovePermission($request)
+    public function filePutUserTags($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->fileRemovePermissionWithOptions($request, $headers, $runtime);
+        return $this->filePutUserTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1481,16 +1657,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskRequest $request
+     * @param FileRemovePermissionRequest $request
      *
-     * @return GetAsyncTaskResponse
+     * @return FileRemovePermissionResponse
      */
-    public function getAsyncTask($request)
+    public function fileRemovePermission($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAsyncTaskWithOptions($request, $headers, $runtime);
+        return $this->fileRemovePermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1527,16 +1703,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultDriveRequest $request
+     * @param GetAsyncTaskRequest $request
      *
-     * @return GetDefaultDriveResponse
+     * @return GetAsyncTaskResponse
      */
-    public function getDefaultDrive($request)
+    public function getAsyncTask($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDefaultDriveWithOptions($request, $headers, $runtime);
+        return $this->getAsyncTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1573,16 +1749,65 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDownloadUrlRequest $request
+     * @param GetDefaultDriveRequest $request
      *
-     * @return GetDownloadUrlResponse
+     * @return GetDefaultDriveResponse
      */
-    public function getDownloadUrl($request)
+    public function getDefaultDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDownloadUrlWithOptions($request, $headers, $runtime);
+        return $this->getDefaultDriveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetDomainRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
+     */
+    public function getDomainWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $body['domain_id'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->getQuotaUsed)) {
+            $body['get_quota_used'] = $request->getQuotaUsed;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDomain',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/get',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
+     */
+    public function getDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1628,16 +1853,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDriveRequest $request
+     * @param GetDownloadUrlRequest $request
      *
-     * @return GetDriveResponse
+     * @return GetDownloadUrlResponse
      */
-    public function getDrive($request)
+    public function getDownloadUrl($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDriveWithOptions($request, $headers, $runtime);
+        return $this->getDownloadUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1674,16 +1899,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetFileRequest $request
+     * @param GetDriveRequest $request
      *
-     * @return GetFileResponse
+     * @return GetDriveResponse
      */
-    public function getFile($request)
+    public function getDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getFileWithOptions($request, $headers, $runtime);
+        return $this->getDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1729,16 +1954,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * @param GetFileRequest $request
      *
-     * @return GetGroupResponse
+     * @return GetFileResponse
      */
-    public function getGroup($request)
+    public function getFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getGroupWithOptions($request, $headers, $runtime);
+        return $this->getFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1775,16 +2000,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoRequest $request
+     * @param GetGroupRequest $request
      *
-     * @return GetLinkInfoResponse
+     * @return GetGroupResponse
      */
-    public function getLinkInfo($request)
+    public function getGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLinkInfoWithOptions($request, $headers, $runtime);
+        return $this->getGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1827,16 +2052,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoByUserIdRequest $request
+     * @param GetLinkInfoRequest $request
      *
-     * @return GetLinkInfoByUserIdResponse
+     * @return GetLinkInfoResponse
      */
-    public function getLinkInfoByUserId($request)
+    public function getLinkInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLinkInfoByUserIdWithOptions($request, $headers, $runtime);
+        return $this->getLinkInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1873,16 +2098,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetRevisionRequest $request
+     * @param GetLinkInfoByUserIdRequest $request
      *
-     * @return GetRevisionResponse
+     * @return GetLinkInfoByUserIdResponse
      */
-    public function getRevision($request)
+    public function getLinkInfoByUserId($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRevisionWithOptions($request, $headers, $runtime);
+        return $this->getLinkInfoByUserIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1931,16 +2156,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkRequest $request
+     * @param GetRevisionRequest $request
      *
-     * @return GetShareLinkResponse
+     * @return GetRevisionResponse
      */
-    public function getShareLink($request)
+    public function getRevision($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getShareLinkWithOptions($request, $headers, $runtime);
+        return $this->getRevisionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1977,16 +2202,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkByAnonymousRequest $request
+     * @param GetShareLinkRequest $request
      *
-     * @return GetShareLinkByAnonymousResponse
+     * @return GetShareLinkResponse
      */
-    public function getShareLinkByAnonymous($request)
+    public function getShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getShareLinkByAnonymousWithOptions($request, $headers, $runtime);
+        return $this->getShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2023,16 +2248,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkTokenRequest $request
+     * @param GetShareLinkByAnonymousRequest $request
      *
-     * @return GetShareLinkTokenResponse
+     * @return GetShareLinkByAnonymousResponse
      */
-    public function getShareLinkToken($request)
+    public function getShareLinkByAnonymous($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getShareLinkTokenWithOptions($request, $headers, $runtime);
+        return $this->getShareLinkByAnonymousWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2075,16 +2300,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUploadUrlRequest $request
+     * @param GetShareLinkTokenRequest $request
      *
-     * @return GetUploadUrlResponse
+     * @return GetShareLinkTokenResponse
      */
-    public function getUploadUrl($request)
+    public function getShareLinkToken($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUploadUrlWithOptions($request, $headers, $runtime);
+        return $this->getShareLinkTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2133,16 +2358,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @param GetUploadUrlRequest $request
      *
-     * @return GetUserResponse
+     * @return GetUploadUrlResponse
      */
-    public function getUser($request)
+    public function getUploadUrl($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUserWithOptions($request, $headers, $runtime);
+        return $this->getUploadUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2179,16 +2404,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayInfoRequest $request
+     * @param GetUserRequest $request
      *
-     * @return GetVideoPreviewPlayInfoResponse
+     * @return GetUserResponse
      */
-    public function getVideoPreviewPlayInfo($request)
+    public function getUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVideoPreviewPlayInfoWithOptions($request, $headers, $runtime);
+        return $this->getUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2220,6 +2445,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $body['template_id'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->urlExpireSec)) {
+            $body['url_expire_sec'] = $request->urlExpireSec;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -2240,16 +2468,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayMetaRequest $request
+     * @param GetVideoPreviewPlayInfoRequest $request
      *
-     * @return GetVideoPreviewPlayMetaResponse
+     * @return GetVideoPreviewPlayInfoResponse
      */
-    public function getVideoPreviewPlayMeta($request)
+    public function getVideoPreviewPlayInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime);
+        return $this->getVideoPreviewPlayInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2295,16 +2523,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ImportUserRequest $request
+     * @param GetVideoPreviewPlayMetaRequest $request
      *
-     * @return ImportUserResponse
+     * @return GetVideoPreviewPlayMetaResponse
      */
-    public function importUser($request)
+    public function getVideoPreviewPlayMeta($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->importUserWithOptions($request, $headers, $runtime);
+        return $this->getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2362,16 +2590,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param LinkAccountRequest $request
+     * @param ImportUserRequest $request
      *
-     * @return LinkAccountResponse
+     * @return ImportUserResponse
      */
-    public function linkAccount($request)
+    public function importUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->linkAccountWithOptions($request, $headers, $runtime);
+        return $this->importUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2417,16 +2645,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListAddressGroupsRequest $request
+     * @param LinkAccountRequest $request
      *
-     * @return ListAddressGroupsResponse
+     * @return LinkAccountResponse
      */
-    public function listAddressGroups($request)
+    public function linkAccount($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAddressGroupsWithOptions($request, $headers, $runtime);
+        return $this->linkAccountWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2475,16 +2703,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDeltaRequest $request
+     * @param ListAddressGroupsRequest $request
      *
-     * @return ListDeltaResponse
+     * @return ListAddressGroupsResponse
      */
-    public function listDelta($request)
+    public function listAddressGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDeltaWithOptions($request, $headers, $runtime);
+        return $this->listAddressGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2530,16 +2758,68 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDriveRequest $request
+     * @param ListDeltaRequest $request
      *
-     * @return ListDriveResponse
+     * @return ListDeltaResponse
      */
-    public function listDrive($request)
+    public function listDelta($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDriveWithOptions($request, $headers, $runtime);
+        return $this->listDeltaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomainsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->parentDomainId)) {
+            $body['parent_domain_id'] = $request->parentDomainId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomains',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2585,16 +2865,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFacegroupsRequest $request
+     * @param ListDriveRequest $request
      *
-     * @return ListFacegroupsResponse
+     * @return ListDriveResponse
      */
-    public function listFacegroups($request)
+    public function listDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listFacegroupsWithOptions($request, $headers, $runtime);
+        return $this->listDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2640,16 +2920,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFileRequest $request
+     * @param ListFacegroupsRequest $request
      *
-     * @return ListFileResponse
+     * @return ListFacegroupsResponse
      */
-    public function listFile($request)
+    public function listFacegroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listFileWithOptions($request, $headers, $runtime);
+        return $this->listFacegroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2713,16 +2993,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListGroupRequest $request
+     * @param ListFileRequest $request
      *
-     * @return ListGroupResponse
+     * @return ListFileResponse
      */
-    public function listGroup($request)
+    public function listFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listGroupWithOptions($request, $headers, $runtime);
+        return $this->listFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2762,16 +3042,76 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListMyDrivesRequest $request
+     * @param ListGroupRequest $request
      *
-     * @return ListMyDrivesResponse
+     * @return ListGroupResponse
      */
-    public function listMyDrives($request)
+    public function listGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMyDrivesWithOptions($request, $headers, $runtime);
+        return $this->listGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $domainId
+     * @param ListGroupMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGroupMemberResponse
+     */
+    public function listGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap              = [];
+        $hostMap['domain_id'] = $domainId;
+        $body                 = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['group_id'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->memberType)) {
+            $body['member_type'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupMember',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/group/list_member',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $domainId
+     * @param ListGroupMemberRequest $request
+     *
+     * @return ListGroupMemberResponse
+     */
+    public function listGroupMember($domainId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupMemberWithOptions($domainId, $request, $headers, $runtime);
     }
 
     /**
@@ -2811,16 +3151,119 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRecyclebinRequest $request
+     * @param ListMyDrivesRequest $request
      *
-     * @return ListRecyclebinResponse
+     * @return ListMyDrivesResponse
      */
-    public function listRecyclebin($request)
+    public function listMyDrives($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRecyclebinWithOptions($request, $headers, $runtime);
+        return $this->listMyDrivesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $domainId
+     * @param ListMyGroupDriveRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMyGroupDriveResponse
+     */
+    public function listMyGroupDriveWithOptions($domainId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap              = [];
+        $hostMap['domain_id'] = $domainId;
+        $body                 = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMyGroupDrive',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/drive/list_my_group_drive',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMyGroupDriveResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $domainId
+     * @param ListMyGroupDriveRequest $request
+     *
+     * @return ListMyGroupDriveResponse
+     */
+    public function listMyGroupDrive($domainId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMyGroupDriveWithOptions($domainId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListReceivedFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListReceivedFileResponse
+     */
+    public function listReceivedFileWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListReceivedFile',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/file/list_received_file',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListReceivedFileResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListReceivedFileRequest $request
+     *
+     * @return ListReceivedFileResponse
+     */
+    public function listReceivedFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listReceivedFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2866,16 +3309,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRevisionRequest $request
+     * @param ListRecyclebinRequest $request
      *
-     * @return ListRevisionResponse
+     * @return ListRecyclebinResponse
      */
-    public function listRevision($request)
+    public function listRecyclebin($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRevisionWithOptions($request, $headers, $runtime);
+        return $this->listRecyclebinWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2924,16 +3367,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListShareLinkRequest $request
+     * @param ListRevisionRequest $request
      *
-     * @return ListShareLinkResponse
+     * @return ListRevisionResponse
      */
-    public function listShareLink($request)
+    public function listRevision($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listShareLinkWithOptions($request, $headers, $runtime);
+        return $this->listRevisionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2985,16 +3428,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * @param ListShareLinkRequest $request
      *
-     * @return ListTagsResponse
+     * @return ListShareLinkResponse
      */
-    public function listTags($request)
+    public function listShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagsWithOptions($request, $headers, $runtime);
+        return $this->listShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3037,16 +3480,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUploadedPartsRequest $request
+     * @param ListTagsRequest $request
      *
-     * @return ListUploadedPartsResponse
+     * @return ListTagsResponse
      */
-    public function listUploadedParts($request)
+    public function listTags($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listUploadedPartsWithOptions($request, $headers, $runtime);
+        return $this->listTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3098,16 +3541,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUserRequest $request
+     * @param ListUploadedPartsRequest $request
      *
-     * @return ListUserResponse
+     * @return ListUploadedPartsResponse
      */
-    public function listUser($request)
+    public function listUploadedParts($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listUserWithOptions($request, $headers, $runtime);
+        return $this->listUploadedPartsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3147,16 +3590,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param MoveFileRequest $request
+     * @param ListUserRequest $request
      *
-     * @return MoveFileResponse
+     * @return ListUserResponse
      */
-    public function moveFile($request)
+    public function listUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->moveFileWithOptions($request, $headers, $runtime);
+        return $this->listUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3202,16 +3645,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ParseKeywordsRequest $request
+     * @param MoveFileRequest $request
      *
-     * @return ParseKeywordsResponse
+     * @return MoveFileResponse
      */
-    public function parseKeywords($request)
+    public function moveFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->parseKeywordsWithOptions($request, $headers, $runtime);
+        return $this->moveFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3248,16 +3691,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveFaceGroupFileRequest $request
+     * @param ParseKeywordsRequest $request
      *
-     * @return RemoveFaceGroupFileResponse
+     * @return ParseKeywordsResponse
      */
-    public function removeFaceGroupFile($request)
+    public function parseKeywords($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeFaceGroupFileWithOptions($request, $headers, $runtime);
+        return $this->parseKeywordsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3300,16 +3743,73 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreFileRequest $request
+     * @param RemoveFaceGroupFileRequest $request
      *
-     * @return RestoreFileResponse
+     * @return RemoveFaceGroupFileResponse
      */
-    public function restoreFile($request)
+    public function removeFaceGroupFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restoreFileWithOptions($request, $headers, $runtime);
+        return $this->removeFaceGroupFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $domainId
+     * @param RemoveGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveGroupMemberResponse
+     */
+    public function removeGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap              = [];
+        $hostMap['domain_id'] = $domainId;
+        $body                 = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['group_id'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $body['member_id'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->memberType)) {
+            $body['member_type'] = $request->memberType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveGroupMember',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/group/remove_member',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $domainId
+     * @param RemoveGroupMemberRequest $request
+     *
+     * @return RemoveGroupMemberResponse
+     */
+    public function removeGroupMember($domainId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeGroupMemberWithOptions($domainId, $request, $headers, $runtime);
     }
 
     /**
@@ -3349,16 +3849,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreRevisionRequest $request
+     * @param RestoreFileRequest $request
      *
-     * @return RestoreRevisionResponse
+     * @return RestoreFileResponse
      */
-    public function restoreRevision($request)
+    public function restoreFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restoreRevisionWithOptions($request, $headers, $runtime);
+        return $this->restoreFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3401,16 +3901,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ScanFileRequest $request
+     * @param RestoreRevisionRequest $request
      *
-     * @return ScanFileResponse
+     * @return RestoreRevisionResponse
      */
-    public function scanFile($request)
+    public function restoreRevision($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scanFileWithOptions($request, $headers, $runtime);
+        return $this->restoreRevisionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3456,16 +3956,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchAddressGroupsRequest $request
+     * @param ScanFileRequest $request
      *
-     * @return SearchAddressGroupsResponse
+     * @return ScanFileResponse
      */
-    public function searchAddressGroups($request)
+    public function scanFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->searchAddressGroupsWithOptions($request, $headers, $runtime);
+        return $this->scanFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3520,16 +4020,71 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchDriveRequest $request
+     * @param SearchAddressGroupsRequest $request
      *
-     * @return SearchDriveResponse
+     * @return SearchAddressGroupsResponse
      */
-    public function searchDrive($request)
+    public function searchAddressGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->searchDriveWithOptions($request, $headers, $runtime);
+        return $this->searchAddressGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SearchDomainsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SearchDomainsResponse
+     */
+    public function searchDomainsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['order_by'] = $request->orderBy;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchDomains',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/search',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchDomainsRequest $request
+     *
+     * @return SearchDomainsResponse
+     */
+    public function searchDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3578,16 +4133,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchFileRequest $request
+     * @param SearchDriveRequest $request
      *
-     * @return SearchFileResponse
+     * @return SearchDriveResponse
      */
-    public function searchFile($request)
+    public function searchDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->searchFileWithOptions($request, $headers, $runtime);
+        return $this->searchDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3639,16 +4194,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchShareLinkRequest $request
+     * @param SearchFileRequest $request
      *
-     * @return SearchShareLinkResponse
+     * @return SearchFileResponse
      */
-    public function searchShareLink($request)
+    public function searchFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->searchShareLinkWithOptions($request, $headers, $runtime);
+        return $this->searchFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3703,16 +4258,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchUserRequest $request
+     * @param SearchShareLinkRequest $request
      *
-     * @return SearchUserResponse
+     * @return SearchShareLinkResponse
      */
-    public function searchUser($request)
+    public function searchShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->searchUserWithOptions($request, $headers, $runtime);
+        return $this->searchShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3773,16 +4328,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TokenRequest $request
+     * @param SearchUserRequest $request
      *
-     * @return TokenResponse
+     * @return SearchUserResponse
      */
-    public function token($request)
+    public function searchUser($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tokenWithOptions($request, $headers, $runtime);
+        return $this->searchUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3837,16 +4392,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TrashFileRequest $request
+     * @param TokenRequest $request
      *
-     * @return TrashFileResponse
+     * @return TokenResponse
      */
-    public function trashFile($request)
+    public function token($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->trashFileWithOptions($request, $headers, $runtime);
+        return $this->tokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3886,16 +4441,80 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateDriveRequest $request
+     * @param TrashFileRequest $request
      *
-     * @return UpdateDriveResponse
+     * @return TrashFileResponse
      */
-    public function updateDrive($request)
+    public function trashFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateDriveWithOptions($request, $headers, $runtime);
+        return $this->trashFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateDomainResponse
+     */
+    public function updateDomainWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->domainId)) {
+            $body['domain_id'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['domain_name'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->initDriveEnable)) {
+            $body['init_drive_enable'] = $request->initDriveEnable;
+        }
+        if (!Utils::isUnset($request->initDriveSize)) {
+            $body['init_drive_size'] = $request->initDriveSize;
+        }
+        if (!Utils::isUnset($request->sizeQuota)) {
+            $body['size_quota'] = $request->sizeQuota;
+        }
+        if (!Utils::isUnset($request->userCountQuota)) {
+            $body['user_count_quota'] = $request->userCountQuota;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomain',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDomainRequest $request
+     *
+     * @return UpdateDomainResponse
+     */
+    public function updateDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3944,16 +4563,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFacegroupRequest $request
+     * @param UpdateDriveRequest $request
      *
-     * @return UpdateFacegroupResponse
+     * @return UpdateDriveResponse
      */
-    public function updateFacegroup($request)
+    public function updateDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateFacegroupWithOptions($request, $headers, $runtime);
+        return $this->updateDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4002,16 +4621,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileRequest $request
+     * @param UpdateFacegroupRequest $request
      *
-     * @return UpdateFileResponse
+     * @return UpdateFacegroupResponse
      */
-    public function updateFile($request)
+    public function updateFacegroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateFileWithOptions($request, $headers, $runtime);
+        return $this->updateFacegroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4072,16 +4691,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @param UpdateFileRequest $request
      *
-     * @return UpdateGroupResponse
+     * @return UpdateFileResponse
      */
-    public function updateGroup($request)
+    public function updateFile($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateGroupWithOptions($request, $headers, $runtime);
+        return $this->updateFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4124,16 +4743,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateRevisionRequest $request
+     * @param UpdateGroupRequest $request
      *
-     * @return UpdateRevisionResponse
+     * @return UpdateGroupResponse
      */
-    public function updateRevision($request)
+    public function updateGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRevisionWithOptions($request, $headers, $runtime);
+        return $this->updateGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4182,16 +4801,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateShareLinkRequest $request
+     * @param UpdateRevisionRequest $request
      *
-     * @return UpdateShareLinkResponse
+     * @return UpdateRevisionResponse
      */
-    public function updateShareLink($request)
+    public function updateRevision($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateShareLinkWithOptions($request, $headers, $runtime);
+        return $this->updateRevisionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4276,16 +4895,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @param UpdateShareLinkRequest $request
      *
-     * @return UpdateUserResponse
+     * @return UpdateShareLinkResponse
      */
-    public function updateUser($request)
+    public function updateShareLink($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateUserWithOptions($request, $headers, $runtime);
+        return $this->updateShareLinkWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4346,5 +4965,18 @@ class Pds extends OpenApiClient
         ]);
 
         return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
+     */
+    public function updateUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUserWithOptions($request, $headers, $runtime);
     }
 }

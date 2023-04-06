@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SystemTag extends Model
 {
     /**
+     * @example 0.98
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example 篮球
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 运动
+     *
      * @var string
      */
     public $parentName;
 
     /**
+     * @example 一起打篮球
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $tagLevel;

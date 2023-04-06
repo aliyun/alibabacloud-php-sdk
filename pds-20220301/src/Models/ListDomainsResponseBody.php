@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class WalkFileResponseBody extends Model
+class ListDomainsResponseBody extends Model
 {
     /**
-     * @var File[]
+     * @var Domain[]
      */
     public $items;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $nextMarker;
@@ -48,7 +50,7 @@ class WalkFileResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return WalkFileResponseBody
+     * @return ListDomainsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -58,7 +60,7 @@ class WalkFileResponseBody extends Model
                 $model->items = [];
                 $n            = 0;
                 foreach ($map['items'] as $item) {
-                    $model->items[$n++] = null !== $item ? File::fromMap($item) : $item;
+                    $model->items[$n++] = null !== $item ? Domain::fromMap($item) : $item;
                 }
             }
         }

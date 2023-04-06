@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateUserResponseBody extends Model
 {
     /**
+     * @example http://aa.com/1.jpg
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example 1639762579768
+     *
      * @var int
      */
     public $createdAt;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $defaultDriveId;
 
     /**
+     * @example vipuser
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example a@a.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 001
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 13900001111
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1639762579768
+     *
      * @var int
      */
     public $updatedAt;
@@ -74,11 +98,15 @@ class CreateUserResponseBody extends Model
     public $userData;
 
     /**
+     * @example dingding_abc001
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example pds
+     *
      * @var string
      */
     public $userName;

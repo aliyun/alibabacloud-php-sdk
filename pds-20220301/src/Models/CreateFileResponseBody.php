@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateFileResponseBody extends Model
 {
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $exist;
 
     /**
+     * @example fileid1
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example a.txt
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example fileid5
+     *
      * @var string
      */
     public $parentFileId;
@@ -44,21 +56,29 @@ class CreateFileResponseBody extends Model
     public $partInfoList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $rapidUpload;
 
     /**
+     * @example uploading
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example file
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example uploadid1
+     *
      * @var string
      */
     public $uploadId;

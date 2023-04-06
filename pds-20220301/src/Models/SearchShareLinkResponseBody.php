@@ -14,11 +14,15 @@ class SearchShareLinkResponseBody extends Model
     public $items;
 
     /**
+     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+     *
      * @var string
      */
     public $nextMarker;
 
     /**
+     * @example 101
+     *
      * @var int
      */
     public $totalCount;

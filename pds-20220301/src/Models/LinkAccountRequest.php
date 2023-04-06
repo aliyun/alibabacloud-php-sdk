@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class LinkAccountRequest extends Model
 {
     /**
+     * @example 86
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example 130***
+     *
      * @var string
      */
     public $identity;
 
     /**
+     * @example mobile
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $userId;

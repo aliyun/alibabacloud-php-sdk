@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileResponseBody extends Model
 {
     /**
+     * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+     *
      * @var string
      */
     public $asyncTaskId;
 
     /**
+     * @example bj1
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @example 9520943DC264
+     *
      * @var string
      */
     public $fileId;

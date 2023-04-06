@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @example http://a.b.c/pds.jpg
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example VIP用户
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 123@pds.com
+     *
      * @var string
      */
     public $email;
@@ -30,36 +36,50 @@ class CreateUserRequest extends Model
     public $groupInfoList;
 
     /**
+     * @example pdsuer
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 13900001111
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example md
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example pdsuserid1
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example pdsusername
+     *
      * @var string
      */
     public $userName;
