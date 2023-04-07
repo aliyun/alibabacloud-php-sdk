@@ -40,6 +40,11 @@ class CorpTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @description traceId
      *
      * @example 21041ce316577904808056433edbb2
@@ -53,6 +58,7 @@ class CorpTokenResponseBody extends Model
         'message'   => 'message',
         'module'    => 'module',
         'requestId' => 'requestId',
+        'success'   => 'success',
         'traceId'   => 'traceId',
     ];
 
@@ -77,6 +83,9 @@ class CorpTokenResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
@@ -107,6 +116,9 @@ class CorpTokenResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];

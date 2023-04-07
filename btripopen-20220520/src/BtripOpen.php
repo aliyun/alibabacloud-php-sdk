@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetResponse;
@@ -37,6 +41,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddResponse;
@@ -80,6 +87,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveResponse;
@@ -118,6 +129,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoResponse;
@@ -127,6 +141,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderResponse;
@@ -151,15 +168,53 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelIndexInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelIndexInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelIndexInfoResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPayResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddResponse;
@@ -169,6 +224,14 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleDeleteHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleDeleteRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleDeleteShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveResponse;
@@ -176,10 +239,16 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetResponse;
@@ -192,10 +261,16 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyResponse;
@@ -336,6 +411,67 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param AddInvoiceEntityRequest $tmpReq
+     * @param AddInvoiceEntityHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddInvoiceEntityResponse
+     */
+    public function addInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddInvoiceEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->entities)) {
+            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->entitiesShrink)) {
+            $body['entities'] = $request->entitiesShrink;
+        }
+        if (!Utils::isUnset($request->thirdPartId)) {
+            $body['third_part_id'] = $request->thirdPartId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddInvoiceEntity',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/entities',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddInvoiceEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddInvoiceEntityRequest $request
+     *
+     * @return AddInvoiceEntityResponse
+     */
+    public function addInvoiceEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddInvoiceEntityHeaders([]);
+
+        return $this->addInvoiceEntityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param AddressGetRequest $request
      * @param AddressGetHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -354,6 +490,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->phone)) {
             $query['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
         }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
@@ -552,6 +691,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->departName)) {
             $body['depart_name'] = $request->departName;
+        }
+        if (!Utils::isUnset($request->extendField)) {
+            $body['extend_field'] = $request->extendField;
         }
         if (!Utils::isUnset($request->externalTravelerListShrink)) {
             $body['external_traveler_list'] = $request->externalTravelerListShrink;
@@ -929,6 +1071,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->departName)) {
             $body['depart_name'] = $request->departName;
         }
+        if (!Utils::isUnset($request->extendField)) {
+            $body['extend_field'] = $request->extendField;
+        }
         if (!Utils::isUnset($request->externalTravelerListShrink)) {
             $body['external_traveler_list'] = $request->externalTravelerListShrink;
         }
@@ -1100,6 +1245,74 @@ class BtripOpen extends OpenApiClient
         $headers = new ApplyQueryHeaders([]);
 
         return $this->applyQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param BtripBillInfoAdjustRequest $request
+     * @param BtripBillInfoAdjustHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BtripBillInfoAdjustResponse
+     */
+    public function btripBillInfoAdjustWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->primaryId)) {
+            $body['primary_id'] = $request->primaryId;
+        }
+        if (!Utils::isUnset($request->thirdPartCostCenterId)) {
+            $body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+        }
+        if (!Utils::isUnset($request->thirdPartDepartmentId)) {
+            $body['third_part_department_id'] = $request->thirdPartDepartmentId;
+        }
+        if (!Utils::isUnset($request->thirdPartInvoiceId)) {
+            $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+        }
+        if (!Utils::isUnset($request->thirdPartProjectId)) {
+            $body['third_part_project_id'] = $request->thirdPartProjectId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BtripBillInfoAdjust',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/bill/v1/info/action/adjust',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BtripBillInfoAdjustResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BtripBillInfoAdjustRequest $request
+     *
+     * @return BtripBillInfoAdjustResponse
+     */
+    public function btripBillInfoAdjust($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BtripBillInfoAdjustHeaders([]);
+
+        return $this->btripBillInfoAdjustWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2053,6 +2266,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param DeleteInvoiceEntityRequest $tmpReq
+     * @param DeleteInvoiceEntityHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteInvoiceEntityResponse
+     */
+    public function deleteInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteInvoiceEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->entities)) {
+            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->delAll)) {
+            $query['del_all'] = $request->delAll;
+        }
+        if (!Utils::isUnset($request->entitiesShrink)) {
+            $query['entities'] = $request->entitiesShrink;
+        }
+        if (!Utils::isUnset($request->thirdPartId)) {
+            $query['third_part_id'] = $request->thirdPartId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInvoiceEntity',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/entities',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInvoiceEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInvoiceEntityRequest $request
+     *
+     * @return DeleteInvoiceEntityResponse
+     */
+    public function deleteInvoiceEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteInvoiceEntityHeaders([]);
+
+        return $this->deleteInvoiceEntityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param DepartmentSaveRequest $tmpReq
      * @param DepartmentSaveHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -2326,6 +2603,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['start_time'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -2789,6 +3069,71 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param FlightListingSearchRequest $request
+     * @param FlightListingSearchHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightListingSearchResponse
+     */
+    public function flightListingSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->airlineCode)) {
+            $query['airline_code'] = $request->airlineCode;
+        }
+        if (!Utils::isUnset($request->arrCityCode)) {
+            $query['arr_city_code'] = $request->arrCityCode;
+        }
+        if (!Utils::isUnset($request->cabinClass)) {
+            $query['cabin_class'] = $request->cabinClass;
+        }
+        if (!Utils::isUnset($request->depCityCode)) {
+            $query['dep_city_code'] = $request->depCityCode;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $query['dep_date'] = $request->depDate;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightListingSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/flight/action/listing-search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightListingSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightListingSearchRequest $request
+     *
+     * @return FlightListingSearchResponse
+     */
+    public function flightListingSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightListingSearchHeaders([]);
+
+        return $this->flightListingSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param FlightOrderDetailInfoRequest $request
      * @param FlightOrderDetailInfoHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -2978,6 +3323,77 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightOrderQueryHeaders([]);
 
         return $this->flightOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightOtaSearchRequest $request
+     * @param FlightOtaSearchHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FlightOtaSearchResponse
+     */
+    public function flightOtaSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->airlineCode)) {
+            $query['airline_code'] = $request->airlineCode;
+        }
+        if (!Utils::isUnset($request->arrCityCode)) {
+            $query['arr_city_code'] = $request->arrCityCode;
+        }
+        if (!Utils::isUnset($request->cabinClass)) {
+            $query['cabin_class'] = $request->cabinClass;
+        }
+        if (!Utils::isUnset($request->carrierFlightNo)) {
+            $query['carrier_flight_no'] = $request->carrierFlightNo;
+        }
+        if (!Utils::isUnset($request->depCityCode)) {
+            $query['dep_city_code'] = $request->depCityCode;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $query['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->flightNo)) {
+            $query['flight_no'] = $request->flightNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightOtaSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/flight/action/ota-search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightOtaSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightOtaSearchRequest $request
+     *
+     * @return FlightOtaSearchResponse
+     */
+    public function flightOtaSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightOtaSearchHeaders([]);
+
+        return $this->flightOtaSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3481,6 +3897,384 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param HotelGoodsQueryRequest $request
+     * @param HotelGoodsQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelGoodsQueryResponse
+     */
+    public function hotelGoodsQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adultNum)) {
+            $query['adult_num'] = $request->adultNum;
+        }
+        if (!Utils::isUnset($request->agreementPrice)) {
+            $query['agreement_price'] = $request->agreementPrice;
+        }
+        if (!Utils::isUnset($request->beginDate)) {
+            $query['begin_date'] = $request->beginDate;
+        }
+        if (!Utils::isUnset($request->breakfastIncluded)) {
+            $query['breakfast_included'] = $request->breakfastIncluded;
+        }
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['end_date'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->hotelId)) {
+            $query['hotel_id'] = $request->hotelId;
+        }
+        if (!Utils::isUnset($request->payOverType)) {
+            $query['pay_over_type'] = $request->payOverType;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['payment_type'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->specialInvoice)) {
+            $query['special_invoice'] = $request->specialInvoice;
+        }
+        if (!Utils::isUnset($request->superMan)) {
+            $query['super_man'] = $request->superMan;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelGoodsQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/hotel-goods',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelGoodsQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelGoodsQueryRequest $request
+     *
+     * @return HotelGoodsQueryResponse
+     */
+    public function hotelGoodsQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelGoodsQueryHeaders([]);
+
+        return $this->hotelGoodsQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelIndexInfoRequest $request
+     * @param HotelIndexInfoHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HotelIndexInfoResponse
+     */
+    public function hotelIndexInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->hotelStatus)) {
+            $query['hotel_status'] = $request->hotelStatus;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['page_token'] = $request->pageToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelIndexInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/index-infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelIndexInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelIndexInfoRequest $request
+     *
+     * @return HotelIndexInfoResponse
+     */
+    public function hotelIndexInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelIndexInfoHeaders([]);
+
+        return $this->hotelIndexInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelOrderCancelRequest $request
+     * @param HotelOrderCancelHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelOrderCancelResponse
+     */
+    public function hotelOrderCancelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderCancel',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/cancel',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderCancelRequest $request
+     *
+     * @return HotelOrderCancelResponse
+     */
+    public function hotelOrderCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderCancelHeaders([]);
+
+        return $this->hotelOrderCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelOrderCreateRequest $tmpReq
+     * @param HotelOrderCreateHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelOrderCreateResponse
+     */
+    public function hotelOrderCreateWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelOrderCreateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->invoiceInfo)) {
+            $request->invoiceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceInfo, 'invoice_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->occupantInfoList)) {
+            $request->occupantInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->promotionInfo)) {
+            $request->promotionInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->promotionInfo, 'promotion_info', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkIn)) {
+            $body['check_in'] = $request->checkIn;
+        }
+        if (!Utils::isUnset($request->checkOut)) {
+            $body['check_out'] = $request->checkOut;
+        }
+        if (!Utils::isUnset($request->contractEmail)) {
+            $body['contract_email'] = $request->contractEmail;
+        }
+        if (!Utils::isUnset($request->contractName)) {
+            $body['contract_name'] = $request->contractName;
+        }
+        if (!Utils::isUnset($request->contractPhone)) {
+            $body['contract_phone'] = $request->contractPhone;
+        }
+        if (!Utils::isUnset($request->corpPayPrice)) {
+            $body['corp_pay_price'] = $request->corpPayPrice;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->invoiceInfoShrink)) {
+            $body['invoice_info'] = $request->invoiceInfoShrink;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $body['item_id'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->itineraryNo)) {
+            $body['itinerary_no'] = $request->itineraryNo;
+        }
+        if (!Utils::isUnset($request->occupantInfoListShrink)) {
+            $body['occupant_info_list'] = $request->occupantInfoListShrink;
+        }
+        if (!Utils::isUnset($request->personPayPrice)) {
+            $body['person_pay_price'] = $request->personPayPrice;
+        }
+        if (!Utils::isUnset($request->promotionInfoShrink)) {
+            $body['promotion_info'] = $request->promotionInfoShrink;
+        }
+        if (!Utils::isUnset($request->ratePlanId)) {
+            $body['rate_plan_id'] = $request->ratePlanId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['room_id'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomNum)) {
+            $body['room_num'] = $request->roomNum;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $body['seller_id'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->shid)) {
+            $body['shid'] = $request->shid;
+        }
+        if (!Utils::isUnset($request->totalOrderPrice)) {
+            $body['total_order_price'] = $request->totalOrderPrice;
+        }
+        if (!Utils::isUnset($request->validateResKey)) {
+            $body['validate_res_key'] = $request->validateResKey;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderCreate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderCreateRequest $request
+     *
+     * @return HotelOrderCreateResponse
+     */
+    public function hotelOrderCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderCreateHeaders([]);
+
+        return $this->hotelOrderCreateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelOrderDetailInfoRequest $request
+     * @param HotelOrderDetailInfoHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return HotelOrderDetailInfoResponse
+     */
+    public function hotelOrderDetailInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disOrderId)) {
+            $query['dis_order_id'] = $request->disOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderDetailInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderDetailInfoRequest $request
+     *
+     * @return HotelOrderDetailInfoResponse
+     */
+    public function hotelOrderDetailInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderDetailInfoHeaders([]);
+
+        return $this->hotelOrderDetailInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param HotelOrderListQueryRequest $request
      * @param HotelOrderListQueryHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -3564,6 +4358,174 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param HotelOrderPayRequest $request
+     * @param HotelOrderPayHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return HotelOrderPayResponse
+     */
+    public function hotelOrderPayWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->companyPayFee)) {
+            $body['company_pay_fee'] = $request->companyPayFee;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->personPayFee)) {
+            $body['person_pay_fee'] = $request->personPayFee;
+        }
+        if (!Utils::isUnset($request->thirdPayAccount)) {
+            $body['third_pay_account'] = $request->thirdPayAccount;
+        }
+        if (!Utils::isUnset($request->thirdTradeNo)) {
+            $body['third_trade_no'] = $request->thirdTradeNo;
+        }
+        if (!Utils::isUnset($request->totalPrice)) {
+            $body['total_price'] = $request->totalPrice;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderPay',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/pay',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderPayRequest $request
+     *
+     * @return HotelOrderPayResponse
+     */
+    public function hotelOrderPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderPayHeaders([]);
+
+        return $this->hotelOrderPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelOrderPreValidateRequest $tmpReq
+     * @param HotelOrderPreValidateHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HotelOrderPreValidateResponse
+     */
+    public function hotelOrderPreValidateWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelOrderPreValidateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dailyList)) {
+            $request->dailyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dailyList, 'daily_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->occupantInfoList)) {
+            $request->occupantInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkIn)) {
+            $query['check_in'] = $request->checkIn;
+        }
+        if (!Utils::isUnset($request->checkOut)) {
+            $query['check_out'] = $request->checkOut;
+        }
+        if (!Utils::isUnset($request->dailyListShrink)) {
+            $query['daily_list'] = $request->dailyListShrink;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['item_id'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->numberOfAdultsPerRoom)) {
+            $query['number_of_adults_per_room'] = $request->numberOfAdultsPerRoom;
+        }
+        if (!Utils::isUnset($request->occupantInfoListShrink)) {
+            $query['occupant_info_list'] = $request->occupantInfoListShrink;
+        }
+        if (!Utils::isUnset($request->ratePlanId)) {
+            $query['rate_plan_id'] = $request->ratePlanId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $query['room_id'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomNum)) {
+            $query['room_num'] = $request->roomNum;
+        }
+        if (!Utils::isUnset($request->searchRoomPrice)) {
+            $query['search_room_price'] = $request->searchRoomPrice;
+        }
+        if (!Utils::isUnset($request->sellerId)) {
+            $query['seller_id'] = $request->sellerId;
+        }
+        if (!Utils::isUnset($request->shid)) {
+            $query['shid'] = $request->shid;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderPreValidate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/pre-validate',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderPreValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderPreValidateRequest $request
+     *
+     * @return HotelOrderPreValidateResponse
+     */
+    public function hotelOrderPreValidate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderPreValidateHeaders([]);
+
+        return $this->hotelOrderPreValidateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param HotelOrderQueryRequest $request
      * @param HotelOrderQueryHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -3614,6 +4576,246 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelOrderQueryHeaders([]);
 
         return $this->hotelOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelRoomInfoRequest $tmpReq
+     * @param HotelRoomInfoHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return HotelRoomInfoResponse
+     */
+    public function hotelRoomInfoWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelRoomInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roomIds)) {
+            $request->roomIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIds, 'room_ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->roomIdsShrink)) {
+            $query['room_ids'] = $request->roomIdsShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelRoomInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/room-infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelRoomInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelRoomInfoRequest $request
+     *
+     * @return HotelRoomInfoResponse
+     */
+    public function hotelRoomInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelRoomInfoHeaders([]);
+
+        return $this->hotelRoomInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelSearchRequest $tmpReq
+     * @param HotelSearchHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return HotelSearchResponse
+     */
+    public function hotelSearchWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelSearchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->brandCode)) {
+            $request->brandCodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->brandCode, 'brand_code', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->shids)) {
+            $request->shidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->adultNum)) {
+            $query['adult_num'] = $request->adultNum;
+        }
+        if (!Utils::isUnset($request->brandCodeShrink)) {
+            $query['brand_code'] = $request->brandCodeShrink;
+        }
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkInDate)) {
+            $query['check_in_date'] = $request->checkInDate;
+        }
+        if (!Utils::isUnset($request->checkOutDate)) {
+            $query['check_out_date'] = $request->checkOutDate;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->dir)) {
+            $query['dir'] = $request->dir;
+        }
+        if (!Utils::isUnset($request->distance)) {
+            $query['distance'] = $request->distance;
+        }
+        if (!Utils::isUnset($request->districtCode)) {
+            $query['district_code'] = $request->districtCode;
+        }
+        if (!Utils::isUnset($request->hotelStar)) {
+            $query['hotel_star'] = $request->hotelStar;
+        }
+        if (!Utils::isUnset($request->isProtocol)) {
+            $query['is_protocol'] = $request->isProtocol;
+        }
+        if (!Utils::isUnset($request->keyWords)) {
+            $query['key_words'] = $request->keyWords;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->maxPrice)) {
+            $query['max_price'] = $request->maxPrice;
+        }
+        if (!Utils::isUnset($request->minPrice)) {
+            $query['min_price'] = $request->minPrice;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->payOverType)) {
+            $query['pay_over_type'] = $request->payOverType;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['payment_type'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->shidsShrink)) {
+            $query['shids'] = $request->shidsShrink;
+        }
+        if (!Utils::isUnset($request->sortCode)) {
+            $query['sort_code'] = $request->sortCode;
+        }
+        if (!Utils::isUnset($request->superMan)) {
+            $query['super_man'] = $request->superMan;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/hotels/action/search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelSearchRequest $request
+     *
+     * @return HotelSearchResponse
+     */
+    public function hotelSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelSearchHeaders([]);
+
+        return $this->hotelSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelStaticInfoRequest $tmpReq
+     * @param HotelStaticInfoHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelStaticInfoResponse
+     */
+    public function hotelStaticInfoWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelStaticInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hotelIds)) {
+            $request->hotelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->hotelIdsShrink)) {
+            $query['hotel_ids'] = $request->hotelIdsShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelStaticInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/static-infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelStaticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelStaticInfoRequest $request
+     *
+     * @return HotelStaticInfoResponse
+     */
+    public function hotelStaticInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelStaticInfoHeaders([]);
+
+        return $this->hotelStaticInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3676,6 +4878,71 @@ class BtripOpen extends OpenApiClient
         $headers = new IeFlightBillSettlementQueryHeaders([]);
 
         return $this->ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param InsInvoiceScanQueryRequest $request
+     * @param InsInvoiceScanQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InsInvoiceScanQueryResponse
+     */
+    public function insInvoiceScanQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billDate)) {
+            $query['bill_date'] = $request->billDate;
+        }
+        if (!Utils::isUnset($request->billId)) {
+            $query['bill_id'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->invoiceSubTaskId)) {
+            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsInvoiceScanQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scan/v1/ins-invoice',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsInvoiceScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsInvoiceScanQueryRequest $request
+     *
+     * @return InsInvoiceScanQueryResponse
+     */
+    public function insInvoiceScanQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsInvoiceScanQueryHeaders([]);
+
+        return $this->insInvoiceScanQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3880,6 +5147,131 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param InvoiceRuleAddRequest $tmpReq
+     * @param InvoiceRuleAddHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InvoiceRuleAddResponse
+     */
+    public function invoiceRuleAddWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InvoiceRuleAddShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->entities)) {
+            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->entitiesShrink)) {
+            $body['entities'] = $request->entitiesShrink;
+        }
+        if (!Utils::isUnset($request->thirdPartId)) {
+            $body['third_part_id'] = $request->thirdPartId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InvoiceRuleAdd',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/invoice-rule',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvoiceRuleAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvoiceRuleAddRequest $request
+     *
+     * @return InvoiceRuleAddResponse
+     */
+    public function invoiceRuleAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InvoiceRuleAddHeaders([]);
+
+        return $this->invoiceRuleAddWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param InvoiceRuleDeleteRequest $tmpReq
+     * @param InvoiceRuleDeleteHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InvoiceRuleDeleteResponse
+     */
+    public function invoiceRuleDeleteWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InvoiceRuleDeleteShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->entities)) {
+            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->delAll)) {
+            $query['del_all'] = $request->delAll;
+        }
+        if (!Utils::isUnset($request->entitiesShrink)) {
+            $query['entities'] = $request->entitiesShrink;
+        }
+        if (!Utils::isUnset($request->thirdPartId)) {
+            $query['third_part_id'] = $request->thirdPartId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvoiceRuleDelete',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/invoice-rule',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvoiceRuleDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvoiceRuleDeleteRequest $request
+     *
+     * @return InvoiceRuleDeleteResponse
+     */
+    public function invoiceRuleDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InvoiceRuleDeleteHeaders([]);
+
+        return $this->invoiceRuleDeleteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param InvoiceRuleSaveRequest $tmpReq
      * @param InvoiceRuleSaveHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -4000,6 +5392,65 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param IsvRuleSaveRequest $request
+     * @param IsvRuleSaveHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsvRuleSaveResponse
+     */
+    public function isvRuleSaveWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bookType)) {
+            $body['book_type'] = $request->bookType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'IsvRuleSave',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/rule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return IsvRuleSaveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IsvRuleSaveRequest $request
+     *
+     * @return IsvRuleSaveResponse
+     */
+    public function isvRuleSave($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IsvRuleSaveHeaders([]);
+
+        return $this->isvRuleSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param IsvUserSaveRequest $tmpReq
      * @param IsvUserSaveHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -4055,6 +5506,62 @@ class BtripOpen extends OpenApiClient
         $headers = new IsvUserSaveHeaders([]);
 
         return $this->isvUserSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param MonthBillConfirmRequest $request
+     * @param MonthBillConfirmHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MonthBillConfirmResponse
+     */
+    public function monthBillConfirmWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mailBillDate)) {
+            $body['mail_bill_date'] = $request->mailBillDate;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MonthBillConfirm',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/bill/v1/status/action/confirm',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MonthBillConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MonthBillConfirmRequest $request
+     *
+     * @return MonthBillConfirmResponse
+     */
+    public function monthBillConfirm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MonthBillConfirmHeaders([]);
+
+        return $this->monthBillConfirmWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4294,6 +5801,62 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param QueryReimbursementOrderRequest $request
+     * @param QueryReimbursementOrderHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryReimbursementOrderResponse
+     */
+    public function queryReimbursementOrderWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reimbOrderNo)) {
+            $query['reimb_order_no'] = $request->reimbOrderNo;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryReimbursementOrder',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/reimbursement/v1/order',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryReimbursementOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryReimbursementOrderRequest $request
+     *
+     * @return QueryReimbursementOrderResponse
+     */
+    public function queryReimbursementOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryReimbursementOrderHeaders([]);
+
+        return $this->queryReimbursementOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param SyncSingleUserRequest $tmpReq
      * @param SyncSingleUserHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -4379,6 +5942,68 @@ class BtripOpen extends OpenApiClient
         $headers = new SyncSingleUserHeaders([]);
 
         return $this->syncSingleUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SyncThirdUserMappingRequest $request
+     * @param SyncThirdUserMappingHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SyncThirdUserMappingResponse
+     */
+    public function syncThirdUserMappingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->thirdChannelType)) {
+            $body['third_channel_type'] = $request->thirdChannelType;
+        }
+        if (!Utils::isUnset($request->thirdUserId)) {
+            $body['third_user_id'] = $request->thirdUserId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncThirdUserMapping',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/third-users/action/mapping',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncThirdUserMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SyncThirdUserMappingRequest $request
+     *
+     * @return SyncThirdUserMappingResponse
+     */
+    public function syncThirdUserMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SyncThirdUserMappingHeaders([]);
+
+        return $this->syncThirdUserMappingWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -16,11 +16,17 @@ class module extends Model
     public $hotelFeeDetail;
 
     /**
+     * @var int
+     */
+    public $totalHotelFee;
+
+    /**
      * @var trafficFee
      */
     public $trafficFee;
     protected $_name = [
         'hotelFeeDetail' => 'hotel_fee_detail',
+        'totalHotelFee'  => 'total_hotel_fee',
         'trafficFee'     => 'traffic_fee',
     ];
 
@@ -39,6 +45,9 @@ class module extends Model
                     $res['hotel_fee_detail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalHotelFee) {
+            $res['total_hotel_fee'] = $this->totalHotelFee;
         }
         if (null !== $this->trafficFee) {
             $res['traffic_fee'] = null !== $this->trafficFee ? $this->trafficFee->toMap() : null;
@@ -63,6 +72,9 @@ class module extends Model
                     $model->hotelFeeDetail[$n++] = null !== $item ? hotelFeeDetail::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['total_hotel_fee'])) {
+            $model->totalHotelFee = $map['total_hotel_fee'];
         }
         if (isset($map['traffic_fee'])) {
             $model->trafficFee = trafficFee::fromMap($map['traffic_fee']);

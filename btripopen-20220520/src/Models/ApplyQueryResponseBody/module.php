@@ -67,6 +67,11 @@ class module extends Model
     public $departName;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @var externalTravelerList[]
      */
     public $externalTravelerList;
@@ -238,6 +243,7 @@ class module extends Model
         'corpName'             => 'corp_name',
         'departId'             => 'depart_id',
         'departName'           => 'depart_name',
+        'extendField'          => 'extend_field',
         'externalTravelerList' => 'external_traveler_list',
         'flightBudget'         => 'flight_budget',
         'gmtCreate'            => 'gmt_create',
@@ -302,6 +308,9 @@ class module extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
         if (null !== $this->externalTravelerList) {
             $res['external_traveler_list'] = [];
@@ -446,6 +455,9 @@ class module extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
         if (isset($map['external_traveler_list'])) {
             if (!empty($map['external_traveler_list'])) {

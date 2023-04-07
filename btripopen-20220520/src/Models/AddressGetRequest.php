@@ -28,6 +28,11 @@ class AddressGetRequest extends Model
     public $phone;
 
     /**
+     * @var string
+     */
+    public $subCorpId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -42,6 +47,7 @@ class AddressGetRequest extends Model
         'actionType'  => 'action_type',
         'itineraryId' => 'itinerary_id',
         'phone'       => 'phone',
+        'subCorpId'   => 'sub_corp_id',
         'type'        => 'type',
         'userId'      => 'user_id',
     ];
@@ -61,6 +67,9 @@ class AddressGetRequest extends Model
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+        if (null !== $this->subCorpId) {
+            $res['sub_corp_id'] = $this->subCorpId;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -88,6 +97,9 @@ class AddressGetRequest extends Model
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+        if (isset($map['sub_corp_id'])) {
+            $model->subCorpId = $map['sub_corp_id'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

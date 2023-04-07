@@ -47,6 +47,11 @@ class ApplyModifyRequest extends Model
     public $departName;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @var externalTravelerList[]
      */
     public $externalTravelerList;
@@ -199,6 +204,7 @@ class ApplyModifyRequest extends Model
         'corpName'                 => 'corp_name',
         'departId'                 => 'depart_id',
         'departName'               => 'depart_name',
+        'extendField'              => 'extend_field',
         'externalTravelerList'     => 'external_traveler_list',
         'externalTravelerStandard' => 'external_traveler_standard',
         'flightBudget'             => 'flight_budget',
@@ -246,6 +252,9 @@ class ApplyModifyRequest extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
         if (null !== $this->externalTravelerList) {
             $res['external_traveler_list'] = [];
@@ -375,6 +384,9 @@ class ApplyModifyRequest extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
         if (isset($map['external_traveler_list'])) {
             if (!empty($map['external_traveler_list'])) {

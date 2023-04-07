@@ -14,21 +14,29 @@ class SyncSingleUserShrinkRequest extends Model
     public $email;
 
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $jobNo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $leaveStatus;
 
     /**
+     * @example 72369
+     *
      * @var string
      */
     public $managerUserId;
 
     /**
+     * @example 16392740204
+     *
      * @var string
      */
     public $phone;
@@ -39,11 +47,15 @@ class SyncSingleUserShrinkRequest extends Model
     public $position;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $positionLevel;
 
     /**
+     * @example ce/shi
+     *
      * @var string
      */
     public $realNameEn;
@@ -54,6 +66,8 @@ class SyncSingleUserShrinkRequest extends Model
     public $thirdDepartIdListShrink;
 
     /**
+     * @example 573263
+     *
      * @var string
      */
     public $userId;

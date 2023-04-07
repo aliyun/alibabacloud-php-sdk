@@ -47,6 +47,11 @@ class EstimatedPriceQueryRequest extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $subCorpId;
+
+    /**
      * @example 12345678910
      *
      * @var string
@@ -59,6 +64,7 @@ class EstimatedPriceQueryRequest extends Model
         'endTime'     => 'end_time',
         'itineraryId' => 'itinerary_id',
         'startTime'   => 'start_time',
+        'subCorpId'   => 'sub_corp_id',
         'userId'      => 'user_id',
     ];
 
@@ -86,6 +92,9 @@ class EstimatedPriceQueryRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->subCorpId) {
+            $res['sub_corp_id'] = $this->subCorpId;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -119,6 +128,9 @@ class EstimatedPriceQueryRequest extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['sub_corp_id'])) {
+            $model->subCorpId = $map['sub_corp_id'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

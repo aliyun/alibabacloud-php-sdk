@@ -47,6 +47,16 @@ class travelerInfoList extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nationality;
+
+    /**
+     * @var string
+     */
+    public $nationalityCode;
+
+    /**
      * @example 1234
      *
      * @var string
@@ -72,16 +82,18 @@ class travelerInfoList extends Model
      */
     public $type;
     protected $_name = [
-        'birthday'      => 'birthday',
-        'certNation'    => 'cert_nation',
-        'certNo'        => 'cert_no',
-        'certType'      => 'cert_type',
-        'certValidDate' => 'cert_valid_date',
-        'name'          => 'name',
-        'outUserId'     => 'out_user_id',
-        'phone'         => 'phone',
-        'sex'           => 'sex',
-        'type'          => 'type',
+        'birthday'        => 'birthday',
+        'certNation'      => 'cert_nation',
+        'certNo'          => 'cert_no',
+        'certType'        => 'cert_type',
+        'certValidDate'   => 'cert_valid_date',
+        'name'            => 'name',
+        'nationality'     => 'nationality',
+        'nationalityCode' => 'nationality_code',
+        'outUserId'       => 'out_user_id',
+        'phone'           => 'phone',
+        'sex'             => 'sex',
+        'type'            => 'type',
     ];
 
     public function validate()
@@ -108,6 +120,12 @@ class travelerInfoList extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->nationality) {
+            $res['nationality'] = $this->nationality;
+        }
+        if (null !== $this->nationalityCode) {
+            $res['nationality_code'] = $this->nationalityCode;
         }
         if (null !== $this->outUserId) {
             $res['out_user_id'] = $this->outUserId;
@@ -150,6 +168,12 @@ class travelerInfoList extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['nationality'])) {
+            $model->nationality = $map['nationality'];
+        }
+        if (isset($map['nationality_code'])) {
+            $model->nationalityCode = $map['nationality_code'];
         }
         if (isset($map['out_user_id'])) {
             $model->outUserId = $map['out_user_id'];

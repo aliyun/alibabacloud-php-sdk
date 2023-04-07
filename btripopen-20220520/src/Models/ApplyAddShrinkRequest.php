@@ -42,6 +42,11 @@ class ApplyAddShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extendField;
+
+    /**
+     * @var string
+     */
     public $externalTravelerListShrink;
 
     /**
@@ -204,6 +209,7 @@ class ApplyAddShrinkRequest extends Model
         'corpName'                       => 'corp_name',
         'departId'                       => 'depart_id',
         'departName'                     => 'depart_name',
+        'extendField'                    => 'extend_field',
         'externalTravelerListShrink'     => 'external_traveler_list',
         'externalTravelerStandardShrink' => 'external_traveler_standard',
         'flightBudget'                   => 'flight_budget',
@@ -253,6 +259,9 @@ class ApplyAddShrinkRequest extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
         if (null !== $this->externalTravelerListShrink) {
             $res['external_traveler_list'] = $this->externalTravelerListShrink;
@@ -358,6 +367,9 @@ class ApplyAddShrinkRequest extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
         if (isset($map['external_traveler_list'])) {
             $model->externalTravelerListShrink = $map['external_traveler_list'];
