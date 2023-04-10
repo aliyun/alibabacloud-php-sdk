@@ -14,6 +14,11 @@ class PredictTemplateModelRequest extends Model
     public $binaryToText;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/xxx/stage/upload/20230207/oss-Y96lOVVWdjui6QVGsHJk0JfNf1luQkGT.png?Expires=1675750767&OSSAccessKeyId=xxx&Signature=lzq1ZUi6j4vkXnDDMhDD4DQty5Q%3D
      *
      * @var string
@@ -24,16 +29,11 @@ class PredictTemplateModelRequest extends Model
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'binaryToText' => 'BinaryToText',
+        'body'         => 'Body',
         'content'      => 'Content',
         'taskId'       => 'TaskId',
-        'body'         => 'body',
     ];
 
     public function validate()
@@ -46,14 +46,14 @@ class PredictTemplateModelRequest extends Model
         if (null !== $this->binaryToText) {
             $res['BinaryToText'] = $this->binaryToText;
         }
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
+        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class PredictTemplateModelRequest extends Model
         if (isset($map['BinaryToText'])) {
             $model->binaryToText = $map['BinaryToText'];
         }
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

@@ -16,6 +16,11 @@ class PredictModelRequest extends Model
     public $binaryToText;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/1559855998794593/stage/upload/20230206/oss-hlfCRJ1SorSWs10MkqxK6YcL4OVAFSv4.png?Expires=1675665563&OSSAccessKeyId=XXXX&Signature=WLKghBc3zKzWJ3Td69%2B4C21jrbE%3D
      *
      * @var string
@@ -35,17 +40,12 @@ class PredictModelRequest extends Model
      * @var string
      */
     public $modelVersion;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'binaryToText' => 'BinaryToText',
+        'body'         => 'Body',
         'content'      => 'Content',
         'modelId'      => 'ModelId',
         'modelVersion' => 'ModelVersion',
-        'body'         => 'body',
     ];
 
     public function validate()
@@ -58,6 +58,9 @@ class PredictModelRequest extends Model
         if (null !== $this->binaryToText) {
             $res['BinaryToText'] = $this->binaryToText;
         }
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
+        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -66,9 +69,6 @@ class PredictModelRequest extends Model
         }
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -85,6 +85,9 @@ class PredictModelRequest extends Model
         if (isset($map['BinaryToText'])) {
             $model->binaryToText = $map['BinaryToText'];
         }
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -93,9 +96,6 @@ class PredictModelRequest extends Model
         }
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

@@ -16,6 +16,11 @@ class PredictClassifierModelRequest extends Model
     public $autoPrediction;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @example c0d420955af6bc0761f9207480333cca
      *
      * @var int
@@ -28,16 +33,11 @@ class PredictClassifierModelRequest extends Model
      * @var string
      */
     public $content;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'autoPrediction' => 'AutoPrediction',
+        'body'           => 'Body',
         'classifierId'   => 'ClassifierId',
         'content'        => 'Content',
-        'body'           => 'body',
     ];
 
     public function validate()
@@ -50,14 +50,14 @@ class PredictClassifierModelRequest extends Model
         if (null !== $this->autoPrediction) {
             $res['AutoPrediction'] = $this->autoPrediction;
         }
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
+        }
         if (null !== $this->classifierId) {
             $res['ClassifierId'] = $this->classifierId;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -74,14 +74,14 @@ class PredictClassifierModelRequest extends Model
         if (isset($map['AutoPrediction'])) {
             $model->autoPrediction = $map['AutoPrediction'];
         }
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
         if (isset($map['ClassifierId'])) {
             $model->classifierId = $map['ClassifierId'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

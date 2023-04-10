@@ -14,6 +14,11 @@ class CreateModelAsyncPredictRequest extends Model
     public $binaryToText;
 
     /**
+     * @var string
+     */
+    public $body;
+
+    /**
      * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/1559855998794593/stage/upload/20230206/oss-hlfCRJ1SorSWs10MkqxK6YcL4OVAFSv4.png?Expires=1675665563&OSSAccessKeyId=XXXX&Signature=WLKghBc3zKzWJ3Td69%2B4C21jrbE%3D
      *
      * @var string
@@ -47,19 +52,14 @@ class CreateModelAsyncPredictRequest extends Model
      * @var string
      */
     public $serviceVersion;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'binaryToText'   => 'BinaryToText',
+        'body'           => 'Body',
         'content'        => 'Content',
         'modelId'        => 'ModelId',
         'modelVersion'   => 'ModelVersion',
         'serviceName'    => 'ServiceName',
         'serviceVersion' => 'ServiceVersion',
-        'body'           => 'body',
     ];
 
     public function validate()
@@ -71,6 +71,9 @@ class CreateModelAsyncPredictRequest extends Model
         $res = [];
         if (null !== $this->binaryToText) {
             $res['BinaryToText'] = $this->binaryToText;
+        }
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
@@ -87,9 +90,6 @@ class CreateModelAsyncPredictRequest extends Model
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
 
         return $res;
     }
@@ -105,6 +105,9 @@ class CreateModelAsyncPredictRequest extends Model
         if (isset($map['BinaryToText'])) {
             $model->binaryToText = $map['BinaryToText'];
         }
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -119,9 +122,6 @@ class CreateModelAsyncPredictRequest extends Model
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

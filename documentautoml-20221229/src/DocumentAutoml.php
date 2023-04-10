@@ -83,9 +83,13 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->serviceVersion)) {
             $query['ServiceVersion'] = $request->serviceVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->body,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateModelAsyncPredict',
@@ -176,9 +180,13 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->body,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PredictClassifierModel',
@@ -229,9 +237,13 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->modelVersion)) {
             $query['ModelVersion'] = $request->modelVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->body,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PredictModel',
@@ -279,9 +291,13 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => $request->body,
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PredictTemplateModel',
