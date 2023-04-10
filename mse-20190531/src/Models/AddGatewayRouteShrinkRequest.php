@@ -23,6 +23,27 @@ class AddGatewayRouteShrinkRequest extends Model
     /**
      * @description The destination service type.
      *
+     * :
+     *
+     *   VersionOriented
+     *
+     * <!-- -->
+     *
+     *   Multiple
+     *
+     * <!-- -->
+     *
+     *   Single
+     *
+     * <!-- -->
+     *
+     *   Mock\"\"
+     *
+     * <!-- -->
+     *
+     *   Redirect
+     *
+     * <!-- -->
      * @example Multiple
      *
      * @var string
@@ -107,8 +128,6 @@ class AddGatewayRouteShrinkRequest extends Model
     public $name;
 
     /**
-     * @description Routing policy Json string.
-     *
      * @example {"CORS":"{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}","Timeout":"{\"unitNum\":10,\"timeUnit\":\"s\",\"status\":\"off\"}","Retry":"{\"attempts\":2,\"retryOn\":[\"5xx\"],\"status\":\"off\"}","HTTPRewrite":"{\"pathType\":\"EQUAL\",\"path\":\"/o\",\"status\":\"off\"}","Waf":"{\"enabled\":false}","HeaderOp":"{\"status\":\"off\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Add\",\"key\":\"kkk\",\"value\":\"ll\"}]}"}
      *
      * @var string
@@ -130,7 +149,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $redirectJSONShrink;
 
     /**
-     * @description The sequence number of the route. A small value indicates a high priority.
+     * @description The sequence number of the route. (A small value indicates a high priority.)
      *
      * @example 1
      *
@@ -139,9 +158,6 @@ class AddGatewayRouteShrinkRequest extends Model
     public $routeOrder;
 
     /**
-     * @description RouteType:
-     *
-     * Op: Control routing.
      * @example Op
      *
      * @var string
@@ -149,7 +165,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $routeType;
 
     /**
-     * @description The services.
+     * @description The list of services.
      *
      * @var string
      */

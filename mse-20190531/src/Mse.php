@@ -1045,9 +1045,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
         if (!Utils::isUnset($request->originInstanceAddress)) {
             $query['OriginInstanceAddress'] = $request->originInstanceAddress;
         }

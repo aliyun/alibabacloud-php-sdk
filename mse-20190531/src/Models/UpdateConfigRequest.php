@@ -39,7 +39,7 @@ class UpdateConfigRequest extends Model
     public $autopurgeSnapRetainCount;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the cluster.
      *
      * @example mse-09k1q11****
      *
@@ -48,12 +48,12 @@ class UpdateConfigRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to enable RAM authorization for a configuration center. This parameter is valid for Nacos instances. Valid values:
+     * @description Specifies whether to enable Resource Access Management (RAM) authentication for a configuration center. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
-     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports the RAM authentication feature.
      * @example true
      *
      * @var bool
@@ -63,10 +63,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable configuration encryption for a configuration center. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
-     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports configuration encryption.
      * @example true
      *
      * @var bool
@@ -88,7 +88,7 @@ class UpdateConfigRequest extends Model
     public $eurekaSupported;
 
     /**
-     * @description Specifies whether to enable the time to live (TTL) configuration.
+     * @description Specifies whether to enable the time to live (TTL) configuration. This parameter is valid for ZooKeeper instances.
      *
      * @example true
      *
@@ -126,10 +126,10 @@ class UpdateConfigRequest extends Model
     /**
      * @description Specifies whether to enable Mesh Configuration Protocol (MCP). This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
-     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports MCP.
      * @example true
      *
      * @var bool
@@ -164,12 +164,12 @@ class UpdateConfigRequest extends Model
     public $minSessionTimeout;
 
     /**
-     * @description Specifies whether to enable RAM authorization for a registry. This parameter is valid for Nacos instances. Valid values:
+     * @description Specifies whether to enable RAM authentication for a registry. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
-     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupporte parameter value to check whether the instance supports this feature.
+     * > Before you configure this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupporte parameter value to check whether the instance supports the RAM authentication feature.
      * @example true
      *
      * @var bool

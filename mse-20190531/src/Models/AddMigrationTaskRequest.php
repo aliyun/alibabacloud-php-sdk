@@ -34,15 +34,6 @@ class AddMigrationTaskRequest extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the task. You do not need to configure this parameter.
-     *
-     * @example 1
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
      * @description The source instance node address.
      *
      * @example 192.168.1.1:8848
@@ -116,7 +107,6 @@ class AddMigrationTaskRequest extends Model
     protected $_name = [
         'acceptLanguage'          => 'AcceptLanguage',
         'clusterType'             => 'ClusterType',
-        'id'                      => 'Id',
         'originInstanceAddress'   => 'OriginInstanceAddress',
         'originInstanceName'      => 'OriginInstanceName',
         'originInstanceNamespace' => 'OriginInstanceNamespace',
@@ -139,9 +129,6 @@ class AddMigrationTaskRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
         if (null !== $this->originInstanceAddress) {
             $res['OriginInstanceAddress'] = $this->originInstanceAddress;
@@ -184,9 +171,6 @@ class AddMigrationTaskRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
         if (isset($map['OriginInstanceAddress'])) {
             $model->originInstanceAddress = $map['OriginInstanceAddress'];

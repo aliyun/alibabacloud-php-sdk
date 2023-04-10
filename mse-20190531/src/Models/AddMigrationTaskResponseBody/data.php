@@ -22,24 +22,6 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description The creation time.
-     *
-     * @example 2022-01-07T10:07:57.000+0000
-     *
-     * @var string
-     */
-    public $gmtCreate;
-
-    /**
-     * @description The update time.
-     *
-     * @example 2022-01-07T10:07:57.000+0000
-     *
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
      * @description The ID of the task.
      *
      * @example 12
@@ -121,8 +103,6 @@ class data extends Model
     public $userId;
     protected $_name = [
         'clusterType'             => 'ClusterType',
-        'gmtCreate'               => 'GmtCreate',
-        'gmtModified'             => 'GmtModified',
         'id'                      => 'Id',
         'originInstanceAddress'   => 'OriginInstanceAddress',
         'originInstanceName'      => 'OriginInstanceName',
@@ -143,12 +123,6 @@ class data extends Model
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -191,12 +165,6 @@ class data extends Model
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

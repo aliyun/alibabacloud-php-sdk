@@ -26,15 +26,6 @@ class AddMigrationTaskResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
-     * @var string
-     */
-    public $httpCode;
-
-    /**
      * @description The message returned.
      *
      * @example The request is processed successfully.
@@ -66,7 +57,6 @@ class AddMigrationTaskResponseBody extends Model
     protected $_name = [
         'data'      => 'Data',
         'errorCode' => 'ErrorCode',
-        'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -84,9 +74,6 @@ class AddMigrationTaskResponseBody extends Model
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -114,9 +101,6 @@ class AddMigrationTaskResponseBody extends Model
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

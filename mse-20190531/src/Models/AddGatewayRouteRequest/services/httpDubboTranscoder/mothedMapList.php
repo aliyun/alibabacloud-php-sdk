@@ -40,7 +40,7 @@ class mothedMapList extends Model
     public $httpMothed;
 
     /**
-     * @description The path that is used to match a method.
+     * @description The path used for method matching.
      *
      * @example /mytestzbk/sayhello
      *
@@ -49,7 +49,7 @@ class mothedMapList extends Model
     public $mothedpath;
 
     /**
-     * @description The information of parameter mappings.
+     * @description The information about parameter mappings.
      *
      * @var paramMapsList[]
      */

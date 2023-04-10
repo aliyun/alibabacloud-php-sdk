@@ -18,7 +18,7 @@ class AddGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @example 555
      *
