@@ -18,6 +18,13 @@ class CreateTenantUserRequest extends Model
     public $description;
 
     /**
+     * @example RAS
+     *
+     * @var string
+     */
+    public $encryptionType;
+
+    /**
      * @description The ID of the OceanBase cluster.
      *
      * @example ob317v4uif****
@@ -74,13 +81,14 @@ class CreateTenantUserRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'description'  => 'Description',
-        'instanceId'   => 'InstanceId',
-        'roles'        => 'Roles',
-        'tenantId'     => 'TenantId',
-        'userName'     => 'UserName',
-        'userPassword' => 'UserPassword',
-        'userType'     => 'UserType',
+        'description'    => 'Description',
+        'encryptionType' => 'EncryptionType',
+        'instanceId'     => 'InstanceId',
+        'roles'          => 'Roles',
+        'tenantId'       => 'TenantId',
+        'userName'       => 'UserName',
+        'userPassword'   => 'UserPassword',
+        'userType'       => 'UserType',
     ];
 
     public function validate()
@@ -92,6 +100,9 @@ class CreateTenantUserRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -125,6 +136,9 @@ class CreateTenantUserRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -114,6 +114,10 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesReques
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNameRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNameResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNodeNumRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNodeNumResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersRequest;
@@ -678,6 +682,9 @@ class OceanBasePro extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->encryptionType)) {
+            $body['EncryptionType'] = $request->encryptionType;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
@@ -3089,6 +3096,101 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceNodeNumRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyInstanceNodeNumResponse
+     */
+    public function modifyInstanceNodeNumWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeNum)) {
+            $body['NodeNum'] = $request->nodeNum;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceNodeNum',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceNodeNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceNodeNumRequest $request
+     *
+     * @return ModifyInstanceNodeNumResponse
+     */
+    public function modifyInstanceNodeNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceNodeNumWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceSpecRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->diskSize)) {
+            $body['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $body['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceSpec',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceSpecRequest $request
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceSpecWithOptions($request, $runtime);
     }
 
     /**
