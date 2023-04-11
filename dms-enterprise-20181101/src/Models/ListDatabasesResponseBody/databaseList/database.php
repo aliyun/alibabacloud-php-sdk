@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description The name of the catalog to which the database belongs.
+     *
      * @example 1
      *
      * @var string
@@ -18,6 +20,8 @@ class database extends Model
     public $catalogName;
 
     /**
+     * @description The ID of the database.
+     *
      * @example 1
      *
      * @var string
@@ -25,6 +29,8 @@ class database extends Model
     public $databaseId;
 
     /**
+     * @description The type of the database engine.
+     *
      * @example mysql
      *
      * @var string
@@ -32,6 +38,8 @@ class database extends Model
     public $dbType;
 
     /**
+     * @description The ID of the DBA.
+     *
      * @example 1
      *
      * @var string
@@ -39,6 +47,8 @@ class database extends Model
     public $dbaId;
 
     /**
+     * @description The nickname of the Database administrator (DBA) to which the database belongs.
+     *
      * @example dba_user
      *
      * @var string
@@ -46,6 +56,8 @@ class database extends Model
     public $dbaName;
 
     /**
+     * @description The encoding format of the database.
+     *
      * @example utf-8
      *
      * @var string
@@ -53,6 +65,8 @@ class database extends Model
     public $encoding;
 
     /**
+     * @description The type of the environment to which the database belongs.
+     *
      * @example dev
      *
      * @var string
@@ -60,6 +74,8 @@ class database extends Model
     public $envType;
 
     /**
+     * @description The endpoint of the instance to which the database belongs.
+     *
      * @example xxx.xxx.xxx.xxx
      *
      * @var string
@@ -67,6 +83,8 @@ class database extends Model
     public $host;
 
     /**
+     * @description The ID of the instance to which the database belongs.
+     *
      * @example 1
      *
      * @var string
@@ -74,16 +92,22 @@ class database extends Model
     public $instanceId;
 
     /**
+     * @description The IDs of the owners of the database.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the database owners.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The connection port of the instance to which the database belongs.
+     *
      * @example 3306
      *
      * @var int
@@ -91,6 +115,8 @@ class database extends Model
     public $port;
 
     /**
+     * @description The name of the database.
+     *
      * @example test
      *
      * @var string
@@ -98,6 +124,8 @@ class database extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used for searching the database.
+     *
      * @example test@xxx.xxx.xxx.xxx:3306
      *
      * @var string
@@ -105,6 +133,8 @@ class database extends Model
     public $searchName;
 
     /**
+     * @description The system ID (SID) of the instance to which the database belongs.
+     *
      * @example test
      *
      * @var string
@@ -112,6 +142,13 @@ class database extends Model
     public $sid;
 
     /**
+     * @description The state of the database. Valid values:
+     *
+     *   NORMAL: The database is normal.
+     *   DISABLE: The database is disabled.
+     *   OFFLINE: The database is unpublished.
+     *   NOT_EXIST: The database does not exist.
+     *
      * @example NORMAL
      *
      * @var string

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class permApplyOrderDetail extends Model
 {
     /**
+     * @description The type of objects on which you apply for permissions. Valid values:
+     *
+     *   **DB**: database
+     *   **TAB**: table
+     *   **COL**: column
+     *   **INSTANT**: instance
+     *
      * @example DB
      *
      * @var string
@@ -17,6 +24,16 @@ class permApplyOrderDetail extends Model
     public $applyType;
 
     /**
+     * @description The type of permissions that you apply for. Valid values:
+     *
+     *   **1**: the permissions to query information
+     *   **2**: the permissions to export information
+     *   **3**: the permissions to query and export information
+     *   **4**: the permissions to modify information
+     *   **5**: the permissions to query and modify information
+     *   **6**: the permissions to export and modify information
+     *   **7**: the permissions to query, export, and modify information
+     *
      * @example 7
      *
      * @var int
@@ -24,11 +41,15 @@ class permApplyOrderDetail extends Model
     public $permType;
 
     /**
+     * @description The list of resources.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The validity duration of the permissions. Unit: seconds.
+     *
      * @example 3600
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDatabaseUserPermssionsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListDatabaseUserPermssionsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class ListDatabaseUserPermssionsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 68075D06-7406-4887-83A7-F558A4D28C13
      *
      * @var string
@@ -31,6 +37,8 @@ class ListDatabaseUserPermssionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +46,8 @@ class ListDatabaseUserPermssionsResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +55,8 @@ class ListDatabaseUserPermssionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The details of user permissions.
+     *
      * @var userPermissions
      */
     public $userPermissions;

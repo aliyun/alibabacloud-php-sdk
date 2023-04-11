@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     *
      * @example 4324532
      *
      * @var int
@@ -16,6 +18,8 @@ class source extends Model
     public $dbId;
 
     /**
+     * @description The name that is used to search for the database. You can call the [SearchDatabases](~~141876~~) operation to query the name of the database.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,11 @@ class source extends Model
     public $dbSearchName;
 
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class source extends Model
     public $logic;
 
     /**
+     * @description The version number of the schema. The default value is the latest schema version number. For more information, see [Manage schema versions](~~202275~~).
+     *
      * @example e179bbb8163dcdcfacda24858bedb4d8006ae2b8
      *
      * @var string

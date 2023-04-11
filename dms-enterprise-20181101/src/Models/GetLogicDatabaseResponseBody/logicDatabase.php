@@ -30,14 +30,16 @@ class logicDatabase extends Model
     public $databaseId;
 
     /**
+     * @description The IDs of database shards of the logical database.
+     *
      * @var databaseIds
      */
     public $databaseIds;
 
     /**
-     * @description The type of the database. For more information about the valid values of the DbType parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
+     * @description The database engine. For more information about the valid values of the DbType parameter, see [DbType parameter](~~198106~~).
      *
-     * @example polardb
+     * @example POLARDB
      *
      * @var string
      */
@@ -46,7 +48,15 @@ class logicDatabase extends Model
     /**
      * @description The type of the environment to which the database belongs. Valid values:
      *
-     * - stag: STAG environment
+     *   product: production environment
+     *   dev: development environment
+     *   pre: pre-release environment
+     *   test: test environment
+     *   sit: system integration testing (SIT) environment
+     *   uat: user acceptance testing (UAT) environment
+     *   pet: stress testing environment
+     *   stag: staging environment
+     *
      * @example dev
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePublishGroupTaskRequest extends Model
 {
     /**
+     * @description The ID of the database for which the schema design is executed.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class CreatePublishGroupTaskRequest extends Model
     public $dbId;
 
     /**
+     * @description Indicates whether the database is a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,9 @@ class CreatePublishGroupTaskRequest extends Model
     public $logic;
 
     /**
+     * @description The ID of the ticket.
+     *
+     * > : You can create a schema design ticket in the DMS console. For more information, see [Design schemas](~~69711~~). You can also create a schema design ticket by calling the [CreateOrder](~~144649~~) operation and obtain the ticket ID.
      * @example 142435
      *
      * @var int
@@ -30,6 +37,8 @@ class CreatePublishGroupTaskRequest extends Model
     public $orderId;
 
     /**
+     * @description The time to execute the schema design ticket.
+     *
      * @example 2019-10-10 00:00:00
      *
      * @var string
@@ -37,6 +46,11 @@ class CreatePublishGroupTaskRequest extends Model
     public $planTime;
 
     /**
+     * @description The policy to execute the schema design ticket. Valid values:
+     *
+     *   IMMEDIATELY: immediately executes the schema design ticket.
+     *   REGULARLY: executes the schema design ticket at a scheduled time.
+     *
      * @example IMMEDIATELY
      *
      * @var string
@@ -44,6 +58,9 @@ class CreatePublishGroupTaskRequest extends Model
     public $publishStrategy;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int

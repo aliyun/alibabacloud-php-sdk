@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class indexList extends Model
 {
     /**
+     * @description The index column.
+     *
      * @var string[]
      */
     public $indexColumns;
 
     /**
+     * @description The ID of the index.
+     *
      * @example 123
      *
      * @var string
@@ -21,6 +25,8 @@ class indexList extends Model
     public $indexId;
 
     /**
+     * @description The name of the index.
+     *
      * @example PRIMARY
      *
      * @var string
@@ -28,6 +34,8 @@ class indexList extends Model
     public $indexName;
 
     /**
+     * @description The type of the index. Examples: Primary, Unique, and Normal.
+     *
      * @example Primary
      *
      * @var string
@@ -35,6 +43,11 @@ class indexList extends Model
     public $indexType;
 
     /**
+     * @description Indicates whether the index is unique. Valid values:
+     *
+     *   true: The index is unique.
+     *   false: The index is not unique.
+     *
      * @example false
      *
      * @var bool

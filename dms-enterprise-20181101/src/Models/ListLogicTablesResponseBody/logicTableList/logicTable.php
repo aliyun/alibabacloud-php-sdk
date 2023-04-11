@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class logicTable extends Model
 {
     /**
+     * @description The ID of the logical database.
+     *
      * @example 1
      *
      * @var string
@@ -18,6 +20,8 @@ class logicTable extends Model
     public $databaseId;
 
     /**
+     * @description Indicates whether the table is a logical table. The value is fixed to true.
+     *
      * @example true
      *
      * @var bool
@@ -25,16 +29,22 @@ class logicTable extends Model
     public $logic;
 
     /**
+     * @description The IDs of the owners of the logical tables.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the owners of the logical tables.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The logical database to which the logical table belongs.
+     *
      * @example yuyang_test
      *
      * @var string
@@ -42,6 +52,8 @@ class logicTable extends Model
     public $schemaName;
 
     /**
+     * @description The number of logical tables.
+     *
      * @example 4
      *
      * @var string
@@ -49,6 +61,8 @@ class logicTable extends Model
     public $tableCount;
 
     /**
+     * @description The expression of the logical table.
+     *
      * @example test[1-4]
      *
      * @var string
@@ -56,6 +70,8 @@ class logicTable extends Model
     public $tableExpr;
 
     /**
+     * @description The GUID of the logical table.
+     *
      * @example IDB_L_308302.yuyang_test.test_ch
      *
      * @var string
@@ -63,6 +79,8 @@ class logicTable extends Model
     public $tableGuid;
 
     /**
+     * @description The ID of the logical table.
+     *
      * @example 1
      *
      * @var string
@@ -70,6 +88,8 @@ class logicTable extends Model
     public $tableId;
 
     /**
+     * @description The name of the logical table.
+     *
      * @example test
      *
      * @var string

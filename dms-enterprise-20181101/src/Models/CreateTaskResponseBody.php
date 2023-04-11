@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code returned.
      *
      * @example InvalidParameterValid
      *
@@ -18,7 +18,7 @@ class CreateTaskResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message returned if the request fails.
      *
      * @example InvalidParameterValid
      *
@@ -27,7 +27,7 @@ class CreateTaskResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the task node returned when the task was created.
+     * @description The ID of the task node returned if the node is created.
      *
      * @example 3***
      *

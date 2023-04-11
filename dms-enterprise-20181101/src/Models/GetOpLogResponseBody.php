@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code.
      *
      * @example 403
      *
@@ -19,7 +19,7 @@ class GetOpLogResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -44,10 +44,11 @@ class GetOpLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - **true**: The request is successful.
-     * - **false**: The request fails.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

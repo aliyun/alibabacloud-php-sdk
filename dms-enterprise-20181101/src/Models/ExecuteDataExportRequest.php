@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataExportRequest extends Model
 {
     /**
+     * @description The parameters that are required to perform the operation:
+     *
+     * ```
      * @example {    "fileType": "CSV",    "encoding": ""  }
      *
      * @var mixed[]
@@ -16,6 +19,8 @@ class ExecuteDataExportRequest extends Model
     public $actionDetail;
 
     /**
+     * @description The ID of the ticket.
+     *
      * @example 1234
      *
      * @var int
@@ -23,6 +28,9 @@ class ExecuteDataExportRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int

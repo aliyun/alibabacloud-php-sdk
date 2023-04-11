@@ -28,6 +28,8 @@ class workflowNode extends Model
     /**
      * @description The remarks of the approval.
      *
+     * @example Reason: Approved
+     *
      * @var string
      */
     public $operateComment;
@@ -53,7 +55,9 @@ class workflowNode extends Model
     /**
      * @description The approval status of the ticket. Valid values:
      *
-     *   **AUDITING**: The ticket is being processed.
+     *   **START**: The ticket was submitted.
+     *   **ERROR**: An error occurred.
+     *   **AUDITING**: The ticket is being reviewed.
      *   **REJECT**: The ticket was rejected.
      *   **CANCEL**: The ticket was revoked.
      *   **APPROVED**: The ticket was approved.

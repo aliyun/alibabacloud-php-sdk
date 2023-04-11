@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class searchTable extends Model
 {
     /**
+     * @description The name that is used to search for the database to which the table belongs.
+     *
      * @example test
      *
      * @var string
@@ -18,6 +20,8 @@ class searchTable extends Model
     public $DBSearchName;
 
     /**
+     * @description The ID of the database to which the table belongs.
+     *
      * @example 1
      *
      * @var string
@@ -25,6 +29,8 @@ class searchTable extends Model
     public $databaseId;
 
     /**
+     * @description The name of the database.
+     *
      * @example test
      *
      * @var string
@@ -32,6 +38,17 @@ class searchTable extends Model
     public $dbName;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *   **DRDS**
+     *   **OceanBase**
+     *   **Mongo**
+     *   **Redis**
+     *
      * @example mysql
      *
      * @var string
@@ -39,6 +56,8 @@ class searchTable extends Model
     public $dbType;
 
     /**
+     * @description The description of the table.
+     *
      * @example test
      *
      * @var string
@@ -46,6 +65,8 @@ class searchTable extends Model
     public $description;
 
     /**
+     * @description The encoding format of the table.
+     *
      * @example utf8
      *
      * @var string
@@ -53,6 +74,8 @@ class searchTable extends Model
     public $encoding;
 
     /**
+     * @description The engine of the table.
+     *
      * @example innodb
      *
      * @var string
@@ -60,6 +83,8 @@ class searchTable extends Model
     public $engine;
 
     /**
+     * @description The type of the environment to which the database belongs.
+     *
      * @example test
      *
      * @var string
@@ -67,6 +92,11 @@ class searchTable extends Model
     public $envType;
 
     /**
+     * @description Indicates whether the table is a logical table. Valid values:
+     *
+     *   **true**: The table is a logical table.
+     *   **false**: The table is not a logical table.
+     *
      * @example false
      *
      * @var bool
@@ -74,16 +104,22 @@ class searchTable extends Model
     public $logic;
 
     /**
+     * @description The IDs of the table owners.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the table owners.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The GUID of the table.
+     *
      * @example IDB_L_9032.db-test.yuyang_test
      *
      * @var string
@@ -91,6 +127,8 @@ class searchTable extends Model
     public $tableGuid;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 1
      *
      * @var string
@@ -98,6 +136,8 @@ class searchTable extends Model
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
      * @example test_table
      *
      * @var string
@@ -105,6 +145,8 @@ class searchTable extends Model
     public $tableName;
 
     /**
+     * @description The name of the database to which the table belongs.
+     *
      * @example test@xxx.xxx.xxx.xxx:3306
      *
      * @var string

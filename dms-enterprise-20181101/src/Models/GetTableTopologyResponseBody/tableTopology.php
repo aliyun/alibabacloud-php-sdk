@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class tableTopology extends Model
 {
     /**
+     * @description Indicates whether the table is a logical table. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class tableTopology extends Model
     public $logic;
 
     /**
+     * @description The GUID of the table in DMS.
+     *
      * @example IDB_L_308302.yuyang_test.test_ch
      *
      * @var string
@@ -24,6 +31,8 @@ class tableTopology extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the table.
+     *
      * @example test_ch
      *
      * @var string
@@ -31,6 +40,8 @@ class tableTopology extends Model
     public $tableName;
 
     /**
+     * @description Information of the topology of the table.
+     *
      * @var tableTopologyInfoList[]
      */
     public $tableTopologyInfoList;

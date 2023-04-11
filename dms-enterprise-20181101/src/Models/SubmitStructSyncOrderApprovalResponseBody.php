@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitStructSyncOrderApprovalResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitStructSyncOrderApprovalResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitStructSyncOrderApprovalResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471D
      *
      * @var string
@@ -30,6 +36,8 @@ class SubmitStructSyncOrderApprovalResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class SubmitStructSyncOrderApprovalResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the approval process.
+     *
      * @example 432523
      *
      * @var int

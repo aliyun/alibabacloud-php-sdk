@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class proxyAccess extends Model
 {
     /**
+     * @description The username of the database account that is authorized to enable the secure access proxy feature for an instance.
+     *
      * @example hObpgEXoca42q***
      *
      * @var string
@@ -16,6 +18,8 @@ class proxyAccess extends Model
     public $accessId;
 
     /**
+     * @description The time when the user is authorized to enable the secure access proxy feature for an instance.
+     *
      * @example 1643034647
      *
      * @var string
@@ -23,6 +27,8 @@ class proxyAccess extends Model
     public $gmtCreate;
 
     /**
+     * @description The username of the independent database account.
+     *
      * @example ***
      *
      * @var string
@@ -30,6 +36,8 @@ class proxyAccess extends Model
     public $indepAccount;
 
     /**
+     * @description The ID of the instance for which the secure access proxy feature is enabled.
+     *
      * @example 1922545
      *
      * @var int
@@ -37,11 +45,20 @@ class proxyAccess extends Model
     public $instanceId;
 
     /**
+     * @description The method that is used to authorize the user to enable the secure access proxy feature for an instance. Valid values:
+     *
+     *   **Authorization by the Alibaba Cloud Account ()**: The information in the parentheses () indicates the ID of the Alibaba Cloud account.
+     *   **Authorization by submitting the ticket ()**:The information in the parentheses () indicates the number of the ticket that the user submits to apply for permissions.
+     *
+     * @example Authorization by the Alibaba Cloud account (29490401597700\*\*\*\*)
+     *
      * @var string
      */
     public $originInfo;
 
     /**
+     * @description The ID that DMS generates after the user is authorized to enable the secure access proxy feature for an instance. The ID is unique in DMS. You can call the [ListProxyAccesses](~~295386~~) operation to query the ID.
+     *
      * @example 2002
      *
      * @var int
@@ -49,6 +66,9 @@ class proxyAccess extends Model
     public $proxyAccessId;
 
     /**
+     * @description The ID of the secure access proxy.
+     *
+     * >  You can call the [ListProxies](~~295371~~) operation to query the ID of the secure access proxy.
      * @example 1905
      *
      * @var int
@@ -56,6 +76,8 @@ class proxyAccess extends Model
     public $proxyId;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 12***
      *
      * @var int
@@ -63,6 +85,8 @@ class proxyAccess extends Model
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example user
      *
      * @var string
@@ -70,6 +94,8 @@ class proxyAccess extends Model
     public $userName;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 25936669186260****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class dataSourceList extends Model
 {
     /**
+     * @description The physical databases.
+     *
      * @var databaseList[]
      */
     public $databaseList;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example MySQL
      *
      * @var string
@@ -22,6 +26,8 @@ class dataSourceList extends Model
     public $dbType;
 
     /**
+     * @description The endpoint of the data source.
+     *
      * @example xxx.mysql.polardb.rds.aliyuncs.com
      *
      * @var string
@@ -29,6 +35,8 @@ class dataSourceList extends Model
     public $host;
 
     /**
+     * @description The port that is used to connect to the data source.
+     *
      * @example 3306
      *
      * @var int
@@ -36,6 +44,8 @@ class dataSourceList extends Model
     public $port;
 
     /**
+     * @description The system ID (SID) of the data source.
+     *
      * @example def
      *
      * @var string

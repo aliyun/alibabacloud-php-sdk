@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
+     * @description The alias of the database instance.
+     *
      * @example instance_alias
      *
      * @var string
@@ -17,6 +19,8 @@ class userPermission extends Model
     public $alias;
 
     /**
+     * @description The name of a column.
+     *
      * @example column_name
      *
      * @var string
@@ -24,6 +28,8 @@ class userPermission extends Model
     public $columnName;
 
     /**
+     * @description The ID of the database.
+     *
      * @example 1234
      *
      * @var string
@@ -31,6 +37,8 @@ class userPermission extends Model
     public $dbId;
 
     /**
+     * @description The type of the database engine.
+     *
      * @example mysql
      *
      * @var string
@@ -38,6 +46,8 @@ class userPermission extends Model
     public $dbType;
 
     /**
+     * @description The type of resources on which the user has permissions.
+     *
      * @example DATABASE
      *
      * @var string
@@ -45,6 +55,8 @@ class userPermission extends Model
     public $dsType;
 
     /**
+     * @description The type of the environment to which the database belongs.
+     *
      * @example product
      *
      * @var string
@@ -52,6 +64,8 @@ class userPermission extends Model
     public $envType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 1443
      *
      * @var string
@@ -59,6 +73,8 @@ class userPermission extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the database is a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -66,11 +82,15 @@ class userPermission extends Model
     public $logic;
 
     /**
+     * @description The details of user permissions.
+     *
      * @var permDetails
      */
     public $permDetails;
 
     /**
+     * @description The name of the database.
+     *
      * @example xxx@xxxx:3306
      *
      * @var string
@@ -78,6 +98,8 @@ class userPermission extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example xxx
      *
      * @var string
@@ -85,6 +107,8 @@ class userPermission extends Model
     public $searchName;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 42345
      *
      * @var string
@@ -92,6 +116,8 @@ class userPermission extends Model
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
      * @example table_name
      *
      * @var string
@@ -99,6 +125,8 @@ class userPermission extends Model
     public $tableName;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 14324
      *
      * @var string
@@ -106,6 +134,8 @@ class userPermission extends Model
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example user_nick_name
      *
      * @var string

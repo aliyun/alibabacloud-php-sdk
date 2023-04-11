@@ -56,14 +56,14 @@ class table extends Model
     public $numRows;
 
     /**
-     * @description The IDs of the owners of the table.
+     * @description The ID list of the table owners.
      *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
-     * @description The nicknames of the owners of the table.
+     * @description The nickname list of the table owners.
      *
      * @var ownerNameList
      */
@@ -97,7 +97,7 @@ class table extends Model
     public $tableId;
 
     /**
-     * @description The name of the table.
+     * @description The table name.
      *
      * @example consumption_records
      *

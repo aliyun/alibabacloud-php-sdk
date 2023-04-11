@@ -39,6 +39,8 @@ class approvalDetail extends Model
     /**
      * @description The description of the approval process.
      *
+     * @example \[Instance permissions] Application\<br/>Permission type: ⌈Logon⌋\<br/>Application period: 30.0 days\<br/>Background description: \[Instance permissions] logon test\<br/>\<br/>\[Application list]\<br/>\<span style=\"color:red\">product\</span> rm-bp144d5ky4l4rli0417\*\*\*\*.mysql.rds.aliyuncs.com:3306 - PRODUCT\<br/>
+     *
      * @var string
      */
     public $description;
@@ -55,14 +57,15 @@ class approvalDetail extends Model
     /**
      * @description The type of the ticket. Valid values:
      *
-     * - **NDDL**: The ticket is used to change the schema design.
-     * - **DATA_TRACK**: The ticket is used to track data.
-     * - **TABLE_SYNC**: The ticket is used to synchronize databases and tables.
-     * - **PERM_APPLY**: The ticket is used to apply for permissions.
-     * - **DATA_EXPORT**: The ticket is used to export data.
-     * - **DATA_CORRECT**: The ticket is used to change data.
-     * - **OWNER_APPLY**: The ticket is used to apply for the owner role of a resource.
-     * - **SENSITIVITY**: The ticket is used to change column sensitivity levels.
+     *   **NDDL**: a schema design ticket
+     *   **DATA_TRACK**: a data tracking ticket
+     *   **TABLE_SYNC**: a table synchronization ticket
+     *   **PERM_APPLY**: a permission application ticket
+     *   **DATA_EXPORT**: a data export ticket
+     *   **DATA_CORRECT**: a data change ticket
+     *   **OWNER_APPLY**: an owner role application ticket
+     *   **SENSITIVITY**: a column sensitivity level change ticket
+     *
      * @example PERM_APPLY
      *
      * @var string
@@ -70,14 +73,14 @@ class approvalDetail extends Model
     public $orderType;
 
     /**
-     * @description The reason for the approval.
+     * @description The reasons for the approval.
      *
      * @var reasonList
      */
     public $reasonList;
 
     /**
-     * @description The ID of the approval template.
+     * @description The ID of the workflow template.
      *
      * @example 1234
      *
@@ -88,6 +91,8 @@ class approvalDetail extends Model
     /**
      * @description The title of the approval process.
      *
+     * @example Permission application ticket - 384\*\*\*\*
+     *
      * @var string
      */
     public $title;
@@ -95,12 +100,12 @@ class approvalDetail extends Model
     /**
      * @description The approval status of the ticket. Valid values:
      *
-     * - **AUDITING**: The ticket is being processed.
-     * - **REJECT**: The ticket was rejected.
-     * - **CANCEL**: The ticket was revoked.
-     * - **APPROVED**: The ticket was approved.
+     *   **AUDITING**: The ticket is being reviewed.
+     *   **REJECT**: The ticket was rejected.
+     *   **CANCEL**: The ticket was revoked.
+     *   **APPROVED**: The ticket was approved.
      *
-     * >  If an approval process contains multiple approval nodes, this parameter is returned for each approval node.
+     * > An approval process contains multiple approval nodes, and this parameter is returned for each approval node.
      * @example APPROVED
      *
      * @var string

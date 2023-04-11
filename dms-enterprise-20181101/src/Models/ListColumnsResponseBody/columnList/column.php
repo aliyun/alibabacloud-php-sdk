@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
-     * @description Indicates whether the field is an auto-increment field. Valid values:
+     * @description Indicates whether the column is an auto-increment column. Valid values:
      *
-     *   true: The field is an auto-increment field.
-     *   false: The field is not an auto-increment field.
+     *   true: The column is an auto-increment column.
+     *   false: The column is not an auto-increment column.
      *
      * @example false
      *
@@ -21,7 +21,7 @@ class column extends Model
     public $autoIncrement;
 
     /**
-     * @description The ID of the field.
+     * @description The ID of the column.
      *
      * @example 62589****
      *
@@ -30,7 +30,7 @@ class column extends Model
     public $columnId;
 
     /**
-     * @description The name of the field.
+     * @description The name of the column.
      *
      * @example name
      *
@@ -39,7 +39,7 @@ class column extends Model
     public $columnName;
 
     /**
-     * @description The data type of the field.
+     * @description The data type of the column.
      *
      * @example varchar
      *
@@ -75,7 +75,7 @@ class column extends Model
     public $dataScale;
 
     /**
-     * @description The default value of the field.
+     * @description The default value of the column.
      *
      * @example def_value
      *
@@ -84,7 +84,7 @@ class column extends Model
     public $defaultValue;
 
     /**
-     * @description The description of the field.
+     * @description The description of the column.
      *
      * @example test
      *
@@ -107,10 +107,10 @@ class column extends Model
     public $functionType;
 
     /**
-     * @description Indicates whether the field can be empty. Valid values:
+     * @description Indicates whether the column can be empty. Valid values:
      *
-     *   **true**: The field can be empty.
-     *   **false**: The field cannot be empty.
+     *   **true**: The column can be empty.
+     *   **false**: The column cannot be empty.
      *
      * @example false
      *
@@ -119,13 +119,13 @@ class column extends Model
     public $nullable;
 
     /**
-     * @description The security level of the field. Valid values:
+     * @description The security level of the column. Valid values:
      *
-     *   INNER: The field is an internal field but not sensitive.
-     *   SENSITIVE: The field is a sensitive field.
-     *   CONFIDENTIAL: The field is a confidential field.
+     *   INNER: The column is an internal column but not sensitive.
+     *   SENSITIVE: The column is a sensitive column.
+     *   CONFIDENTIAL: The column is a confidential column.
      *
-     * >  For more information, see [Adjust the sensitivity level of one or more fields](~~66091~~).
+     * > For more information, see [Sensitivity levels of fields](~~66091~~).
      * @example INNER
      *
      * @var string
@@ -133,10 +133,10 @@ class column extends Model
     public $securityLevel;
 
     /**
-     * @description Indicates whether the field is a sensitive field. Valid values:
+     * @description Indicates whether the column is a sensitive column. Valid values:
      *
-     *   **true**: The field is a sensitive field.
-     *   **false**: The field is not a sensitive field.
+     *   **true**: The column is a sensitive column.
+     *   **false**: The column is not a sensitive column.
      *
      * @example false
      *

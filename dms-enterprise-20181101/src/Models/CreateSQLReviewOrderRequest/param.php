@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description The files to be reviewed. Multiple files can be reviewed at a time.
+     *
      * @var string[]
      */
     public $attachmentKeyList;
 
     /**
+     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     *
+     * >  You can call this operation to query only physical databases. This operation is unavailable to query logical databases.
      * @example 123321
      *
      * @var int
@@ -21,6 +26,10 @@ class param extends Model
     public $dbId;
 
     /**
+     * @description The name of the project.
+     *
+     * @example SQL review for xxx
+     *
      * @var string
      */
     public $projectName;

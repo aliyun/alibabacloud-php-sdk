@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class publishJobList extends Model
 {
     /**
+     * @description The ID of the SQL task group.
+     *
      * @example 423515
      *
      * @var int
@@ -16,6 +18,8 @@ class publishJobList extends Model
     public $DBTaskGroupId;
 
     /**
+     * @description The number of SQL statements that are executed.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class publishJobList extends Model
     public $executeCount;
 
     /**
+     * @description The script for data changes.
+     *
      * @example ALTER TABLE test_toolkit_rename_table_after_rename MODIFY COLUMN gmt_modified datetime NOT NULL
      *
      * @var string
@@ -30,6 +36,8 @@ class publishJobList extends Model
     public $scripts;
 
     /**
+     * @description The description of the state.
+     *
      * @example NONE
      *
      * @var string
@@ -37,6 +45,8 @@ class publishJobList extends Model
     public $statusDesc;
 
     /**
+     * @description The name of the table after the change.
+     *
      * @example test_toolkit_rename_table_after_rename
      *
      * @var string
@@ -44,6 +54,12 @@ class publishJobList extends Model
     public $tableName;
 
     /**
+     * @description The state of the publishing task. Valid values:
+     *
+     *   **NONE**: The state of the task is unknown.
+     *   **SUCCESS**: The task is successful.
+     *   **FAIL**: The task fails.
+     *
      * @example NONE
      *
      * @var string

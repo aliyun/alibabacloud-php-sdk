@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeColumnSecLevelRequest extends Model
 {
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to query the name of the field.
+     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the field.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to query the name of the field.
+     * > You can also call the [ListColumns](~~141870~~) operation to obtain the name of the field.
      * @example test_column
      *
      * @var string
@@ -19,9 +19,9 @@ class ChangeColumnSecLevelRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to obtain the ID of the database.
      *
-     * >  You can also call the [ListDatabases](~~141873~~) operation to query the ID of a physical database and the [ListLogicDatabases](~~141874~~) operation to query the ID of a logical database.
+     * > You can also call the [ListDatabases](~~141873~~) operation to obtain the ID of a physical database and the [ListLogicDatabases](~~141874~~) operation to obtain the ID of a logical database.
      * @example 325
      *
      * @var int
@@ -54,10 +54,10 @@ class ChangeColumnSecLevelRequest extends Model
     public $newLevel;
 
     /**
-     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to query the name of the database.
+     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the database.
      *
-     *   You can also call the [SearchDatabase](~~141876~~) operation to query the name of the database.
-     *   You can also call the [ListDatabases](~~141873~~) operation to query the name of a physical database and the [ListLogicDatabases](~~141874~~) operation to query the name of a logical database.
+     *   You can also call the [SearchDatabase](~~141876~~) operation to obtain the name of the database.
+     *   You can also call the [ListDatabases](~~141873~~) operation to obtain the name of a physical database and the [ListLogicDatabases](~~141874~~) operation to obtain the name of a logical database.
      *
      * @example test_schema
      *
@@ -66,9 +66,9 @@ class ChangeColumnSecLevelRequest extends Model
     public $schemaName;
 
     /**
-     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to query the name of the table.
+     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the table.
      *
-     * >  You can also call the [ListTables](~~141878~~) operation to query the name of the table.
+     * > You can also call the [ListTables](~~141878~~) operation to obtain the name of the table.
      * @example test_table
      *
      * @var string
@@ -78,7 +78,7 @@ class ChangeColumnSecLevelRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 43253
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncExecSqlDetailRequest extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @example 342153
      *
      * @var int
@@ -16,6 +18,8 @@ class GetStructSyncExecSqlDetailRequest extends Model
     public $orderId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class GetStructSyncExecSqlDetailRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,9 @@ class GetStructSyncExecSqlDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 1
      *
      * @var int

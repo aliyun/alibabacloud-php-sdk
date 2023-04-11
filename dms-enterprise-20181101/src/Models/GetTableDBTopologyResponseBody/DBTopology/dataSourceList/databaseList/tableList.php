@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableList extends Model
 {
     /**
+     * @description The ID of the table.
+     *
      * @example NORMAL
      *
      * @var string
@@ -16,6 +18,8 @@ class tableList extends Model
     public $tableId;
 
     /**
+     * @description The name of the physical table.
+     *
      * @example 151977812
      *
      * @var string
@@ -23,6 +27,8 @@ class tableList extends Model
     public $tableName;
 
     /**
+     * @description The type of the table. This is a reserved parameter.
+     *
      * @example yuyang_test_0000
      *
      * @var string

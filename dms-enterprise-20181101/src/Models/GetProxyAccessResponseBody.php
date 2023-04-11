@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetProxyAccessResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UserNotExist
      *
      * @var string
@@ -17,6 +19,8 @@ class GetProxyAccessResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The specified user not exists.
      *
      * @var string
@@ -24,12 +28,14 @@ class GetProxyAccessResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The authorization information about the secure access proxy feature.
+     *
      * @var proxyAccess
      */
     public $proxyAccess;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 3CDB8601-AD74-4A47-8114-08E08CD6****
      *
@@ -38,6 +44,11 @@ class GetProxyAccessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

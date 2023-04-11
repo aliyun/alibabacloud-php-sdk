@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDDLPublishRecordsResponseBody extends Model
 {
     /**
+     * @description The details of the publishing records.
+     *
      * @var DDLPublishRecordList[]
      */
     public $DDLPublishRecordList;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class ListDDLPublishRecordsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDDLPublishRecordsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A1549FB0-D4B8-4140-919F-17322C1072B8
      *
      * @var string
@@ -36,6 +44,8 @@ class ListDDLPublishRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

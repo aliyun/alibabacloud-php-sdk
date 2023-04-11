@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectSQLFileResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDataCorrectSQLFileResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDataCorrectSQLFileResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The download URL of the SQL script.
+     *
      * @example https://dmsxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class GetDataCorrectSQLFileResponseBody extends Model
     public $fileUrl;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
      *
      * @var string
@@ -37,6 +45,8 @@ class GetDataCorrectSQLFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description The maximum number of queries that can be performed each day.
+     *
      * @example 1000
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateUserRequest extends Model
     public $maxExecuteCount;
 
     /**
+     * @description The maximum number of rows that can be queried each day.
+     *
      * @example 1000
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateUserRequest extends Model
     public $maxResultCount;
 
     /**
+     * @description The DingTalk ID or mobile number of the user.
+     *
      * @example 188xxxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateUserRequest extends Model
     public $mobile;
 
     /**
+     * @description The roles that the user assumes. For more information about the valid values, see the Request parameters section in the [RegisterUser](~~141565~~) topic.
+     *
      * @example ADMIN,DBA
      *
      * @var string
@@ -39,7 +47,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int
@@ -47,7 +55,7 @@ class UpdateUserRequest extends Model
     public $tid;
 
     /**
-     * @description The UID of the user. You can view your UID by moving the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console.
+     * @description The Alibaba Cloud unique ID (UID) of the user to update.
      *
      * @example 123456789
      *
@@ -56,6 +64,8 @@ class UpdateUserRequest extends Model
     public $uid;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example test
      *
      * @var string

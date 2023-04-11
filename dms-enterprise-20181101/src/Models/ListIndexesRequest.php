@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesRequest extends Model
 {
     /**
+     * @description Specifies whether the table is a logical table.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class ListIndexesRequest extends Model
     public $logic;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,9 @@ class ListIndexesRequest extends Model
     public $tableId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 0
      *
      * @var int

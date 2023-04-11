@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListColumnsResponseBody extends Model
 {
     /**
-     * @description The information about the columns returned.
+     * @description The details about columns.
      *
      * @var columnList
      */
@@ -46,8 +46,9 @@ class ListColumnsResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

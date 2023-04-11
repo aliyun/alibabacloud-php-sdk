@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTablesResponseBody extends Model
 {
     /**
-     * @description The error code that is returned if the request fails.
+     * @description The error code returned.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListTablesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned.
      *
      * @example UnknownError
      *
@@ -39,8 +39,9 @@ class ListTablesResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

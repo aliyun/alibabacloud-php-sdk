@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SearchTableRequest extends Model
 {
     /**
+     * @description The type of database. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *   **DRDS**
+     *   **OceanBase**
+     *   **Mongo**
+     *   **Redis**
+     *
      * @example MySQL
      *
      * @var string
@@ -16,6 +27,8 @@ class SearchTableRequest extends Model
     public $dbType;
 
     /**
+     * @description The type of the environment to which databases belong. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
      * @example PRODUCT
      *
      * @var string
@@ -23,6 +36,8 @@ class SearchTableRequest extends Model
     public $envType;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +45,8 @@ class SearchTableRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +54,8 @@ class SearchTableRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to return the GUID of each table.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +63,8 @@ class SearchTableRequest extends Model
     public $returnGuid;
 
     /**
+     * @description The keyword that is used to query tables.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +72,13 @@ class SearchTableRequest extends Model
     public $searchKey;
 
     /**
+     * @description The scope of tables that you want to query. Valid values:
+     *
+     *   **HAS_PERMSSION**: the tables on which the current account has permissions.
+     *   **OWNER**: the tables owned by the current account.
+     *   **MY_FOCUS**: the tables that the current account follows.
+     *   **UNKNOWN**: all tables.
+     *
      * @example OWNER
      *
      * @var string
@@ -58,6 +86,12 @@ class SearchTableRequest extends Model
     public $searchRange;
 
     /**
+     * @description The type of table that you want to query. Valid values:
+     *
+     *   **TABLE**: physical and logical tables
+     *   **SINGLE_TABLE**: physical tables
+     *   **LOGIC_TABLE**: logical tables
+     *
      * @example LOGIC_TABLE
      *
      * @var string
@@ -65,6 +99,9 @@ class SearchTableRequest extends Model
     public $searchTarget;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example 1
      *
      * @var int

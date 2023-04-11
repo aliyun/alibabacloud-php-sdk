@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceDatabaseInfo extends Model
 {
     /**
+     * @description The ID of the source database.
+     *
      * @example 432532
      *
      * @var int
@@ -16,6 +18,8 @@ class sourceDatabaseInfo extends Model
     public $dbId;
 
     /**
+     * @description The type of the database engine.
+     *
      * @example MySQL
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceDatabaseInfo extends Model
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
      * @example dev
      *
      * @var string
@@ -30,6 +36,11 @@ class sourceDatabaseInfo extends Model
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +48,8 @@ class sourceDatabaseInfo extends Model
     public $logic;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example test
      *
      * @var string

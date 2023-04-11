@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class structSyncOrderDetail extends Model
 {
     /**
+     * @description Indicates whether to skip errors. Valid values:
+     *
+     *   **true**: skips the error and continues to execute SQL statements.
+     *   **false**: stops executing SQL statements.
+     *
      * @example false
      *
      * @var bool
@@ -21,11 +26,18 @@ class structSyncOrderDetail extends Model
     public $ignoreError;
 
     /**
+     * @description The information about the source database.
+     *
      * @var sourceDatabaseInfo
      */
     public $sourceDatabaseInfo;
 
     /**
+     * @description The schema version of the source database. Valid values:
+     *
+     *   **DATASOURCE**: the default latest version of the system
+     *   **VERSION**: a previous schema version that you manually specify
+     *
      * @example VERSION
      *
      * @var string
@@ -33,21 +45,33 @@ class structSyncOrderDetail extends Model
     public $sourceType;
 
     /**
+     * @description The version information about the source instance.
+     *
+     * > This parameter is displayed only when the value of the **SourceType** parameter is **VERSION**.
      * @var sourceVersionInfo
      */
     public $sourceVersionInfo;
 
     /**
+     * @description The information about the table whose schema you want to synchronize.
+     *
      * @var tableInfoList[]
      */
     public $tableInfoList;
 
     /**
+     * @description The information about the destination database.
+     *
      * @var targetDatabaseInfo
      */
     public $targetDatabaseInfo;
 
     /**
+     * @description The schema version of the destination database. Valid values:
+     *
+     *   **DATASOURCE**: the default latest version of the system
+     *   **VERSION**: a previous schema version that you manually specify
+     *
      * @example DATASOURCE
      *
      * @var string
@@ -55,6 +79,9 @@ class structSyncOrderDetail extends Model
     public $targetType;
 
     /**
+     * @description The version information about the destination instance.
+     *
+     * > This parameter is displayed only when the value of the **SourceType** parameter is **VERSION**.
      * @var targetVersionInfo
      */
     public $targetVersionInfo;

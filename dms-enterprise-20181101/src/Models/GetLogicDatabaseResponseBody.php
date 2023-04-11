@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetLogicDatabaseResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The status code.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class GetLogicDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The details about the logical database.
+     * @description The details of the logical database.
      *
      * @var logicDatabase
      */
@@ -44,9 +44,11 @@ class GetLogicDatabaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * - false: The request fails.
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

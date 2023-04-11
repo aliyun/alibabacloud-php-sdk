@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DDLPublishRecordList extends Model
 {
     /**
+     * @description The time when the approval expires.
+     *
      * @example 2020-12-14 20:52:38
      *
      * @var string
@@ -17,6 +19,14 @@ class DDLPublishRecordList extends Model
     public $auditExpireTime;
 
     /**
+     * @description The approval state of the ticket. Valid values:
+     *
+     *   **EXEMPT_PASS**: The ticket passes without approval.
+     *   **TO_AUDIT**: The ticket is pending for approval.
+     *   **CANCEL**: The ticket is canceled.
+     *   **SUCCESS**: The ticket is approved.
+     *   **FAIL**: The ticket fails to pass the approval.
+     *
      * @example CANCEL
      *
      * @var string
@@ -24,6 +34,8 @@ class DDLPublishRecordList extends Model
     public $auditStatus;
 
     /**
+     * @description The ID of the user who creates the ticket. You can obtain the user ID by calling the [GetUser](~~147098~~) operation and querying the value of the UserId parameter. The value is not the unique ID (UID) of the Alibaba Cloud account.
+     *
      * @example 1423
      *
      * @var int
@@ -31,6 +43,12 @@ class DDLPublishRecordList extends Model
     public $creatorId;
 
     /**
+     * @description Indicates whether the approval is terminated. Valid values:
+     *
+     *   **true**: The approval is terminated.
+     *   **false**: The approval is not terminated.
+     *
+     * > Multiple reasons can terminate the approval. For example, you withdraw the application or your ticket is not approved before the specified time.
      * @example true
      *
      * @var bool
@@ -38,6 +56,8 @@ class DDLPublishRecordList extends Model
     public $finality;
 
     /**
+     * @description The reason for the termination.
+     *
      * @example CANCEL
      *
      * @var string
@@ -45,6 +65,14 @@ class DDLPublishRecordList extends Model
     public $finalityReason;
 
     /**
+     * @description The publishing state of the ticket. Valid values:
+     *
+     *   **START**: The ticket is created.
+     *   **ANALYZE**: The ticket is under analysis.
+     *   **AUDIT**: The ticket is under approval.
+     *   **DISPATCH**: A task is generated for the ticket.
+     *   **SUCCESS**: The task is successful.
+     *
      * @example AUDIT
      *
      * @var string
@@ -52,11 +80,20 @@ class DDLPublishRecordList extends Model
     public $publishStatus;
 
     /**
+     * @description The list of publishing tasks.
+     *
      * @var publishTaskInfoList[]
      */
     public $publishTaskInfoList;
 
     /**
+     * @description The risk level of the operation. Valid values:
+     *
+     *   **NONE_RISK**: The operation does not have risks.
+     *   **LOW_RISK**: The operation is at low risk.
+     *   **MIDDLE_RISK**: The operation is at medium risk.
+     *   **HIGH_RISK**: The operation is at high risk.
+     *
      * @example LOW_RISK
      *
      * @var string
@@ -64,6 +101,8 @@ class DDLPublishRecordList extends Model
     public $riskLevel;
 
     /**
+     * @description The description of the publishing state.
+     *
      * @example CANCEL
      *
      * @var string
@@ -71,6 +110,8 @@ class DDLPublishRecordList extends Model
     public $statusDesc;
 
     /**
+     * @description The ID of the approval process.
+     *
      * @example 432153
      *
      * @var int

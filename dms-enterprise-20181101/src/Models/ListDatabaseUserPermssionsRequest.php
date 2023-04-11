@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDatabaseUserPermssionsRequest extends Model
 {
     /**
+     * @description The ID of the database.
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $dbId;
 
     /**
+     * @description Specifies whether the database is a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $logic;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,12 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the permission. Valid values:
+     *
+     *   DATABASE: permissions on databases
+     *   TABLE: permissions on tables
+     *   COLUMN: permissions on fields
+     *
      * @example DATABASE
      *
      * @var string
@@ -44,6 +58,9 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $permType;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int
@@ -51,6 +68,8 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $tid;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example search_user_name
      *
      * @var string

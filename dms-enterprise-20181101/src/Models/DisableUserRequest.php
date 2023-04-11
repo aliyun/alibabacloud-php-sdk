@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableUserRequest extends Model
 {
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
      * @example -1
      *
      * @var int

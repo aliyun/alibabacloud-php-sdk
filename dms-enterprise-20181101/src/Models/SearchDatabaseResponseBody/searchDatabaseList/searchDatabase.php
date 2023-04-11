@@ -20,6 +20,11 @@ class searchDatabase extends Model
     public $alias;
 
     /**
+     * @description The name of the catalog to which the database belongs.
+     *
+     * > If the type of the database engine is PostgreSQL, the name of the database is displayed.
+     * @example dmstest
+     *
      * @var string
      */
     public $catalogName;
@@ -43,7 +48,7 @@ class searchDatabase extends Model
     public $datalinkName;
 
     /**
-     * @description The type of the database.
+     * @description The type of the database engine.
      *
      * @example mysql
      *
@@ -70,7 +75,7 @@ class searchDatabase extends Model
     public $encoding;
 
     /**
-     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The environment type of the database. For more information, see [Change the environment type of an instance](~~163309~~).
      *
      * @example test
      *
@@ -100,7 +105,7 @@ class searchDatabase extends Model
     public $logic;
 
     /**
-     * @description The IDs of the owners of the database.
+     * @description The IDs of the owners of the databases.
      *
      * @var ownerIdList
      */
@@ -114,7 +119,7 @@ class searchDatabase extends Model
     public $ownerNameList;
 
     /**
-     * @description The port number of the instance in which the database resides.
+     * @description The port of the instance in which the database resides.
      *
      * @example 3306
      *
@@ -141,7 +146,7 @@ class searchDatabase extends Model
     public $searchName;
 
     /**
-     * @description The system ID (Sid) of the instance in which the database resides.
+     * @description The system ID (SID) of the instance in which the database resides.
      *
      * @example testSid
      *

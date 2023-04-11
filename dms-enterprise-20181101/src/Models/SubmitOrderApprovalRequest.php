@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitOrderApprovalRequest extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,9 @@ class SubmitOrderApprovalRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectTaskDetailResponseBody extends Model
 {
     /**
+     * @description The details of the data change task.
+     *
      * @var dataCorrectTaskDetail
      */
     public $dataCorrectTaskDetail;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B5FD0BC8-2D90-4478-B8EC-A0E92E0B1773
      *
      * @var string
@@ -36,6 +44,8 @@ class GetDataCorrectTaskDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

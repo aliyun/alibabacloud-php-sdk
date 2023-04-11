@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePublishGroupTaskResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePublishGroupTaskResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class CreatePublishGroupTaskResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *
      * @var string
@@ -30,6 +36,8 @@ class CreatePublishGroupTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class CreatePublishGroupTaskResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the job.
+     *
      * @example 413452
      *
      * @var int

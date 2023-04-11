@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteStructSyncResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class ExecuteStructSyncResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class ExecuteStructSyncResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -30,6 +36,8 @@ class ExecuteStructSyncResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

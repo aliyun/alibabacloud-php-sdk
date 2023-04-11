@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class GetUserResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message returned if the request failed.
      *
      * @example Unknown server error
      *
@@ -40,7 +40,7 @@ class GetUserResponseBody extends Model
      * @description Indicates whether the request was successful. Valid values:
      *
      *   **true**: The request was successful.
-     *   **false**: The request failed.
+     *   **false**: The request fails.
      *
      * @example true
      *

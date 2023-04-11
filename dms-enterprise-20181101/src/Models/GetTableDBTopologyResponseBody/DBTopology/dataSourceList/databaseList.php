@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class databaseList extends Model
 {
     /**
+     * @description The ID of the database.
+     *
      * @example 489347
      *
      * @var string
@@ -17,6 +19,8 @@ class databaseList extends Model
     public $dbId;
 
     /**
+     * @description The name of the database.
+     *
      * @example db-test
      *
      * @var string
@@ -24,6 +28,8 @@ class databaseList extends Model
     public $dbName;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example MySQL
      *
      * @var string
@@ -31,6 +37,18 @@ class databaseList extends Model
     public $dbType;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: pre-release environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: staging environment
+     *
+     * > For more information, see [Change the environment type of an instance](~~163309~~).
      * @example pre
      *
      * @var string
@@ -38,6 +56,8 @@ class databaseList extends Model
     public $envType;
 
     /**
+     * @description The physical tables.
+     *
      * @var tableList[]
      */
     public $tableList;

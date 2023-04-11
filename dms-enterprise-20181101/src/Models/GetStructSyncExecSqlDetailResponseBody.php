@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncExecSqlDetailResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetStructSyncExecSqlDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,7 +28,7 @@ class GetStructSyncExecSqlDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 1810E635-A2D7-428B-BAA9-85DAEB9B1A77
      *
@@ -33,11 +37,15 @@ class GetStructSyncExecSqlDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the SQL statements.
+     *
      * @var structSyncExecSqlDetail
      */
     public $structSyncExecSqlDetail;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class orderBaseInfo extends Model
 {
     /**
+     * @description The remarks of the ticket.
+     *
      * @example test
      *
      * @var string
@@ -18,6 +20,8 @@ class orderBaseInfo extends Model
     public $comment;
 
     /**
+     * @description The applicant.
+     *
      * @example xxx
      *
      * @var string
@@ -25,6 +29,8 @@ class orderBaseInfo extends Model
     public $committer;
 
     /**
+     * @description The ID of the applicant. Note: The ID is different from the Alibaba Cloud account ID of the applicant.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +38,8 @@ class orderBaseInfo extends Model
     public $committerId;
 
     /**
+     * @description The time when the ticket was created.
+     *
      * @example 2019-10-10 00:00:00
      *
      * @var string
@@ -39,6 +47,8 @@ class orderBaseInfo extends Model
     public $createTime;
 
     /**
+     * @description The time when the ticket was last modified.
+     *
      * @example 2019-10-10 00:00:00
      *
      * @var string
@@ -46,6 +56,8 @@ class orderBaseInfo extends Model
     public $lastModifyTime;
 
     /**
+     * @description The ID of the ticket.
+     *
      * @example 12345
      *
      * @var int
@@ -53,6 +65,8 @@ class orderBaseInfo extends Model
     public $orderId;
 
     /**
+     * @description The type of the ticket. For more information about the value of this parameter, see the request parameters of the [CreateOrder](~~465865~~) operation.
+     *
      * @example DC_COMMON
      *
      * @var string
@@ -60,16 +74,30 @@ class orderBaseInfo extends Model
     public $pluginType;
 
     /**
+     * @description The IDs of the operators that are related to the ticket.
+     *
      * @var relatedUserList
      */
     public $relatedUserList;
 
     /**
+     * @description The nicknames of the operators that are related to the ticket.
+     *
      * @var relatedUserNickList
      */
     public $relatedUserNickList;
 
     /**
+     * @description The status code of the ticket. Valid values:
+     *
+     *   **new**: The ticket is created.
+     *   **toaudit**: The ticket is being reviewed.
+     *   **Approved**: The ticket is approved.
+     *   **reject**: The ticket is rejected.
+     *   **processing**: The ticket is being executed.
+     *   **success**: The ticket is executed.
+     *   **closed**: The ticket is closed.
+     *
      * @example success
      *
      * @var string
@@ -77,6 +105,8 @@ class orderBaseInfo extends Model
     public $statusCode;
 
     /**
+     * @description The description of the status.
+     *
      * @example success
      *
      * @var string
@@ -84,6 +114,8 @@ class orderBaseInfo extends Model
     public $statusDesc;
 
     /**
+     * @description The ID of the approval process.
+     *
      * @example 1
      *
      * @var int
@@ -91,6 +123,8 @@ class orderBaseInfo extends Model
     public $workflowInstanceId;
 
     /**
+     * @description The description of the approval process.
+     *
      * @example approved
      *
      * @var string

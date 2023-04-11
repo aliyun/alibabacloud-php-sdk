@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesRequest extends Model
 {
     /**
+     * @description The ID of the logical database.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLogicTablesRequest extends Model
     public $databaseId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListLogicTablesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLogicTablesRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to return the GUID of the table.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class ListLogicTablesRequest extends Model
     public $returnGuid;
 
     /**
+     * @description The keyword that is used to search for the logical tables. Prefix match is supported.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,9 @@ class ListLogicTablesRequest extends Model
     public $searchName;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int

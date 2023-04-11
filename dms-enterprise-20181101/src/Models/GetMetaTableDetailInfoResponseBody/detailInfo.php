@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class detailInfo extends Model
 {
     /**
+     * @description The columns in the table.
+     *
      * @var columnList[]
      */
     public $columnList;
 
     /**
+     * @description The list of indexes.
+     *
      * @var indexList[]
      */
     public $indexList;

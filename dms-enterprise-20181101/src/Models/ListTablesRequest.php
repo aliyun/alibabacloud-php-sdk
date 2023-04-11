@@ -57,7 +57,7 @@ class ListTablesRequest extends Model
     public $searchName;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
      *
      * @example 3***
      *

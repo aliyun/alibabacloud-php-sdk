@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class workflowNode extends Model
 {
     /**
+     * @description The details about approvers.
+     *
      * @var auditUsers
      */
     public $auditUsers;
 
     /**
+     * @description The description of the approval template.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +26,8 @@ class workflowNode extends Model
     public $comment;
 
     /**
+     * @description The ID of the creator. This ID is different from the ID of the Alibaba Cloud account of the creator.
+     *
      * @example 123
      *
      * @var int
@@ -29,6 +35,8 @@ class workflowNode extends Model
     public $createUserId;
 
     /**
+     * @description The name of the user who creates the approval node.
+     *
      * @example test
      *
      * @var string
@@ -36,6 +44,8 @@ class workflowNode extends Model
     public $createUserNickName;
 
     /**
+     * @description The ID of the approval node.
+     *
      * @example 123
      *
      * @var int
@@ -43,6 +53,8 @@ class workflowNode extends Model
     public $nodeId;
 
     /**
+     * @description The name of the approval node.
+     *
      * @example test
      *
      * @var string
@@ -50,6 +62,11 @@ class workflowNode extends Model
     public $nodeName;
 
     /**
+     * @description The type of the approval node. Valid values:
+     *
+     *   SYS: The approval node is predefined by the system.
+     *   USER_LIST: The approval node is created by a user.
+     *
      * @example SYS
      *
      * @var string

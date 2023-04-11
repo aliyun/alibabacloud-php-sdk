@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetTableDBTopologyResponseBody extends Model
 {
     /**
+     * @description The topology of the data table.
+     *
      * @var DBTopology
      */
     public $DBTopology;
 
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class GetTableDBTopologyResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetTableDBTopologyResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 853F7FD4-D922-4EFB-931C-D253EF159E06
      *
      * @var string
@@ -36,6 +44,8 @@ class GetTableDBTopologyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

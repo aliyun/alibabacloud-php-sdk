@@ -17,7 +17,7 @@ class GetApprovalDetailResponseBody extends Model
     public $approvalDetail;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example MissingWorkflowInstanceId
      *
@@ -26,7 +26,7 @@ class GetApprovalDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned if the request failed.
      *
      * @example WorkflowInstanceId is mandatory for this action.
      *
@@ -44,10 +44,11 @@ class GetApprovalDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the request is successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
      * @example true
      *
      * @var bool

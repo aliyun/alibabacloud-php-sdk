@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class uploadTarget extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example test_bucket
      *
      * @var string
@@ -16,6 +18,8 @@ class uploadTarget extends Model
     public $bucketName;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
      * @example http://oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,8 @@ class uploadTarget extends Model
     public $endpoint;
 
     /**
+     * @description The name of the OSS object.
+     *
      * @example test.sql
      *
      * @var string

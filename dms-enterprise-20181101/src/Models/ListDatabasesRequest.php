@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesRequest extends Model
 {
     /**
-     * @example 1
+     * @description The ID of the instance. The valid value is returned if you call the ListInstances operation. The instance ID is not the ID of the RDS instance.
+     *
+     * @example 12***
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListDatabasesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,7 +36,10 @@ class ListDatabasesRequest extends Model
     public $pageSize;
 
     /**
-     * @example -1
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
+     * @example 3***
      *
      * @var int
      */

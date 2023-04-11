@@ -27,7 +27,7 @@ class proxyList extends Model
     public $creatorName;
 
     /**
-     * @description The port that was used by HTTPS clients to connect to the database instance.
+     * @description The number of the port that was used by HTTPS clients to connect to the database instance.
      *
      * @example 443
      *
@@ -36,7 +36,7 @@ class proxyList extends Model
     public $httpsPort;
 
     /**
-     * @description The ID of the database instance.
+     * @description The ID of the instance.
      *
      * @example 183****
      *
@@ -63,6 +63,8 @@ class proxyList extends Model
     public $privateHost;
 
     /**
+     * @description The number of the port that is used to connect the database instance.
+     *
      * @example 3306
      *
      * @var int
@@ -70,6 +72,8 @@ class proxyList extends Model
     public $protocolPort;
 
     /**
+     * @description The type of the database. Example: MYSQL.
+     *
      * @example MYSQL
      *
      * @var string
@@ -88,8 +92,9 @@ class proxyList extends Model
     /**
      * @description Indicates whether the public endpoint is enabled. Valid values:
      *
-     * - **true**: The public endpoint is enabled.
-     * - **false**: The public endpoint is disabled.
+     *   **true**: The public endpoint is enabled.
+     *   **false**: The public endpoint is disabled.
+     *
      * @example false
      *
      * @var bool
@@ -99,8 +104,12 @@ class proxyList extends Model
     /**
      * @description The public endpoint. A public endpoint is returned no matter whether the public endpoint is enabled or disabled.
      *
-     * > - If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS (DNS) is returned.
-     * > - If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
+     * >
+     *
+     *   If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS (DNS) is returned.
+     *
+     *   If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
+     *
      * @example dphzmy-5j8oimjsz6ze****-pub.proxy.dms.aliyuncs.com
      *
      * @var string
@@ -108,6 +117,10 @@ class proxyList extends Model
     public $publicHost;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

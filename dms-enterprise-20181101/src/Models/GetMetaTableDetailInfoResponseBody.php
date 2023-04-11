@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableDetailInfoResponseBody extends Model
 {
     /**
+     * @description The details of the table.
+     *
      * @var detailInfo
      */
     public $detailInfo;
 
     /**
+     * @description The error code returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E881CB2F-DE42-42E5-90EB-8B3173DCB9B9
      *
      * @var string
@@ -36,6 +44,8 @@ class GetMetaTableDetailInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

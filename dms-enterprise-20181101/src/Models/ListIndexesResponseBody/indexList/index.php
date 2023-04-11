@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class index extends Model
 {
     /**
+     * @description The description of the index.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class index extends Model
     public $indexComment;
 
     /**
+     * @description The ID of the index.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class index extends Model
     public $indexId;
 
     /**
+     * @description The name of the index.
+     *
      * @example idx_test
      *
      * @var string
@@ -30,6 +36,14 @@ class index extends Model
     public $indexName;
 
     /**
+     * @description The type of the index. Valid values:
+     *
+     *   Primary
+     *   Unique
+     *   Normal
+     *   FullText
+     *   Spatial
+     *
      * @example Primary
      *
      * @var string
@@ -37,6 +51,8 @@ class index extends Model
     public $indexType;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 1
      *
      * @var string

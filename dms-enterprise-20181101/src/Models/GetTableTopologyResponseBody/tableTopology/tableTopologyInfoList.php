@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableTopologyInfoList extends Model
 {
     /**
+     * @description The ID of the physical database.
+     *
      * @example 43215
      *
      * @var int
@@ -16,6 +18,8 @@ class tableTopologyInfoList extends Model
     public $dbId;
 
     /**
+     * @description The name of the database.
+     *
      * @example yuyang_test
      *
      * @var string
@@ -23,6 +27,8 @@ class tableTopologyInfoList extends Model
     public $dbName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example yuyang_test@localhost:3306【yuyang_test_dev】
      *
      * @var string
@@ -30,6 +36,8 @@ class tableTopologyInfoList extends Model
     public $dbSearchName;
 
     /**
+     * @description The database engine.
+     *
      * @example mysql
      *
      * @var string
@@ -37,6 +45,8 @@ class tableTopologyInfoList extends Model
     public $dbType;
 
     /**
+     * @description The ID of the instance to which the physical database belongs.
+     *
      * @example 4325325
      *
      * @var int
@@ -44,6 +54,14 @@ class tableTopologyInfoList extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the resource related to the instance. The resource corresponds with the database instance type returned in the InstanceSource parameter.
+     *
+     *   **RDS**:The ID of the ApsaraDB RDS instance.
+     *   **ECS_OWN**: The ID of the Elastic Compute Service (ECS) instance.
+     *   **PUBLIC_OWN**: This parameter is left empty for self-managed database instances that are connected over the Internet.
+     *   **VPC_ID**:The ID of the virtual private cloud (VPC).
+     *   **GATEWAY**: The ID of the database gateway.
+     *
      * @example rm-xxx
      *
      * @var string
@@ -51,6 +69,14 @@ class tableTopologyInfoList extends Model
     public $instanceResourceId;
 
     /**
+     * @description The type of the database instance. Valid values:
+     *
+     *   **RDS**: an ApsaraDB RDS instance.
+     *   **ECS_OWN**: a self-managed database that is deployed on an ECS instance
+     *   **PUBLIC_OWN**: a self-managed database instance that is connected over the Internet.
+     *   **VPC_ID**: a self-managed database instance in a VPC that is connected over Express Connect circuits.
+     *   **GATEWAY**: a database instance connected by using a database gateway.
+     *
      * @example RDS
      *
      * @var string
@@ -58,6 +84,8 @@ class tableTopologyInfoList extends Model
     public $instanceSource;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +93,8 @@ class tableTopologyInfoList extends Model
     public $regionId;
 
     /**
+     * @description The number of tables.
+     *
      * @example 6
      *
      * @var int
@@ -72,6 +102,12 @@ class tableTopologyInfoList extends Model
     public $tableCount;
 
     /**
+     * @description The expression of the names of logical tables.
+     *
+     **
+     *
+     **Description**This parameter is not returned for physical tables.
+     *
      * @example test_ch_[0000-0005]
      *
      * @var string
@@ -79,6 +115,9 @@ class tableTopologyInfoList extends Model
     public $tableNameExpr;
 
     /**
+     * @description The names of tables.
+     *
+     * > The table names are separated by commas (,).
      * @example test_ch_0000,test_ch_0001,test_ch_0002,test_ch_0003,test_ch_0004,test_ch_0005
      *
      * @var string

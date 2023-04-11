@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadOSSFileJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The key of the file upload task. You can query the upload progress and task details. For more information, see [GetUserUploadFileJob](~~206069~~).
+     *
      * @example 65254a4c1614235217749100e
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public $jobKey;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

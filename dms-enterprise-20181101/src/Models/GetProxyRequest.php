@@ -9,16 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetProxyRequest extends Model
 {
     /**
-     * @description The ID of the database instance. You can call the [ListInstances](https://www.alibabacloud.com/help/en/data-management-service/latest/listinstances) or [GetInstance](https://www.alibabacloud.com/help/en/data-management-service/latest/getinstance) operation to query the database instance ID.
-     *
-     * @example 183****
-     *
-     * @var int
-     */
-    public $instanceId;
-
-    /**
-     * @description The ID of the secure access proxy. You can call the [ListProxies](https://www.alibabacloud.com/help/en/data-management-service/latest/listproxies) operation to query the ID of the secure access proxy.
+     * @description The ID of the secure access proxy. You can call the [ListProxies](~~295371~~) operation to query the ID of the secure access proxy.
      *
      * @example 4**
      *
@@ -27,7 +18,7 @@ class GetProxyRequest extends Model
     public $proxyId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *
@@ -35,9 +26,8 @@ class GetProxyRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'proxyId'    => 'ProxyId',
-        'tid'        => 'Tid',
+        'proxyId' => 'ProxyId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -47,9 +37,6 @@ class GetProxyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
         }
@@ -68,9 +55,6 @@ class GetProxyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
         }

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchTableResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class SearchTableResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class SearchTableResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1489257F-1B5D-4B5B-89EF-923C12CEEBD1
      *
      * @var string
@@ -31,11 +37,15 @@ class SearchTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the tables.
+     *
      * @var searchTableList
      */
     public $searchTableList;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +53,8 @@ class SearchTableResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries that are returned.
+     *
      * @example 1
      *
      * @var int

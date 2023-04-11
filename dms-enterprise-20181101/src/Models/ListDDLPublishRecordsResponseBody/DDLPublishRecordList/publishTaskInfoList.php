@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class publishTaskInfoList extends Model
 {
     /**
+     * @description The ID of the database.
+     *
      * @example 4325
      *
      * @var int
@@ -17,6 +19,11 @@ class publishTaskInfoList extends Model
     public $dbId;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: the database is not a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -24,6 +31,8 @@ class publishTaskInfoList extends Model
     public $logic;
 
     /**
+     * @description The time to publish the ticket.
+     *
      * @example 2020-12-14 20:52:38
      *
      * @var string
@@ -31,11 +40,18 @@ class publishTaskInfoList extends Model
     public $planTime;
 
     /**
+     * @description The list of the publishing tasks.
+     *
      * @var publishJobList[]
      */
     public $publishJobList;
 
     /**
+     * @description The publishing policy. Valid values:
+     *
+     *   **IMMEDIATELY**: immediately publishes the ticket.
+     *   **REGULARLY**: publishes the ticket at a scheduled time.
+     *
      * @example IMMEDIATELY
      *
      * @var string
@@ -43,6 +59,8 @@ class publishTaskInfoList extends Model
     public $publishStrategy;
 
     /**
+     * @description The description of the state.
+     *
      * @example NONE
      *
      * @var string
@@ -50,6 +68,8 @@ class publishTaskInfoList extends Model
     public $statusDesc;
 
     /**
+     * @description The state of the task.
+     *
      * @example NONE
      *
      * @var string

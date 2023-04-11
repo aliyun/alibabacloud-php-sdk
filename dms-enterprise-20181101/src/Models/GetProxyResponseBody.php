@@ -27,7 +27,7 @@ class GetProxyResponseBody extends Model
     public $creatorName;
 
     /**
-     * @description The error code returned.
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -36,7 +36,7 @@ class GetProxyResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message returned if the request failed.
      *
      * @example The condition cannot be empty!
      *
@@ -45,7 +45,7 @@ class GetProxyResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The port that was used by HTTPS clients to connect to the database instance.
+     * @description The port number used by the HTTPS protocol.
      *
      * @example 443
      *
@@ -54,7 +54,7 @@ class GetProxyResponseBody extends Model
     public $httpsPort;
 
     /**
-     * @description The ID of the database instance.
+     * @description The ID of the instance.
      *
      * @example 183****
      *
@@ -63,7 +63,7 @@ class GetProxyResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the internal endpoint is enabled. Default value: **true**.
+     * @description Indicates whether the internal endpoint was enabled. Default value: **true**.
      *
      * @example true
      *
@@ -81,6 +81,8 @@ class GetProxyResponseBody extends Model
     public $privateHost;
 
     /**
+     * @description The port number used by the protocol.
+     *
      * @example 3306
      *
      * @var int
@@ -88,6 +90,8 @@ class GetProxyResponseBody extends Model
     public $protocolPort;
 
     /**
+     * @description The protocol type of the database. Example: MYSQL.
+     *
      * @example MYSQL
      *
      * @var string
@@ -104,10 +108,11 @@ class GetProxyResponseBody extends Model
     public $proxyId;
 
     /**
-     * @description Indicates whether the public endpoint is enabled. Valid values:
+     * @description Indicates whether the public endpoint was enabled. Valid values:
      *
-     * - **true**: The public endpoint is enabled.
-     * - **false**: The public endpoint is disabled.
+     *   **true**: The public endpoint was enabled.
+     *   **false**: The public endpoint was disabled.
+     *
      * @example true
      *
      * @var bool
@@ -117,8 +122,12 @@ class GetProxyResponseBody extends Model
     /**
      * @description The public endpoint. A public endpoint is returned no matter whether the public endpoint is enabled or disabled.
      *
-     * > - If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS (DNS) is returned.
-     * > - If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using DNS is returned.
+     * >
+     *
+     *   If the value of the PublicEnable parameter is **true**, a valid public endpoint that can be resolved by using Alibaba Cloud DNS is returned.
+     *
+     *   If the value of the PublicEnable parameter is **false**, an invalid public endpoint that cannot be resolved by using Alibaba Cloud DNS is returned.
+     *
      * @example dphzmy-5j8oimjsz6zed7k****.proxy.dms.aliyuncs.com
      *
      * @var string
@@ -126,6 +135,10 @@ class GetProxyResponseBody extends Model
     public $publicHost;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -142,8 +155,9 @@ class GetProxyResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

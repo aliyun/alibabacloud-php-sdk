@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderShrinkRequest;
@@ -118,6 +120,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectBackupFilesRequest;
@@ -139,6 +145,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
@@ -205,6 +213,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserUploadFileJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserUploadFileJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantTemplateAuthorityRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantTemplateAuthorityResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
@@ -223,6 +233,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckDBReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckDBResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLPreCheckDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLPreCheckDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLTypeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLTypeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
@@ -334,6 +348,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeTemplateAuthorityRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeTemplateAuthorityResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseRequest;
@@ -354,6 +370,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioRequest;
@@ -1031,6 +1049,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param CreateAuthorityTemplateRequest $request CreateAuthorityTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAuthorityTemplateResponse CreateAuthorityTemplateResponse
+     */
+    public function createAuthorityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAuthorityTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param CreateAuthorityTemplateRequest $request CreateAuthorityTemplateRequest
+     *
+     * @return CreateAuthorityTemplateResponse CreateAuthorityTemplateResponse
+     */
+    public function createAuthorityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param CreateDataCorrectOrderRequest $tmpReq  CreateDataCorrectOrderRequest
@@ -1683,7 +1754,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more instructions on this feature, see [SQL audit](~~60374~~) .
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param CreateSQLReviewOrderRequest $tmpReq  CreateSQLReviewOrderRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1733,7 +1804,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more instructions on this feature, see [SQL audit](~~60374~~) .
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param CreateSQLReviewOrderRequest $request CreateSQLReviewOrderRequest
      *
@@ -3070,8 +3141,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * If the security rules of the instance need to be approved for synchronization, call [SubmitStructSyncOrderApproval](~~206166~~) The interface initiates an approval process and completes the approval.
-     *   * >  You can call [GetStructSyncJobDetail](~~206160~~) You can call this operation to query whether the target instance requires an approval.
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
      *   *
      * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3107,8 +3178,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * If the security rules of the instance need to be approved for synchronization, call [SubmitStructSyncOrderApproval](~~206166~~) The interface initiates an approval process and completes the approval.
-     *   * >  You can call [GetStructSyncJobDetail](~~206160~~) You can call this operation to query whether the target instance requires an approval.
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
      *   *
      * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
      *
@@ -3165,6 +3236,106 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApprovalDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GetAuthorityTemplateRequest $request GetAuthorityTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAuthorityTemplateResponse GetAuthorityTemplateResponse
+     */
+    public function getAuthorityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthorityTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GetAuthorityTemplateRequest $request GetAuthorityTemplateRequest
+     *
+     * @return GetAuthorityTemplateResponse GetAuthorityTemplateResponse
+     */
+    public function getAuthorityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GetAuthorityTemplateItemRequest $request GetAuthorityTemplateItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAuthorityTemplateItemResponse GetAuthorityTemplateItemResponse
+     */
+    public function getAuthorityTemplateItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthorityTemplateItem',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAuthorityTemplateItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GetAuthorityTemplateItemRequest $request GetAuthorityTemplateItemRequest
+     *
+     * @return GetAuthorityTemplateItemResponse GetAuthorityTemplateItemResponse
+     */
+    public function getAuthorityTemplateItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorityTemplateItemWithOptions($request, $runtime);
     }
 
     /**
@@ -3406,7 +3577,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * This interface applies to: [Common data change](~~58419~~) and [Batch Data import](~~144643~~) .
+     * This operation applies to [regular data change](~~58419~~) and [batch data import](~~144643~~).
      *   *
      * @param GetDataCorrectSQLFileRequest $request GetDataCorrectSQLFileRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3442,7 +3613,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * This interface applies to: [Common data change](~~58419~~) and [Batch Data import](~~144643~~) .
+     * This operation applies to [regular data change](~~58419~~) and [batch data import](~~144643~~).
      *   *
      * @param GetDataCorrectSQLFileRequest $request GetDataCorrectSQLFileRequest
      *
@@ -3691,6 +3862,55 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataExportOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataImportSQLRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDataImportSQLResponse
+     */
+    public function getDataImportSQLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $query['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataImportSQL',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataImportSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataImportSQLRequest $request
+     *
+     * @return GetDataImportSQLResponse
+     */
+    public function getDataImportSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataImportSQLWithOptions($request, $runtime);
     }
 
     /**
@@ -3947,10 +4167,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableColumnRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableColumnResponse
+     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
      */
     public function getMetaTableColumnWithOptions($request, $runtime)
     {
@@ -3981,9 +4203,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableColumnRequest $request
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
      *
-     * @return GetMetaTableColumnResponse
+     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
      */
     public function getMetaTableColumn($request)
     {
@@ -3993,10 +4217,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableDetailInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param GetMetaTableDetailInfoRequest $request GetMetaTableDetailInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableDetailInfoResponse
+     * @return GetMetaTableDetailInfoResponse GetMetaTableDetailInfoResponse
      */
     public function getMetaTableDetailInfoWithOptions($request, $runtime)
     {
@@ -4027,9 +4253,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableDetailInfoRequest $request
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param GetMetaTableDetailInfoRequest $request GetMetaTableDetailInfoRequest
      *
-     * @return GetMetaTableDetailInfoResponse
+     * @return GetMetaTableDetailInfoResponse GetMetaTableDetailInfoResponse
      */
     public function getMetaTableDetailInfo($request)
     {
@@ -4285,7 +4513,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * This interface is applicable to obtaining: **Database-permission** , **Table-permissions** , **sensitive column-permission** .
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
      *   *
      * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4321,7 +4549,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * This interface is applicable to obtaining: **Database-permission** , **Table-permissions** , **sensitive column-permission** .
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
      *   *
      * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
      *
@@ -4390,9 +4618,6 @@ class Dmsenterprise extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->proxyId)) {
             $query['ProxyId'] = $request->proxyId;
         }
@@ -5238,6 +5463,65 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GrantTemplateAuthorityRequest $request GrantTemplateAuthorityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantTemplateAuthorityResponse GrantTemplateAuthorityResponse
+     */
+    public function grantTemplateAuthorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->expireDate)) {
+            $query['ExpireDate'] = $request->expireDate;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantTemplateAuthority',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param GrantTemplateAuthorityRequest $request GrantTemplateAuthorityRequest
+     *
+     * @return GrantTemplateAuthorityResponse GrantTemplateAuthorityResponse
+     */
+    public function grantTemplateAuthority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantTemplateAuthorityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GrantUserPermissionRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5397,10 +5681,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListColumnsRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param ListColumnsRequest $request ListColumnsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListColumnsResponse
+     * @return ListColumnsResponse ListColumnsResponse
      */
     public function listColumnsWithOptions($request, $runtime)
     {
@@ -5434,9 +5720,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListColumnsRequest $request
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param ListColumnsRequest $request ListColumnsRequest
      *
-     * @return ListColumnsResponse
+     * @return ListColumnsResponse ListColumnsResponse
      */
     public function listColumns($request)
     {
@@ -5760,6 +6048,110 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataCorrectPreCheckSQLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataImportSQLPreCheckDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDataImportSQLPreCheckDetailResponse
+     */
+    public function listDataImportSQLPreCheckDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumer)) {
+            $query['PageNumer'] = $request->pageNumer;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sqlType)) {
+            $query['SqlType'] = $request->sqlType;
+        }
+        if (!Utils::isUnset($request->statusCode)) {
+            $query['StatusCode'] = $request->statusCode;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataImportSQLPreCheckDetail',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataImportSQLPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataImportSQLPreCheckDetailRequest $request
+     *
+     * @return ListDataImportSQLPreCheckDetailResponse
+     */
+    public function listDataImportSQLPreCheckDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataImportSQLPreCheckDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataImportSQLTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataImportSQLTypeResponse
+     */
+    public function listDataImportSQLTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataImportSQLType',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataImportSQLTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataImportSQLTypeRequest $request
+     *
+     * @return ListDataImportSQLTypeResponse
+     */
+    public function listDataImportSQLType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataImportSQLTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -7144,10 +7536,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListTablesRequest $request
-     * @param RuntimeOptions    $runtime
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param ListTablesRequest $request ListTablesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($request, $runtime)
     {
@@ -7190,9 +7584,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListTablesRequest $request
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param ListTablesRequest $request ListTablesRequest
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($request)
     {
@@ -8701,6 +9097,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param RevokeTemplateAuthorityRequest $request RevokeTemplateAuthorityRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeTemplateAuthorityResponse RevokeTemplateAuthorityResponse
+     */
+    public function revokeTemplateAuthorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeTemplateAuthority',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param RevokeTemplateAuthorityRequest $request RevokeTemplateAuthorityRequest
+     *
+     * @return RevokeTemplateAuthorityResponse RevokeTemplateAuthorityResponse
+     */
+    public function revokeTemplateAuthority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeTemplateAuthorityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RevokeUserPermissionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -8835,10 +9284,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param SearchTableRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   *
+     * @param SearchTableRequest $request SearchTableRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTableResponse
+     * @return SearchTableResponse SearchTableResponse
      */
     public function searchTableWithOptions($request, $runtime)
     {
@@ -8890,9 +9341,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param SearchTableRequest $request
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   *
+     * @param SearchTableRequest $request SearchTableRequest
      *
-     * @return SearchTableResponse
+     * @return SearchTableResponse SearchTableResponse
      */
     public function searchTable($request)
     {
@@ -9193,10 +9646,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param SyncInstanceMetaRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param SyncInstanceMetaRequest $request SyncInstanceMetaRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncInstanceMetaResponse
+     * @return SyncInstanceMetaResponse SyncInstanceMetaResponse
      */
     public function syncInstanceMetaWithOptions($request, $runtime)
     {
@@ -9230,15 +9685,73 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param SyncInstanceMetaRequest $request
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *   *
+     * @param SyncInstanceMetaRequest $request SyncInstanceMetaRequest
      *
-     * @return SyncInstanceMetaResponse
+     * @return SyncInstanceMetaResponse SyncInstanceMetaResponse
      */
     public function syncInstanceMeta($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->syncInstanceMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param UpdateAuthorityTemplateRequest $request UpdateAuthorityTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAuthorityTemplateResponse UpdateAuthorityTemplateResponse
+     */
+    public function updateAuthorityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAuthorityTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
+     *   *
+     * @param UpdateAuthorityTemplateRequest $request UpdateAuthorityTemplateRequest
+     *
+     * @return UpdateAuthorityTemplateResponse UpdateAuthorityTemplateResponse
+     */
+    public function updateAuthorityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorityTemplateWithOptions($request, $runtime);
     }
 
     /**

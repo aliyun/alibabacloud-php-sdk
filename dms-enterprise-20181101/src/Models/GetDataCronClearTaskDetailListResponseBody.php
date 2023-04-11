@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCronClearTaskDetailListResponseBody extends Model
 {
     /**
+     * @description The historical data cleansing tasks
+     *
      * @var dataCronClearTaskDetailList[]
      */
     public $dataCronClearTaskDetailList;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C1D39814-9808-47F8-AFE0-AF167239AC9B
      *
      * @var string
@@ -36,6 +44,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +53,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of SQL tasks.
+     *
      * @example 1
      *
      * @var int

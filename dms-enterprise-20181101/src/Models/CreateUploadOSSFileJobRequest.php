@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadOSSFileJobRequest extends Model
 {
     /**
+     * @description The name of the file.
+     *
+     * > The file name must end with .txt or .sql. For example, the file name can be text.txt.
      * @example test.sql
      *
      * @var string
@@ -17,6 +20,13 @@ class CreateUploadOSSFileJobRequest extends Model
     public $fileName;
 
     /**
+     * @description The purpose of the file upload task. Valid values:
+     *
+     *   **datacorrect**: The file is uploaded to change data.
+     *   **order_info_attachment**: The file is uploaded as an attachment in a ticket.
+     *   **big-file**: The file is uploaded to import multiple data records at a time.
+     *   **sqlreview**: The file is uploaded for SQL review.
+     *
      * @example datacorrect
      *
      * @var string
@@ -24,6 +34,9 @@ class CreateUploadOSSFileJobRequest extends Model
     public $fileSource;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example -1
      *
      * @var int
@@ -31,6 +44,8 @@ class CreateUploadOSSFileJobRequest extends Model
     public $tid;
 
     /**
+     * @description The information about the OSS file to be uploaded.
+     *
      * @var uploadTarget
      */
     public $uploadTarget;

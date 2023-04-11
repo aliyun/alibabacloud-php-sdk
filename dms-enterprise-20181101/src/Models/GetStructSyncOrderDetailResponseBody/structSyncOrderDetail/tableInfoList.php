@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableInfoList extends Model
 {
     /**
+     * @description The name of the table whose schema you want to synchronize.
+     *
      * @example test_tbl
      *
      * @var string
@@ -16,6 +18,8 @@ class tableInfoList extends Model
     public $sourceTableName;
 
     /**
+     * @description The name of the table to which you want to synchronize the schema of a table.
+     *
      * @example test_tbl
      *
      * @var string

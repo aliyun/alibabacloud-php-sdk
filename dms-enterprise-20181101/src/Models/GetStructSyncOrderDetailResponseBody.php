@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncOrderDetailResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -31,11 +37,15 @@ class GetStructSyncOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the schema synchronization ticket.
+     *
      * @var structSyncOrderDetail
      */
     public $structSyncOrderDetail;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

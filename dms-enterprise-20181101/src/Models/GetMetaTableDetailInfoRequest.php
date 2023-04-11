@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableDetailInfoRequest extends Model
 {
     /**
+     * @description The GUID of the table in Data Management (DMS).
+     *
+     * >
+     *
+     *   You can call the [ListLogicTables](~~141875~~) operation with ReturnGuid set to true to query the GUIDs of logical tables in a specific logical database.
+     *
+     *   You can call the [ListTables](~~141878~~) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
+     *
      * @example IDB_L_9032.db-test.yuyang_test
      *
      * @var string
@@ -16,6 +24,9 @@ class GetMetaTableDetailInfoRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the Manage DMS tenants topic.
      * @example 123
      *
      * @var int

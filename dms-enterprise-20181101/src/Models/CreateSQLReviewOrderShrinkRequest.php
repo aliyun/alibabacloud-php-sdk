@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSQLReviewOrderShrinkRequest extends Model
 {
     /**
+     * @description The purpose or objective of the SQL review. This reduces unnecessary communication.
+     *
      * @example test
      *
      * @var string
@@ -16,16 +18,22 @@ class CreateSQLReviewOrderShrinkRequest extends Model
     public $comment;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var string
      */
     public $paramShrink;
 
     /**
+     * @description The stakeholders involved in this operation. All the specified stakeholders can view the ticket details and take part in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     *
      * @var string
      */
     public $relatedUserListShrink;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
      * @example 1
      *
      * @var int

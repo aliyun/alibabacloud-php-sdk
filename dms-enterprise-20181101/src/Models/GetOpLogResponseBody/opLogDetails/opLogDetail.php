@@ -11,14 +11,22 @@ class opLogDetail extends Model
     /**
      * @description The endpoint of the database instance.
      *
-     * > * This parameter is valid only for database instances of the LocalInstance type.
-     * > * This parameter is valid only for operations on the functional modules related to tasks.
+     * >
+     *
+     *   This parameter is valid only for database instances of the LocalInstance type.
+     *
+     *   This parameter is valid only for operations on the functional modules related to tasks.
+     *
+     * @example dmstest_prod_database@dmstest.rds... \[Test instance]
+     *
      * @var string
      */
     public $database;
 
     /**
      * @description The functional module for which the operation log is queried.
+     *
+     * @example SECURITY_RULE
      *
      * @var string
      */
@@ -62,7 +70,7 @@ class opLogDetail extends Model
     public $orderId;
 
     /**
-     * @description The UID of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 22275482072787****
      *

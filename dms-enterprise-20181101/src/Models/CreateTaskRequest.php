@@ -18,7 +18,7 @@ class CreateTaskRequest extends Model
     public $dagId;
 
     /**
-     * @description The position of the node on the Directed Acyclic Graph (DAG).
+     * @description The position of the node on the directed acyclic graph (DAG).
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class CreateTaskRequest extends Model
     public $graphParam;
 
     /**
-     * @description The configuration for the node.
+     * @description The configuration of the node.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class CreateTaskRequest extends Model
     public $nodeContent;
 
     /**
-     * @description The name of the node you want to create.
+     * @description The name of the node that you want to create.
      *
      * @example zhttest
      *
@@ -54,7 +54,7 @@ class CreateTaskRequest extends Model
     public $nodeOutput;
 
     /**
-     * @description The type of the node you want to create. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The type of the node that you want to create. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
      *
      * @example 36
      *
@@ -65,7 +65,7 @@ class CreateTaskRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example 3***
      *
      * @var int
@@ -73,7 +73,7 @@ class CreateTaskRequest extends Model
     public $tid;
 
     /**
-     * @description The time variables configured for the node.
+     * @description The time variables for the node.
      *
      * @example test
      *

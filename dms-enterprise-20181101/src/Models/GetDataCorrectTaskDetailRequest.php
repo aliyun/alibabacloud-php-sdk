@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectTaskDetailRequest extends Model
 {
     /**
+     * @description The ID of the ticket. You can call the [CreateDataCorrectOrder](~~208388~~), [CreateDataImportOrder](~~208387~~), or [CreateFreeLockCorrectOrder](~~208386~~) operation to obtain the ticket ID.
+     *
      * @example 12435523
      *
      * @var int
@@ -16,6 +18,9 @@ class GetDataCorrectTaskDetailRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 14325432
      *
      * @var int

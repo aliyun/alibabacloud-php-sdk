@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListIndexesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class ListIndexesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The details of indexes.
+     *
      * @var indexList
      */
     public $indexList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1F4DE2F1-5B47-462A-A973-E02EB7AF386B
      *
      * @var string
@@ -36,6 +44,8 @@ class ListIndexesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

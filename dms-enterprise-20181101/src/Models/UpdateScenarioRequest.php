@@ -29,6 +29,8 @@ class UpdateScenarioRequest extends Model
     /**
      * @description The name of the business scenario.
      *
+     * @example Business scenario - test
+     *
      * @var string
      */
     public $scenarioName;
@@ -36,7 +38,7 @@ class UpdateScenarioRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the ["View information about the current tenant"](~~181330~~) section of the Manage DMS tenants topic.
+     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

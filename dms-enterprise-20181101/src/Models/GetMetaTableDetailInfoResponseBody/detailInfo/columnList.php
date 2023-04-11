@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
+     * @description Indicates whether the column is an auto-increment column. Valid values:
+     *
+     *   true: The column is an auto-increment column.
+     *   false: The column is not an auto-increment column.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class columnList extends Model
     public $autoIncrement;
 
     /**
+     * @description The ID of the column.
+     *
      * @example 191234849
      *
      * @var string
@@ -23,6 +30,8 @@ class columnList extends Model
     public $columnId;
 
     /**
+     * @description The name of the column.
+     *
      * @example id
      *
      * @var string
@@ -30,6 +39,8 @@ class columnList extends Model
     public $columnName;
 
     /**
+     * @description The data type of the column. Examples: Bigint, Int, and Varchar.
+     *
      * @example bigint(20) unsigned
      *
      * @var string
@@ -37,6 +48,8 @@ class columnList extends Model
     public $columnType;
 
     /**
+     * @description The length of the field.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +57,8 @@ class columnList extends Model
     public $dataLength;
 
     /**
+     * @description The precision of the field.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +66,8 @@ class columnList extends Model
     public $dataPrecision;
 
     /**
+     * @description The scale of the column.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +75,8 @@ class columnList extends Model
     public $dataScale;
 
     /**
+     * @description The description of the column.
+     *
      * @example test
      *
      * @var string
@@ -65,6 +84,11 @@ class columnList extends Model
     public $description;
 
     /**
+     * @description Indicates whether the column is nullable. Valid values:
+     *
+     *   true: The column is nullable.
+     *   false: The column is not nullable.
+     *
      * @example false
      *
      * @var bool
@@ -72,6 +96,8 @@ class columnList extends Model
     public $nullable;
 
     /**
+     * @description The position of the field in the table.
+     *
      * @example 1
      *
      * @var string

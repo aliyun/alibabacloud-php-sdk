@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SyncInstanceMetaResponseBody extends Model
 {
     /**
+     * @description Details about the topology of the data table.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class SyncInstanceMetaResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error code returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class SyncInstanceMetaResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A99CD576-1E18-4E86-931E-C3CCE56DC030
      *
      * @var string
@@ -30,6 +36,11 @@ class SyncInstanceMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

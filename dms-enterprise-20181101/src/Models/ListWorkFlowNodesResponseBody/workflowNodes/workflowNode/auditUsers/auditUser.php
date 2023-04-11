@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class auditUser extends Model
 {
     /**
+     * @description The nickname of the approver.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class auditUser extends Model
     public $nickName;
 
     /**
+     * @description The real name of the approver.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class auditUser extends Model
     public $realName;
 
     /**
+     * @description The ID of the approver. The ID is different from the ID of the Alibaba Cloud account of the approver.
+     *
      * @example 123
      *
      * @var int

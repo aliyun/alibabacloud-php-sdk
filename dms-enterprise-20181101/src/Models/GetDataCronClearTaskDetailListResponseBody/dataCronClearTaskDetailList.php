@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataCronClearTaskDetailList extends Model
 {
     /**
+     * @description The number of rows affected by the SQL task.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class dataCronClearTaskDetailList extends Model
     public $actualAffectRows;
 
     /**
+     * @description The time when the SQL task was created.
+     *
      * @example 2021-01-14 10:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class dataCronClearTaskDetailList extends Model
     public $createTime;
 
     /**
+     * @description The ID of the SQL task group.
+     *
      * @example 432523
      *
      * @var int
@@ -30,6 +36,17 @@ class dataCronClearTaskDetailList extends Model
     public $DBTaskGroupId;
 
     /**
+     * @description The state of the SQL task. Valid values:
+     *
+     *   **INIT**: The SQL task was initialized.
+     *   **PENDING**: The SQL task waited to be run.
+     *   **BE_SCHEDULED**: The SQL task waited to be scheduled.
+     *   **FAIL**: The SQL task failed.
+     *   **SUCCESS**: The SQL task was successful.
+     *   **PAUSE**: The SQL task was paused.
+     *   **DELETE**: The SQL task was deleted.
+     *   **RUNNING**: The SQL task was being run.
+     *
      * @example SUCCESS
      *
      * @var string

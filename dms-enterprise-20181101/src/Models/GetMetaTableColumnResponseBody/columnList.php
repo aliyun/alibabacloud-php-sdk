@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
-     * @description Indicates whether the field is an auto-increment field. Valid values:
+     * @description Indicates whether the column is an auto-increment column. Valid values:
      *
-     *   **true**: The field is an auto-increment field.
-     *   **false**: The field is not an auto-increment field.
+     *   **true**: The column is an auto-increment column.
+     *   **false**: The column is not an auto-increment column.
      *
      * @example false
      *
@@ -21,7 +21,7 @@ class columnList extends Model
     public $autoIncrement;
 
     /**
-     * @description The ID of the field.
+     * @description The ID of the column.
      *
      * @example 63513****
      *
@@ -30,7 +30,7 @@ class columnList extends Model
     public $columnId;
 
     /**
-     * @description The name of the field.
+     * @description The name of the column.
      *
      * @example has_promotion
      *
@@ -39,9 +39,9 @@ class columnList extends Model
     public $columnName;
 
     /**
-     * @description The data type of the field.
+     * @description The data type of the column.
      *
-     * >  The returned data type is not unique. For example, the returned data type can be **bigint** or **int**.
+     * > The return value of a column is not unique, such as **bigint** or **int**.
      * @example bigint(1)
      *
      * @var string
@@ -67,7 +67,7 @@ class columnList extends Model
     public $dataPrecision;
 
     /**
-     * @description The number of decimal places that the field shows.
+     * @description The number of decimal places for the field.
      *
      * @example 0
      *
@@ -76,7 +76,9 @@ class columnList extends Model
     public $dataScale;
 
     /**
-     * @description The description of the field.
+     * @description The description of the column.
+     *
+     * @example Whether discounts are provided
      *
      * @var string
      */
@@ -116,13 +118,13 @@ class columnList extends Model
     public $primaryKey;
 
     /**
-     * @description The sensitivity level of the field. Valid values:
+     * @description The sensitivity level of the column. Valid values:
      *
-     *   **INNER**: The field is not sensitive.
-     *   **SENSITIVE**: The field is sensitive.
-     *   **CONFIDENTIAL**: The field is confidential.
+     *   **INNER**: The column is not sensitive.
+     *   **SENSITIVE**: The column is sensitive.
+     *   **CONFIDENTIAL**: The column is confidential.
      *
-     * >  For more information, see [Sensitivity levels of fields](~~66091~~).
+     * > For more information, see [Sensitivity levels of columns](~~66091~~).
      * @example INNER
      *
      * @var string

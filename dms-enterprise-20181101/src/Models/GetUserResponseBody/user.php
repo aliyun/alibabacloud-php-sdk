@@ -31,8 +31,12 @@ class user extends Model
     /**
      * @description The DingTalk chatbot URL that is used to receive notifications.
      *
-     * > * The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     * > * The system does not return this parameter if the user has not set a DingTalk chatbot URL.
+     * >
+     *
+     *   The system returns this parameter if the user has set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     *
+     *   The system does not return this parameter if the user has not set a DingTalk chatbot URL.
+     *
      * @example https://XXX.dingtalk.com/robot/send?access_token=***
      *
      * @var string
@@ -42,8 +46,12 @@ class user extends Model
     /**
      * @description The email address that is used to receive notifications.
      *
-     * > * The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     * > * The system does not return this parameter if the user has not set an email address.
+     * >
+     *
+     *   The system returns this parameter if the user has set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     *
+     *   The system does not return this parameter if the user has not set an email address.
+     *
      * @example Uesr_email
      *
      * @var string
@@ -51,7 +59,7 @@ class user extends Model
     public $email;
 
     /**
-     * @description The last time when the user logged on to the console.
+     * @description The last point in time when the user logged on to the console.
      *
      * @example 2021-11-08 11:26:21
      *
@@ -78,10 +86,14 @@ class user extends Model
     public $maxResultCount;
 
     /**
-     * @description The mobile phone number that is used to receive notifications.
+     * @description The mobile number of the user.
      *
-     * > * The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-     * > * The system does not return this parameter if the user has not set a mobile phone number.
+     * >
+     *
+     *   The system returns this parameter if the user has set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
+     *
+     *   The system does not return this parameter if the user has not set a mobile phone number.
+     *
      * @example 1389223****
      *
      * @var string
@@ -100,9 +112,9 @@ class user extends Model
     /**
      * @description The notification method. The system returns one or more values. Valid values:
      *
-     *   **SMS**: text message.
+     *   **SMS**: text message
      *   **EMAIL**: email.
-     *   **DingTalk**: DingTalk.
+     *   **DINGDING**: DingTalk.
      *   **DINGROBOT**: DingTalk chatbot.
      *   **WEBHOOK**: webhook.
      *
@@ -115,7 +127,7 @@ class user extends Model
     /**
      * @description The UID of the Alibaba Cloud account of the user.
      *
-     * >  An Alibaba Cloud account can contain one or more RAM users.
+     * > An Alibaba Cloud account can contain one or more RAM users.
      * @example 140692647406****
      *
      * @var int
@@ -123,26 +135,14 @@ class user extends Model
     public $parentUid;
 
     /**
-     * @description The ID of the role that is assigned to the user. Valid values:
-     *
-     *   **1**: a regular user role.
-     *   **2**: a database administrator (DBA) role.
-     *   **3**: a DMS administrator role.
-     *   **4**: a security administrator role.
-     *   **6**: a schema read-only user role.
+     * @description The list of role IDs.
      *
      * @var roleIdList
      */
     public $roleIdList;
 
     /**
-     * @description The name of the role that is assigned to the user. Valid values:
-     *
-     *   **USER**: a regular user.
-     *   **DBA** : a DBA.
-     *   **ADMIN**: a DMS administrator.
-     *   **SECURITY_ADMIN**: a security administrator.
-     *   **STRUCT_READ_ONLY**: a schema read-only user.
+     * @description The list of role names.
      *
      * @var roleNameList
      */
@@ -152,7 +152,7 @@ class user extends Model
      * @description The signature method that is used to secure connections when a webhook URL is used. Valid values:
      *
      *   **NONE**: no signature.
-     *   **HMAC\_SHA1**: HMAC_SHA1.
+     *   **HMAC_SHA1**: HMAC_SHA1.
      *
      * @example NONE
      *
@@ -194,8 +194,12 @@ class user extends Model
     /**
      * @description The webhook URL that is used to receive notifications.
      *
-     * > * If the user has set a webhook URL, DMS sends notifications to the specified URL.
-     * > * The system does not return this parameter if the user has not set a webhook URL.
+     * >
+     *
+     *   If the user has set a webhook URL, DMS sends notifications to the specified URL.
+     *
+     *   The system does not return this parameter if the user has not set a webhook URL.
+     *
      * @example http://dms-XXX.aliyun.com:8***
      *
      * @var string

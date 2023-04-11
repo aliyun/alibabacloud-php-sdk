@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
+     * @description The type of the database engine.
+     *
      * @example MySQL
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceInfo extends Model
     public $dbType;
 
     /**
+     * @description The ID of the database administrator (DBA) of the instance.
+     *
      * @example 12345
      *
      * @var int
@@ -23,6 +27,8 @@ class instanceInfo extends Model
     public $dbaId;
 
     /**
+     * @description The nickname of the DBA of the instance.
+     *
      * @example test_dba
      *
      * @var string
@@ -30,6 +36,8 @@ class instanceInfo extends Model
     public $dbaNickName;
 
     /**
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
      * @example product
      *
      * @var string
@@ -37,6 +45,8 @@ class instanceInfo extends Model
     public $envType;
 
     /**
+     * @description The endpoint of the instance.
+     *
      * @example xxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class instanceInfo extends Model
     public $host;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 12345
      *
      * @var string
@@ -51,16 +63,22 @@ class instanceInfo extends Model
     public $instanceId;
 
     /**
+     * @description The IDs of the owners of the instance.
+     *
      * @var int[]
      */
     public $ownerIds;
 
     /**
+     * @description The nicknames of the owners of the instance.
+     *
      * @var string[]
      */
     public $ownerNickName;
 
     /**
+     * @description The port that is used to connect to the instance.
+     *
      * @example 3306
      *
      * @var int
@@ -68,6 +86,8 @@ class instanceInfo extends Model
     public $port;
 
     /**
+     * @description The name that is used to search for the instance.
+     *
      * @example xxxx:3306
      *
      * @var string

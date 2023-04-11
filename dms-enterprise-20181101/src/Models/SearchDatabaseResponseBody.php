@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SearchDatabaseResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class SearchDatabaseResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example UnknownError
      *
@@ -44,10 +44,11 @@ class SearchDatabaseResponseBody extends Model
     public $searchDatabaseList;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the request is successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
      * @example true
      *
      * @var bool

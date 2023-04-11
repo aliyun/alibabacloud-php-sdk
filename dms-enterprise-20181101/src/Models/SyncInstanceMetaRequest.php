@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SyncInstanceMetaRequest extends Model
 {
     /**
+     * @description Specifies whether to skip synchronization for the metadata of table dictionaries. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,14 +21,19 @@ class SyncInstanceMetaRequest extends Model
     public $ignoreTable;
 
     /**
-     * @example 1234
+     * @description The ID of the instance.
+     *
+     * @example 12***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example -1
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the Manage DMS tenants topic.
+     * @example 3***
      *
      * @var int
      */

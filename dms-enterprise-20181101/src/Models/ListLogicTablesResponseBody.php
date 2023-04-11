@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTablesResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListLogicTablesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class ListLogicTablesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The details of the logical tables.
+     *
      * @var logicTableList
      */
     public $logicTableList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F1E6484F-9DF1-4406-9BDE-0861C4629B69
      *
      * @var string
@@ -36,6 +44,8 @@ class ListLogicTablesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +53,8 @@ class ListLogicTablesResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of logical tables that meet the query conditions.
+     *
      * @example 1
      *
      * @var int

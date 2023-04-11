@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOnlineDDLProgressResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example 403
      *
      * @var string
@@ -17,6 +19,8 @@ class GetOnlineDDLProgressResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class GetOnlineDDLProgressResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The details of the task.
+     *
      * @var onlineDDLTaskDetail
      */
     public $onlineDDLTaskDetail;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
      * @var string
@@ -36,6 +44,11 @@ class GetOnlineDDLProgressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

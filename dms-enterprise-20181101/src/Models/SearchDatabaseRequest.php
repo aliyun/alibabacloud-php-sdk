@@ -18,7 +18,7 @@ class SearchDatabaseRequest extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The environment type of the database. For more information, see [Change the environment type of an instance](~~163309~~).
      *
      * @example test
      *
@@ -81,7 +81,7 @@ class SearchDatabaseRequest extends Model
     public $searchTarget;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
      *
      * @example 3***
      *

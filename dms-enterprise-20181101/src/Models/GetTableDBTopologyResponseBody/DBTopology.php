@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DBTopology extends Model
 {
     /**
+     * @description The data sources.
+     *
      * @var dataSourceList[]
      */
     public $dataSourceList;
 
     /**
+     * @description The GUID of the table in DMS.
+     *
      * @example IDB_L_9032.db-test.yuyang_test
      *
      * @var string
@@ -22,6 +26,14 @@ class DBTopology extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the table.
+     *
+     * >
+     *
+     *   If a logical table is queried, the name of the logical table is returned.
+     *
+     *   If a physical table is queried, the name of the physical table is returned.
+     *
      * @example yuyang_test
      *
      * @var string
