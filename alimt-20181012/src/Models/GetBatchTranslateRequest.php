@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetBatchTranslateRequest extends Model
 {
     /**
+     * @example translate_standard
+     *
      * @var string
      */
     public $apiType;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example {"11":"hello boy","12":"go home","13":"we can"}
+     *
      * @var string
      */
     public $sourceText;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $targetLanguage;

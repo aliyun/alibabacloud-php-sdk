@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDetectLanguageResponseBody extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $detectedLanguage;
 
     /**
+     * @example 0C5EC1EC-1A06-4D60-97E6-4D41350945E4
+     *
      * @var string
      */
     public $requestId;

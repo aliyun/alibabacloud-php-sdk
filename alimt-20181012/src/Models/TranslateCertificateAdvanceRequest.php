@@ -10,32 +10,42 @@ use GuzzleHttp\Psr7\Stream;
 class TranslateCertificateAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageUrlObject;
-
-    /**
+     * @example driving_license
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @example http://imageurl
+     *
+     * @var Stream
+     */
+    public $imageUrlObject;
+
+    /**
+     * @example text
+     *
      * @var string
      */
     public $resultType;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;
     protected $_name = [
-        'imageUrlObject'  => 'ImageUrlObject',
         'certificateType' => 'CertificateType',
+        'imageUrlObject'  => 'ImageUrl',
         'resultType'      => 'ResultType',
         'sourceLanguage'  => 'SourceLanguage',
         'targetLanguage'  => 'TargetLanguage',
@@ -43,17 +53,16 @@ class TranslateCertificateAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
-        }
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
+        }
+        if (null !== $this->imageUrlObject) {
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
         if (null !== $this->resultType) {
             $res['ResultType'] = $this->resultType;
@@ -76,11 +85,11 @@ class TranslateCertificateAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
-        }
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
         if (isset($map['ResultType'])) {
             $model->resultType = $map['ResultType'];

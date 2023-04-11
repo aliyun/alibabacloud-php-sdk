@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetTitleGenerateRequest extends Model
 {
     /**
+     * @example {2:"None",10:"Plastic"}
+     *
      * @var string
      */
     public $attributes;
 
     /**
+     * @example 127896018
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example {   "product_id": "1",   "platform": "ae" }
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example None,Plastic
+     *
      * @var string
      */
     public $hotWords;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ae
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example 10pcs 80ml Kitchen Disposable
+     *
      * @var string
      */
     public $title;

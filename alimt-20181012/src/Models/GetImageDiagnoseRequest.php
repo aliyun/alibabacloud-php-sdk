@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetImageDiagnoseRequest extends Model
 {
     /**
+     * @example {   "product_id": "1",   "platform": "ae" }
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example http://xxxxx.oss-cn-shenzhen.aliyuncs.com/jd/41209/xxxxx.jpg
+     *
      * @var string
      */
     public $url;

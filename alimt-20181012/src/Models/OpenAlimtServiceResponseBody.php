@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenAlimtServiceResponseBody extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example xxxx-xxxxx
+     *
      * @var string
      */
     public $requestId;

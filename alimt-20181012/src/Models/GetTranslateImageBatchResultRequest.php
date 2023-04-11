@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleGenerateResponseBody;
+namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class GetTranslateImageBatchResultRequest extends Model
 {
     /**
-     * @example 10pcs 80ml Kitchen Disposable Plastic Sauce Cup Pot Chutney Container
-     *
      * @var string
      */
-    public $titles;
+    public $taskId;
     protected $_name = [
-        'titles' => 'Titles',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->titles) {
-            $res['Titles'] = $this->titles;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return GetTranslateImageBatchResultRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Titles'])) {
-            $model->titles = $map['Titles'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

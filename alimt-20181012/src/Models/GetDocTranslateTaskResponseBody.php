@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetDocTranslateTaskResponseBody extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 12952E92-FDF3-4D3C-88E3-242D72BA7150
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example translated
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0586df512c8b4bb382d7d9a6a01b5854
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example Error
+     *
      * @var string
      */
     public $translateErrorCode;
 
     /**
+     * @example Fail to get the page number of document.
+     *
      * @var string
      */
     public $translateErrorMessage;
 
     /**
+     * @example http://translateFileUrl
+     *
      * @var string
      */
     public $translateFileUrl;

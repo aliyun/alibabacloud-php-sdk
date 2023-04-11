@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetImageTranslateRequest extends Model
 {
     /**
+     * @example {"have_ocr": "false", "without_text":"true", "have_psd": "false", "ignore_entity": "false"}
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;
 
     /**
+     * @example http://xxxxxxx.oss-cn-shenzhen.aliyuncs.com/xxxxxx.jpg
+     *
      * @var string
      */
     public $url;

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskResponseBody\data;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageBatchResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateImageTranslateTaskResponseBody extends Model
+class TranslateImageBatchResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
@@ -22,15 +20,11 @@ class CreateImageTranslateTaskResponseBody extends Model
     public $data;
 
     /**
-     * @example ok
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example A41F6E25-8520-4AF0-90EF-AF7E32840108
-     *
      * @var string
      */
     public $requestId;
@@ -67,7 +61,7 @@ class CreateImageTranslateTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateImageTranslateTaskResponseBody
+     * @return TranslateImageBatchResponseBody
      */
     public static function fromMap($map = [])
     {

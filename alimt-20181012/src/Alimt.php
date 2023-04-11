@@ -29,9 +29,10 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleGenerateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleGenerateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleIntelligenceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleIntelligenceResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateImageBatchResultRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateImageBatchResultResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateReportRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateReportResponse;
-use AlibabaCloud\SDK\Alimt\V20181012\Models\GetUserResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\OpenAlimtServiceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\OpenAlimtServiceResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateCertificateAdvanceRequest;
@@ -41,6 +42,8 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageBatchRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageBatchResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateRequest;
@@ -52,10 +55,11 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Alimt extends OpenApiClient
@@ -63,8 +67,9 @@ class Alimt extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'cn-hangzhou'                 => 'mt.cn-hangzhou.aliyuncs.com',
             'ap-northeast-1'              => 'mt.aliyuncs.com',
             'ap-northeast-2-pop'          => 'mt.aliyuncs.com',
@@ -156,11 +161,41 @@ class Alimt extends OpenApiClient
     public function createDocTranslateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $body['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDocTranslateTask',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDocTranslateTaskResponse::fromMap($this->doRPCRequest('CreateDocTranslateTask', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDocTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,28 +261,28 @@ class Alimt extends OpenApiClient
         OpenApiUtilClient::convert($request, $createDocTranslateTaskReq);
         if (!Utils::isUnset($request->fileUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $createDocTranslateTaskReq->fileUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $createDocTranslateTaskReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->createDocTranslateTaskWithOptions($createDocTranslateTaskReq, $runtime);
@@ -262,11 +297,38 @@ class Alimt extends OpenApiClient
     public function createImageTranslateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        if (!Utils::isUnset($request->urlList)) {
+            $body['UrlList'] = $request->urlList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageTranslateTask',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateImageTranslateTaskResponse::fromMap($this->doRPCRequest('CreateImageTranslateTask', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateImageTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -290,11 +352,41 @@ class Alimt extends OpenApiClient
     public function getBatchTranslateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiType)) {
+            $body['ApiType'] = $request->apiType;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTranslate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBatchTranslateResponse::fromMap($this->doRPCRequest('GetBatchTranslate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBatchTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -318,11 +410,26 @@ class Alimt extends OpenApiClient
     public function getDetectLanguageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDetectLanguage',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDetectLanguageResponse::fromMap($this->doRPCRequest('GetDetectLanguage', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDetectLanguageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -348,10 +455,21 @@ class Alimt extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocTranslateTask',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDocTranslateTaskResponse::fromMap($this->doRPCRequest('GetDocTranslateTask', '2018-10-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDocTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -375,11 +493,29 @@ class Alimt extends OpenApiClient
     public function getImageDiagnoseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageDiagnose',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageDiagnoseResponse::fromMap($this->doRPCRequest('GetImageDiagnose', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageDiagnoseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -403,11 +539,35 @@ class Alimt extends OpenApiClient
     public function getImageTranslateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageTranslate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageTranslateResponse::fromMap($this->doRPCRequest('GetImageTranslate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -431,11 +591,26 @@ class Alimt extends OpenApiClient
     public function getImageTranslateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageTranslateTask',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageTranslateTaskResponse::fromMap($this->doRPCRequest('GetImageTranslateTask', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -459,11 +634,38 @@ class Alimt extends OpenApiClient
     public function getTitleDiagnoseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTitleDiagnose',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTitleDiagnoseResponse::fromMap($this->doRPCRequest('GetTitleDiagnose', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTitleDiagnoseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,11 +689,44 @@ class Alimt extends OpenApiClient
     public function getTitleGenerateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $body['Attributes'] = $request->attributes;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->hotWords)) {
+            $body['HotWords'] = $request->hotWords;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTitleGenerate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTitleGenerateResponse::fromMap($this->doRPCRequest('GetTitleGenerate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTitleGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +750,38 @@ class Alimt extends OpenApiClient
     public function getTitleIntelligenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->catLevelThreeId)) {
+            $body['CatLevelThreeId'] = $request->catLevelThreeId;
+        }
+        if (!Utils::isUnset($request->catLevelTwoId)) {
+            $body['CatLevelTwoId'] = $request->catLevelTwoId;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->keywords)) {
+            $body['Keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['Platform'] = $request->platform;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTitleIntelligence',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTitleIntelligenceResponse::fromMap($this->doRPCRequest('GetTitleIntelligence', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTitleIntelligenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -535,6 +797,49 @@ class Alimt extends OpenApiClient
     }
 
     /**
+     * @param GetTranslateImageBatchResultRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetTranslateImageBatchResultResponse
+     */
+    public function getTranslateImageBatchResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTranslateImageBatchResult',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTranslateImageBatchResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTranslateImageBatchResultRequest $request
+     *
+     * @return GetTranslateImageBatchResultResponse
+     */
+    public function getTranslateImageBatchResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTranslateImageBatchResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTranslateReportRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -543,11 +848,35 @@ class Alimt extends OpenApiClient
     public function getTranslateReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTranslateReport',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTranslateReportResponse::fromMap($this->doRPCRequest('GetTranslateReport', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTranslateReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -563,28 +892,6 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserResponse
-     */
-    public function getUserWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetUserResponse
-     */
-    public function getUser()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserWithOptions($runtime);
-    }
-
-    /**
      * @param OpenAlimtServiceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -593,11 +900,29 @@ class Alimt extends OpenApiClient
     public function openAlimtServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenAlimtService',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenAlimtServiceResponse::fromMap($this->doRPCRequest('OpenAlimtService', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenAlimtServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -621,11 +946,43 @@ class Alimt extends OpenApiClient
     public function translateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Translate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TranslateResponse::fromMap($this->doRPCRequest('Translate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -649,11 +1006,38 @@ class Alimt extends OpenApiClient
     public function translateCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->certificateType)) {
+            $body['CertificateType'] = $request->certificateType;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $body['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateCertificate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TranslateCertificateResponse::fromMap($this->doRPCRequest('TranslateCertificate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TranslateCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -719,28 +1103,28 @@ class Alimt extends OpenApiClient
         OpenApiUtilClient::convert($request, $translateCertificateReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $translateCertificateReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $translateCertificateReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->translateCertificateWithOptions($translateCertificateReq, $runtime);
@@ -755,11 +1139,43 @@ class Alimt extends OpenApiClient
     public function translateECommerceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateECommerce',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TranslateECommerceResponse::fromMap($this->doRPCRequest('TranslateECommerce', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TranslateECommerceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -783,11 +1199,43 @@ class Alimt extends OpenApiClient
     public function translateGeneralWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateGeneral',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TranslateGeneralResponse::fromMap($this->doRPCRequest('TranslateGeneral', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TranslateGeneralResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -811,11 +1259,41 @@ class Alimt extends OpenApiClient
     public function translateImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ext)) {
+            $body['Ext'] = $request->ext;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $body['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->imageBase64)) {
+            $body['ImageBase64'] = $request->imageBase64;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateImage',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TranslateImageResponse::fromMap($this->doRPCRequest('TranslateImage', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TranslateImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -828,5 +1306,63 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->translateImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TranslateImageBatchRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TranslateImageBatchResponse
+     */
+    public function translateImageBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customTaskId)) {
+            $body['CustomTaskId'] = $request->customTaskId;
+        }
+        if (!Utils::isUnset($request->ext)) {
+            $body['Ext'] = $request->ext;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $body['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->imageUrls)) {
+            $body['ImageUrls'] = $request->imageUrls;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateImageBatch',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TranslateImageBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TranslateImageBatchRequest $request
+     *
+     * @return TranslateImageBatchResponse
+     */
+    public function translateImageBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateImageBatchWithOptions($request, $runtime);
     }
 }

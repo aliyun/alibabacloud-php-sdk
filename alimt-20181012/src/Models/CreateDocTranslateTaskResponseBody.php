@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDocTranslateTaskResponseBody extends Model
 {
     /**
+     * @example D3920BC3-A395-4CAD-9E84-7C39EB07507B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ready
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0586df512c8b4bb382d7d9a6a01b5854
+     *
      * @var string
      */
     public $taskId;

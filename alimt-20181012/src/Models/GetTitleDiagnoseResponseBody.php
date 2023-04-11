@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTitleDiagnoseResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class GetTitleDiagnoseResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example DC2DCCC9-C3DF-4F59-8D8E-78185729F16D
+     *
      * @var string
      */
     public $requestId;

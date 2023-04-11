@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TranslateResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class TranslateResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 86D18195-D89C-4C8C-9DC4-5FCE789CE6D5
+     *
      * @var string
      */
     public $requestId;

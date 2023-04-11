@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageTranslateTaskRequest extends Model
 {
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $taskId;

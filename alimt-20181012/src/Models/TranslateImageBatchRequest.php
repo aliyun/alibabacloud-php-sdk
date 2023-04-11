@@ -6,54 +6,42 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TranslateImageRequest extends Model
+class TranslateImageBatchRequest extends Model
 {
     /**
-     * @example {"needEditorData": "false", "ignoreEntityRecognize": "true"}
-     *
+     * @var string
+     */
+    public $customTaskId;
+
+    /**
      * @var string
      */
     public $ext;
 
     /**
-     * @example general
-     *
      * @var string
      */
     public $field;
 
     /**
-     * @example /9j/4...H/9k=
-     *
      * @var string
      */
-    public $imageBase64;
+    public $imageUrls;
 
     /**
-     * @example https://example.com/example.jpg
-     *
-     * @var string
-     */
-    public $imageUrl;
-
-    /**
-     * @example zh
-     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $targetLanguage;
     protected $_name = [
+        'customTaskId'   => 'CustomTaskId',
         'ext'            => 'Ext',
         'field'          => 'Field',
-        'imageBase64'    => 'ImageBase64',
-        'imageUrl'       => 'ImageUrl',
+        'imageUrls'      => 'ImageUrls',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
     ];
@@ -65,17 +53,17 @@ class TranslateImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customTaskId) {
+            $res['CustomTaskId'] = $this->customTaskId;
+        }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
         }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
-        if (null !== $this->imageBase64) {
-            $res['ImageBase64'] = $this->imageBase64;
-        }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
+        if (null !== $this->imageUrls) {
+            $res['ImageUrls'] = $this->imageUrls;
         }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
@@ -90,22 +78,22 @@ class TranslateImageRequest extends Model
     /**
      * @param array $map
      *
-     * @return TranslateImageRequest
+     * @return TranslateImageBatchRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomTaskId'])) {
+            $model->customTaskId = $map['CustomTaskId'];
+        }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
         }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
-        if (isset($map['ImageBase64'])) {
-            $model->imageBase64 = $map['ImageBase64'];
-        }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
+        if (isset($map['ImageUrls'])) {
+            $model->imageUrls = $map['ImageUrls'];
         }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];

@@ -15,6 +15,8 @@ class TranslateCertificateResponseBody extends Model
     public $data;
 
     /**
+     * @example 6640DE48-201C-4110-AE87-FB8FA34412B9
+     *
      * @var string
      */
     public $requestId;

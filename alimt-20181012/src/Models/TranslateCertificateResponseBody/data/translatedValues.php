@@ -14,6 +14,8 @@ class translatedValues extends Model
     public $key;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $keyTranslation;
@@ -24,6 +26,8 @@ class translatedValues extends Model
     public $value;
 
     /**
+     * @example Solemn
+     *
      * @var string
      */
     public $valueTranslation;

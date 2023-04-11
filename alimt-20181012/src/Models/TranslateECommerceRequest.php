@@ -9,30 +9,48 @@ use AlibabaCloud\Tea\Model;
 class TranslateECommerceRequest extends Model
 {
     /**
+     * @example context信息
+     *
+     * @var string
+     */
+    public $context;
+
+    /**
+     * @example text
+     *
      * @var string
      */
     public $formatType;
 
     /**
+     * @example social
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example Hello
+     *
      * @var string
      */
     public $sourceText;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $targetLanguage;
     protected $_name = [
+        'context'        => 'Context',
         'formatType'     => 'FormatType',
         'scene'          => 'Scene',
         'sourceLanguage' => 'SourceLanguage',
@@ -47,6 +65,9 @@ class TranslateECommerceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->context) {
+            $res['Context'] = $this->context;
+        }
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
         }
@@ -74,6 +95,9 @@ class TranslateECommerceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Context'])) {
+            $model->context = $map['Context'];
+        }
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }

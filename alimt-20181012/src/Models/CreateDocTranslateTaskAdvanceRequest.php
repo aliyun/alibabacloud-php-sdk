@@ -10,38 +10,50 @@ use GuzzleHttp\Psr7\Stream;
 class CreateDocTranslateTaskAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $fileUrlObject;
-
-    /**
+     * @example http://callbackUrl
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
+     * @example token
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example http://fileUrl
+     *
+     * @var Stream
+     */
+    public $fileUrlObject;
+
+    /**
+     * @example general
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $targetLanguage;
     protected $_name = [
-        'fileUrlObject'  => 'FileUrlObject',
         'callbackUrl'    => 'CallbackUrl',
         'clientToken'    => 'ClientToken',
+        'fileUrlObject'  => 'FileUrl',
         'scene'          => 'Scene',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
@@ -49,20 +61,19 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileUrlObject', $this->fileUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileUrlObject) {
-            $res['FileUrlObject'] = $this->fileUrlObject;
-        }
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->fileUrlObject) {
+            $res['FileUrl'] = $this->fileUrlObject;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -85,14 +96,14 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileUrlObject'])) {
-            $model->fileUrlObject = $map['FileUrlObject'];
-        }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['FileUrl'])) {
+            $model->fileUrlObject = $map['FileUrl'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

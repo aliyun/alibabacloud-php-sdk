@@ -14,6 +14,8 @@ class data extends Model
     public $translated;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $wordCount;

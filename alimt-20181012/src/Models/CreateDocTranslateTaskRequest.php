@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateDocTranslateTaskRequest extends Model
 {
     /**
+     * @example http://callbackUrl
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
+     * @example token
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example http://fileUrl
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $targetLanguage;

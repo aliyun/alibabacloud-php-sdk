@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetTranslateReportResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example {"result":[{"time":"2021-10-21 00:00:00","total":100}]}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 86D18195-D89C-4C8C-9DC4-5FCE789CE6D5
+     *
      * @var string
      */
     public $requestId;

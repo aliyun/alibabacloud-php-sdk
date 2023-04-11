@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageTranslateResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class GetImageTranslateResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example A41F6E25-8520-4AF0-90EF-AF7E32840108
+     *
      * @var string
      */
     public $requestId;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetImageDiagnoseResponse extends Model
+class TranslateImageBatchResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetImageDiagnoseResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetImageDiagnoseResponseBody
+     * @var TranslateImageBatchResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetImageDiagnoseResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetImageDiagnoseResponse
+     * @return TranslateImageBatchResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetImageDiagnoseResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetImageDiagnoseResponseBody::fromMap($map['body']);
+            $model->body = TranslateImageBatchResponseBody::fromMap($map['body']);
         }
 
         return $model;

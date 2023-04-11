@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Hello
+     *
      * @var string
      */
     public $translated;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $wordCount;

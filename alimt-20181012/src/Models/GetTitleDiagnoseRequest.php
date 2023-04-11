@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetTitleDiagnoseRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example {   "product_id": "1",   "platform": "ae" }
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example ae
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example Amroe Japan Comic Theme Uzumaki Naruto Namikaze Minato 3D Visual Cartoon 7 Color USB Touch
+     *
      * @var string
      */
     public $title;

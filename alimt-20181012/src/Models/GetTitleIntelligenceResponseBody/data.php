@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Custom Hello Kitty PVC Cartoon Apple for Home Garden Complete Apple Bath Shower
+     *
      * @var string
      */
     public $titles;

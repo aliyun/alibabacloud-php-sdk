@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateImageBatchResultResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetUserResponseBody extends Model
+class GetTranslateImageBatchResultResponseBody extends Model
 {
     /**
      * @var int
@@ -14,7 +15,7 @@ class GetUserResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -45,7 +46,7 @@ class GetUserResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -60,7 +61,7 @@ class GetUserResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetUserResponseBody
+     * @return GetTranslateImageBatchResultResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -69,7 +70,7 @@ class GetUserResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

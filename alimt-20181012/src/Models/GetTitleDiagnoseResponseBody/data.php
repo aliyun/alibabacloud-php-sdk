@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example Boy
+     *
      * @var string
      */
     public $allUppercaseWords;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $containCoreClasses;
 
     /**
+     * @example baba
+     *
      * @var string
      */
     public $disableWords;
 
     /**
+     * @example hi
+     *
      * @var string
      */
     public $duplicateWords;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $languageQualityScore;
 
     /**
+     * @example no
+     *
      * @var string
      */
     public $noFirstUppercaseList;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $overLengthLimit;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $totalScore;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $wordCount;
 
     /**
+     * @example ahk
+     *
      * @var string
      */
     public $wordSpelledCorrectError;

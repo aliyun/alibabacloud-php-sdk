@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class TranslateCertificateRequest extends Model
 {
     /**
+     * @example driving_license
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @example http://imageurl
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $resultType;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $finalImageUrl;
 
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $inPaintingUrl;
 
     /**
+     * @example Editor Template Json String
+     *
      * @var string
      */
     public $templateJson;

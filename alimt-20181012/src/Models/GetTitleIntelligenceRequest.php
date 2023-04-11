@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetTitleIntelligenceRequest extends Model
 {
     /**
+     * @example 111
+     *
      * @var int
      */
     public $catLevelThreeId;
 
     /**
+     * @example 222
+     *
      * @var int
      */
     public $catLevelTwoId;
 
     /**
+     * @example {"product_id":"1212"}
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example hello,apple
+     *
      * @var string
      */
     public $keywords;
 
     /**
+     * @example ae
+     *
      * @var string
      */
     public $platform;

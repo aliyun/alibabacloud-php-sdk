@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateImageTranslateTaskRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example {"have_ocr":"false","without_text":"false","have_psd":"true","ignore_entity":"false"}
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;
 
     /**
+     * @example http://xxx,http://yyy
+     *
      * @var string
      */
     public $urlList;

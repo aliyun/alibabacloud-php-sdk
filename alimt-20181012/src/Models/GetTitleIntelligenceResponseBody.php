@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTitleIntelligenceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class GetTitleIntelligenceResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D70487B4-8891-4D24-BB64-8788E53671FB
+     *
      * @var string
      */
     public $requestId;

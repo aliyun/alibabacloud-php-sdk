@@ -19,6 +19,8 @@ class data extends Model
     public $pictureEditor;
 
     /**
+     * @example https://ae01.alicdn.com/kf/xxxxx.jpeg
+     *
      * @var string
      */
     public $url;

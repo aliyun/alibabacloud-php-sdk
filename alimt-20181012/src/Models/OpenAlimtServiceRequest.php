@@ -14,6 +14,8 @@ class OpenAlimtServiceRequest extends Model
     public $ownerId;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $type;
