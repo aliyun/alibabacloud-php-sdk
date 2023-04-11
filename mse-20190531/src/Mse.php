@@ -3597,8 +3597,29 @@ class Mse extends OpenApiClient
     public function fetchLosslessRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3606,7 +3627,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -7170,12 +7191,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->related)) {
             $query['Related'] = $request->related;
-        }
-        if (!Utils::isUnset($request->shutdownWaitSeconds)) {
-            $query['ShutdownWaitSeconds'] = $request->shutdownWaitSeconds;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->warmupTime)) {
             $query['WarmupTime'] = $request->warmupTime;

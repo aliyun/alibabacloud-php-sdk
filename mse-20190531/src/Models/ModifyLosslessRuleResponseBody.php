@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyLosslessRuleResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var mixed
+     */
+    public $data;
+
+    /**
      * @description The error code returned if the request failed.
      *
      * @example mse-100-000
@@ -18,13 +28,9 @@ class ModifyLosslessRuleResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
-     * @var string
+     * @var int
      */
-    public $httpCode;
+    public $httpStatusCode;
 
     /**
      * @description The message returned.
@@ -56,11 +62,13 @@ class ModifyLosslessRuleResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'httpCode'  => 'HttpCode',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -70,11 +78,17 @@ class ModifyLosslessRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -97,11 +111,17 @@ class ModifyLosslessRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

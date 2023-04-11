@@ -102,15 +102,6 @@ class results extends Model
     public $related;
 
     /**
-     * @description The wait time for application shutdown.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $shutdownWaitSeconds;
-
-    /**
      * @description The prefetching duration.
      *
      * @example 60
@@ -119,18 +110,17 @@ class results extends Model
      */
     public $warmupTime;
     protected $_name = [
-        'aligned'             => 'Aligned',
-        'appId'               => 'AppId',
-        'appName'             => 'AppName',
-        'count'               => 'Count',
-        'delayTime'           => 'DelayTime',
-        'enable'              => 'Enable',
-        'funcType'            => 'FuncType',
-        'lossLessDetail'      => 'LossLessDetail',
-        'notice'              => 'Notice',
-        'related'             => 'Related',
-        'shutdownWaitSeconds' => 'ShutdownWaitSeconds',
-        'warmupTime'          => 'WarmupTime',
+        'aligned'        => 'Aligned',
+        'appId'          => 'AppId',
+        'appName'        => 'AppName',
+        'count'          => 'Count',
+        'delayTime'      => 'DelayTime',
+        'enable'         => 'Enable',
+        'funcType'       => 'FuncType',
+        'lossLessDetail' => 'LossLessDetail',
+        'notice'         => 'Notice',
+        'related'        => 'Related',
+        'warmupTime'     => 'WarmupTime',
     ];
 
     public function validate()
@@ -169,9 +159,6 @@ class results extends Model
         }
         if (null !== $this->related) {
             $res['Related'] = $this->related;
-        }
-        if (null !== $this->shutdownWaitSeconds) {
-            $res['ShutdownWaitSeconds'] = $this->shutdownWaitSeconds;
         }
         if (null !== $this->warmupTime) {
             $res['WarmupTime'] = $this->warmupTime;
@@ -217,9 +204,6 @@ class results extends Model
         }
         if (isset($map['Related'])) {
             $model->related = $map['Related'];
-        }
-        if (isset($map['ShutdownWaitSeconds'])) {
-            $model->shutdownWaitSeconds = $map['ShutdownWaitSeconds'];
         }
         if (isset($map['WarmupTime'])) {
             $model->warmupTime = $map['WarmupTime'];

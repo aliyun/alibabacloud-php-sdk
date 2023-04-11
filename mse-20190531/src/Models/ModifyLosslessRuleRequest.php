@@ -123,24 +123,6 @@ class ModifyLosslessRuleRequest extends Model
     public $related;
 
     /**
-     * @description The cooldown duration. Unit: seconds.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $shutdownWaitSeconds;
-
-    /**
-     * @description The service source.
-     *
-     * @example edasmsc
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
      * @description The prefetching duration.
      *
      * @example 60
@@ -149,21 +131,19 @@ class ModifyLosslessRuleRequest extends Model
      */
     public $warmupTime;
     protected $_name = [
-        'acceptLanguage'      => 'AcceptLanguage',
-        'aligned'             => 'Aligned',
-        'appId'               => 'AppId',
-        'appName'             => 'AppName',
-        'delayTime'           => 'DelayTime',
-        'enable'              => 'Enable',
-        'funcType'            => 'FuncType',
-        'lossLessDetail'      => 'LossLessDetail',
-        'namespace'           => 'Namespace',
-        'notice'              => 'Notice',
-        'regionId'            => 'RegionId',
-        'related'             => 'Related',
-        'shutdownWaitSeconds' => 'ShutdownWaitSeconds',
-        'source'              => 'Source',
-        'warmupTime'          => 'WarmupTime',
+        'acceptLanguage' => 'AcceptLanguage',
+        'aligned'        => 'Aligned',
+        'appId'          => 'AppId',
+        'appName'        => 'AppName',
+        'delayTime'      => 'DelayTime',
+        'enable'         => 'Enable',
+        'funcType'       => 'FuncType',
+        'lossLessDetail' => 'LossLessDetail',
+        'namespace'      => 'Namespace',
+        'notice'         => 'Notice',
+        'regionId'       => 'RegionId',
+        'related'        => 'Related',
+        'warmupTime'     => 'WarmupTime',
     ];
 
     public function validate()
@@ -208,12 +188,6 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (null !== $this->related) {
             $res['Related'] = $this->related;
-        }
-        if (null !== $this->shutdownWaitSeconds) {
-            $res['ShutdownWaitSeconds'] = $this->shutdownWaitSeconds;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
         if (null !== $this->warmupTime) {
             $res['WarmupTime'] = $this->warmupTime;
@@ -265,12 +239,6 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (isset($map['Related'])) {
             $model->related = $map['Related'];
-        }
-        if (isset($map['ShutdownWaitSeconds'])) {
-            $model->shutdownWaitSeconds = $map['ShutdownWaitSeconds'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
         if (isset($map['WarmupTime'])) {
             $model->warmupTime = $map['WarmupTime'];

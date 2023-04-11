@@ -14,7 +14,7 @@ class FetchLosslessRuleListResponseBody extends Model
      *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 
@@ -26,13 +26,14 @@ class FetchLosslessRuleListResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
      * @var string
      */
-    public $httpCode;
+    public $errorCode;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @description The message returned.
@@ -64,12 +65,13 @@ class FetchLosslessRuleListResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'httpCode'  => 'HttpCode',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -85,8 +87,11 @@ class FetchLosslessRuleListResponseBody extends Model
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -115,8 +120,11 @@ class FetchLosslessRuleListResponseBody extends Model
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

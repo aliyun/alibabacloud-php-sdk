@@ -74,15 +74,6 @@ class FetchLosslessRuleListRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The service source that the application accesses.
-     *
-     * @example edasmsc
-     *
-     * @var string
-     */
-    public $source;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
@@ -91,7 +82,6 @@ class FetchLosslessRuleListRequest extends Model
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'regionId'       => 'RegionId',
-        'source'         => 'Source',
     ];
 
     public function validate()
@@ -121,9 +111,6 @@ class FetchLosslessRuleListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -157,9 +144,6 @@ class FetchLosslessRuleListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
 
         return $model;
