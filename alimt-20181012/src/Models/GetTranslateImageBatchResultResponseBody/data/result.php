@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $finalImageUrl;
 
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $inPaintingUrl;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example https://example.com/example.jpg
+     *
      * @var string
      */
     public $sourceImageUrl;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example {"TemplateJson": "Editor Template Json String	"}
+     *
      * @var string
      */
     public $templateJson;

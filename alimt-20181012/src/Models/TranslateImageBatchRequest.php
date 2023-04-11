@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class TranslateImageBatchRequest extends Model
 {
     /**
+     * @example my_awesome_task_1
+     *
      * @var string
      */
     public $customTaskId;
 
     /**
+     * @example {"needEditorData": "false", "ignoreEntityRecognize": "true"}
+     *
      * @var string
      */
     public $ext;
 
     /**
+     * @example general
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @example https://example.com/1.jpg,https://example.com/2.jpg,https://example.com/3.jpg
+     *
      * @var string
      */
     public $imageUrls;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $targetLanguage;

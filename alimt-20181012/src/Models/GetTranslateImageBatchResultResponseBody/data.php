@@ -15,6 +15,8 @@ class data extends Model
     public $result;
 
     /**
+     * @example finished
+     *
      * @var string
      */
     public $status;
