@@ -21,7 +21,7 @@ class UpdateServiceRequest extends Model
      * @description Specifies whether to allow functions to access the Internet. Valid values:
      *
      *   **true**: allows functions in the specified service to access the Internet.
-     *   **false**: does not allow functions in the specified service to access the Internet.
+     *   **false**: does not allow functions to access the Internet.
      *
      * @example true
      *

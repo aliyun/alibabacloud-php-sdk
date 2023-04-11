@@ -45,7 +45,7 @@ class ListFunctionsRequest extends Model
     public $qualifier;
 
     /**
-     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     * @description The starting position of the result list. The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
      *
      * @example demoStartKey
      *

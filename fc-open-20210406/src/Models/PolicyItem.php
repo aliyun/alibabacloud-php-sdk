@@ -11,28 +11,28 @@ class PolicyItem extends Model
     /**
      * @example x-test-uid
      *
-     * @var int[]
+     * @var string
      */
     public $key;
 
     /**
      * @example =
      *
-     * @var int[]
+     * @var string
      */
     public $operator;
 
     /**
      * @example Header
      *
-     * @var int[]
+     * @var string
      */
     public $type;
 
     /**
      * @example 11111
      *
-     * @var int[]
+     * @var string
      */
     public $value;
     protected $_name = [

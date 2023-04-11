@@ -17,7 +17,7 @@ class ListFunctionsResponseBody extends Model
     public $functions;
 
     /**
-     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
+     * @description The token used to obtain more results. If this parameter is not returned, all the layers are returned.
      *
      * @example 8bj81uI8n****
      *

@@ -11,7 +11,7 @@ class RoutePolicy extends Model
     /**
      * @example AND
      *
-     * @var int[]
+     * @var string
      */
     public $condition;
 

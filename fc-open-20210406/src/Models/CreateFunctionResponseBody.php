@@ -213,7 +213,7 @@ class CreateFunctionResponseBody extends Model
     /**
      * @description An array that consists of the information of layers.
      *
-     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file with the same name as a layer with a larger subscript.
+     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name as a layer with a larger subscript.
      * @var string[]
      */
     public $layers;
