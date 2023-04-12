@@ -1245,6 +1245,9 @@ class Linkcard extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->credentialNo)) {
+            $query['CredentialNo'] = $request->credentialNo;
+        }
         if (!Utils::isUnset($request->endDate)) {
             $query['EndDate'] = $request->endDate;
         }

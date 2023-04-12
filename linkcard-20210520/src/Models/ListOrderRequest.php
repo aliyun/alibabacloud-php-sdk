@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListOrderRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $credentialNo;
+
+    /**
      * @example 2022-04-05
      *
      * @var string
@@ -57,13 +62,14 @@ class ListOrderRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'endDate'     => 'EndDate',
-        'orderId'     => 'OrderId',
-        'orderStatus' => 'OrderStatus',
-        'orderType'   => 'OrderType',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'startDate'   => 'StartDate',
+        'credentialNo' => 'CredentialNo',
+        'endDate'      => 'EndDate',
+        'orderId'      => 'OrderId',
+        'orderStatus'  => 'OrderStatus',
+        'orderType'    => 'OrderType',
+        'pageNo'       => 'PageNo',
+        'pageSize'     => 'PageSize',
+        'startDate'    => 'StartDate',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class ListOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->credentialNo) {
+            $res['CredentialNo'] = $this->credentialNo;
+        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
@@ -106,6 +115,9 @@ class ListOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialNo'])) {
+            $model->credentialNo = $map['CredentialNo'];
+        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }

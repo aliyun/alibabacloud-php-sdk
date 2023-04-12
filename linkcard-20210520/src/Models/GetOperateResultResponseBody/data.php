@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $executeResult;
+
+    /**
+     * @var string
+     */
     public $operateType;
 
     /**
@@ -23,9 +28,10 @@ class data extends Model
      */
     public $status;
     protected $_name = [
-        'operateType' => 'OperateType',
-        'result'      => 'Result',
-        'status'      => 'Status',
+        'executeResult' => 'ExecuteResult',
+        'operateType'   => 'OperateType',
+        'result'        => 'Result',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executeResult) {
+            $res['ExecuteResult'] = $this->executeResult;
+        }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
@@ -56,6 +65,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecuteResult'])) {
+            $model->executeResult = $map['ExecuteResult'];
+        }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
