@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListHandshakesForAccountResponseBody extends Model
 {
     /**
+     * @description The information of the invitations.
+     *
      * @var handshakes
      */
     public $handshakes;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListHandshakesForAccountResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListHandshakesForAccountResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
      *
      * @var string
@@ -36,6 +44,8 @@ class ListHandshakesForAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of invitations.
+     *
      * @example 2
      *
      * @var int

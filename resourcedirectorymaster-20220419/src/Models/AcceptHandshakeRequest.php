@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AcceptHandshakeRequest extends Model
 {
     /**
+     * @description The ID of the invitation.
+     *
+     * You can call the [ListHandshakesForAccount](~~ListHandshakesForAccount~~) operation to obtain the ID.
      * @example h-Ih8IuPfvV0t0****
      *
      * @var string

@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AcceptHandshakeRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AcceptHandshakeResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AddMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AddMessageContactResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AssociateMembersRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AssociateMembersResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AttachControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AttachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\BindSecureMobilePhoneRequest;
@@ -16,6 +20,8 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelChangeAccoun
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelHandshakeRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelHandshakeResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelMessageContactUpdateRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CancelMessageContactUpdateResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ChangeAccountEmailRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CheckAccountDeleteRequest;
@@ -35,12 +41,16 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolic
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeregisterDelegatedAdministratorRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeregisterDelegatedAdministratorResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DestroyResourceDirectoryResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DetachControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DetachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DisableControlPolicyResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DisassociateMembersRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DisassociateMembersResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\EnableResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\EnableResourceDirectoryResponse;
@@ -57,6 +67,10 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetFolderRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetFolderResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetHandshakeRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetHandshakeResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetPayerForAccountRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetPayerForAccountResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetResourceDirectoryResponse;
@@ -82,6 +96,10 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListHandshakesForA
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListHandshakesForAccountResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListHandshakesForResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListHandshakesForResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListMessageContactsRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListMessageContactsResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListMessageContactVerificationsRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListMessageContactVerificationsResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTargetAttachmentsForControlPolicyRequest;
@@ -96,6 +114,10 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RemoveCloudAccount
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RemoveCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RetryChangeAccountEmailRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RetryChangeAccountEmailResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendEmailVerificationForMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendEmailVerificationForMessageContactResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendPhoneVerificationForMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendPhoneVerificationForMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendVerificationCodeForBindSecureMobilePhoneRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendVerificationCodeForBindSecureMobilePhoneResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendVerificationCodeForEnableRDRequest;
@@ -112,6 +134,8 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateControlPolic
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateFolderResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateMessageContactRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateMessageContactResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -152,10 +176,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param AcceptHandshakeRequest $request
-     * @param RuntimeOptions         $runtime
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *   *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshakeWithOptions($request, $runtime)
     {
@@ -183,9 +209,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param AcceptHandshakeRequest $request
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *   *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
      *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshake($request)
     {
@@ -195,10 +223,116 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param AttachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param AddMessageContactRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return AttachControlPolicyResponse
+     * @return AddMessageContactResponse
+     */
+    public function addMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
+        }
+        if (!Utils::isUnset($request->messageTypes)) {
+            $query['MessageTypes'] = $request->messageTypes;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMessageContactRequest $request
+     *
+     * @return AddMessageContactResponse
+     */
+    public function addMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMessageContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateMembersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AssociateMembersResponse
+     */
+    public function associateMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateMembers',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssociateMembersRequest $request
+     *
+     * @return AssociateMembersResponse
+     */
+    public function associateMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     *   * A maximum of 10 access control policies can be attached to a folder or member.
+     *   *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicyWithOptions($request, $runtime)
     {
@@ -229,9 +363,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param AttachControlPolicyRequest $request
+     * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     *   * A maximum of 10 access control policies can be attached to a folder or member.
+     *   *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
      *
-     * @return AttachControlPolicyResponse
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicy($request)
     {
@@ -241,10 +380,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param BindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhoneWithOptions($request, $runtime)
     {
@@ -278,9 +420,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param BindSecureMobilePhoneRequest $request
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
      *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhone($request)
     {
@@ -376,6 +521,55 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
+     * @param CancelMessageContactUpdateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelMessageContactUpdateResponse
+     */
+    public function cancelMessageContactUpdateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelMessageContactUpdate',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelMessageContactUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelMessageContactUpdateRequest $request
+     *
+     * @return CancelMessageContactUpdateResponse
+     */
+    public function cancelMessageContactUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelMessageContactUpdateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ChangeAccountEmailRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -422,10 +616,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountDeleteRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *   *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDeleteWithOptions($request, $runtime)
     {
@@ -453,9 +649,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountDeleteRequest $request
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *   *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
      *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDelete($request)
     {
@@ -517,10 +715,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * A maximum of five levels of folders can be created under the Root folder.
+     *   *
+     * @param CreateFolderRequest $request CreateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolderWithOptions($request, $runtime)
     {
@@ -551,9 +751,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
+     * A maximum of five levels of folders can be created under the Root folder.
+     *   *
+     * @param CreateFolderRequest $request CreateFolderRequest
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolder($request)
     {
@@ -563,10 +765,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *   *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccountWithOptions($request, $runtime)
     {
@@ -609,9 +814,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceAccountRequest $request
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *   *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
      *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccount($request)
     {
@@ -664,10 +872,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
+     *   * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     *   * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+     *   *
+     * @param DeleteAccountRequest $tmpReq  DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($tmpReq, $runtime)
     {
@@ -703,9 +915,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
+     *   * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     *   * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -715,10 +931,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+     *   *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
@@ -746,9 +964,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyRequest $request
+     * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+     *   *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicy($request)
     {
@@ -758,10 +978,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+     *   *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolderWithOptions($request, $runtime)
     {
@@ -789,9 +1011,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
+     * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+     *   *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolder($request)
     {
@@ -801,10 +1025,58 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeregisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param DeleteMessageContactRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeleteMessageContactResponse
+     */
+    public function deleteMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->retainContactInMembers)) {
+            $query['RetainContactInMembers'] = $request->retainContactInMembers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMessageContactRequest $request
+     *
+     * @return DeleteMessageContactResponse
+     */
+    public function deleteMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMessageContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *   *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
     {
@@ -835,9 +1107,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DeregisterDelegatedAdministratorRequest $request
+     * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *   *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
      *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministrator($request)
     {
@@ -847,9 +1121,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * Before you disable a resource directory, you must make sure that the following requirements are met:
+     *   * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+     *   * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DestroyResourceDirectoryResponse
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
@@ -870,7 +1148,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @return DestroyResourceDirectoryResponse
+     * Before you disable a resource directory, you must make sure that the following requirements are met:
+     *   * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+     *   * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+     *   *
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectory()
     {
@@ -880,10 +1162,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DetachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *   *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicyWithOptions($request, $runtime)
     {
@@ -914,9 +1199,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param DetachControlPolicyRequest $request
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *   *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
      *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicy($request)
     {
@@ -926,9 +1214,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     *   * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableControlPolicyResponse
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicyWithOptions($runtime)
     {
@@ -949,7 +1240,10 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @return DisableControlPolicyResponse
+     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     *   * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+     *   *
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicy()
     {
@@ -959,9 +1253,57 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DisassociateMembersRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return EnableControlPolicyResponse
+     * @return DisassociateMembersResponse
+     */
+    public function disassociateMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisassociateMembers',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisassociateMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisassociateMembersRequest $request
+     *
+     * @return DisassociateMembersResponse
+     */
+    public function disassociateMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disassociateMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicyWithOptions($runtime)
     {
@@ -982,7 +1324,9 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @return EnableControlPolicyResponse
+     * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+     *   *
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicy()
     {
@@ -992,10 +1336,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param EnableResourceDirectoryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+     *   *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectoryWithOptions($request, $runtime)
     {
@@ -1032,9 +1378,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param EnableResourceDirectoryRequest $request
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+     *   *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
      *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectory($request)
     {
@@ -1090,10 +1438,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionCheckResultRequest $request
-     * @param RuntimeOptions                       $runtime
+     * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *   *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResultWithOptions($request, $runtime)
     {
@@ -1121,9 +1471,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionCheckResultRequest $request
+     * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *   *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
      *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResult($request)
     {
@@ -1341,6 +1693,92 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
+     * @param GetMessageContactRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMessageContactResponse
+     */
+    public function getMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMessageContactRequest $request
+     *
+     * @return GetMessageContactResponse
+     */
+    public function getMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessageContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMessageContactDeletionStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetMessageContactDeletionStatusResponse
+     */
+    public function getMessageContactDeletionStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMessageContactDeletionStatus',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMessageContactDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMessageContactDeletionStatusRequest $request
+     *
+     * @return GetMessageContactDeletionStatusResponse
+     */
+    public function getMessageContactDeletionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessageContactDeletionStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetPayerForAccountRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1469,10 +1907,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *   *
+     * @param ListAccountsRequest $request ListAccountsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
@@ -1512,9 +1952,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *   *
+     * @param ListAccountsRequest $request ListAccountsRequest
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -1815,10 +2257,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersForParentRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this API operation to view the information of only the first-level subfolders of a folder.
+     *   *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParentWithOptions($request, $runtime)
     {
@@ -1855,9 +2299,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersForParentRequest $request
+     * You can call this API operation to view the information of only the first-level subfolders of a folder.
+     *   *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
      *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParent($request)
     {
@@ -1956,6 +2402,107 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHandshakesForResourceDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMessageContactVerificationsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListMessageContactVerificationsResponse
+     */
+    public function listMessageContactVerificationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMessageContactVerifications',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMessageContactVerificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMessageContactVerificationsRequest $request
+     *
+     * @return ListMessageContactVerificationsResponse
+     */
+    public function listMessageContactVerifications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMessageContactVerificationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMessageContactsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMessageContactsResponse
+     */
+    public function listMessageContactsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->member)) {
+            $query['Member'] = $request->member;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMessageContacts',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMessageContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMessageContactsRequest $request
+     *
+     * @return ListMessageContactsResponse
+     */
+    public function listMessageContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMessageContactsWithOptions($request, $runtime);
     }
 
     /**
@@ -2063,10 +2610,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListTrustedServiceStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Only a management account or delegated administrator account can be used to call this operation.
+     *   *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatusWithOptions($request, $runtime)
     {
@@ -2100,9 +2649,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param ListTrustedServiceStatusRequest $request
+     * Only a management account or delegated administrator account can be used to call this operation.
+     *   *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
      *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatus($request)
     {
@@ -2158,10 +2709,15 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param RegisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                        $runtime
+     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *   *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministratorWithOptions($request, $runtime)
     {
@@ -2192,9 +2748,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param RegisterDelegatedAdministratorRequest $request
+     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *   *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
      *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministrator($request)
     {
@@ -2290,10 +2851,104 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @param SendEmailVerificationForMessageContactRequest $request
+     * @param RuntimeOptions                                $runtime
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendEmailVerificationForMessageContactResponse
+     */
+    public function sendEmailVerificationForMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendEmailVerificationForMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendEmailVerificationForMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendEmailVerificationForMessageContactRequest $request
+     *
+     * @return SendEmailVerificationForMessageContactResponse
+     */
+    public function sendEmailVerificationForMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendEmailVerificationForMessageContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendPhoneVerificationForMessageContactRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SendPhoneVerificationForMessageContactResponse
+     */
+    public function sendPhoneVerificationForMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendPhoneVerificationForMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendPhoneVerificationForMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendPhoneVerificationForMessageContactRequest $request
+     *
+     * @return SendPhoneVerificationForMessageContactResponse
+     */
+    public function sendPhoneVerificationForMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendPhoneVerificationForMessageContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime)
     {
@@ -2324,9 +2979,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhone($request)
     {
@@ -2336,10 +2993,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForEnableRDRequest $request
-     * @param RuntimeOptions                         $runtime
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *   *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRDWithOptions($request, $runtime)
     {
@@ -2367,9 +3026,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForEnableRDRequest $request
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *   *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
      *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRD($request)
     {
@@ -2379,10 +3040,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SetMemberDeletionPermissionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *   *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermissionWithOptions($request, $runtime)
     {
@@ -2410,9 +3073,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param SetMemberDeletionPermissionRequest $request
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *   *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
      *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermission($request)
     {
@@ -2523,10 +3188,15 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * ### Prerequisites
+     *   * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+     *   *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccountWithOptions($request, $runtime)
     {
@@ -2560,9 +3230,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountRequest $request
+     * ### Prerequisites
+     *   * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+     *   *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
      *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccount($request)
     {
@@ -2667,5 +3342,63 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMessageContactRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMessageContactResponse
+     */
+    public function updateMessageContactWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
+        }
+        if (!Utils::isUnset($request->messageTypes)) {
+            $query['MessageTypes'] = $request->messageTypes;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMessageContact',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMessageContactRequest $request
+     *
+     * @return UpdateMessageContactResponse
+     */
+    public function updateMessageContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMessageContactWithOptions($request, $runtime);
     }
 }

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFolderResponseBody extends Model
 {
     /**
+     * @description The information about the folder.
+     *
      * @var folder
      */
     public $folder;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
      *
      * @var string

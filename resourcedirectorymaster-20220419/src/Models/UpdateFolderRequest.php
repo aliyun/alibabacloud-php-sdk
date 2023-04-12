@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFolderRequest extends Model
 {
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-u8B321****
      *
      * @var string
@@ -16,6 +18,9 @@ class UpdateFolderRequest extends Model
     public $folderId;
 
     /**
+     * @description The new name of the folder.
+     *
+     * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (\_), periods (.), and hyphens (-).
      * @example rdFolder
      *
      * @var string

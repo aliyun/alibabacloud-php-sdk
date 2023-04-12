@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -17,6 +20,8 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to start the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -24,18 +29,28 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The Alibaba Cloud account IDs of the members. This parameter specifies a filter condition for the query.
+     *
+     * > If you want to query the tags that are added to the members in a resource directory, you must configure both the `ResourceId` and `ResourceType` parameters and set the `ResourceType` parameter to `Account` in your request.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @example ResourceGroup
+     * @description The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   Account: member
+     *
+     * @example Account
      *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags. This parameter specifies a filter condition for the query.
+     *
+     * You can specify a maximum of 20 tags.
      * @var tag[]
      */
     public $tag;

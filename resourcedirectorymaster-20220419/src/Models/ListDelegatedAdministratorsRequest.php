@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedAdministratorsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class ListDelegatedAdministratorsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +29,9 @@ class ListDelegatedAdministratorsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The identifier of the trusted service.
+     *
+     * For more information, see the `Trusted service identifier` column in [Supported trusted services](~~208133~~).
      * @example cloudfw.aliyuncs.com
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateControlPolicyRequest extends Model
 {
     /**
+     * @description The description of the access control policy.
+     *
+     * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (\_), and hyphens (-) and must start with a letter.
      * @example ExampleControlPolicy
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateControlPolicyRequest extends Model
     public $description;
 
     /**
+     * @description The effective scope of the access control policy.
+     *
+     * The value RAM indicates that the access control policy takes effect only for RAM users and RAM roles.
      * @example RAM
      *
      * @var string
@@ -23,6 +29,9 @@ class CreateControlPolicyRequest extends Model
     public $effectScope;
 
     /**
+     * @description The document of the access control policy.
+     *
+     * For more information about the examples of access control policies, see [Examples of custom access control policies](~~181474~~).
      * @example {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
      *
      * @var string
@@ -30,6 +39,9 @@ class CreateControlPolicyRequest extends Model
     public $policyDocument;
 
     /**
+     * @description The name of the access control policy.
+     *
+     * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
      * @example ExampleControlPolicy
      *
      * @var string

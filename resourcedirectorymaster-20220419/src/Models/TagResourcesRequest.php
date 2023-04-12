@@ -10,18 +10,28 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account IDs of the members.
+     *
+     * You can specify a maximum of 50 IDs.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @example ResourceGroup
+     * @description The type of the objects to which you want to add tags. Valid values:
+     *
+     *   Account: member
+     *
+     * @example Account
      *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
+     * You can specify a maximum of 20 tags.
      * @var tag[]
      */
     public $tag;

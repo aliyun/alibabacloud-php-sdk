@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class delegatedService extends Model
 {
     /**
+     * @description The time when the member was specified as a delegated administrator account.
+     *
      * @example 1616652684164
      *
      * @var string
@@ -16,6 +18,8 @@ class delegatedService extends Model
     public $delegationEnabledTime;
 
     /**
+     * @description The identifier of the trusted service.
+     *
      * @example cloudfw.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,11 @@ class delegatedService extends Model
     public $servicePrincipal;
 
     /**
+     * @description The status of the trusted service. Valid values:
+     *
+     *   ENABLED: enabled
+     *   DISABLED: disabled
+     *
      * @example ENABLED
      *
      * @var string

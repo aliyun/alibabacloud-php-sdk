@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedAdministratorsResponseBody extends Model
 {
     /**
+     * @description The information about the delegated administrator accounts.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListDelegatedAdministratorsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListDelegatedAdministratorsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 009C3A02-7D4B-416C-9CE7-548C91508F1E
      *
      * @var string
@@ -36,6 +44,8 @@ class ListDelegatedAdministratorsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

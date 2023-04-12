@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class controlPolicyAttachment extends Model
 {
     /**
+     * @description The time when the access control policy was attached.
+     *
      * @example 2021-03-19T02:56:24Z
      *
      * @var string
@@ -16,6 +18,8 @@ class controlPolicyAttachment extends Model
     public $attachDate;
 
     /**
+     * @description The description of the access control policy.
+     *
      * @example ExampleControlPolicy
      *
      * @var string
@@ -23,6 +27,11 @@ class controlPolicyAttachment extends Model
     public $description;
 
     /**
+     * @description The effective scope of the access control policy. Valid values:
+     *
+     *   All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
+     *   RAM: The access control policy is in effect only for RAM users and RAM roles.
+     *
      * @example RAM
      *
      * @var string
@@ -30,6 +39,8 @@ class controlPolicyAttachment extends Model
     public $effectScope;
 
     /**
+     * @description The ID of the access control policy.
+     *
      * @example cp-jExXAqIYkwHN****
      *
      * @var string
@@ -37,6 +48,8 @@ class controlPolicyAttachment extends Model
     public $policyId;
 
     /**
+     * @description The name of the access control policy.
+     *
      * @example ExampleControlPolicy
      *
      * @var string
@@ -44,6 +57,11 @@ class controlPolicyAttachment extends Model
     public $policyName;
 
     /**
+     * @description The type of the access control policy. Valid values:
+     *
+     *   System: system access control policy
+     *   Custom: custom access control policy
+     *
      * @example Custom
      *
      * @var string

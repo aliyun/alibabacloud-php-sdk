@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListDelegatedServicesForAccountResponseBody extends Model
 {
     /**
+     * @description The information about the trusted services.
+     *
+     * > If the value of this parameter is empty, the member is not specified as a delegated administrator account.
      * @var delegatedServices
      */
     public $delegatedServices;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D9C03B94-9396-4794-A74B-13DC437556A6
      *
      * @var string

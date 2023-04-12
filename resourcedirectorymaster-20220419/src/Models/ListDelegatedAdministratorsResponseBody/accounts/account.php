@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 138660628348****
      *
      * @var string
@@ -16,6 +18,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The time when the member was specified as a delegated administrator account.
+     *
      * @example 1616652684164
      *
      * @var string
@@ -23,6 +27,8 @@ class account extends Model
     public $delegationEnabledTime;
 
     /**
+     * @description The display name of the member.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,11 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The way in which the member joins the resource directory. Valid values:
+     *
+     *   invited: The member is invited to join the resource directory.
+     *   created: The member is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -37,6 +48,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The identifier of the trusted service.
+     *
      * @example cloudfw.aliyuncs.com
      *
      * @var string

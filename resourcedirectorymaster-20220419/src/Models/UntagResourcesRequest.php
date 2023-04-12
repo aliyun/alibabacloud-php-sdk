@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified members. Valid values:
+     *
+     *   false (default value)
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -16,18 +21,28 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The Alibaba Cloud account IDs of the members.
+     *
+     * You can specify a maximum of 50 IDs.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @example ResourceGroup
+     * @description The type of the objects from which you want to remove tags. Valid values:
+     *
+     *   Account: member
+     *
+     * @example Account
      *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag keys.
+     *
+     * > If you set the `All` parameter to `true`, you do not need to specify tag keys.
      * @var string[]
      */
     public $tagKey;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersForParentRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class ListFoldersForParentRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +29,9 @@ class ListFoldersForParentRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the parent folder.
+     *
+     * If you leave this parameter empty, the information of the first-level subfolders of the Root folder is queried.
      * @example r-b1****
      *
      * @var string
@@ -30,6 +39,9 @@ class ListFoldersForParentRequest extends Model
     public $parentFolderId;
 
     /**
+     * @description The keyword used for the query, such as a folder name.
+     *
+     * Fuzzy match is supported.
      * @example rdFolder
      *
      * @var string

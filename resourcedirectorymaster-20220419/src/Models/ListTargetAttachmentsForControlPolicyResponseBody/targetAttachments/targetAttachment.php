@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetAttachment extends Model
 {
     /**
+     * @description The time when the access control policy was attached to the object.
+     *
      * @example 2021-03-19T02:56:24Z
      *
      * @var string
@@ -16,6 +18,8 @@ class targetAttachment extends Model
     public $attachDate;
 
     /**
+     * @description The ID of the object.
+     *
      * @example fd-ZDNPiT****
      *
      * @var string
@@ -23,6 +27,8 @@ class targetAttachment extends Model
     public $targetId;
 
     /**
+     * @description The name of the object.
+     *
      * @example Dev_Department
      *
      * @var string
@@ -30,6 +36,12 @@ class targetAttachment extends Model
     public $targetName;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   Root: Root folder
+     *   Folder: subfolder of the Root folder
+     *   Account: member
+     *
      * @example Folder
      *
      * @var string

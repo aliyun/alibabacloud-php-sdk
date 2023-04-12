@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersForParentResponseBody extends Model
 {
     /**
+     * @description The information of the folders.
+     *
      * @var folders
      */
     public $folders;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListFoldersForParentResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 5
      *
      * @var int
@@ -29,6 +35,8 @@ class ListFoldersForParentResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
      *
      * @var string
@@ -36,6 +44,8 @@ class ListFoldersForParentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

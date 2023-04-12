@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListControlPoliciesRequest extends Model
 {
     /**
+     * @description The language in which you want to return the descriptions of the access control policies. Valid values:
+     *
+     *   zh-CN (default value): Chinese
+     *   en: English
+     *   ja: Japanese
+     *
+     * > This parameter is available only for system access control policies.
      * @example zh-CN
      *
      * @var string
@@ -16,6 +23,9 @@ class ListControlPoliciesRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +33,9 @@ class ListControlPoliciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +43,11 @@ class ListControlPoliciesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the access control policies. Valid values:
+     *
+     *   System: system access control policy
+     *   Custom: custom access control policy
+     *
      * @example System
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class handshake extends Model
 {
     /**
+     * @description The time when the invitation was created. The time is displayed in UTC.
+     *
      * @example 2018-08-10T09:55:41Z
      *
      * @var string
@@ -16,6 +18,8 @@ class handshake extends Model
     public $createTime;
 
     /**
+     * @description The time when the invitation expires. The time is displayed in UTC.
+     *
      * @example 2018-08-24T09:55:41Z
      *
      * @var string
@@ -23,6 +27,8 @@ class handshake extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the invitation.
+     *
      * @example h-ycm4rp****
      *
      * @var string
@@ -30,6 +36,8 @@ class handshake extends Model
     public $handshakeId;
 
     /**
+     * @description The ID of the management account of the resource directory.
+     *
      * @example 172841235500****
      *
      * @var string
@@ -37,6 +45,8 @@ class handshake extends Model
     public $masterAccountId;
 
     /**
+     * @description The name of the management account of the resource directory.
+     *
      * @example Alice
      *
      * @var string
@@ -44,6 +54,8 @@ class handshake extends Model
     public $masterAccountName;
 
     /**
+     * @description The time when the invitation was modified. The time is displayed in UTC.
+     *
      * @example 2018-08-10T09:55:41Z
      *
      * @var string
@@ -51,11 +63,17 @@ class handshake extends Model
     public $modifyTime;
 
     /**
+     * @description The description of the invitation.
+     *
+     * @example Welcome
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-abcdef****
      *
      * @var string
@@ -63,6 +81,14 @@ class handshake extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the invitation. Valid values:
+     *
+     *   Pending: The invitation is waiting for confirmation.
+     *   Accepted: The invitation is accepted.
+     *   Cancelled: The invitation is canceled.
+     *   Declined: The invitation is rejected.
+     *   Expired: The invitation expires.
+     *
      * @example Pending
      *
      * @var string
@@ -70,6 +96,8 @@ class handshake extends Model
     public $status;
 
     /**
+     * @description The ID or logon email address of the invited account.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -77,6 +105,11 @@ class handshake extends Model
     public $targetEntity;
 
     /**
+     * @description The type of the invited account. Valid values:
+     *
+     *   Account: indicates the ID of the account.
+     *   Email: indicates the logon email address of the account.
+     *
      * @example Email
      *
      * @var string

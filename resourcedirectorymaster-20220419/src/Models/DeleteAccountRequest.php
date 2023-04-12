@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description The IDs of the check items that you can choose to ignore for the member deletion.
+     *
+     * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
      * @var string[]
      */
     public $abandonableCheckId;
 
     /**
+     * @description The Alibaba Cloud account ID of the member that you want to delete.
+     *
      * @example 169946124551****
      *
      * @var string

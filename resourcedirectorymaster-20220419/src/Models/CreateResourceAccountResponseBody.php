@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceAccountResponseBody extends Model
 {
     /**
+     * @description The information of the member.
+     *
      * @var account
      */
     public $account;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B356A415-D860-43E5-865A-E2193D62BBD6
      *
      * @var string
