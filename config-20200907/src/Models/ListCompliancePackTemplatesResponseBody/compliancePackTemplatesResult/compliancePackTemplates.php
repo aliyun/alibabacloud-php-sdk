@@ -10,26 +10,60 @@ use AlibabaCloud\Tea\Model;
 class compliancePackTemplates extends Model
 {
     /**
+     * @description The ID of the compliance package template.
+     *
+     * @example ct-d254ff4e06a300cf****
+     *
      * @var string
      */
     public $compliancePackTemplateId;
 
     /**
+     * @description The name of the compliance package template.
+     *
      * @var string
      */
     public $compliancePackTemplateName;
 
     /**
+     * @description The information about managed rules in the compliance package.
+     *
      * @var configRules[]
      */
     public $configRules;
 
     /**
+     * @description The description of the compliance package.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The tag of the compliance package.
+     *
+     * @var string
+     */
+    public $labels;
+
+    /**
+     * @description The time when the compliance package was last updated.
+     *
+     * @example 1663408308
+     *
+     * @var int
+     */
+    public $lastUpdate;
+
+    /**
+     * @description The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
@@ -38,6 +72,8 @@ class compliancePackTemplates extends Model
         'compliancePackTemplateName' => 'CompliancePackTemplateName',
         'configRules'                => 'ConfigRules',
         'description'                => 'Description',
+        'labels'                     => 'Labels',
+        'lastUpdate'                 => 'LastUpdate',
         'riskLevel'                  => 'RiskLevel',
     ];
 
@@ -65,6 +101,12 @@ class compliancePackTemplates extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->lastUpdate) {
+            $res['LastUpdate'] = $this->lastUpdate;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -98,6 +140,12 @@ class compliancePackTemplates extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
+        if (isset($map['LastUpdate'])) {
+            $model->lastUpdate = $map['LastUpdate'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

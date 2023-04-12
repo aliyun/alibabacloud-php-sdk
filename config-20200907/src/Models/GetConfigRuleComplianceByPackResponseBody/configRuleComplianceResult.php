@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class configRuleComplianceResult extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-541e626622af0087****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The rule enabled in the compliance package and the compliance evaluation result returned by the rule.
+     *
      * @var configRuleCompliances[]
      */
     public $configRuleCompliances;
 
     /**
+     * @description The number of rules against which specific resources are evaluated as non-compliant.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nonCompliantCount;
 
     /**
+     * @description The total number of rules enabled in the compliance package.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

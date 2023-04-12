@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregatorRequest extends Model
 {
     /**
+     * @description The information about the member accounts in the account group. Example:
+     *
+     * [{
+     * "accountId": 171322098523****,
+     * }, {
+     * "accountId": 100532098349****,
+     * >  If the `AggregatorType` parameter is set to `RD`, this parameter can be left empty because all accounts in the resource directory are automatically added to the global account group.
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;
 
     /**
+     * @description The name of the account group.
+     *
+     * @example Test_Group
+     *
      * @var string
      */
     public $aggregatorName;
 
     /**
+     * @description The type of the account group. Valid values:
+     *
+     *   RD: global account group.
+     *   CUSTOM: custom account group. This is the default value.
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $aggregatorType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the account group.
+     *
      * @var string
      */
     public $description;

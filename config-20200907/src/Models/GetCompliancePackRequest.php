@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCompliancePackRequest extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * @example cp-a8a8626622af0082****
+     *
      * @var string
      */
     public $compliancePackId;

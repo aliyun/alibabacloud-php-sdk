@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceCountsGroupByRegionRequest extends Model
 {
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to query the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;

@@ -9,41 +9,72 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultQualifier extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the rule.
+     *
+     * @example acs:config::100931896542****:rule/cr-7f7d626622af0041****
+     *
      * @var string
      */
     public $configRuleArn;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-7f7d626622af0041****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the monitoring rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The date from which the system automatically re-evaluates the ignored incompliant resources.
+     *
+     * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must re-evaluate the ignored incompliant resources.
+     * @example 2022-06-01
+     *
      * @var string
      */
     public $ignoreDate;
 
     /**
+     * @description The ID of the region where your resources reside.
+     *
+     * @example global
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example 23642660635396****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ACS::RAM::User
+     *
      * @var string
      */
     public $resourceType;

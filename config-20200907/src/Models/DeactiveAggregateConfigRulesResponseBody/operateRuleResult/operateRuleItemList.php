@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class operateRuleItemList extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-5772ba41209e007b****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The error code returned.
+     *
+     *   If the rule is disabled, no error code is returned.
+     *   If the rule fails to be disabled, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *
+     * @example ConfigRuleNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   true: The operation is successful.
+     *   false: The operation fails.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

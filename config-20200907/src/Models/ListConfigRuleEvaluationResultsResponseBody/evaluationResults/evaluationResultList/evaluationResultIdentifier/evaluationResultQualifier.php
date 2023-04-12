@@ -9,51 +9,90 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultQualifier extends Model
 {
     /**
+     * @description The ID of the compliance package to which the rule belongs.
+     *
+     * @example cp-bcc33457e0d900d5****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the rule.
+     *
+     * @example acs:config::120886317861****:rule/cr-cac56457e0d900d3****
+     *
      * @var string
      */
     public $configRuleArn;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-cac56457e0d900d3****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The date on which the system automatically re-evaluates the ignored incompliant resources.
+     *
+     * >  If this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+     * @example 2022-06-01
+     *
      * @var string
      */
     public $ignoreDate;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example i-hp3e4kvhzqn2s11t****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example iZuf6j91r34rnwawoox****
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resources belong.
+     *
+     * @example 120886317861****
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;

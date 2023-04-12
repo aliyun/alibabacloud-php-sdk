@@ -12,66 +12,123 @@ use AlibabaCloud\Tea\Model;
 class configRuleList extends Model
 {
     /**
+     * @description The ID of the management account to which the rules belong.
+     *
+     * @example 100931896542****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The type of the remediation template. Valid value: OOS, which stands for Operation Orchestration Service.
+     *
+     * @example OOS
+     *
      * @var string
      */
     public $automationType;
 
     /**
+     * @description The information about the compliance package.
+     *
      * @var compliance
      */
     public $compliance;
 
     /**
+     * @description The ARN of the rule.
+     *
+     * @example acs:config::100931896542****:rule/cr-fdc8626622af00f9****
+     *
      * @var string
      */
     public $configRuleArn;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-fdc8626622af00f9****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   ACTIVE: The rule is being used to monitor resource configurations.
+     *   DELETING: The rule is being deleted.
+     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+     *   INACTIVE: The rule is disabled.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $configRuleState;
 
     /**
+     * @description The information about the creation of the rule.
+     *
      * @var createBy
      */
     public $createBy;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The ID of the rule.
+     *
+     *   If the rule was created based on a managed rule, the value of this parameter is the name of the managed rule.
+     *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+     *
+     * @example eip-bandwidth-limit
+     *
      * @var string
      */
     public $sourceIdentifier;
 
     /**
+     * @description The way in which the rule was created. Valid values:
+     *
+     *   CUSTOM_FC: The rule is a custom rule.
+     *   ALIYUN: The rule is created based on a managed rule of Alibaba Cloud.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $sourceOwner;
 
     /**
+     * @description The tag of the rule.
+     *
      * @var tags[]
      */
     public $tags;

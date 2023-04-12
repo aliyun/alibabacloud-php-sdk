@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregatorResponseBody extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-dacf86d8314e00eb****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8195B664-9565-4685-89AC-8B5F04B44B92
+     *
      * @var string
      */
     public $requestId;

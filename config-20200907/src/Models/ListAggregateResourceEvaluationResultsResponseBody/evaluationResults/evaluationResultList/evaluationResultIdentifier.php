@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultIdentifier extends Model
 {
     /**
+     * @description The information about the evaluated resource in the compliance evaluation result.
+     *
      * @var evaluationResultQualifier
      */
     public $evaluationResultQualifier;
 
     /**
+     * @description The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+     *
+     * @example 1624932227157
+     *
      * @var int
      */
     public $orderingTimestamp;

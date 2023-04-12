@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAggregatorRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-88ea626622af0055****
+     *
      * @var string
      */
     public $aggregatorId;

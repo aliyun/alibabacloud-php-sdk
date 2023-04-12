@@ -11,51 +11,85 @@ use AlibabaCloud\Tea\Model;
 class managedRule extends Model
 {
     /**
+     * @description The settings of the required input parameters for the managed rule.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
 
     /**
+     * @description The name of the managed rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The description of the managed rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The URL of the topic that provides guidance on remediation for the managed rule.
+     *
+     * @example https://example.aliyundoc.com
+     *
      * @var string
      */
     public $helpUrls;
 
     /**
+     * @description The identifier of the managed rule.
+     *
+     * @example cdn-domain-https-enabled
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The tags of the managed rule.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The settings of the optional input parameters for the managed rule.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
 
     /**
+     * @description The risk level of the resources that are not compliant with the managed rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The effective scope of the managed rule.
+     *
      * @var scope
      */
     public $scope;
 
     /**
+     * @description The information about the trigger type of the managed rule.
+     *
      * @var sourceDetails[]
      */
     public $sourceDetails;

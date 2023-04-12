@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class compliancePacks extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the compliance package belongs.
+     *
+     * @example 120886317861****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-fdc8626622af00f9****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;
 
     /**
+     * @description The ID of the compliance package template based on which the compliance package was created.
+     *
+     * @example ct-5f26ff4e06a300c4****
+     *
      * @var string
      */
     public $compliancePackTemplateId;
 
     /**
+     * @description The timestamp when the compliance package was created. Unit: milliseconds.
+     *
+     * @example 1621325046000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The description of the compliance package.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
+     *
+     *   1: high risk level.
+     *   2: medium risk level.
+     *   3: low risk level.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The status of the compliance package. Valid values:
+     *
+     *   ACTIVE: The compliance package is active.
+     *   CREATING: The compliance package is being created.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;

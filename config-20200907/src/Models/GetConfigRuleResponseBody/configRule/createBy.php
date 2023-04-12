@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class createBy extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-541e626622af008****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;
 
     /**
+     * @description The ID of the account that was used to create the rule.
+     *
+     * @example 100931896542****
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The name of the account that was used to create the rule.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $creatorName;

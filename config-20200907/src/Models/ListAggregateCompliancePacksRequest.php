@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateCompliancePacksRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-f632626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The status of the one or more compliance packages to be queried. Valid values:
+     *
+     *   ACTIVE: compliance packages that are available for use.
+     *   CREATING: compliance packages that are being created.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;

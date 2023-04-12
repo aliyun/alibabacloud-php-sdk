@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class operateCompliancePacks extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-541e626622af0087****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The error code.
+     *
+     *   If the compliance package is deleted, no error code is returned.
+     *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *
+     * @example CompliancePackAlreadyPending
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   true: The operation is successful.
+     *   false: The operation fails.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

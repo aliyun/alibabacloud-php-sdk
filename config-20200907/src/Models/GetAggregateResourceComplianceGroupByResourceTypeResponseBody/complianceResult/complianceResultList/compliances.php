@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class compliances extends Model
 {
     /**
+     * @example COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;

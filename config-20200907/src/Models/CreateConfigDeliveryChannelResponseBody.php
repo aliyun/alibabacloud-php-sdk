@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigDeliveryChannelResponseBody extends Model
 {
     /**
+     * @description The ID of the delivery channel.
+     *
+     * @example cdc-8e45ff4e06a3a8****
+     *
      * @var string
      */
     public $deliveryChannelId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+     *
      * @var string
      */
     public $requestId;

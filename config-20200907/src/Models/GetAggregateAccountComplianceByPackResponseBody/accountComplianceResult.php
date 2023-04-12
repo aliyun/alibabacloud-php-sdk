@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class accountComplianceResult extends Model
 {
     /**
+     * @description The information about the compliance evaluation result of member account.
+     *
      * @var accountCompliances[]
      */
     public $accountCompliances;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-541e626622af0087****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The number of non-compliant member accounts.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nonCompliantCount;
 
     /**
+     * @description The total number of monitored member accounts.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

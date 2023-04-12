@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregateConfigRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-4e3d626622af0080****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+     *
      * @var string
      */
     public $requestId;

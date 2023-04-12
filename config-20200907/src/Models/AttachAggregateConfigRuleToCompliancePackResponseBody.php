@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AttachAggregateConfigRuleToCompliancePackResponseBody extends Model
 {
     /**
+     * @description The results of the operations to add one or more rules.
+     *
      * @var operateRuleResult
      */
     public $operateRuleResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DE72B7B5-D0EA-15E6-A359-EDECBB9BDFA3
+     *
      * @var string
      */
     public $requestId;

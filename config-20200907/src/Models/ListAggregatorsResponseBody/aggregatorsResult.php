@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class aggregatorsResult extends Model
 {
     /**
+     * @description The information about the account groups.
+     *
      * @var aggregators[]
      */
     public $aggregators;
 
     /**
+     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+     *
+     * @example TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
+     *
      * @var string
      */
     public $nextToken;

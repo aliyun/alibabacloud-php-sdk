@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
+     * @description The details of the rules.
+     *
      * @var configRuleList[]
      */
     public $configRuleList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

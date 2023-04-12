@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartRemediationResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DetachConfigRuleToCompliancePackResponseBody extends Model
 {
     /**
+     * @description The results of the operations to remove one or more rules.
+     *
      * @var operateRuleResult
      */
     public $operateRuleResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AC7AED1-172F-42AE-9C12-295BC2ADB12A
+     *
      * @var string
      */
     public $requestId;

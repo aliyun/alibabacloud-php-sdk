@@ -15,6 +15,8 @@ class complianceResultList extends Model
     public $compliances;
 
     /**
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;

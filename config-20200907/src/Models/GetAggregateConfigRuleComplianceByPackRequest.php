@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigRuleComplianceByPackRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-04b3fd170e340007****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * For information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * @example cp-541e626622af0087****
+     *
      * @var string
      */
     public $compliancePackId;

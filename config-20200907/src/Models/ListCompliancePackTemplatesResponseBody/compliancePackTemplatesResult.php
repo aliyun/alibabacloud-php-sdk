@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class compliancePackTemplatesResult extends Model
 {
     /**
+     * @description The compliance package templates.
+     *
      * @var compliancePackTemplates[]
      */
     public $compliancePackTemplates;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of the compliance package templates returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

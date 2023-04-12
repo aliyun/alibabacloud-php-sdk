@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class configRuleCompliances extends Model
 {
     /**
+     * @description The compliance evaluation result returned by the rule. Valid values:
+     *
+     *   COMPLIANT: The relevant resources are evaluated as compliant.
+     *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *
+     * @example COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-fdc8626622af00f9****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;

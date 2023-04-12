@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigDeliveryChannelRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-a4e5626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the delivery channel.
+     *
+     * For information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](~~429842~~).
+     * @example cdc-d9106457e0d900b1****
+     *
      * @var string
      */
     public $deliveryChannelId;

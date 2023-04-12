@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceByConfigRuleResponseBody extends Model
 {
     /**
+     * @description The compliance evaluation results returned.
+     *
      * @var complianceResult
      */
     public $complianceResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 23306AB1-34E0-468F-BD7B-68D8AEAB753d
+     *
      * @var string
      */
     public $requestId;

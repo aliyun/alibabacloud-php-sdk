@@ -9,35 +9,63 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateDiscoveredResourceRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-5885626622af0008****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the region in which the resource resides.
+     *
+     * For more information about how to query the region ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @var int
+     */
+    public $resourceAccountId;
+
+    /**
+     * @description The ID of the resource.
+     *
+     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+     * @example new-bucket
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @deprecated
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+     * @example ACS::OSS::Bucket
+     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'region'          => 'Region',
-        'resourceId'      => 'ResourceId',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'resourceType'    => 'ResourceType',
+        'aggregatorId'      => 'AggregatorId',
+        'region'            => 'Region',
+        'resourceAccountId' => 'ResourceAccountId',
+        'resourceId'        => 'ResourceId',
+        'resourceOwnerId'   => 'ResourceOwnerId',
+        'resourceType'      => 'ResourceType',
     ];
 
     public function validate()
@@ -52,6 +80,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceAccountId) {
+            $res['ResourceAccountId'] = $this->resourceAccountId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -79,6 +110,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceAccountId'])) {
+            $model->resourceAccountId = $map['ResourceAccountId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

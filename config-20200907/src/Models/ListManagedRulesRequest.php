@@ -9,29 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListManagedRulesRequest extends Model
 {
     /**
+     * @description The keyword that you want to use to filter managed rules.
+     *
+     * @example CDN
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Minimum value: 1. Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceTypes;
+
+    /**
+     * @description The risk level that you want to use to filter managed rules. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'keyword'    => 'Keyword',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'riskLevel'  => 'RiskLevel',
+        'keyword'       => 'Keyword',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'resourceTypes' => 'ResourceTypes',
+        'riskLevel'     => 'RiskLevel',
     ];
 
     public function validate()
@@ -49,6 +77,9 @@ class ListManagedRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = $this->resourceTypes;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -73,6 +104,9 @@ class ListManagedRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            $model->resourceTypes = $map['ResourceTypes'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

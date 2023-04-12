@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListCompliancePackTemplatesResponseBody extends Model
 {
     /**
+     * @description The information about the compliance package templates returned.
+     *
      * @var compliancePackTemplatesResult
      */
     public $compliancePackTemplatesResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D67FC82F-25AE-4268-A94C-3348340748F9
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class remediationTemplates extends Model
 {
     /**
+     * @description The type of the remediation template. Valid value: OOS, which stands for Operation Orchestration Service.
+     *
+     * @example OOS
+     *
      * @var string
      */
     public $remediationType;
 
     /**
+     * @description The configuration of the remediation template.
+     *
      * @var string
      */
     public $templateDefinition;
 
     /**
+     * @description The identifier of the remediation template.
+     *
+     * @example ACS-OSS-PutBucketAcl
+     *
      * @var string
      */
     public $templateIdentifier;
 
     /**
+     * @description The name of the remediation template.
+     *
      * @var string
      */
     public $templateName;

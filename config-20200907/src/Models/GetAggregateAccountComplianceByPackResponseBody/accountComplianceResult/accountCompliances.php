@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class accountCompliances extends Model
 {
     /**
+     * @description The ID of the member account in the account group.
+     *
+     * @example 100931896542****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The name of the member account in the account group.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The compliance evaluation result. Valid values:
+     *
+     *   COMPLIANT: The resources of the member accounts are evaluated as compliant.
+     *   NON_COMPLIANT: The resources of the member account are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rules do not apply to the resources of the member account.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *
+     * @example COMPLIANT
+     *
      * @var string
      */
     public $complianceType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceGroupByResourceTypeRequest extends Model
 {
     /**
+     * @example cr-a5c6626622af0058****
+     *
      * @var string
      */
     public $configRuleIds;

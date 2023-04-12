@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetConfigRulesReportRequest extends Model
 {
     /**
+     * @description The ID of the compliance evaluation report.
+     *
+     * @example crp-88176457e0d900c9****
+     *
      * @var string
      */
     public $reportId;

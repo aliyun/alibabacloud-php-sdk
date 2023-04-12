@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class aggregators extends Model
 {
     /**
+     * @description The ID of the management account used to create the account group.
+     *
+     * @example 100931896542****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The number of member accounts in the account group.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $aggregatorAccountCount;
 
     /**
+     * @description The timestamp when the account group was created.
+     *
+     * @example 1623036305000
+     *
      * @var int
      */
     public $aggregatorCreateTimestamp;
 
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-88ea626622af0055****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The name of the account group.
+     *
+     * @example Test_Group
+     *
      * @var string
      */
     public $aggregatorName;
 
     /**
+     * @description The status of the account group. Valid values:
+     *
+     *   0: being created.
+     *   1: created.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $aggregatorStatus;
 
     /**
+     * @description The type of the account group. Valid values:
+     *
+     *   RD: global account group.
+     *   CUSTOM: custom account group.
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $aggregatorType;
 
     /**
+     * @description The description of the account group.
+     *
      * @var string
      */
     public $description;

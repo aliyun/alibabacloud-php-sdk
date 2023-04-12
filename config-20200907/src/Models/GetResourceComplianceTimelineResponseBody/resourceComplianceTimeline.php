@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class resourceComplianceTimeline extends Model
 {
     /**
+     * @description The compliance evaluation records on the compliance timeline.
+     *
      * @var complianceList[]
      */
     public $complianceList;
 
     /**
+     * @description The maximum number of entries that can be returned for a single request.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the next request.
+     *
+     * @example 5OVS5J4I1/UKTkHV5oNs****
+     *
      * @var string
      */
     public $nextToken;

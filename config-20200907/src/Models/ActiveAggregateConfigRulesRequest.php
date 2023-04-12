@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ActiveAggregateConfigRulesRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-a4e5626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the rule. Separate multiple rule IDs with commas (,).
+     *
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * @example cr-5772ba41209e007b****
+     *
      * @var string
      */
     public $configRuleIds;

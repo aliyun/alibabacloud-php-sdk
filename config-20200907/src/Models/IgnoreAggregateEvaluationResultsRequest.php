@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class IgnoreAggregateEvaluationResultsRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-5b6c626622af008f****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the rule.
+     *
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * @example cr-7e72626622af0051****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The date from which the system automatically re-evaluates the ignored incompliant resources.
+     *
+     * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+     * @example 2022-06-01
+     *
      * @var string
      */
     public $ignoreDate;
 
     /**
+     * @description The reason why you ignore the resource.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The resources to be ignored.
+     *
      * @var resources[]
      */
     public $resources;

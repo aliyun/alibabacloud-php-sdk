@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceCountsGroupByResourceTypeResponseBody extends Model
 {
     /**
+     * @description The statistics on the resources.
+     *
      * @var discoveredResourceCountsSummary[]
      */
     public $discoveredResourceCountsSummary;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 99114B22-1EFF-47DF-B906-1CCE82FF9D60
+     *
      * @var string
      */
     public $requestId;

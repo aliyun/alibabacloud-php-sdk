@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GenerateCompliancePackReportRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters. It cannot exceed 64 characters in length.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * @example cp-a8a8626622af0082****
+     *
      * @var string
      */
     public $compliancePackId;

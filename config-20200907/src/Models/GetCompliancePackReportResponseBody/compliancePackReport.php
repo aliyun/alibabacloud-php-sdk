@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class compliancePackReport extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the compliance package belongs.
+     *
+     * @example 120886317861****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-fdc8626622af00f9****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
+     *
+     * @example 1624329965857
+     *
      * @var int
      */
     public $reportCreateTimestamp;
 
     /**
+     * @description The status of the compliance evaluation report. Valid values:
+     *
+     *   NONE: The compliance evaluation report is not generated.
+     *   CREATING: The compliance evaluation report is being generated.
+     *   COMPLETE: The compliance evaluation report is generated.
+     *
+     * @example COMPLETE
+     *
      * @var string
      */
     public $reportStatus;
 
     /**
+     * @description The URL that is used to download the compliance evaluation report.
+     *
+     * @example https://cloud-config-compliance-report.oss-cn-shanghai.aliyuncs.com/CompliancePackReports/120886317861****\/cp-fdc8626622af00f9****\/120886317861****-cp-fdc8626622af00f9****-report-202106221046.xls?Expires=162442****&OSSAccessKeyId=LTAIs86R8H59****&Signature=sWmz4fq7eJEyDoho%2FoDOReZ3s****
+     *
      * @var string
      */
     public $reportUrl;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class configRuleParameters extends Model
 {
     /**
+     * @description The name of the input parameter.
+     *
+     * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](~~261176~~).
+     * @example bandwidth
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The value of the input parameter.
+     *
+     * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](~~261176~~).
+     * @example 10
+     *
      * @var string
      */
     public $parameterValue;

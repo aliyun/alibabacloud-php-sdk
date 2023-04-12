@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class operateAggregatorsResult extends Model
 {
     /**
+     * @description The result for the account group.
+     *
      * @var operateAggregators[]
      */
     public $operateAggregators;

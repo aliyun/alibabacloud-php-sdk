@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class configRuleSummaries extends Model
 {
     /**
+     * @description The number of rules against which specific resources are evaluated as compliant.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $compliantCount;
 
     /**
+     * @description The number of rules against which specific resources are evaluated as non-compliant.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nonCompliantCount;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rules. Valid values:
+     *
+     *   1: high risk level.
+     *   2: medium risk level.
+     *   3: low risk level.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class aggregatorAccounts extends Model
 {
     /**
+     * @description The ID of the member account.
+     *
+     * @example 171322098523****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The name of the member account.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The affiliation of the member account. The value is fixed to ResourceDirectory.
+     *
+     * @example ResourceDirectory
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The status of the configuration recorder for the member account. Valid values:
+     *
+     *   REGISTRABLE: The configuration recorder has not been registered.
+     *   BUILDING: The configuration recorder is being deployed.
+     *   REGISTERED: The configuration recorder has been registered.
+     *   REBUILDING: The configuration recorder is being redeployed.
+     *
+     * @example REGISTERED
+     *
      * @var string
      */
     public $recorderStatus;

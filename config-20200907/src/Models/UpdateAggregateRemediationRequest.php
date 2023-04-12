@@ -9,36 +9,77 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregateRemediationRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * You can the [ListAggregators](~~255797~~) operation to obtain the ID of the account group.
+     * @example ca-6b4a626622af0012****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The execution mode of the remediation. Valid values:
+     *
+     *   NON_EXECUTION: The remediation is not executed.
+     *   AUTO_EXECUTION: The remediation is automatically executed.
+     *   MANUAL_EXECUTION: The remediation is manually executed.
+     *   NOT_CONFIG: The execution mode is not specified.
+     *
+     * @example AUTO_EXECUTION
+     *
      * @var string
      */
     public $invokeType;
 
     /**
+     * @description The desired parameter values of the remediation setting.
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @description The ID of the remediation setting.
+     *
+     * You can call the [ListAggregateRemediations](~~270036~~) operation to obtain the ID of the remediation setting.
+     * @example crr-909ba2d4716700eb****
+     *
      * @var string
      */
     public $remediationId;
 
     /**
+     * @description The ID of the remediation template.
+     *
+     * You can call the [ListRemediationTemplates](~~270066~~) operation to obtain the ID of the remediation template.
+     * @example ACS-OSS-PutBucketAcl
+     *
      * @var string
      */
     public $remediationTemplateId;
 
     /**
+     * @description The type of the remediation template. Valid values:
+     *
+     *   OOS: Operation Orchestration Service (OOS)
+     *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
+     *
+     * @example OOS
+     *
      * @var string
      */
     public $remediationType;
 
     /**
+     * @description The type of the rule for which the remediation template is configured. Valid values:
+     *
+     *   ALIYUN: managed rule.
+     *   CUSTOM: custom rule.
+     *   NONE: The rule is not specified.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $sourceType;

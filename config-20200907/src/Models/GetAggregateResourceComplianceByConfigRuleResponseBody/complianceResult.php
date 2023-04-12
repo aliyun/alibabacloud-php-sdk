@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class complianceResult extends Model
 {
     /**
+     * @description The compliance evaluation results returned.
+     *
      * @var compliances[]
      */
     public $compliances;
 
     /**
+     * @description The total number of evaluated resources.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

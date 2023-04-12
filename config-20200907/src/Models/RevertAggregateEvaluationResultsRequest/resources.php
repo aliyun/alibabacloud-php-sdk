@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The ID of the region in which the resource resides.
+     *
+     * For more information about how to obtain the ID of a region in which a resource resides, see [ListAggregateDiscoveredResources](~~265983~~).
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * >  The value must be the ID of the current management account or the member account in the account group of the management account.
+     * @example 120886317861****
+     *
      * @var int
      */
     public $resourceAccountId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * @example lb-hp3a3b4ztyfm2plgm****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * @example ACS::SLB::LoadBalancer
+     *
      * @var string
      */
     public $resourceType;

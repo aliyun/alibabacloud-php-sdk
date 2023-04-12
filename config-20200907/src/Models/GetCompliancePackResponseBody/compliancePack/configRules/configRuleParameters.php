@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class configRuleParameters extends Model
 {
     /**
+     * @description The name of the input parameter.
+     *
+     * @example bandwidth
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The value of the input parameter.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $parameterValue;
 
     /**
+     * @description Indicates whether the input parameter is required. Valid values:
+     *
+     *   true: required
+     *   false: optional
+     *
+     * @example true
+     *
      * @var bool
      */
     public $required;

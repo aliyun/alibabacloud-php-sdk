@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListConfigDeliveryChannelsRequest extends Model
 {
     /**
+     * @description The ID of the delivery channel. Separate multiple IDs with commas (,).
+     *
+     * @example cdc-d9106457e0d900b1****
+     *
      * @var string
      */
     public $deliveryChannelIds;

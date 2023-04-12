@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateConfigRulesResponseBody extends Model
 {
     /**
+     * @description The rules.
+     *
      * @var configRules
      */
     public $configRules;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 22EF8287-2C9A-4F1F-80A6-CEFA7612689D
+     *
      * @var string
      */
     public $requestId;

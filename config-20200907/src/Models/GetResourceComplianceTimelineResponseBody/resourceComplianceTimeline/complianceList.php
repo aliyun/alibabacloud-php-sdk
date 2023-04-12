@@ -9,61 +9,108 @@ use AlibabaCloud\Tea\Model;
 class complianceList extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 100931896542****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The zone where the resource resides.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $availabilityZone;
 
     /**
+     * @description The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+     *
+     * @example 1625200295276
+     *
      * @var int
      */
     public $captureTime;
 
     /**
+     * @description The information about the rules that evaluated the resource and the compliance evaluation result.
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @description The details of the configuration change that triggered the compliance evaluation.
+     *
      * @var string
      */
     public $configurationDiff;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The timestamp when the resource was created. Unit: milliseconds.
+     *
+     * @example 1624961112000
+     *
      * @var int
      */
     public $resourceCreateTime;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example new-bucket
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example new-bucket
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The status of the resource. The parameter value varies with the resource type and may be left empty. Examples:
+     *
+     *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, valid values of this parameter include Running and Stopped.
+     *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that does not have a specific state. In this case, this parameter is left empty.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $resourceStatus;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ACS::OSS::Bucket
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags of the resource.
+     *
+     * @example {\"\"hc\"\":[\"\"value2\"\"]}
+     *
      * @var string
      */
     public $tags;

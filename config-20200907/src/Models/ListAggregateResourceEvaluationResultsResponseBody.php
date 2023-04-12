@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateResourceEvaluationResultsResponseBody extends Model
 {
     /**
+     * @description The information about the compliance evaluation results returned.
+     *
      * @var evaluationResults
      */
     public $evaluationResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25C89DDB-BB79-487D-88C3-4A561F21EFC4
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GenerateAggregateConfigRulesReportResponseBody extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-f632626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the compliance evaluation report.
+     *
+     * @example crp-88176457e0d900c9****
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+     *
      * @var string
      */
     public $requestId;

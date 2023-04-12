@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartAggregateConfigRuleEvaluationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABC0FFF8-0B44-40C6-8BBF-3A185EFDD212
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   true: The operation is successful.
+     *   false: The operation fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;

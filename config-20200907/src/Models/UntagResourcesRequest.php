@@ -9,32 +9,53 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the resource. Valid values:
+     *
+     *   true: All tags are removed from the resource.
+     *   false: Specified tags are removed from the resource.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description 地域
+     * @description The region ID of the tag.
+     *
+     * @example cn-shanghai
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源ID,最多 50个子项
+     * @description The ID of the resource.
      *
+     * You can specify up to 50 resources.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   `ACS::Config::Rule`
+     *   `ACS::Config::AggregateConfigRule`
+     *   `ACS::Config::Aggregator`
+     *   `ACS::Config::CompliancePack`
+     *   `ACS::Config::AggregateCompliancePack`
+     *
+     * @example ACS::Config::Rule
      *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag keys of the resource.
+     *
+     * You can specify up to 20 tag keys.
      * @var string[]
      */
     public $tagKey;

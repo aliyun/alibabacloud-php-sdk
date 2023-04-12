@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteRemediationsResponseBody extends Model
 {
     /**
+     * @description The results of the delete operation.
+     *
      * @var remediationDeleteResults[]
      */
     public $remediationDeleteResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4BE28FB1-616A-5586-82E4-F34FB2AF7441
+     *
      * @var string
      */
     public $requestId;

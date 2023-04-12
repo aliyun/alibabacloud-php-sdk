@@ -9,51 +9,90 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultQualifier extends Model
 {
     /**
+     * @description The ID of the compliance package to which the rule belongs.
+     *
+     * @example cr-7263fd26622af00bc****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the rule.
+     *
+     * @example acs:config::100931896542****:rule/cr-888f626622af00ae****
+     *
      * @var string
      */
     public $configRuleArn;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-888f626622af00ae****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The date on which the system automatically re-evaluates the ignored incompliant resources.
+     *
+     * >  If this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+     * @example 2022-06-01
+     *
      * @var string
      */
     public $ignoreDate;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example Bucket-test
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example Bucket-test
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 173808452267****
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ACS::OSS::Bucket
+     *
      * @var string
      */
     public $resourceType;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeactiveConfigRulesResponseBody extends Model
 {
     /**
+     * @description The results of the operations to disable the specified rules.
+     *
      * @var operateRuleResult
      */
     public $operateRuleResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 54FA74D9-45D4-4CA5-9BE1-97F6EA19AF5B
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsRequest extends Model
 {
     /**
+     * @description The ID of the rule. If you want to specify multiple IDs, separate them with commas (,).
+     *
+     * You can call the [ListConfigRules](~~169607~~) operation to obtain the rule ID.
+     * @example cr-6b7c626622af00b4****
+     *
      * @var string
      */
     public $configRuleIds;

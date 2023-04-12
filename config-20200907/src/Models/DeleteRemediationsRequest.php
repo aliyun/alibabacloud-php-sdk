@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteRemediationsRequest extends Model
 {
     /**
+     * @description The ID of the remediation setting. If you want to specify multiple IDs, separate them with commas (,).
+     *
+     * You can call the [ListRemediations](~~270772~~) operation to obtain the remediation setting ID.
+     * @example crr-909ba2d4716700eb****
+     *
      * @var string
      */
     public $remediationIds;

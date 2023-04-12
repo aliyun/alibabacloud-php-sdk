@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class IgnoreEvaluationResultsRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * @example cr-7e72626622af0051****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The date from which the system automatically re-evaluates the ignored incompliant resources.
+     *
+     * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+     * @example 2022-06-01
+     *
      * @var string
      */
     public $ignoreDate;
 
     /**
+     * @description The reason why you want to ignore the resource.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The resources to be ignored.
+     *
      * @var resources[]
      */
     public $resources;

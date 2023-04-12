@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class RevertEvaluationResultsRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * @example cr-7e72626622af0051****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The resources that are to be reevaluated.
+     *
      * @var resources[]
      */
     public $resources;

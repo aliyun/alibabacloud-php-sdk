@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class operateRuleItemList extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-4e3d626622af0080****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The error code.
+     *
+     *   If the rule is deleted, no error code is returned.
+     *
+     * <!---->
+     *
+     *   If the rule fails to be deleted, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *
+     * @example ConfigRuleCanNotDelete
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

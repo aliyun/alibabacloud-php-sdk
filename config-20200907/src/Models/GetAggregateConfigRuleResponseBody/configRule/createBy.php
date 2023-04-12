@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class createBy extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-04b3fd170e340007****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The name of the account group.
+     *
+     * @example Test_Group
+     *
      * @var string
      */
     public $aggregatorName;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-541e626622af008****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;
 
     /**
+     * @description The ID of the account that was used to create the rule.
+     *
+     * @example 100931896542****
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The name of the account that was used to create the rule.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @description The type of the entity to which the rule belongs. The value is fixed to `AGGREGATOR`, which indicates an account group.
+     *
+     * @example AGGREGATOR
+     *
      * @var string
      */
     public $creatorType;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ResourceDirectoryFolderNode extends Model
 {
     /**
-     * @description accountId
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description children
-     *
      * @var \AlibabaCloud\SDK\Config\V20200907\Models\ResourceDirectoryFolderNode[]
      */
     public $children;
 
     /**
-     * @description displayName
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description folderId
-     *
      * @var string
      */
     public $folderId;
 
     /**
-     * @description folderName
-     *
      * @var string
      */
     public $folderName;
 
     /**
-     * @description parentFolderId
-     *
      * @var string
      */
     public $parentFolderId;

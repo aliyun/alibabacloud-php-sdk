@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class GenerateAggregateCompliancePackReportRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-f632626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters. It cannot exceed 64 characters in length.
+     *
+     * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * @example cp-fdc8626622af00f9****
+     *
      * @var string
      */
     public $compliancePackId;

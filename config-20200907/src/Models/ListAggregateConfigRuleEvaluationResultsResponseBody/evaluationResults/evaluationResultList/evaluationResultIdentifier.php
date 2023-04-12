@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultIdentifier extends Model
 {
     /**
+     * @description The information about the evaluated resource in the compliance evaluation result.
+     *
      * @var evaluationResultQualifier
      */
     public $evaluationResultQualifier;
 
     /**
+     * @description The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+     *
+     * >  This timestamp indicates the time when the rule was triggered. You can obtain the timestamp from the value of the `ConfigRuleInvokedTimestamp` parameter.
+     * @example 1624869012713
+     *
      * @var int
      */
     public $orderingTimestamp;

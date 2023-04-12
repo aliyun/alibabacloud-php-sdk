@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class managedRules extends Model
 {
     /**
+     * @description The details of the managed rules.
+     *
      * @var managedRuleList[]
      */
     public $managedRuleList;
 
     /**
+     * @description The page number of the returned page. Minimum value: 1.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values: 1 to 500.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of managed rules returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

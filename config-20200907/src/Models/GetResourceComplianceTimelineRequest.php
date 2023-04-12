@@ -9,36 +9,66 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceTimelineRequest extends Model
 {
     /**
+     * @description The timestamp that specifies the end of the time range to query. The default value is the time when the GetResourceComplianceTimeline operation is called. Unit: milliseconds.
+     *
+     * @example 1625821156000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+     *
+     * @example IWBjqMYSy0is7zSMGu16****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource.
+     *
+     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
+     * @example new-bucket
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * @example ACS::OSS::Bucket
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the compliance evaluations in the last 30 days for the specified resource. Unit: milliseconds.
+     *
+     * @example 1623211156000
+     *
      * @var int
      */
     public $startTime;

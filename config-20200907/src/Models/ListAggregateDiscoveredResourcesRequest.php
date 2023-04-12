@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateDiscoveredResourcesRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-c560626622af0005****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+     *
+     * @example IWBjqMYSy0is7zSMGu16****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the resource resides. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regions;
@@ -31,31 +48,54 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     /**
      * @var int
      */
+    public $resourceAccountId;
+
+    /**
+     * @description Indicates whether the resource is deleted. Valid values:
+     *
+     *   0: The resource is deleted.
+     *   1: The resource is retained. This is the default value.
+     *
+     * @example 1
+     *
+     * @var int
+     */
     public $resourceDeleted;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example eni-hp31cqoba96jagtz****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @deprecated
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Separate multiple resource types with commas (,).
+     *
+     * @example ACS::ECS::NetworkInterface
+     *
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regions'         => 'Regions',
-        'resourceDeleted' => 'ResourceDeleted',
-        'resourceId'      => 'ResourceId',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'resourceTypes'   => 'ResourceTypes',
+        'aggregatorId'      => 'AggregatorId',
+        'maxResults'        => 'MaxResults',
+        'nextToken'         => 'NextToken',
+        'regions'           => 'Regions',
+        'resourceAccountId' => 'ResourceAccountId',
+        'resourceDeleted'   => 'ResourceDeleted',
+        'resourceId'        => 'ResourceId',
+        'resourceOwnerId'   => 'ResourceOwnerId',
+        'resourceTypes'     => 'ResourceTypes',
     ];
 
     public function validate()
@@ -76,6 +116,9 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         }
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
+        }
+        if (null !== $this->resourceAccountId) {
+            $res['ResourceAccountId'] = $this->resourceAccountId;
         }
         if (null !== $this->resourceDeleted) {
             $res['ResourceDeleted'] = $this->resourceDeleted;
@@ -112,6 +155,9 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         }
         if (isset($map['Regions'])) {
             $model->regions = $map['Regions'];
+        }
+        if (isset($map['ResourceAccountId'])) {
+            $model->resourceAccountId = $map['ResourceAccountId'];
         }
         if (isset($map['ResourceDeleted'])) {
             $model->resourceDeleted = $map['ResourceDeleted'];

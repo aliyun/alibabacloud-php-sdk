@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetManagedRuleResponseBody extends Model
 {
     /**
+     * @description The details of the managed rule.
+     *
      * @var managedRule
      */
     public $managedRule;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7E6DDC09-87C1-5310-A924-3491EAAE6F90
+     *
      * @var string
      */
     public $requestId;

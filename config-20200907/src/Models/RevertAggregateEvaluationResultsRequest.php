@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class RevertAggregateEvaluationResultsRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-5b6c626622af008f****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the rule in the account group.
+     *
+     * @example cr-7e72626622af0051****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The resources that are to be reevaluated.
+     *
      * @var resources[]
      */
     public $resources;

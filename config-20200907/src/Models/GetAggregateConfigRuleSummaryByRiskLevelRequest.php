@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigRuleSummaryByRiskLevelRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-3a58626622af0005****
+     *
      * @var string
      */
     public $aggregatorId;

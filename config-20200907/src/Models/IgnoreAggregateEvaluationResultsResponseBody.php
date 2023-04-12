@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class IgnoreAggregateEvaluationResultsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0132CBF2-0B0B-59F2-9E84-07B38267BC32
+     *
      * @var string
      */
     public $requestId;

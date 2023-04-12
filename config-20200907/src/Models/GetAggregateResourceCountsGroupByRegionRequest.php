@@ -9,33 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceCountsGroupByRegionRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-a260626622af0005****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
-     * @description 资源夹Id
+     * @description The ID of the folder in the resource directory. For more information about how to obtain the ID of a folder, see [View the basic information of a folder](~~111223~~).
+     *
+     * @example r-BU****
      *
      * @var string
      */
     public $folderId;
 
     /**
-     * @description 资源owner
+     * @var int
+     */
+    public $resourceAccountId;
+
+    /**
+     * @deprecated
      *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'folderId'        => 'FolderId',
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'resourceType'    => 'ResourceType',
+        'aggregatorId'      => 'AggregatorId',
+        'folderId'          => 'FolderId',
+        'resourceAccountId' => 'ResourceAccountId',
+        'resourceOwnerId'   => 'ResourceOwnerId',
+        'resourceType'      => 'ResourceType',
     ];
 
     public function validate()
@@ -50,6 +68,9 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
         }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
+        }
+        if (null !== $this->resourceAccountId) {
+            $res['ResourceAccountId'] = $this->resourceAccountId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -74,6 +95,9 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
         }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
+        }
+        if (isset($map['ResourceAccountId'])) {
+            $model->resourceAccountId = $map['ResourceAccountId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

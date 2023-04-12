@@ -10,41 +10,91 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultList extends Model
 {
     /**
+     * @description The annotation to the resource that is evaluated as incompliant. The following section describes the parameters that can be returned:
+     *
+     *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
+     *   `desiredValue`: the expected resource configuration that is evaluated as compliant by using the rule.
+     *   `operator`: the operator that is used to compare the current configuration with the expected configuration of the resource.
+     *   `property`: the JSON path of the current configuration in the resource property struct.
+     *   `reason`: the reason why the resource is evaluated as incompliant.
+     *
+     * @example {\"configuration\":\"false\",\"desiredValue\":\"True\",\"operator\":\"StringEquals\",\"property\":\"$.LoginProfile.MFABindRequired\"}
+     *
      * @var string
      */
     public $annotation;
 
     /**
+     * @description The compliance evaluation result of the resources. Valid values:
+     *
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as incompliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *   IGNORED: The resource is ignored during compliance evaluation.
+     *
+     * @example NON_COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+     *
+     * @example 1624932227157
+     *
      * @var int
      */
     public $configRuleInvokedTimestamp;
 
     /**
+     * @description The identifying information about the compliance evaluation result.
+     *
      * @var evaluationResultIdentifier
      */
     public $evaluationResultIdentifier;
 
     /**
+     * @description The trigger type of the managed rule. Valid values:
+     *
+     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+     *   ScheduledNotification: The managed rule is periodically triggered.
+     *
+     * @example ScheduledNotification
+     *
      * @var string
      */
     public $invokingEventMessageType;
 
     /**
+     * @description Indicates whether the remediation template is enabled. Valid values:
+     *
+     * - false: The remediation template is disabled.
+     * @example true
+     *
      * @var bool
      */
     public $remediationEnabled;
 
     /**
+     * @description The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+     *
+     * @example 1624932227595
+     *
      * @var int
      */
     public $resultRecordedTimestamp;
 
     /**
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

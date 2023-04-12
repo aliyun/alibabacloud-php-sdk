@@ -10,41 +10,85 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultList extends Model
 {
     /**
+     * @description The annotation to the resource that is evaluated as incompliant.
+     *
+     * @example {\"configuration\":\"false\",\"desiredValue\":\"True\",\"operator\":\"StringEquals\",\"property\":\"$.LoginProfile.MFABindRequired\"}
+     *
      * @var string
      */
     public $annotation;
 
     /**
+     * @description The compliance evaluation result of the resources. Valid values:
+     *
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as incompliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *   IGNORED: The resource is ignored during compliance evaluation.
+     *
+     * @example NON_COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The timestamp when the rule was triggered. Unit: milliseconds.
+     *
+     * @example 1624932227157
+     *
      * @var int
      */
     public $configRuleInvokedTimestamp;
 
     /**
+     * @description The identifying information about the compliance evaluation result.
+     *
      * @var evaluationResultIdentifier
      */
     public $evaluationResultIdentifier;
 
     /**
+     * @description The trigger type of the managed rule. Valid values:
+     *
+     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+     *   ScheduledNotification: The managed rule is periodically triggered.
+     *
+     * @example ScheduledNotification
+     *
      * @var string
      */
     public $invokingEventMessageType;
 
     /**
+     * @description Indicates whether the remediation template is enabled. Valid values:
+     *
+     * - false: The remediation template is disabled.
+     * @example false
+     *
      * @var bool
      */
     public $remediationEnabled;
 
     /**
+     * @description The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+     *
+     * @example 1624932227595
+     *
      * @var int
      */
     public $resultRecordedTimestamp;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

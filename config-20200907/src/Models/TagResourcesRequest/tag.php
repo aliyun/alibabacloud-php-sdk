@@ -9,14 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description 标签键
+     * @description The tag key of the resource.
+     *
+     * You can specify up to 20 tag keys.
+     * @example Env
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 标签值
+     * @description The tag value of the resource.
+     *
+     * You can specify up to 20 tag values.
+     * @example prod
      *
      * @var string
      */

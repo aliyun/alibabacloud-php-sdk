@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-a260626622af0005****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The input parameters of the rule.
+     *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the managed rule.
+     *
+     * @example eip-bandwidth-limit
+     *
      * @var string
      */
     public $managedRuleIdentifier;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

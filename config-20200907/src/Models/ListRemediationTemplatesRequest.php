@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationTemplatesRequest extends Model
 {
     /**
+     * @description The identifier of the managed rule.
+     *
+     * You can call the [ListCompliancePackTemplates](~~261176~~) operation to obtain the managed rule identifier.
+     * @example oss-bucket-public-write-prohibited
+     *
      * @var string
      */
     public $managedRuleIdentifier;
 
     /**
+     * @description The type of the remediation template. Valid value: OOS, which stands for Operation Orchestration Service.
+     *
+     * @example OOS
+     *
      * @var string
      */
     public $remediationType;

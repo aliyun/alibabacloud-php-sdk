@@ -9,23 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListCompliancePackTemplatesRequest extends Model
 {
     /**
+     * @description The ID of the compliance package template.
+     *
+     * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](~~261176~~).
+     * @example ct-d254ff4e06a300cf****
+     *
      * @var string
      */
     public $compliancePackTemplateId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Pages start from page 1. Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceTypes;
     protected $_name = [
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
         'pageNumber'               => 'PageNumber',
         'pageSize'                 => 'PageSize',
+        'resourceTypes'            => 'ResourceTypes',
     ];
 
     public function validate()
@@ -43,6 +64,9 @@ class ListCompliancePackTemplatesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = $this->resourceTypes;
         }
 
         return $res;
@@ -64,6 +88,9 @@ class ListCompliancePackTemplatesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            $model->resourceTypes = $map['ResourceTypes'];
         }
 
         return $model;

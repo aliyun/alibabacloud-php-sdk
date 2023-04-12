@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class remediationDeleteResults extends Model
 {
     /**
+     * @description The error code.
+     *
+     *   If the remediation setting is deleted, no error code is returned.
+     *   If the remediation setting fails to be deleted, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *
+     * @example RemediationConfigNotExist
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the remediation setting.
+     *
+     * @example crr-909ba2d4716700eb****
+     *
      * @var string
      */
     public $remediationId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

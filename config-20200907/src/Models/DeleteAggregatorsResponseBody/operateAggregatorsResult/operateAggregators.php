@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class operateAggregators extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * @example ca-dacf86d8314e00eb****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The error code.
+     *
+     * >  No error code is returned for the account group if the account group is deleted.
+     * @example AccountNotExisted
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the delete operation is successful. Valid values:
+     *
+     *   true: The account group is deleted.
+     *   false: The account group fails to be deleted.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

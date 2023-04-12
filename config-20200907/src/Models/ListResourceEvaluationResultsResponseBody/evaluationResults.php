@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class evaluationResults extends Model
 {
     /**
+     * @description The details of the compliance evaluation result.
+     *
      * @var evaluationResultList[]
      */
     public $evaluationResultList;
 
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that was used to initiate the next request.
+     *
+     * @example IWBjqMYSy0is7zSMGu16****
+     *
      * @var string
      */
     public $nextToken;

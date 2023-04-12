@@ -4,39 +4,67 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponseBody\managedRules;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponseBody\managedRules\managedRuleList\scope;
 use AlibabaCloud\Tea\Model;
 
 class managedRuleList extends Model
 {
     /**
+     * @description The name of the managed rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The description of the managed rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+     *
+     * @example https://example.aliyundoc.com
+     *
      * @var string
      */
     public $helpUrls;
 
     /**
+     * @description The unique identifier of the managed rule.
+     *
+     * @example cdn-domain-https-enabled
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The tags of the managed rule.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The risk level of the resources that do not comply with the managed rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
+
+    /**
+     * @var scope
+     */
+    public $scope;
     protected $_name = [
         'configRuleName' => 'ConfigRuleName',
         'description'    => 'Description',
@@ -44,6 +72,7 @@ class managedRuleList extends Model
         'identifier'     => 'Identifier',
         'labels'         => 'Labels',
         'riskLevel'      => 'RiskLevel',
+        'scope'          => 'Scope',
     ];
 
     public function validate()
@@ -70,6 +99,9 @@ class managedRuleList extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = null !== $this->scope ? $this->scope->toMap() : null;
         }
 
         return $res;
@@ -102,6 +134,9 @@ class managedRuleList extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = scope::fromMap($map['Scope']);
         }
 
         return $model;

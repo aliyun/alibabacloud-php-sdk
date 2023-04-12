@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DetachAggregateConfigRuleToCompliancePackRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-75b4626622af00c3****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the compliance package from which you want to remove the rule.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * @example cp-5bb1626622af00bd****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The ID of the rule to be removed from the compliance package. Separate multiple rule IDs with commas (,).
+     *
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * @example cr-a124626622af00e7****
+     *
      * @var string
      */
     public $configRuleIds;

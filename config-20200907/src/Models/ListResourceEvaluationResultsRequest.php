@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListResourceEvaluationResultsRequest extends Model
 {
     /**
+     * @description The compliance evaluation result of the resources. Valid values:
+     *
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as incompliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *   IGNORED: The resource is ignored during compliance evaluation.
+     *
+     * @example NON_COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+     *
+     * @example IWBjqMYSy0is7zSMGu16****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where one or more resources you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
+     *
+     * For more information about how to obtain the ID of the region where a resource resides, see [ListDiscoveredResources](~~169620~~).
+     * @example global
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource.
+     *
+     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
+     * @example 23642660635396****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about how to query the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * @example ACS::RAM::User
+     *
      * @var string
      */
     public $resourceType;

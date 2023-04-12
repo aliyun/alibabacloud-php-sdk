@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
+     * @description The ID of the rule. If you configure this parameter, Cloud Config adds the rule of the specified ID to the compliance package.
+     *
+     * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * @example cr-e918626622af000f****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The details of the input parameters of the rule.
+     *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the managed rule. Cloud Config automatically create a managed rule of the specified ID and adds the rule to the compliance package.
+     *
+     * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter take precedence. For more information about how to obtain the ID of a managed rule, see [ListCompliancePackTemplates](~~261176~~).
+     * @example eip-bandwidth-limit
+     *
      * @var string
      */
     public $managedRuleIdentifier;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;

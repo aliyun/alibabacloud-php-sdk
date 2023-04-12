@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class operateRuleResult extends Model
 {
     /**
+     * @description The details of the result.
+     *
      * @var operateRuleItemList[]
      */
     public $operateRuleItemList;

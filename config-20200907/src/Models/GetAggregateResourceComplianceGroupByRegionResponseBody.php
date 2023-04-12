@@ -15,6 +15,8 @@ class GetAggregateResourceComplianceGroupByRegionResponseBody extends Model
     public $complianceResult;
 
     /**
+     * @example 5E3A847A-5D40-54A1-A2CE-77A87823ED07
+     *
      * @var string
      */
     public $requestId;

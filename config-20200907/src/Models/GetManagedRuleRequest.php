@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetManagedRuleRequest extends Model
 {
     /**
+     * @description The identifier of the managed rule.
+     *
+     * You can call the [ListManagedRules](~~421144~~) operation to obtain the managed rule identifier.
+     * @example cdn-domain-https-enabled
+     *
      * @var string
      */
     public $identifier;

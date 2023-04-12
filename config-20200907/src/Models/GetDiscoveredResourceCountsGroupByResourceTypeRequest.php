@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceCountsGroupByResourceTypeRequest extends Model
 {
     /**
+     * @description The ID of the region where the resource resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

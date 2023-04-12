@@ -9,15 +9,34 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceCountsSummary extends Model
 {
     /**
+     * @description The resource type by which the statistics are collected.
+     *
+     * >  We recommend that you use the `ResourceType` parameter.
+     * @example ACS::ECS::Instance
+     *
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @description The total number of resources.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $resourceCount;
 
     /**
+     * @description The resource type by which the statistics are collected.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
+        'groupName'     => 'GroupName',
         'resourceCount' => 'ResourceCount',
         'resourceType'  => 'ResourceType',
     ];
@@ -29,6 +48,9 @@ class discoveredResourceCountsSummary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
         }
@@ -47,6 +69,9 @@ class discoveredResourceCountsSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
         }

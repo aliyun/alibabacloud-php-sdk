@@ -15,6 +15,8 @@ class GetAggregateResourceComplianceGroupByResourceTypeResponseBody extends Mode
     public $complianceResult;
 
     /**
+     * @example 0CE6AEE1-B3D8-530A-9302-6606B20503BB
+     *
      * @var string
      */
     public $requestId;

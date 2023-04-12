@@ -14,136 +14,260 @@ use AlibabaCloud\Tea\Model;
 class configRule extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the rule belongs.
+     *
+     * @example 120886317861****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The details of compliance evaluation results.
+     *
      * @var compliance
      */
     public $compliance;
 
     /**
+     * @description The ARN of the managed rule.
+     *
+     * @example acs:config::100931896542****:rule/cr-7f7d626622af0041****
+     *
      * @var string
      */
     public $configRuleArn;
 
     /**
+     * @description The information about compliance evaluations performed by the rule.
+     *
      * @var configRuleEvaluationStatus
      */
     public $configRuleEvaluationStatus;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-7f7d626622af0041****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The name of the monitoring rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   ACTIVE: The rule is being used to monitor resource configurations.
+     *   DELETING: The rule is being deleted.
+     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+     *   INACTIVE: The rule is disabled and is no longer used to monitor resource configurations.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $configRuleState;
 
     /**
+     * @description The trigger type of the rule. Valid values:
+     *
+     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+     *   ScheduledNotification: The managed rule is periodically triggered.
+     *
+     * @example ConfigurationItemChangeNotification
+     *
      * @var string
      */
     public $configRuleTriggerTypes;
 
     /**
+     * @description The information about the creation of the rule.
+     *
      * @var createBy
      */
     public $createBy;
 
     /**
+     * @description The timestamp when the rule was created. Unit: milliseconds.
+     *
+     * @example 1604684022000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The description of the managed rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule.
+     *
+     * >  This parameter applies only to a managed rule.
+     * @example 120886317861****
+     *
      * @var string
      */
     public $excludeAccountIdsScope;
 
     /**
+     * @description The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule.
+     *
+     * >
+     *   This parameter applies only to a rule of a global account group.
+     *   This parameter applies only to a managed rule.
+     *
+     * @example fd-pWmkqZ****
+     *
      * @var string
      */
     public $excludeFolderIdsScope;
 
     /**
+     * @description The ID of the resource excluded from the compliance evaluations performed by the rule.
+     *
+     * @example 23642660635687****
+     *
      * @var string
      */
     public $excludeResourceIdsScope;
 
     /**
+     * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+     *
+     * >
+     *   This parameter applies only to rules of a global account group.
+     *   This parameter applies only to managed rules.
+     *
+     * @example fd-ZtHsRH****
+     *
      * @var string
      */
     public $folderIdsScope;
 
     /**
+     * @description The input parameters of the rule.
+     *
+     * @example {"tag1Key":"ECS","tag1Value":"test"}
+     *
      * @var mixed[]
      */
     public $inputParameters;
 
     /**
+     * @description The details of the managed rule.
+     *
      * @var managedRule
      */
     public $managedRule;
 
     /**
+     * @description The intervals at which the managed rule is triggered. Valid values:
+     *
+     *   One_Hour: 1 hour.
+     *   Three_Hours: 3 hours.
+     *   Six_Hours: 6 hours.
+     *   Twelve_Hours: 12 hours
+     *   TwentyFour_Hours: 24 hours
+     *
+     * @example One_Hour
+     *
      * @var string
      */
     public $maximumExecutionFrequency;
 
     /**
+     * @description The timestamp when the rule was last updated. Unit: milliseconds.
+     *
+     * @example 1614687022000
+     *
      * @var int
      */
     public $modifiedTimestamp;
 
     /**
+     * @description The ID of the region to which the rule applies.
+     *
+     * @example global
+     *
      * @var string
      */
     public $regionIdsScope;
 
     /**
+     * @description The ID of the resource group to which the rule applies.
+     *
+     * @example rg-aekzdibsjjc****
+     *
      * @var string
      */
     public $resourceGroupIdsScope;
 
     /**
+     * @description The type of the resource evaluated by the rule.
+     *
+     * @example ACS::RAM::User
+     *
      * @var string
      */
     public $resourceTypesScope;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The information about how the rule was created.
+     *
      * @var source
      */
     public $source;
 
     /**
+     * @description The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if the `TagKeyScope` parameter is set to `ECS,OSS` and the TagKeyLogicScope parameter is set to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     *
+     *   AND: the logical relationship of AND
+     *   OR: the logical relationship of OR
+     *
+     * @example AND
+     *
      * @var string
      */
     public $tagKeyLogicScope;
 
     /**
+     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+     *
+     * @example RAM
+     *
      * @var string
      */
     public $tagKeyScope;
 
     /**
+     * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+     *
+     * @example MFA
+     *
      * @var string
      */
     public $tagValueScope;

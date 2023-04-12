@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListDiscoveredResourcesRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return in a request. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the subsequent request. If the response to the current request is truncated, this token is used to initiate another request and obtain the remaining entries.``
+     *
+     * @example IWBjqMYSy0is7zSMGu16****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the resource resides. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regions;
 
     /**
+     * @description The status of the resource. Valid values:
+     *
+     *   0: The resource is deleted.
+     *   1 (default): The resource is retained.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resourceDeleted;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example eni-hp31cqoba96jagtz****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Separate multiple resource types with commas (,).
+     *
+     * @example ACS::ECS::NetworkInterface
+     *
      * @var string
      */
     public $resourceTypes;

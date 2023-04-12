@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteAggregatorsRequest extends Model
 {
     /**
+     * @description The ID of the account group. Separate multiple IDs with commas (,).
+     *
+     * @example ca-9190626622af00a9****
+     *
      * @var string
      */
     public $aggregatorIds;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. ClientToken can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $clientToken;

@@ -1,3 +1,6 @@
+2023-04-12 Version: 2.2.7
+- Fix resourceOwnerId param.
+
 2022-07-21 Version: 2.1.5
 - Support PreConfigRule.
 

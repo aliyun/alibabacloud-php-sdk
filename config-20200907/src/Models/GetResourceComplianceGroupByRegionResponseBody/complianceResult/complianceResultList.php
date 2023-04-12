@@ -15,6 +15,8 @@ class complianceResultList extends Model
     public $compliances;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

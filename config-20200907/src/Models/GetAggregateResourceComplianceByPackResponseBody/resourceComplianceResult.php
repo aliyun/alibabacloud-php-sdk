@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class resourceComplianceResult extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-fdc8626622af00f9****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
+     * @description The number of non-compliant resources.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $nonCompliantCount;
 
     /**
+     * @description The total number of monitored resources.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

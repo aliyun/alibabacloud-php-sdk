@@ -10,36 +10,52 @@ use AlibabaCloud\Tea\Model;
 class managedRule extends Model
 {
     /**
+     * @description The required input parameters of the managed rule.
+     *
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
 
     /**
+     * @description The description of the managed rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The identifier of the managed rule.
+     *
+     * @example ram-user-mfa-check
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The tags of the managed rule.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The name of the managed rule.
+     *
      * @var string
      */
     public $managedRuleName;
 
     /**
+     * @description The optional input parameters of the managed rule.
+     *
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
 
     /**
+     * @description The details of the source of the managed rule.
+     *
      * @var sourceDetails[]
      */
     public $sourceDetails;

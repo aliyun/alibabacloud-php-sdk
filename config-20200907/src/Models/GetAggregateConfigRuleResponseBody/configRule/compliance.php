@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class compliance extends Model
 {
     /**
+     * @description The statistics on the compliance evaluation results by compliance type. Valid values:
+     *
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *
+     * @example NON_COMPLIANT
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The number of evaluated resources.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;

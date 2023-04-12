@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListManagedRulesResponseBody extends Model
 {
     /**
-     * @var managedRules[]
+     * @description The managed rules.
+     *
+     * @var managedRules
      */
     public $managedRules;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B3E605AB-63D5-1EE0-BFA6-0BAC247B0461
+     *
      * @var string
      */
     public $requestId;
@@ -31,13 +37,7 @@ class ListManagedRulesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->managedRules) {
-            $res['ManagedRules'] = [];
-            if (null !== $this->managedRules && \is_array($this->managedRules)) {
-                $n = 0;
-                foreach ($this->managedRules as $item) {
-                    $res['ManagedRules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ManagedRules'] = null !== $this->managedRules ? $this->managedRules->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -55,13 +55,7 @@ class ListManagedRulesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['ManagedRules'])) {
-            if (!empty($map['ManagedRules'])) {
-                $model->managedRules = [];
-                $n                   = 0;
-                foreach ($map['ManagedRules'] as $item) {
-                    $model->managedRules[$n++] = null !== $item ? managedRules::fromMap($item) : $item;
-                }
-            }
+            $model->managedRules = managedRules::fromMap($map['ManagedRules']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

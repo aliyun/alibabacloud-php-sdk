@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregateRemediationResponseBody extends Model
 {
     /**
+     * @description The ID of the remediation setting.
+     *
+     * @example crr-909ba2d4716700eb****
+     *
      * @var string
      */
     public $remediationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+     *
      * @var string
      */
     public $requestId;

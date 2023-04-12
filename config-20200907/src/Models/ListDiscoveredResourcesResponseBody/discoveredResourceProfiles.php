@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfiles extends Model
 {
     /**
+     * @description The information about the resources.
+     *
      * @var discoveredResourceProfileList[]
      */
     public $discoveredResourceProfileList;
 
     /**
+     * @description The maximum number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resources belong.
+     *
+     * @example 161259599160****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The total number of resources.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;

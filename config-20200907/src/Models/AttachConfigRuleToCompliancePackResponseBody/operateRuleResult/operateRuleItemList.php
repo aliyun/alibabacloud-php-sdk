@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class operateRuleItemList extends Model
 {
     /**
+     * @description The ID of the rule that is added to the compliance package.
+     *
+     * @example cr-6cc4626622af00e7****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The error code.
+     *
+     *   This parameter is empty if the rule is added to the compliance package.
+     *
+     * <!---->
+     *
+     *   An error code is returned if the rule fails to be added to the compliance package. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *
+     * @example ConfigRuleNotExists
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   true: The operation is successful.
+     *   false: The operation fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

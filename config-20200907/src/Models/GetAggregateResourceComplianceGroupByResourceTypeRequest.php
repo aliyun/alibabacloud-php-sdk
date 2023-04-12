@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceGroupByResourceTypeRequest extends Model
 {
     /**
+     * @example ca-cdbd626622af0042****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @example cr-2541626622af0000****
+     *
      * @var string
      */
     public $configRuleIds;

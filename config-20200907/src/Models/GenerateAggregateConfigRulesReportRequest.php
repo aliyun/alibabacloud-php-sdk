@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class GenerateAggregateConfigRulesReportRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     * @example ca-f632626622af0079****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the rule. Separate multiple rule IDs with commas (,).
+     *
+     * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * @example cr-25d86457e0d900b5****
+     *
      * @var string
      */
     public $configRuleIds;

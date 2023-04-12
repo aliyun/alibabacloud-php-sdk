@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class configRuleEvaluationStatus extends Model
 {
     /**
+     * @description The timestamp when the rule was first triggered.
+     *
+     * @example 1624932221993
+     *
      * @var int
      */
     public $firstActivatedTimestamp;
 
     /**
+     * @description Indicates whether resources were evaluated based on the rule. Valid values:
+     *
+     *   true: Resources were evaluated based on the rule.
+     *   false: Resources were not evaluated based on the rule.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $firstEvaluationStarted;
 
     /**
+     * @description The error code returned for the last failed compliance evaluation.
+     *
+     * @example TimeOut
+     *
      * @var string
      */
     public $lastErrorCode;
 
     /**
+     * @description The error message returned for the last failed compliance evaluation.
+     *
+     * @example time out
+     *
      * @var string
      */
     public $lastErrorMessage;
 
     /**
+     * @description The timestamp when the last failed compliance evaluation of the rule ended. Unit: milliseconds.
+     *
+     * @example 1614687022000
+     *
      * @var int
      */
     public $lastFailedEvaluationTimestamp;
 
     /**
+     * @description The timestamp when the last failed compliance evaluation of the rule started. Unit: milliseconds.
+     *
+     * @example 1614687022000
+     *
      * @var int
      */
     public $lastFailedInvocationTimestamp;
 
     /**
+     * @description The timestamp when the last successful compliance evaluation of the rule ended. Unit: milliseconds.
+     *
+     * @example 1624932227486
+     *
      * @var int
      */
     public $lastSuccessfulEvaluationTimestamp;
 
     /**
+     * @description The timestamp when the last successful compliance evaluation of the rule started. Unit: milliseconds.
+     *
+     * @example 1624932227476
+     *
      * @var int
      */
     public $lastSuccessfulInvocationTimestamp;

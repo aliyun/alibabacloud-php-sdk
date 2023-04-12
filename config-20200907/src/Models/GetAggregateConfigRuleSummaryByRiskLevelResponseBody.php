@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
 {
     /**
+     * @description The summary of compliance evaluation results by rule risk level.
+     *
      * @var configRuleSummaries[]
      */
     public $configRuleSummaries;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3CDD98C-DE65-46AC-B2D2-04A4A9AB5B73
+     *
      * @var string
      */
     public $requestId;

@@ -9,56 +9,117 @@ use AlibabaCloud\Tea\Model;
 class remediations extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account involved.
+     *
+     * @example 100931896542****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-6b7c626622af00b4****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The execution mode of the remediation template. Valid values:
+     *
+     *   NON_EXECUTION: no execution.
+     *   AUTO_EXECUTION: automatic execution.
+     *   MANUAL_EXECUTION: manual execution.
+     *   NOT_CONFIG: not specified.
+     *
+     * @example AUTO_EXECUTION
+     *
      * @var string
      */
     public $invokeType;
 
     /**
+     * @description The ID of the last successful execution of the remediation template.
+     *
+     * @example bd7629fb-cac8-42fe-bcb1-e362c5a6****
+     *
      * @var string
      */
     public $lastSuccessfulInvocationId;
 
     /**
+     * @description The timestamp of the last successful execution of the remediation template Unit: milliseconds.
+     *
+     * @example 1625451393589
+     *
      * @var int
      */
     public $lastSuccessfulInvocationTime;
 
     /**
+     * @description The mode of the last successful execution of the remediation template. Valid values:
+     *
+     *   NON_EXECUTION: no execution.
+     *   AUTO_EXECUTION: automatic execution.
+     *   MANUAL_EXECUTION: manual execution.
+     *   NOT_CONFIG: not specified.
+     *
+     * @example AUTO_EXECUTION
+     *
      * @var string
      */
     public $lastSuccessfulInvocationType;
 
     /**
+     * @description The ID of the remediation setting.
+     *
+     * @example crr-6b7c626622af0026****
+     *
      * @var string
      */
     public $remediationId;
 
     /**
+     * @description The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+     *
+     * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+     *
      * @var string
      */
     public $remediationOriginParams;
 
     /**
+     * @description The source of remediation. Valid values:
+     *
+     *   ALIYUN: official template.
+     *   CUSTOM: custom template.
+     *   NONE: none.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $remediationSourceType;
 
     /**
+     * @description The identifier of the remediation template.
+     *
+     * @example ACS-OSS-PutBucketAcl
+     *
      * @var string
      */
     public $remediationTemplateId;
 
     /**
+     * @description The type of remediation to perform. Valid values:
+     *
+     *   OOS: stands for Operation Orchestration Service and indicates official remediation.
+     *   FC: stands for Function Compute and indicates custom remediation.
+     *
+     * @example OOS
+     *
      * @var string
      */
     public $remediationType;
