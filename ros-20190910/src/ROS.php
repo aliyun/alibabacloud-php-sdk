@@ -535,6 +535,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->createOption)) {
             $query['CreateOption'] = $request->createOption;
         }
+        if (!Utils::isUnset($request->createOptions)) {
+            $query['CreateOptions'] = $request->createOptions;
+        }
         if (!Utils::isUnset($request->deletionProtection)) {
             $query['DeletionProtection'] = $request->deletionProtection;
         }
@@ -3370,6 +3373,9 @@ class ROS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -3396,6 +3402,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->stackName)) {
             $query['StackName'] = $request->stackName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;

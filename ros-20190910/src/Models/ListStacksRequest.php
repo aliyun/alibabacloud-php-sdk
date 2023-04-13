@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStacksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @description The number of the page to return.
      *
      * Default value: 1.
@@ -97,6 +102,11 @@ class ListStacksRequest extends Model
     public $stackName;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @description The state N of the stack.
      *
      * @example CREATE_COMPLETE
@@ -112,6 +122,7 @@ class ListStacksRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'endTime'         => 'EndTime',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'parentStackId'   => 'ParentStackId',
@@ -121,6 +132,7 @@ class ListStacksRequest extends Model
         'stackId'         => 'StackId',
         'stackIds'        => 'StackIds',
         'stackName'       => 'StackName',
+        'startTime'       => 'StartTime',
         'status'          => 'Status',
         'tag'             => 'Tag',
     ];
@@ -132,6 +144,9 @@ class ListStacksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -159,6 +174,9 @@ class ListStacksRequest extends Model
         if (null !== $this->stackName) {
             $res['StackName'] = $this->stackName;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -183,6 +201,9 @@ class ListStacksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -213,6 +234,9 @@ class ListStacksRequest extends Model
             if (!empty($map['StackName'])) {
                 $model->stackName = $map['StackName'];
             }
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {

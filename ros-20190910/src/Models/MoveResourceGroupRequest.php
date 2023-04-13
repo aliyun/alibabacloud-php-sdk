@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the destination resource group.
+     * @description The ID of the resource group to which you want to move the resource. For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -19,9 +18,8 @@ class MoveResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The region ID of the resource.
-     *
-     * You can call the [DescribeRegions](~~131035~~) operation to query region IDs.
+     * @description The region ID of the resource.\
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,9 +38,9 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The type of the resource. Valid values:
      *
-     *   stack
-     *   stackgroup
-     *   template
+     *   stack: stack
+     *   stackgroup: stack group
+     *   template: template
      *
      * @example stack
      *

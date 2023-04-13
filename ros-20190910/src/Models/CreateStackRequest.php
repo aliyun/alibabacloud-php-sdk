@@ -34,6 +34,11 @@ class CreateStackRequest extends Model
     public $createOption;
 
     /**
+     * @var string[]
+     */
+    public $createOptions;
+
+    /**
      * @description Specifies whether to enable deletion protection for the stack. Default value: Disabled. Valid values:
      *
      *   Enabled: enables deletion protection.
@@ -229,6 +234,7 @@ class CreateStackRequest extends Model
     protected $_name = [
         'clientToken'             => 'ClientToken',
         'createOption'            => 'CreateOption',
+        'createOptions'           => 'CreateOptions',
         'deletionProtection'      => 'DeletionProtection',
         'disableRollback'         => 'DisableRollback',
         'notificationURLs'        => 'NotificationURLs',
@@ -262,6 +268,9 @@ class CreateStackRequest extends Model
         }
         if (null !== $this->createOption) {
             $res['CreateOption'] = $this->createOption;
+        }
+        if (null !== $this->createOptions) {
+            $res['CreateOptions'] = $this->createOptions;
         }
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
@@ -349,6 +358,11 @@ class CreateStackRequest extends Model
         }
         if (isset($map['CreateOption'])) {
             $model->createOption = $map['CreateOption'];
+        }
+        if (isset($map['CreateOptions'])) {
+            if (!empty($map['CreateOptions'])) {
+                $model->createOptions = $map['CreateOptions'];
+            }
         }
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
