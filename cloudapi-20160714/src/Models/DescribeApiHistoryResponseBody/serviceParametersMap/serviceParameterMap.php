@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceParameterMap extends Model
 {
     /**
-     * @description The name of the frontend parameter. The name must be included in RequestParametersObject and matches ApiParameterName in RequestParameters.
+     * @description The name of the frontend parameter. The name must be included in RequestParametersObject and match ApiParameterName in RequestParameters.
      *
      * @example sex
      *

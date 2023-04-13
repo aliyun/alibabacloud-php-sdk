@@ -71,7 +71,7 @@ class DescribeApiHistoryResponseBody extends Model
      *
      *   **ANONYMOUS**: The API can be anonymously called. Take note of the following information:
      *
-     *   All users who have the permissions to obtain the API information can call this API. API Gateway neither authenticates callers nor configures user-specific throttling policies. You must configure throttling policies for public APIs.
+     *   All users who have obtained the API service information can call this API. API Gateway neither authenticates callers nor sets user-specific throttling policies. If this API is a public one, you must set throttling policies for it.
      *
      * @example APP
      *
@@ -80,7 +80,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $authType;
 
     /**
-     * @description The backend configurations.
+     * @description The configuration items of the backend service.
      *
      * @var backendConfig
      */
@@ -155,7 +155,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $failResultSample;
 
     /**
-     * @description *   Indicates whether to forcefully check X-Ca-Nonce. X-Ca-Nonce is the unique identifier of a request and is generally identified by UUID. If the **ForceNonceCheck** parameter is set to **true**, X-Ca-Nonce is forcefully checked. After API Gateway receives this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     * @description *   Indicates whether to forcefully check X-Ca-Nonce. X-Ca-Nonce is the unique identifier of a request and is generally identified by UUID. If the **ForceNonceCheck** parameter is set to **true**, X-Ca-Nonce is forcefully checked. After API Gateway receives this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps defend against replay attacks.
      *   If the **ForceNonceCheck** parameter is set to **false**, X-Ca-Nonce is not checked. When you create an API, the default value of this parameter is false.
      *
      * @example true
@@ -249,7 +249,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $resultDescriptions;
 
     /**
-     * @description The sample response that is returned.
+     * @description The sample response.
      *
      * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
      *
@@ -293,7 +293,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The environment to which the API is published. Valid values:
      *
      *   **RELEASE**: production environment
-     *   **PRE**: pre-release environment
+     *   **PRE**: staging environment
      *   **TEST**: test environment
      *
      * @example RELEASE

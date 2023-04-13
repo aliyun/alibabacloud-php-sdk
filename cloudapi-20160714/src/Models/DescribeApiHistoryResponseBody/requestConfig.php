@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestConfig extends Model
 {
     /**
-     * @description The format in which data was transmitted to the server for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data was transmitted as forms that consist of key-value pairs. STREAM indicates that data was transmitted as byte streams. This parameter takes effect when the RequestMode parameter is set to MAPPING.
+     * @description The format in which data was transmitted to the server for a POST or PUT request. Valid values: FORM and STREAM. FORM indicates that data was transmitted as forms that consist of key-value pairs. STREAM indicates that data was transmitted as byte streams. This parameter takes effect when the RequestMode parameter is set to MAPPING.
      *
      * @example STREAM
      *
@@ -65,7 +65,7 @@ class requestConfig extends Model
     public $requestPath;
 
     /**
-     * @description The type of the protocol that is supported by the API. Valid values: HTTP, HTTPS, and WebSocket. Separate values with commas (,). Example: "HTTP,HTTPS".
+     * @description The type of the protocol that is supported by the API. Valid values: HTTP, HTTPS, and WebSocket. Separate multiple values with commas (,). Example: "HTTP,HTTPS".
      *
      * @example HTTP
      *

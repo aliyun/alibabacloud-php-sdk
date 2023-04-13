@@ -27,7 +27,7 @@ class requestParameter extends Model
     public $arrayItemsType;
 
     /**
-     * @description The default value.
+     * @description The default value of the parameter.
      *
      * @example 20
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that are specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
+     * @description The hash values can be specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate multiple hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
      *
      * @example boy,girl
      *

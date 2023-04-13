@@ -18,7 +18,7 @@ class resultDescription extends Model
     public $description;
 
     /**
-     * @description Indicates whether a child node exists.
+     * @description Indicates whether a subnode exists.
      *
      * @example true
      *
