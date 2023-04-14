@@ -67,13 +67,6 @@ class module extends Model
     public $checkOut;
 
     /**
-     * @example 0
-     *
-     * @var string
-     */
-    public $code;
-
-    /**
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -98,13 +91,6 @@ class module extends Model
      * @var string
      */
     public $createOrderTime;
-
-    /**
-     * @example close alarm, chiji id 53268
-     *
-     * @var string
-     */
-    public $desc;
 
     /**
      * @example 2000-00-00 00:00:00
@@ -277,12 +263,10 @@ class module extends Model
         'cancelInfo'                => 'cancel_info',
         'checkIn'                   => 'check_in',
         'checkOut'                  => 'check_out',
-        'code'                      => 'code',
         'confirmOrderTime'          => 'confirm_order_time',
         'contractName'              => 'contract_name',
         'contractTel'               => 'contract_tel',
         'createOrderTime'           => 'create_order_time',
-        'desc'                      => 'desc',
         'earlyArrivalTime'          => 'early_arrival_time',
         'earlyDeparture'            => 'early_departure',
         'guestCount'                => 'guest_count',
@@ -341,9 +325,6 @@ class module extends Model
         if (null !== $this->checkOut) {
             $res['check_out'] = $this->checkOut;
         }
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
         if (null !== $this->confirmOrderTime) {
             $res['confirm_order_time'] = $this->confirmOrderTime;
         }
@@ -355,9 +336,6 @@ class module extends Model
         }
         if (null !== $this->createOrderTime) {
             $res['create_order_time'] = $this->createOrderTime;
-        }
-        if (null !== $this->desc) {
-            $res['desc'] = $this->desc;
         }
         if (null !== $this->earlyArrivalTime) {
             $res['early_arrival_time'] = $this->earlyArrivalTime;
@@ -482,9 +460,6 @@ class module extends Model
         if (isset($map['check_out'])) {
             $model->checkOut = $map['check_out'];
         }
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
         if (isset($map['confirm_order_time'])) {
             $model->confirmOrderTime = $map['confirm_order_time'];
         }
@@ -496,9 +471,6 @@ class module extends Model
         }
         if (isset($map['create_order_time'])) {
             $model->createOrderTime = $map['create_order_time'];
-        }
-        if (isset($map['desc'])) {
-            $model->desc = $map['desc'];
         }
         if (isset($map['early_arrival_time'])) {
             $model->earlyArrivalTime = $map['early_arrival_time'];

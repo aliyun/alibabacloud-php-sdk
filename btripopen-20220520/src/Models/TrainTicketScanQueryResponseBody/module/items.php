@@ -50,6 +50,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $invoiceTitle;
 
     /**
@@ -121,6 +126,7 @@ class items extends Model
         'depStation'   => 'dep_station',
         'depTime'      => 'dep_time',
         'department'   => 'department',
+        'id'           => 'id',
         'invoiceTitle' => 'invoice_title',
         'orderId'      => 'order_id',
         'ossUrl'       => 'oss_url',
@@ -161,6 +167,9 @@ class items extends Model
         }
         if (null !== $this->department) {
             $res['department'] = $this->department;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
@@ -227,6 +236,9 @@ class items extends Model
         }
         if (isset($map['department'])) {
             $model->department = $map['department'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];

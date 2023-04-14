@@ -87,6 +87,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityResponse;
@@ -162,6 +165,14 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
@@ -2266,6 +2277,65 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param CreateSubCorpRequest $request
+     * @param CreateSubCorpHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSubCorpResponse
+     */
+    public function createSubCorpWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->outerCorpId)) {
+            $body['outer_corp_id'] = $request->outerCorpId;
+        }
+        if (!Utils::isUnset($request->outerCorpName)) {
+            $body['outer_corp_name'] = $request->outerCorpName;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSubCorp',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sub_corps/v1/corps',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSubCorpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSubCorpRequest $request
+     *
+     * @return CreateSubCorpResponse
+     */
+    public function createSubCorp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSubCorpHeaders([]);
+
+        return $this->createSubCorpWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param DeleteInvoiceEntityRequest $tmpReq
      * @param DeleteInvoiceEntityHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -3779,6 +3849,155 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightSearchListHeaders([]);
 
         return $this->flightSearchListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GroupDepartSaveRequest $tmpReq
+     * @param GroupDepartSaveHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GroupDepartSaveResponse
+     */
+    public function groupDepartSaveWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GroupDepartSaveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subCorpIdList)) {
+            $request->subCorpIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deptName)) {
+            $body['dept_name'] = $request->deptName;
+        }
+        if (!Utils::isUnset($request->managerIds)) {
+            $body['manager_ids'] = $request->managerIds;
+        }
+        if (!Utils::isUnset($request->outerDeptId)) {
+            $body['outer_dept_id'] = $request->outerDeptId;
+        }
+        if (!Utils::isUnset($request->outerDeptPid)) {
+            $body['outer_dept_pid'] = $request->outerDeptPid;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subCorpIdListShrink)) {
+            $body['sub_corp_id_list'] = $request->subCorpIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GroupDepartSave',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sub_corps/v1/departs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GroupDepartSaveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GroupDepartSaveRequest $request
+     *
+     * @return GroupDepartSaveResponse
+     */
+    public function groupDepartSave($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GroupDepartSaveHeaders([]);
+
+        return $this->groupDepartSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GroupUserSaveRequest $tmpReq
+     * @param GroupUserSaveHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GroupUserSaveResponse
+     */
+    public function groupUserSaveWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GroupUserSaveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subCorpIdList)) {
+            $request->subCorpIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->jobNo)) {
+            $body['job_no'] = $request->jobNo;
+        }
+        if (!Utils::isUnset($request->leaveStatus)) {
+            $body['leave_status'] = $request->leaveStatus;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        if (!Utils::isUnset($request->subCorpIdListShrink)) {
+            $body['sub_corp_id_list'] = $request->subCorpIdListShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GroupUserSave',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sub_corps/v1/users',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GroupUserSaveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GroupUserSaveRequest $request
+     *
+     * @return GroupUserSaveResponse
+     */
+    public function groupUserSave($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GroupUserSaveHeaders([]);
+
+        return $this->groupUserSaveWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryResponseBody\module;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryResponseBody\module\items\flights;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
+    /**
+     * @var string
+     */
+    public $agentCode;
+
     /**
      * @example 2022-12-01
      *
@@ -33,11 +39,21 @@ class items extends Model
     public $department;
 
     /**
+     * @var flights[]
+     */
+    public $flights;
+
+    /**
      * @example 120
      *
      * @var string
      */
     public $fuelSurcharge;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @example 0
@@ -50,6 +66,16 @@ class items extends Model
      * @var string
      */
     public $invoiceTitle;
+
+    /**
+     * @var string
+     */
+    public $issueCompany;
+
+    /**
+     * @var string
+     */
+    public $issueDate;
 
     /**
      * @example 6666666666
@@ -81,6 +107,11 @@ class items extends Model
      * @var string
      */
     public $project;
+
+    /**
+     * @var string
+     */
+    public $promptMessage;
 
     /**
      * @example 108.17
@@ -116,24 +147,36 @@ class items extends Model
      * @var string
      */
     public $totalPrice;
+
+    /**
+     * @var string
+     */
+    public $validationCode;
     protected $_name = [
-        'billDate'      => 'bill_date',
-        'build'         => 'build',
-        'costCenter'    => 'cost_center',
-        'department'    => 'department',
-        'fuelSurcharge' => 'fuel_surcharge',
-        'insurance'     => 'insurance',
-        'invoiceTitle'  => 'invoice_title',
-        'itineraryNum'  => 'itinerary_num',
-        'orderId'       => 'order_id',
-        'ossUrl'        => 'oss_url',
-        'passengerName' => 'passenger_name',
-        'project'       => 'project',
-        'taxAmount'     => 'tax_amount',
-        'taxRate'       => 'tax_rate',
-        'ticketNo'      => 'ticket_no',
-        'ticketPrice'   => 'ticket_price',
-        'totalPrice'    => 'total_price',
+        'agentCode'      => 'agent_code',
+        'billDate'       => 'bill_date',
+        'build'          => 'build',
+        'costCenter'     => 'cost_center',
+        'department'     => 'department',
+        'flights'        => 'flights',
+        'fuelSurcharge'  => 'fuel_surcharge',
+        'id'             => 'id',
+        'insurance'      => 'insurance',
+        'invoiceTitle'   => 'invoice_title',
+        'issueCompany'   => 'issue_company',
+        'issueDate'      => 'issue_date',
+        'itineraryNum'   => 'itinerary_num',
+        'orderId'        => 'order_id',
+        'ossUrl'         => 'oss_url',
+        'passengerName'  => 'passenger_name',
+        'project'        => 'project',
+        'promptMessage'  => 'prompt_message',
+        'taxAmount'      => 'tax_amount',
+        'taxRate'        => 'tax_rate',
+        'ticketNo'       => 'ticket_no',
+        'ticketPrice'    => 'ticket_price',
+        'totalPrice'     => 'total_price',
+        'validationCode' => 'validation_code',
     ];
 
     public function validate()
@@ -143,6 +186,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentCode) {
+            $res['agent_code'] = $this->agentCode;
+        }
         if (null !== $this->billDate) {
             $res['bill_date'] = $this->billDate;
         }
@@ -155,14 +201,32 @@ class items extends Model
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
+        if (null !== $this->flights) {
+            $res['flights'] = [];
+            if (null !== $this->flights && \is_array($this->flights)) {
+                $n = 0;
+                foreach ($this->flights as $item) {
+                    $res['flights'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->fuelSurcharge) {
             $res['fuel_surcharge'] = $this->fuelSurcharge;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->insurance) {
             $res['insurance'] = $this->insurance;
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+        if (null !== $this->issueCompany) {
+            $res['issue_company'] = $this->issueCompany;
+        }
+        if (null !== $this->issueDate) {
+            $res['issue_date'] = $this->issueDate;
         }
         if (null !== $this->itineraryNum) {
             $res['itinerary_num'] = $this->itineraryNum;
@@ -179,6 +243,9 @@ class items extends Model
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+        if (null !== $this->promptMessage) {
+            $res['prompt_message'] = $this->promptMessage;
+        }
         if (null !== $this->taxAmount) {
             $res['tax_amount'] = $this->taxAmount;
         }
@@ -194,6 +261,9 @@ class items extends Model
         if (null !== $this->totalPrice) {
             $res['total_price'] = $this->totalPrice;
         }
+        if (null !== $this->validationCode) {
+            $res['validation_code'] = $this->validationCode;
+        }
 
         return $res;
     }
@@ -206,6 +276,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agent_code'])) {
+            $model->agentCode = $map['agent_code'];
+        }
         if (isset($map['bill_date'])) {
             $model->billDate = $map['bill_date'];
         }
@@ -218,14 +291,32 @@ class items extends Model
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
+        if (isset($map['flights'])) {
+            if (!empty($map['flights'])) {
+                $model->flights = [];
+                $n              = 0;
+                foreach ($map['flights'] as $item) {
+                    $model->flights[$n++] = null !== $item ? flights::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['fuel_surcharge'])) {
             $model->fuelSurcharge = $map['fuel_surcharge'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['insurance'])) {
             $model->insurance = $map['insurance'];
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+        if (isset($map['issue_company'])) {
+            $model->issueCompany = $map['issue_company'];
+        }
+        if (isset($map['issue_date'])) {
+            $model->issueDate = $map['issue_date'];
         }
         if (isset($map['itinerary_num'])) {
             $model->itineraryNum = $map['itinerary_num'];
@@ -242,6 +333,9 @@ class items extends Model
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+        if (isset($map['prompt_message'])) {
+            $model->promptMessage = $map['prompt_message'];
+        }
         if (isset($map['tax_amount'])) {
             $model->taxAmount = $map['tax_amount'];
         }
@@ -256,6 +350,9 @@ class items extends Model
         }
         if (isset($map['total_price'])) {
             $model->totalPrice = $map['total_price'];
+        }
+        if (isset($map['validation_code'])) {
+            $model->validationCode = $map['validation_code'];
         }
 
         return $model;
