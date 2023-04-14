@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCertifyResultResponse extends Model
+class VerifyWithFusionAuthTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetCertifyResultResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetCertifyResultResponseBody
+     * @var VerifyWithFusionAuthTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetCertifyResultResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetCertifyResultResponse
+     * @return VerifyWithFusionAuthTokenResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetCertifyResultResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetCertifyResultResponseBody::fromMap($map['body']);
+            $model->body = VerifyWithFusionAuthTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

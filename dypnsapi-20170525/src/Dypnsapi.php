@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthorizationUrlRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthorizationUrlResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetAuthTokenResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetFusionAuthTokenRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetFusionAuthTokenResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenRequest;
@@ -32,6 +34,8 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyWithFusionAuthTokenRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyWithFusionAuthTokenResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -390,6 +394,73 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAuthorizationUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFusionAuthTokenRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetFusionAuthTokenResponse
+     */
+    public function getFusionAuthTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bundleId)) {
+            $query['BundleId'] = $request->bundleId;
+        }
+        if (!Utils::isUnset($request->durationSeconds)) {
+            $query['DurationSeconds'] = $request->durationSeconds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
+        if (!Utils::isUnset($request->packageSign)) {
+            $query['PackageSign'] = $request->packageSign;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeCode)) {
+            $query['SchemeCode'] = $request->schemeCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFusionAuthToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFusionAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFusionAuthTokenRequest $request
+     *
+     * @return GetFusionAuthTokenResponse
+     */
+    public function getFusionAuthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFusionAuthTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -845,5 +916,57 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->verifySmsCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyWithFusionAuthTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return VerifyWithFusionAuthTokenResponse
+     */
+    public function verifyWithFusionAuthTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->verifyToken)) {
+            $query['VerifyToken'] = $request->verifyToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyWithFusionAuthToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyWithFusionAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyWithFusionAuthTokenRequest $request
+     *
+     * @return VerifyWithFusionAuthTokenResponse
+     */
+    public function verifyWithFusionAuthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyWithFusionAuthTokenWithOptions($request, $runtime);
     }
 }

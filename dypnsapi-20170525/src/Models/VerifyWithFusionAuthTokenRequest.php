@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCertifyResultRequest extends Model
+class VerifyWithFusionAuthTokenRequest extends Model
 {
     /**
      * @var int
@@ -24,14 +24,16 @@ class GetCertifyResultRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example LD108enNdlsl*******sFLKCks1==
+     *
      * @var string
      */
-    public $token;
+    public $verifyToken;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'token'                => 'Token',
+        'verifyToken'          => 'VerifyToken',
     ];
 
     public function validate()
@@ -50,8 +52,8 @@ class GetCertifyResultRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->verifyToken) {
+            $res['VerifyToken'] = $this->verifyToken;
         }
 
         return $res;
@@ -60,7 +62,7 @@ class GetCertifyResultRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCertifyResultRequest
+     * @return VerifyWithFusionAuthTokenRequest
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +76,8 @@ class GetCertifyResultRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['VerifyToken'])) {
+            $model->verifyToken = $map['VerifyToken'];
         }
 
         return $model;
