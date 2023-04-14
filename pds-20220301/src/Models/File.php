@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\SDK\Pds\V20220301\Models\File\investigationInfo;
 use AlibabaCloud\Tea\Model;
 
 class File extends Model
@@ -72,6 +73,11 @@ class File extends Model
      * @var bool
      */
     public $hidden;
+
+    /**
+     * @var investigationInfo
+     */
+    public $investigationInfo;
 
     /**
      * @var string
@@ -143,33 +149,34 @@ class File extends Model
      */
     public $uploadId;
     protected $_name = [
-        'category'        => 'category',
-        'contentHash'     => 'content_hash',
-        'contentHashName' => 'content_hash_name',
-        'contentType'     => 'content_type',
-        'crc64Hash'       => 'crc64_hash',
-        'createdAt'       => 'created_at',
-        'description'     => 'description',
-        'domainId'        => 'domain_id',
-        'downloadUrl'     => 'download_url',
-        'driveId'         => 'drive_id',
-        'fileExtension'   => 'file_extension',
-        'fileId'          => 'file_id',
-        'hidden'          => 'hidden',
-        'labels'          => 'labels',
-        'localCreatedAt'  => 'local_created_at',
-        'localModifiedAt' => 'local_modified_at',
-        'name'            => 'name',
-        'parentFileId'    => 'parent_file_id',
-        'revisionId'      => 'revision_id',
-        'size'            => 'size',
-        'starred'         => 'starred',
-        'status'          => 'status',
-        'thumbnail'       => 'thumbnail',
-        'trashedAt'       => 'trashed_at',
-        'type'            => 'type',
-        'updatedAt'       => 'updated_at',
-        'uploadId'        => 'upload_id',
+        'category'          => 'category',
+        'contentHash'       => 'content_hash',
+        'contentHashName'   => 'content_hash_name',
+        'contentType'       => 'content_type',
+        'crc64Hash'         => 'crc64_hash',
+        'createdAt'         => 'created_at',
+        'description'       => 'description',
+        'domainId'          => 'domain_id',
+        'downloadUrl'       => 'download_url',
+        'driveId'           => 'drive_id',
+        'fileExtension'     => 'file_extension',
+        'fileId'            => 'file_id',
+        'hidden'            => 'hidden',
+        'investigationInfo' => 'investigation_info',
+        'labels'            => 'labels',
+        'localCreatedAt'    => 'local_created_at',
+        'localModifiedAt'   => 'local_modified_at',
+        'name'              => 'name',
+        'parentFileId'      => 'parent_file_id',
+        'revisionId'        => 'revision_id',
+        'size'              => 'size',
+        'starred'           => 'starred',
+        'status'            => 'status',
+        'thumbnail'         => 'thumbnail',
+        'trashedAt'         => 'trashed_at',
+        'type'              => 'type',
+        'updatedAt'         => 'updated_at',
+        'uploadId'          => 'upload_id',
     ];
 
     public function validate()
@@ -217,6 +224,9 @@ class File extends Model
         }
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
+        }
+        if (null !== $this->investigationInfo) {
+            $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toMap() : null;
         }
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
@@ -310,6 +320,9 @@ class File extends Model
         }
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
+        }
+        if (isset($map['investigation_info'])) {
+            $model->investigationInfo = investigationInfo::fromMap($map['investigation_info']);
         }
         if (isset($map['labels'])) {
             $model->labels = $map['labels'];

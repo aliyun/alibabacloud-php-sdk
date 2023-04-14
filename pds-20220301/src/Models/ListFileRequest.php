@@ -65,6 +65,11 @@ class ListFileRequest extends Model
     public $parentFileId;
 
     /**
+     * @var string
+     */
+    public $shareId;
+
+    /**
      * @example available
      *
      * @var string
@@ -86,6 +91,7 @@ class ListFileRequest extends Model
         'orderBy'        => 'order_by',
         'orderDirection' => 'order_direction',
         'parentFileId'   => 'parent_file_id',
+        'shareId'        => 'share_id',
         'status'         => 'status',
         'type'           => 'type',
     ];
@@ -120,6 +126,9 @@ class ListFileRequest extends Model
         }
         if (null !== $this->parentFileId) {
             $res['parent_file_id'] = $this->parentFileId;
+        }
+        if (null !== $this->shareId) {
+            $res['share_id'] = $this->shareId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -162,6 +171,9 @@ class ListFileRequest extends Model
         }
         if (isset($map['parent_file_id'])) {
             $model->parentFileId = $map['parent_file_id'];
+        }
+        if (isset($map['share_id'])) {
+            $model->shareId = $map['share_id'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

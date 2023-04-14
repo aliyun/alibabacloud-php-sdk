@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CsiGetFileInfoRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CsiGetFileInfoResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteDriveRequest;
@@ -94,6 +96,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayMetaRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayMetaResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ImportUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ImportUserResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigateFileRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigateFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\LinkAccountRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\LinkAccountResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListAddressGroupsRequest;
@@ -535,6 +539,12 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->fileId)) {
             $body['file_id'] = $request->fileId;
         }
+        if (!Utils::isUnset($request->shareId)) {
+            $body['share_id'] = $request->shareId;
+        }
+        if (!Utils::isUnset($request->toDriveId)) {
+            $body['to_drive_id'] = $request->toDriveId;
+        }
         if (!Utils::isUnset($request->toParentFileId)) {
             $body['to_parent_file_id'] = $request->toParentFileId;
         }
@@ -903,6 +913,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->saveLimit)) {
             $body['save_limit'] = $request->saveLimit;
         }
+        if (!Utils::isUnset($request->shareAllFiles)) {
+            $body['share_all_files'] = $request->shareAllFiles;
+        }
         if (!Utils::isUnset($request->shareName)) {
             $body['share_name'] = $request->shareName;
         }
@@ -1018,6 +1031,58 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->createUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CsiGetFileInfoRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CsiGetFileInfoResponse
+     */
+    public function csiGetFileInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['file_id'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->urlExpireSec)) {
+            $body['url_expire_sec'] = $request->urlExpireSec;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CsiGetFileInfo',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/csi/get_file_info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CsiGetFileInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CsiGetFileInfoRequest $request
+     *
+     * @return CsiGetFileInfoResponse
+     */
+    public function csiGetFileInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->csiGetFileInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1376,6 +1441,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->officeThumbnailProcess)) {
             $body['office_thumbnail_process'] = $request->officeThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->shareId)) {
+            $body['share_id'] = $request->shareId;
         }
         if (!Utils::isUnset($request->videoThumbnailProcess)) {
             $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
@@ -1833,6 +1901,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->fileName)) {
             $body['file_name'] = $request->fileName;
         }
+        if (!Utils::isUnset($request->shareId)) {
+            $body['share_id'] = $request->shareId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -1930,6 +2001,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $body['file_id'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->shareId)) {
+            $body['share_id'] = $request->shareId;
         }
         if (!Utils::isUnset($request->urlExpireSec)) {
             $body['url_expire_sec'] = $request->urlExpireSec;
@@ -2603,6 +2677,52 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param InvestigateFileRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvestigateFileResponse
+     */
+    public function investigateFileWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveFileIds)) {
+            $body['drive_file_ids'] = $request->driveFileIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InvestigateFile',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/csi/investigate_file',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvestigateFileResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvestigateFileRequest $request
+     *
+     * @return InvestigateFileResponse
+     */
+    public function investigateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->investigateFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param LinkAccountRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -2966,6 +3086,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->parentFileId)) {
             $body['parent_file_id'] = $request->parentFileId;
+        }
+        if (!Utils::isUnset($request->shareId)) {
+            $body['share_id'] = $request->shareId;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
@@ -4536,6 +4659,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->driveName)) {
             $body['drive_name'] = $request->driveName;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['owner'] = $request->owner;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;

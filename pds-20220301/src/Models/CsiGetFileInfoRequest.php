@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDownloadUrlRequest extends Model
+class CsiGetFileInfoRequest extends Model
 {
     /**
      * @example 1
@@ -16,13 +16,6 @@ class GetDownloadUrlRequest extends Model
     public $driveId;
 
     /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $expireSec;
-
-    /**
      * @example 9520943DC264
      *
      * @var string
@@ -30,22 +23,15 @@ class GetDownloadUrlRequest extends Model
     public $fileId;
 
     /**
-     * @example 1.txt
+     * @example 100
      *
-     * @var string
+     * @var int
      */
-    public $fileName;
-
-    /**
-     * @var string
-     */
-    public $shareId;
+    public $urlExpireSec;
     protected $_name = [
-        'driveId'   => 'drive_id',
-        'expireSec' => 'expire_sec',
-        'fileId'    => 'file_id',
-        'fileName'  => 'file_name',
-        'shareId'   => 'share_id',
+        'driveId'      => 'drive_id',
+        'fileId'       => 'file_id',
+        'urlExpireSec' => 'url_expire_sec',
     ];
 
     public function validate()
@@ -58,17 +44,11 @@ class GetDownloadUrlRequest extends Model
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
-        if (null !== $this->expireSec) {
-            $res['expire_sec'] = $this->expireSec;
-        }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
-        if (null !== $this->fileName) {
-            $res['file_name'] = $this->fileName;
-        }
-        if (null !== $this->shareId) {
-            $res['share_id'] = $this->shareId;
+        if (null !== $this->urlExpireSec) {
+            $res['url_expire_sec'] = $this->urlExpireSec;
         }
 
         return $res;
@@ -77,7 +57,7 @@ class GetDownloadUrlRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetDownloadUrlRequest
+     * @return CsiGetFileInfoRequest
      */
     public static function fromMap($map = [])
     {
@@ -85,17 +65,11 @@ class GetDownloadUrlRequest extends Model
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
-        if (isset($map['expire_sec'])) {
-            $model->expireSec = $map['expire_sec'];
-        }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
-        if (isset($map['file_name'])) {
-            $model->fileName = $map['file_name'];
-        }
-        if (isset($map['share_id'])) {
-            $model->shareId = $map['share_id'];
+        if (isset($map['url_expire_sec'])) {
+            $model->urlExpireSec = $map['url_expire_sec'];
         }
 
         return $model;

@@ -30,6 +30,11 @@ class GetFileRequest extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $shareId;
+
+    /**
      * @example 100
      *
      * @var int
@@ -39,6 +44,7 @@ class GetFileRequest extends Model
         'driveId'      => 'drive_id',
         'fields'       => 'fields',
         'fileId'       => 'file_id',
+        'shareId'      => 'share_id',
         'urlExpireSec' => 'url_expire_sec',
     ];
 
@@ -57,6 +63,9 @@ class GetFileRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
+        }
+        if (null !== $this->shareId) {
+            $res['share_id'] = $this->shareId;
         }
         if (null !== $this->urlExpireSec) {
             $res['url_expire_sec'] = $this->urlExpireSec;
@@ -81,6 +90,9 @@ class GetFileRequest extends Model
         }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
+        }
+        if (isset($map['share_id'])) {
+            $model->shareId = $map['share_id'];
         }
         if (isset($map['url_expire_sec'])) {
             $model->urlExpireSec = $map['url_expire_sec'];

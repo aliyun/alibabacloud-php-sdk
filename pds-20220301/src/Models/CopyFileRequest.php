@@ -30,6 +30,16 @@ class CopyFileRequest extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $shareId;
+
+    /**
+     * @var string
+     */
+    public $toDriveId;
+
+    /**
      * @example 6520943DC261
      *
      * @var string
@@ -39,6 +49,8 @@ class CopyFileRequest extends Model
         'autoRename'     => 'auto_rename',
         'driveId'        => 'drive_id',
         'fileId'         => 'file_id',
+        'shareId'        => 'share_id',
+        'toDriveId'      => 'to_drive_id',
         'toParentFileId' => 'to_parent_file_id',
     ];
 
@@ -57,6 +69,12 @@ class CopyFileRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
+        }
+        if (null !== $this->shareId) {
+            $res['share_id'] = $this->shareId;
+        }
+        if (null !== $this->toDriveId) {
+            $res['to_drive_id'] = $this->toDriveId;
         }
         if (null !== $this->toParentFileId) {
             $res['to_parent_file_id'] = $this->toParentFileId;
@@ -81,6 +99,12 @@ class CopyFileRequest extends Model
         }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
+        }
+        if (isset($map['share_id'])) {
+            $model->shareId = $map['share_id'];
+        }
+        if (isset($map['to_drive_id'])) {
+            $model->toDriveId = $map['to_drive_id'];
         }
         if (isset($map['to_parent_file_id'])) {
             $model->toParentFileId = $map['to_parent_file_id'];

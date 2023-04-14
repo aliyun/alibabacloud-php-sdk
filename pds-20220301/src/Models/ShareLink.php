@@ -69,7 +69,7 @@ class ShareLink extends Model
     public $expired;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $fileIdList;
 
@@ -97,6 +97,11 @@ class ShareLink extends Model
      * @var int
      */
     public $saveLimit;
+
+    /**
+     * @var bool
+     */
+    public $shareAllFiles;
 
     /**
      * @var string
@@ -146,6 +151,7 @@ class ShareLink extends Model
         'reportCount'       => 'report_count',
         'saveCount'         => 'save_count',
         'saveLimit'         => 'save_limit',
+        'shareAllFiles'     => 'share_all_files',
         'shareId'           => 'share_id',
         'shareName'         => 'share_name',
         'sharePwd'          => 'share_pwd',
@@ -215,6 +221,9 @@ class ShareLink extends Model
         if (null !== $this->saveLimit) {
             $res['save_limit'] = $this->saveLimit;
         }
+        if (null !== $this->shareAllFiles) {
+            $res['share_all_files'] = $this->shareAllFiles;
+        }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
         }
@@ -282,7 +291,9 @@ class ShareLink extends Model
             $model->expired = $map['expired'];
         }
         if (isset($map['file_id_list'])) {
-            $model->fileIdList = $map['file_id_list'];
+            if (!empty($map['file_id_list'])) {
+                $model->fileIdList = $map['file_id_list'];
+            }
         }
         if (isset($map['preview_count'])) {
             $model->previewCount = $map['preview_count'];
@@ -298,6 +309,9 @@ class ShareLink extends Model
         }
         if (isset($map['save_limit'])) {
             $model->saveLimit = $map['save_limit'];
+        }
+        if (isset($map['share_all_files'])) {
+            $model->shareAllFiles = $map['share_all_files'];
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];

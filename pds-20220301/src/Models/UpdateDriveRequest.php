@@ -28,6 +28,11 @@ class UpdateDriveRequest extends Model
     public $driveName;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @example enabled
      *
      * @var string
@@ -44,6 +49,7 @@ class UpdateDriveRequest extends Model
         'description' => 'description',
         'driveId'     => 'drive_id',
         'driveName'   => 'drive_name',
+        'owner'       => 'owner',
         'status'      => 'status',
         'totalSize'   => 'total_size',
     ];
@@ -63,6 +69,9 @@ class UpdateDriveRequest extends Model
         }
         if (null !== $this->driveName) {
             $res['drive_name'] = $this->driveName;
+        }
+        if (null !== $this->owner) {
+            $res['owner'] = $this->owner;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -90,6 +99,9 @@ class UpdateDriveRequest extends Model
         }
         if (isset($map['drive_name'])) {
             $model->driveName = $map['drive_name'];
+        }
+        if (isset($map['owner'])) {
+            $model->owner = $map['owner'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

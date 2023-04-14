@@ -37,6 +37,11 @@ class DownloadFileRequest extends Model
     public $officeThumbnailProcess;
 
     /**
+     * @var string
+     */
+    public $shareId;
+
+    /**
      * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
      *
      * @var string
@@ -47,6 +52,7 @@ class DownloadFileRequest extends Model
         'fileId'                 => 'file_id',
         'imageThumbnailProcess'  => 'image_thumbnail_process',
         'officeThumbnailProcess' => 'office_thumbnail_process',
+        'shareId'                => 'share_id',
         'videoThumbnailProcess'  => 'video_thumbnail_process',
     ];
 
@@ -68,6 +74,9 @@ class DownloadFileRequest extends Model
         }
         if (null !== $this->officeThumbnailProcess) {
             $res['office_thumbnail_process'] = $this->officeThumbnailProcess;
+        }
+        if (null !== $this->shareId) {
+            $res['share_id'] = $this->shareId;
         }
         if (null !== $this->videoThumbnailProcess) {
             $res['video_thumbnail_process'] = $this->videoThumbnailProcess;
@@ -95,6 +104,9 @@ class DownloadFileRequest extends Model
         }
         if (isset($map['office_thumbnail_process'])) {
             $model->officeThumbnailProcess = $map['office_thumbnail_process'];
+        }
+        if (isset($map['share_id'])) {
+            $model->shareId = $map['share_id'];
         }
         if (isset($map['video_thumbnail_process'])) {
             $model->videoThumbnailProcess = $map['video_thumbnail_process'];

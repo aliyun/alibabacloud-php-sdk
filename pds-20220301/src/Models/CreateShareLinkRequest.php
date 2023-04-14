@@ -77,6 +77,11 @@ class CreateShareLinkRequest extends Model
     public $saveLimit;
 
     /**
+     * @var bool
+     */
+    public $shareAllFiles;
+
+    /**
      * @var string
      */
     public $shareName;
@@ -105,6 +110,7 @@ class CreateShareLinkRequest extends Model
         'fileIdList'      => 'file_id_list',
         'previewLimit'    => 'preview_limit',
         'saveLimit'       => 'save_limit',
+        'shareAllFiles'   => 'share_all_files',
         'shareName'       => 'share_name',
         'sharePwd'        => 'share_pwd',
         'userId'          => 'user_id',
@@ -146,6 +152,9 @@ class CreateShareLinkRequest extends Model
         }
         if (null !== $this->saveLimit) {
             $res['save_limit'] = $this->saveLimit;
+        }
+        if (null !== $this->shareAllFiles) {
+            $res['share_all_files'] = $this->shareAllFiles;
         }
         if (null !== $this->shareName) {
             $res['share_name'] = $this->shareName;
@@ -199,6 +208,9 @@ class CreateShareLinkRequest extends Model
         }
         if (isset($map['save_limit'])) {
             $model->saveLimit = $map['save_limit'];
+        }
+        if (isset($map['share_all_files'])) {
+            $model->shareAllFiles = $map['share_all_files'];
         }
         if (isset($map['share_name'])) {
             $model->shareName = $map['share_name'];
