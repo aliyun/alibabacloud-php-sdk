@@ -33,7 +33,7 @@ class ModifyChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp Business account under the ISV account.
+     * @description The ID of the WhatsApp Business account under the independent software vendor (ISV) account.
      *
      * @example 659216218162179
      *
@@ -51,7 +51,7 @@ class ModifyChatappTemplateRequest extends Model
     public $example;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by ISV.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example ksiekdki39ksks93939
      *

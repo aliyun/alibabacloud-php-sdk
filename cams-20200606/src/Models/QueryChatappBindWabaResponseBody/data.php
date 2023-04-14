@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The audit status of the WhatApp Business account.
+     * @description The review status of the WhatsApp Business account.
      *
      * @example APPROVED
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $accountReviewStatus;
 
     /**
-     * @description Currency
+     * @description The currency.
      *
      * @example USD
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $currency;
 
     /**
-     * @description WabaID
+     * @description The ID of the WhatsApp Business account.
      *
      * @example 20393988393993***
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $messageTemplateNamespace;
 
     /**
-     * @description The name of the WhatApp Business account.
+     * @description The name of the WhatsApp Business account.
      *
      * @example Alibaba
      *

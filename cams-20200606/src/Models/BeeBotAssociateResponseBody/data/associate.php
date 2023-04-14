@@ -20,8 +20,6 @@ class associate extends Model
     /**
      * @description The title of the associated question.
      *
-     * @example test title
-     *
      * @var string
      */
     public $title;

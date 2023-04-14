@@ -23,14 +23,16 @@ class ListChatappTemplateShrinkRequest extends Model
     public $auditStatus;
 
     /**
-     * @example 293483938849493
+     * @description The space ID of the user under the ISV account.
+     *
+     * @example 28251486512358****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The unique identifier of the WhatsApp account that you register.
+     * @description The ID of the WhatsApp account that you register.
      *
      * @example 65921621816****
      *
@@ -41,7 +43,7 @@ class ListChatappTemplateShrinkRequest extends Model
     public $custWabaId;
 
     /**
-     * @description Assigned by ISV for RAM user authentication and authorization.
+     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -50,7 +52,7 @@ class ListChatappTemplateShrinkRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template.
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
      *
      * @example en
      *
@@ -59,7 +61,7 @@ class ListChatappTemplateShrinkRequest extends Model
     public $language;
 
     /**
-     * @description The name of the message template.
+     * @description The name of the image template.
      *
      * @example hello_whatsapp
      *
@@ -77,6 +79,12 @@ class ListChatappTemplateShrinkRequest extends Model
     public $pageShrink;
 
     /**
+     * @description The type of the message template.
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE: the LINE message template. This type of message template will be released later.
+     *
      * @example WHATSAPP
      *
      * @var string

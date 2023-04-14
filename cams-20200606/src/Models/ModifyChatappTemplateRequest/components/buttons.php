@@ -18,7 +18,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description The text of the message that is sent.
+     * @description The text of the message to be sent.
      *
      * @example phone-button-text
      *
@@ -29,9 +29,9 @@ class buttons extends Model
     /**
      * @description The type of the button.
      *
-     *   **PHONE_NUMBER**: the phone call button
-     *   **URL**: the URL button
-     *   **QUICK_REPLY**: the quick reply button
+     *   **PHONE_NUMBER**: a phone number button
+     *   **URL**: a URL button
+     *   **QUICK_REPLY**: a quick reply button
      *
      * @example PHONE_NUMBER
      *
@@ -51,8 +51,8 @@ class buttons extends Model
     /**
      * @description The type of the URL. Valid values:
      *
-     *   **static**: the static URL
-     *   **dynamic**: the dynamic URL
+     *   **static**: a static URL
+     *   **dynamic**: a dynamic URL
      *
      * @example dynamic
      *

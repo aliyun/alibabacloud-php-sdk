@@ -10,28 +10,37 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateRequest extends Model
 {
     /**
-     * @description The category of the message template. Valid values:
+     * @var bool
+     */
+    public $allowCategoryChange;
+
+    /**
+     * @description The category of the template when the TemplateType parameter is set to WHATSAPP. Valid values:
      *
-     *   **ACCOUNT_UPDATE**: account update
-     *   **PAYMENT_UPDATE**: payment update
-     *   **PERSONAL_FINANCE\_UPDATE**: personal finance update
-     *   **SHIPPING_UPDATE**: traffic update
-     *   **RESERVATION_UPDATE**: reservation update
-     *   **ISSUE_RESOLUTION**: issue resolution
-     *   **APPOINTMENT_UPDATE**: appointment update
-     *   **TRANSPORTATION_UPDATE**: logistics information update
-     *   **TICKET_UPDATE**: ticket update
-     *   **ALERT_UPDATE**: alert update
-     *   **AUTO_REPLY**: auto reply
+     *   **TRANSACTIONAL**: a transactional template
+     *   **MARKETING**: a marketing template
+     *   **OTP**: a one-time password template
      *
-     * @example ACCOUNT_UPDATE
+     * The category of the template when the TemplateType parameter is set to VIBER. Valid values:
+     *
+     *   **text**: a text message template
+     *   **image**: an image message template
+     *   **text_image_button**: a template that contains multiple media objects, including text, image, and button
+     *   **text_button**: a template that contains the text and button media objects
+     *   **document**: a document message template
+     *   **video**: a video message template
+     *   **text_video**: a template that contains the text and video media objects
+     *   **text_video_button**: a template that contains multiple media objects, including text, video, and button
+     *   **text_image**: a template that contains the text and image media objects
+     *
+     * @example TRANSACTIONAL
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description The components of the message template.
+     * @description The list of components of the message template.
      *
      * @var components[]
      */
@@ -45,7 +54,7 @@ class CreateChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The unique identifier of the WhatsApp account that you register.
+     * @description The ID of the WhatsApp account that you register.
      *
      * @example 65921621816****
      *
@@ -63,7 +72,7 @@ class CreateChatappTemplateRequest extends Model
     public $example;
 
     /**
-     * @description Assigned by ISV for RAM user authentication and authorization.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -72,7 +81,7 @@ class CreateChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template.
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
      *
      * @example en
      *
@@ -90,11 +99,11 @@ class CreateChatappTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The type of the message template. Valid values:
+     * @description The type of the message template.
      *
      *   **WHATSAPP**
-     *   VIBER (under development)
-     *   LINE (under development)
+     *   **VIBER**
+     *   LINE: the LINE message template. The LINE message template is under development.
      *
      * @example WHATSAPP
      *
@@ -102,15 +111,16 @@ class CreateChatappTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'category'     => 'Category',
-        'components'   => 'Components',
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'example'      => 'Example',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
-        'name'         => 'Name',
-        'templateType' => 'TemplateType',
+        'allowCategoryChange' => 'AllowCategoryChange',
+        'category'            => 'Category',
+        'components'          => 'Components',
+        'custSpaceId'         => 'CustSpaceId',
+        'custWabaId'          => 'CustWabaId',
+        'example'             => 'Example',
+        'isvCode'             => 'IsvCode',
+        'language'            => 'Language',
+        'name'                => 'Name',
+        'templateType'        => 'TemplateType',
     ];
 
     public function validate()
@@ -120,6 +130,9 @@ class CreateChatappTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowCategoryChange) {
+            $res['AllowCategoryChange'] = $this->allowCategoryChange;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -165,6 +178,9 @@ class CreateChatappTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowCategoryChange'])) {
+            $model->allowCategoryChange = $map['AllowCategoryChange'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

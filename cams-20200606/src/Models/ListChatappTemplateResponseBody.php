@@ -12,8 +12,8 @@ class ListChatappTemplateResponseBody extends Model
     /**
      * @description The HTTP status code returned.
      *
-     *   A code of OK indicates that the call is successful.
-     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
      *
      * @example OK
      *
@@ -31,7 +31,7 @@ class ListChatappTemplateResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example None
+     * @example User not authorized to operate on the specified resource.
      *
      * @var string
      */
@@ -45,11 +45,21 @@ class ListChatappTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 总记录条数。
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code'         => 'Code',
         'listTemplate' => 'ListTemplate',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -76,6 +86,9 @@ class ListChatappTemplateResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -106,6 +119,9 @@ class ListChatappTemplateResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

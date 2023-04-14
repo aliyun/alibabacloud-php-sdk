@@ -18,7 +18,7 @@ class QueryChatappBindWabaRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by ISV.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example aksik93kdkkxmwol93939
      *

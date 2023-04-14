@@ -24,14 +24,14 @@ class ChatappSyncPhoneNumberResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example None
+     * @example None.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The list of phone numbers.
+     * @description Details of the phone numbers.
      *
      * @var phoneNumbers[]
      */

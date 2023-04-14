@@ -24,21 +24,26 @@ class data extends Model
     public $auditStatus;
 
     /**
-     * @description The category of the message template. Valid values:
+     * @description The category of the template when the return value of the TemplateType parameter is WHATSAPP. Valid values:
      *
-     *   **ACCOUNT_UPDATE**: account update
-     *   **PAYMENT_UPDATE**: payment update
-     *   **PERSONAL_FINANCE\_UPDATE**: personal finance update
-     *   **SHIPPING_UPDATE**: traffic update
-     *   **RESERVATION_UPDATE**: reservation update
-     *   **ISSUE_RESOLUTION**: issue resolution
-     *   **APPOINTMENT_UPDATE**: appointment update
-     *   **TRANSPORTATION_UPDATE**: logistics information update
-     *   **TICKET_UPDATE**: ticket update
-     *   **ALERT_UPDATE**: alert update
-     *   **AUTO_REPLY**: auto reply
+     *   **TRANSACTIONAL**: a transactional template
+     *   **MARKETING**: a marketing template
+     *   **OTP**: a one-time password template
      *
-     * @example ACCOUNT_UPDATE
+     * The category of the template when the return value of the TemplateType parameter is VIBER. Valid values:
+     *
+     *   **text**: a text message template
+     *   **image**: an image message template
+     *   **text_image_button**: a template that contains multiple media objects, including text, image, and button
+     *   **text_button**: a template that contains the text and button media objects
+     *   **document**: a template that contains a document attachment
+     *   **video**: a video message template
+     *   **text_video**: a template that contains the text and video media objects
+     *   **text_video_button**: a template that contains multiple media objects, including text, video, and button
+     *   **text_image**: a template that contains the text and image media objects
+     *
+     * > When the category of a Viber message template is text_video_button, users cannot open a web page by clicking the button. Users can open only the video in the message. In this case, you do not need to specify the Url parameter for the URL button in the template.
+     * @example TRANSACTIONAL
      *
      * @var string
      */
@@ -59,9 +64,9 @@ class data extends Model
     public $example;
 
     /**
-     * @description The language that is used in the message template.
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
      *
-     * @example en
+     * @example en_US
      *
      * @var string
      */
@@ -86,6 +91,12 @@ class data extends Model
     public $templateCode;
 
     /**
+     * @description The type of the message template.
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE: the LINE message template. This type of message template will be released later.
+     *
      * @example WHATSAPP
      *
      * @var string

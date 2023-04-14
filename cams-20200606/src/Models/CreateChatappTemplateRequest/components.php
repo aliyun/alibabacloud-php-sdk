@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description This parameter applies only to components of the **BUTTONS** type.
+     * @description The list of buttons, which applies only to the **BUTTONS** component.
      *
      * @var buttons[]
      */
@@ -26,7 +26,9 @@ class components extends Model
     public $caption;
 
     /**
-     * @example 50
+     * @description The duration of the video message when the TemplateType parameter is set to VIBER. Valid values: 0 to 600. Unit: seconds.
+     *
+     * @example 120
      *
      * @var int
      */
@@ -42,6 +44,8 @@ class components extends Model
     public $fileName;
 
     /**
+     * @description The type of the file when the TemplateType parameter is set to VIBER.
+     *
      * @example docx
      *
      * @var string
@@ -49,10 +53,10 @@ class components extends Model
     public $fileType;
 
     /**
-     * @description The format of the message.
+     * @description The type of the media resources that are included in the message.
      *
      *   **TEXT**: text
-     *   **IMGAGE**: image
+     *   **IMAGE**: image
      *   **DOCUMENT**: document
      *   **VIDEO**: video
      *
@@ -63,7 +67,7 @@ class components extends Model
     public $format;
 
     /**
-     * @description The text of the message to be sent.
+     * @description The text of the message that is sent.
      *
      * @example hello whatsapp
      *
@@ -72,7 +76,9 @@ class components extends Model
     public $text;
 
     /**
-     * @example https://img.png
+     * @description The thumbnail URL of the video message when the TemplateType parameter is set to VIBER.
+     *
+     * @example https://cdn.multiplymall.mobiapp.cloud/yunmall/B-LM-LMALL202207130001/20220730/d712a057-a6af-4513-bbe6-7ee57ea60983.png?x-oss-process=image/resize,w_100
      *
      * @var string
      */
@@ -86,7 +92,11 @@ class components extends Model
      *   **FOOTER**
      *   **BUTTONS**
      *
-     * > A component of the **BODY** type cannot exceed 1,024 characters in length. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     * > When the TemplateType parameter is set to WHATSAPP, the component of the **BODY** type cannot exceed 1,024 characters in length. The component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     *
+     * > When the TemplateType parameter is set to VIBER, the **FOOTER** parameter is invalid.
+     *
+     * > When the TemplateType parameter is set to VIBER, media objects including image, video, and text are placed in the **HEADER** component. A device displays that the image is placed below the text.
      * @example BODY
      *
      * @var string

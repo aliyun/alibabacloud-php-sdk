@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChatappPhoneNumberRegisterRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * @example 939283893939***
      *
@@ -20,7 +20,7 @@ class ChatappPhoneNumberRegisterRequest extends Model
     /**
      * @description The phone number.
      *
-     * @example 8613800000000
+     * @example 8613800001234
      *
      * @var string
      */

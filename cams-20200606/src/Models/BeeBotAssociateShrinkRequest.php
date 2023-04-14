@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BeeBotAssociateShrinkRequest extends Model
 {
     /**
-     * @description The ID of chatbot instance.
+     * @description The ID of a bot instance.
      *
      * @example 1
      *
@@ -25,7 +25,7 @@ class BeeBotAssociateShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description ISV verification code, which is used to verify whether the sub-account is authorized by ISV.
+     * @description The ISV verification code, which is used to verify whether the user is authorized by ISV.
      *
      * @example ksiekdki39ksks93939
      *
@@ -41,7 +41,7 @@ class BeeBotAssociateShrinkRequest extends Model
     public $perspectiveShrink;
 
     /**
-     * @description The number of recommended questions, which ranges from 1 to 10.
+     * @description The number of recommended questions. The value ranges from 1 to 10.
      *
      * @example 3
      *
@@ -50,7 +50,7 @@ class BeeBotAssociateShrinkRequest extends Model
     public $recommendNum;
 
     /**
-     * @description The ID of the session, which identifies the session and context information of the visitor.
+     * @description The ID of the session, which is used to identify the session and store context information in the session.
      *
      * @example 2334324234
      *
@@ -61,7 +61,7 @@ class BeeBotAssociateShrinkRequest extends Model
     /**
      * @description The input of the visitor.
      *
-     * @example Hello
+     * @example 你好
      *
      * @var string
      */

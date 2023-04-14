@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The verification status of the phone number.
+     * @description The verification status.
      *
      * @example VERIFIED
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $codeVerificationStatus;
 
     /**
-     * @description The ID of the phone number.
+     * @description The ID of the number.
      *
      * @example 2224342624
      *
@@ -29,7 +29,7 @@ class data extends Model
     /**
      * @description The phone number.
      *
-     * @example 861380000
+     * @example 8613900001234
      *
      * @var string
      */

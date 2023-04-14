@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The phone number.
      *
-     * @example 8613800000000
+     * @example 8613800001234
      *
      * @var string
      */

@@ -27,7 +27,7 @@ class recommends extends Model
     public $knowledgeId;
 
     /**
-     * @description The recommended content, which may be the entity in graph-based question answering, the standard knowledge in knowledge-based question answering, or the column value in table-based question answering.
+     * @description The title of the recommended knowledge. Valid values: the entity in graph-based question answering, the knowledge title in knowledge-based question answering, or the column value in table-based question answering.
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappMigrationInitiateRequest extends Model
 {
     /**
-     * @description The country code of the phone number.
+     * @description The country code of a phone number.
      *
      * @example 86
      *
@@ -29,7 +29,7 @@ class CreateChatappMigrationInitiateRequest extends Model
     /**
      * @description The phone number without the country code.
      *
-     * @example 13800000000
+     * @example 13900001234
      *
      * @var string
      */

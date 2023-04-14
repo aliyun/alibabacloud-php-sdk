@@ -49,7 +49,7 @@ class knowledge extends Model
     public $hitStatement;
 
     /**
-     * @description The ID of the hit problem in the knowledge base.
+     * @description The ID of the hit question in the knowledge base.
      *
      * @example 735898
      *

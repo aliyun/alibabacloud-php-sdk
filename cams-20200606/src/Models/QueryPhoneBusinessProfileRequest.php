@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryPhoneBusinessProfileRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * @example 2934839388494***
      *
@@ -20,7 +20,7 @@ class QueryPhoneBusinessProfileRequest extends Model
     /**
      * @description The phone number.
      *
-     * @example 861380000000
+     * @example 8613800001234
      *
      * @var string
      */

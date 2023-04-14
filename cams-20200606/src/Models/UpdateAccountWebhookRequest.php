@@ -18,7 +18,10 @@ class UpdateAccountWebhookRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description Specifies whether to use HTTP callbacks to receive receipts. Valid values: Y and N. A value of Y indicates that HTTP callbacks are used to receive receipts. A value of N indicates that HTTP callbacks are not used to receive receipts.
+     * @description Specifies whether to use HTTP callbacks to receive message receipts. Valid values:
+     *
+     *   Y: indicates that HTTP callbacks are used to receive receipts.
+     *   N: indicates that HTTP callbacks are not used to receive receipts.
      *
      * @example Y
      *
@@ -27,7 +30,10 @@ class UpdateAccountWebhookRequest extends Model
     public $httpFlag;
 
     /**
-     * @description Specifies whether to use Message Service (MNS) queues to receive receipts. Valid values: Y and N. A value of Y indicates that MNS queues are used to receive receipts. A value of N indicates that MNS queues are not used to receive receipts.
+     * @description Specifies whether to use Message Service (MNS) queues to receive receipts. Valid values:
+     *
+     *   Y: indicates that MNS queues are used to receive receipts.
+     *   N: indicates that MNS queues are not used to receive receipts.
      *
      * @example N
      *

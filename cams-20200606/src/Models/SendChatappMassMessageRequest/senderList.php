@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class senderList extends Model
 {
     /**
-     * @description The payload.
+     * @description payload
      *
      * @var string[]
      */

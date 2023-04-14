@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateRequest extends Model
 {
     /**
-     * @example 293483938849493
+     * @description The space ID of the user under the ISV account.
+     *
+     * @example 28251486512358****
      *
      * @var string
      */
@@ -27,7 +29,7 @@ class DeleteChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *

@@ -18,7 +18,7 @@ class slots extends Model
     public $hit;
 
     /**
-     * @description The name of the slot.
+     * @description The name.
      *
      * @var string
      */
@@ -27,12 +27,16 @@ class slots extends Model
     /**
      * @description The original value.
      *
+     * @example Beijing
+     *
      * @var string
      */
     public $origin;
 
     /**
      * @description The specific value.
+     *
+     * @example Beijing
      *
      * @var string
      */

@@ -38,7 +38,7 @@ class GetMigrationVerifyCodeRequest extends Model
     /**
      * @description The phone number.
      *
-     * @example 8613800000
+     * @example 8613800001234
      *
      * @var string
      */

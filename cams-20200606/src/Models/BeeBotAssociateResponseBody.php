@@ -19,14 +19,14 @@ class BeeBotAssociateResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example None
      *

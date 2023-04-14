@@ -22,7 +22,7 @@ class QueryWabaBusinessInfoResponseBody extends Model
     public $code;
 
     /**
-     * @description The business information about the WhatsApp Business account.
+     * @description The business information about the WABA.
      *
      * @var data
      */
@@ -31,7 +31,7 @@ class QueryWabaBusinessInfoResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example None
+     * @example None.
      *
      * @var string
      */

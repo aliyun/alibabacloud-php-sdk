@@ -18,7 +18,7 @@ class data extends Model
     public $custSpaceId;
 
     /**
-     * @description wabaId
+     * @description The ID of the WhatsApp Business account.
      *
      * @example 2939828282
      *

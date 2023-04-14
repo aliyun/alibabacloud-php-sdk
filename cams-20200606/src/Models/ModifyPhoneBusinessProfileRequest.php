@@ -11,14 +11,14 @@ class ModifyPhoneBusinessProfileRequest extends Model
     /**
      * @description The address.
      *
-     * @example Address
+     * @example Sichuan
      *
      * @var string
      */
     public $address;
 
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * @example 293483938849****
      *
@@ -29,7 +29,7 @@ class ModifyPhoneBusinessProfileRequest extends Model
     /**
      * @description The description.
      *
-     * @example Description
+     * @example test
      *
      * @var string
      */
@@ -47,7 +47,7 @@ class ModifyPhoneBusinessProfileRequest extends Model
     /**
      * @description The phone number.
      *
-     * @example Phone number
+     * @example 8613800001234
      *
      * @var string
      */

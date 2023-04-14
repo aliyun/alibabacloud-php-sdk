@@ -18,7 +18,7 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
-     * @description The maximum number of messages that can be sent to users by using the phone number.
+     * @description The number of phone numbers to which messages can be sent in a day.
      *
      * @example TIER_10
      *
@@ -27,7 +27,7 @@ class phoneNumbers extends Model
     public $messagingLimitTier;
 
     /**
-     * @description The review status of the business name.
+     * @description The review status of the business display name.
      *
      * @example Approval
      *
@@ -36,7 +36,7 @@ class phoneNumbers extends Model
     public $nameStatus;
 
     /**
-     * @description The review status of the new business name.
+     * @description The review status of the new business display name.
      *
      * @example Approval
      *
@@ -47,7 +47,7 @@ class phoneNumbers extends Model
     /**
      * @description The phone number.
      *
-     * @example 8613800000000
+     * @example 8613800001234
      *
      * @var string
      */
@@ -108,7 +108,7 @@ class phoneNumbers extends Model
     public $upQueue;
 
     /**
-     * @description The name of the business to which the phone number belongs.
+     * @description The display name of the business to which the phone number belongs.
      *
      * @example Alibaba
      *

@@ -12,8 +12,8 @@ class GetChatappTemplateDetailResponseBody extends Model
     /**
      * @description The HTTP status code returned.
      *
-     *   A code of OK indicates that the call is successful.
-     *   Other codes indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
      *
      * @example OK
      *
@@ -33,7 +33,7 @@ class GetChatappTemplateDetailResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example None
+     * @example User not authorized to operate on the specified resource.
      *
      * @var string
      */

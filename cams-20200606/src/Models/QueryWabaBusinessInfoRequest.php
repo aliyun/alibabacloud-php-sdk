@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryWabaBusinessInfoRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * @example 293483938849493****
      *
@@ -18,7 +18,7 @@ class QueryWabaBusinessInfoRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description wabaId
+     * @description The ID of the WABA.
      *
      * @example 293848822333
      *

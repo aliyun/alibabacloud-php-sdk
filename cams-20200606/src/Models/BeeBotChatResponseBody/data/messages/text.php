@@ -35,7 +35,7 @@ class text extends Model
     public $contentType;
 
     /**
-     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description The name of the dialog. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class text extends Model
     public $hitStatement;
 
     /**
-     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description The name of the intent. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
      *
      * @var string
      */
@@ -77,7 +77,7 @@ class text extends Model
     public $metaData;
 
     /**
-     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description The ID of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
      *
      * @example 1410-c7a72a78.__city
      *
@@ -86,7 +86,7 @@ class text extends Model
     public $nodeId;
 
     /**
-     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description The name of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
      *
      * @var string
      */

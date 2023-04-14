@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The list of buttons, which applies only to the **BUTTONS** component.
+     * @description The buttons. This parameter is applicable only to components of the **BUTTONS** type.
      *
      * @var buttons[]
      */
@@ -19,7 +19,7 @@ class components extends Model
     /**
      * @description The description.
      *
-     * >  When the Type parameter is set to **HEADER** and the Format parameter is set to **IMAGE/DOCUMENT/VIDEO**, you can specify the description.
+     * > When the Type parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify a description.
      * @example This is a video.
      *
      * @var string
@@ -27,16 +27,16 @@ class components extends Model
     public $caption;
 
     /**
-     * @example 50
+     * @example 120
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description The name of the file
+     * @description The name of the file.
      *
-     * > : When the Type parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify a name of the file.
+     * > When the Type parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify a name for the file.
      * @example Video
      *
      * @var string
@@ -65,7 +65,7 @@ class components extends Model
     public $format;
 
     /**
-     * @description The text of the message that is sent.
+     * @description The text of the message to be sent.
      *
      * @example hello chatapp
      *
@@ -74,14 +74,14 @@ class components extends Model
     public $text;
 
     /**
-     * @example https://img.png
+     * @example https://cdn.multiplymall.mobiapp.cloud/cloudcode/yc-165407506207478-165511576113195/20220905/ec5b9737-1507-4208-bb27-8da3958da961.jpg?x-oss-process=image/resize,w_100
      *
      * @var string
      */
     public $thumbUrl;
 
     /**
-     * @description The type of the component.
+     * @description The type of the component. Valid values:
      *
      *   **BODY**
      *   **HEADER**

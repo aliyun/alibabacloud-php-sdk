@@ -25,26 +25,18 @@ class listTemplate extends Model
     /**
      * @description The category of the message template. Valid values:
      *
-     *   **ACCOUNT_UPDATE**: account update
-     *   **PAYMENT_UPDATE**: payment update
-     *   **PERSONAL_FINANCE\_UPDATE**: personal finance update
-     *   **SHIPPING_UPDATE**: traffic update
-     *   **RESERVATION_UPDATE**: reservation update
-     *   **ISSUE_RESOLUTION**: issue resolution
-     *   **APPOINTMENT_UPDATE**: appointment update
-     *   **TRANSPORTATION_UPDATE**: logistics information update
-     *   **TICKET_UPDATE**: ticket update
-     *   **ALERT_UPDATE**: alert update
-     *   **AUTO_REPLY**: auto reply
+     *   **TRANSACTIONAL**: a transactional template
+     *   **MARKETING**: a marketing template
+     *   **OTP**: a one-time password template
      *
-     * @example ACCOUNT_UPDATE
+     * @example TRANSACTIONAL
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description The language that is used in the message template.
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
      *
      * @example en
      *
@@ -71,6 +63,8 @@ class listTemplate extends Model
     public $templateName;
 
     /**
+     * @description The type of the template. Valid values: WHATSAPP and VIBER.
+     *
      * @example WHATSAPP
      *
      * @var string

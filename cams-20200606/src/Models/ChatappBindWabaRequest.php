@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChatappBindWabaRequest extends Model
 {
     /**
-     * @description WabaId
+     * @description The ID of the WhatsApp Business account.
      *
      * @example 2293938222343****
      *

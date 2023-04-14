@@ -12,8 +12,8 @@ class SendChatappMessageShrinkRequest extends Model
      * @description The type of the message channel. Valid values:
      *
      *   **whatsapp**
-     *   **viber**. This message channel is supported only when you set the Type parameter to message.
-     *   line. The feature ChatApp sends messages by using Line is under development.
+     *   **viber**
+     *   line. The feature that ChatAPP sends messages by using Line is under development.
      *
      * @example whatsapp
      *
@@ -42,11 +42,11 @@ class SendChatappMessageShrinkRequest extends Model
      *   When you set the **MessageType** parameter to **text**, the **text** parameter is required.
      *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
      *   When you set the **MessageType** parameter to **video**, the **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-     *   When you set the **MessageType** parameter to **document**, the **link**, **fileName**, and **fileType** parameters are required.
+     *   When you set the **MessageType** parameter to  **document**, the **link**, **fileName**, and **fileType** parameters are required.
      *   When you set the **MessageType** parameter to **text_button**, the **text**, **caption**, and **action** parameters are required.
      *   When you set the **MessageType** parameter to **text_image_button**, the **text**, **link**, **caption**, and **action** parameters are required.
      *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-     *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required, and the **action** parameter is invalid.
+     *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required. The **action** parameter is invalid.
      *
      * @example {\"text\": \"hello whatsapp\", \"link\": \"\", \"caption\": \"\", \"fileName\": \"\" }
      *
@@ -73,7 +73,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The unique identifier of the WhatsApp account that you register.
+     * @description The ID of the WhatsApp account that you register.
      *
      * @example 65921621816****
      *
@@ -93,6 +93,11 @@ class SendChatappMessageShrinkRequest extends Model
     public $fallBackContent;
 
     /**
+     * @var int
+     */
+    public $fallBackDuration;
+
+    /**
      * @description The ID of the fallback strategy. You can create a fallback strategy and view the information in the console.
      *
      * @example S_000001
@@ -104,7 +109,7 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The phone number of the message sender.
      *
-     * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatApp console.
+     * > You can specify a phone number that is registered for a WhatsApp account and is approved in the ChatAPP console.
      * @example 1360000****
      *
      * @var string
@@ -139,7 +144,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $language;
 
     /**
-     * @description The type of the message. This parameter is required only if you set the Type parameter to **message**. Valid values:
+     * @description The specific type of the message. This parameter is required only if you set the Type parameter to **message**. Valid values:
      *
      **When you set the ChannelType parameter to whatsapp**
      *
@@ -161,11 +166,12 @@ class SendChatappMessageShrinkRequest extends Model
      *   **video**: the video message.
      *   **document**: the document message.
      *   **text_button**: messages that contain the text and button media objects.
-     *   **text_image_button**: messages that contain multiple media objects, including the text, image, and button.
+     *   **text_image_button**: messages that contain multiple media objects, including the text, image, and button media objects.
      *   **text_video**: messages that contain the text and video media objects.
-     *   **text_video_button**: messages that contain multiple media objects, including text, video, and button.
+     *   **text_video_button**: messages that contain multiple media objects, including text, video, and button media objects.
+     *   **text_image**: messages that contain the text and image media objects..
      *
-     * >  For more information, see [Parameters of a message template](~~454530~~).
+     * > For more information, see [Parameters of a message template](~~454530~~).
      * @example text
      *
      * @var string
@@ -191,7 +197,9 @@ class SendChatappMessageShrinkRequest extends Model
     public $tag;
 
     /**
-     * @example 2023009398299***
+     * @description The ID of the task.
+     *
+     * @example 100000001
      *
      * @var string
      */
@@ -243,7 +251,7 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The type of the message. Valid values:
      *
-     *   **template**: a template message. A template message is sent based on a template that is created in the ChatApp console and is approved. You can send template messages at any time based on your business requirements.
+     *   **template**: a template message. A template message is sent based on a template that is created in the ChatAPP console and is approved. You can send template messages at any time based on your business requirements.
      *   **message**: a custom message. You can send a custom message to a user only within 24 hours after you receive the last message from the user.
      *
      * @example template
@@ -258,6 +266,7 @@ class SendChatappMessageShrinkRequest extends Model
         'custSpaceId'          => 'CustSpaceId',
         'custWabaId'           => 'CustWabaId',
         'fallBackContent'      => 'FallBackContent',
+        'fallBackDuration'     => 'FallBackDuration',
         'fallBackId'           => 'FallBackId',
         'from'                 => 'From',
         'isvCode'              => 'IsvCode',
@@ -299,6 +308,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->fallBackContent) {
             $res['FallBackContent'] = $this->fallBackContent;
+        }
+        if (null !== $this->fallBackDuration) {
+            $res['FallBackDuration'] = $this->fallBackDuration;
         }
         if (null !== $this->fallBackId) {
             $res['FallBackId'] = $this->fallBackId;
@@ -374,6 +386,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['FallBackContent'])) {
             $model->fallBackContent = $map['FallBackContent'];
+        }
+        if (isset($map['FallBackDuration'])) {
+            $model->fallBackDuration = $map['FallBackDuration'];
         }
         if (isset($map['FallBackId'])) {
             $model->fallBackId = $map['FallBackId'];

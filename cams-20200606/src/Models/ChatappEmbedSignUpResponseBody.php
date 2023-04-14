@@ -40,7 +40,7 @@ class ChatappEmbedSignUpResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of WhatsApp Business accounts.
+     * @description The list of the WhatsApp Business accounts.
      *
      * @var wabas[]
      */

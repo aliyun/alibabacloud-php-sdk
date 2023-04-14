@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description If the AnswerType parameter is set to Recommend, this parameter indicates the source of the recommended answer.
+     * @description When the AnswerType parameter is set to Recommend, this parameter indicates the source of the recommended answer.
      *
      * @example KNOWLEDGE
      *
@@ -21,7 +21,7 @@ class messages extends Model
     public $answerSource;
 
     /**
-     * @description The type of the message.
+     * @description The type of the answer.
      *
      * @example Text
      *
@@ -37,7 +37,7 @@ class messages extends Model
     public $knowledge;
 
     /**
-     * @description When the AnswerType parameter is set to Recommend, this parameter contains a list of recommends returned by the bot.
+     * @description The list of recommended knowledge. When the AnswerType parameter is set to Recommend, this parameter is returned.
      *
      * @var recommends[]
      */

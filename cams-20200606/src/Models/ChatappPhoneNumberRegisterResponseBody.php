@@ -23,7 +23,7 @@ class ChatappPhoneNumberRegisterResponseBody extends Model
     /**
      * @description The error message returned.
      *
-     * @example None
+     * @example None.
      *
      * @var string
      */

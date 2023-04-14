@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description This parameter applies only to components of the **BUTTONS** type. This parameter is passed in by converting its original JSON structure into a string.
+     * @description This parameter is applicable only to components of the **BUTTONS** type.
      *
      * @var buttons[]
      */
@@ -26,6 +26,8 @@ class components extends Model
     public $caption;
 
     /**
+     * @description The duration of the video used in the Viber message template. Valid values: 0 to 600. Unit: seconds.
+     *
      * @example 50
      *
      * @var int
@@ -42,6 +44,8 @@ class components extends Model
     public $fileName;
 
     /**
+     * @description The type of the file attached in the Viber message template.
+     *
      * @example docx
      *
      * @var string
@@ -58,6 +62,34 @@ class components extends Model
     public $format;
 
     /**
+     * @example 28.001
+     *
+     * @var string
+     */
+    public $latitude;
+
+    /**
+     * @example 杭州
+     *
+     * @var string
+     */
+    public $locationAddress;
+
+    /**
+     * @example 杭州
+     *
+     * @var string
+     */
+    public $locationName;
+
+    /**
+     * @example 120.002
+     *
+     * @var string
+     */
+    public $longitude;
+
+    /**
      * @description The text of the message to be sent.
      *
      * @example Hello
@@ -67,6 +99,8 @@ class components extends Model
     public $text;
 
     /**
+     * @description The thumbnail URL of the video used in the Viber message template.
+     *
      * @example https://img.png
      *
      * @var string
@@ -81,9 +115,17 @@ class components extends Model
      *   **FOOTER**
      *   **BUTTONS**
      *
-     **
+     * >
      *
-     **Note** A component of the **BODY** type cannot exceed 1,024 characters in length. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     *   The following limits apply to components in WhatsApp message templates: A component of the **BODY** type cannot exceed 1,024 characters. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     *
+     * >
+     *
+     *   **FOOTER** components are not supported in Viber message templates.
+     *
+     * >
+     *
+     *   In a Viber message template, a media object, such as an image, a video, or a document, is placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
      *
      * @example BODY
      *
@@ -100,16 +142,20 @@ class components extends Model
      */
     public $url;
     protected $_name = [
-        'buttons'  => 'Buttons',
-        'caption'  => 'Caption',
-        'duration' => 'Duration',
-        'fileName' => 'FileName',
-        'fileType' => 'FileType',
-        'format'   => 'Format',
-        'text'     => 'Text',
-        'thumbUrl' => 'ThumbUrl',
-        'type'     => 'Type',
-        'url'      => 'Url',
+        'buttons'         => 'Buttons',
+        'caption'         => 'Caption',
+        'duration'        => 'Duration',
+        'fileName'        => 'FileName',
+        'fileType'        => 'FileType',
+        'format'          => 'Format',
+        'latitude'        => 'Latitude',
+        'locationAddress' => 'LocationAddress',
+        'locationName'    => 'LocationName',
+        'longitude'       => 'Longitude',
+        'text'            => 'Text',
+        'thumbUrl'        => 'ThumbUrl',
+        'type'            => 'Type',
+        'url'             => 'Url',
     ];
 
     public function validate()
@@ -142,6 +188,18 @@ class components extends Model
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
+        }
+        if (null !== $this->latitude) {
+            $res['Latitude'] = $this->latitude;
+        }
+        if (null !== $this->locationAddress) {
+            $res['LocationAddress'] = $this->locationAddress;
+        }
+        if (null !== $this->locationName) {
+            $res['LocationName'] = $this->locationName;
+        }
+        if (null !== $this->longitude) {
+            $res['Longitude'] = $this->longitude;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -190,6 +248,18 @@ class components extends Model
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
+        }
+        if (isset($map['Latitude'])) {
+            $model->latitude = $map['Latitude'];
+        }
+        if (isset($map['LocationAddress'])) {
+            $model->locationAddress = $map['LocationAddress'];
+        }
+        if (isset($map['LocationName'])) {
+            $model->locationName = $map['LocationName'];
+        }
+        if (isset($map['Longitude'])) {
+            $model->longitude = $map['Longitude'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];

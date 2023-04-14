@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID that is used to authorize a user to upload a file to Object Storage Service (OSS).
+     *
      * @example 2skeuurfj****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret that is used to authorize a user to upload a file to OSS.
+     *
      * @example skdkdukeuuuu****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $accessKeySecret;
 
     /**
+     * @description The name of the bucket to which a file is uploaded in OSS.
+     *
      * @example oss
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description The directory to which a file is uploaded in OSS.
+     *
      * @example 1000102939
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $dir;
 
     /**
+     * @description The address of the server to which a file is uploaded in OSS.
+     *
      * @example https://oss.com
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $endPoint;
 
     /**
+     * @description The timeout period.
+     *
      * @example 3600
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $expire;
 
     /**
+     * @description The security token.
+     *
      * @example dkdieiii**
      *
      * @var string

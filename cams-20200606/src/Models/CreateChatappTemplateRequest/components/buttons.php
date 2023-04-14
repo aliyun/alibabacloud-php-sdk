@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
-     * @description The mobile phone number. This parameter is valid only if the Type parameter is set to **PHONE_NUMBER**.
+     * @description The phone number. This parameter is valid only if the Type parameter is set to **PHONE_NUMBER**.
      *
      * @example +861368897****
      *
@@ -29,12 +29,18 @@ class buttons extends Model
     /**
      * @description The type of the button. Valid values:
      *
-     *   **PHONE_NUMBER**: a phone call button
+     *   **PHONE_NUMBER**: a phone number button
      *   **URL**: a URL button
      *   **QUICK_REPLY**: a quick reply button
      *
-     * > *   A quick reply button cannot coexist with a phone call button or a URL button in a message template.
-     * > *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a message template.
+     * >
+     *
+     *   When the TemplateType parameter is set to WHATSAPP, if you have created a website link or a phone number link, you cannot create an quick reply button.
+     *
+     *   When the TemplateType parameter is set to WHATSAPP, you can add a combination of two URL buttons or a combination of a URL button and a phone number button to a message template.
+     *
+     *   When the TemplateType parameter is set to VIBER, you can add only one button and the button must be of the URL type.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -42,7 +48,7 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be accessed when you click the URL button.
+     * @description The URL to be accessed when users click the URL button.
      *
      * @example https://example.com
      *

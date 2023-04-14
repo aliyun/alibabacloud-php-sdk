@@ -19,7 +19,7 @@ class data extends Model
     public $messageId;
 
     /**
-     * @description The list of the message.
+     * @description The list of messages.
      *
      * @var messages[]
      */

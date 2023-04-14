@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the phone number.
+     * @description The ID of the number.
      *
      * @example 82828893332
      *
@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The phone number.
      *
-     * @example 8613800000000
+     * @example 8613900001234
      *
      * @var string
      */

@@ -28,7 +28,7 @@ class SendChatappMassMessageRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatApp Business account of the ISV account.
+     * @description The ID of the WhatsApp Business account under the ISV account.
      *
      * @example 65921621816****
      *
@@ -48,6 +48,11 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackContent;
 
     /**
+     * @var int
+     */
+    public $fallBackDuration;
+
+    /**
      * @description The ID of the fallback strategy.
      *
      * @example S00001
@@ -57,7 +62,7 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackId;
 
     /**
-     * @description The message sender.
+     * @description The phone number of the message sender.
      *
      * @example 861387777****
      *
@@ -75,7 +80,7 @@ class SendChatappMassMessageRequest extends Model
     public $isvCode;
 
     /**
-     * @description Viber消息类型，取值：pormotion或transation。
+     * @description The message type when the ChannelType parameter is set to viber. Valid values: promotion and transaction.
      *
      * @example promotion
      *
@@ -100,7 +105,7 @@ class SendChatappMassMessageRequest extends Model
     public $senderList;
 
     /**
-     * @description Viber消息发送时tag信息。
+     * @description The tag information when the ChannelType parameter is set to viber.
      *
      * @example tag
      *
@@ -118,7 +123,7 @@ class SendChatappMassMessageRequest extends Model
     public $taskId;
 
     /**
-     * @description The code of the message template.
+     * @description The encoding of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
@@ -127,7 +132,7 @@ class SendChatappMassMessageRequest extends Model
     public $templateCode;
 
     /**
-     * @description Viber消息发送超时时间，单位：秒，取值范围 30~1209600。
+     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
      *
      * @example 50
      *
@@ -135,20 +140,21 @@ class SendChatappMassMessageRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'channelType'     => 'ChannelType',
-        'custSpaceId'     => 'CustSpaceId',
-        'custWabaId'      => 'CustWabaId',
-        'fallBackContent' => 'FallBackContent',
-        'fallBackId'      => 'FallBackId',
-        'from'            => 'From',
-        'isvCode'         => 'IsvCode',
-        'label'           => 'Label',
-        'language'        => 'Language',
-        'senderList'      => 'SenderList',
-        'tag'             => 'Tag',
-        'taskId'          => 'TaskId',
-        'templateCode'    => 'TemplateCode',
-        'ttl'             => 'Ttl',
+        'channelType'      => 'ChannelType',
+        'custSpaceId'      => 'CustSpaceId',
+        'custWabaId'       => 'CustWabaId',
+        'fallBackContent'  => 'FallBackContent',
+        'fallBackDuration' => 'FallBackDuration',
+        'fallBackId'       => 'FallBackId',
+        'from'             => 'From',
+        'isvCode'          => 'IsvCode',
+        'label'            => 'Label',
+        'language'         => 'Language',
+        'senderList'       => 'SenderList',
+        'tag'              => 'Tag',
+        'taskId'           => 'TaskId',
+        'templateCode'     => 'TemplateCode',
+        'ttl'              => 'Ttl',
     ];
 
     public function validate()
@@ -169,6 +175,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (null !== $this->fallBackContent) {
             $res['FallBackContent'] = $this->fallBackContent;
+        }
+        if (null !== $this->fallBackDuration) {
+            $res['FallBackDuration'] = $this->fallBackDuration;
         }
         if (null !== $this->fallBackId) {
             $res['FallBackId'] = $this->fallBackId;
@@ -229,6 +238,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (isset($map['FallBackContent'])) {
             $model->fallBackContent = $map['FallBackContent'];
+        }
+        if (isset($map['FallBackDuration'])) {
+            $model->fallBackDuration = $map['FallBackDuration'];
         }
         if (isset($map['FallBackId'])) {
             $model->fallBackId = $map['FallBackId'];

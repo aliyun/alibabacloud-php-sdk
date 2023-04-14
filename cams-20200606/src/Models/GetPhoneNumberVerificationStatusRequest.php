@@ -20,7 +20,7 @@ class GetPhoneNumberVerificationStatusRequest extends Model
     /**
      * @description The phone number.
      *
-     * @example 861380000
+     * @example 8613900001234
      *
      * @var string
      */

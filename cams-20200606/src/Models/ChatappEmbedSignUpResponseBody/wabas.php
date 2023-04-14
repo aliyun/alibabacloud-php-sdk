@@ -27,7 +27,7 @@ class wabas extends Model
     public $currency;
 
     /**
-     * @description WabaId
+     * @description The ID of the WhatsApp Business account.
      *
      * @example 2939933992*****
      *
@@ -45,7 +45,7 @@ class wabas extends Model
     public $messageTemplateNamespace;
 
     /**
-     * @description Waba Name
+     * @description The name of the WhatsApp Business account.
      *
      * @example Alibaba
      *
