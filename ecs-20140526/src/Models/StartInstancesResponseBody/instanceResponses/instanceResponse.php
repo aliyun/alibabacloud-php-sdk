@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class instanceResponse extends Model
 {
     /**
+     * @description The error code that is returned for the operation on the ECS instance. A return value of 200 indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The status of the ECS instance after the operation is called.
+     *
+     * @example Starting
+     *
      * @var string
      */
     public $currentStatus;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The error message that is returned for the operation on the ECS instance. A return value of success indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the ECS instance before the operation is called.
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $previousStatus;

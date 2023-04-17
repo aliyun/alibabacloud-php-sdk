@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListAssociationsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The query token. Set the value to the `NextToken` value returned in the previous call to the DescribePrefixListAssociations operation. Leave this parameter empty the first time you call this operation.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,11 +38,19 @@ class DescribePrefixListAssociationsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the prefix list.
+     *
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @description The region ID of the prefix list. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

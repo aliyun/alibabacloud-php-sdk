@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
+     * @description > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     *
+     * @example null
+     *
      * @var string
      */
     public $category;
@@ -20,21 +24,39 @@ class DescribeTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource. For example, when ResourceType is set to instance, this parameter is interpreted as the ID of the instance (InstanceId).
+     *
+     * @example s-946ntx4wr****
+     *
      * @var string
      */
     public $resourceId;
@@ -50,11 +72,31 @@ class DescribeTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource to which the tag is added. Valid values:
+     *
+     *   instance: Elastic Compute Service (ECS) instance
+     *   disk: disk
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   volume: storage volume
+     *   eni: elastic network interface (ENI)
+     *   ddh: dedicated host
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *   reservedinstance: reserved instance
+     *   snapshotpolicy: automatic snapshot policy
+     *
+     * All values must be lowercase.
+     * @example snapshot
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;

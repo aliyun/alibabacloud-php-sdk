@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The ID of the capacity reservation.
+     *
+     * @example crp-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the capacity reservation. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example eapTestName
+     *
      * @var string
      */
     public $name;

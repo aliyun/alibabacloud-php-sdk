@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotLinksRequest extends Model
 {
     /**
+     * @description The IDs of disks. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     *
+     * @example ["d-bp1d6tsvznfghy7y****", "d-bp1ippxbaql9zet7****", … "d-bp1ib7bcz07lcxa9****"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1h6jmbefj2cyqs****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,16 +37,30 @@ class DescribeSnapshotLinksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +76,10 @@ class DescribeSnapshotLinksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of snapshot chains. The value is a JSON array that consists of up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+     *
+     * @example ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]
+     *
      * @var string
      */
     public $snapshotLinkIds;

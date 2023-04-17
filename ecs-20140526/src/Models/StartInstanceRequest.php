@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   true: performs a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the request is made.
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to restore the instance to its initial health state. This parameter is applicable to instances that are equipped with local disks, such as d1, i1, and i2 instances. If a local disk of a d1, i1, or i2 instance fails, you can use this parameter to specify whether to restore the instance to its initial health state on startup. Valid values:
+     *
+     *   true: restores the instance to its initial health state on startup. After the instance is restored to its initial health state, data stored on the local disks of the instance is lost.
+     *   false: does not perform operations and keeps the instance in the current state.
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $initLocalDisk;
 
     /**
+     * @description The ID of the instance that you want to start.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstancesRequest extends Model
 {
     /**
+     * @description The configurations of reserved instances.
+     *
      * @var configuration[]
      */
     public $configuration;
@@ -25,11 +27,20 @@ class ModifyReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the reserved instance.
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of reserved instances. Valid values of N: 1 to 20.
+     *
+     * @example ReservedInstanceId.1="ecsri-bp1cx3****",ReservedInstanceId.2="ecsri-bp15xx2****"......
+     *
      * @var string[]
      */
     public $reservedInstanceId;

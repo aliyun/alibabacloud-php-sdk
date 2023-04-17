@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceRequest extends Model
 {
     /**
+     * @description This parameter will be removed in the future and is retained only to ensure compatibility. We recommend that you ignore this parameter.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $confirmStop;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   true: performs a dry run. The system checks the required parameters, the request format, service limits, and available ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and the request is made if the request passes the dry run.
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcefully stop the instance. Valid values:
+     *
+     *   true: forcefully stops the instance.
+     *   false: normally stops the instance.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
 
     /**
+     * @description >  This parameter is in invitational preview and is not available for public use.
+     *
+     * @example hide
+     *
      * @var bool
      */
     public $hibernate;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $instanceId;
@@ -54,6 +82,14 @@ class StopInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The stop mode of the pay-as-you-go instance. Default value: Disabled. Valid values:
+     *
+     *   StopCharging: economical mode. For information about how `StopCharging` takes effect, see the "Prerequisites" section in [Economical mode](~~63353~~).
+     *   KeepCharging: standard mode. After the instance is stopped in standard mode, you continue to be charged for it.
+     *
+     * Default value: If the prerequisites required for enabling economical mode are met and you have enabled this mode in the ECS console, the default value is `StopCharging`. For more information, see the "Enable economical mode" section in [Economical mode](~~63353#default~~). Otherwise, the default value is `KeepCharging`.
+     * @example KeepCharging
+     *
      * @var string
      */
     public $stoppedMode;

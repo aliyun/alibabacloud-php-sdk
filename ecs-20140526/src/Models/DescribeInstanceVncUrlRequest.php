@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceVncUrlRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example i-bp1hzoinajzkh91h****
      *

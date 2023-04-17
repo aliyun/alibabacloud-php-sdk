@@ -17,26 +17,43 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceSet extends Model
 {
     /**
+     * @description Details about the EIP that is associated with the secondary private IP address of the ENI.
+     *
      * @var associatedPublicIp
      */
     public $associatedPublicIp;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
      * @var attachment
      */
     public $attachment;
 
     /**
+     * @description The time when the ENI was created.
+     *
+     * @example 2019-12-25T12:31:31Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the ENI.
+     *
+     * @example DescriptionTest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the ECS instance to which the ENI is bound.
+     *
+     * > If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
+     * @example i-bp1e2l6djkndyuli****
+     *
      * @var string
      */
     public $instanceId;
@@ -52,101 +69,182 @@ class networkInterfaceSet extends Model
     public $ipv6PrefixSets;
 
     /**
+     * @description The IPv6 addresses assigned to the ENI.
+     *
      * @var ipv6Sets
      */
     public $ipv6Sets;
 
     /**
+     * @description The media access control (MAC) address of the ENI.
+     *
+     * @example 00:16:3e:12:**:**
+     *
      * @var string
      */
     public $macAddress;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-bp125p95hhdhn3ot****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The name of the ENI.
+     *
+     * @example my-eni-name
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The communication mode of the ENI. Valid values:
+     *
+     *   Standard: the TCP communication mode is used.
+     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *
+     * > The NetworkInterfaceTrafficMode parameter can be set to HighPerformance only when the instance to which the ENI is bound belongs to the c7re RDMA-enhanced instance family and is located within Beijing Zone K.
+     * @example Standard
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
 
     /**
+     * @description The ID of the account to which the ENI belongs.
+     *
+     * @example 123456****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The private IP address of the ENI.
+     *
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description Details about the private IP addresses.
+     *
      * @var privateIpSets
      */
     public $privateIpSets;
 
     /**
+     * @description The number of queues supported by the ENI.
+     *
+     *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by this ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
+     *   If the number of queues supported by the secondary ENI has been modified, the new number of queues is returned.
+     *   If the ENI is a secondary ENI in the Available state and the number of queues supported by this ENI has never been modified, an empty value is returned.
+     *   If the ENI is a primary ENI, the default number of queues per primary ENI that the instance type supports is returned.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $queueNumber;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $queuePairNumber;
 
     /**
+     * @description The ID of your Alibaba Cloud resource group.
+     *
+     * @example rg-2ze88m67qx5z****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the security groups to which the ENI belongs.
+     *
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The ID of the distributor to which the ENI belongs.
+     *
+     * @example 12345678910
+     *
      * @var int
      */
     public $serviceID;
 
     /**
+     * @description Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description The state of the ENI.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the ENI.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The type of the ENI.
+     *
+     * @example Secondary
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the vSwitch to which the ENI is connected.
+     *
+     * @example vsw-bp16usj2p27htro3****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the ENI belongs.
+     *
+     * @example vpc-bp1j7w3gc1cexjqd****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone in which the instance resides.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

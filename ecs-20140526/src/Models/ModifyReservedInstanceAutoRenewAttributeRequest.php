@@ -19,26 +19,49 @@ class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The auto-renewal term of the reserved instance. Valid values:
+     *
+     * Valid values: 1 and 3.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the auto-renewal term.
+     *
+     * Valid value: Year.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to automatically renew the reserved instance. Valid values:
+     *
+     *   AutoRenewal: automatically renew the reserved instance.
+     *   Normal: manually renew the reserved instance.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The ID of reserved instance N.
+     *
      * @var string[]
      */
     public $reservedInstanceId;

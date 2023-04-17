@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class cpuOptions extends Model
 {
     /**
+     * @description The number of CPU cores. This parameter cannot be specified but only uses its default value.
+     *
+     * For information about the default value, see [Customize CPU options](~~145895~~).
+     * @example 2
+     *
      * @var int
      */
     public $core;
 
     /**
+     * @description This parameter is no longer used.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $numa;
 
     /**
+     * @description The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadPerCore` value.
+     *
+     *   The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × CpuOptions.ThreadPerCore value.
+     *   This parameter is applicable only to specific instance types.
+     *
+     * For information about valid values and the default value, see [Customize CPU options](~~145895~~).
+     * @example 2
+     *
      * @var int
      */
     public $threadsPerCore;

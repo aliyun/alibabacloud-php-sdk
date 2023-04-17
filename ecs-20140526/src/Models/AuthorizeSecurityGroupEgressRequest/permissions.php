@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
-     * @description The description of the security group rule. The description must be 1 to 512 characters in length.
+     * @description The description of security group rule N. The description must be 1 to 512 characters in length.
      *
      * Valid values of N: 1 to 100.
      * @example This is description.
@@ -19,7 +19,7 @@ class permissions extends Model
     public $description;
 
     /**
-     * @description The destination IPv4 CIDR block for the security group rule. CIDR blocks and IPv4 addresses are supported.
+     * @description The destination IPv4 CIDR block to which you want to control access. CIDR blocks and IPv4 addresses are supported.
      *
      * Valid values of N: 1 to 100.
      * @example 10.0.0.0/8
@@ -29,7 +29,7 @@ class permissions extends Model
     public $destCidrIp;
 
     /**
-     * @description The ID of the destination security group.
+     * @description The ID of the security group to be referenced as the destination in the security group rule.
      *
      *   At least one of `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId` must be specified.
      *   If `DestGroupId` is specified but `DestCidrIp` is not specified, the `NicType` parameter must be set to intranet.
@@ -37,8 +37,8 @@ class permissions extends Model
      *
      * When you call this operation, take note of the following items:
      *
-     *   For advanced security groups, security groups cannot be used as authorization objects.
-     *   For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+     *   Security groups cannot be referenced as destinations or sources in the rules of advanced security groups.
+     *   Up to 20 security groups can be referenced as destinations or sources in the rules of each basic security group.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -73,11 +73,11 @@ class permissions extends Model
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the destination prefix list to which you want to control access. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
      *
-     * Note:
+     * Usage notes
      *
-     *   If a security group is in the classic network, you cannot configure prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
      *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, Permissions.N.DestPrefixListId is ignored.
      *
      * Valid values of N: 1 to 100.
@@ -88,7 +88,7 @@ class permissions extends Model
     public $destPrefixListId;
 
     /**
-     * @description The transport layer protocol. The value of this parameter is case-insensitive. Valid values:
+     * @description The transport layer protocol of the security group rule. These values are case-insensitive. Valid values:
      *
      *   TCP
      *   UDP
@@ -105,9 +105,9 @@ class permissions extends Model
     public $ipProtocol;
 
     /**
-     * @description The destination IPv6 CIDR block for the security group rule. CIDR blocks and IPv6 addresses are supported.
+     * @description The destination IPv6 CIDR block to which you want to control access. CIDR blocks and IPv6 addresses are supported.
      *
-     * > The Permissions.N.Ipv6DestCidrIp parameter is valid only when the destination is ECS instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
+     * > This parameter takes effect only when the destination is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
      * @example 2001:db8:1233:1a00::***
      *
      * @var string
@@ -115,9 +115,9 @@ class permissions extends Model
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
+     * @description The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
      *
-     * > The Permissions.N.Ipv6SourceCidrIp parameter is valid only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify this parameter and the `DestCidrIp` parameter at the same time.
+     * > This parameter takes effect only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
      * @example 2001:db8:1234:1a00::***
      *
      * @var string
@@ -125,7 +125,7 @@ class permissions extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The network interface controller (NIC) type of the security group rule when the security group is in the classic network. Valid values:
+     * @description The network interface type of the security group rule when the security group is in the classic network. Valid values:
      *
      *   internet: public NIC
      *
@@ -157,10 +157,10 @@ class permissions extends Model
     /**
      * @description The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
      *
-     *   When the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   When the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
-     *   When the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
-     *   When the Permissions.N.IpProtocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
+     *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
+     *   If the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
+     *   If the Permissions.N.IpProtocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
      *
      * Valid values of N: 1 to 100.
      * @example 80/80
@@ -170,7 +170,7 @@ class permissions extends Model
     public $portRange;
 
     /**
-     * @description The priority of the security group rule. A smaller value indicates a higher priority. Valid values: 1 to 100.
+     * @description The priority of security group rule N. A smaller value indicates a higher priority. Valid values: 1 to 100.
      *
      * Valid values of N: 1 to 100.
      * @example 1
@@ -180,7 +180,7 @@ class permissions extends Model
     public $priority;
 
     /**
-     * @description The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+     * @description The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
      *
      * Valid values of N: 1 to 100.
      * @example 10.0.0.0/8
@@ -192,10 +192,10 @@ class permissions extends Model
     /**
      * @description The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
      *
-     *   When the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   When the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
-     *   When the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
-     *   When the Protocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+     *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
+     *   If the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
+     *   If the Protocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
      *
      * Valid values of N: 1 to 100.
      * @example 80/80

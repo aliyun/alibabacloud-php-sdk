@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class instanceStatus extends Model
 {
     /**
+     * @description The ID of instance.
+     *
+     * @example i-bp1j4i2jdf3owlhe****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     * Pending: The instance is being created.
+     * Running: The instance is running.
+     * Starting: The instance is being started.
+     * Stopping: The instance is being stopped.
+     * Stopped: The instance is stopped.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;

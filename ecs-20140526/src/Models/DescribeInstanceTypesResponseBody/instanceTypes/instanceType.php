@@ -10,191 +10,376 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
+     * @description The baseline CPU performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $baselineCredit;
 
     /**
+     * @description The CPU architecture. Valid values:
+     *
+     *   X86
+     *   ARM
+     *
+     * @example X86
+     *
      * @var string
      */
     public $cpuArchitecture;
 
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
+     * @description The CPU base frequency. Unit: GHz.
+     *
+     * @example 2.7
+     *
      * @var float
      */
     public $cpuSpeedFrequency;
 
     /**
+     * @description The CPU turbo frequency. Unit: GHz.
+     *
+     * @example 3.5
+     *
      * @var float
      */
     public $cpuTurboFrequency;
 
     /**
+     * @description The maximum number of cloud disks.
+     *
+     * @example 17
+     *
      * @var int
      */
     public $diskQuantity;
 
     /**
+     * @description The maximum number of IPv6 addresses per ENI.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $eniIpv6AddressQuantity;
 
     /**
+     * @description The maximum number of IPv4 addresses per ENI.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $eniPrivateIpAddressQuantity;
 
     /**
+     * @description The maximum number of ENIs.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $eniQuantity;
 
     /**
+     * @description The maximum number of NICs, including the primary NIC, ENIs, and trunk NICs.
+     *
+     * > This parameter is in invitational preview and is unavailable to general users.
+     * @example 0
+     *
      * @var int
      */
     public $eniTotalQuantity;
 
     /**
+     * @description Indicates whether NICs on instances of the instance type support trunking.
+     *
+     * > This parameter is in invitational preview and is unavailable to general users.
+     * @example true
+     *
      * @var bool
      */
     public $eniTrunkSupported;
 
     /**
+     * @description The number of ERIs.
+     *
+     * > This parameter is in invitational preview and is unavailable to general users.
+     * @example 0
+     *
      * @var int
      */
     public $eriQuantity;
 
     /**
+     * @description The number of GPUs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $GPUAmount;
 
     /**
+     * @description The amount of GPU memory per GPU. Unit: GiB.
+     *
+     * @example 32
+     *
      * @var float
      */
     public $GPUMemorySize;
 
     /**
+     * @description The GPU model.
+     *
+     * @example NVIDIA V100
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @description The initial vCPU credits per t5 or t6 burstable instance.
+     *
+     * @example 120InstancePpsTx
+     *
      * @var int
      */
     public $initialCredit;
 
     /**
+     * @description The maximum inbound internal bandwidth. Unit: Kbit/s.
+     *
+     * @example 1024000
+     *
      * @var int
      */
     public $instanceBandwidthRx;
 
     /**
+     * @description The maximum outbound internal bandwidth. Unit: Kbit/s.
+     *
+     * @example 1024000
+     *
      * @var int
      */
     public $instanceBandwidthTx;
 
     /**
+     * @description The category of the instance type. Valid values:
+     *
+     *   General-purpose: general-purpose instance type
+     *   Compute-optimized: compute-optimized instance type
+     *   Memory-optimized: memory-optimized instance type
+     *   Big data: big data instance type
+     *   Local SSDs: instance type with local SSDs
+     *   High Clock Speed: instance type with high clock speeds
+     *   Enhanced: enhanced instance type
+     *   Shared: shared instance type
+     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type
+     *   Visual Compute-optimized: visual compute-optimized instance type
+     *   Heterogeneous Service: heterogeneous service instance type
+     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
+     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
+     *   ECS Bare Metal: ECS Bare Metal Instance type
+     *   Super Computing Cluster: SCC instance type
+     *
+     * @example Big data
+     *
      * @var string
      */
     public $instanceCategory;
 
     /**
+     * @description The level of the instance family. Valid values:
+     *
+     *   EntryLevel: entry level (shared).
+     *   EnterpriseLevel: enterprise level.
+     *   CreditEntryLevel: credit-based entry level. For more information, see [Overview](~~59977~~).
+     *
+     * @example EnterpriseLevel
+     *
      * @var string
      */
     public $instanceFamilyLevel;
 
     /**
+     * @description The inbound packet forwarding rate over the internal network. Unit: pps.
+     *
+     * @example 500000
+     *
      * @var int
      */
     public $instancePpsRx;
 
     /**
+     * @description The outbound packet forwarding rate over the internal network. Unit: pps.
+     *
+     * @example 500000
+     *
      * @var int
      */
     public $instancePpsTx;
 
     /**
+     * @description The instance family.
+     *
+     * @example ecs.g6
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The ID of the instance type.
+     *
+     * @example ecs.g6.large
+     *
      * @var string
      */
     public $instanceTypeId;
 
     /**
+     * @description The number of local disks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $localStorageAmount;
 
     /**
+     * @description The capacity of each local disk. Unit: GiB.
+     *
+     * @example 5000
+     *
      * @var int
      */
     public $localStorageCapacity;
 
     /**
+     * @description The category of local disks. For more information, see [Local disks](~~63138~~). Valid values:
+     *
+     *   local_hdd_pro: local SATA HDDs, which are used by d1ne or d1 instances
+     *   local_ssd_pro: local NVMe SSDs, which are used by i2, i2g, i1, ga1, or gn5 instances
+     *
+     * @example local_ssd_pro
+     *
      * @var string
      */
     public $localStorageCategory;
 
     /**
+     * @description The maximum number of queues per ENI (including primary ENI and secondary ENI).
+     *
+     * @example 4
+     *
      * @var int
      */
     public $maximumQueueNumberPerEni;
 
     /**
+     * @description The memory size. Unit: GiB.
+     *
+     * @example 16
+     *
      * @var float
      */
     public $memorySize;
 
     /**
+     * @description The number of NICs.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $networkCardQuantity;
 
     /**
+     * @description Details about NICs.
+     *
      * @var networkCards
      */
     public $networkCards;
 
     /**
+     * @description Indicates whether to allow network traffic transmitted over virtual private clouds (VPCs) to be encrypted. Valid values:
+     *
+     *   true: allows network traffic transmitted over VPCs to be encrypted.
+     *   false: does not allow network traffic transmitted over VPCs to be encrypted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $networkEncryptionSupport;
 
     /**
+     * @description Indicates whether cloud disks can be attached by using the NVMe protocol. Valid values:
+     *
+     *   required: Cloud disks can be attached by using the NVMe protocol.
+     *   unsupported: Cloud disk cannot be attached by using the NVMe protocol.
+     *
+     * @example unsupported
+     *
      * @var string
      */
     public $nvmeSupport;
 
     /**
+     * @description The CPU model.
+     *
+     * @example Intel Xeon(Ice Lake) Platinum 8369B
+     *
      * @var string
      */
     public $physicalProcessorModel;
 
     /**
+     * @description The default number of queues per primary NIC.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $primaryEniQueueNumber;
 
     /**
+     * @description The maximum number of QP queues per ERI.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $queuePairNumber;
 
     /**
+     * @description The default number of queues per secondary ENI.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $secondaryEniQueueNumber;
 
     /**
+     * @description The maximum number of queues on ENIs that the instance type supports.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalEniQueueQuantity;

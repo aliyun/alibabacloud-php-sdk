@@ -10,66 +10,117 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskAttributeResponseBody extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2015-11-23T02:13Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The number of failed tasks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failedCount;
 
     /**
+     * @description The time when the task was complete.
+     *
+     * @example 2015-11-23T02:19Z
+     *
      * @var string
      */
     public $finishedTime;
 
     /**
+     * @description An array consisting of OperationProgress data of each subtask.
+     *
      * @var operationProgressSet
      */
     public $operationProgressSet;
 
     /**
+     * @description The region ID of the task.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of completed tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @description Indicates whether the task can be canceled ([CancelTask](https://www.alibabacloud.com/help/en/elastic-compute-service/latest/canceltask)). Valid values:
+     *
+     * - false: The task cannot be canceled.
+     * @example true
+     *
      * @var string
      */
     public $supportCancel;
 
     /**
+     * @description The operation name of the task.
+     *
+     * @example ExportImage
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example t-ce946ntx4wr****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The progress of the task.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $taskProcess;
 
     /**
+     * @description The status of the task.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @description The total number of tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

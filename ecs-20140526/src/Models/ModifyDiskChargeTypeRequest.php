@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskChargeTypeRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     *   true: The payment is automatically completed. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled.
+     *   false: An order is generated but no payment is made. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The new billing method of the disk. Default value: PrePaid. Valid values:
+     *
+     *   PrePaid: changes the billing method from pay-as-you-go to subscription.
+     *   PostPaid: changes the billing method from subscription to pay-as-you-go.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $diskChargeType;
 
     /**
+     * @description The IDs of disks. The value is a JSON array that consists of up to 16 disk IDs. Separate the disk IDs with commas (,).
+     *
+     * @example [“d-bp67acfmxazb4ph****”, “d-bp67acfmxazb4pi****”, … “d-bp67acfmxazb4pj****”]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @description The ID of the instance to which the disk is attached.
+     *
+     * @example i-bp1i778bq705cvx1****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +70,10 @@ class ModifyDiskChargeTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

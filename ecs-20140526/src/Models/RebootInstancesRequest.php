@@ -9,52 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RebootInstancesRequest extends Model
 {
     /**
-     * @description The batch operation mode. Valid values:
-     *
-     *   AllTogether: In this mode, if all instances are restarted, a success message is returned. If an instance fails the verification, all instances fail to restart and an error message is returned.
-     *   SuccessFirst: In this mode, each instance is restarted separately. The response contains the operation results for each instance.
-     *
-     * Default value: AllTogether.
-     * @example AllTogether
-     *
      * @var string
      */
     public $batchOptimization;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid Values:
-     *
-     *   true: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
-     *
-     * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
-     *
-     *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description Specifies whether to forcefully restart the instance. Valid values:
-     *
-     *   true: forcefully restarts the instance. This operation is equivalent to the power-off operation in common scenarios. Cache data that is not written to storage devices on the instance will be lost.
-     *   false: normally restarts the instance.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $forceReboot;
 
     /**
-     * @description The IDs of the instances. A maximum of 100 instance IDs can be specified.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string[]
      */
     public $instanceId;
@@ -70,10 +39,6 @@ class RebootInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\conditionSupportedResources;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\supportedResources;
 use AlibabaCloud\Tea\Model;
 
 class availableResource extends Model
 {
+    /**
+     * @var conditionSupportedResources
+     */
+    public $conditionSupportedResources;
+
     /**
      * @description Details about the resources.
      *
@@ -32,8 +38,9 @@ class availableResource extends Model
      */
     public $type;
     protected $_name = [
-        'supportedResources' => 'SupportedResources',
-        'type'               => 'Type',
+        'conditionSupportedResources' => 'ConditionSupportedResources',
+        'supportedResources'          => 'SupportedResources',
+        'type'                        => 'Type',
     ];
 
     public function validate()
@@ -43,6 +50,9 @@ class availableResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conditionSupportedResources) {
+            $res['ConditionSupportedResources'] = null !== $this->conditionSupportedResources ? $this->conditionSupportedResources->toMap() : null;
+        }
         if (null !== $this->supportedResources) {
             $res['SupportedResources'] = null !== $this->supportedResources ? $this->supportedResources->toMap() : null;
         }
@@ -61,6 +71,9 @@ class availableResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConditionSupportedResources'])) {
+            $model->conditionSupportedResources = conditionSupportedResources::fromMap($map['ConditionSupportedResources']);
+        }
         if (isset($map['SupportedResources'])) {
             $model->supportedResources = supportedResources::fromMap($map['SupportedResources']);
         }

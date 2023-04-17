@@ -15,7 +15,7 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of entries to return on each page.
      *
      * Default value: 10.
      * @example 10

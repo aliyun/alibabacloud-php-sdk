@@ -10,26 +10,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedInstancesRequest extends Model
 {
     /**
+     * @description The ID of the activation code.
+     *
+     * @example 4ECEEE12-56F1-4FBC-9AB1-890F7494****
+     *
      * @var string
      */
     public $activationId;
 
     /**
+     * @description The ID of managed instance N. Valid values of N: 1 to 50.
+     *
+     * @example mi-hz018jrc1o0****
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The internal or public IP address of the managed instance.
+     *
+     * @example 192.168.**.**
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @description The name of the managed instance.
+     *
+     * @example my-webapp-server
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The operating system type of the managed instance. Valid values:
+     *
+     *   windows
+     *   linux
+     *
+     * @example windows
+     *
      * @var string
      */
     public $osType;
@@ -45,16 +68,31 @@ class DescribeManagedInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the managed instance. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -70,6 +108,8 @@ class DescribeManagedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the managed instance.
+     *
      * @var tag[]
      */
     public $tag;

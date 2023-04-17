@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The operation status code returned. 200 indicates that the operation was successful.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1d6tsvznfghy7y****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The result of the operation. For example, when the value of `Code` is 200, the value of `Message` is `successful`.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

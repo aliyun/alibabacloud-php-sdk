@@ -9,16 +9,39 @@ use AlibabaCloud\Tea\Model;
 class StartInstancesRequest extends Model
 {
     /**
+     * @description The batch operation mode. Valid values:
+     *
+     *   AllTogether: In this mode, a success message is returned if all ECS instances are started. If an ECS instance fails the check when you set the DryRun parameter to false, all the specified instances cannot be started and an error message is returned.
+     *   SuccessFirst: In this mode, each ECS instance is separately started. The response contains the operation results of each ECS instance.
+     *
+     * Default value: AllTogether.
+     * @example AllTogether
+     *
      * @var string
      */
     public $batchOptimization;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   true: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
+     *
+     * > If you set the `BatchOptimization` parameter to `SuccessFirst` and the `DryRun` parameter to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
+     *
+     *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The IDs of the ECS instances. You can specify up to 100 ECS instance IDs.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $instanceId;
@@ -34,6 +57,10 @@ class StartInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

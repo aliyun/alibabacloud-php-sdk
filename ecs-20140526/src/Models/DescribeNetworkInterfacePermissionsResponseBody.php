@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacePermissionsResponseBody extends Model
 {
     /**
+     * @description Details about the ENI permissions.
+     *
      * @var networkInterfacePermissions
      */
     public $networkInterfacePermissions;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0FCD3DEF-63D3-4605-A818-805C8BD7DB87
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class operationProgress extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example ParameterInvalid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified RegionId parameter is invalid.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The status of the operation.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $operationStatus;
 
     /**
+     * @description An array consisting of RelatedItem data.
+     *
      * @var relatedItemSet
      */
     public $relatedItemSet;

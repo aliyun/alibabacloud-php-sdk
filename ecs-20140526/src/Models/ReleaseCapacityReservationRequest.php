@@ -15,6 +15,10 @@ class ReleaseCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description Specifies whether to check the validity of the request. Set the value to false. Capacity reservations are directly released.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -30,6 +34,10 @@ class ReleaseCapacityReservationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

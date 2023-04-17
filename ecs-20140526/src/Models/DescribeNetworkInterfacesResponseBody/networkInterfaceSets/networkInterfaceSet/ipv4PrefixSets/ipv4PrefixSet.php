@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipv4PrefixSet extends Model
 {
     /**
+     * @example hide
+     *
      * @var string
      */
     public $ipv4Prefix;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySnapshotGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A00B5E55-76B7-42C8-8A80-AF10E980DCC7
+     *
      * @var string
      */
     public $requestId;

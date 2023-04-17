@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyLaunchTemplateDefaultVersionRequest extends Model
 {
     /**
+     * @description The default version number of the launch template.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $defaultVersionNumber;
 
     /**
+     * @description The ID of the launch template. You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     *
+     * @example lt-s-bp177juajht6****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template. You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
@@ -34,6 +46,10 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

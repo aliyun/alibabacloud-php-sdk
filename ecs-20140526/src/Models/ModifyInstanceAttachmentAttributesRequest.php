@@ -15,6 +15,10 @@ class ModifyInstanceAttachmentAttributesRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The ID of the instance for which you want to modify the attributes of the private pool.
+     *
+     * @example i-bp67acfmxazb4****
+     *
      * @var string
      */
     public $instanceId;
@@ -30,6 +34,10 @@ class ModifyInstanceAttachmentAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the private pool. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

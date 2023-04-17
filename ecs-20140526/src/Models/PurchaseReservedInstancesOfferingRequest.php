@@ -10,36 +10,73 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal for the reserved instance. Valid values:
+     *
+     * true: enables auto-renewal for the reserved instance. false: disables auto-renewal for the reserved instance. This is the default value.
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal term of the reserved instance. Unit: months. This parameter takes effect only if you set the AutoRenew parameter to true.
+     *
+     * Default value if you set the PeriodUnit parameter to Year: 12.
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the reserved instance. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+     *
+     * By default, this parameter is left empty.
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The number of pay-as-you-go instances of the same instance type to which the reserved instance can be matched at the same time. Valid values: 1 to 50.
+     *
+     * For example, if you set the InstanceAmount parameter to 3 and the InstanceType parameter to ecs.g5.large, the reserved instance can be matched to three ecs.g5.large pay-as-you-go instances at the same time.
+     * @example 3
+     *
      * @var int
      */
     public $instanceAmount;
 
     /**
+     * @description The type of the reserved instance. For more information, see [Instance families](~~25378~~).
+     *
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The payment option of the reserved instance. Valid values:
+     *
+     *   No Upfront
+     *   Partial Upfront
+     *   All Upfront
+     *
+     * Default value: All Upfront.
+     * @example All Upfront
+     *
      * @var string
      */
     public $offeringType;
@@ -55,31 +92,61 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $ownerId;
 
     /**
+     * @description The term of the reserved instance.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the term of the reserved instance.
+     *
+     * Default value: Year.
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The operating system of the image that is used by the instance. Valid values:
+     *
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
+     *
+     * Default value: Linux.
+     * @example Linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testReservedInstanceName
+     *
      * @var string
      */
     public $reservedInstanceName;
 
     /**
+     * @description The ID of the resource group to which the reserved instance belongs.
+     *
+     * @example rg-bp199lyny9b3****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -95,16 +162,30 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The scope of the reserved instance. Valid values:
+     *
+     *   Region: regional
+     *   Zone: zonal
+     *
+     * Default value: Region.
+     * @example Zone
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The tags of the reserved instance.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone ID of the instance. If you set the `Scope` parameter to `Zone`, you must specify this parameter. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

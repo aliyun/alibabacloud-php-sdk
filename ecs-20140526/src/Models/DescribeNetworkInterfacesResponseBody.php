@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesResponseBody extends Model
 {
     /**
+     * @description Details about the ENIs.
+     *
      * @var networkInterfaceSets
      */
     public $networkInterfaceSets;
 
     /**
+     * @description The query token returned in this call.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of ENIs.
+     *
+     * > If you specify the `MaxResults` and `NextToken` parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

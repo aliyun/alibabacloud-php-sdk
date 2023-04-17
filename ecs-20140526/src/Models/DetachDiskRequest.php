@@ -35,7 +35,7 @@ class DetachDiskRequest extends Model
     public $diskId;
 
     /**
-     * @description The ID of the ECS instance from which the disk is to be detached.
+     * @description The ID of the ECS instance from which to detach the disk.
      *
      * @example i-bp67acfmxazb4p****
      *

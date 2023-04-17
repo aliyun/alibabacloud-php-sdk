@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topology extends Model
 {
     /**
-     * @description The ID of the host where the ECS instance is deployed. This parameter is encrypted and cannot match the ID of the instance. However, if the values of this parameter for different ECS instances are the same, the ECS instances are deployed on the same host.
+     * @description The ID of the host where the ECS instance resides. This parameter is encrypted and cannot match the ID of the ECS instance. However, if the values of this parameter for different ECS instances are the same, the ECS instances reside on the same host.
      *
      * @example ZWNobyBo****
      *

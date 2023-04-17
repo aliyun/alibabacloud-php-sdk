@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecommendInstanceTypeResponseBody extends Model
 {
     /**
-     * @description Details of recommended instance types.
+     * @description Details about the recommended instance types.
      *
      * @var data
      */

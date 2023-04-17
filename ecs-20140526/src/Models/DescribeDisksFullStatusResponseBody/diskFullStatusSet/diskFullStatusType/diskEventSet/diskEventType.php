@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class diskEventType extends Model
 {
     /**
+     * @description The time when the event ended.
+     *
+     * @example 2018-05-06T02:48:52Z
+     *
      * @var string
      */
     public $eventEndTime;
 
     /**
+     * @description The ID of the event.
+     *
+     * @example e-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The time when the event occurred.
+     *
+     * @example 2018-05-08T02:43:10Z
+     *
      * @var string
      */
     public $eventTime;
 
     /**
+     * @description The type of the event.
+     *
      * @var eventType
      */
     public $eventType;
 
     /**
+     * @description The impact level of the event.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $impactLevel;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesRequest extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable for general users.
+     *
      * @var string[]
      */
     public $ipv4Prefix;

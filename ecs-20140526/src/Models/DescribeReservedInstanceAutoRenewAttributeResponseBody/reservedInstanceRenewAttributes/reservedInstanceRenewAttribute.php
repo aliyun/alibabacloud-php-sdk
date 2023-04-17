@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reservedInstanceRenewAttribute extends Model
 {
     /**
+     * @description The auto-renewal duration.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class reservedInstanceRenewAttribute extends Model
     public $duration;
 
     /**
+     * @description The unit of the auto-renewal duration.
+     *
+     * Valid value: Year.
      * @example Month
      *
      * @var string
@@ -23,6 +28,11 @@ class reservedInstanceRenewAttribute extends Model
     public $periodUnit;
 
     /**
+     * @description The auto-renewal state of the reserved instance. Valid values:
+     *
+     *   AutoRenewal: The reserved instance is automatically renewed.
+     *   Normal: You must manually renew the reserved instance.
+     *
      * @example AutoRenewal
      *
      * @var string
@@ -30,6 +40,8 @@ class reservedInstanceRenewAttribute extends Model
     public $renewalStatus;
 
     /**
+     * @description The ID of the reserved instance.
+     *
      * @example ecsri-ajdfaj****
      *
      * @var string

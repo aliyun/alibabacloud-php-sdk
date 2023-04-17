@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class ResetDiskRequest extends Model
 {
     /**
+     * @description The ID of the disk that you want to roll back.
+     *
+     * @example d-bp199lyny9b3****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   true: performs a dry run. The system checks the required parameters, request format, and resource state limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -39,6 +51,10 @@ class ResetDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the snapshot that you want to use to roll back the disk.
+     *
+     * @example s-bp199lyny9b3****
+     *
      * @var string
      */
     public $snapshotId;

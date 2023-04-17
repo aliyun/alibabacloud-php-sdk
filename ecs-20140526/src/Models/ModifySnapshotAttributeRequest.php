@@ -9,41 +9,70 @@ use AlibabaCloud\Tea\Model;
 class ModifySnapshotAttributeRequest extends Model
 {
     /**
+     * @description The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to disable the instant access feature. Valid values:
+     *
+     *   true: disables the instant access feature.
+     *   false: enables the instant access feature.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $disableInstantAccess;
 
     /**
+     * @example Hide
+     *
      * @var string
      */
     public $ownerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example Hide
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp199lyny9bb47pa****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
+     *
+     * It cannot start with auto because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;

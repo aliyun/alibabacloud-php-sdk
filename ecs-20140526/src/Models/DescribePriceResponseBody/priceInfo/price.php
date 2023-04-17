@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class price extends Model
 {
     /**
+     * @description The currency unit.
+     *
+     * Alibaba Cloud International site (alibabacloud.com): USD
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description Details about the price.
+     *
+     * > This parameter is in invitational preview and unavailable.
      * @var detailInfos
      */
     public $detailInfos;
 
     /**
+     * @description The discount.
+     *
+     * @example 655.2
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @description The original price.
+     *
+     * @example 4368
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @description The hourly price of the reserved instance for which the No Upfront or Partial Upfront payment option is used.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $reservedInstanceHourPrice;
 
     /**
+     * @description The transaction price, which is equal to the original price minus the discount.
+     *
+     * @example 3712.8
+     *
      * @var float
      */
     public $tradePrice;

@@ -20,7 +20,7 @@ class recommendInstanceType extends Model
     public $commodityCode;
 
     /**
-     * @description The billing method of the instances of the instance type.
+     * @description The billing method of the instance.
      *
      * @example PostPaid
      *
@@ -36,7 +36,7 @@ class recommendInstanceType extends Model
     public $instanceType;
 
     /**
-     * @description The network type of the ECS instance.
+     * @description The network type of the instance.
      *
      * @example vpc
      *
@@ -45,7 +45,7 @@ class recommendInstanceType extends Model
     public $networkType;
 
     /**
-     * @description The sorting priority.
+     * @description The priority based on which the system sorts the instance types.
      *
      * @example 2
      *
@@ -63,7 +63,7 @@ class recommendInstanceType extends Model
     public $regionId;
 
     /**
-     * @description Indicates the scenario in which the instance type was recommended.
+     * @description The scenarios in which the instance type is recommended.
      *
      * @example CREATE
      *
@@ -72,7 +72,7 @@ class recommendInstanceType extends Model
     public $scene;
 
     /**
-     * @description The preemption policy for the preemptible instance.
+     * @description The bidding policy for the preemptible instance.
      *
      * @example NoSpot
      *
@@ -81,7 +81,7 @@ class recommendInstanceType extends Model
     public $spotStrategy;
 
     /**
-     * @description The zone ID of the instance type.
+     * @description The ID of the zone in which the instance type is available.
      *
      * @example cn-hangzhou-h
      *
@@ -90,7 +90,7 @@ class recommendInstanceType extends Model
     public $zoneId;
 
     /**
-     * @description Details of the zones where the alternative instance types are available.
+     * @description Details about zones where the instance types resides.
      *
      * @var zones
      */

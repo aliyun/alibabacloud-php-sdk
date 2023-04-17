@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class networkCardInfo extends Model
 {
     /**
+     * @description The index of the NIC.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $networkCardIndex;

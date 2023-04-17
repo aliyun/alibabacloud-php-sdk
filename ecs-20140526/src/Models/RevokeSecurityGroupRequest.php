@@ -10,36 +10,64 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.Description` to specify the description of security group rule N.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $destCidrIp;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     *
+     * @example ALL
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+     *
+     * @example 2001:db8:1233:1a00::***
+     *
      * @var string
      */
     public $ipv6DestCidrIp;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
+     *
+     * @example 2001:db8:1234:1a00::***
+     *
      * @var string
      */
     public $ipv6SourceCidrIp;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.NicType` to specify the network interface type.
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $nicType;
@@ -55,26 +83,44 @@ class RevokeSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The security group rules. Valid values of N: 1 to 100.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.Policy` to specify whether to accept inbound access.
+     *
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.PortRange` to specify the range of destination ports.
+     *
+     * @example 1/200
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.Priority` to specify the rule priority.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -90,41 +136,71 @@ class RevokeSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The ID of security group rule N. Valid values of N: 1 to 100.
+     *
      * @var string[]
      */
     public $securityGroupRuleId;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupId` to specify the ID of the source security group.
+     *
+     * @example sg-bp67acfmxa123b****
+     *
      * @var string
      */
     public $sourceGroupId;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupOwnerAccount` to specify the Alibaba Cloud account that manages the source security group.
+     *
+     * @example Test@aliyun.com
+     *
      * @var string
      */
     public $sourceGroupOwnerAccount;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the source security group.
+     *
+     * @example 12345678910
+     *
      * @var int
      */
     public $sourceGroupOwnerId;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
+     *
+     * @example 80/80
+     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
+     * @description This parameter is no longer used. Use `Permissions.N.SourcePrefixListId`to specify the ID of the source prefix list.
+     *
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
      * @var string
      */
     public $sourcePrefixListId;

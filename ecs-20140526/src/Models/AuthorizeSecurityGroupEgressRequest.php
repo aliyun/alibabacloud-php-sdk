@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupEgressRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -19,7 +19,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the description of the security group rule.
+     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the description of security group rule N.
      *
      * @example This is description.
      *
@@ -119,14 +119,14 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
-     * @description Security group rules. Valid values of N: 1 to 100.
+     * @description The security group rules. Valid values of N: 1 to 100.
      *
      * @var permissions[]
      */
     public $permissions;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Policy` to specify whether to allow outbound access.
+     * @description This parameter is deprecated. Use `Permissions.N.Policy` to specify whether to accept inbound access.
      *
      * @example accept
      *
@@ -153,7 +153,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $priority;
 
     /**
-     * @description The region ID of the source security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the source security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

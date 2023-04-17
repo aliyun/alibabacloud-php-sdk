@@ -18,7 +18,7 @@ class valueItem extends Model
     public $count;
 
     /**
-     * @description The category of the data disk. Valid values:
+     * @description The data disk category. Valid values:
      *
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
@@ -49,7 +49,7 @@ class valueItem extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type.
+     * @description The type of the instance.
      *
      * @example ecs.g5.large
      *
@@ -62,29 +62,29 @@ class valueItem extends Model
      *
      * The values returned for the resource quotas to which the following AttributeName values correspond are 0 or positive integers:
      *
-     * max-security-groups
-     * max-elastic-network-interfaces
-     * max-postpaid-instance-vcpu-count
-     * max-spot-instance-vcpu-count
-     * used-postpaid-instance-vcpu-count
-     * used-spot-instance-vcpu-count
-     * max-postpaid-yundisk-capacity
-     * used-postpaid-yundisk-capacity
-     * max-dedicated-hosts
-     * max-axt-command-count
-     * max-axt-invocation-daily
-     * max-cloud-assistant-activation-count
+     *   max-security-groups
+     *   max-elastic-network-interfaces
+     *   max-postpaid-instance-vcpu-count
+     *   max-spot-instance-vcpu-count
+     *   used-postpaid-instance-vcpu-count
+     *   used-spot-instance-vcpu-count
+     *   max-postpaid-yundisk-capacity
+     *   used-postpaid-yundisk-capacity
+     *   max-dedicated-hosts
+     *   max-axt-command-count
+     *   max-axt-invocation-daily
+     *   max-cloud-assistant-activation-count
      *
      * When the AttributeName parameter is set to real-name-authentications, one of the following values is returned:
      *
-     * yes
-     * none
-     * unnecessary
+     *   yes
+     *   none
+     *   unnecessary
      *
      * When the AttributeName parameter is set to instance-network-type, one of the following values is returned:
      *
-     * vpc
-     * classic
+     *   vpc
+     *   classic
      *
      * @example 800
      *
@@ -93,7 +93,7 @@ class valueItem extends Model
     public $value;
 
     /**
-     * @description The ID of the zone.
+     * @description The ID of the zone in which the resource resides.
      *
      * @example cn-hangzhou-b
      *

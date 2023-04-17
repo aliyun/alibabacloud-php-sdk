@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListsRequest extends Model
 {
     /**
+     * @description The IP address family of the prefix list. Valid values:
+     *
+     *   IPv4
+     *   IPv6
+     *
+     * This parameter is empty by default, which indicates that all prefix lists are queried.
+     * @example IPv4
+     *
      * @var string
      */
     public $addressFamily;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The query token. Set the value to the `NextToken` value returned in the previous call to the DescribePrefixLists operation. Leave this parameter empty the first time you call this operation.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -34,16 +51,28 @@ class DescribePrefixListsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IDs of prefix list.
+     *
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
      * @var string[]
      */
     public $prefixListId;
 
     /**
+     * @description The name of the prefix list.
+     *
+     * @example PrefixListNameSample
+     *
      * @var string
      */
     public $prefixListName;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-chengdu
+     *
      * @var string
      */
     public $regionId;

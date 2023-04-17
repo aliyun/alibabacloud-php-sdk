@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The ID of the private pool. Set the value to the ID of the elasticity assurance or capacity reservation that generates the private pool.
+     *
+     *   This parameter is required when `PrivatePoolOptions.MatchCriteria` is set to `Target`.
+     *   This parameter must be empty when `PrivatePoolOptions.MatchCriteria` is set to `Open` or `None`.
+     *
+     * @example eap-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The match mode of the private pool. Valid values:
+     *
+     *   Open: open private pool. The system matches the instance with open private pools.
+     *   Target: specified private pool. You must use `PrivatePoolOptions.Id` to specify the ID of a private pool.
+     *   None: no private pool. The instance starts normally without using private pools.
+     *
+     * @example Open
+     *
      * @var string
      */
     public $matchCriteria;

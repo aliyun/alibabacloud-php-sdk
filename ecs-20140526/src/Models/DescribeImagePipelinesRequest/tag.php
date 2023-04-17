@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N of the image template. Valid values of N: 1 to 20.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N of the image template. Valid values of N: 1 to 20.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

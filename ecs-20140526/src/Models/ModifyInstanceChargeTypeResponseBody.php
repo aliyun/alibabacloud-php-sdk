@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceChargeTypeResponseBody extends Model
 {
     /**
+     * @description Details about the charges for the order.
+     *
      * @var feeOfInstances
      */
     public $feeOfInstances;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 20413515388****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B61C08E5-403A-46A2-96C1-F7B1216DB10C
+     *
      * @var string
      */
     public $requestId;

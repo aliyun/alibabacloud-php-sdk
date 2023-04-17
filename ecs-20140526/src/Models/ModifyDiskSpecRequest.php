@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecRequest\performanceControlOptions;
 use AlibabaCloud\Tea\Model;
 
 class ModifyDiskSpecRequest extends Model
@@ -55,6 +56,11 @@ class ModifyDiskSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @var performanceControlOptions
+     */
+    public $performanceControlOptions;
+
+    /**
      * @description The new performance level of the ESSD. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
@@ -91,15 +97,16 @@ class ModifyDiskSpecRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'diskCategory'         => 'DiskCategory',
-        'diskId'               => 'DiskId',
-        'dryRun'               => 'DryRun',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'performanceLevel'     => 'PerformanceLevel',
-        'provisionedIops'      => 'ProvisionedIops',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'diskCategory'              => 'DiskCategory',
+        'diskId'                    => 'DiskId',
+        'dryRun'                    => 'DryRun',
+        'ownerAccount'              => 'OwnerAccount',
+        'ownerId'                   => 'OwnerId',
+        'performanceControlOptions' => 'PerformanceControlOptions',
+        'performanceLevel'          => 'PerformanceLevel',
+        'provisionedIops'           => 'ProvisionedIops',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -123,6 +130,9 @@ class ModifyDiskSpecRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->performanceControlOptions) {
+            $res['PerformanceControlOptions'] = null !== $this->performanceControlOptions ? $this->performanceControlOptions->toMap() : null;
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
@@ -162,6 +172,9 @@ class ModifyDiskSpecRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PerformanceControlOptions'])) {
+            $model->performanceControlOptions = performanceControlOptions::fromMap($map['PerformanceControlOptions']);
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];

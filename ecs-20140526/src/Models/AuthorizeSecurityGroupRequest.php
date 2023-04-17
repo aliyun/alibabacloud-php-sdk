@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among the requests. The **ClientToken** value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -136,7 +136,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group.
+     * @description The ID of the security group to which the instance belongs.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -190,7 +190,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $sourcePortRange;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId`to specify the ID of the source prefix list.
+     * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId` to specify the ID of the source prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *

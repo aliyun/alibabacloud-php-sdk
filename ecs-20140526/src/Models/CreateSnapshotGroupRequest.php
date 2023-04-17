@@ -19,12 +19,12 @@ class CreateSnapshotGroupRequest extends Model
     public $description;
 
     /**
-     * @description The ID of disk N for which you want to create snapshots. You can specify multiple disk IDs across instances with the same zone. Valid values of N: 1 to 16. A single snapshot-consistent group can contain snapshots of up to 16 disks and cannot exceed 32 TiB in size.
+     * @description The ID of disk N for which you want to create snapshots. You can specify multiple disk IDs across instances within the same zone. Valid values of N: 1 to 16. A single snapshot-consistent group can contain snapshots of up to 16 disks and cannot exceed 32 TiB in size.
      *
-     * When you call this operation, take note of the following items:
+     * Take note of the following items:
      *
      *   You cannot specify both DiskId.N and `ExcludeDiskId.N`.
-     *   If `InstanceId` is specified, DiskId.N is only used to specify the disks that are attached to the instance specified by InstanceId.
+     *   If `InstanceId` is set, you can use DiskId.N to specify only disks attached to the instance specified by InstanceId, and you cannot use DiskId.N to specify disks attached to multiple instances.
      *
      * @var string[]
      */
@@ -33,7 +33,7 @@ class CreateSnapshotGroupRequest extends Model
     /**
      * @description The ID of disk N for which you do not need to create snapshots. After this parameter is specified, the created snapshot-consistent group does not contain snapshots of the disk. Valid values of N: 1 to 16.
      *
-     * > You cannot specify both ExcludeDiskId.N and `DiskId.N`.
+     * > You cannot specify ExcludeDiskId.N and `DiskId.N` in the same request.
      * @example d-j6cf7l0ewidb78lq****
      *
      * @var string[]
@@ -50,10 +50,10 @@ class CreateSnapshotGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specifies whether to enable the instant access feature. Valid values:
+     * @description Specify whether to enable the instant access feature. Valid values:
      *
-     *   true: enables the instant access feature.
-     *   false: disables the instant access feature.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -65,7 +65,7 @@ class CreateSnapshotGroupRequest extends Model
     /**
      * @description Specify the number of days for which the instant access feature is available. Unit: days. Valid values: 1 to 65535.
      *
-     * This parameter is empty by default, which indicates that the expiration time of the instant access feature is determined by the time when the snapshots are released.
+     * This parameter is empty by default, which indicates that the instant access feature expires when snapshots are released.
      * @example 1
      *
      * @var int
@@ -92,7 +92,7 @@ class CreateSnapshotGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -129,7 +129,7 @@ class CreateSnapshotGroupRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The tags to add to the snapshot-consistent group.
+     * @description The tags of the command.
      *
      * @var tag[]
      */

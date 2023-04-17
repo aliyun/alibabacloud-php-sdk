@@ -9,21 +9,55 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
+     * @example i-bp1j6qtvdm8w0z1o****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   instance: ECS instance
+     *   disk: disk
+     *   snapshot: snapshot
+     *   image: image
+     *   securitygroup: security group
+     *   volume: storage volume
+     *   eni: ENI
+     *   ddh: dedicated host
+     *   ddhcluster: dedicated host cluster
+     *   keypair: SSH key pair
+     *   launchtemplate: launch template
+     *   reservedinstance: reserved instance
+     *   snapshotpolicy: automatic snapshot policy
+     *   elasticityassurance: elasticity assurance
+     *   capacityreservation: capacity reservation
+     *   command: Cloud Assistant command.
+     *   invocation: Cloud Assistant command execution result
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $tagValue;

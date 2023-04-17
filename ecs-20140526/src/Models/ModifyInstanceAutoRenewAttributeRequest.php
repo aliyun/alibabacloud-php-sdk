@@ -21,9 +21,8 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     /**
      * @description The auto-renewal period for the instance.
      *
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Year` (year): 1, 2, 3, 4, and 5.
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Month` (month): 1, 2, 3, 6, 12, 24, 36, 48, and 60.
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Week` (week): 1, 2, 3, and 4.
+     *   Valid values of `Duration` when `PeriodUnit` is set to `Year`: 1, 2, 3, 4, and 5.
+     *   Valid values of `Duration` when `PeriodUnit` is set to `Month` : 1, 2, 3, 6, 12, 24, 36, 48, and 60.
      *
      * @example 1
      *
@@ -32,7 +31,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $duration;
 
     /**
-     * @description The ID of the instance. You can specify IDs of up to 100 subscription instances. Separate the instance IDs with commas (,).
+     * @description The ID of the instance You can specify IDs of up to 100 subscription instances. Separate the instance IDs with commas (,).
      *
      * @example i-bp67acfmxazb4ph****,i-bp67acfmxazb4pi****
      *
@@ -53,7 +52,6 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     /**
      * @description The unit of the renewal period (`Duration`). Default value: Month. Valid values:
      *
-     *   Week
      *   Month
      *   Year
      *
@@ -64,7 +62,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

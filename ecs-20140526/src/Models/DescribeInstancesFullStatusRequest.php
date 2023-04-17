@@ -112,7 +112,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -133,9 +133,9 @@ class DescribeInstancesFullStatusRequest extends Model
     /**
      * @description The lifecycle state of the instance. Valid values:
      *
-     *   Starting: The instance is being started.
-     *   Running: The instance is running.
-     *   Stopped: The instance is stopped.
+     *   Starting
+     *   Running
+     *   Stopped
      *
      * @example Running
      *

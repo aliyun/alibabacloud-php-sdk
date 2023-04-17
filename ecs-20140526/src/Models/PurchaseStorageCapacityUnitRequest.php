@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class PurchaseStorageCapacityUnitRequest extends Model
 {
     /**
+     * @description The number of SCUs that you want to purchase. Valid values: 1 to 20.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5210, 10240, 20480, and 52100.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the SCU. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example ScuPurchaseDemo
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The source of the request. The value is automatically set to OpenAPI and does not need to be changed. Default value: OpenAPI.
+     *
+     * @example OpenAPI
+     *
      * @var string
      */
     public $fromApp;
 
     /**
+     * @description The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example ScuPurchaseDemo
+     *
      * @var string
      */
     public $name;
@@ -50,16 +75,36 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $ownerId;
 
     /**
+     * @description The validity period of the SCU. Valid values:
+     *
+     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
+     *   Valid values when PeriodUnit is set to Year: 1, 3, and 5.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the validity period of the SCU. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the region in which to purchase the SCU. After this parameter is specified, the purchased SCU can offset bills of only pay-as-you-go disks that reside in the specified region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -75,11 +120,18 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time when the SCU takes effect. It can be up to six months later than the time when the SCU is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * This parameter is empty by default. If this parameter is left empty, the SCU takes effect immediately after it is created.
+     * @example 2020-09-09T02:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The tags to add to the SCU.
+     *
      * @var tag[]
      */
     public $tag;

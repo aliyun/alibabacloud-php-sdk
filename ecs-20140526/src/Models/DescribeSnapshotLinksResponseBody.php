@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotLinksResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the snapshot chains.
+     *
      * @var snapshotLinks
      */
     public $snapshotLinks;
 
     /**
+     * @description The total number of snapshot chains.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $totalCount;

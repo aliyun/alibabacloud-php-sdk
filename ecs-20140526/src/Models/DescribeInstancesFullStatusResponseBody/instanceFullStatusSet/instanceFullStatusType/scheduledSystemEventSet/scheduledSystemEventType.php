@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class scheduledSystemEventType extends Model
 {
     /**
-     * @description The state of the event. Valid values:
+     * @description The state of the event.
      *
      * @var eventCycleStatus
      */

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the managed instance.
+     *
+     * @example mi-hz01nmcf****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the managed instance.
+     *
+     * @example testInstanceName
+     *
      * @var string
      */
     public $instanceName;

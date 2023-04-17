@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcesModificationRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $conditions;
+
+    /**
      * @description The number of vCPU cores of the instance type. For more information, see [Instance families](~~25378~~). This parameter is valid only when DestinationResource is set to InstanceType.
      *
      * @example 2
@@ -134,6 +139,7 @@ class DescribeResourcesModificationRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'conditions'           => 'Conditions',
         'cores'                => 'Cores',
         'destinationResource'  => 'DestinationResource',
         'instanceType'         => 'InstanceType',
@@ -156,6 +162,9 @@ class DescribeResourcesModificationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conditions) {
+            $res['Conditions'] = $this->conditions;
+        }
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
@@ -207,6 +216,11 @@ class DescribeResourcesModificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Conditions'])) {
+            if (!empty($map['Conditions'])) {
+                $model->conditions = $map['Conditions'];
+            }
+        }
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }

@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class addEntry extends Model
 {
     /**
+     * @description The CIDR block of entry N to be added to the prefix list. Valid values of N: 0 to 200.
+     *
+     * Take note of the following items when you add the entries:
+     *
+     *   The number of entries in the prefix list cannot be greater than the maximum number of entries allowed for the prefix list. You can call the [DescribePrefixListAttributes](~~205872~~) operation to query the maximum number of entries in a specific prefix list.
+     *   You cannot specify duplicate CIDR blocks.
+     *   The CIDR blocks cannot be the same as the `RemoveEntry.N.Cidr` values.
+     *
+     * @example 192.168.2.0/24
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @description The description in entry N. The description must be 2 to 32 characters in length and cannot start with `http://` or `https://`. Valid values of N: 0 to 200.
+     *
+     * @example Description Sample 01
+     *
      * @var string
      */
     public $description;
