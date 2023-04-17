@@ -602,6 +602,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->replica)) {
             $query['Replica'] = $request->replica;
         }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }

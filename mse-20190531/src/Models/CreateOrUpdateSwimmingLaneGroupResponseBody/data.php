@@ -14,6 +14,8 @@ class data extends Model
     public $appIds;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $dbGrayEnable;
@@ -34,6 +36,8 @@ class data extends Model
     public $id;
 
     /**
+     * @example Client
+     *
      * @var string
      */
     public $messageQueueFilterSide;
@@ -44,11 +48,15 @@ class data extends Model
     public $messageQueueGrayEnable;
 
     /**
+     * @example example-app
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $namespace;

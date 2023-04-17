@@ -101,6 +101,11 @@ class AddGatewayRequest extends Model
     public $replica;
 
     /**
+     * @var string
+     */
+    public $requestPars;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-acfm34x43l*****
@@ -191,6 +196,7 @@ class AddGatewayRequest extends Model
         'name'                       => 'Name',
         'region'                     => 'Region',
         'replica'                    => 'Replica',
+        'requestPars'                => 'RequestPars',
         'resourceGroupId'            => 'ResourceGroupId',
         'slbSpec'                    => 'SlbSpec',
         'spec'                       => 'Spec',
@@ -234,6 +240,9 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -303,6 +312,9 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
