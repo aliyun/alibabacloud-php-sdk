@@ -16,14 +16,20 @@ class BeginSessionResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $silenceReplyTimeout;
+
+    /**
      * @example 智能对话机器人为您服务，请问有什么可以帮您？
      *
      * @var string
      */
     public $welcomeMessage;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'welcomeMessage' => 'WelcomeMessage',
+        'requestId'           => 'RequestId',
+        'silenceReplyTimeout' => 'SilenceReplyTimeout',
+        'welcomeMessage'      => 'WelcomeMessage',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class BeginSessionResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->silenceReplyTimeout) {
+            $res['SilenceReplyTimeout'] = $this->silenceReplyTimeout;
         }
         if (null !== $this->welcomeMessage) {
             $res['WelcomeMessage'] = $this->welcomeMessage;
@@ -53,6 +62,9 @@ class BeginSessionResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SilenceReplyTimeout'])) {
+            $model->silenceReplyTimeout = $map['SilenceReplyTimeout'];
         }
         if (isset($map['WelcomeMessage'])) {
             $model->welcomeMessage = $map['WelcomeMessage'];
