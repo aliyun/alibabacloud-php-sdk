@@ -9,20 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AccessTokenRequest extends Model
 {
     /**
-     * @example 34j3df
-     *
-     * @var string
-     */
-    public $appKey;
-
-    /**
      * @example ggZADkghsadgogeDxdaD
      *
      * @var string
      */
     public $appSecret;
     protected $_name = [
-        'appKey'    => 'app_key',
         'appSecret' => 'app_secret',
     ];
 
@@ -33,9 +25,6 @@ class AccessTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appKey) {
-            $res['app_key'] = $this->appKey;
-        }
         if (null !== $this->appSecret) {
             $res['app_secret'] = $this->appSecret;
         }
@@ -51,9 +40,6 @@ class AccessTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['app_key'])) {
-            $model->appKey = $map['app_key'];
-        }
         if (isset($map['app_secret'])) {
             $model->appSecret = $map['app_secret'];
         }

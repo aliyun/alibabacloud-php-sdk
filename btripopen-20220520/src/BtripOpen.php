@@ -383,9 +383,6 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['app_key'] = $request->appKey;
-        }
         if (!Utils::isUnset($request->appSecret)) {
             $query['app_secret'] = $request->appSecret;
         }
