@@ -171,6 +171,9 @@ class Cloudauthintl extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
+        }
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
         }
@@ -183,6 +186,12 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->flowType)) {
             $query['FlowType'] = $request->flowType;
         }
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
+        }
+        if (!Utils::isUnset($request->idSpoof)) {
+            $query['IdSpoof'] = $request->idSpoof;
+        }
         if (!Utils::isUnset($request->merchantBizId)) {
             $query['MerchantBizId'] = $request->merchantBizId;
         }
@@ -191,6 +200,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->metaInfo)) {
             $query['MetaInfo'] = $request->metaInfo;
+        }
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
         }
         if (!Utils::isUnset($request->operationMode)) {
             $query['OperationMode'] = $request->operationMode;
@@ -203,6 +215,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->productConfig)) {
             $query['ProductConfig'] = $request->productConfig;
+        }
+        if (!Utils::isUnset($request->returnUrl)) {
+            $query['ReturnUrl'] = $request->returnUrl;
         }
         if (!Utils::isUnset($request->sceneCode)) {
             $query['SceneCode'] = $request->sceneCode;

@@ -17,9 +17,15 @@ class result extends Model
      * @var string
      */
     public $transactionId;
+
+    /**
+     * @var string
+     */
+    public $transactionUrl;
     protected $_name = [
-        'clientCfg'     => 'ClientCfg',
-        'transactionId' => 'TransactionId',
+        'clientCfg'      => 'ClientCfg',
+        'transactionId'  => 'TransactionId',
+        'transactionUrl' => 'TransactionUrl',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class result extends Model
         }
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
+        }
+        if (null !== $this->transactionUrl) {
+            $res['TransactionUrl'] = $this->transactionUrl;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class result extends Model
         }
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
+        }
+        if (isset($map['TransactionUrl'])) {
+            $model->transactionUrl = $map['TransactionUrl'];
         }
 
         return $model;

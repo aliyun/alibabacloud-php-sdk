@@ -11,6 +11,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $crop;
+
+    /**
+     * @var string
+     */
     public $docType;
 
     /**
@@ -31,6 +36,16 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $idFaceQuality;
+
+    /**
+     * @var string
+     */
+    public $idSpoof;
+
+    /**
+     * @var string
+     */
     public $merchantBizId;
 
     /**
@@ -42,6 +57,11 @@ class InitializeRequest extends Model
      * @var string
      */
     public $metaInfo;
+
+    /**
+     * @var string
+     */
+    public $ocr;
 
     /**
      * @var string
@@ -66,6 +86,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $returnUrl;
+
+    /**
+     * @var string
+     */
     public $sceneCode;
 
     /**
@@ -73,17 +98,22 @@ class InitializeRequest extends Model
      */
     public $serviceLevel;
     protected $_name = [
+        'crop'              => 'Crop',
         'docType'           => 'DocType',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
         'flowType'          => 'FlowType',
+        'idFaceQuality'     => 'IdFaceQuality',
+        'idSpoof'           => 'IdSpoof',
         'merchantBizId'     => 'MerchantBizId',
         'merchantUserId'    => 'MerchantUserId',
         'metaInfo'          => 'MetaInfo',
+        'ocr'               => 'Ocr',
         'operationMode'     => 'OperationMode',
         'pages'             => 'Pages',
         'productCode'       => 'ProductCode',
         'productConfig'     => 'ProductConfig',
+        'returnUrl'         => 'ReturnUrl',
         'sceneCode'         => 'SceneCode',
         'serviceLevel'      => 'ServiceLevel',
     ];
@@ -95,6 +125,9 @@ class InitializeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->crop) {
+            $res['Crop'] = $this->crop;
+        }
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
@@ -107,6 +140,12 @@ class InitializeRequest extends Model
         if (null !== $this->flowType) {
             $res['FlowType'] = $this->flowType;
         }
+        if (null !== $this->idFaceQuality) {
+            $res['IdFaceQuality'] = $this->idFaceQuality;
+        }
+        if (null !== $this->idSpoof) {
+            $res['IdSpoof'] = $this->idSpoof;
+        }
         if (null !== $this->merchantBizId) {
             $res['MerchantBizId'] = $this->merchantBizId;
         }
@@ -115,6 +154,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->metaInfo) {
             $res['MetaInfo'] = $this->metaInfo;
+        }
+        if (null !== $this->ocr) {
+            $res['Ocr'] = $this->ocr;
         }
         if (null !== $this->operationMode) {
             $res['OperationMode'] = $this->operationMode;
@@ -127,6 +169,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->productConfig) {
             $res['ProductConfig'] = $this->productConfig;
+        }
+        if (null !== $this->returnUrl) {
+            $res['ReturnUrl'] = $this->returnUrl;
         }
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
@@ -146,6 +191,9 @@ class InitializeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Crop'])) {
+            $model->crop = $map['Crop'];
+        }
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
@@ -158,6 +206,12 @@ class InitializeRequest extends Model
         if (isset($map['FlowType'])) {
             $model->flowType = $map['FlowType'];
         }
+        if (isset($map['IdFaceQuality'])) {
+            $model->idFaceQuality = $map['IdFaceQuality'];
+        }
+        if (isset($map['IdSpoof'])) {
+            $model->idSpoof = $map['IdSpoof'];
+        }
         if (isset($map['MerchantBizId'])) {
             $model->merchantBizId = $map['MerchantBizId'];
         }
@@ -166,6 +220,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['MetaInfo'])) {
             $model->metaInfo = $map['MetaInfo'];
+        }
+        if (isset($map['Ocr'])) {
+            $model->ocr = $map['Ocr'];
         }
         if (isset($map['OperationMode'])) {
             $model->operationMode = $map['OperationMode'];
@@ -178,6 +235,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['ProductConfig'])) {
             $model->productConfig = $map['ProductConfig'];
+        }
+        if (isset($map['ReturnUrl'])) {
+            $model->returnUrl = $map['ReturnUrl'];
         }
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
