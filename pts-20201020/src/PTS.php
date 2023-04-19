@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustPtsSceneSpeedRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustPtsSceneSpeedResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustPtsSceneSpeedShrinkRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneBaseLineFromReportRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneBaseLineFromReportResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\CreatePtsSceneRequest;
@@ -30,6 +33,8 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSceneRunningDataRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSceneRunningDataResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetOpenJMeterSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetOpenJMeterSceneResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsDebugSampleLogsRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsDebugSampleLogsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportsBySceneIdRequest;
@@ -173,6 +178,57 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->adjustJMeterSceneSpeedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AdjustPtsSceneSpeedRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AdjustPtsSceneSpeedResponse
+     */
+    public function adjustPtsSceneSpeedWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AdjustPtsSceneSpeedShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->apiSpeedList)) {
+            $request->apiSpeedListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiSpeedList, 'ApiSpeedList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->apiSpeedListShrink)) {
+            $query['ApiSpeedList'] = $request->apiSpeedListShrink;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AdjustPtsSceneSpeed',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AdjustPtsSceneSpeedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AdjustPtsSceneSpeedRequest $request
+     *
+     * @return AdjustPtsSceneSpeedResponse
+     */
+    public function adjustPtsSceneSpeed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->adjustPtsSceneSpeedWithOptions($request, $runtime);
     }
 
     /**
@@ -713,6 +769,55 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOpenJMeterSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPtsDebugSampleLogsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPtsDebugSampleLogsResponse
+     */
+    public function getPtsDebugSampleLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPtsDebugSampleLogs',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPtsDebugSampleLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPtsDebugSampleLogsRequest $request
+     *
+     * @return GetPtsDebugSampleLogsResponse
+     */
+    public function getPtsDebugSampleLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPtsDebugSampleLogsWithOptions($request, $runtime);
     }
 
     /**
