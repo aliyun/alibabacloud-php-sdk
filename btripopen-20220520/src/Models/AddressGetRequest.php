@@ -16,6 +16,11 @@ class AddressGetRequest extends Model
     public $actionType;
 
     /**
+     * @var string
+     */
+    public $carScenesCode;
+
+    /**
      * @example 460e254b5a5b4bd0801744a2790e5d78
      *
      * @var string
@@ -44,12 +49,13 @@ class AddressGetRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'actionType'  => 'action_type',
-        'itineraryId' => 'itinerary_id',
-        'phone'       => 'phone',
-        'subCorpId'   => 'sub_corp_id',
-        'type'        => 'type',
-        'userId'      => 'user_id',
+        'actionType'    => 'action_type',
+        'carScenesCode' => 'car_scenes_code',
+        'itineraryId'   => 'itinerary_id',
+        'phone'         => 'phone',
+        'subCorpId'     => 'sub_corp_id',
+        'type'          => 'type',
+        'userId'        => 'user_id',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class AddressGetRequest extends Model
         $res = [];
         if (null !== $this->actionType) {
             $res['action_type'] = $this->actionType;
+        }
+        if (null !== $this->carScenesCode) {
+            $res['car_scenes_code'] = $this->carScenesCode;
         }
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
@@ -91,6 +100,9 @@ class AddressGetRequest extends Model
         $model = new self();
         if (isset($map['action_type'])) {
             $model->actionType = $map['action_type'];
+        }
+        if (isset($map['car_scenes_code'])) {
+            $model->carScenesCode = $map['car_scenes_code'];
         }
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];

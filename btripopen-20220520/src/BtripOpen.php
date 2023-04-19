@@ -493,6 +493,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->actionType)) {
             $query['action_type'] = $request->actionType;
         }
+        if (!Utils::isUnset($request->carScenesCode)) {
+            $query['car_scenes_code'] = $request->carScenesCode;
+        }
         if (!Utils::isUnset($request->itineraryId)) {
             $query['itinerary_id'] = $request->itineraryId;
         }

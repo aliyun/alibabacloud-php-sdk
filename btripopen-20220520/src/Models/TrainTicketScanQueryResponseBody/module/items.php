@@ -118,6 +118,16 @@ class items extends Model
      * @var string
      */
     public $taxRate;
+
+    /**
+     * @var string
+     */
+    public $ticketNo;
+
+    /**
+     * @var string
+     */
+    public $trainNo;
     protected $_name = [
         'arrStation'   => 'arr_station',
         'billDate'     => 'bill_date',
@@ -138,6 +148,8 @@ class items extends Model
         'serialNumber' => 'serial_number',
         'taxAmount'    => 'tax_amount',
         'taxRate'      => 'tax_rate',
+        'ticketNo'     => 'ticket_no',
+        'trainNo'      => 'train_no',
     ];
 
     public function validate()
@@ -203,6 +215,12 @@ class items extends Model
         }
         if (null !== $this->taxRate) {
             $res['tax_rate'] = $this->taxRate;
+        }
+        if (null !== $this->ticketNo) {
+            $res['ticket_no'] = $this->ticketNo;
+        }
+        if (null !== $this->trainNo) {
+            $res['train_no'] = $this->trainNo;
         }
 
         return $res;
@@ -272,6 +290,12 @@ class items extends Model
         }
         if (isset($map['tax_rate'])) {
             $model->taxRate = $map['tax_rate'];
+        }
+        if (isset($map['ticket_no'])) {
+            $model->ticketNo = $map['ticket_no'];
+        }
+        if (isset($map['train_no'])) {
+            $model->trainNo = $map['train_no'];
         }
 
         return $model;
