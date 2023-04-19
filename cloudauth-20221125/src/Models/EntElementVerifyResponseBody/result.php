@@ -18,10 +18,16 @@ class result extends Model
     /**
      * @var string
      */
+    public $reasonCode;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
-        'bizCode' => 'BizCode',
-        'status'  => 'Status',
+        'bizCode'    => 'BizCode',
+        'reasonCode' => 'ReasonCode',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class result extends Model
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->reasonCode) {
+            $res['ReasonCode'] = $this->reasonCode;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -51,6 +60,9 @@ class result extends Model
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['ReasonCode'])) {
+            $model->reasonCode = $map['ReasonCode'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
