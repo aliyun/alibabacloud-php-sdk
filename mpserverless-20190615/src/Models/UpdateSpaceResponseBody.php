@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSpaceResponseBody extends Model
 {
     /**
+     * @example EA770971-A4A0-4555-9E00-C94A2194E150
+     *
      * @var string
      */
     public $requestId;

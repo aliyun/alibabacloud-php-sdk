@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $certDomainName;
 
     /**
+     * @example 1621252800000
+     *
      * @var int
      */
     public $certExpiredTime;
 
     /**
+     * @example 1 years
+     *
      * @var string
      */
     public $certLife;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example upload
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $serverCertificateStatus;

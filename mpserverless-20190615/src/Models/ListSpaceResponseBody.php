@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSpaceResponseBody extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $count;
@@ -20,6 +22,8 @@ class ListSpaceResponseBody extends Model
     public $gmtCreate;
 
     /**
+     * @example B314EDAD-FFCA-536D-BA9C-08B42F7C2DDE
+     *
      * @var string
      */
     public $requestId;

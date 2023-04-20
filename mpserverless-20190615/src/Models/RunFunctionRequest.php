@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RunFunctionRequest extends Model
 {
     /**
+     * @example {"functionTarget":"test-function","functionArgs":{"a":"aaaa","b":"bbbb","num":100}}
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example ach41172-adba-4af1-b2e5-63fc5f56a649
+     *
      * @var string
      */
     public $spaceId;

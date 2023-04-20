@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListWebHostingFilesRequest extends Model
 {
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****\/test/error1.png
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

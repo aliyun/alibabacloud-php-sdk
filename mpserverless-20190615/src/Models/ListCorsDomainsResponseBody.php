@@ -15,6 +15,8 @@ class ListCorsDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example ED81670E-570A-481C-A50D-6B0EAA823BB1
+     *
      * @var string
      */
     public $requestId;

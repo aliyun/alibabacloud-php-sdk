@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class webHostingFiles extends Model
 {
     /**
+     * @example image/png
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example error/error.jpg
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 1590398956000
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @example http://fbpsbvmo-15415903938*****-static.oss-cn-zhangjiakou.aliyuncs.com/0e16bb12-14af-4635-b24c-5ac1a9a*****\/test/error.jpg?Expires=1590462873&OSSAccessKeyId=STS.NT9oaFvbRzj8vSViJL2y*****&Signature=pSMbsZUZGwfZEcvT9R7VZPMp%2BVA%3D&security-token=CAISgQJ1q6Ft5B2yfSjIr5eMJNvym71zzajTdHXnjUoZPvYVjIHgpjz2IHBEeXRuA%2B0WsvQ%2Bnm9X6vgelqFZYqRoYGHiUZOgBG3HPUXzDbDasumZsJYm6vT8a0XxZjf%2F2MjNGZabKPrWZvaqbX3diyZ32sGUXD6%2BXlujQ%2Fbr4NwdGbZxZASjaidcD9p7PxZrrNRgVUHcLvGwKBXn8AGyZQhKwlMh1ToiuPzkk5bMukuE1gXAp7VL99irEP%2BNdNJxOZpzadCx0dFte7DJuCwqsEgaqfoo1vEUpWeW5I7CXwcN%2BWePN%2BvF79tuIEpwae0gEqsBtv%2F4mLhxtunSkZQQTrutnEPAOhqAAZ6L6gVhZYEK78ZBsQq1hP9nvtEGENelJYiTPWAHmB1mDutOaEzgSpwVMaP3FWpMTy6KgBKMox1NJLUZJK23NlJIlMIJ8lVyCQOG4Ig7oTXTbFc0PQMShK%2FeQIQ2WvZ2x%2F%2FZdgaZIeQR4WnawsWF%2BYC4ScTig0wYTuaLx7pH2WHJ
+     *
      * @var string
      */
     public $signedUrl;
 
     /**
+     * @example 235628
+     *
      * @var int
      */
     public $size;

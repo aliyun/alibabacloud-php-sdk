@@ -14,26 +14,36 @@ class spaces extends Model
     public $desc;
 
     /**
+     * @example 1582018007000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1582018007000
+     *
      * @var int
      */
     public $gmtLastAccess;
 
     /**
+     * @example myspace
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 368ef42a-763f-0000-acc2-8aa9564c****
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example IN_SERVICE
+     *
      * @var string
      */
     public $status;

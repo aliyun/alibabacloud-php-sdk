@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceConcurrency;
 
     /**
+     * @example 512
+     *
      * @var string
      */
     public $memory;
 
     /**
+     * @example nodejs12
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $timeout;

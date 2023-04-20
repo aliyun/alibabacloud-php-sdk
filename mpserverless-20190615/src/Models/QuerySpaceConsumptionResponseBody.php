@@ -18,11 +18,15 @@ class QuerySpaceConsumptionResponseBody extends Model
     public $csUsage;
 
     /**
+     * @example 1667059200
+     *
      * @var int
      */
     public $cycleEndTime;
 
     /**
+     * @example 1664467200
+     *
      * @var int
      */
     public $cycleStartTime;
@@ -38,21 +42,29 @@ class QuerySpaceConsumptionResponseBody extends Model
     public $fcUsage;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example F16FEFE8-4E57-5795-BE7B-2D29F0C61B8C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example mp-26fe89b6-****-4a90-b332-b424ce9651e6
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example BASE
+     *
      * @var string
      */
     public $specCode;

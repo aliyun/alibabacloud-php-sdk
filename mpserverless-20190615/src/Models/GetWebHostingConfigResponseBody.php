@@ -15,6 +15,8 @@ class GetWebHostingConfigResponseBody extends Model
     public $data;
 
     /**
+     * @example 828A8808-3FC9-418C-893A-5A708CFABB8E
+     *
      * @var string
      */
     public $requestId;

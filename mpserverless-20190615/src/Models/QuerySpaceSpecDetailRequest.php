@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySpaceSpecDetailRequest extends Model
 {
     /**
+     * @example BASE
+     *
      * @var string
      */
     public $specCode;

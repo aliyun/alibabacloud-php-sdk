@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFunctionRequest extends Model
 {
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example dece4ea0-d432-4cfa-8514-xxxx
+     *
      * @var string
      */
     public $spaceId;

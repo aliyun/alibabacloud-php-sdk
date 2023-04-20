@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpaceClientConfigResponseBody extends Model
 {
     /**
+     * @example 0a4gJT0faV*****D4lgQmw==
+     *
      * @var string
      */
     public $apiKey;
 
     /**
+     * @example 226e5213-697c-4a52-b4ff-35a09f8*****
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example cocdsfmb-12266946259*****-file.oss-cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $fileUploadEndpoint;
 
     /**
+     * @example myspace
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example -----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhki******G9w0BAQE7V0sQaj\n-----END PRIVATE KEY-----
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @example EA770971-A4A0-4555-9E00-C94A2194E150
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 226e5213-697c-4a52-b4ff-35a09f8*****
+     *
      * @var string
      */
     public $spaceId;

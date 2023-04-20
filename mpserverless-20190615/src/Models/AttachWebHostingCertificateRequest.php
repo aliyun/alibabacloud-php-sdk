@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AttachWebHostingCertificateRequest extends Model
 {
     /**
+     * @example testCert
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example upload
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example -----BEGIN RSA PRIVATE KEY----- ...... -----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----  ...... -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $serverCertificate;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

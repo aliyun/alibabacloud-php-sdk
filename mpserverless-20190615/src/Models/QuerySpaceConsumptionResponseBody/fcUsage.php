@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class fcUsage extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cost;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $txTraffic;

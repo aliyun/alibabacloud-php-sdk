@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDingtalkOpenPlatformConfigResponseBody extends Model
 {
     /**
+     * @example 44DF7A95-603F-4651-9298-BE1850BEB53F
+     *
      * @var string
      */
     public $requestId;

@@ -14,26 +14,36 @@ class CreateFunctionRequest extends Model
     public $desc;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example nodejs12
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example 226e5213-697c-4a52-b4ff-xxxxx
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeout;

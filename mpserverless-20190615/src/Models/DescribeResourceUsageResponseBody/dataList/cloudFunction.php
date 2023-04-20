@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cloudFunction extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $compute;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $traffic;

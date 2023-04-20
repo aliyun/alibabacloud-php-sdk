@@ -14,6 +14,8 @@ class dataList extends Model
     public $contents;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $functionName;
@@ -24,16 +26,22 @@ class dataList extends Model
     public $levels;
 
     /**
+     * @example C293BB03-B6AD-46C2-80D1-19C8FB573916
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example dece4ea0-d432-4cfa-8514-8a88d205e2b8
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

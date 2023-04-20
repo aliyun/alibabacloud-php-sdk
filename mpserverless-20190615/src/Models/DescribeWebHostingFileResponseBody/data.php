@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example image/png
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exists;
 
     /**
+     * @example /error.png
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 1590398956000
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @example http://fbpsbvmo-154159039388****-static.oss-cn-zhangjiakou.aliyuncs.com/0e16bb12-14af-4635-b24c-5ac1a9a*****\/error.png?Expires=1590460358&OSSAccessKeyId=STS.NUcPHyHQr2xQ6zAe5ybi*****&Signature=b2L4kBEFrA2EZvZbm3B%2FyNSxVeA%3D&security-token=CAISgQJ1q6Ft5B2yfSjIr5bWG%2FLNpY5Thbq6NFzwgTUsbuZ4grfe0Tz2IHBEeXRuA%2B0WsvQ%2Bnm9X6vgelqFZYqRoYGHiUZOjKEbIPUXzDbDasumZsJYm6vT8a0XxZjf%2F2MjNGZabKPrWZvaqbX3diyZ32sGUXD6%2BXlujQ%2Fbr4NwdGbZxZASjaidcD9p7PxZrrNRgVUHcLvGwKBXn8AGyZQhKwlMh1ToiuPzkk5bMukuE1gXAp7VL99irEP%2BNdNJxOZpzadCx0dFte7DJuCwqsEgaqfoo1vEUpWeW5I7CXwcN%2BWePN%2BvF79tuIEpwae0gEqsBtv%2F4mLhxtunSkZQQTrutnEPAOhqAAU49tl4awl%2F0fID3wRpPDCKqg%2BfXifeRRPI2Tr%2Bm4PmK4qPffsI%2F5JXB4JA71uN5TkvMC6LxxTuQnJaTateDrfEDnzyyIVISjvQ7rzt8sxZCnDDfjzx6Lc5TAELuapDjeXK6w%2BWkbhwBTWcjrGAJvdaOA4IodaPZyDlyhO4jt1nv
+     *
      * @var string
      */
     public $signedUrl;
 
     /**
+     * @example 235628
+     *
      * @var int
      */
     public $size;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateServicePolicyResponseBody extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $collectionName;
 
     /**
+     * @example {\".write\":false,\".read\":true}
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example EXTENDED
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example 8932780D-9AF2-4E50-844C-13A1250918EE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example db
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

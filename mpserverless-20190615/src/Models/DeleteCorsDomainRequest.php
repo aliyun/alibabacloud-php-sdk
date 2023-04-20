@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCorsDomainRequest extends Model
 {
     /**
+     * @example 97e3ff58-01e4-****-b975-1805fec34d77
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

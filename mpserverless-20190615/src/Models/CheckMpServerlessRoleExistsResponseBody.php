@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckMpServerlessRoleExistsResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exists;
 
     /**
+     * @example F340DF8D-7125-49B7-AC48-7F5C8DB382CB
+     *
      * @var string
      */
     public $requestId;

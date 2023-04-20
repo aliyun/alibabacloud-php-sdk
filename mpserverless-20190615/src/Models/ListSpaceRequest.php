@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListSpaceRequest extends Model
 {
     /**
+     * @example 3821658
+     *
      * @var string
      */
     public $emasWorkspaceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

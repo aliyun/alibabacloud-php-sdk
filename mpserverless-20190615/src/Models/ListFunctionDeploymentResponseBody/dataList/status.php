@@ -14,6 +14,8 @@ class status extends Model
     public $label;
 
     /**
+     * @example DEPLOY_SUCCESS
+     *
      * @var string
      */
     public $status;

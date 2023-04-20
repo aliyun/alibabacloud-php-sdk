@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpaceResponseBody extends Model
 {
     /**
+     * @example C293BB03-B6AD-46C2-80D1-19C8FB573916
+     *
      * @var string
      */
     public $requestId;

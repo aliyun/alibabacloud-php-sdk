@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 2019-06-21T02:22:55.996Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example /http/hello
+     *
      * @var string
      */
     public $httpTriggerPath;
 
     /**
+     * @example 2019-06-21T02:22:55.996Z
+     *
      * @var string
      */
     public $modifiedAt;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
@@ -40,6 +50,8 @@ class dataList extends Model
     public $spec;
 
     /**
+     * @example cron:0 0 * * * *
+     *
      * @var string
      */
     public $timingTriggerConfig;

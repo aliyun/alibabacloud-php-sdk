@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateHttpTriggerConfigResponseBody extends Model
 {
     /**
+     * @example abc.example.com
+     *
      * @var string
      */
     public $customDomain;
 
     /**
+     * @example {"notAfter":"2021-09-28T08:21:42Z","notBefore":"2021-06-30T08:21:43Z","subject":"CN=*.example.com"}
+     *
      * @var string
      */
     public $customDomainCertificateInfo;
 
     /**
+     * @example 724d************795a2.custom.bspapp.com
+     *
      * @var string
      */
     public $customDomainCname;
 
     /**
+     * @example 724dade5-492f-426b-a5df-ff****0795a2.bspapp.com
+     *
      * @var string
      */
     public $defaultEndpoint;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableService;
 
     /**
+     * @example 34C45988-2B24-****-A4DC-4D6C952890D8
+     *
      * @var string
      */
     public $requestId;

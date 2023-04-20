@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDBImportTaskRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $collection;
 
     /**
+     * @example CSV
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example UPSERT
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class cloudStorage extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $download;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $traffic;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $upload;

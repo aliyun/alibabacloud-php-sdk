@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateHttpTriggerConfigRequest extends Model
 {
     /**
+     * @example abc.xxx.com
+     *
      * @var string
      */
     public $customDomain;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIFK****GCSqGSIb3DQEBCwUA= -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $customDomainCertificate;
 
     /**
+     * @example -----BEGIN PRIVATE KEY----- MIIEwA******DmUwVD0M74ECwZw= -----END PRIVATE KEY-----
+     *
      * @var string
      */
     public $customDomainPrivateKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableService;
 
     /**
+     * @example 34C45988-2B24-****-A4DC-4D6C952890D8
+     *
      * @var string
      */
     public $spaceId;

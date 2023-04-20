@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFileRequest extends Model
 {
     /**
+     * @example id1
+     *
      * @var string
      */
     public $fileId;
@@ -21,9 +23,18 @@ class ListFileRequest extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @example CAESBgoEIgIIABgAIrQBCrEBA6wAAAAxTDdmZmZmZmZmZjg5OWJlMzguUzZkNzAyZDY2Mz***
+     *
+     * @var string
+     */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -31,12 +42,21 @@ class ListFileRequest extends Model
     /**
      * @var string
      */
+    public $prefix;
+
+    /**
+     * @example 0e16bb12-14af-4635-xxxx-5ac1a9a7bb9f
+     *
+     * @var string
+     */
     public $spaceId;
     protected $_name = [
         'fileId'    => 'FileId',
         'keyword'   => 'Keyword',
+        'mode'      => 'Mode',
         'nextToken' => 'NextToken',
         'pageSize'  => 'PageSize',
+        'prefix'    => 'Prefix',
         'spaceId'   => 'SpaceId',
     ];
 
@@ -53,11 +73,17 @@ class ListFileRequest extends Model
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
@@ -80,11 +106,17 @@ class ListFileRequest extends Model
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSpaceRequest extends Model
 {
     /**
+     * @example description
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example space1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 211975XXXX
+     *
      * @var int
      */
     public $workspaceId;

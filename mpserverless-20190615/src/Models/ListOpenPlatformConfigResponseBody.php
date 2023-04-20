@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOpenPlatformConfigResponseBody extends Model
 {
     /**
+     * @example 2540E86F-2CD4-44AC-A7AB-59CAF40C225D
+     *
      * @var string
      */
     public $requestId;

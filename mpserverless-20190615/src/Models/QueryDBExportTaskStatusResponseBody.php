@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryDBExportTaskStatusResponseBody extends Model
 {
     /**
+     * @example SERVER_BUSY
+     *
      * @var string
      */
     public $detailMessage;
 
     /**
+     * @example https://mps-zjk-share.oss-cn-zhangjiakou.aliyuncs.com/mongo/export/0e16bb12-14af-4635-b24c-5ac1a9a7bb9f/20200720104406_0150006d-ab93-4920-a63e-c011dea1e089.csv?Expires=1595215206&OSSAccessKeyId=LTAIupaslTlU****&Signature=CKxpKX3Wj%2BLVtZ****%2FTbe%2BX9sc%3D
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $exportedCount;
 
     /**
+     * @example 58881468-E779-4203-B933-BD53FDC60D6F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

@@ -6,24 +6,40 @@ namespace AlibabaCloud\SDK\MPServerless\V20190615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSpaceResponseBody extends Model
+class CreateSpaceWithOrderResponseBody extends Model
 {
     /**
-     * @example C44BB160-2F2D-5E34-BC08-B8C8B6D7702F
+     * @example emas_EmasServerlessPost_public_cn-n8m2y7l****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 222082414200***
+     *
+     * @var string
+     */
+    public $orderId;
+
+    /**
+     * @example C71E8AEA-D1C3-****-956F-C261B7A43E92
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example fd46b91a-4591-49b6-abcd-59e9733*****
+     * @example mp-1140a548-****-44ac-8bfb-a21c073f0d1a
      *
      * @var string
      */
     public $spaceId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'spaceId'   => 'SpaceId',
+        'instanceId' => 'InstanceId',
+        'orderId'    => 'OrderId',
+        'requestId'  => 'RequestId',
+        'spaceId'    => 'SpaceId',
     ];
 
     public function validate()
@@ -33,6 +49,12 @@ class CreateSpaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,11 +68,17 @@ class CreateSpaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateSpaceResponseBody
+     * @return CreateSpaceWithOrderResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

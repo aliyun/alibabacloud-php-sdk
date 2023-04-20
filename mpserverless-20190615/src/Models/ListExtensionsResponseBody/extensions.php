@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class extensions extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $enabled;
@@ -19,11 +21,15 @@ class extensions extends Model
     public $extensionDesc;
 
     /**
+     * @example https://help.aliyun.com/document_detail/137586.html
+     *
      * @var string
      */
     public $extensionDocumentationLink;
 
     /**
+     * @example ext-5d53a4fb1c9d446e2075a2cc
+     *
      * @var string
      */
     public $extensionId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dbUsage extends Model
 {
     /**
+     * @example 5685123
+     *
      * @var int
      */
     public $readCount;
 
     /**
+     * @example 2542108
+     *
      * @var int
      */
     public $storageSize;
 
     /**
+     * @example 241500
+     *
      * @var int
      */
     public $writeCount;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceQuotaResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var float
      */
     public $cloudStorageDataSizeQuota;
 
     /**
+     * @example C293BB03-B6AD-46C2-80D1-19C8FB573916
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $staticWebDataSizeQuota;

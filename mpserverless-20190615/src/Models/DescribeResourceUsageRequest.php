@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageRequest extends Model
 {
     /**
+     * @example 2021-10-02T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 226e5213-697c-****-b4ff-35a09f8a52de
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example 2021-10-01T00:00:00Z
+     *
      * @var string
      */
     public $startTime;

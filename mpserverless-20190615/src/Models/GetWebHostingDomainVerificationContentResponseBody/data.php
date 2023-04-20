@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example verify_c28a8e24b4bc9fab22d949cebdb1d7ae
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;

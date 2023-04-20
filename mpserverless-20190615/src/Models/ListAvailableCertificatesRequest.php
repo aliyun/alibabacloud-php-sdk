@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableCertificatesRequest extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

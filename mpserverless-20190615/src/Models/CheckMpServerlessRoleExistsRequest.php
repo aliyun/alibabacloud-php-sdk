@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckMpServerlessRoleExistsRequest extends Model
 {
     /**
+     * @example AliyunServiceRoleForMPServerless
+     *
      * @var string
      */
     public $roleName;

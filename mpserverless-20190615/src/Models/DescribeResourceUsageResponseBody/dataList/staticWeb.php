@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class staticWeb extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $traffic;

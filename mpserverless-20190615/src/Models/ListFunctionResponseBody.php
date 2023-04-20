@@ -21,6 +21,8 @@ class ListFunctionResponseBody extends Model
     public $paginator;
 
     /**
+     * @example D388FE2B-61D5-4A76-A8F0-xxxx
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCorsDomainResponseBody extends Model
 {
     /**
+     * @example 091A8BC0-8A73-4035-9441-922BF969631D
+     *
      * @var string
      */
     public $requestId;

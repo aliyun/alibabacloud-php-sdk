@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteWebHostingFilesRequest extends Model
 {
     /**
+     * @example /static/test.png
+     *
      * @var string[]
      */
     public $filePaths;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

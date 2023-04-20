@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionRequest extends Model
 {
     /**
+     * @example demo
+     *
      * @var string
      */
     public $filterBy;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example dece4ea0-d432-4cfa-****-8a88d205e2b8
+     *
      * @var string
      */
     public $spaceId;

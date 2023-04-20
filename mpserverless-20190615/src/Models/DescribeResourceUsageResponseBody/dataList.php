@@ -28,11 +28,15 @@ class dataList extends Model
     public $cloudStorage;
 
     /**
+     * @example 2021-10-01T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2021-10-01T15:00:00Z
+     *
      * @var string
      */
     public $startTime;

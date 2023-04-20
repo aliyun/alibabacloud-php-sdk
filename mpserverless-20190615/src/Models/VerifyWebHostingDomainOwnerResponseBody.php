@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyWebHostingDomainOwnerResponseBody extends Model
 {
     /**
+     * @example 74374923-6536-46EB-8639-409384EAE980
+     *
      * @var string
      */
     public $requestId;

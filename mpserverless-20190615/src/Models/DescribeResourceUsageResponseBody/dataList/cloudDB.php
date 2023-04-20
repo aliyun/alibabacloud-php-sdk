@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cloudDB extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $read;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $write;

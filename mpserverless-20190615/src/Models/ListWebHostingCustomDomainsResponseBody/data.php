@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example https://*.example.com, https://*.example.org
+     *
      * @var string
      */
     public $accessControlAllowOrigin;
 
     /**
+     * @example www.test.com.w.kunlungr.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example 1590470646000
+     *
      * @var int
      */
     public $createTime;
@@ -29,31 +35,43 @@ class data extends Model
     public $description;
 
     /**
+     * @example www.test.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableCors;
 
     /**
+     * @example HTTPS_FORCE
+     *
      * @var string
      */
     public $forceRedirectType;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $sslProtocol;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1590470646143
+     *
      * @var int
      */
     public $updateTime;

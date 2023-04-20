@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpaceRequest extends Model
 {
     /**
+     * @example 92e26ea9-6450-4b40-9c20-xxxx
+     *
      * @var string
      */
     public $spaceId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpacesShrinkRequest extends Model
 {
     /**
+     * @example 3449110
+     *
      * @var int
      */
     public $emasWorkspaceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -29,11 +35,15 @@ class DescribeSpacesShrinkRequest extends Model
     public $spaceIdsShrink;
 
     /**
+     * @example ULTIMATE
+     *
      * @var string
      */
     public $specCode;
 
     /**
+     * @example XKHKTPDJ
+     *
      * @var string
      */
     public $tenantId;

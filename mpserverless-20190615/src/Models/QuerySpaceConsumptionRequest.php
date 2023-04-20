@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySpaceConsumptionRequest extends Model
 {
     /**
+     * @example mp-95865273-9b1f-496d-****-cb88fa4d66a2
+     *
      * @var string
      */
     public $spaceId;

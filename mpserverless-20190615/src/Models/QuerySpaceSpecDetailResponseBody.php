@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class QuerySpaceSpecDetailResponseBody extends Model
 {
     /**
+     * @example 2147483648
+     *
      * @var int
      */
     public $csCdnTraffic;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $csDownloadCount;
 
     /**
+     * @example 8589934592
+     *
      * @var int
      */
     public $csStorageSize;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $csUploadCount;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $dbReadCount;
 
     /**
+     * @example 2147483648
+     *
      * @var int
      */
     public $dbStorageSize;
 
     /**
+     * @example 30000
+     *
      * @var int
      */
     public $dbWriteCount;
 
     /**
+     * @example 102400000
+     *
      * @var int
      */
     public $fcCost;
 
     /**
+     * @example 150000
+     *
      * @var int
      */
     public $fcRequestCount;
 
     /**
+     * @example 1073741824
+     *
      * @var int
      */
     public $fcTxTraffic;
@@ -64,11 +84,15 @@ class QuerySpaceSpecDetailResponseBody extends Model
     public $gmtCreate;
 
     /**
+     * @example 20C1EDFE-6355-4344-B20A-A7A5A1581026
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example BASE
+     *
      * @var string
      */
     public $specCode;
@@ -79,11 +103,15 @@ class QuerySpaceSpecDetailResponseBody extends Model
     public $specDetailText;
 
     /**
+     * @example 2147483648
+     *
      * @var int
      */
     public $whCdnTraffic;
 
     /**
+     * @example 8589934592
+     *
      * @var int
      */
     public $whStorageSize;

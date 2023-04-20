@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RunDBCommandRequest extends Model
 {
     /**
+     * @example {"command":"findOne","collection":"test_collection","query":{"name":"tome"}}
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example ach41172-adba-4af1-b2e5-63fc5f56a649
+     *
      * @var string
      */
     public $spaceId;

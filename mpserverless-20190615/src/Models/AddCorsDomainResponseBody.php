@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddCorsDomainResponseBody extends Model
 {
     /**
+     * @example 97e3ff58-01e4-****-b975-1805fec34d77
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example 74374923-6536-46EB-8639-409384EAE980
+     *
      * @var string
      */
     public $requestId;

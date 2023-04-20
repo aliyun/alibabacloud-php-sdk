@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 2019-06-21T02:22:53.309Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example dep-5e49fd471c9d4451c33bdd06
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example http://function-apiserver-test.oss-cn-shanghai.aliyuncs.com/5d0afc0e1c9d44*****32c30a-v5.zip?OSSAccessKeyId=LTA************&Expires=1561425220&Signature=SAgUkZFK54eAbU6TLT9zMZ7S8eg%3D
+     *
      * @var string
      */
     public $downloadSignedUrl;
 
     /**
+     * @example 2019-06-21T02:22:55.996Z
+     *
      * @var string
      */
     public $modifiedAt;
@@ -35,6 +43,8 @@ class dataList extends Model
     public $status;
 
     /**
+     * @example 2019061110511930090
+     *
      * @var string
      */
     public $versionNo;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDingtalkOpenPlatformConfigRequest extends Model
 {
     /**
+     * @example dingoa7pqicyk3x9t*****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
@@ -21,11 +23,15 @@ class DescribeResourceUsageResponseBody extends Model
     public $dataList;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example SpaceNotExist
+     *
      * @var string
      */
     public $message;
@@ -36,11 +42,15 @@ class DescribeResourceUsageResponseBody extends Model
     public $paginator;
 
     /**
+     * @example C293BB03-B6AD-46C2-80D1-19C8FB573916
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

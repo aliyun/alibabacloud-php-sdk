@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeployFunctionRequest extends Model
 {
     /**
+     * @example dep-5e49fd471c9d4451c33bdd06
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example dece4ea0-d432-4cfa-****-8a88d205e2b8xxxx
+     *
      * @var string
      */
     public $spaceId;

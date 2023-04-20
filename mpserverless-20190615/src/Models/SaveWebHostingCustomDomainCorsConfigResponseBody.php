@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SaveWebHostingCustomDomainCorsConfigResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example SpaceNotExist
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 6E2E1770-E9C7-52E9-BF2C-94A0BACFADBE"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

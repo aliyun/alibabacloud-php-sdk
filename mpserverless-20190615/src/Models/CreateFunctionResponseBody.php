@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionResponseBody extends Model
 {
     /**
+     * @example 2021-11-18T08:02:33.954Z
+     *
      * @var string
      */
     public $createdAt;
@@ -20,16 +22,22 @@ class CreateFunctionResponseBody extends Model
     public $desc;
 
     /**
+     * @example 021-11-18T08:02:33.954Z
+     *
      * @var string
      */
     public $modifiedAt;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example E63E7F4F-8538-5B0E-8712-78F92B6DCB9C
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class deployment extends Model
 {
     /**
+     * @example 2019-06-11T10:51:19Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example dep-62020d3bea44fd4608118233
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example http://bucket.oss-cn-shanghai.aliyuncs.com/xxxx-v2.zip?OSSAccessKeyId=LT*********1DkK6&Expires=1561425220&Signature=xEuiAgUMShQ4v8fYIl3FM8Jp3MA%3D
+     *
      * @var string
      */
     public $downloadSignedUrl;
 
     /**
+     * @example 2019-06-11T10:51:19Z
+     *
      * @var string
      */
     public $modifiedAt;
 
     /**
+     * @example 2019061110511905080
+     *
      * @var string
      */
     public $versionNo;

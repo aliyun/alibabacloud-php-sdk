@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionRequest extends Model
 {
     /**
+     * @example description
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example /http/hello
+     *
      * @var string
      */
     public $httpTriggerPath;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceConcurrency;
 
     /**
+     * @example 256
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example nodejs8
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example dece4ea0-d432-4cfa-8514-8a88d205e2b8
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeout;
@@ -54,6 +70,8 @@ class UpdateFunctionRequest extends Model
     public $timingTriggerConfig;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $timingTriggerUserPayload;

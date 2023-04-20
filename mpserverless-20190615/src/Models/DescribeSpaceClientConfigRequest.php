@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpaceClientConfigRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example 226e5213-697c-4a52-b4ff-35a09f8*****
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example 211975XXXX
+     *
      * @var int
      */
     public $workspaceId;

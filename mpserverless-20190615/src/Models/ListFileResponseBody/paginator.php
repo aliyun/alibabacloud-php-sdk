@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class paginator extends Model
 {
     /**
+     * @example eyJhY2NvdW50IjoiMTE2MTQwNTMxMDE0OTY2OCIsImV2ZW50SWQiOiIzMkI3QTE1Mi05NUJFLTUyNkMtQjEyNC00RUYxRDk2RDM4QkEiLCJsb2dJZCI6IjE0LTExNjE0MDUzMTAxNDk2NjgiLCJ0aW1lIjoxNjM1MjEzMzk0MDAwfQ
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

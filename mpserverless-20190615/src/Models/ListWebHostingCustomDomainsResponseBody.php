@@ -15,6 +15,8 @@ class ListWebHostingCustomDomainsResponseBody extends Model
     public $data;
 
     /**
+     * @example 93FC5921-2A54-408B-B360-2E5C93488CF4
+     *
      * @var string
      */
     public $requestId;

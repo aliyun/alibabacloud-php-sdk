@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryDBImportTaskStatusResponseBody extends Model
 {
     /**
+     * @example SERVER_BUSY
+     *
      * @var string
      */
     public $detailMessage;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $failedCount;
 
     /**
+     * @example 692DCFEF-46DD-4EBB-B1DB-338E687DC260
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $successCount;

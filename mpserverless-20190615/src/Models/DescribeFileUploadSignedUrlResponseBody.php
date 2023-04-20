@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileUploadSignedUrlResponseBody extends Model
 {
     /**
+     * @example 2fada31e-8fa5-****-b595-9698cd6b5f06
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example https://api.next.bspapp.com/oss_upload_callback
+     *
      * @var string
      */
     public $ossCallbackUrl;
 
     /**
+     * @example E9A50E1B-5ECE-42D4-B261-C07D1BBE68DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example https://bsppub.oss-cn-shanghai.aliyuncs.com/FBPSBVMO-myspace/41552d60-52de-xxx-a713-43e879b0717a.JPG?OSSAccessKeyId=LTAIk****dtFueLA&Expires=1582152512&Signature=sek1B0Xm2r***tNvfX9tX%2BBJxA%3D
+     *
      * @var string
      */
     public $signUrl;

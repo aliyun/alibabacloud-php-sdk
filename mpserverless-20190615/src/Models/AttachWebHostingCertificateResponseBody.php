@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AttachWebHostingCertificateResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example CEF9831B-A6D2-4485-9CAD-1B8FBC8B****
+     *
      * @var string
      */
     public $requestId;

@@ -21,6 +21,8 @@ class ListFileResponseBody extends Model
     public $paginator;
 
     /**
+     * @example FE88BEC8-8F83-408A-9ED3-771C510C705F
+     *
      * @var string
      */
     public $requestId;

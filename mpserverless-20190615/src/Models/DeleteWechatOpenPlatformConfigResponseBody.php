@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWechatOpenPlatformConfigResponseBody extends Model
 {
     /**
+     * @example 819BE656-D2E0-4858-8B21-B2E477085AAF
+     *
      * @var string
      */
     public $requestId;

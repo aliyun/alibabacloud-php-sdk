@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionLogRequest extends Model
 {
     /**
+     * @example 1560134212326
+     *
      * @var int
      */
     public $fromDate;
 
     /**
+     * @example 0a206a521561344642018387523432
+     *
      * @var string
      */
     public $logRequestId;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example dece4ea0-****-4cfa-8514-8a88d205e2b8
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1560134212326
+     *
      * @var int
      */
     public $toDate;

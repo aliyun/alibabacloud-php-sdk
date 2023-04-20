@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDBExportTaskRequest extends Model
 {
     /**
+     * @example article
+     *
      * @var string
      */
     public $collection;
 
     /**
+     * @example name,content
+     *
      * @var string
      */
     public $fields;
 
     /**
+     * @example CSV
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

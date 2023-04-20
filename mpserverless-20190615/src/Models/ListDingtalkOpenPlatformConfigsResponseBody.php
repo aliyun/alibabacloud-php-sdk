@@ -15,6 +15,8 @@ class ListDingtalkOpenPlatformConfigsResponseBody extends Model
     public $configs;
 
     /**
+     * @example D8A5FF68-2C8A-46D0-A11C-FA034F4F475F
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class runtimeMeta extends Model
 {
     /**
+     * @example 600
+     *
      * @var int
      */
     public $billingDuration;
 
     /**
+     * @example 523
+     *
      * @var int
      */
     public $invocationDuration;
 
     /**
+     * @example 27
+     *
      * @var int
      */
     public $maxMemoryUsage;
 
     /**
+     * @example 980879201561364765437209427735
+     *
      * @var string
      */
     public $requestId;

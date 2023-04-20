@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryServiceStatusResponseBody extends Model
 {
     /**
+     * @example E63E7F4F-8538-5B0E-8712-78F92B6DCB9C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example OPENING
+     *
      * @var string
      */
     public $serviceStatus;

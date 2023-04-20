@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebHostingCertificateResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example D85CAE0D-5B1F-4A56-B776-DEEA2B232E9F
+     *
      * @var string
      */
     public $requestId;

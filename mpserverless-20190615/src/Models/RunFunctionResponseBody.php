@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RunFunctionResponseBody extends Model
 {
     /**
+     * @example F75E60FA-7583-4E2E-AC14-6C608F89804
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"name":"tom"}
+     *
      * @var string
      */
     public $result;

@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceWithOrderRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceWithOrderResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteAntOpenPlatformConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteAntOpenPlatformConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteCorsDomainRequest;
@@ -806,6 +808,64 @@ class MPServerless extends OpenApiClient
     }
 
     /**
+     * @param CreateSpaceWithOrderRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSpaceWithOrderResponse
+     */
+    public function createSpaceWithOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $body['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        if (!Utils::isUnset($request->useCoupon)) {
+            $body['UseCoupon'] = $request->useCoupon;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSpaceWithOrder',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSpaceWithOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSpaceWithOrderRequest $request
+     *
+     * @return CreateSpaceWithOrderResponse
+     */
+    public function createSpaceWithOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSpaceWithOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAntOpenPlatformConfigRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1353,6 +1413,9 @@ class MPServerless extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->contentType)) {
             $body['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
         }
         if (!Utils::isUnset($request->filename)) {
             $body['Filename'] = $request->filename;
@@ -2255,8 +2318,14 @@ class MPServerless extends OpenApiClient
         if (!Utils::isUnset($request->keyword)) {
             $body['Keyword'] = $request->keyword;
         }
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $body['Prefix'] = $request->prefix;
         }
         if (!Utils::isUnset($request->spaceId)) {
             $body['SpaceId'] = $request->spaceId;

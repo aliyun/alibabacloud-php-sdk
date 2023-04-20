@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class backupDumpTimes extends Model
 {
     /**
+     * @example 20201118114602_6bd7c996-f620-4026-ae24-418eddf78671
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example 2020-11-18T03:46:02Z
+     *
      * @var string
      */
     public $dumpTime;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHttpTriggerConfigRequest extends Model
 {
     /**
+     * @example 34C45988-2B24-****-A4DC-4D6C952890D8
+     *
      * @var string
      */
     public $spaceId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceQuotaRequest extends Model
 {
     /**
+     * @example 226e5213-697c-****-b4ff-35a09f8a52de
+     *
      * @var string
      */
     public $spaceId;

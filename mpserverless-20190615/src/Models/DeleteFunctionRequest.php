@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionRequest extends Model
 {
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example dece4ea0-d432-4cfa-****-8a88d205e2b8
+     *
      * @var string
      */
     public $spaceId;

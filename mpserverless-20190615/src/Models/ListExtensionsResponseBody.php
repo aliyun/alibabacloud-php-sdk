@@ -15,21 +15,29 @@ class ListExtensionsResponseBody extends Model
     public $extensions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DD0F8BC9-516F-4AEF-8D95-D290C2296D78
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

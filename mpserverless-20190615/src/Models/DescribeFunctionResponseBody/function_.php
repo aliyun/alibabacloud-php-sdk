@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class function_ extends Model
 {
     /**
+     * @example 2021-12-02T02:40:37Z
+     *
      * @var string
      */
     public $createdAt;
@@ -20,16 +22,22 @@ class function_ extends Model
     public $desc;
 
     /**
+     * @example /http/getWxToken
+     *
      * @var string
      */
     public $httpTriggerPath;
 
     /**
+     * @example 2019-06-21T02:22:53Z
+     *
      * @var string
      */
     public $modifiedAt;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
@@ -45,6 +53,8 @@ class function_ extends Model
     public $timingTriggerConfig;
 
     /**
+     * @example hello
+     *
      * @var string
      */
     public $timingTriggerUserPayload;

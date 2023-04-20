@@ -21,6 +21,8 @@ class DescribeFunctionResponseBody extends Model
     public $function;
 
     /**
+     * @example 75CE67BE-48E9-52AF-B965-4690270CD53A
+     *
      * @var string
      */
     public $requestId;

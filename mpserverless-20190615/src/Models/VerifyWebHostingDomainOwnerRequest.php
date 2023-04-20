@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class VerifyWebHostingDomainOwnerRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 226e5213-697c-****-b4ff-35a09f8a52de
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example dnsCheck
+     *
      * @var string
      */
     public $verifyType;

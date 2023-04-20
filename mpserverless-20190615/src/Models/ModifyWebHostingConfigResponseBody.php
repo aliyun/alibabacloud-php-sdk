@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebHostingConfigResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 074C8CF9-E7F8-436D-A546-4E5876D0F800
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example dingoa7pqicyk3x9******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1r0ElNPFqLI6qgY08*******************************9TIK3RN_5fk9SEMO
+     *
      * @var string
      */
     public $appSecret;
 
     /**
+     * @example 2020-01-17T03:04:46Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-01-17T03:04:46Z
+     *
      * @var string
      */
     public $updateTime;

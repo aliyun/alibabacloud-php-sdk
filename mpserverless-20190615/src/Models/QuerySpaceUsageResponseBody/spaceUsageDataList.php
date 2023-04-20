@@ -23,11 +23,18 @@ class spaceUsageDataList extends Model
     public $dbUsage;
 
     /**
+     * @var bool
+     */
+    public $effectiveBillFlag;
+
+    /**
      * @var fcUsage
      */
     public $fcUsage;
 
     /**
+     * @example 2022-06-17T16:00:00Z
+     *
      * @var string
      */
     public $timestamp;
@@ -37,11 +44,12 @@ class spaceUsageDataList extends Model
      */
     public $whUsage;
     protected $_name = [
-        'csUsage'   => 'CsUsage',
-        'dbUsage'   => 'DbUsage',
-        'fcUsage'   => 'FcUsage',
-        'timestamp' => 'Timestamp',
-        'whUsage'   => 'WhUsage',
+        'csUsage'           => 'CsUsage',
+        'dbUsage'           => 'DbUsage',
+        'effectiveBillFlag' => 'EffectiveBillFlag',
+        'fcUsage'           => 'FcUsage',
+        'timestamp'         => 'Timestamp',
+        'whUsage'           => 'WhUsage',
     ];
 
     public function validate()
@@ -56,6 +64,9 @@ class spaceUsageDataList extends Model
         }
         if (null !== $this->dbUsage) {
             $res['DbUsage'] = null !== $this->dbUsage ? $this->dbUsage->toMap() : null;
+        }
+        if (null !== $this->effectiveBillFlag) {
+            $res['EffectiveBillFlag'] = $this->effectiveBillFlag;
         }
         if (null !== $this->fcUsage) {
             $res['FcUsage'] = null !== $this->fcUsage ? $this->fcUsage->toMap() : null;
@@ -83,6 +94,9 @@ class spaceUsageDataList extends Model
         }
         if (isset($map['DbUsage'])) {
             $model->dbUsage = dbUsage::fromMap($map['DbUsage']);
+        }
+        if (isset($map['EffectiveBillFlag'])) {
+            $model->effectiveBillFlag = $map['EffectiveBillFlag'];
         }
         if (isset($map['FcUsage'])) {
             $model->fcUsage = fcUsage::fromMap($map['FcUsage']);

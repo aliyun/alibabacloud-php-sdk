@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class spaces extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
@@ -24,66 +28,92 @@ class spaces extends Model
     public $description;
 
     /**
+     * @example 3818905
+     *
      * @var int
      */
     public $emasWorkspaceId;
 
     /**
+     * @example 2022-05-19T06:06:05Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-05-19T06:06:05Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example emas_EmasServerlessPre_public_cn-0ju2pax****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example myspace
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 2022-09-18T16:00:00Z
+     *
      * @var string
      */
     public $packageEndDate;
 
     /**
+     * @example 2022-06-18T16:00:00Z
+     *
      * @var string
      */
     public $packageStartDate;
 
     /**
+     * @example UPGRADING
+     *
      * @var string
      */
     public $packageStatus;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $renewDuration;
 
     /**
+     * @example IN_SERVICE
+     *
      * @var string
      */
     public $serviceStatus;
 
     /**
+     * @example mp-f215973f-db40-4013-92a8-b09690c7****
+     *
      * @var string
      */
     public $spaceId;
 
     /**
+     * @example ENTERPRISE
+     *
      * @var string
      */
     public $specCode;

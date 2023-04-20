@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionResponseBody extends Model
 {
     /**
+     * @example 2019-06-20T03:22:54Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example /http/hello
+     *
      * @var string
      */
     public $httpTriggerPath;
 
     /**
+     * @example 2019-06-20T03:22:54Z
+     *
      * @var string
      */
     public $modifiedAt;
 
     /**
+     * @example demoFunction
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example C293BB03-B6AD-46C2-80D1-19C8FB573916
+     *
      * @var string
      */
     public $requestId;
@@ -45,6 +57,8 @@ class UpdateFunctionResponseBody extends Model
     public $spec;
 
     /**
+     * @example cron:0 0 * * * *
+     *
      * @var string
      */
     public $timingTriggerConfig;

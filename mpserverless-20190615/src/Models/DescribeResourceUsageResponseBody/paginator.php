@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class paginator extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 255
+     *
      * @var int
      */
     public $total;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateDBImportTaskResponseBody extends Model
 {
     /**
+     * @example LTAIupaslTlU*****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example 2020-07-20T05:32:03Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example mongo/import/0e16bb12-14af-4635-b24c-5ac1a9*****\/20200720130203_973820af-966d-42ec-9fab-17dfe4a******.csv
+     *
      * @var string
      */
     public $fileKey;
 
     /**
+     * @example https://mps-zjk-share.oss-cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example eyJleHBpcmF0aW9uIjjoiMjAyMC0wNy0yMFQwNTozMjowMy40NDVaIiwiY29uZGl0aW9ucyI*****Y29udGVudC1sZW5ndoiMjAyMC==
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 692DCFEF-46DD-4EBB-B1DB-338E687DC260
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example *****luWDvbmhqwwy9pm/Mso++pk=
+     *
      * @var string
      */
     public $signature;
 
     /**
+     * @example 973820af-966d-42ec-9fab-17dfe4a*****
+     *
      * @var string
      */
     public $taskId;

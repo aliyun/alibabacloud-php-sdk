@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeServicePolicyRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $collectionName;
 
     /**
+     * @example db
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

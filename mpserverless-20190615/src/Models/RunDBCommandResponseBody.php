@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RunDBCommandResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $affectedDocs;
 
     /**
+     * @example F75E60FA-7583-4E2E-AC14-6C608F89804
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"_id":"5d107e5af957c439d505b95b","age":1,"name":"aaaaa","time":1561362071732}
+     *
      * @var string
      */
     public $result;

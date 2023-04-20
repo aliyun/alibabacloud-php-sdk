@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveAppAuthTokenResponseBody extends Model
 {
     /**
+     * @example F340DF8D-7125-49B7-AC48-7F5C8DB382CB
+     *
      * @var string
      */
     public $requestId;

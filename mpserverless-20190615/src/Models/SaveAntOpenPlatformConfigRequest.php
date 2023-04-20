@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SaveAntOpenPlatformConfigRequest extends Model
 {
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIEwTCCA6mgAwIBAgIQICAJGbUNoqdPr25qpPU7+ -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $appCert;
 
     /**
+     * @example 201909116717****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSk
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQ -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $publicCert;
 
     /**
+     * @example MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCA
+     *
      * @var string
      */
     public $publicKey;
 
     /**
+     * @example -----BEGIN CERTIFICATE----- MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQ -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $rootCert;
 
     /**
+     * @example CERT
+     *
      * @var string
      */
     public $signMode;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

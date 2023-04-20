@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RenameDBCollectionRequest extends Model
 {
     /**
+     * @example newColl1
+     *
      * @var string
      */
     public $newCollection;
 
     /**
+     * @example coll1
+     *
      * @var string
      */
     public $originCollection;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9*****
+     *
      * @var string
      */
     public $spaceId;

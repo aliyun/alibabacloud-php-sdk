@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDBRestoreTaskRequest extends Model
 {
     /**
+     * @example 20201118114602_6bd7c996-f620-4026-ae24-418eddf78671
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example newColl1,newColl2
+     *
      * @var string
      */
     public $newCollections;
 
     /**
+     * @example coll1,coll2
+     *
      * @var string
      */
     public $originCollections;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 2020-01-16T05:45:33.000Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2020-01-16T05:45:33.000Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example c568f23d-a46f-4866-xxxx-142e5eb3e174
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 1579153532001.JPG
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example JPG
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example https://fbpxxx.cdn.bspapp.com/FBPSBVMO-myspace/68dbd670-3823-11ea-bfb9-xxxx.JPG
+     *
      * @var string
      */
     public $url;

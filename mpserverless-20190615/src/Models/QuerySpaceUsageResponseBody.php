@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySpaceUsageResponseBody extends Model
 {
     /**
+     * @example 2022-06-18T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example A9FB71D5-2C06-5810-A5FA-B88E45FEA677
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example mp-23c7c857-****-4512-bab0-3dbf986e7576
+     *
      * @var string
      */
     public $spaceId;
@@ -30,6 +36,8 @@ class QuerySpaceUsageResponseBody extends Model
     public $spaceUsageDataList;
 
     /**
+     * @example 2022-06-17T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

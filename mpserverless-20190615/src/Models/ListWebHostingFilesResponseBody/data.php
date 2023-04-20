@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****\/test/error1.png
+     *
      * @var string
      */
     public $nextMarker;

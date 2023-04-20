@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class whUsage extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cdnTraffic;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $storageSize;

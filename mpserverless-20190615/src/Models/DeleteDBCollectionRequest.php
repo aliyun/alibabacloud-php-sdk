@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBCollectionRequest extends Model
 {
     /**
+     * @example {"command": "drop", "collection": "table1"}
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @example 92e26ea9-6450-4b40-9c20-xxxx
+     *
      * @var string
      */
     public $spaceId;

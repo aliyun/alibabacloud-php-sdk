@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebHostingConfigRequest extends Model
 {
     /**
+     * @example 42.120.72.0/24
+     *
      * @var string
      */
     public $allowedIps;
 
     /**
+     * @example error.html
+     *
      * @var string
      */
     public $errorPath;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $historyModePath;
 
     /**
+     * @example index.html
+     *
      * @var string
      */
     public $indexPath;
 
     /**
+     * @example 0e16bb12-14af-4635-b24c-5ac1a9a*****
+     *
      * @var string
      */
     public $spaceId;

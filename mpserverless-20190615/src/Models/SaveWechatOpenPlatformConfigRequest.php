@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveWechatOpenPlatformConfigRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 9w0BAQEFAASCBKgwggSkAgEAAoI
+     *
      * @var string
      */
     public $appSecret;
 
     /**
+     * @example 0e16bb12-14af-****-b24c-5ac1a9a7bb9f
+     *
      * @var string
      */
     public $spaceId;

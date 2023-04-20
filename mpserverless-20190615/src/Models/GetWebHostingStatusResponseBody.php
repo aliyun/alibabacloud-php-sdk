@@ -15,6 +15,8 @@ class GetWebHostingStatusResponseBody extends Model
     public $data;
 
     /**
+     * @example D8F7FDDC-4EF3-44B9-9452-CFD7A081FB85
+     *
      * @var string
      */
     public $requestId;

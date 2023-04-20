@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveWebHostingCustomDomainCorsConfigRequest extends Model
 {
     /**
+     * @example https://*.example.com, https://*.example.org
+     *
      * @var string
      */
     public $accessControlAllowOrigin;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableCors;
 
     /**
+     * @example 226e5213-697c-4a52-b4ff-35a09f8*****
+     *
      * @var string
      */
     public $spaceId;

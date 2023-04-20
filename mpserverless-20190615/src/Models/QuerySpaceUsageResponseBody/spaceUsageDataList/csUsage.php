@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class csUsage extends Model
 {
     /**
+     * @example 94134230
+     *
      * @var int
      */
     public $cdnTraffic;
 
     /**
+     * @example 45668113
+     *
      * @var int
      */
     public $downloadCount;
 
     /**
+     * @example 4024575081
+     *
      * @var int
      */
     public $storageSize;
 
     /**
+     * @example 2352
+     *
      * @var int
      */
     public $uploadCount;

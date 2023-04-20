@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpacesResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 68B76E59-CC10-5EEC-BCED-73A6C51179BC
+     *
      * @var string
      */
     public $requestId;
