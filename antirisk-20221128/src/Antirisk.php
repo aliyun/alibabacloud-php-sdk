@@ -6,10 +6,14 @@ namespace AlibabaCloud\SDK\Antirisk\V20221128;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetRealTimeRiskInfoRequest;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetRealTimeRiskInfoResponse;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagByAtokenRequest;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagByAtokenResponse;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenRequest;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenResponse;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListChannelRiskDetailsRequest;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListChannelRiskDetailsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -47,6 +51,58 @@ class Antirisk extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param GetRealTimeRiskInfoRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRealTimeRiskInfoResponse
+     */
+    public function getRealTimeRiskInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->atoken)) {
+            $query['atoken'] = $request->atoken;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $query['extra'] = $request->extra;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRealTimeRiskInfo',
+            'version'     => '2022-11-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/anti/getRealTimeRiskInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRealTimeRiskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRealTimeRiskInfoRequest $request
+     *
+     * @return GetRealTimeRiskInfoResponse
+     */
+    public function getRealTimeRiskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRealTimeRiskInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -145,5 +201,63 @@ class Antirisk extends OpenApiClient
         $headers = [];
 
         return $this->getZidTagScoreByAtokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListChannelRiskDetailsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListChannelRiskDetailsResponse
+     */
+    public function listChannelRiskDetailsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channel)) {
+            $query['channel'] = $request->channel;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['end'] = $request->end;
+        }
+        if (!Utils::isUnset($request->isAllChannel)) {
+            $query['isAllChannel'] = $request->isAllChannel;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChannelRiskDetails',
+            'version'     => '2022-11-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/anti/listChannelRiskDetails',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListChannelRiskDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListChannelRiskDetailsRequest $request
+     *
+     * @return ListChannelRiskDetailsResponse
+     */
+    public function listChannelRiskDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChannelRiskDetailsWithOptions($request, $headers, $runtime);
     }
 }
