@@ -20,7 +20,7 @@ class CreateAcceleratorResponseBody extends Model
     /**
      * @description The ID of the order.
      *
-     * If bills are not automatically paid, you must go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payments.
+     * If you did not configure automatic payment, you must go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payments.
      * @example 208257****
      *
      * @var string

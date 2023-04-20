@@ -13,7 +13,7 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false:** disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated. This is the default value.
+     *   **false:** disables automatic payment. This is the default value. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
      *   **true:** enables automatic payment. Payments are automatically completed.
      *
      * @example false
@@ -39,7 +39,7 @@ class CreateAcceleratorRequest extends Model
      *
      * Valid values: **1** to **12**. Default value: **1**.
      *
-     * >  This parameter takes effect only if **AutoRenew** is set to **true**.
+     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
      * @example 1
      *
      * @var int
@@ -47,12 +47,12 @@ class CreateAcceleratorRequest extends Model
     public $autoRenewDuration;
 
     /**
-     * @description Specifies whether to automatically pay bills by using coupons. Valid values:
+     * @description Specifies whether to automatically apply coupons to your bills. Valid values:
      *
-     *   **true:** automatically pays bills by using coupons.
-     *   **false:** does not automatically pay bills by using coupons. This is the default value.
+     *   **true:** automatically applies coupons to your bills.
+     *   **false:** does not automatically apply coupons to your bills. This is the default value.
      *
-     * >  This parameter takes effect only if **AutoPay** is set to **true**.
+     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
      * @example false
      *
      * @var string
@@ -60,11 +60,11 @@ class CreateAcceleratorRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description The bandwidth billing method.
+     * @description The bandwidth billing method. Valid values:
      *
      *   **BandwidthPackage:** billed based on bandwidth plans.
      *   **CDT:** billed based on data transfer.
-     *   **CDT95:** billed based on the 95th percentile bandwidth. The billing is managed by Cloud Data Transfer (CDT). This bandwidth billing method is available only for users that are included in the whitelist.
+     *   **CDT95:** billed based on the 95th percentile bandwidth. The bills are managed by using Cloud Data Transfer (CDT). This bandwidth billing method is not available by default. Contact your Alibaba Cloud account manager for more information.
      *
      * @example BandwidthPackage
      *
@@ -75,9 +75,9 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the value of **RequestId**as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example 123e4567****
      *
      * @var string
@@ -87,8 +87,8 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The subscription duration of the GA instance.
      *
-     *   If the **PricingCycle** parameter is set to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-     *   If the **PricingCycle** parameter is set to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+     *   If you set the **PricingCycle** parameter to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
+     *   If you set the **PricingCycle** parameter to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
      *
      * @example 1
      *
@@ -116,8 +116,8 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The billing cycle of the GA instance. Valid values:
      *
-     *   **Month**: billed on a monthly basis.
-     *   **Year**: billed on an annual basis.
+     *   **Month:** billed on a monthly basis.
+     *   **Year:** billed on an annual basis.
      *
      * @example Month
      *
@@ -126,9 +126,9 @@ class CreateAcceleratorRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The coupon code.
+     * @description The code of the coupon.
      *
-     * >  This parameter is available only on the Alibaba International Site (alibabacloud.com).
+     * >  This parameter takes effect only for accounts registered on the international site (alibabacloud.com).
      * @example 50003298014****
      *
      * @var string
@@ -136,7 +136,7 @@ class CreateAcceleratorRequest extends Model
     public $promotionOptionNo;
 
     /**
-     * @description The ID of the region where you want to create the GA instance. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -173,7 +173,7 @@ class CreateAcceleratorRequest extends Model
      *   **100:** Super Large Ⅰ
      *   **200:** Super Large Ⅱ
      *
-     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Each instance specification provides different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string

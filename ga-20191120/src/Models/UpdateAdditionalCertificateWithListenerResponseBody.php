@@ -18,7 +18,7 @@ class UpdateAdditionalCertificateWithListenerResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the request.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *

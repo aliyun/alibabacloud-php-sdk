@@ -15,7 +15,7 @@ class UpdateEndpointGroupRequest extends Model
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the value of **RequestId**as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * > If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
