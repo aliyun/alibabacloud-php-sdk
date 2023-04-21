@@ -8,6 +8,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ApplyConfigToMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
@@ -65,7 +67,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
@@ -243,6 +244,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $logstore
+     * @param string                        $consumerGroup
+     * @param ConsumerGroupHeartBeatRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConsumerGroupHeartBeatResponse
+     */
+    public function consumerGroupHeartBeatWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->consumer)) {
+            $query['consumer'] = $request->consumer;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'ConsumerGroupHeartBeat',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=heartbeat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return ConsumerGroupHeartBeatResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $logstore
+     * @param string                        $consumerGroup
+     * @param ConsumerGroupHeartBeatRequest $request
+     *
+     * @return ConsumerGroupHeartBeatResponse
+     */
+    public function consumerGroupHeartBeat($project, $logstore, $consumerGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->consumerGroupHeartBeatWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
     }
 
     /**
@@ -2144,22 +2201,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetProjectResponse
      */
-    public function getProjectWithOptions($request, $headers, $runtime)
+    public function getProjectWithOptions($project, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->project)) {
-            $query['project'] = $request->project;
-        }
-        $req = new OpenApiRequest([
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -2177,16 +2231,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
+     * @param string $project
      *
      * @return GetProjectResponse
      */
-    public function getProject($request)
+    public function getProject($project)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectWithOptions($request, $headers, $runtime);
+        return $this->getProjectWithOptions($project, $headers, $runtime);
     }
 
     /**
@@ -2734,13 +2788,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string             $resourceGroupId
      * @param ListProjectRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
      *
      * @return ListProjectResponse
      */
-    public function listProjectWithOptions($request, $headers, $runtime)
+    public function listProjectWithOptions($resourceGroupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
@@ -2773,16 +2828,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string             $resourceGroupId
      * @param ListProjectRequest $request
      *
      * @return ListProjectResponse
      */
-    public function listProject($request)
+    public function listProject($resourceGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectWithOptions($request, $headers, $runtime);
+        return $this->listProjectWithOptions($resourceGroupId, $request, $headers, $runtime);
     }
 
     /**
