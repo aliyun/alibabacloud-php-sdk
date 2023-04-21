@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Facebody\V20191230\Models\AddBodyTraceRequest;
+namespace AlibabaCloud\SDK\Facebody\V20191230\Models\MergeImageFaceAdvanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class images extends Model
+class mergeInfos extends Model
 {
-    /**
-     * @var int[]
-     */
-    public $imageData;
-
     /**
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var string
+     */
+    public $templateFaceID;
     protected $_name = [
-        'imageData' => 'ImageData',
-        'imageURL'  => 'ImageURL',
+        'imageURL'       => 'ImageURL',
+        'templateFaceID' => 'TemplateFaceID',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageData) {
-            $res['ImageData'] = $this->imageData;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->templateFaceID) {
+            $res['TemplateFaceID'] = $this->templateFaceID;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class images extends Model
     /**
      * @param array $map
      *
-     * @return images
+     * @return mergeInfos
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageData'])) {
-            $model->imageData = $map['ImageData'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['TemplateFaceID'])) {
+            $model->templateFaceID = $map['TemplateFaceID'];
         }
 
         return $model;

@@ -1,3 +1,6 @@
+2023-04-21 Version: 3.0.9
+- Release MergeImageFace.
+
 2023-02-08 Version: 3.0.8
 - Release API.
 

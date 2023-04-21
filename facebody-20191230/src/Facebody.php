@@ -4623,8 +4623,17 @@ class Facebody extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->addWatermark)) {
+            $body['AddWatermark'] = $request->addWatermark;
+        }
         if (!Utils::isUnset($request->imageURL)) {
             $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->mergeInfos)) {
+            $body['MergeInfos'] = $request->mergeInfos;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $body['ModelVersion'] = $request->modelVersion;
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
