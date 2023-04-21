@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the quarantined file. Valid values:
+     *
+     *   quaraFailed: The file failed to be quarantined.
+     *   quaraDone: The file is quarantined.
+     *   quaraing: The file is being quarantined.
+     *   rollbackFailed: Quarantine for the file failed to be canceled.
+     *   rollbackDone: Quarantine for the file is canceled.
+     *   rollbacking: Quarantine for the file is being canceled.
+     *
+     * @example quaraDone
+     *
      * @var string
      */
     public $status;

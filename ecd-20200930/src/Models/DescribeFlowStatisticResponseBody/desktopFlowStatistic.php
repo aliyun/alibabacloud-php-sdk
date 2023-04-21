@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class desktopFlowStatistic extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-8bslxqq0csytn****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example desktop-1
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The amount of the traffic. Unit: KB.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $flowIn;
 
     /**
+     * @description The traffic ranking.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $flowRank;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class RevokeCoordinatePrivilegeRequest extends Model
 {
     /**
+     * @description The ID of the stream coordination task.
+     *
+     * @example co-fqsm6e8ee75w61fp9
+     *
      * @var string
      */
     public $coId;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of user who requires the coordinate permissions.
+     *
+     * Set the value to TENANT_ADMIN. Only tenant administrators can be granted with the coordinate permissions.
+     * @example TENANT_ADMIN
+     *
      * @var string
      */
     public $userType;
 
     /**
+     * @description The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
+     *
+     * @example C78CA9E99315687575DD2844C1F3****
+     *
      * @var string
      */
     public $uuid;

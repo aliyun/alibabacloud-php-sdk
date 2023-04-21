@@ -9,46 +9,91 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The maximum public bandwidth. Unit: Mbit/s.\
+     * Valid values for the pay-by-data-transfer type (PayByTraffic): 10 to 200. Valid values for the pay-by-bandwith type (PayByBandwidth): 10 to 1000.
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The metering method of the pay-as-you-go Internet access package. Valid values: PayByTraffic: pay-by-data-transfer. PayByBandwidth: pay-by-bandwidth. Default value: PayByTraffic.
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The billing method of the Internet access package.
+     *
+     * @example PrePaid
+     *
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @description The duration of the Internet access package.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of duration that you want to use for the Internet access package.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the sales promotion.
+     *
+     * @example 23141
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,6 +103,7 @@ class CreateNetworkPackageRequest extends Model
         'bandwidth'          => 'Bandwidth',
         'internetChargeType' => 'InternetChargeType',
         'officeSiteId'       => 'OfficeSiteId',
+        'payType'            => 'PayType',
         'period'             => 'Period',
         'periodUnit'         => 'PeriodUnit',
         'promotionId'        => 'PromotionId',
@@ -85,6 +131,9 @@ class CreateNetworkPackageRequest extends Model
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -124,6 +173,9 @@ class CreateNetworkPackageRequest extends Model
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

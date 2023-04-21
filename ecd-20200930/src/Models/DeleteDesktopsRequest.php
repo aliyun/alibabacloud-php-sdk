@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteDesktopsRequest extends Model
 {
     /**
+     * @description The IDs of the cloud desktops that you want to release. You can configure up to 100 desktop IDs.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the region where the cloud desktops to release are located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

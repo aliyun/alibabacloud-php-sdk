@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkPackagesRequest extends Model
 {
     /**
+     * @description The billing method of the Internet access package. Valid values:
+     *
+     *   PayByTraffic: pay-by-data-transfer
+     *   PayByBandwidth: pay-by-bandwidth
+     *
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100
+     *   Default value: 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The IDs of the Internet access packages. You can specify 1 to 100 IDs of Internet access packages.
+     *
+     * @example np-amtp8e8q1o9e4****
+     *
      * @var string[]
      */
     public $networkPackageId;
 
     /**
+     * @description The token that determines the start point of the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

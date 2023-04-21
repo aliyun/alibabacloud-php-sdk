@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class officeSiteOverviewResults extends Model
 {
     /**
+     * @description The number of expired cloud desktops in the workspace.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $hasExpiredEdsCount;
 
     /**
+     * @description The number of expired cloud desktops in the desktop group.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $hasExpiredEdsCountForGroup;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The status of the workspace.
+     *
+     * @example REGISTERED
+     *
      * @var string
      */
     public $officeSiteStatus;
 
     /**
+     * @description The region ID of the workspace.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of running cloud desktops in the workspace.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runningEdsCount;
 
     /**
+     * @description The number of running cloud desktops in the desktop group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runningEdsCountForGroup;
 
     /**
+     * @description The total number of cloud desktops in the workspace.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalEdsCount;
 
     /**
+     * @description The total number of cloud desktops in the desktop group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalEdsCountForGroup;
 
     /**
+     * @description The virtual private cloud (VPC) type of the workspace.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $vpcType;
 
     /**
+     * @description The number of cloud desktops that are about to expire in the workspace.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $willExpiredEdsCount;
 
     /**
+     * @description The number of cloud desktops that are about to expire in the desktop group.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $willExpiredEdsCountForGroup;

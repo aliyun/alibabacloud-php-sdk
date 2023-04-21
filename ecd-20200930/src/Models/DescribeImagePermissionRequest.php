@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePermissionRequest extends Model
 {
     /**
+     * @example m-4zfb6zj728hhr****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

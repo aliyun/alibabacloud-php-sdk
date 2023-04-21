@@ -9,76 +9,162 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesRequest extends Model
 {
     /**
+     * @description The IDs of the desktop templates. You can specify 1 to 100 desktop templates.
+     *
+     * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
+     *
      * @var string[]
      */
     public $bundleId;
 
     /**
+     * @description The type of the desktop template.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $bundleType;
 
     /**
+     * @description Specifies whether to query the inventory status of the desktop type.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $checkStock;
 
     /**
+     * @description The number of vCPUs of the desktop type.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpuCount;
 
     /**
+     * @description The family of the desktop type.
+     *
+     * @example eds.general
+     *
      * @var string
      */
     public $desktopTypeFamily;
 
     /**
+     * @description This parameter is now in invitational preview and unavailable.
+     *
+     * @example This parameter is now in invitational preview and unavailable.
+     *
      * @var string
      */
     public $fotaChannel;
 
     /**
+     * @description Specifies whether the cloud desktop that uses the desktop template belongs to the desktop group. Default value: `false`.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $fromDesktopGroup;
 
     /**
+     * @description The number of GPUs of the desktop type.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $gpuCount;
 
     /**
+     * @var string[]
+     */
+    public $imageId;
+
+    /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The memory size of the desktop type. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @description The token that determines the start point of the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The desktop template that is selected based on specific criteria.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $selectedBundle;
+
+    /**
+     * @description The type of the session.
+     *
+     * @example SingleSession
+     *
+     * @var string
+     */
+    public $sessionType;
+
+    /**
+     * @description Specifies whether to return multi-session desktop templates in this call. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $supportMultiSession;
 
     /**
+     * @description Specifies whether to enable disk encryption.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
@@ -91,11 +177,14 @@ class DescribeBundlesRequest extends Model
         'fotaChannel'             => 'FotaChannel',
         'fromDesktopGroup'        => 'FromDesktopGroup',
         'gpuCount'                => 'GpuCount',
+        'imageId'                 => 'ImageId',
         'maxResults'              => 'MaxResults',
         'memorySize'              => 'MemorySize',
         'nextToken'               => 'NextToken',
         'protocolType'            => 'ProtocolType',
         'regionId'                => 'RegionId',
+        'selectedBundle'          => 'SelectedBundle',
+        'sessionType'             => 'SessionType',
         'supportMultiSession'     => 'SupportMultiSession',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
     ];
@@ -131,6 +220,9 @@ class DescribeBundlesRequest extends Model
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -145,6 +237,12 @@ class DescribeBundlesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->selectedBundle) {
+            $res['SelectedBundle'] = $this->selectedBundle;
+        }
+        if (null !== $this->sessionType) {
+            $res['SessionType'] = $this->sessionType;
         }
         if (null !== $this->supportMultiSession) {
             $res['SupportMultiSession'] = $this->supportMultiSession;
@@ -190,6 +288,11 @@ class DescribeBundlesRequest extends Model
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
+        if (isset($map['ImageId'])) {
+            if (!empty($map['ImageId'])) {
+                $model->imageId = $map['ImageId'];
+            }
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -204,6 +307,12 @@ class DescribeBundlesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SelectedBundle'])) {
+            $model->selectedBundle = $map['SelectedBundle'];
+        }
+        if (isset($map['SessionType'])) {
+            $model->sessionType = $map['SessionType'];
         }
         if (isset($map['SupportMultiSession'])) {
             $model->supportMultiSession = $map['SupportMultiSession'];

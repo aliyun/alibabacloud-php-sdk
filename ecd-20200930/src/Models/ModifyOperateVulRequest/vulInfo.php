@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class vulInfo extends Model
 {
     /**
+     * @description The ID of cloud desktop in which the vulnerability is detected.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example oval:com.redhat.rhsa:def:20171100
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The tag that you want to add to the vulnerability.
+     *
+     * @example oval
+     *
      * @var string
      */
     public $tag;

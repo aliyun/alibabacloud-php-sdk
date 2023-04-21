@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class resourceCandidates extends Model
 {
     /**
+     * @example 130247021517****
+     *
      * @var int
      */
     public $ownerAliUid;
 
     /**
+     * @example alice
+     *
      * @var string
      */
     public $ownerEndUserId;
 
     /**
+     * @example ecd-08zhejm3h7ilr****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example TestDesktop
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @example TestProperty
+     *
      * @var string
      */
     public $resourceProperties;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $resourceRegionId;
 
     /**
+     * @example CLOUD_DESKTOP
+     *
      * @var string
      */
     public $resourceType;

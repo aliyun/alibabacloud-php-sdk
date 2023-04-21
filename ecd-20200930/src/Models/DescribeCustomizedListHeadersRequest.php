@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomizedListHeadersRequest extends Model
 {
     /**
+     * @description The language in which the exported cloud desktop list is displayed.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $langType;
 
     /**
+     * @description The type of the list.
+     *
+     * @example desktop
+     *
      * @var string
      */
     public $listType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

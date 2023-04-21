@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The display type of the header.
+     *
+     * @example display
+     *
      * @var string
      */
     public $displayType;
 
     /**
+     * @description The key of the header.
+     *
+     * @example pay_type
+     *
      * @var string
      */
     public $headerKey;

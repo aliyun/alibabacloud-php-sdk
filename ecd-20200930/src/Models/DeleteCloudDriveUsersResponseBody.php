@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudDriveUsersResponseBody extends Model
 {
     /**
+     * @example EAEFFE4B-E87B-5F76-B165-9248F3774F9D
+     *
      * @var string
      */
     public $requestId;

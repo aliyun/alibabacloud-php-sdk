@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class coordinateFlowModels extends Model
 {
     /**
+     * @example co-0sot77uale3****
+     *
      * @var string
      */
     public $coId;
 
     /**
+     * @example PENDING
+     *
      * @var string
      */
     public $coordinateStatus;
 
     /**
+     * @example 1VDQ0VTUw0KW0Rlc2t0b3BdDQpHV1Rva2VuPTAwTzgwL3liS25zUEVGdkF6eU1Pc1ExeHZWdmk4VEE3NFJvU1V1d0dPYm1BNkNJWklDMHVNQklWcjU2NS80S0ZQekQ4aGFTR0ZHelZqMTFGbkRpWWgvUFF1Zm1xSXNGdFRFNFRWMExJNit3TkU0L2RMb04wNXBBSE5Tc3M4dWFXY3lwWE****
+     *
      * @var string
      */
     public $coordinateTicket;
 
     /**
+     * @example COORDINATOR_INITIATE_FORCE
+     *
      * @var string
      */
     public $initiatorType;
 
     /**
+     * @example alice
+     *
      * @var string
      */
     public $ownerUserId;
 
     /**
+     * @example ecd-96vi03f9emqnl****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example TestDesktop
+     *
      * @var string
      */
     public $resourceName;

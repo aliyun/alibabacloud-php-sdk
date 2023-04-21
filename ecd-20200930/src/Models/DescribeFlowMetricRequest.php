@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowMetricRequest extends Model
 {
     /**
+     * @description The end of the time range to query data. The following formats are supported:
+     *
+     *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+     *
+     * @example 1664714703743
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the instance. The value can be the ID of the cloud desktop or the ID of the Internet access package.
+     *
+     * @example ecd-fwq23f13\*\*\*\* or np-6inxqsvcyv6z8\*\*\*\*
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the instance. You can select a cloud desktop or a network package as an instance. If you select a cloud desktop as an instance, you need to configure the `InstanceId` and `MetricType` parameters. If you select a network package as an instance, you also need to must configure the parameters.
+     *
+     * @example desktop
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The type of the monitoring data. The monitoring data includes the inbound bandwidth and the outbound bandwidth of the cloud desktop, or the workspace bandwidth that is originated from or destined for the Internet.
+     *
+     * @example intranetOutRate
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @description The interval at which monitoring data is collected. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. The following formats are supported:
+     *
+     *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+     *
+     * @example 1651817220643
+     *
      * @var string
      */
     public $startTime;

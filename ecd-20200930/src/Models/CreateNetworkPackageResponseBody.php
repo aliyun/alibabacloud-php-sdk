@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the Internet access package.
+     *
+     * @example np-amtp8e8q1o9e4****
+     *
      * @var string
      */
     public $networkPackageId;
 
     /**
+     * @description The ID of the bill.
+     *
+     * @example 234526262716724
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
+     *
      * @var string
      */
     public $requestId;

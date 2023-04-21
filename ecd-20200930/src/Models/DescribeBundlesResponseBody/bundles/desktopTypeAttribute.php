@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class desktopTypeAttribute extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $cpuCount;
 
     /**
+     * @description The number of GPUs.
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $gpuCount;
 
     /**
+     * @description The type of the GPU.
+     *
+     * @example NVIDIA T4
+     *
      * @var string
      */
     public $gpuSpec;
 
     /**
+     * @description The size of the memory. Unit: MB.
+     *
+     * @example 47104
+     *
      * @var int
      */
     public $memorySize;

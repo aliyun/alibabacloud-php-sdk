@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeNASFileSystemsResponseBody extends Model
 {
     /**
+     * @description Details of the NAS file systems.
+     *
      * @var fileSystems[]
      */
     public $fileSystems;
 
     /**
+     * @description The token that is used for the next query. If this parameter is left empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
+     *
      * @var string
      */
     public $requestId;

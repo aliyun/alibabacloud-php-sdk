@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ClonePolicyGroupRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * @example testPolicyGroupName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the policy that you want to clone.
+     *
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

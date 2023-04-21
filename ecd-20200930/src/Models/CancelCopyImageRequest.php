@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelCopyImageRequest extends Model
 {
     /**
+     * @example m-gx2x1dhsmusr2****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

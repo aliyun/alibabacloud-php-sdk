@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetOfficeSiteSsoStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether SSO is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ssoStatus;

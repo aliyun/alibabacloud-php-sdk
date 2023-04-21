@@ -9,46 +9,92 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersInGroupRequest extends Model
 {
     /**
+     * @description The status of the desktop connection for the end user.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $connectState;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-8ttn55ujj8nj8****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The ID of the authorized user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The IDs of the end users.
+     *
+     * @var string[]
+     */
+    public $endUserIds;
+
+    /**
+     * @description The query string for fuzzy match. If you specify this parameter, the system returns all results that contain the string.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the organization to which the end user belongs.
+     *
+     * @example org-d0fua2oyukw8j****
+     *
      * @var string
      */
     public $orgId;
 
     /**
+     * @description Specifies whether to query the details about the end user.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $queryUserDetail;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -56,6 +102,7 @@ class DescribeUsersInGroupRequest extends Model
         'connectState'    => 'ConnectState',
         'desktopGroupId'  => 'DesktopGroupId',
         'endUserId'       => 'EndUserId',
+        'endUserIds'      => 'EndUserIds',
         'filter'          => 'Filter',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
@@ -79,6 +126,9 @@ class DescribeUsersInGroupRequest extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->endUserIds) {
+            $res['EndUserIds'] = $this->endUserIds;
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
@@ -118,6 +168,11 @@ class DescribeUsersInGroupRequest extends Model
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+        if (isset($map['EndUserIds'])) {
+            if (!empty($map['EndUserIds'])) {
+                $model->endUserIds = $map['EndUserIds'];
+            }
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];

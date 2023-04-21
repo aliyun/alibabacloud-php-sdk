@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopGroupsResponseBody extends Model
 {
     /**
+     * @description Details of the desktop groups.
+     *
      * @var desktopGroups[]
      */
     public $desktopGroups;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotRequest extends Model
 {
     /**
+     * @description The description of the snapshot. The description can be up to 128 characters in length.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****"
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length.\
+     * The name cannot start with auto because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @description The type of the disk for which to create a snapshot. Valid values:
+     *
+     *   system: system disk
+     *   data: data disk
+     *
+     * @example system
+     *
      * @var string
      */
     public $sourceDiskType;

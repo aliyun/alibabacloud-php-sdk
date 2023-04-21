@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopChargeTypeResponseBody extends Model
 {
     /**
+     * @description The IDs of the desktop groups. If multiple cloud desktops are created at a time, multiple cloud desktop IDs are returned.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 123456789
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomizedListHeadersRequest extends Model
 {
     /**
+     * @description The list of headers.
+     *
      * @var headers[]
      */
     public $headers;
 
     /**
+     * @description The type of the list.
+     *
+     * @example desktop
+     *
      * @var string
      */
     public $listType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

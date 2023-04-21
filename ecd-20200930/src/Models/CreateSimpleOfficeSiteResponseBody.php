@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateSimpleOfficeSiteResponseBody extends Model
 {
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+os-c5cy7q578s8jc****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

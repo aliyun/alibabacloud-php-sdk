@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\userCommands;
 use AlibabaCloud\Tea\Model;
@@ -11,121 +12,253 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsRequest extends Model
 {
     /**
+     * @description The number of cloud desktops that you want to create. Valid values: 1 to 300. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description Specifies whether to enable automatic payment.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal. This parameter takes effect only when the ChargeType parameter is set to PrePaid.````
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The ID of the desktop template.
+     *
+     * @example b-je9hani001wfn****
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @description The desktop templates that you want to use.
+     *
+     * @var bundleModels[]
+     */
+    public $bundleModels;
+
+    /**
+     * @description The billing method of the cloud desktop.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The name of the cloud desktop. The name must meet the following requirements:
+     *
+     *   The name must be 1 to 64 characters in length.
+     *   The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter but cannot start with http:// or https://.
+     *
+     * @example testDesktopName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description Specifies whether to automatically add a suffix to the cloud desktop name when you create multiple cloud desktops at a time.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $desktopNameSuffix;
 
     /**
+     * @description This parameter is not available.
+     *
+     * @example To be hidden.
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The IDs of the users that you want to authorize to use the cloud desktop. The cloud desktop is assigned to the users. You can specify IDs of 1 to 100 users.
+     *
+     *   Only one user can use the cloud desktop at a time.
+     *   If you do not specify the `EndUserId` parameter, the cloud desktop that you create is not assigned to users.
+     *
+     * @example 123456789
+     *
      * @var string[]
      */
     public $endUserId;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-boyczi8enfyc5****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The hostname that you specify for the cloud desktop. You can specify only the hostname of a Windows cloud desktop in the workspace of the enterprise AD account type.
+     *
+     * The hostname must meet the following requirements:
+     *
+     *   It must be 2 to 15 characters in length.
+     *   It can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *
+     * If you create multiple cloud desktops, you can use the`  name_prefix[begin_number,bits]name_suffix ` format to determine the hostnames of the cloud desktops. For example, if you set Hostname to ecd-\[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test and the hostname of the second cloud desktop is ecd-0002-test. Other hostnames follow the same rule.
+     *
+     *   `name_prefix`: the prefix of the hostname.
+     *   `[begin_number,bits]`: the ordered numbers in the hostname. begin_number: the start number. Valid values: 0 to 999999. Default value: 0. bits: the digit. Valid values: 1 to 6. Default value: 6.
+     *   `name_suffix`: the suffix of the hostname.
+     *
+     * @example testhost
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+os-c5cy7q578s8jc****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The subscription duration of the cloud desktop that you want to create. The unit is specified by the `PeriodUnit` parameter. This parameter takes effect and is required only when the `ChargeType` parameter is set to `PrePaid`.
+     *
+     *   Valid values if the `PeriodUnit` parameter is set to `Month`:
+     *
+     *   1
+     *   2
+     *   3
+     *   6
+     *
+     *   Valid values if the `PeriodUnit` parameter is set to `Year`:
+     *
+     *   1
+     *   2
+     *   3
+     *   4
+     *   5
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the subscription duration.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example system-all-enabled-policy
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The ID of the sales promotion.
+     *
+     * @example 23141
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The tags that you want to add to the cloud desktop.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The assignment mode of the cloud desktop.
+     *
+     * > If you do not specify the `EndUserId` parameter, the cloud desktop that you create is not assigned to users.
+     * @example ALL
+     *
      * @var string
      */
     public $userAssignMode;
 
     /**
+     * @description The custom command scripts of the user.
+     *
      * @var userCommands[]
      */
     public $userCommands;
 
     /**
+     * @description This parameter is not available.
+     *
+     * @example To be hidden.
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description Specifies whether to enable disk encryption.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that you want to use when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $volumeEncryptionKey;
 
     /**
+     * @description This parameter is not available.
+     *
+     * @example To be hidden.
+     *
      * @var string
      */
     public $vpcId;
@@ -134,6 +267,7 @@ class CreateDesktopsRequest extends Model
         'autoPay'                 => 'AutoPay',
         'autoRenew'               => 'AutoRenew',
         'bundleId'                => 'BundleId',
+        'bundleModels'            => 'BundleModels',
         'chargeType'              => 'ChargeType',
         'desktopName'             => 'DesktopName',
         'desktopNameSuffix'       => 'DesktopNameSuffix',
@@ -174,6 +308,15 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
+        }
+        if (null !== $this->bundleModels) {
+            $res['BundleModels'] = [];
+            if (null !== $this->bundleModels && \is_array($this->bundleModels)) {
+                $n = 0;
+                foreach ($this->bundleModels as $item) {
+                    $res['BundleModels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -270,6 +413,15 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
+        }
+        if (isset($map['BundleModels'])) {
+            if (!empty($map['BundleModels'])) {
+                $model->bundleModels = [];
+                $n                   = 0;
+                foreach ($map['BundleModels'] as $item) {
+                    $model->bundleModels[$n++] = null !== $item ? bundleModels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];

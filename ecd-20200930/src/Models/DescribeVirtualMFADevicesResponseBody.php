@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualMFADevicesResponseBody extends Model
 {
     /**
+     * @description The token that determines the start point of the next query. This parameter is empty if no additional results exist.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL23as
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FB550AAB-FB36-4A91-93F6-F4374AF65403
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the virtual MFA devices.
+     *
      * @var virtualMFADevices[]
      */
     public $virtualMFADevices;

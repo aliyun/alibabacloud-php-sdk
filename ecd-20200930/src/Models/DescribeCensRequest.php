@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

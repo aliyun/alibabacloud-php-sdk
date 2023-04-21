@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class sessions extends Model
 {
     /**
+     * @description The ID of the user that logged on to the cloud desktop.
+     *
+     * @example 29615820929547****
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The time when the desktop session was established.
+     *
+     * @example 2021-03-07T08:23Z
+     *
      * @var string
      */
     public $establishmentTime;
 
     /**
+     * @description The name of the external user.
+     *
+     * @example Testname
+     *
      * @var string
      */
     public $externalUserName;

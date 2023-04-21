@@ -9,36 +9,109 @@ use AlibabaCloud\Tea\Model;
 class authorizeSecurityPolicyRule extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the security group rule.
+     *
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @description The description of the security group rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The protocol type of the security group rule.
+     *
+     * Valid values:
+     *
+     *   TCP
+     *
+     * <!-- -->
+     *
+     *   UDP
+     *
+     * <!-- -->
+     *
+     *   ALL: all protocols
+     *
+     * <!-- -->
+     *
+     *   GRE
+     *
+     * <!-- -->
+     *
+     *   ICMP: ICMP (IPv4)
+     *
+     * <!-- -->
+     * @example tcp
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @description The authorization policy of the security group rule.
+     *
+     * Valid values:
+     *
+     *   drop: denies all access requests
+     *
+     * <!-- -->
+     *
+     *   accept: accepts all access requests
+     *
+     * <!-- -->
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The port range of the security group rule. The value range of this parameter varies based on the value of the IpProtocol parameter.
+     *
+     *   If you set the IpProtocol parameter to TCP or UDP, the value range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+     *   If you set the IpProtocol parameter to ICMP, the start port number and the end port number are -1/-1.
+     *   If you set the IpProtocol parameter to GRE, the start port number and the end port number are -1/-1.
+     *   If you set the IpProtocol parameter to ALL, the start port number and the end port number are -1/-1.
+     *
+     * For more information about the common ports of applications, see [Common ports](~~40724~~).
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description The priority of the security group rule. A smaller value specifies a higher priority.\
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The direction of the security group rule.
+     *
+     * Valid values:
+     *
+     *   outflow: outbound
+     *
+     * <!-- -->
+     *
+     *   inflow: inbound
+     *
+     * <!-- -->
+     * @example inflow
+     *
      * @var string
      */
     public $type;

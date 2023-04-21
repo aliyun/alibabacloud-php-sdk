@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     *   `true`: automatically completes the payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
+     *   `false`: does not complete the payment. In this case, an order is generated, but no payment is made. You can log on to the Elastic Desktop Service (EDS) console and complete the payment based on the order ID on the **Orders** page.
+     *
+     * Default value: `true`.
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-2yjhqxo1monxxxxxx
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the sales promotion activity. You can call the DescribePrice operation to obtain the IDs of matching sales promotion activities.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The performance level (PL) of the system disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the system disk. Valid values:
+     *
+     *   PL0
+     *   PL1
+     *   PL2
+     *   PL3
+     *
+     * @example PL1
+     *
      * @var string
      */
     public $rootDiskPerformanceLevel;
 
     /**
+     * @description The PL of the data disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the data disk. Valid values:
+     *
+     *   PL0
+     *   PL1
+     *   PL2
+     *   PL3
+     *
+     * @example PL1
+     *
      * @var string
      */
     public $userDiskPerformanceLevel;

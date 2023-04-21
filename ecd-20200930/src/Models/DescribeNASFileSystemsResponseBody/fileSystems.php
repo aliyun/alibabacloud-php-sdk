@@ -4,91 +4,179 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems\desktopGroups;
 use AlibabaCloud\Tea\Model;
 
 class fileSystems extends Model
 {
     /**
+     * @description The total capacity of the NAS file system. Unit: GiB.
+     *
+     *   The Capacity type has 10 PiB of storage, which is equal to 10,485,760 GiB.
+     *   The Performance type has 1 PiB of storage, which is equal to 1,048,576 GiB.
+     *
+     * @example 10485760
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The time when the NAS file system was created.
+     *
+     * @example 2021-05-10T11:39Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the NAS file system.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The desktop groups that are associated with the NAS file systems that support the UPM feature.
+     *
+     * @var desktopGroups[]
+     */
+    public $desktopGroups;
+
+    /**
+     * @description Indicates whether disk encryption is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $encryptionEnabled;
 
     /**
+     * @description The ID of the NAS file system.
+     *
+     * @example 04f314****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The name of the NAS file system.
+     *
+     * @example testNAS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @description The status of the NAS file system.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $fileSystemStatus;
 
     /**
+     * @description The type of the NAS file system. Valid value: `standard`.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;
 
     /**
+     * @description The used storage of the NAS file system. Unit: byte.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $meteredSize;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @description The status of the mount target.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $mountTargetStatus;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description Indicates whether the UPM feature is supported.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $profileCompatible;
+
+    /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The storage type of the NAS file system.
+     *
+     * @example Capacity
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @description Indicates whether the Server Message Block (SMB) access control list (ACL) feature is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $supportAcl;
 
     /**
+     * @description The zone.
+     *
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;
@@ -96,6 +184,7 @@ class fileSystems extends Model
         'capacity'          => 'Capacity',
         'createTime'        => 'CreateTime',
         'description'       => 'Description',
+        'desktopGroups'     => 'DesktopGroups',
         'encryptionEnabled' => 'EncryptionEnabled',
         'fileSystemId'      => 'FileSystemId',
         'fileSystemName'    => 'FileSystemName',
@@ -106,6 +195,7 @@ class fileSystems extends Model
         'mountTargetStatus' => 'MountTargetStatus',
         'officeSiteId'      => 'OfficeSiteId',
         'officeSiteName'    => 'OfficeSiteName',
+        'profileCompatible' => 'ProfileCompatible',
         'regionId'          => 'RegionId',
         'storageType'       => 'StorageType',
         'supportAcl'        => 'SupportAcl',
@@ -127,6 +217,15 @@ class fileSystems extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->desktopGroups) {
+            $res['DesktopGroups'] = [];
+            if (null !== $this->desktopGroups && \is_array($this->desktopGroups)) {
+                $n = 0;
+                foreach ($this->desktopGroups as $item) {
+                    $res['DesktopGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->encryptionEnabled) {
             $res['EncryptionEnabled'] = $this->encryptionEnabled;
@@ -157,6 +256,9 @@ class fileSystems extends Model
         }
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
+        }
+        if (null !== $this->profileCompatible) {
+            $res['ProfileCompatible'] = $this->profileCompatible;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -191,6 +293,15 @@ class fileSystems extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DesktopGroups'])) {
+            if (!empty($map['DesktopGroups'])) {
+                $model->desktopGroups = [];
+                $n                    = 0;
+                foreach ($map['DesktopGroups'] as $item) {
+                    $model->desktopGroups[$n++] = null !== $item ? desktopGroups::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['EncryptionEnabled'])) {
             $model->encryptionEnabled = $map['EncryptionEnabled'];
         }
@@ -220,6 +331,9 @@ class fileSystems extends Model
         }
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
+        }
+        if (isset($map['ProfileCompatible'])) {
+            $model->profileCompatible = $map['ProfileCompatible'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

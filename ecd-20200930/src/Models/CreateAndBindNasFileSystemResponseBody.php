@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAndBindNasFileSystemResponseBody extends Model
 {
     /**
+     * @example F7E4322D-D679-5ACB-A909-490D2F0E****
+     *
      * @var string
      */
     public $requestId;

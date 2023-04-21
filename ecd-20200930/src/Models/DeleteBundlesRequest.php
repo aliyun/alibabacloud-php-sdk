@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteBundlesRequest extends Model
 {
     /**
+     * @description The desktop bundles that you want to delete.
+     *
+     * @example b-cezrnfgecbich****
+     *
      * @var string[]
      */
     public $bundleId;
 
     /**
+     * @description The ID of the region where the desktop bundles to delete are located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

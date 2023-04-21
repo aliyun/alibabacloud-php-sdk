@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDirectoriesRequest extends Model
 {
     /**
+     * @description The IDs of directories.
+     *
+     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
+     *
      * @var string[]
      */
     public $directoryId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

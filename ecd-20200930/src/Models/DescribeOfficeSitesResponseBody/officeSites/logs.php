@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description The log level.
+     *
+     * @example INFO
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description Details of the log entry.
+     *
+     * @example code:success | message:Create Connector complete
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The step that corresponds to the log entry.
+     *
+     * @example CREATE_CONNECTOR
+     *
      * @var string
      */
     public $step;
 
     /**
+     * @description The time when the log entry was printed.
+     *
+     * @example 2021-05-12T09:42Z
+     *
      * @var string
      */
     public $timeStamp;

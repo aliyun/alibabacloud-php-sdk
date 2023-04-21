@@ -14,16 +14,22 @@ class CancelCoordinationForMonitoringRequest extends Model
     public $coIds;
 
     /**
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example TENANT_ADMIN
+     *
      * @var string
      */
     public $userType;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class keys extends Model
 {
     /**
+     * @description The alias of the key.
+     *
+     * @example TestAlias
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the key in KMS.
+     *
+     * @example acs:kms:cn-hangzhou:154035569884****:key/05754286-3ba2-4fa6-8d41-4323aca6****
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The ID of the key.
+     *
+     * @example 05754286-3ba2-4fa6-8d41-4323aca6****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The type of the key.
+     *
+     * @example ServiceKey
+     *
      * @var string
      */
     public $type;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerRequest extends Model
 {
     /**
+     * @description The CRON expression for the scheduled task.
+     *
+     * @example 0 0 2 ? * 1-7
+     *
      * @var string
      */
     public $cronExpression;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-dbdkfmh883****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description Specifies whether to forcefully execute the scheduled task.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the disk that you want to reset.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resetType;
 
     /**
+     * @description The type of the scheduled task. Valid values:
+     *
+     * @example 1
+     *
      * @var int
      */
     public $timerType;

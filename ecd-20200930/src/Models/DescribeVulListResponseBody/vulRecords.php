@@ -10,91 +10,161 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example 2021-05 servicing stack update for Windows Server 2019 for x64-based systems (KB5003243)
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The ID of the affected cloud desktop.
+     *
+     * @example ecd-9qocyzzbmi4pl****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the affected cloud desktop.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The extended information about the vulnerability.
+     *
      * @var extendContentJson
      */
     public $extendContentJson;
 
     /**
+     * @description The UNIX timestamp when the vulnerability was first detected. Unit: milliseconds.
+     *
+     * @example 1620875711000
+     *
      * @var int
      */
     public $firstTs;
 
     /**
+     * @description The UNIX timestamp when the vulnerability was last detected. Unit: milliseconds.
+     *
+     * @example 1621292382000
+     *
      * @var int
      */
     public $lastTs;
 
     /**
+     * @description The timestamp when the vulnerability status was changed. Unit: milliseconds.
+     *
+     * @example 1621292382000
+     *
      * @var int
      */
     public $modifyTs;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example 5003243
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The priority to fix the vulnerability or the risk level of the vulnerability.
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description Indicates whether the Security Center agent on the cloud desktop is online.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The version of the OS of the cloud desktop.
+     *
+     * @example win
+     *
      * @var string
      */
     public $osVersion;
 
     /**
+     * @description The IDs of the common vulnerabilities and exposures (CVEs) that are related to the vulnerability.
+     *
+     * @example ACSV-SYS-5003243
+     *
      * @var string
      */
     public $related;
 
     /**
+     * @description The UNIX timestamp when the vulnerability was fixed. Unit: milliseconds.
+     *
+     * @example 1621315382000
+     *
      * @var int
      */
     public $repairTs;
 
     /**
+     * @description The code returned after the vulnerability is fixed.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @description The message returned after the vulnerability is fixed.
+     *
+     * @example timeout
+     *
      * @var string
      */
     public $resultMessage;
 
     /**
+     * @description The status of the vulnerability.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The tag that is added to the vulnerability.
+     *
+     * @example system
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The type of the vulnerability.
+     *
+     * @example sys
+     *
      * @var string
      */
     public $type;

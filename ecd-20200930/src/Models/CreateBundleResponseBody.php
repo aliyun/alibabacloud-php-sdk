@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateBundleResponseBody extends Model
 {
     /**
+     * @description The ID of the desktop template.
+     *
+     * @example b-cezrnfgecbich****
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

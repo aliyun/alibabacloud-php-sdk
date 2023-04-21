@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
+     * @description The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 51592A88-0F2C-55E6-AD2C-2AD9C10D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the snapshots.
+     *
      * @var snapshots[]
      */
     public $snapshots;

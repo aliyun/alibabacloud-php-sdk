@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModifiedRecordsRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-bd53sfmysz8ir****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Set the value to the NextToken value that is returned from the last call.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6l3d+SWeOobbIlDLjwhjkTk
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

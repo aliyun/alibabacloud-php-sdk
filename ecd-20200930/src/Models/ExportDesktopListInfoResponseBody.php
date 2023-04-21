@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopListInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The URL from which you can download the file that contains information about exported cloud desktops.
+     *
+     * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktops%20List_2022**********_w3fq******.csv?**********
+     *
      * @var string
      */
     public $url;

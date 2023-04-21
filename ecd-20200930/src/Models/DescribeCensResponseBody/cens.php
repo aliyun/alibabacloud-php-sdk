@@ -11,46 +11,83 @@ use AlibabaCloud\Tea\Model;
 class cens extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-3gwy16dojz1m65****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The time when the CEN instance was created.
+     *
+     * @example 2021-06-16T08:46Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the CEN instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether IPv6 is supported. Valid value: DISABLED. This value indicates that IPv6 is not supported.
+     *
+     * >  IPv6 is not supported.
+     * @example DISABLED
+     *
      * @var string
      */
     public $ipv6Level;
 
     /**
+     * @description The name of the CEN instance.
+     *
+     * @example testCen
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     *
      * @var packageIds[]
      */
     public $packageIds;
 
     /**
+     * @description The level of CIDR block overlapping. Valid value: REDUCED. This value indicates that the CIDR blocks can overlap with each other but must not be the same.
+     *
+     * @example REDUCED
+     *
      * @var string
      */
     public $protectionLevel;
 
     /**
+     * @description The status of the CEN instance. Valid values:
+     *
+     *   Creating: The CEN instance is being created.
+     *   Active: The CEN instance is running.
+     *   Deleting: The CEN instance is being deleted.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the CEN instance.
+     *
      * @var tags[]
      */
     public $tags;

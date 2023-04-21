@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationsRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the alert.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $securityEventId;

@@ -9,101 +9,191 @@ use AlibabaCloud\Tea\Model;
 class CreateADConnectorOfficeSiteRequest extends Model
 {
     /**
+     * @description Host name. The host name must comply with the Windows host convention.
+     *
+     * @example beijing-ad01
+     *
      * @var string
      */
     public $adHostname;
 
     /**
+     * @description The maximum public bandwidth value. Valid values: 0 to 200.
+     *
+     * If you do not specify this parameter or you set this parameter to 0, Internet access is disabled.
+     * @example 1
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-3gwy16dojz1m65****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the Cloud Enterprise Network (CEN) instance belongs.
+     *
+     *   If you do not specify the CenId parameter, or the CEN instance that you specify for the CenId parameter belongs to the current Alibaba Cloud account, skip this parameter.
+     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the exact Alibaba Cloud account.
+     *
+     * @example 102681951715****
+     *
      * @var int
      */
     public $cenOwnerId;
 
     /**
+     * @description The IPv4 CIDR block in the secure office network of the workspace. The system creates a virtual private cloud (VPC) based on the IPv4 CIDR block that you specify. We recommend that you set the IPv4 CIDR block to 10.0.0.0/12, 172.16.0.0/12, 192.168.0.0/16, or a subnet of these CIDR blocks. If you set the IPv4 CIDR block to 10.0.0.0/12 or 172.16.0.0/12, the mask is 12 to 24 bits in length. If you set the IPv4 CIDR block to 192.168.0.0/16, the mask is 16 to 24 bits in length.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description The method that you use to connect to cloud desktops. Valid values:
+     *
+     *   Internet: connects clients to cloud desktops only over the Internet.
+     *   VPC: connects clients to cloud desktops only over a VPC.
+     *   Any: connects clients to cloud desktops over the Internet or a VPC. You can select a connection method when you use a client to connect to the cloud desktop.
+     *
+     * >  The VPC connection method is provided by Alibaba Cloud PrivateLink. You are not charged for PrivateLink. When you set this parameter to VPC or Any, PrivateLink is automatically activated.
+     * @example Internet
+     *
      * @var string
      */
     public $desktopAccessType;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string[]
      */
     public $dnsAddress;
 
     /**
+     * @description The domain name of the enterprise AD system. You can register each domain name only once.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The password of the domain administrator. The password can be up to 64 characters in length.
+     *
+     * @example testPassword
+     *
      * @var string
      */
     public $domainPassword;
 
     /**
+     * @description The username of the domain administrator. The username can be up to 64 characters in length.
+     *
+     * >  Specify the value of the sAMAccountName parameter instead of the value of the userPrincipalName parameter as the username.
+     * @example Administrator
+     *
      * @var string
      */
     public $domainUserName;
 
     /**
+     * @description Specifies whether to grant the permissions of the local administrator to the desktop users. Default value: true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAdminAccess;
 
     /**
+     * @description Specifies whether to enable Internet access.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableInternetAccess;
 
     /**
+     * @description Specifies whether to enable multi-factor authentication (MFA).
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mfaEnabled;
 
     /**
+     * @description The name of the workspace. The name must be 2 to 255 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * Default value: null.
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description Protocol Type. Valid values: ASP.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specification of AD Connector.
+     *
+     *   1: General.
+     *   2: High.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $specification;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string[]
      */
     public $subDomainDnsAddress;
 
     /**
+     * @description The domain name of the enterprise AD subdomain.
+     *
+     * @example child.example.com
+     *
      * @var string
      */
     public $subDomainName;
 
     /**
+     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
+     *
+     * @example 12****
+     *
      * @var string
      */
     public $verifyCode;

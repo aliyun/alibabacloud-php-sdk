@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowStatisticRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-7w78ozhjcwa3u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The number of the page to return.\
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The interval to query the traffic data. Unit: seconds. Valid values:
+     *
+     *   3600
+     *   10800
+     *   86400
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

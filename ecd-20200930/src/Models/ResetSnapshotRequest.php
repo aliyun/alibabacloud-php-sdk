@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetSnapshotRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hzngahou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-2zeipxmnhej803x7****
+     *
      * @var string
      */
     public $snapshotId;

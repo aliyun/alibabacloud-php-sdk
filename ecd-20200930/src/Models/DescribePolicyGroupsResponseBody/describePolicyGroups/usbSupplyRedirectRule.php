@@ -14,31 +14,43 @@ class usbSupplyRedirectRule extends Model
     public $description;
 
     /**
+     * @example 0Eh
+     *
      * @var string
      */
     public $deviceClass;
 
     /**
+     * @example xxh
+     *
      * @var string
      */
     public $deviceSubclass;
 
     /**
+     * @example 08**
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $usbRedirectType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $usbRuleType;
 
     /**
+     * @example 04**
+     *
      * @var string
      */
     public $vendorId;

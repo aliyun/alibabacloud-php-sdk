@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The name of the region.
+     *
+     * > If the AcceptLanguage parameter is set to zh-CN, the Chinese name of the region is returned. If the AcceptLanguage parameter is set to zh-US or left empty, the English name of the region is returned.
+     * @example 华东1（杭州）
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The endpoint of the region.
+     *
+     * @example ecd.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

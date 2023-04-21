@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-jedbpr4sl9l37****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @description The type of the disk.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The performance level (PL) of the disk that is an enhanced SSD (ESSD). Valid values:
+     *
+     *   PL0
+     *   PL1
+     *   PL2
+     *   PL3
+     *
+     * For more information about the differences between disks of different PLs, see [Enhanced SSDs](~~122389~~).
+     * @example PL0
+     *
      * @var string
      */
     public $performanceLevel;

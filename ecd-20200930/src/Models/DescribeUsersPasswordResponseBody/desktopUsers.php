@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class desktopUsers extends Model
 {
     /**
+     * @description The display name of the user.
+     *
+     * @example alice_1365*****
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The password of the user.
+     *
+     * @example tes123
+     *
      * @var string
      */
     public $password;

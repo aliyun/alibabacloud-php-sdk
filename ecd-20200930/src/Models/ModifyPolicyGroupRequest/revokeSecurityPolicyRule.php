@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class revokeSecurityPolicyRule extends Model
 {
     /**
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @example outflow
+     *
      * @var string
      */
     public $type;

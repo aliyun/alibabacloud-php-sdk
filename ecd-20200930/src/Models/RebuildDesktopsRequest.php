@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RebuildDesktopsRequest extends Model
 {
     /**
+     * @description The IDs of the cloud desktops. You can specify 1 to 20 cloud desktop IDs.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the new image.
+     *
+     * @example m-84mztzatmlnys****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

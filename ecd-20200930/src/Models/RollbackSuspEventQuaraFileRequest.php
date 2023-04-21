@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RollbackSuspEventQuaraFileRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the quarantined file.
+     *
+     * You can call the [DescribeSuspEventQuaraFiles](~~217947~~) operation to obtain the ID of the quarantined file.
+     * @example 3921797
+     *
      * @var int
      */
     public $quaraFieldId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

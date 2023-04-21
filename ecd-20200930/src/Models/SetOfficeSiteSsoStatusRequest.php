@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SetOfficeSiteSsoStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to enable SSO. Valid values:
+     *
+     *   true: enables SSO
+     *   false: disables SSO
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSso;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

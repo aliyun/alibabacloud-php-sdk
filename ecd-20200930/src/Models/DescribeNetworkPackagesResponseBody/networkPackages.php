@@ -9,65 +9,164 @@ use AlibabaCloud\Tea\Model;
 class networkPackages extends Model
 {
     /**
+     * @description The maximum public bandwidth of the Internet access package. Unit: Mbit/s.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The time when the Internet access package was created.
+     *
+     * @example 2021-05-10T02:35:26Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The elastic IP addresses (EIPs) of the Internet access package for outbound traffic.
+     *
      * @var string[]
      */
     public $eipAddresses;
 
     /**
+     * @description The time when the Internet access package expires.
+     *
+     *   If the Internet access package is metered on a pay-by-bandwidth basis, the actual expiration time is returned.
+     *   If the Internet access package is metered on a pay-by-data-transfer basis, 2099-12-31T15:59:59Z is returned.
+     *
+     * @example 2099-12-31T15:59:59Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The billing method of the network bandwidth.
+     *
+     *   PayByTraffic: pay-by-data-transfer
+     *   PayByBandwidth: pay-by-bandwidth
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The ID of the Internet access package.
+     *
+     * @example np-amtp8e8q1o9e4****
+     *
      * @var string
      */
     public $networkPackageId;
 
     /**
+     * @description The state of the Internet access package. Valid values:
+     *
+     *   Creating
+     *   InUse
+     *   Releasing
+     *   Released
+     *
+     * @example InUse
+     *
      * @var string
      */
     public $networkPackageStatus;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The type of the workspace. Valid values:
+     *
+     *   basic
+     *   standard
+     *   customized
+     *
+     * @example basic
+     *
      * @var string
      */
     public $officeSiteVpcType;
+
+    /**
+     * @description The billing method for the network.
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * @example PostPaid
+     *
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @description The time when the reserved network bandwidth takes effect.
+     *
+     * @example 2021-07-10T00:00:00Z
+     *
+     * @var string
+     */
+    public $reservationActiveTime;
+
+    /**
+     * @description The peak bandwidth of the reserved network bandwidth. Unit: Mbit/s.
+     *
+     * @example 20
+     *
+     * @var int
+     */
+    public $reservationBandwidth;
+
+    /**
+     * @description The billing method of the reserved network bandwidth.
+     *
+     *   PayByTraffic: pay-by-data-transfer
+     *   PayByBandwidth: pay-by-bandwidth
+     *
+     * @example PayByBandwidth
+     *
+     * @var string
+     */
+    public $reservationInternetChargeType;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'createTime'           => 'CreateTime',
-        'eipAddresses'         => 'EipAddresses',
-        'expiredTime'          => 'ExpiredTime',
-        'internetChargeType'   => 'InternetChargeType',
-        'networkPackageId'     => 'NetworkPackageId',
-        'networkPackageStatus' => 'NetworkPackageStatus',
-        'officeSiteId'         => 'OfficeSiteId',
-        'officeSiteName'       => 'OfficeSiteName',
-        'officeSiteVpcType'    => 'OfficeSiteVpcType',
+        'bandwidth'                     => 'Bandwidth',
+        'createTime'                    => 'CreateTime',
+        'eipAddresses'                  => 'EipAddresses',
+        'expiredTime'                   => 'ExpiredTime',
+        'internetChargeType'            => 'InternetChargeType',
+        'networkPackageId'              => 'NetworkPackageId',
+        'networkPackageStatus'          => 'NetworkPackageStatus',
+        'officeSiteId'                  => 'OfficeSiteId',
+        'officeSiteName'                => 'OfficeSiteName',
+        'officeSiteVpcType'             => 'OfficeSiteVpcType',
+        'payType'                       => 'PayType',
+        'reservationActiveTime'         => 'ReservationActiveTime',
+        'reservationBandwidth'          => 'ReservationBandwidth',
+        'reservationInternetChargeType' => 'ReservationInternetChargeType',
     ];
 
     public function validate()
@@ -106,6 +205,18 @@ class networkPackages extends Model
         }
         if (null !== $this->officeSiteVpcType) {
             $res['OfficeSiteVpcType'] = $this->officeSiteVpcType;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->reservationActiveTime) {
+            $res['ReservationActiveTime'] = $this->reservationActiveTime;
+        }
+        if (null !== $this->reservationBandwidth) {
+            $res['ReservationBandwidth'] = $this->reservationBandwidth;
+        }
+        if (null !== $this->reservationInternetChargeType) {
+            $res['ReservationInternetChargeType'] = $this->reservationInternetChargeType;
         }
 
         return $res;
@@ -150,6 +261,18 @@ class networkPackages extends Model
         }
         if (isset($map['OfficeSiteVpcType'])) {
             $model->officeSiteVpcType = $map['OfficeSiteVpcType'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['ReservationActiveTime'])) {
+            $model->reservationActiveTime = $map['ReservationActiveTime'];
+        }
+        if (isset($map['ReservationBandwidth'])) {
+            $model->reservationBandwidth = $map['ReservationBandwidth'];
+        }
+        if (isset($map['ReservationInternetChargeType'])) {
+            $model->reservationInternetChargeType = $map['ReservationInternetChargeType'];
         }
 
         return $model;

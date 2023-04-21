@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class rpmEntityList extends Model
 {
     /**
+     * @description The complete version number.
+     *
+     * @example 3.10.0-693.2.2.el7
+     *
      * @var string
      */
     public $fullVersion;
 
     /**
+     * @description The reason why the vulnerability is detected.
+     *
+     * @example python-perf version less than 0:3.10.0-693.21.1.el7
+     *
      * @var string
      */
     public $matchDetail;
 
     /**
+     * @description The name of the RPM package.
+     *
+     * @example python-perf
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The path of the software that has the vulnerability.
+     *
+     * @example /usr/lib64/python2.7/site-packages
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The command that is used to fix the vulnerability.
+     *
+     * @example *** update python-perf
+     *
      * @var string
      */
     public $updateCmd;

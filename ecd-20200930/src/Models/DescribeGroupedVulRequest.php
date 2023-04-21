@@ -9,41 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The processing status of the vulnerability. Valid values:
+     *
+     *   y: handled
+     *   n: unhandled
+     *
+     * @example y
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The priority to fix the vulnerability or the risk level of the vulnerability. Valid values:
+     *
+     *   asap: high
+     *   later: medium
+     *   nntf: low
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

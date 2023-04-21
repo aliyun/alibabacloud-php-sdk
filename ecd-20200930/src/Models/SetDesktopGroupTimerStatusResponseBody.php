@@ -9,23 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerStatusResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $desktopGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $orderIds;
-
-    /**
+     * @description The ID of the request.
+     *
+     * @example AC7912E7-8BDF-547F-BCAC****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'desktopGroupId' => 'DesktopGroupId',
-        'orderIds'       => 'OrderIds',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,12 +27,6 @@ class SetDesktopGroupTimerStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->desktopGroupId) {
-            $res['DesktopGroupId'] = $this->desktopGroupId;
-        }
-        if (null !== $this->orderIds) {
-            $res['OrderIds'] = $this->orderIds;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,14 +42,6 @@ class SetDesktopGroupTimerStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DesktopGroupId'])) {
-            $model->desktopGroupId = $map['DesktopGroupId'];
-        }
-        if (isset($map['OrderIds'])) {
-            if (!empty($map['OrderIds'])) {
-                $model->orderIds = $map['OrderIds'];
-            }
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

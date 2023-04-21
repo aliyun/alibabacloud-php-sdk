@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the exceptions.
+     *
      * @var suspEvents[]
      */
     public $suspEvents;
 
     /**
+     * @description The total number of exceptions returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

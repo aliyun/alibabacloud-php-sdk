@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class routeEntries extends Model
 {
     /**
+     * @description The CIDR block of the route.
+     *
+     * @example 172.16.111.3****
+     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
+     * @description The ID of the network instance that is attached to the route.
+     *
+     * @example vpc-uf62bu0xs5j8md54p****
+     *
      * @var string
      */
     public $nextHopInstanceId;
 
     /**
+     * @description The ID of the region where the route resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The verification result for a route. Valid values:
+     *
+     *   Access: The route verification succeeds.
+     *   Conflict: A CIDR block conflict exists.
+     *
+     * @example Access
+     *
      * @var string
      */
     public $status;

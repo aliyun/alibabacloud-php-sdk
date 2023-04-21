@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeRequest extends Model
 {
     /**
+     * @description The description of the image.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-2g65ljy3ynrdq****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

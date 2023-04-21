@@ -9,72 +9,126 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesRequest extends Model
 {
     /**
+     * @description The cloud desktop type. You can call the [DescribeBundles](~~188884~~) operation to query the available cloud desktop types.
+     *
+     * @example ecd.graphics.xlarge
+     *
      * @var string
      */
     public $desktopInstanceType;
 
     /**
-     * @var string
-     */
-    public $fotaChannel;
-
-    /**
+     * @description Specifies whether the image is a GPU-accelerated image.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $gpuCategory;
 
     /**
+     * @description The version of the GPU driver.
+     *
+     * @example 417.22
+     *
      * @var string
      */
     public $gpuDriverVersion;
 
     /**
+     * @description The IDs of the images. You can specify one or more image IDs.
+     *
+     * @example m-gx2x1dhsmusr2****
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
+     * @description The state of the image.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $imageStatus;
 
     /**
+     * @description The type of the image.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The language of the OS.
+     *
+     * @example en-US
+     *
      * @var string
      */
     public $languageType;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If you do not specify this parameter, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The type of the OS. Default value: `null`.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The session type.
+     *
+     * @example SINGLE_SESSION
+     *
+     * @var string
+     */
+    public $sessionType;
     protected $_name = [
         'desktopInstanceType' => 'DesktopInstanceType',
-        'fotaChannel'         => 'FotaChannel',
         'gpuCategory'         => 'GpuCategory',
         'gpuDriverVersion'    => 'GpuDriverVersion',
         'imageId'             => 'ImageId',
@@ -86,6 +140,7 @@ class DescribeImagesRequest extends Model
         'osType'              => 'OsType',
         'protocolType'        => 'ProtocolType',
         'regionId'            => 'RegionId',
+        'sessionType'         => 'SessionType',
     ];
 
     public function validate()
@@ -97,9 +152,6 @@ class DescribeImagesRequest extends Model
         $res = [];
         if (null !== $this->desktopInstanceType) {
             $res['DesktopInstanceType'] = $this->desktopInstanceType;
-        }
-        if (null !== $this->fotaChannel) {
-            $res['FotaChannel'] = $this->fotaChannel;
         }
         if (null !== $this->gpuCategory) {
             $res['GpuCategory'] = $this->gpuCategory;
@@ -134,6 +186,9 @@ class DescribeImagesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->sessionType) {
+            $res['SessionType'] = $this->sessionType;
+        }
 
         return $res;
     }
@@ -148,9 +203,6 @@ class DescribeImagesRequest extends Model
         $model = new self();
         if (isset($map['DesktopInstanceType'])) {
             $model->desktopInstanceType = $map['DesktopInstanceType'];
-        }
-        if (isset($map['FotaChannel'])) {
-            $model->fotaChannel = $map['FotaChannel'];
         }
         if (isset($map['GpuCategory'])) {
             $model->gpuCategory = $map['GpuCategory'];
@@ -186,6 +238,9 @@ class DescribeImagesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SessionType'])) {
+            $model->sessionType = $map['SessionType'];
         }
 
         return $model;

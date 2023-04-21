@@ -9,96 +9,187 @@ use AlibabaCloud\Tea\Model;
 class paidDesktops extends Model
 {
     /**
+     * @description The connection status of the cloud desktop.
+     *
+     * @example Connected
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @description The cloud desktop ID.
+     *
+     * @example ud-7ftf5b6yu77b0****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The cloud desktop name.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The state of the cloud desktop.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $desktopStatus;
 
     /**
+     * @description The disk type.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The authorized user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The IDs of users that are connected to cloud desktops. If no users are connected, null is returned.
+     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
+     * @description The username of the authorized user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserName;
 
     /**
+     * @description The usernames of users that are connected to cloud desktops. If no users are connected, null is returned.
+     *
      * @var string[]
      */
     public $endUserNames;
 
     /**
+     * @description The image version.
+     *
+     * @example 0.1.0-R-20220914.17****
+     *
+     * @var string
+     */
+    public $fotaVersion;
+
+    /**
+     * @description The GPU driver version.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $gpuDriverVersion;
 
     /**
+     * @description The image ID.
+     *
+     * @example m-hn5v2mmk0****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The image name.
+     *
+     * @example Win10_ZC
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The flag that is used for management.
+     *
+     * @example NoFlag
+     *
      * @var string
      */
     public $managementFlag;
 
     /**
+     * @description The flags that are used for management.
+     *
      * @var string[]
      */
     public $managementFlags;
 
     /**
+     * @description The IP address of the member Elastic Network Interface (ENI).
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $memberEniIp;
 
     /**
+     * @description The OS type.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The IP address of the primary ENI.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $primaryEniIp;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   ASP
+     *   HDX
+     *
+     * @example ASP
+     *
+     * @var string
+     */
+    public $protocolType;
+
+    /**
+     * @description The point in time when the cloud desktop was reset.
+     *
+     * @example 2021-03-03 08:48:08
+     *
      * @var string
      */
     public $resetTime;
 
     /**
+     * @description The system disk size. Unit: GiB.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $systemDiskSize;
@@ -112,6 +203,7 @@ class paidDesktops extends Model
         'endUserIds'       => 'EndUserIds',
         'endUserName'      => 'EndUserName',
         'endUserNames'     => 'EndUserNames',
+        'fotaVersion'      => 'FotaVersion',
         'gpuDriverVersion' => 'GpuDriverVersion',
         'imageId'          => 'ImageId',
         'imageName'        => 'ImageName',
@@ -120,6 +212,7 @@ class paidDesktops extends Model
         'memberEniIp'      => 'MemberEniIp',
         'osType'           => 'OsType',
         'primaryEniIp'     => 'PrimaryEniIp',
+        'protocolType'     => 'ProtocolType',
         'resetTime'        => 'ResetTime',
         'systemDiskSize'   => 'SystemDiskSize',
     ];
@@ -158,6 +251,9 @@ class paidDesktops extends Model
         if (null !== $this->endUserNames) {
             $res['EndUserNames'] = $this->endUserNames;
         }
+        if (null !== $this->fotaVersion) {
+            $res['FotaVersion'] = $this->fotaVersion;
+        }
         if (null !== $this->gpuDriverVersion) {
             $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
@@ -181,6 +277,9 @@ class paidDesktops extends Model
         }
         if (null !== $this->primaryEniIp) {
             $res['PrimaryEniIp'] = $this->primaryEniIp;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
         if (null !== $this->resetTime) {
             $res['ResetTime'] = $this->resetTime;
@@ -231,6 +330,9 @@ class paidDesktops extends Model
                 $model->endUserNames = $map['EndUserNames'];
             }
         }
+        if (isset($map['FotaVersion'])) {
+            $model->fotaVersion = $map['FotaVersion'];
+        }
         if (isset($map['GpuDriverVersion'])) {
             $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
@@ -256,6 +358,9 @@ class paidDesktops extends Model
         }
         if (isset($map['PrimaryEniIp'])) {
             $model->primaryEniIp = $map['PrimaryEniIp'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
         if (isset($map['ResetTime'])) {
             $model->resetTime = $map['ResetTime'];

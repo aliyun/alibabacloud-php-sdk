@@ -10,15 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListUserAdOrganizationUnitsResponseBody extends Model
 {
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example CAAAAA==
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The names of the OUs in the AD domain.
+     *
      * @var OUNames[]
      */
     public $OUNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'nextToken' => 'NextToken',
         'OUNames'   => 'OUNames',
         'requestId' => 'RequestId',
     ];
@@ -30,6 +46,9 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->OUNames) {
             $res['OUNames'] = [];
             if (null !== $this->OUNames && \is_array($this->OUNames)) {
@@ -54,6 +73,9 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['OUNames'])) {
             if (!empty($map['OUNames'])) {
                 $model->OUNames = [];

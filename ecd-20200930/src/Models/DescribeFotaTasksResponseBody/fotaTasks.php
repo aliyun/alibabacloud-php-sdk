@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class fotaTasks extends Model
 {
     /**
+     * @description The version of the custom image. You can call the [DescribeImages](~~188895~~) operation to obtain the value of this parameter.
+     *
+     * @example 0.0.1-D-20220513.143129
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description This parameter is not available to the public.
+     *
+     * @example To be hidden.
+     *
      * @var string
      */
     public $fotaProject;
@@ -21,41 +29,71 @@ class fotaTasks extends Model
     /**
      * @var int
      */
+    public $pendingCustomImageCount;
+
+    /**
+     * @description The number of cloud desktops for which the images can be updated to this version.
+     *
+     * @example 1
+     *
+     * @var int
+     */
     public $pendingDesktopCount;
 
     /**
+     * @description The time when the updated image was published.
+     *
+     * @example 2022-05-31T04:28:48Z
+     *
      * @var string
      */
     public $publishTime;
 
     /**
+     * @description The description of the image version to which the original image is updated.
+     *
+     * @example test
+     *
      * @var string
      */
     public $releaseNote;
 
     /**
+     * @description The size of the image update package. Unit: KB.
+     *
+     * @example 568533470
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description Indicates whether the user can update the image of the cloud desktop.
+     *
+     * @example valid
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the image update task.
+     *
+     * @example aot-c4khwrp9ocml4****
+     *
      * @var string
      */
     public $taskUid;
     protected $_name = [
-        'appVersion'          => 'AppVersion',
-        'fotaProject'         => 'FotaProject',
-        'pendingDesktopCount' => 'PendingDesktopCount',
-        'publishTime'         => 'PublishTime',
-        'releaseNote'         => 'ReleaseNote',
-        'size'                => 'Size',
-        'status'              => 'Status',
-        'taskUid'             => 'TaskUid',
+        'appVersion'              => 'AppVersion',
+        'fotaProject'             => 'FotaProject',
+        'pendingCustomImageCount' => 'PendingCustomImageCount',
+        'pendingDesktopCount'     => 'PendingDesktopCount',
+        'publishTime'             => 'PublishTime',
+        'releaseNote'             => 'ReleaseNote',
+        'size'                    => 'Size',
+        'status'                  => 'Status',
+        'taskUid'                 => 'TaskUid',
     ];
 
     public function validate()
@@ -70,6 +108,9 @@ class fotaTasks extends Model
         }
         if (null !== $this->fotaProject) {
             $res['FotaProject'] = $this->fotaProject;
+        }
+        if (null !== $this->pendingCustomImageCount) {
+            $res['PendingCustomImageCount'] = $this->pendingCustomImageCount;
         }
         if (null !== $this->pendingDesktopCount) {
             $res['PendingDesktopCount'] = $this->pendingDesktopCount;
@@ -106,6 +147,9 @@ class fotaTasks extends Model
         }
         if (isset($map['FotaProject'])) {
             $model->fotaProject = $map['FotaProject'];
+        }
+        if (isset($map['PendingCustomImageCount'])) {
+            $model->pendingCustomImageCount = $map['PendingCustomImageCount'];
         }
         if (isset($map['PendingDesktopCount'])) {
             $model->pendingDesktopCount = $map['PendingDesktopCount'];

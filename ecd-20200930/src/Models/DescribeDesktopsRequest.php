@@ -10,129 +10,271 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopsRequest extends Model
 {
     /**
+     * @description The billing method of the cloud desktop.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.``
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
+     * @var string
+     */
+    public $desktopGroupId;
+
+    /**
+     * @description The IDs of the cloud desktops. You can specify 1 to 100 IDs of cloud desktops.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example testDesktopName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The state of the cloud desktop.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $desktopStatus;
 
     /**
+     * @description The new desktop type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of supported desktop types.
+     *
+     * @example eds.general.2c8g
+     *
+     * @var string
+     */
+    public $desktopType;
+
+    /**
+     * @description The ID of the directory. The ID is the same as the workspace ID.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The IDs of the users that are assigned the cloud desktop. You can specify IDs of 1 to 100 users.
+     *
+     * > Only one user can use the cloud desktop at a time.
+     * @example alice
+     *
      * @var string[]
      */
     public $endUserId;
 
     /**
+     * @description The IDs of the users that are excluded from the users that are assigned the cloud desktop. You can specify IDs of 1 to 100 users.
+     *
+     * @example andy
+     *
      * @var string[]
      */
     public $excludedEndUserId;
 
     /**
+     * @description The time when the subscription cloud desktop expires.
+     *
+     * @example 2022-12-31T15:59:59Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description Specifies whether to filter cloud desktops in the desktop group.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $filterDesktopGroup;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-boyczi8enfyc5****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description 镜像ID列表。
+     *
+     * @var string[]
+     */
+    public $imageId;
+
+    /**
+     * @description The flag that is used for management.
+     *
+     * @example NoFlag
+     *
      * @var string
      */
     public $managementFlag;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     *   Maximum value: 100
+     *   Default value: 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description Specifies whether to query cloud desktops in the desktop group.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $onlyDesktopGroup;
+
+    /**
+     * @description The types of the OSs.
+     *
+     * @var string[]
+     */
+    public $osTypes;
+
+    /**
+     * @description The ID of the policy.
+     *
+     * @example system-all-enabled-policy
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description Specifies whether to query the information about image version of the cloud desktop.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $queryFotaUpdate;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-hb12mclyne09xw***
+     *
+     * @var string
+     */
+    public $snapshotPolicyId;
+
+    /**
+     * @description The tags that you want to add. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](~~203781~~).
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $userName;
     protected $_name = [
         'chargeType'         => 'ChargeType',
+        'desktopGroupId'     => 'DesktopGroupId',
         'desktopId'          => 'DesktopId',
         'desktopName'        => 'DesktopName',
         'desktopStatus'      => 'DesktopStatus',
+        'desktopType'        => 'DesktopType',
         'directoryId'        => 'DirectoryId',
         'endUserId'          => 'EndUserId',
         'excludedEndUserId'  => 'ExcludedEndUserId',
         'expiredTime'        => 'ExpiredTime',
         'filterDesktopGroup' => 'FilterDesktopGroup',
         'groupId'            => 'GroupId',
+        'imageId'            => 'ImageId',
         'managementFlag'     => 'ManagementFlag',
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
         'officeSiteId'       => 'OfficeSiteId',
         'officeSiteName'     => 'OfficeSiteName',
+        'onlyDesktopGroup'   => 'OnlyDesktopGroup',
+        'osTypes'            => 'OsTypes',
         'policyGroupId'      => 'PolicyGroupId',
         'protocolType'       => 'ProtocolType',
         'queryFotaUpdate'    => 'QueryFotaUpdate',
         'regionId'           => 'RegionId',
+        'snapshotPolicyId'   => 'SnapshotPolicyId',
         'tag'                => 'Tag',
         'userName'           => 'UserName',
     ];
@@ -147,6 +289,9 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+        if (null !== $this->desktopGroupId) {
+            $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -155,6 +300,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
+        }
+        if (null !== $this->desktopType) {
+            $res['DesktopType'] = $this->desktopType;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -174,6 +322,9 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
         }
@@ -189,6 +340,12 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
+        if (null !== $this->onlyDesktopGroup) {
+            $res['OnlyDesktopGroup'] = $this->onlyDesktopGroup;
+        }
+        if (null !== $this->osTypes) {
+            $res['OsTypes'] = $this->osTypes;
+        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -200,6 +357,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->snapshotPolicyId) {
+            $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -228,6 +388,9 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['DesktopGroupId'])) {
+            $model->desktopGroupId = $map['DesktopGroupId'];
+        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
@@ -238,6 +401,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
+        }
+        if (isset($map['DesktopType'])) {
+            $model->desktopType = $map['DesktopType'];
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
@@ -261,6 +427,11 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['ImageId'])) {
+            if (!empty($map['ImageId'])) {
+                $model->imageId = $map['ImageId'];
+            }
+        }
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];
         }
@@ -276,6 +447,14 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
+        if (isset($map['OnlyDesktopGroup'])) {
+            $model->onlyDesktopGroup = $map['OnlyDesktopGroup'];
+        }
+        if (isset($map['OsTypes'])) {
+            if (!empty($map['OsTypes'])) {
+                $model->osTypes = $map['OsTypes'];
+            }
+        }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
@@ -287,6 +466,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SnapshotPolicyId'])) {
+            $model->snapshotPolicyId = $map['SnapshotPolicyId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class HandleSecurityEventsRequest extends Model
 {
     /**
+     * @description The operation to handle multiple alerts of the same type at a time.
+     *
+     * @example deal
+     *
      * @var string
      */
     public $operationCode;
 
     /**
+     * @description The return value from the operation to handle multiple alerts of the same type at a time.\
+     * This parameter is required only if you set the OperationCode parameter to `kill_and_quara` or `block_ip`. This parameter is not required if you set the OperationCode parameter to other values.
+     * @example {"expireTime":1578475919533}
+     *
      * @var string
      */
     public $operationParams;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The alerts.
+     *
      * @var securityEvent[]
      */
     public $securityEvent;

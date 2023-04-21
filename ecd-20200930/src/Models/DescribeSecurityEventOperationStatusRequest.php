@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationStatusRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -19,6 +23,10 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     public $securityEventId;
 
     /**
+     * @description The ID of the task to handle the alerts.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $taskId;

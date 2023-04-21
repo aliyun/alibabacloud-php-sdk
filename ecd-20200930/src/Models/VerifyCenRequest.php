@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class VerifyCenRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-3gwy16dojz1m65****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     *
+     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to the current Alibaba Cloud account, skip this parameter.
+     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the exact Alibaba Cloud account.
+     *
+     * @example 102681951715****
+     *
      * @var int
      */
     public $cenOwnerId;
 
     /**
+     * @description The IPv4 CIDR block of the workspace.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
+     *
+     * @example 12****
+     *
      * @var string
      */
     public $verifyCode;

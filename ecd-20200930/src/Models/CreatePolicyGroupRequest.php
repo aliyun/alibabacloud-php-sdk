@@ -13,191 +13,661 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyGroupRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the anti-screenshot feature.
+     *
+     * Valid values:
+     *
+     *   off: Anti-screenshot is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: Anti-screenshot is enabled.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $appContentProtection;
 
     /**
+     * @description The client IP address whitelists. Only the client IP addresses in whitelists can access the cloud desktop.
+     *
      * @var authorizeAccessPolicyRule[]
      */
     public $authorizeAccessPolicyRule;
 
     /**
+     * @description The security group rules.
+     *
      * @var authorizeSecurityPolicyRule[]
      */
     public $authorizeSecurityPolicyRule;
 
     /**
+     * @description Specifies whether to enable the webcam redirection feature.
+     *
+     * Valid values:
+     *
+     *   off: Webcam redirection is disabled.
+     *
+     * <!-- -->
+     *
+     *   on: Webcam redirection is enabled. This value is the default value.
+     *
+     * <!-- -->
+     * @example on
+     *
      * @var string
      */
     public $cameraRedirect;
 
     /**
+     * @description The logon methods. You can use this parameter to determine which clients can be used to connect to the cloud desktop.
+     *
      * @var clientType[]
      */
     public $clientType;
 
     /**
+     * @description The permissions on the clipboard.
+     *
+     * Valid values:
+     *
+     *   read: specifies one-way transfer
+     *
+     * <!-- -->
+     *
+     *   readwrite: specifies two-way transfer
+     *
+     * <!-- -->
+     *
+     *   off: disables both one-way and two-way transfer
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $clipboard;
 
     /**
+     * @description Access control for domain names. The wildcard character (\*) is supported for domain names. Separate multiple domain names with commas (,). Valid values:
+     *
+     *   off
+     *   on
+     *
+     * @example off
+     *
      * @var string
      */
     public $domainList;
 
     /**
+     * @description Specifies whether to allow end users to seek assistance from the administrator. Valid values: ON OFF
+     *
+     * @example ON
+     *
+     * @var string
+     */
+    public $endUserApplyAdminCoordinate;
+
+    /**
+     * @description The switch for collaboration between end users. Valid values: ON OFF
+     *
+     * @example ON
+     *
+     * @var string
+     */
+    public $endUserGroupCoordinate;
+
+    /**
+     * @description Specifies whether to enable the image display quality feature for the Graphics cloud desktop. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional design scenarios.
+     *
+     * Valid values:
+     *
+     *   off
+     *
+     * <!-- -->
+     *
+     *   on
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $gpuAcceleration;
 
     /**
+     * @description The policy for HTML5 client access.
+     *
+     * Valid values:
+     *
+     *   off: HTML5 client access is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: HTML5 client access is enabled.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $html5Access;
 
     /**
+     * @description The file transfer policy for HTML5 clients.
+     *
+     * Valid values:
+     *
+     *   all: Files can be uploaded and downloaded between your computer and HTML5 clients.
+     *
+     * <!-- -->
+     *
+     *   download: Files on HTML5 clients can be downloaded to your computer.
+     *
+     * <!-- -->
+     *
+     *   upload: Files on your computer can be uploaded to HTML5 clients.
+     *
+     * <!-- -->
+     *
+     *   off: File transfer between HTML5 clients and your computer is disabled. This value is the default value.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $html5FileTransfer;
 
     /**
+     * @description The protocol that you want to use for network communication. Valid values: -TCP: Only TCP is allowed. -BOTH: Automatic switch between TCP and UDP is allowed. Default value: TCP.
+     *
+     * @example both
+     *
+     * @var string
+     */
+    public $internetCommunicationProtocol;
+
+    /**
+     * @description The permissions on local disk mapping.
+     *
+     * Valid values:
+     *
+     *   read: read-only
+     *
+     * <!-- -->
+     *
+     *   readwrite: read and write
+     *
+     * <!-- -->
+     *
+     *   off:
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $localDrive;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example testPolicyGroupName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Specifies whether to enable the network redirection feature.
+     *
+     * Valid values:
+     *
+     *   off: Network redirection is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: Network redirection is enabled.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $netRedirect;
 
     /**
+     * @description Specifies whether to allow user preemption.
+     *
+     * > To improve user experience and ensure data security, multiple end users cannot connect to the same cloud desktop at the same time. The default value of this parameter is `off`, and the value cannot be changed.
+     * @example off
+     *
      * @var string
      */
     public $preemptLogin;
 
     /**
+     * @description The names of the users that are allowed to connect to the same cloud desktop at the same time. You can specify up to five usernames.
+     *
+     * > To improve user experience and ensure data security, we recommend that you disable the user preemption feature.
+     * @example Alice
+     *
      * @var string[]
      */
     public $preemptLoginUser;
 
     /**
+     * @description The policy for printer redirection.
+     *
+     * Valid values:
+     *
+     *   off: Printer redirection is disabled.
+     *
+     * <!-- -->
+     *
+     *   on: Printer redirection is enabled.
+     *
+     * <!-- -->
+     * @example on
+     *
      * @var string
      */
     public $printerRedirection;
 
     /**
+     * @description Specifies whether to enable the custom screen recording feature.
+     *
+     * Valid values:
+     *
+     *   off: Custom screen recording is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: Custom screen recording is enabled.
+     *
+     * <!-- -->
+     * @example OFF
+     *
      * @var string
      */
     public $recordContent;
 
     /**
+     * @description The duration in which the custom screen recording is valid. Default value: 30. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $recordContentExpires;
 
     /**
+     * @description Specifies whether to enable screen recording.
+     *
+     * Valid values:
+     *
+     *   ALLTIME: All operations that are performed by end users on cloud desktops are recorded. The recording starts immediately when end users connect to cloud desktops and ends when the end users disconnect from the cloud desktops.
+     *
+     * <!-- -->
+     *
+     *   PERIOD: The operations that are performed by end users on cloud desktops during a specified period of time are recorded. You must set the start time and end time for the recording period.
+     *
+     * <!-- -->
+     *
+     *   OFF: Screen recording is disabled.
+     *
+     * <!-- -->
+     * @example OFF
+     *
      * @var string
      */
     public $recording;
 
     /**
+     * @description Specifies whether to record audio data during the screen recording. Valid values:
+     *
+     *   on: records audio and video data
+     *   off: records only video data
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $recordingAudio;
+
+    /**
+     * @description The duration from the time when the screen recording starts to the time when the screen recording stops. If you specify the Recording parameter, you must also specify the RecordingDuration parameter. When the specified duration ends, a recording file is generated.
+     *
+     * @example 15
+     *
+     * @var int
+     */
+    public $recordingDuration;
+
+    /**
+     * @description The time when the screen recording stops. Specify the value in the HH:MM:SS format. The value of this parameter is valid only if you set the Recording parameter to PERIOD.
+     *
+     * @example 08:59:00
+     *
      * @var string
      */
     public $recordingEndTime;
 
     /**
+     * @description The duration in which the screen recording is valid. Unit: days.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $recordingExpires;
 
     /**
+     * @description The frame rate of screen recording.
+     *
+     * Valid values:
+     *
+     *   2
+     *
+     *   5
+     *
+     *  10
+     *
+     *   15
+     *
+     * @example 2
+     *
      * @var int
      */
     public $recordingFps;
 
     /**
+     * @description The time when screen recording starts. Specify the value in the HH:MM:SS format. The value of this parameter is valid only if you set the Recording parameter to PERIOD.
+     *
+     * @example 08:00:00
+     *
      * @var string
      */
     public $recordingStartTime;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The permission to control the keyboard and the mouse during remote assistance.
+     *
+     * Valid values:
+     *
+     *   \-
+     *
+     * <!-- -->
+     *
+     *   fullControl: The permission is granted.
+     *
+     * <!-- -->
+     *
+     *   disableControl: The permission is revoked.
+     *
+     * <!-- -->
+     * @example fullControl
+     *
      * @var string
      */
     public $remoteCoordinate;
 
     /**
+     * @description The effective scope of the policy. Valid values:
+     *
+     *   GLOBAL: The policy takes effect globally.
+     *   IP: The policy takes effect for specified IP addresses.
+     *
+     * @example GLOBAL
+     *
+     * @var string
+     */
+    public $scope;
+
+    /**
+     * @description The effective CIDR block ranges. If you set the Scope parameter to IP, you must specify this parameter.
+     *
+     * @var string[]
+     */
+    public $scopeValue;
+
+    /**
+     * @description Specifies whether to enable USB redirection.
+     *
+     * Valid values:
+     *
+     *   off: USB redirection is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: USB redirection is enabled.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $usbRedirect;
 
     /**
+     * @description The USB redirection rules.
+     *
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
 
     /**
+     * @description Specifies whether to enable the multimedia redirection feature. Valid values:
+     *
+     *   on: Multimedia redirection is enabled.
+     *   off: Multimedia redirection is disabled.
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $videoRedirect;
+
+    /**
+     * @description The policy for image display quality.
+     *
+     * Valid values:
+     *
+     *   high
+     *
+     * <!-- -->
+     *
+     *   low
+     *
+     * <!-- -->
+     *
+     *   lossless
+     *
+     * <!-- -->
+     *
+     *   medium: adaptive. This value is the default value.
+     *
+     * <!-- -->
+     * @example medium
+     *
      * @var string
      */
     public $visualQuality;
 
     /**
+     * @description Specifies whether to enable watermarking.
+     *
+     * Valid values:
+     *
+     *   off: Watermarking is disabled. This value is the default value.
+     *
+     * <!-- -->
+     *
+     *   on: Watermarking is enabled.
+     *
+     * <!-- -->
+     * @example off
+     *
      * @var string
      */
     public $watermark;
 
     /**
+     * @description The font color of the watermark. Valid values: 0 to 16777215.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $watermarkColor;
+
+    /**
+     * @description The inclination angle of the watermark. Valid values: -10 to -30.
+     *
+     * @example -10
+     *
+     * @var float
+     */
+    public $watermarkDegree;
+
+    /**
+     * @description The font size of the watermark. Valid values: 10 to 20.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $watermarkFontSize;
+
+    /**
+     * @description The font style of the watermark. Valid values:
+     *
+     *   plain
+     *   bold
+     *
+     * @example plain
+     *
+     * @var string
+     */
+    public $watermarkFontStyle;
+
+    /**
+     * @description The number of watermark rows. This parameter is now invalid.
+     *
+     * @example 5
+     *
+     * @var int
+     */
+    public $watermarkRowAmount;
+
+    /**
+     * @description The transparency of the watermark.
+     *
+     * Valid values:
+     *
+     *   LIGHT
+     *
+     * <!-- -->
+     *
+     *   DARK
+     *
+     * <!-- -->
+     *
+     *   MIDDLE
+     *
+     * <!-- -->
+     * @example LIGHT
+     *
      * @var string
      */
     public $watermarkTransparency;
 
     /**
+     * @description The transparency of the watermark. A larger value specifies that the watermark is less transparent. Valid values: 10 to 100.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $watermarkTransparencyValue;
+
+    /**
+     * @description The type of the watermark. You can specify multiple types of watermarks at the same time. Separate multiple watermark types with commas (,).
+     *
+     * Valid values:
+     *
+     *   EndUserId: The ID of the end user is displayed.
+     *
+     * <!-- -->
+     *
+     *   HostName: The rightmost 15 characters of the cloud desktop ID are displayed.
+     *
+     * <!-- -->
+     * @example EndUserId
+     *
      * @var string
      */
     public $watermarkType;
     protected $_name = [
-        'appContentProtection'        => 'AppContentProtection',
-        'authorizeAccessPolicyRule'   => 'AuthorizeAccessPolicyRule',
-        'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
-        'cameraRedirect'              => 'CameraRedirect',
-        'clientType'                  => 'ClientType',
-        'clipboard'                   => 'Clipboard',
-        'domainList'                  => 'DomainList',
-        'gpuAcceleration'             => 'GpuAcceleration',
-        'html5Access'                 => 'Html5Access',
-        'html5FileTransfer'           => 'Html5FileTransfer',
-        'localDrive'                  => 'LocalDrive',
-        'name'                        => 'Name',
-        'netRedirect'                 => 'NetRedirect',
-        'preemptLogin'                => 'PreemptLogin',
-        'preemptLoginUser'            => 'PreemptLoginUser',
-        'printerRedirection'          => 'PrinterRedirection',
-        'recordContent'               => 'RecordContent',
-        'recordContentExpires'        => 'RecordContentExpires',
-        'recording'                   => 'Recording',
-        'recordingEndTime'            => 'RecordingEndTime',
-        'recordingExpires'            => 'RecordingExpires',
-        'recordingFps'                => 'RecordingFps',
-        'recordingStartTime'          => 'RecordingStartTime',
-        'regionId'                    => 'RegionId',
-        'remoteCoordinate'            => 'RemoteCoordinate',
-        'usbRedirect'                 => 'UsbRedirect',
-        'usbSupplyRedirectRule'       => 'UsbSupplyRedirectRule',
-        'visualQuality'               => 'VisualQuality',
-        'watermark'                   => 'Watermark',
-        'watermarkTransparency'       => 'WatermarkTransparency',
-        'watermarkType'               => 'WatermarkType',
+        'appContentProtection'          => 'AppContentProtection',
+        'authorizeAccessPolicyRule'     => 'AuthorizeAccessPolicyRule',
+        'authorizeSecurityPolicyRule'   => 'AuthorizeSecurityPolicyRule',
+        'cameraRedirect'                => 'CameraRedirect',
+        'clientType'                    => 'ClientType',
+        'clipboard'                     => 'Clipboard',
+        'domainList'                    => 'DomainList',
+        'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
+        'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
+        'gpuAcceleration'               => 'GpuAcceleration',
+        'html5Access'                   => 'Html5Access',
+        'html5FileTransfer'             => 'Html5FileTransfer',
+        'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
+        'localDrive'                    => 'LocalDrive',
+        'name'                          => 'Name',
+        'netRedirect'                   => 'NetRedirect',
+        'preemptLogin'                  => 'PreemptLogin',
+        'preemptLoginUser'              => 'PreemptLoginUser',
+        'printerRedirection'            => 'PrinterRedirection',
+        'recordContent'                 => 'RecordContent',
+        'recordContentExpires'          => 'RecordContentExpires',
+        'recording'                     => 'Recording',
+        'recordingAudio'                => 'RecordingAudio',
+        'recordingDuration'             => 'RecordingDuration',
+        'recordingEndTime'              => 'RecordingEndTime',
+        'recordingExpires'              => 'RecordingExpires',
+        'recordingFps'                  => 'RecordingFps',
+        'recordingStartTime'            => 'RecordingStartTime',
+        'regionId'                      => 'RegionId',
+        'remoteCoordinate'              => 'RemoteCoordinate',
+        'scope'                         => 'Scope',
+        'scopeValue'                    => 'ScopeValue',
+        'usbRedirect'                   => 'UsbRedirect',
+        'usbSupplyRedirectRule'         => 'UsbSupplyRedirectRule',
+        'videoRedirect'                 => 'VideoRedirect',
+        'visualQuality'                 => 'VisualQuality',
+        'watermark'                     => 'Watermark',
+        'watermarkColor'                => 'WatermarkColor',
+        'watermarkDegree'               => 'WatermarkDegree',
+        'watermarkFontSize'             => 'WatermarkFontSize',
+        'watermarkFontStyle'            => 'WatermarkFontStyle',
+        'watermarkRowAmount'            => 'WatermarkRowAmount',
+        'watermarkTransparency'         => 'WatermarkTransparency',
+        'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
+        'watermarkType'                 => 'WatermarkType',
     ];
 
     public function validate()
@@ -246,6 +716,12 @@ class CreatePolicyGroupRequest extends Model
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
         }
+        if (null !== $this->endUserApplyAdminCoordinate) {
+            $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
+        }
+        if (null !== $this->endUserGroupCoordinate) {
+            $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
+        }
         if (null !== $this->gpuAcceleration) {
             $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
@@ -254,6 +730,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->html5FileTransfer) {
             $res['Html5FileTransfer'] = $this->html5FileTransfer;
+        }
+        if (null !== $this->internetCommunicationProtocol) {
+            $res['InternetCommunicationProtocol'] = $this->internetCommunicationProtocol;
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
@@ -282,6 +761,12 @@ class CreatePolicyGroupRequest extends Model
         if (null !== $this->recording) {
             $res['Recording'] = $this->recording;
         }
+        if (null !== $this->recordingAudio) {
+            $res['RecordingAudio'] = $this->recordingAudio;
+        }
+        if (null !== $this->recordingDuration) {
+            $res['RecordingDuration'] = $this->recordingDuration;
+        }
         if (null !== $this->recordingEndTime) {
             $res['RecordingEndTime'] = $this->recordingEndTime;
         }
@@ -300,6 +785,12 @@ class CreatePolicyGroupRequest extends Model
         if (null !== $this->remoteCoordinate) {
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->scopeValue) {
+            $res['ScopeValue'] = $this->scopeValue;
+        }
         if (null !== $this->usbRedirect) {
             $res['UsbRedirect'] = $this->usbRedirect;
         }
@@ -312,14 +803,35 @@ class CreatePolicyGroupRequest extends Model
                 }
             }
         }
+        if (null !== $this->videoRedirect) {
+            $res['VideoRedirect'] = $this->videoRedirect;
+        }
         if (null !== $this->visualQuality) {
             $res['VisualQuality'] = $this->visualQuality;
         }
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
         }
+        if (null !== $this->watermarkColor) {
+            $res['WatermarkColor'] = $this->watermarkColor;
+        }
+        if (null !== $this->watermarkDegree) {
+            $res['WatermarkDegree'] = $this->watermarkDegree;
+        }
+        if (null !== $this->watermarkFontSize) {
+            $res['WatermarkFontSize'] = $this->watermarkFontSize;
+        }
+        if (null !== $this->watermarkFontStyle) {
+            $res['WatermarkFontStyle'] = $this->watermarkFontStyle;
+        }
+        if (null !== $this->watermarkRowAmount) {
+            $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
+        }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
+        }
+        if (null !== $this->watermarkTransparencyValue) {
+            $res['WatermarkTransparencyValue'] = $this->watermarkTransparencyValue;
         }
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
@@ -375,6 +887,12 @@ class CreatePolicyGroupRequest extends Model
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
         }
+        if (isset($map['EndUserApplyAdminCoordinate'])) {
+            $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
+        }
+        if (isset($map['EndUserGroupCoordinate'])) {
+            $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
+        }
         if (isset($map['GpuAcceleration'])) {
             $model->gpuAcceleration = $map['GpuAcceleration'];
         }
@@ -383,6 +901,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['Html5FileTransfer'])) {
             $model->html5FileTransfer = $map['Html5FileTransfer'];
+        }
+        if (isset($map['InternetCommunicationProtocol'])) {
+            $model->internetCommunicationProtocol = $map['InternetCommunicationProtocol'];
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
@@ -413,6 +934,12 @@ class CreatePolicyGroupRequest extends Model
         if (isset($map['Recording'])) {
             $model->recording = $map['Recording'];
         }
+        if (isset($map['RecordingAudio'])) {
+            $model->recordingAudio = $map['RecordingAudio'];
+        }
+        if (isset($map['RecordingDuration'])) {
+            $model->recordingDuration = $map['RecordingDuration'];
+        }
         if (isset($map['RecordingEndTime'])) {
             $model->recordingEndTime = $map['RecordingEndTime'];
         }
@@ -431,6 +958,14 @@ class CreatePolicyGroupRequest extends Model
         if (isset($map['RemoteCoordinate'])) {
             $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+        if (isset($map['ScopeValue'])) {
+            if (!empty($map['ScopeValue'])) {
+                $model->scopeValue = $map['ScopeValue'];
+            }
+        }
         if (isset($map['UsbRedirect'])) {
             $model->usbRedirect = $map['UsbRedirect'];
         }
@@ -443,14 +978,35 @@ class CreatePolicyGroupRequest extends Model
                 }
             }
         }
+        if (isset($map['VideoRedirect'])) {
+            $model->videoRedirect = $map['VideoRedirect'];
+        }
         if (isset($map['VisualQuality'])) {
             $model->visualQuality = $map['VisualQuality'];
         }
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
         }
+        if (isset($map['WatermarkColor'])) {
+            $model->watermarkColor = $map['WatermarkColor'];
+        }
+        if (isset($map['WatermarkDegree'])) {
+            $model->watermarkDegree = $map['WatermarkDegree'];
+        }
+        if (isset($map['WatermarkFontSize'])) {
+            $model->watermarkFontSize = $map['WatermarkFontSize'];
+        }
+        if (isset($map['WatermarkFontStyle'])) {
+            $model->watermarkFontStyle = $map['WatermarkFontStyle'];
+        }
+        if (isset($map['WatermarkRowAmount'])) {
+            $model->watermarkRowAmount = $map['WatermarkRowAmount'];
+        }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];
+        }
+        if (isset($map['WatermarkTransparencyValue'])) {
+            $model->watermarkTransparencyValue = $map['WatermarkTransparencyValue'];
         }
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];

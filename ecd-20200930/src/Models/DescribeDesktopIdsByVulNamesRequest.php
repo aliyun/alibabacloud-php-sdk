@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopIdsByVulNamesRequest extends Model
 {
     /**
+     * @description The priority to fix the vulnerability or the risk level of the vulnerability. Valid values:
+     *
+     *   asap: high
+     *   later: medium
+     *   nntf: low
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

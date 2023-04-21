@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class CreateADConnectorDirectoryResponseBody extends Model
 {
     /**
+     * @description Details of the AD connectors.
+     *
      * @var adConnectors[]
      */
     public $adConnectors;
 
     /**
+     * @description The ID of the AD directory.
+     *
+     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3FE99D5E-93A1-493F-B1CB-0ABD4D05BEFF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The AD trust password.
+     *
+     * @example 82Tg****
+     *
      * @var string
      */
     public $trustPassword;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ConfigADConnectorUserRequest extends Model
 {
     /**
+     * @description The password of the AD user that has the permissions to join computers to domains.
+     *
+     * @example testPassword
+     *
      * @var string
      */
     public $domainPassword;
 
     /**
+     * @description The username of the AD user that has the permissions to join computers to domains.
+     *
+     * After the username is configured, the cloud desktops in the same AD workspace are joined to the specified OU.
+     * @example Administrator
+     *
      * @var string
      */
     public $domainUserName;
 
     /**
+     * @description The name of the OU in the AD domain. You can call the [ListUserAdOrganizationUnits](~~311259~~) to obtain the OU name.
+     *
+     * @example example.com/Domain Controllers
+     *
      * @var string
      */
     public $OUName;
 
     /**
+     * @description The ID of the AD workspace.
+     *
+     * @example cn-hangzhou+dir-778418****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

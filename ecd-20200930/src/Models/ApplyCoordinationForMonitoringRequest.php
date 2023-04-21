@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ApplyCoordinationForMonitoringRequest extends Model
 {
     /**
+     * @example FULL_CONTROL
+     *
      * @var string
      */
     public $coordinatePolicyType;
 
     /**
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @example ADMIN_INITIATE
+     *
      * @var string
      */
     public $initiatorType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -35,6 +43,8 @@ class ApplyCoordinationForMonitoringRequest extends Model
     public $resourceCandidates;
 
     /**
+     * @example 62f2f1f252f04e0e9d8bc****
+     *
      * @var string
      */
     public $uuid;

@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class desktopTypes extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $cpuCount;
 
     /**
+     * @description The size of the data disk. Unit: GiB.
+     *
+     * @example 150
+     *
      * @var string
      */
     public $dataDiskSize;
 
     /**
+     * @description The ID of the desktop type.
+     *
+     * @example ecd.graphics.xlarge
+     *
      * @var string
      */
     public $desktopTypeId;
 
     /**
+     * @description The status of the desktop type. If `SUFFICIENT` is returned, the number of cloud desktops of the specified desktop type is sufficient.
+     *
+     * @example SUFFICIENT
+     *
      * @var string
      */
     public $desktopTypeStatus;
 
     /**
+     * @description The number of GPUs.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $gpuCount;
 
     /**
+     * @description The GPU memory.
+     *
+     * @example 16 GiB
+     *
      * @var string
      */
     public $gpuSpec;
 
     /**
+     * @description The family of the desktop type.
+     *
+     * @example ecd.graphics
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The size of the memory. Unit: MiB.
+     *
+     * @example 23552
+     *
      * @var string
      */
     public $memorySize;
 
     /**
+     * @description The size of the system disk. Unit: GiB.
+     *
+     * @example 150
+     *
      * @var string
      */
     public $systemDiskSize;

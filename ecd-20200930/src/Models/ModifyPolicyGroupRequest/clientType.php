@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class clientType extends Model
 {
     /**
+     * @example windows
+     *
      * @var string
      */
     public $clientType;
 
     /**
+     * @example ON
+     *
      * @var string
      */
     public $status;

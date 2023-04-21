@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesResponseBody extends Model
 {
     /**
+     * @description The details of the images.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4636DBE0-BBB4-4076-8B8E-94D21A9A3CFB
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetConnectionTicketRequest extends Model
 {
     /**
+     * @description The command that you want to run to configure a custom application in user mode. After you obtain the credentials, the application automatically starts.
+     *
+     *   appPath: the path of the application startup file. Example: C:\\\Program Files (x86)\\\000\\\000.exe. Use double slashes as delimiters.
+     *   appParameter: the startup parameters of the application. The value must be of the String type. Separate multiple parameters with spaces. Example: meetingid 000 meetingname aaa.
+     *
+     * @example {
+     * }
+     * @var string
+     */
+    public $commandContent;
+
+    /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $endUserId;
@@ -24,11 +44,19 @@ class GetConnectionTicketRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password for the username.
+     *
+     * @example Ab123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The region ID of the cloud desktop.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,15 +72,24 @@ class GetConnectionTicketRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the desktop connection task.
+     *
+     * @example 2afbad19-778a-4fc5-9674-1f19c63862da
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
+     *
+     * @example 28c80e90-f71e-4c23-93d6-1225329cf949
+     *
      * @var string
      */
     public $uuid;
     protected $_name = [
+        'commandContent'       => 'CommandContent',
         'desktopId'            => 'DesktopId',
         'endUserId'            => 'EndUserId',
         'ownerId'              => 'OwnerId',
@@ -71,6 +108,9 @@ class GetConnectionTicketRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandContent) {
+            $res['CommandContent'] = $this->commandContent;
+        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -110,6 +150,9 @@ class GetConnectionTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandContent'])) {
+            $model->commandContent = $map['CommandContent'];
+        }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }

@@ -9,56 +9,105 @@ use AlibabaCloud\Tea\Model;
 class ExportClientEventsRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
+     * If you leave this parameter empty, the current time is used.
+     * @example 2022-03-23T07:11:01Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example user01
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The type of the event that you want to query. If you specify a value for the EventTypes parameter, the combination of event types that you want to query is considered the filter condition for the query. If you do not specify a value for the EventTypes parameter and the EventType parameter is left empty, all events are queried.
+     *
+     * @example CLIENT_LOGIN
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The combination of event types that you want to query. You can combine multiple event types. The query result contains all the combined events.
+     *
      * @var string[]
      */
     public $eventTypes;
 
     /**
+     * @example zh-CN
+     *
+     * @var string
+     */
+    public $langType;
+
+    /**
+     * @description The number of records that you want to export. Maximum Value: 5000 Default value: 5000
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
+     * If you leave this parameter empty, all events that occurred before the point in time that you specify for `EndTime` are queried.
+     * @example 2022-03-23T04:10:21Z
+     *
      * @var string
      */
     public $startTime;
@@ -69,6 +118,7 @@ class ExportClientEventsRequest extends Model
         'endUserId'      => 'EndUserId',
         'eventType'      => 'EventType',
         'eventTypes'     => 'EventTypes',
+        'langType'       => 'LangType',
         'maxResults'     => 'MaxResults',
         'officeSiteId'   => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -100,6 +150,9 @@ class ExportClientEventsRequest extends Model
         }
         if (null !== $this->eventTypes) {
             $res['EventTypes'] = $this->eventTypes;
+        }
+        if (null !== $this->langType) {
+            $res['LangType'] = $this->langType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -147,6 +200,9 @@ class ExportClientEventsRequest extends Model
             if (!empty($map['EventTypes'])) {
                 $model->eventTypes = $map['EventTypes'];
             }
+        }
+        if (isset($map['LangType'])) {
+            $model->langType = $map['LangType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

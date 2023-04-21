@@ -9,111 +9,205 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account with which the event is associated.
+     *
+     * @example 112259558861****
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @description The number of bytes that are received.
+     *
+     * @example 8665
+     *
      * @var string
      */
     public $bytesReceived;
 
     /**
+     * @description The number of bytes that are sent.
+     *
+     * @example 2345
+     *
      * @var string
      */
     public $bytesSend;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 100.68.*.*
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The OS that the client runs.
+     *
+     * @example Darwin 17.7.0 x64
+     *
      * @var string
      */
     public $clientOS;
 
     /**
+     * @description The version of the client.
+     *
+     * @example 1.0.4 202012021700
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-kadkdfaf****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The name of the desktop group.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopGroupName;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-8fupvkhg0aayu****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The IP address of the cloud desktop.
+     *
+     * @example 10.10.*.*
+     *
      * @var string
      */
     public $desktopIp;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The ID of the directory to which the cloud desktop belongs.
+     *
+     * @example cn-hangzhou+dir-bh77qa8nmjot4****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The type of the directory.
+     *
+     * @example RAM
+     *
      * @var string
      */
     public $directoryType;
 
     /**
+     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or AD username.
+     *
+     * @example 28961708130834****
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The ID of the event.
+     *
+     * @example 5651188b-3070-d1cc-5311-75753d59****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The time when the event occurred.
+     *
+     * @example 2020-11-30T06:32:31Z
+     *
      * @var string
      */
     public $eventTime;
 
     /**
+     * @description The type of the event.
+     *
+     * @example DESKTOP_DISCONNECT
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the workspace to which the cloud desktop belongs.
+     *
+     * @example cn-hangzhou+dir-bh77qa8nmjot4****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The account type of the workspace. Valid values:
+     *
+     *   SIMPLE: convenience account
+     *   AD_CONNECTOR: enterprise AD account
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $officeSiteType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the event. This parameter is returned if you set the EventType parameter to DESKTOP_DISCONNECT or GET_CONNECTION_TICKET. Valid values:
+     *
+     *   200\. The value indicates that the request is successful.
+     *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $status;

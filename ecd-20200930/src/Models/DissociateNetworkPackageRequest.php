@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DissociateNetworkPackageRequest extends Model
 {
     /**
+     * @description The ID of the Internet access package. You can call the [DescribeNetworkPackages](~~216079~~) operation to query the ID of the Internet access package.
+     *
+     * @example np-*********
+     *
      * @var string
      */
     public $networkPackageId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

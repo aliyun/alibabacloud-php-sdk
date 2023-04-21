@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class fotaPendingDesktops extends Model
 {
     /**
+     * @description The image version of the cloud desktop.
+     *
+     * @example 0.0.1-D-20220513.143129
+     *
      * @var string
      */
     public $currentAppVersion;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-bvdtu3jn97o1r****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example TestDesktop
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @example To be hidden.
+     *
      * @var string
      */
     public $fotaProject;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-815419****
+     *
      * @var string
      */
     public $officeSiteId;

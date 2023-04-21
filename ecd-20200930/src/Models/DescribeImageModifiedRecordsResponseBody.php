@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModifiedRecordsResponseBody extends Model
 {
     /**
+     * @description The image change records.
+     *
      * @var imageModifiedRecords[]
      */
     public $imageModifiedRecords;
 
     /**
+     * @description The token that is used for the next query. If this parameter is left empty, all results are returned.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6koN7RqHg3d2z8LKmSoe821
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DC40EE61-7E83-59ED-AEA6-7EE9C437F352
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of image change records.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

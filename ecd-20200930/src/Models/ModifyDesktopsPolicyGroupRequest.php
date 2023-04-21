@@ -9,23 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopsPolicyGroupRequest extends Model
 {
     /**
+     * @description The IDs of the cloud desktops. You can specify one or more cloud desktops. The value is a JSON array.
+     *
+     * @example ecd-ia2zw38bi6cm7****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The IDs of the policies.
+     *
+     * @var string[]
+     */
+    public $policyGroupIds;
+
+    /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'     => 'DesktopId',
-        'policyGroupId' => 'PolicyGroupId',
-        'regionId'      => 'RegionId',
+        'desktopId'      => 'DesktopId',
+        'policyGroupId'  => 'PolicyGroupId',
+        'policyGroupIds' => 'PolicyGroupIds',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -40,6 +60,9 @@ class ModifyDesktopsPolicyGroupRequest extends Model
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->policyGroupIds) {
+            $res['PolicyGroupIds'] = $this->policyGroupIds;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -63,6 +86,11 @@ class ModifyDesktopsPolicyGroupRequest extends Model
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['PolicyGroupIds'])) {
+            if (!empty($map['PolicyGroupIds'])) {
+                $model->policyGroupIds = $map['PolicyGroupIds'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

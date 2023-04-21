@@ -10,16 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the processing status of alerts.
+     *
      * @var securityEventOperationStatuses[]
      */
     public $securityEventOperationStatuses;
 
     /**
+     * @description The status of the task that handles the alerts. Valid values:
+     *
+     *   Processing: The task is being executed.
+     *   Success: The task is executed.
+     *   Failure: The task failed.
+     *   Pending: The task is waiting to be executed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $taskStatus;

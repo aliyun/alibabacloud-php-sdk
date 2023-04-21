@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ApplyCoordinatePrivilegeRequest extends Model
 {
     /**
+     * @description The ID of the application for the coordinate permissions.
+     *
+     * @example co-fqsm6e8ee75w61fp9
+     *
      * @var string
      */
     public $coId;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of user who requires the coordinate permissions.
+     *
+     * Valid value: TENANT_ADMIN.
+     * @example TENANT_ADMIN
+     *
      * @var string
      */
     public $userType;
 
     /**
+     * @description The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
+     *
+     * @example 8b241d415da244a6936d6d6fa4f20f4d
+     *
      * @var string
      */
     public $uuid;

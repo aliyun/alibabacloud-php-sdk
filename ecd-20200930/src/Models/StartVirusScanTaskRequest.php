@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class StartVirusScanTaskRequest extends Model
 {
     /**
+     * @description The IDs of the cloud desktops.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The IDs of the workspaces.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string[]
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

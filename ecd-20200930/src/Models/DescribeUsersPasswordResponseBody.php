@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersPasswordResponseBody extends Model
 {
     /**
+     * @description The users that are associated with cloud desktop.
+     *
      * @var desktopUsers[]
      */
     public $desktopUsers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F7B4B17B-5C8A-514C-AA4D-F8090E3A63E9
+     *
      * @var string
      */
     public $requestId;

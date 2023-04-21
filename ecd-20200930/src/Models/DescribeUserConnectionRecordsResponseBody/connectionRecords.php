@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class connectionRecords extends Model
 {
     /**
+     * @description The duration of the desktop connection. Unit: seconds.
+     *
+     * @example 3405035000
+     *
      * @var string
      */
     public $connectDuration;
 
     /**
+     * @description The time when the cloud desktop was disconnected.
+     *
+     * @example 2022-02-27T20:03:13Z
+     *
      * @var string
      */
     public $connectEndTime;
 
     /**
+     * @description The time when the cloud desktop was connected.
+     *
+     * @example 2022-01-19T10:12:38Z
+     *
      * @var string
      */
     public $connectStartTime;
 
     /**
+     * @description The ID of the connection record.
+     *
+     * @example 528
+     *
      * @var string
      */
     public $connectionRecordId;
 
     /**
+     * @description The ID of the cloud desktop that is connected.
+     *
+     * @example ud-2hawufy3uedi1****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop that is connected.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopName;

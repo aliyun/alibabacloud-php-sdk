@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressResponseBody extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2021-05-18T02:40:24Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   init: The task is being initialized.
+     *   Processing: The task is in progress.
+     *   Success: The task is completed.
+     *   Failed: The task failed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $taskStatus;

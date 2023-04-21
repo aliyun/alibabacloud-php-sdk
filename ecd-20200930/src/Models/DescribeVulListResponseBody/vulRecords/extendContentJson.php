@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
+     * @description The RPM Package Manager (RPM) packages.
+     *
      * @var rpmEntityList[]
      */
     public $rpmEntityList;

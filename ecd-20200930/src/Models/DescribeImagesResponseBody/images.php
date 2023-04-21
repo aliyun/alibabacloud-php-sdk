@@ -9,96 +9,191 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The version of the image.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description The time when the image was created.
+     *
+     * @example 2018-01-10T01:01:10Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The size of the data disk. Unit: GiB.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @description The description of the image.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the image is a GPU-accelerated image.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $gpuCategory;
 
     /**
+     * @description The version of the GPU driver.
+     *
+     * @example 417.22
+     *
      * @var string
      */
     public $gpuDriverVersion;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-gx2x1dhsmusr2****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The name of the image.
+     *
+     * @example testImageName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The OS type of the image.
+     *
+     * @example WINDOWS
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The OS type of the image.
+     *
+     * @example Windows Server 2019
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @description The progress of image creation. Unit: percentage (%).
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The session type of the image. Valid values:
+     *
+     *   SINGLE_SESSION: single-session images
+     *   MULTIPLE_SESSION: multi-session images
+     *
+     * @example MULTIPLE_SESSION
+     *
      * @var string
      */
     public $sessionType;
 
     /**
+     * @description The number of shared images.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sharedCount;
 
     /**
+     * @description The size of the image. Unit: GiB.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The state of the image.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The languages of the OS.
+     *
      * @var string[]
      */
     public $supportedLanguages;
 
     /**
+     * @description The time when the image was last modified.
+     *
+     * @example 2021-12-22T02:48:43Z
+     *
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @description Indicates whether disk encryption is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain the list of KMS keys.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $volumeEncryptionKey;
@@ -113,6 +208,7 @@ class images extends Model
         'imageType'               => 'ImageType',
         'name'                    => 'Name',
         'osType'                  => 'OsType',
+        'platform'                => 'Platform',
         'progress'                => 'Progress',
         'protocolType'            => 'ProtocolType',
         'sessionType'             => 'SessionType',
@@ -120,6 +216,7 @@ class images extends Model
         'size'                    => 'Size',
         'status'                  => 'Status',
         'supportedLanguages'      => 'SupportedLanguages',
+        'updateTime'              => 'UpdateTime',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
     ];
@@ -161,6 +258,9 @@ class images extends Model
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -181,6 +281,9 @@ class images extends Model
         }
         if (null !== $this->supportedLanguages) {
             $res['SupportedLanguages'] = $this->supportedLanguages;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
@@ -230,6 +333,9 @@ class images extends Model
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -252,6 +358,9 @@ class images extends Model
             if (!empty($map['SupportedLanguages'])) {
                 $model->supportedLanguages = $map['SupportedLanguages'];
             }
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

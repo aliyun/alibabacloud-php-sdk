@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class cves extends Model
 {
     /**
+     * @description The ID of the vulnerability.
+     *
+     * @example CVE-2017-6***
+     *
      * @var string
      */
     public $cveId;
 
     /**
+     * @description The Common Vulnerability Scoring System (CVSS) score of the vulnerability, which indicates the severity of the vulnerability. A larger value indicates a higher severity. Valid values: 0 to 10.
+     *
+     * @example 9.1
+     *
      * @var string
      */
     public $cvssScore;
 
     /**
+     * @description The description of the vulnerability.
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @var string
      */
     public $title;

@@ -14,6 +14,8 @@ class cloudDrivePermissionModels extends Model
     public $endUsers;
 
     /**
+     * @example CDS_DOWNLOAD
+     *
      * @var string
      */
     public $permission;

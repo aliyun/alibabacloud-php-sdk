@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetIdpMetadataRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example cn-hangzhou+dir-400695****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The metadata of the IdP.
+     *
+     * @example &lt;EntityDescriptor ID********Descriptor&gt;
+     *
      * @var string
      */
     public $idpMetadata;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-400695****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

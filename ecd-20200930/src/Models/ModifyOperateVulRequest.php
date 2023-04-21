@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class ModifyOperateVulRequest extends Model
 {
     /**
+     * @description The action that you want to perform on the vulnerability. Valid values:
+     *
+     *   vul_fix: fixes the vulnerability. The system fixes the vulnerability.
+     *   vul_verify: verifies whether the vulnerability is fixed. You must perform this action after the vulnerability is fixed, and the cloud desktop is restarted.
+     *   vul_ignore: ignores the vulnerability. After the vulnerability is ignored, the system provides no more prompts about the vulnerability.
+     *   vul_undo_ignore: cancels the ignore action on the vulnerability. After you cancel the ignore action on the vulnerability, the system provides prompts about the vulnerability again.
+     *
+     * @example vul_fix
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @description The reason why the vulnerability is ignored.\
+     * This parameter is required only when `OperateType` is set to `vul_ignore`.
+     * @example Postpone the fix
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: the Linux software vulnerability
+     *   sys: the Windows system vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description Details of the vulnerabilities.
+     *
      * @var vulInfo[]
      */
     public $vulInfo;

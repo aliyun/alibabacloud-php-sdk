@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesResponseBody extends Model
 {
     /**
+     * @description Details of the desktop templates.
+     *
      * @var bundles[]
      */
     public $bundles;
 
     /**
+     * @description The token that is used to start the next query. If null is returned, the next query is not required.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6lu3PTF6h3zE8egwlYuv8M8
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BCC854D8-5D1E-46D3-96EF-797A5DD36789
+     *
      * @var string
      */
     public $requestId;

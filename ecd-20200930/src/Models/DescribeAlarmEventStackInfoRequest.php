@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventStackInfoRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the alert event.
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the alert event.
+     *
+     * @example 8604b4db8dc6d02ab13b4ae06293****
+     *
      * @var string
      */
     public $uniqueInfo;

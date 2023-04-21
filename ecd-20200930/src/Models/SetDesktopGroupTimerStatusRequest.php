@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerStatusRequest extends Model
 {
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-fgxsniu6at****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the scheduled task.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The type of the scheduled task.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $timerType;

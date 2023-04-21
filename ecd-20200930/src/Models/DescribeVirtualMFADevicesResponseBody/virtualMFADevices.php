@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class virtualMFADevices extends Model
 {
     /**
+     * @description The number of consecutive failures to bind the virtual MFA device, or the number of MFA failures based on the virtual MFA device.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $consecutiveFails;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for public use.
+     *
+     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the AD user who uses the virtual MFA device.
+     *
+     * @example usertest
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The time when the virtual MFA device is enabled. The time follows the [ISO 8601 standard](~~25696~~) in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-12-20T14:52:28Z
+     *
      * @var string
      */
     public $gmtEnabled;
 
     /**
+     * @description The time when the virtual MFA device is automatically unlocked after being locked. The time follows the [ISO 8601 standard](~~25696~~) in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-12-21T15:21:28Z
+     *
      * @var string
      */
     public $gmtUnlock;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-269345****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The serial number of the virtual MFA device, which is a unique identifier.
+     *
+     * @example a25f297f-f2e1-4a44-bbf1-5f48a6e5****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The status of the virtual MFA device. The valid values include:
+     *
+     *   UNBOUND: The virtual MFA device is not bound.
+     *   NORMAL: The virtual MFA device is normal.
+     *   LOCKED: The virtual MFA device is locked.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

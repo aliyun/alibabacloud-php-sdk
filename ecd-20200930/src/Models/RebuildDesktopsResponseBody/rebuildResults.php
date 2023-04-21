@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class rebuildResults extends Model
 {
     /**
+     * @description The recreation result of the cloud desktop by changing the image. A value of success indicates that the image of the cloud desktop is changed. If the image of the cloud desktop failed to be changed, an error message is returned.
+     *
+     * @example IncorrectDesktopStatus
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The error message. This parameter is not returned if the value of Code is success.
+     *
+     * @example The current status of the desktop does not support this operation.
+     *
      * @var string
      */
     public $message;

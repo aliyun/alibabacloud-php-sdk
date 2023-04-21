@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ActivateOfficeSiteRequest extends Model
 {
     /**
+     * @description The ID of the convenience workspace that is locked.
+     *
+     * @example cn-hangzhou+dir-803704****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

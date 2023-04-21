@@ -11,51 +11,87 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopsInGroupResponseBody extends Model
 {
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The number of subscription cloud desktops that are connected.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $onlinePrePaidDesktopsCount;
 
     /**
+     * @description The subscription cloud desktops.
+     *
      * @var paidDesktops[]
      */
     public $paidDesktops;
 
     /**
+     * @description The total number of subscription cloud desktops.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $paidDesktopsCount;
 
     /**
+     * @description The pay-as-you-go cloud desktops.
+     *
      * @var postPaidDesktops[]
      */
     public $postPaidDesktops;
 
     /**
+     * @description The total number of pay-as-you-go cloud desktops.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $postPaidDesktopsCount;
 
     /**
+     * @description The total bill amount for the pay-as-you-go cloud desktops.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $postPaidDesktopsTotalAmount;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of subscription cloud desktops that are running.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $runningPrePaidDesktopsCount;
 
     /**
+     * @description The number of subscription cloud desktops that are stopped.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $stopedPrePaidDesktopsCount;

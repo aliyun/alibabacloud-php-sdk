@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyNASDefaultMountTargetRequest extends Model
 {
     /**
+     * @description The ID of the NAS file system.
+     *
+     * @example 04f314****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example 0bf744****-xo***.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

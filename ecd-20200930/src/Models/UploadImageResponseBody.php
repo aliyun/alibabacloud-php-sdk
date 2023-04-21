@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadImageResponseBody extends Model
 {
     /**
+     * @example m-d4dwr5tgrgvd****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A****
+     *
      * @var string
      */
     public $requestId;

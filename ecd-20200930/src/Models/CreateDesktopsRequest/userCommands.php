@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class userCommands extends Model
 {
     /**
+     * @description The content of the command.
+     *
+     * @example bmV3LWl0ZW0gZDpcdGVzdF91c2VyX2NvbW1hbmRzLnR4dCAtdHlwZSBm****
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The encoding mode of the command content (CommandContent).
+     *
+     * @example Base64
+     *
      * @var string
      */
     public $contentEncoding;
 
     /**
+     * @description The language type of the command.
+     *
+     * @example RunPowerShellScript
+     *
      * @var string
      */
     public $contentType;

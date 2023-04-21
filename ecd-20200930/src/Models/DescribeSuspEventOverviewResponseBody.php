@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventOverviewResponseBody extends Model
 {
     /**
+     * @description The total number of alerts at the remind level.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $remindCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of alerts at the serious level.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $seriousCount;
 
     /**
+     * @description The total number of alerts at the suspicious level.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $suspiciousCount;

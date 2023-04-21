@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class fotaUpdate extends Model
 {
     /**
+     * @description The current version of the cloud desktop.
+     *
+     * @example 0.0.0-D-20220102.000000
+     *
      * @var string
      */
     public $currentAppVersion;
 
     /**
+     * @description The version to which the cloud desktop can be updated.
+     *
+     * @example 0.0.0-R-20220307.190736
+     *
      * @var string
      */
     public $newAppVersion;
 
     /**
+     * @description The description of the version to which the cloud desktop can be updated.
+     *
+     * @example Upgrade package for testing 03-07
+     *
      * @var string
      */
     public $releaseNote;
 
     /**
+     * @description The size of the installation package for the version to which the cloud desktop can be updated. Unit: KB.
+     *
+     * @example 108815097
+     *
      * @var int
      */
     public $size;

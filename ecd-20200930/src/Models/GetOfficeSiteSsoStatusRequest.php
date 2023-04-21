@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetOfficeSiteSsoStatusRequest extends Model
 {
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

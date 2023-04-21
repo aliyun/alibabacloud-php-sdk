@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class patchList extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example 2021-02 servicing stack update for Windows Server 2016 (x64) systems (KB5001078)
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example 5001078
+     *
      * @var string
      */
     public $name;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Details about vulnerabilities.
+     *
      * @var groupedVulItems[]
      */
     public $groupedVulItems;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

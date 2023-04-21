@@ -9,66 +9,121 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConnectionRecordsRequest extends Model
 {
     /**
+     * @description The duration when the cloud desktop is connected, which is the minimum value for condition filtering.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $connectDurationFrom;
 
     /**
+     * @description The duration when the cloud desktop is connected, which is the maximum value for condition filtering.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $connectDurationTo;
 
     /**
+     * @description The time when the cloud desktop stops to be connected, which is the minimum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1631266200000
+     *
      * @var int
      */
     public $connectEndTimeFrom;
 
     /**
+     * @description The time when the cloud desktop stops to be connected, which is the maximum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1631268000000
+     *
      * @var int
      */
     public $connectEndTimeTo;
 
     /**
+     * @description The time when the cloud desktop starts to be connected, which is the minimum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1631239200000
+     *
      * @var int
      */
     public $connectStartTimeFrom;
 
     /**
+     * @description The time when the cloud desktop starts to be connected, which is the maximum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1631241000000
+     *
      * @var int
      */
     public $connectStartTimeTo;
 
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The user that you want to authorize to use the desktop group.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The account type of the user. Valid values:
+     *
+     *   SIMPLE: the convenience account type
+     *   AD_CONNECTOR: the enterprise Active Directory (AD) account type
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $endUserType;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

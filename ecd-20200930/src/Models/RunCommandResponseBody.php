@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RunCommandResponseBody extends Model
 {
     /**
+     * @description The ID of the command execution.
+     *
+     * @example t-hz01qgsqj2n****
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

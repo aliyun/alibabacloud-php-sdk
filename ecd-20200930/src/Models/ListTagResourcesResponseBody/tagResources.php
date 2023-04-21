@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The ID of the resource, which is the ID of the cloud desktop.
+     *
+     * @example ecd-ia2zw38bi6cm7****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid value: ALIYUN::GWS::INSTANCE.
+     *
+     * @example ALIYUN::GWS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key of the resource.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the resource.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $tagValue;

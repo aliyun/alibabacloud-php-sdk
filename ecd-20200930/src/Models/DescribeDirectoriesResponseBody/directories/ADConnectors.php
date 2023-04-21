@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ADConnectors extends Model
 {
     /**
+     * @description The address of the AD connector.
+     *
+     * @example 172.17.**.**
+     *
      * @var string
      */
     public $ADConnectorAddress;
 
     /**
+     * @description The status of the AD connector.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $connectorStatus;
 
     /**
+     * @description The ID of the network interface controller (NIC) with which the AD connector is associated.
+     *
+     * @example eni-bp1i4wx78lgosrj6****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The type of the AD connector.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @description The trust password of the AD domain controller.
+     *
+     * @example yfpoAD****
+     *
      * @var string
      */
     public $trustKey;
 
     /**
+     * @description The ID of the vSwitch with which the AD connector is associated.
+     *
+     * @example vsw-bp19ocz3erfx15uon****
+     *
      * @var string
      */
     public $vSwitchId;

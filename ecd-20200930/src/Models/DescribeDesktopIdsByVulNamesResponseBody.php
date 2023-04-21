@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopIdsByVulNamesResponseBody extends Model
 {
     /**
+     * @description Details about cloud desktops.
+     *
      * @var desktopItems[]
      */
     public $desktopItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

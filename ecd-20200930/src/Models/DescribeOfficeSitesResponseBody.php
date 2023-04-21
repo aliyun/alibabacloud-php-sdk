@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfficeSitesResponseBody extends Model
 {
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Details of the workspaces.
+     *
      * @var officeSites[]
      */
     public $officeSites;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

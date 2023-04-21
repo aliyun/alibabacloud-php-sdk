@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserToDesktopGroupRequest extends Model
 {
     /**
+     * @description The ID of the desktop group that you want to assign to users.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The IDs of the regular users to whom you want to grant the permissions on the cloud desktop.
+     *
      * @var string[]
      */
     public $newEndUserIds;
 
     /**
+     * @description The IDs of the original regular users who have the permissions on the cloud desktop.
+     *
      * @var string[]
      */
     public $oldEndUserIds;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

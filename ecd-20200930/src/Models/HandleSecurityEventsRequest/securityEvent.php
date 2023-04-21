@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class securityEvent extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-blbmpzpqjdrdy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the alert.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $securityEventId;

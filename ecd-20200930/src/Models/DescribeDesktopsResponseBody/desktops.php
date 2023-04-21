@@ -13,305 +13,567 @@ use AlibabaCloud\Tea\Model;
 class desktops extends Model
 {
     /**
+     * @description The number of sessions allowed for each cloud desktop in the multi-session desktop group.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $bindAmount;
+
+    /**
+     * @description The ID of the desktop template that is used to create the cloud desktop.
+     *
+     * @example b-2g65ljy4291vl****
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @description The name of the desktop template that is used to create the cloud desktop.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $bundleName;
 
     /**
+     * @description The billing method of the cloud desktop.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The connection status of the user.
+     *
+     * @example Disconnected
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the cloud desktop was created.
+     *
+     * @example 2020-11-06T08:28Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example null
+     *
      * @var string
      */
     public $dataDiskCategory;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example null
+     *
      * @var string
      */
     public $dataDiskSize;
 
     /**
+     * @description The ID of the group to which the cloud desktop belongs. Default value: null.
+     *
+     * @example null
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example testDesktopName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The state of the cloud desktop.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $desktopStatus;
 
     /**
+     * @description The desktop type.
+     *
+     * @example ecd.basic.large
+     *
      * @var string
      */
     public $desktopType;
 
     /**
+     * @description The ID is the same as the workspace ID that is indicated by the value of the OfficeSiteId parameter.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $directoryType;
 
     /**
+     * @description Details of the disks.
+     *
      * @var disks[]
      */
     public $disks;
 
     /**
+     * @description The number of times for which the cloud desktop can be downgraded.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $downgradeQuota;
 
     /**
+     * @description The number of times for which the cloud desktop is downgraded.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $downgradedTimes;
 
     /**
+     * @description The IDs of the users that have the permissions to connect to the cloud desktops.
+     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
+     * @description The time when the subscription cloud desktop expires.
+     *
+     * @example 2021-12-31T15:59Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The information about the image version that the cloud desktop uses.
+     *
      * @var fotaUpdate
      */
     public $fotaUpdate;
 
     /**
+     * @description Indicates whether the cloud desktop is of the GPU-accelerated type.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gpuCategory;
 
     /**
+     * @description The number of GPUs.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $gpuCount;
 
     /**
+     * @description The version of the GPU driver with which the cloud desktop is equipped.
+     *
+     * @example null
+     *
      * @var string
      */
     public $gpuDriverVersion;
 
     /**
+     * @description The GPU model.
+     *
+     * @example NVIDIA T4
+     *
      * @var string
      */
     public $gpuSpec;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $hibernationOptionsConfigured;
+
+    /**
+     * @description The hostname of the cloud desktop.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-4zfb6zj728hhr****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The flag that is used for management.
+     *
+     * @example NoFlag
+     *
      * @var string
      */
     public $managementFlag;
 
     /**
+     * @description The memory size. Unit: MiB.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The ID of the secondary network interface controller (NIC) created by the RAM user or Active Directory (AD) user in EDS. You do not have the permissions to modify this ID.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The IP address of the secondary NIC that is created by the RAM user or AD user in EDS.
+     *
+     * @example 192.168.74.165
+     *
      * @var string
      */
     public $networkInterfaceIp;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The account type of the workspace.
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $officeSiteType;
 
     /**
+     * @description The virtual private cloud (VPC) type of the workspace.
+     *
+     * @example basic
+     *
      * @var string
      */
     public $officeSiteVpcType;
 
     /**
+     * @description The type of the OS.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The information about the OS platform. Valid values:
+     *
+     *   CentOS
+     *   Ubuntu
+     *   Windows Server 2016
+     *   Windows Server 2019
+     *   UOS
+     *
+     * @example Ubuntu
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example system-all-enabled-policy
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The IDs of the policies.
+     *
+     * @var string[]
+     */
+    public $policyGroupIdList;
+
+    /**
+     * @description The name of the policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $policyGroupName;
 
     /**
+     * @description The names of the policies.
+     *
+     * @var string[]
+     */
+    public $policyGroupNameList;
+
+    /**
+     * @description The progress when the cloud desktop was created.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The type of the session.
+     *
+     * @example SINGLE_SESSION
+     *
      * @var string
      */
     public $sessionType;
 
     /**
+     * @description Details of the desktop sessions that users hold.
+     *
      * @var sessions[]
      */
     public $sessions;
 
     /**
+     * @description The ID of the snapshot policy.
+     *
+     * @example sp-gi007jgyc3kcey2bb
+     *
+     * @var string
+     */
+    public $snapshotPolicyId;
+
+    /**
+     * @description The name of the snapshot policy.
+     *
+     * @example testSnapshotName
+     *
+     * @var string
+     */
+    public $snapshotPolicyName;
+
+    /**
+     * @description The first time when the cloud desktop was started.
+     *
+     * @example 2020-11-06T08:31Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Indicates whether hibernation is supported for the cloud desktop.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $supportHibernation;
+
+    /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example null
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to the public.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @description Details of the tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description Indicates whether disk encryption is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $volumeEncryptionKey;
 
     /**
+     * @description The type of the zone. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
+     *
+     * @example AvailabilityZone
+     *
      * @var string
      */
     public $zoneType;
     protected $_name = [
-        'bundleId'                => 'BundleId',
-        'bundleName'              => 'BundleName',
-        'chargeType'              => 'ChargeType',
-        'connectionStatus'        => 'ConnectionStatus',
-        'cpu'                     => 'Cpu',
-        'creationTime'            => 'CreationTime',
-        'dataDiskCategory'        => 'DataDiskCategory',
-        'dataDiskSize'            => 'DataDiskSize',
-        'desktopGroupId'          => 'DesktopGroupId',
-        'desktopId'               => 'DesktopId',
-        'desktopName'             => 'DesktopName',
-        'desktopStatus'           => 'DesktopStatus',
-        'desktopType'             => 'DesktopType',
-        'directoryId'             => 'DirectoryId',
-        'directoryType'           => 'DirectoryType',
-        'disks'                   => 'Disks',
-        'downgradeQuota'          => 'DowngradeQuota',
-        'downgradedTimes'         => 'DowngradedTimes',
-        'endUserIds'              => 'EndUserIds',
-        'expiredTime'             => 'ExpiredTime',
-        'fotaUpdate'              => 'FotaUpdate',
-        'gpuCategory'             => 'GpuCategory',
-        'gpuCount'                => 'GpuCount',
-        'gpuDriverVersion'        => 'GpuDriverVersion',
-        'gpuSpec'                 => 'GpuSpec',
-        'hostName'                => 'HostName',
-        'imageId'                 => 'ImageId',
-        'managementFlag'          => 'ManagementFlag',
-        'memory'                  => 'Memory',
-        'networkInterfaceId'      => 'NetworkInterfaceId',
-        'networkInterfaceIp'      => 'NetworkInterfaceIp',
-        'officeSiteId'            => 'OfficeSiteId',
-        'officeSiteName'          => 'OfficeSiteName',
-        'officeSiteType'          => 'OfficeSiteType',
-        'officeSiteVpcType'       => 'OfficeSiteVpcType',
-        'osType'                  => 'OsType',
-        'platform'                => 'Platform',
-        'policyGroupId'           => 'PolicyGroupId',
-        'policyGroupName'         => 'PolicyGroupName',
-        'progress'                => 'Progress',
-        'protocolType'            => 'ProtocolType',
-        'sessionType'             => 'SessionType',
-        'sessions'                => 'Sessions',
-        'startTime'               => 'StartTime',
-        'systemDiskCategory'      => 'SystemDiskCategory',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'tags'                    => 'Tags',
-        'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
-        'zoneType'                => 'ZoneType',
+        'bindAmount'                   => 'BindAmount',
+        'bundleId'                     => 'BundleId',
+        'bundleName'                   => 'BundleName',
+        'chargeType'                   => 'ChargeType',
+        'connectionStatus'             => 'ConnectionStatus',
+        'cpu'                          => 'Cpu',
+        'creationTime'                 => 'CreationTime',
+        'dataDiskCategory'             => 'DataDiskCategory',
+        'dataDiskSize'                 => 'DataDiskSize',
+        'desktopGroupId'               => 'DesktopGroupId',
+        'desktopId'                    => 'DesktopId',
+        'desktopName'                  => 'DesktopName',
+        'desktopStatus'                => 'DesktopStatus',
+        'desktopType'                  => 'DesktopType',
+        'directoryId'                  => 'DirectoryId',
+        'directoryType'                => 'DirectoryType',
+        'disks'                        => 'Disks',
+        'downgradeQuota'               => 'DowngradeQuota',
+        'downgradedTimes'              => 'DowngradedTimes',
+        'endUserIds'                   => 'EndUserIds',
+        'expiredTime'                  => 'ExpiredTime',
+        'fotaUpdate'                   => 'FotaUpdate',
+        'gpuCategory'                  => 'GpuCategory',
+        'gpuCount'                     => 'GpuCount',
+        'gpuDriverVersion'             => 'GpuDriverVersion',
+        'gpuSpec'                      => 'GpuSpec',
+        'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
+        'hostName'                     => 'HostName',
+        'imageId'                      => 'ImageId',
+        'managementFlag'               => 'ManagementFlag',
+        'memory'                       => 'Memory',
+        'networkInterfaceId'           => 'NetworkInterfaceId',
+        'networkInterfaceIp'           => 'NetworkInterfaceIp',
+        'officeSiteId'                 => 'OfficeSiteId',
+        'officeSiteName'               => 'OfficeSiteName',
+        'officeSiteType'               => 'OfficeSiteType',
+        'officeSiteVpcType'            => 'OfficeSiteVpcType',
+        'osType'                       => 'OsType',
+        'platform'                     => 'Platform',
+        'policyGroupId'                => 'PolicyGroupId',
+        'policyGroupIdList'            => 'PolicyGroupIdList',
+        'policyGroupName'              => 'PolicyGroupName',
+        'policyGroupNameList'          => 'PolicyGroupNameList',
+        'progress'                     => 'Progress',
+        'protocolType'                 => 'ProtocolType',
+        'sessionType'                  => 'SessionType',
+        'sessions'                     => 'Sessions',
+        'snapshotPolicyId'             => 'SnapshotPolicyId',
+        'snapshotPolicyName'           => 'SnapshotPolicyName',
+        'startTime'                    => 'StartTime',
+        'supportHibernation'           => 'SupportHibernation',
+        'systemDiskCategory'           => 'SystemDiskCategory',
+        'systemDiskSize'               => 'SystemDiskSize',
+        'tags'                         => 'Tags',
+        'volumeEncryptionEnabled'      => 'VolumeEncryptionEnabled',
+        'volumeEncryptionKey'          => 'VolumeEncryptionKey',
+        'zoneType'                     => 'ZoneType',
     ];
 
     public function validate()
@@ -321,6 +583,9 @@ class desktops extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindAmount) {
+            $res['BindAmount'] = $this->bindAmount;
+        }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
@@ -402,6 +667,9 @@ class desktops extends Model
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
         }
+        if (null !== $this->hibernationOptionsConfigured) {
+            $res['HibernationOptionsConfigured'] = $this->hibernationOptionsConfigured;
+        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
@@ -441,8 +709,14 @@ class desktops extends Model
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
+        if (null !== $this->policyGroupIdList) {
+            $res['PolicyGroupIdList'] = $this->policyGroupIdList;
+        }
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+        if (null !== $this->policyGroupNameList) {
+            $res['PolicyGroupNameList'] = $this->policyGroupNameList;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -462,8 +736,17 @@ class desktops extends Model
                 }
             }
         }
+        if (null !== $this->snapshotPolicyId) {
+            $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
+        }
+        if (null !== $this->snapshotPolicyName) {
+            $res['SnapshotPolicyName'] = $this->snapshotPolicyName;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->supportHibernation) {
+            $res['SupportHibernation'] = $this->supportHibernation;
         }
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
@@ -501,6 +784,9 @@ class desktops extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindAmount'])) {
+            $model->bindAmount = $map['BindAmount'];
+        }
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
@@ -584,6 +870,9 @@ class desktops extends Model
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
         }
+        if (isset($map['HibernationOptionsConfigured'])) {
+            $model->hibernationOptionsConfigured = $map['HibernationOptionsConfigured'];
+        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
@@ -623,8 +912,18 @@ class desktops extends Model
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
+        if (isset($map['PolicyGroupIdList'])) {
+            if (!empty($map['PolicyGroupIdList'])) {
+                $model->policyGroupIdList = $map['PolicyGroupIdList'];
+            }
+        }
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+        if (isset($map['PolicyGroupNameList'])) {
+            if (!empty($map['PolicyGroupNameList'])) {
+                $model->policyGroupNameList = $map['PolicyGroupNameList'];
+            }
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
@@ -644,8 +943,17 @@ class desktops extends Model
                 }
             }
         }
+        if (isset($map['SnapshotPolicyId'])) {
+            $model->snapshotPolicyId = $map['SnapshotPolicyId'];
+        }
+        if (isset($map['SnapshotPolicyName'])) {
+            $model->snapshotPolicyName = $map['SnapshotPolicyName'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['SupportHibernation'])) {
+            $model->supportHibernation = $map['SupportHibernation'];
         }
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];

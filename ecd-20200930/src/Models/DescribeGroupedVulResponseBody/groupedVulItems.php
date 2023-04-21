@@ -9,46 +9,81 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2019:0230-Important: polkit security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The number of high-risk vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $asapCount;
 
     /**
+     * @description The time when the vulnerability was last detected. The timestamp follows the UNIX time format. It is the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970.
+     *
+     * @example 1554185744000
+     *
      * @var string
      */
     public $gmtLast;
 
     /**
+     * @description The number of vulnerabilities processed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $handledCount;
 
     /**
+     * @description The number of medium-risk vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $laterCount;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of low-risk vulnerabilities.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nntfCount;
 
     /**
+     * @description The tags of the vulnerability.
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

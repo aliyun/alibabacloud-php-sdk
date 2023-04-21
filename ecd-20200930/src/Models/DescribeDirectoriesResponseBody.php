@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesResponseBody extends Model
 {
     /**
+     * @description The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
+     *
+     * @example cnshsv21hmc****
+     *
      * @var string
      */
     public $adHostname;
 
     /**
+     * @description Details of the directories.
+     *
      * @var directories[]
      */
     public $directories;
 
     /**
+     * @description The token that is used for the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F369A091-002F-49C8-AD55-02A776297C7B
+     *
      * @var string
      */
     public $requestId;

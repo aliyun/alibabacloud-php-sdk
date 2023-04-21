@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopGroupInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 24E05D3E-08F4-551E-B1F0-F6D84EE0BCCC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The download address from which you can export desktop groups.
+     *
+     * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktopGroups_202203********_xBjqdCT***.xlsx?*********
+     *
      * @var string
      */
     public $url;

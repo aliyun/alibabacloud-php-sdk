@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeKmsKeysResponseBody extends Model
 {
     /**
+     * @description The authorization status.
+     *
+     * @example authorized
+     *
      * @var string
      */
     public $authorizeStatus;
 
     /**
+     * @description Details about the customer master keys (CMKs).
+     *
      * @var keys[]
      */
     public $keys;
 
     /**
+     * @description Indicates whether KMS is activated.
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $kmsServiceStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

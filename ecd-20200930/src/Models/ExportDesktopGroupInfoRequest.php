@@ -9,56 +9,99 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopGroupInfoRequest extends Model
 {
     /**
+     * @description The billing method of cloud desktops in a desktop group.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The IDs of the desktop groups. You can specify 1 to 100 desktop groups.
+     *
      * @var string[]
      */
     public $desktopGroupId;
 
     /**
+     * @description The name of the desktop group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desktopGroupName;
 
     /**
+     * @description The IDs of the users authorized to use the desktop group. You can specify 1 to 100 users.
+     *
      * @var string[]
      */
     public $endUserId;
 
     /**
+     * @description The time when the subscription cloud desktop expires.
+     *
+     * @example 2022-12-31T15:59Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The language that you want to use.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $langType;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the workspace to which the desktop group belongs.
+     *
+     * @example cn-hangzhou+dir-467671****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of policy with which the desktop group is associated.
+     *
+     * @example pg-53iyi2aar0nd6****
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

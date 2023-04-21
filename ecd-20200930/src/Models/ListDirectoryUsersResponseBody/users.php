@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The display name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $endUser;

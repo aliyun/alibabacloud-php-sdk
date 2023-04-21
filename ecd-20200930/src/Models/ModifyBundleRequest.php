@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ModifyBundleRequest extends Model
 {
     /**
+     * @description The ID of the desktop template.
+     *
+     * @example b-2g65ljy4291vl****
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @description The name of the new desktop template.
+     *
+     * @example newName
+     *
      * @var string
      */
     public $bundleName;
 
     /**
+     * @description The description of the new desktop template.
+     *
+     * @example newDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the new image. The new image must meet the following requirements:
+     *
+     *   The new image must be in the Available state.
+     *   The operating system of the new image must be the same as that of the original image.
+     *   The required disk size for the new image cannot be greater than that for the original image.
+     *   The GPU type of the new image must be the same as that of the original image.
+     *
+     * @example m-aea3oaww001np****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The language of the operating system. This parameter is available only for system images. Valid values:
+     *
+     *   zh-CN: Simplified Chinese
+     *   zh-HK: Traditional Chinese (Hong Kong)
+     *   en-US: English
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

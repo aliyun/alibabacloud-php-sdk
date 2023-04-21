@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyGroupRequest extends Model
 {
     /**
+     * @example on
+     *
      * @var string
      */
     public $appContentProtection;
@@ -30,6 +32,8 @@ class ModifyPolicyGroupRequest extends Model
     public $authorizeSecurityPolicyRule;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $cameraRedirect;
@@ -40,51 +44,92 @@ class ModifyPolicyGroupRequest extends Model
     public $clientType;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $clipboard;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $domainList;
 
     /**
+     * @example on
+     *
+     * @var string
+     */
+    public $endUserApplyAdminCoordinate;
+
+    /**
+     * @example on
+     *
+     * @var string
+     */
+    public $endUserGroupCoordinate;
+
+    /**
+     * @example off
+     *
      * @var string
      */
     public $gpuAcceleration;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $html5Access;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $html5FileTransfer;
 
     /**
+     * @example BOTH
+     *
+     * @var string
+     */
+    public $internetCommunicationProtocol;
+
+    /**
+     * @example off
+     *
      * @var string
      */
     public $localDrive;
 
     /**
+     * @example testPolicyGroupName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $netRedirect;
 
     /**
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $preemptLogin;
@@ -95,51 +140,85 @@ class ModifyPolicyGroupRequest extends Model
     public $preemptLoginUser;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $printerRedirection;
 
     /**
+     * @example OFF
+     *
      * @var string
      */
     public $recordContent;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $recordContentExpires;
 
     /**
+     * @example OFF
+     *
      * @var string
      */
     public $recording;
 
     /**
+     * @example on
+     *
+     * @var string
+     */
+    public $recordingAudio;
+
+    /**
+     * @example 15
+     *
+     * @var int
+     */
+    public $recordingDuration;
+
+    /**
+     * @example 08:59:00
+     *
      * @var string
      */
     public $recordingEndTime;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $recordingExpires;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $recordingFps;
 
     /**
+     * @example 08:00:00
+     *
      * @var string
      */
     public $recordingStartTime;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example fullControl
+     *
      * @var string
      */
     public $remoteCoordinate;
@@ -155,6 +234,20 @@ class ModifyPolicyGroupRequest extends Model
     public $revokeSecurityPolicyRule;
 
     /**
+     * @example GLOBAL
+     *
+     * @var string
+     */
+    public $scope;
+
+    /**
+     * @var string[]
+     */
+    public $scopeValue;
+
+    /**
+     * @example off
+     *
      * @var string
      */
     public $usbRedirect;
@@ -165,59 +258,130 @@ class ModifyPolicyGroupRequest extends Model
     public $usbSupplyRedirectRule;
 
     /**
+     * @example on
+     *
+     * @var string
+     */
+    public $videoRedirect;
+
+    /**
+     * @example low
+     *
      * @var string
      */
     public $visualQuality;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $watermark;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $watermarkColor;
+
+    /**
+     * @example -10
+     *
+     * @var float
+     */
+    public $watermarkDegree;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $watermarkFontSize;
+
+    /**
+     * @example plain
+     *
+     * @var string
+     */
+    public $watermarkFontStyle;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $watermarkRowAmount;
+
+    /**
+     * @example LIGHT
+     *
      * @var string
      */
     public $watermarkTransparency;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $watermarkTransparencyValue;
+
+    /**
+     * @example EndUserId
+     *
      * @var string
      */
     public $watermarkType;
     protected $_name = [
-        'appContentProtection'        => 'AppContentProtection',
-        'authorizeAccessPolicyRule'   => 'AuthorizeAccessPolicyRule',
-        'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
-        'cameraRedirect'              => 'CameraRedirect',
-        'clientType'                  => 'ClientType',
-        'clipboard'                   => 'Clipboard',
-        'domainList'                  => 'DomainList',
-        'gpuAcceleration'             => 'GpuAcceleration',
-        'html5Access'                 => 'Html5Access',
-        'html5FileTransfer'           => 'Html5FileTransfer',
-        'localDrive'                  => 'LocalDrive',
-        'name'                        => 'Name',
-        'netRedirect'                 => 'NetRedirect',
-        'policyGroupId'               => 'PolicyGroupId',
-        'preemptLogin'                => 'PreemptLogin',
-        'preemptLoginUser'            => 'PreemptLoginUser',
-        'printerRedirection'          => 'PrinterRedirection',
-        'recordContent'               => 'RecordContent',
-        'recordContentExpires'        => 'RecordContentExpires',
-        'recording'                   => 'Recording',
-        'recordingEndTime'            => 'RecordingEndTime',
-        'recordingExpires'            => 'RecordingExpires',
-        'recordingFps'                => 'RecordingFps',
-        'recordingStartTime'          => 'RecordingStartTime',
-        'regionId'                    => 'RegionId',
-        'remoteCoordinate'            => 'RemoteCoordinate',
-        'revokeAccessPolicyRule'      => 'RevokeAccessPolicyRule',
-        'revokeSecurityPolicyRule'    => 'RevokeSecurityPolicyRule',
-        'usbRedirect'                 => 'UsbRedirect',
-        'usbSupplyRedirectRule'       => 'UsbSupplyRedirectRule',
-        'visualQuality'               => 'VisualQuality',
-        'watermark'                   => 'Watermark',
-        'watermarkTransparency'       => 'WatermarkTransparency',
-        'watermarkType'               => 'WatermarkType',
+        'appContentProtection'          => 'AppContentProtection',
+        'authorizeAccessPolicyRule'     => 'AuthorizeAccessPolicyRule',
+        'authorizeSecurityPolicyRule'   => 'AuthorizeSecurityPolicyRule',
+        'cameraRedirect'                => 'CameraRedirect',
+        'clientType'                    => 'ClientType',
+        'clipboard'                     => 'Clipboard',
+        'domainList'                    => 'DomainList',
+        'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
+        'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
+        'gpuAcceleration'               => 'GpuAcceleration',
+        'html5Access'                   => 'Html5Access',
+        'html5FileTransfer'             => 'Html5FileTransfer',
+        'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
+        'localDrive'                    => 'LocalDrive',
+        'name'                          => 'Name',
+        'netRedirect'                   => 'NetRedirect',
+        'policyGroupId'                 => 'PolicyGroupId',
+        'preemptLogin'                  => 'PreemptLogin',
+        'preemptLoginUser'              => 'PreemptLoginUser',
+        'printerRedirection'            => 'PrinterRedirection',
+        'recordContent'                 => 'RecordContent',
+        'recordContentExpires'          => 'RecordContentExpires',
+        'recording'                     => 'Recording',
+        'recordingAudio'                => 'RecordingAudio',
+        'recordingDuration'             => 'RecordingDuration',
+        'recordingEndTime'              => 'RecordingEndTime',
+        'recordingExpires'              => 'RecordingExpires',
+        'recordingFps'                  => 'RecordingFps',
+        'recordingStartTime'            => 'RecordingStartTime',
+        'regionId'                      => 'RegionId',
+        'remoteCoordinate'              => 'RemoteCoordinate',
+        'revokeAccessPolicyRule'        => 'RevokeAccessPolicyRule',
+        'revokeSecurityPolicyRule'      => 'RevokeSecurityPolicyRule',
+        'scope'                         => 'Scope',
+        'scopeValue'                    => 'ScopeValue',
+        'usbRedirect'                   => 'UsbRedirect',
+        'usbSupplyRedirectRule'         => 'UsbSupplyRedirectRule',
+        'videoRedirect'                 => 'VideoRedirect',
+        'visualQuality'                 => 'VisualQuality',
+        'watermark'                     => 'Watermark',
+        'watermarkColor'                => 'WatermarkColor',
+        'watermarkDegree'               => 'WatermarkDegree',
+        'watermarkFontSize'             => 'WatermarkFontSize',
+        'watermarkFontStyle'            => 'WatermarkFontStyle',
+        'watermarkRowAmount'            => 'WatermarkRowAmount',
+        'watermarkTransparency'         => 'WatermarkTransparency',
+        'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
+        'watermarkType'                 => 'WatermarkType',
     ];
 
     public function validate()
@@ -266,6 +430,12 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
         }
+        if (null !== $this->endUserApplyAdminCoordinate) {
+            $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
+        }
+        if (null !== $this->endUserGroupCoordinate) {
+            $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
+        }
         if (null !== $this->gpuAcceleration) {
             $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
@@ -274,6 +444,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->html5FileTransfer) {
             $res['Html5FileTransfer'] = $this->html5FileTransfer;
+        }
+        if (null !== $this->internetCommunicationProtocol) {
+            $res['InternetCommunicationProtocol'] = $this->internetCommunicationProtocol;
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
@@ -304,6 +477,12 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->recording) {
             $res['Recording'] = $this->recording;
+        }
+        if (null !== $this->recordingAudio) {
+            $res['RecordingAudio'] = $this->recordingAudio;
+        }
+        if (null !== $this->recordingDuration) {
+            $res['RecordingDuration'] = $this->recordingDuration;
         }
         if (null !== $this->recordingEndTime) {
             $res['RecordingEndTime'] = $this->recordingEndTime;
@@ -341,6 +520,12 @@ class ModifyPolicyGroupRequest extends Model
                 }
             }
         }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->scopeValue) {
+            $res['ScopeValue'] = $this->scopeValue;
+        }
         if (null !== $this->usbRedirect) {
             $res['UsbRedirect'] = $this->usbRedirect;
         }
@@ -353,14 +538,35 @@ class ModifyPolicyGroupRequest extends Model
                 }
             }
         }
+        if (null !== $this->videoRedirect) {
+            $res['VideoRedirect'] = $this->videoRedirect;
+        }
         if (null !== $this->visualQuality) {
             $res['VisualQuality'] = $this->visualQuality;
         }
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
         }
+        if (null !== $this->watermarkColor) {
+            $res['WatermarkColor'] = $this->watermarkColor;
+        }
+        if (null !== $this->watermarkDegree) {
+            $res['WatermarkDegree'] = $this->watermarkDegree;
+        }
+        if (null !== $this->watermarkFontSize) {
+            $res['WatermarkFontSize'] = $this->watermarkFontSize;
+        }
+        if (null !== $this->watermarkFontStyle) {
+            $res['WatermarkFontStyle'] = $this->watermarkFontStyle;
+        }
+        if (null !== $this->watermarkRowAmount) {
+            $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
+        }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
+        }
+        if (null !== $this->watermarkTransparencyValue) {
+            $res['WatermarkTransparencyValue'] = $this->watermarkTransparencyValue;
         }
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
@@ -416,6 +622,12 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
         }
+        if (isset($map['EndUserApplyAdminCoordinate'])) {
+            $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
+        }
+        if (isset($map['EndUserGroupCoordinate'])) {
+            $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
+        }
         if (isset($map['GpuAcceleration'])) {
             $model->gpuAcceleration = $map['GpuAcceleration'];
         }
@@ -424,6 +636,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['Html5FileTransfer'])) {
             $model->html5FileTransfer = $map['Html5FileTransfer'];
+        }
+        if (isset($map['InternetCommunicationProtocol'])) {
+            $model->internetCommunicationProtocol = $map['InternetCommunicationProtocol'];
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
@@ -456,6 +671,12 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['Recording'])) {
             $model->recording = $map['Recording'];
+        }
+        if (isset($map['RecordingAudio'])) {
+            $model->recordingAudio = $map['RecordingAudio'];
+        }
+        if (isset($map['RecordingDuration'])) {
+            $model->recordingDuration = $map['RecordingDuration'];
         }
         if (isset($map['RecordingEndTime'])) {
             $model->recordingEndTime = $map['RecordingEndTime'];
@@ -493,6 +714,14 @@ class ModifyPolicyGroupRequest extends Model
                 }
             }
         }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+        if (isset($map['ScopeValue'])) {
+            if (!empty($map['ScopeValue'])) {
+                $model->scopeValue = $map['ScopeValue'];
+            }
+        }
         if (isset($map['UsbRedirect'])) {
             $model->usbRedirect = $map['UsbRedirect'];
         }
@@ -505,14 +734,35 @@ class ModifyPolicyGroupRequest extends Model
                 }
             }
         }
+        if (isset($map['VideoRedirect'])) {
+            $model->videoRedirect = $map['VideoRedirect'];
+        }
         if (isset($map['VisualQuality'])) {
             $model->visualQuality = $map['VisualQuality'];
         }
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
         }
+        if (isset($map['WatermarkColor'])) {
+            $model->watermarkColor = $map['WatermarkColor'];
+        }
+        if (isset($map['WatermarkDegree'])) {
+            $model->watermarkDegree = $map['WatermarkDegree'];
+        }
+        if (isset($map['WatermarkFontSize'])) {
+            $model->watermarkFontSize = $map['WatermarkFontSize'];
+        }
+        if (isset($map['WatermarkFontStyle'])) {
+            $model->watermarkFontStyle = $map['WatermarkFontStyle'];
+        }
+        if (isset($map['WatermarkRowAmount'])) {
+            $model->watermarkRowAmount = $map['WatermarkRowAmount'];
+        }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];
+        }
+        if (isset($map['WatermarkTransparencyValue'])) {
+            $model->watermarkTransparencyValue = $map['WatermarkTransparencyValue'];
         }
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];

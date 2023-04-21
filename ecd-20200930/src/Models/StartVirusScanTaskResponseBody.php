@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StartVirusScanTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C638DCB-E5A8-423E-9C3B-06BCBB564B11
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the virus scan task.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $scanTaskId;

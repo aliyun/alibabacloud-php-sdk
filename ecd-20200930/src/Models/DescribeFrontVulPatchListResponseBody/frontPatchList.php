@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class frontPatchList extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-bvolet79zmpkq****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description Details about patches.
+     *
      * @var patchList[]
      */
     public $patchList;

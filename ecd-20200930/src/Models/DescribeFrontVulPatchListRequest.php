@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeFrontVulPatchListRequest extends Model
 {
     /**
+     * @description The type of the action that you want to perform on the vulnerability. Valid value: vul_fix.
+     *
+     * @example vul_fix
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: the Linux software vulnerability
+     *   sys: the Windows system vulnerability
+     *
+     * @example sys
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description Details of the vulnerabilities. You can enter a maximum of 50 vulnerabilities.
+     *
      * @var vulInfo[]
      */
     public $vulInfo;

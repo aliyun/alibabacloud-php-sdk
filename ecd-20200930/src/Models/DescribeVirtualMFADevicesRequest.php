@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualMFADevicesRequest extends Model
 {
     /**
+     * @description The list of the AD users.
+     *
+     * @example testuser
+     *
      * @var string[]
      */
     public $endUserId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 500. Default value: 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Set the value to the NextToken value returned in the last call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-269345****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

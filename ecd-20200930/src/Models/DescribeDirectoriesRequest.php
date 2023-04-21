@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesRequest extends Model
 {
     /**
+     * @description Details of directory IDs. You can specify one or more directory IDs.
+     *
+     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
+     *
      * @var string[]
      */
     public $directoryId;
 
     /**
+     * @description The status of the directory. The value of this parameter is the same as the value of the `Status` parameter.
+     *
+     * @example REGISTERED
+     *
      * @var string
      */
     public $directoryStatus;
 
     /**
+     * @description The type of the directory.
+     *
+     * @example RAM
+     *
      * @var string
      */
     public $directoryType;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the workspace.
+     *
+     * @example REGISTERED
+     *
      * @var string
      */
     public $status;

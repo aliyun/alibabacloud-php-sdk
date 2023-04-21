@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetDesktopGroupDetailRequest extends Model
 {
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The region ID of the desktop group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

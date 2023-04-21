@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfficeSiteMfaEnabledRequest extends Model
 {
     /**
+     * @description Specifies whether to enable MFA. Valid values:
+     *
+     *   true: enables MFA
+     *   false: disables MFA
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mfaEnabled;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

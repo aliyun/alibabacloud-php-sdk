@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromDesktopGroupRequest extends Model
 {
     /**
+     * @description The ID of the desktop group on which the permissions you want to revoke from the authorized user.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description Details about the IDs of the desktop groups.
+     *
      * @var string[]
      */
     public $desktopGroupIds;
 
     /**
+     * @description Details about the authorized users from which you want to revoke permissions on the desktop group.
+     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationStatuses extends Model
 {
     /**
+     * @description The code that indicates the processing result of the alert.
+     *
+     * @example ignore.Success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The ID of the alert.
+     *
+     * @example 12321
+     *
      * @var int
      */
     public $securityEventId;
 
     /**
+     * @description The processing status of the alert. Valid values:
+     *
+     *   Processing: The alert is being processed.
+     *   Success: The alert is processed.
+     *   Failed: The alert failed to be processed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;

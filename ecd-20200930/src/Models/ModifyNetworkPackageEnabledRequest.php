@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkPackageEnabledRequest extends Model
 {
     /**
+     * @description Specifies whether to restore or disable Internet access for the cloud desktop.
+     *
+     *   true: restores Internet access.
+     *   false: disables Internet access.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The ID of the Internet access package.
+     *
+     * @example np-cfedn7r2pe48g****
+     *
      * @var string
      */
     public $networkPackageId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

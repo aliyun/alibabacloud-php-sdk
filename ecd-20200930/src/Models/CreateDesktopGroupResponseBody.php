@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the desktop group.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The IDs of the orders.
+     *
      * @var string[]
      */
     public $orderIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3EB7FCEE-D731-4948-85A3-4B2C341CA983
+     *
      * @var string
      */
     public $requestId;

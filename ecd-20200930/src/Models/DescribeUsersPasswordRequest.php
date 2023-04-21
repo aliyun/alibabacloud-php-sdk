@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersPasswordRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gq8u6whi9f6k8****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

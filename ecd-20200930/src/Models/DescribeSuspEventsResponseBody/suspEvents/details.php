@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The original property name.
+     *
+     * @example ${suspicious.property.process_path}
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The property name that is displayed after the Name parameter was translated.
+     *
+     * @example Process path
+     *
      * @var string
      */
     public $nameDisplay;
 
     /**
+     * @description The format in which the property value is displayed. The property value can be a string or displayed in the HTML or Markdown format.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The property value.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The property value that is displayed after the Value parameter was translated.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $valueDisplay;

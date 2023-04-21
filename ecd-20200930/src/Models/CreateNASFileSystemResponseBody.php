@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateNASFileSystemResponseBody extends Model
 {
     /**
+     * @description The ID of the NAS file system.
+     *
+     * @example 04f314****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The name of the NAS file system.
+     *
+     * @example testNAS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * @example 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
+     *
      * @var string
      */
     public $requestId;

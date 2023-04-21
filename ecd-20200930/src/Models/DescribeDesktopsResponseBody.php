@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopsResponseBody extends Model
 {
     /**
+     * @description Details of the cloud desktops.
+     *
      * @var desktops[]
      */
     public $desktops;
 
     /**
+     * @description The token that is used for the next query. If this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 484256DA-D816-44D2-9D86-B6EE4D5BA78C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of cloud desktops.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

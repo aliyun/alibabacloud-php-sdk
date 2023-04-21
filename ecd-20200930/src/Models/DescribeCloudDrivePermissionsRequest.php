@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudDrivePermissionsRequest extends Model
 {
     /**
+     * @example cn-hangzhou+cds-82414*****
+     *
      * @var string
      */
     public $cdsId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

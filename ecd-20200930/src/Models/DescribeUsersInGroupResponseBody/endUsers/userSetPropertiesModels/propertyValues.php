@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class propertyValues extends Model
 {
     /**
+     * @description The property value.
+     *
+     * @example value
+     *
      * @var string
      */
     public $propertyValue;
 
     /**
+     * @description The ID of the property value.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $propertyValueId;

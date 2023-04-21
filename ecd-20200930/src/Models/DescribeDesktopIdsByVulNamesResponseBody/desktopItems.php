@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class desktopItems extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
      * @var string
      */
     public $desktopName;

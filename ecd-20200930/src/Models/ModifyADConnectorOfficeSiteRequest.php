@@ -9,61 +9,110 @@ use AlibabaCloud\Tea\Model;
 class ModifyADConnectorOfficeSiteRequest extends Model
 {
     /**
+     * @description The hostname of the domain controller. The hostname must comply with the naming conventions for hostnames in Windows.
+     *
+     * @example beijing-ad01
+     *
      * @var string
      */
     public $adHostname;
 
     /**
+     * @description Details of the IP addresses of the Domain Name System (DNS) servers that correspond to the enterprise AD system. You can specify only one IP address.
+     *
+     * @example 127.0.*.*
+     *
      * @var string[]
      */
     public $dnsAddress;
 
     /**
+     * @description The domain name of the enterprise AD system. You can register each domain name only once.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The password of the domain administrator. The username can be up to 64 characters in length.
+     *
+     * @example testPassword
+     *
      * @var string
      */
     public $domainPassword;
 
     /**
+     * @description The username of the domain administrator. The username can be up to 64 characters in length.
+     *
+     * > Specify the value of the sAMAccountName parameter instead of the value of the userPrincipalName parameter as the username.
+     * @example Administrator
+     *
      * @var string
      */
     public $domainUserName;
 
     /**
+     * @description Specifies whether to enable multi-factor authentication (MFA).\
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $mfaEnabled;
 
     /**
+     * @description The name of the organizational unit (OU) in the AD domain. You can call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the name of the OU.
+     *
+     * @example oldad.com/Domain Controllers
+     *
      * @var string
      */
     public $OUName;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The name of the workspace. The name must be 2 to 255 characters in length. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example test
+     *
      * @var string
      */
     public $officeSiteName;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The DNS address of the enterprise AD subdomain. You can specify only one IP address. If you specify a value for the `SubDomainName` parameter but you do not specify a value for this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
+     *
+     * @example 127.0.*.*
+     *
      * @var string[]
      */
     public $subDomainDnsAddress;
 
     /**
+     * @description The domain name of the enterprise AD subdomain.
+     *
+     * @example childexample.com
+     *
      * @var string
      */
     public $subDomainName;

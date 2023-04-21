@@ -15,11 +15,15 @@ class DescribePolicyGroupsResponseBody extends Model
     public $describePolicyGroups;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;

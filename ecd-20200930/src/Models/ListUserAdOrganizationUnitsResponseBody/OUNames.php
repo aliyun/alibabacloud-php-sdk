@@ -9,17 +9,35 @@ use AlibabaCloud\Tea\Model;
 class OUNames extends Model
 {
     /**
+     * @description The display name of the OU.
+     *
+     * @example wuying_computers
+     *
+     * @var string
+     */
+    public $displayOUName;
+
+    /**
+     * @description The name of the OU of the AD domain controller.
+     *
+     * @example example.com/wuying_computers
+     *
      * @var string
      */
     public $OUName;
 
     /**
+     * @description The ID of the AD workspace.
+     *
+     * @example cn-hangzhou+dir-485361****
+     *
      * @var string
      */
     public $officeSiteId;
     protected $_name = [
-        'OUName'       => 'OUName',
-        'officeSiteId' => 'OfficeSiteId',
+        'displayOUName' => 'DisplayOUName',
+        'OUName'        => 'OUName',
+        'officeSiteId'  => 'OfficeSiteId',
     ];
 
     public function validate()
@@ -29,6 +47,9 @@ class OUNames extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->displayOUName) {
+            $res['DisplayOUName'] = $this->displayOUName;
+        }
         if (null !== $this->OUName) {
             $res['OUName'] = $this->OUName;
         }
@@ -47,6 +68,9 @@ class OUNames extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisplayOUName'])) {
+            $model->displayOUName = $map['DisplayOUName'];
+        }
         if (isset($map['OUName'])) {
             $model->OUName = $map['OUName'];
         }

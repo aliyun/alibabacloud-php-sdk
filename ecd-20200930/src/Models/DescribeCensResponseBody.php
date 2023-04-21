@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensResponseBody extends Model
 {
     /**
+     * @description Details about CEN instances.
+     *
      * @var cens[]
      */
     public $cens;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of CEN instances returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetConnectionTicketResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the desktop connection task.
+     *
+     * @example 2afbad19-778a-4fc5-9674-1f19c638****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The status of the task.
+     *
+     * Valid values:
+     *
+     *   FAILED
+     *
+     * .
+     *
+     *   RUNNING
+     *
+     * .
+     *
+     *   FINISHED
+     *
+     * .
+     * @example FINISHED
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @description The credentials that are used to connect to the cloud desktop. To use the credentials, you must decode the credentials in Base64, save the credentials as a xxx.ica file, and then open the file. Sample Python code:
+     *
+     * f.close()
+     * @example W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********
+     *
      * @var string
      */
     public $ticket;

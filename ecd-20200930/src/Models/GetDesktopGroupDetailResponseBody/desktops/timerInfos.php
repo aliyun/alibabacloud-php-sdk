@@ -9,21 +9,67 @@ use AlibabaCloud\Tea\Model;
 class timerInfos extends Model
 {
     /**
+     * @description The CRON expression of the scheduled task.
+     *
+     * @example 0 58 11 ? * 2
+     *
      * @var string
      */
     public $cronExpression;
 
     /**
+     * @description Indicates whether the scheduled task is forcibly executed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forced;
 
     /**
+     * @description The status of the scheduled task.
+     *
+     * Valid values:
+     *
+     *   1
+     *
+     * .
+     *
+     *   2
+     *
+     * .
+     *
+     *   3
+     *
+     * .
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The type of the scheduled task.
+     *
+     * Valid values:
+     *
+     *   1
+     *
+     * .
+     *
+     *   2
+     *
+     * .
+     *
+     *   3
+     *
+     * .
+     *
+     *   4
+     *
+     * .
+     * @example 1
+     *
      * @var int
      */
     public $timerType;

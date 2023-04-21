@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopHostNameRequest extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The new hostname of the cloud desktop. The hostname must meet the following requirements:
+     *
+     *   Must be 2 to 15 characters in length.
+     *   Contain letters, digits, and hyphens (-). It cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *
+     * @example NewName
+     *
      * @var string
      */
     public $newHostName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

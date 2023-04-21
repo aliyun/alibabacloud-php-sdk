@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the Redhat Package Manager (RPM) package.
+     *
+     * You can call the [DescribeVulList](~~223907~~) operation to obtain the names of RPM packages.
+     * @example 5003243
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
+     *
+     * @example sys
+     *
      * @var string
      */
     public $type;

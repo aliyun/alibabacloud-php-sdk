@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class userSetPropertiesModels extends Model
 {
     /**
+     * @description The ID of the property.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $propertyId;
 
     /**
+     * @description The name of the property.
+     *
+     * @example key
+     *
      * @var string
      */
     public $propertyKey;
 
     /**
+     * @description The type of the property.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $propertyType;
 
     /**
+     * @description Details about property values.
+     *
      * @var propertyValues[]
      */
     public $propertyValues;
 
     /**
+     * @description The ID of the end user.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The name of the end user.
+     *
+     * @example nameDemo
+     *
      * @var string
      */
     public $userName;

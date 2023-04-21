@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateAndBindNasFileSystemRequest extends Model
 {
     /**
+     * @example newDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example dg-fh0vdzyh6rdc*****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $encryptType;
@@ -29,21 +35,29 @@ class CreateAndBindNasFileSystemRequest extends Model
     public $endUserIds;
 
     /**
+     * @example szy-asp-upm-test
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example cn-beijing+dir-15657*****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Capacity
+     *
      * @var string
      */
     public $storageType;

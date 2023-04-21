@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulListRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2019:0230-Important: polkit security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The number of the page to return.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The processing status of the vulnerability.
+     *
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example 5016623
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The priority to fix the detected vulnerability or the risk level of the vulnerability.
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The number of entries to return on each page.\
+     * Default value: 20.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the detected vulnerability.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;

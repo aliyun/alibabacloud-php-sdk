@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDesktopGroupDetailResponseBody extends Model
 {
     /**
+     * @description Details of the desktop group.
+     *
      * @var desktops
      */
     public $desktops;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B5268CE-5EB3-545F-9F38-A8BCF710****
+     *
      * @var string
      */
     public $requestId;

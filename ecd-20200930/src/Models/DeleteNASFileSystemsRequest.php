@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteNASFileSystemsRequest extends Model
 {
     /**
+     * @description The IDs of the NAS file systems.
+     *
+     * @example 04f314****
+     *
      * @var string[]
      */
     public $fileSystemId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

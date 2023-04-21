@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteUsersRequest extends Model
 {
     /**
+     * @description The character string for fuzzy search.
+     *
+     * @example *jin*
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that specifies the start point of the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The organizational unit (OU) in the specified AD domain.
+     *
+     * @example example.com/Domain Controllers
+     *
      * @var string
      */
     public $OUPath;
 
     /**
+     * @description The ID of the workspace. Only workspaces of the enterprise AD account type are supported.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

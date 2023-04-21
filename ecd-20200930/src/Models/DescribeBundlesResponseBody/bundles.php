@@ -11,56 +11,96 @@ use AlibabaCloud\Tea\Model;
 class bundles extends Model
 {
     /**
+     * @description The ID of the desktop template.
+     *
+     * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
+     *
      * @var string
      */
     public $bundleId;
 
     /**
+     * @description The name of the desktop template.
+     *
+     * @example Advanced graphics with Windows 2019
+     *
      * @var string
      */
     public $bundleName;
 
     /**
+     * @description The type of the desktop template.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $bundleType;
 
     /**
+     * @description The time when the desktop template was created.
+     *
+     * @example 2021-09-30T06:09Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the desktop template.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The desktop type.
+     *
+     * @example ecd.graphics.2xlarge
+     *
      * @var string
      */
     public $desktopType;
 
     /**
+     * @description Details of the desktop type.
+     *
      * @var desktopTypeAttribute
      */
     public $desktopTypeAttribute;
 
     /**
+     * @description The family of the desktop type.
+     *
+     * @example eds.general
+     *
      * @var string
      */
     public $desktopTypeFamily;
 
     /**
+     * @description Details of the disks.
+     *
      * @var disks[]
      */
     public $disks;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example desktopimage-windows-server-2019-64-ch-vgpu
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example Windows server 2019 Chinese
+     *
      * @var string
      */
     public $imageName;
@@ -68,39 +108,82 @@ class bundles extends Model
     /**
      * @var string
      */
+    public $imageStatus;
+
+    /**
+     * @description The OS language of the image.
+     *
+     * @example en-US
+     *
+     * @var string
+     */
     public $language;
 
     /**
+     * @description The type of the OS.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The information about the OS platform. Valid values:
+     *
+     *   CentOS
+     *   Ubuntu
+     *   Windows Server 2016
+     *   Windows Server 2019
+     *   UOS
+     *
+     * @example Windows Server 2019
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example ASP
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The type of the session.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $sessionType;
 
     /**
+     * @description The inventory status of the desktop type. This parameter is returned only if you set the `CheckStock` parameter to `True`.
+     *
+     * @example Sufficient
+     *
      * @var string
      */
     public $stockState;
 
     /**
+     * @description Indicates whether disk encryption is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled.
+     *
+     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+     *
      * @var string
      */
     public $volumeEncryptionKey;
@@ -116,6 +199,7 @@ class bundles extends Model
         'disks'                   => 'Disks',
         'imageId'                 => 'ImageId',
         'imageName'               => 'ImageName',
+        'imageStatus'             => 'ImageStatus',
         'language'                => 'Language',
         'osType'                  => 'OsType',
         'platform'                => 'Platform',
@@ -171,6 +255,9 @@ class bundles extends Model
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
+        }
+        if (null !== $this->imageStatus) {
+            $res['ImageStatus'] = $this->imageStatus;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -246,6 +333,9 @@ class bundles extends Model
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
+        }
+        if (isset($map['ImageStatus'])) {
+            $model->imageStatus = $map['ImageStatus'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

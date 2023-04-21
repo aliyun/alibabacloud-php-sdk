@@ -15,6 +15,8 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
     public $cloudDrivePermissionModels;
 
     /**
+     * @example A87DBB05-653A-5E4B-B72B-5F4A1E07E5B3
+     *
      * @var string
      */
     public $requestId;

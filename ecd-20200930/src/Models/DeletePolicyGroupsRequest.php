@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyGroupsRequest extends Model
 {
     /**
+     * @description The ID of the policy. You can specify 1 to 100 policy IDs.
+     *
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string[]
      */
     public $policyGroupId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

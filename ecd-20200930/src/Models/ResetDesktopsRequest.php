@@ -9,31 +9,54 @@ use AlibabaCloud\Tea\Model;
 class ResetDesktopsRequest extends Model
 {
     /**
+     * @description The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.``
+     *
+     * @example dg-07if7qsxoxkb6****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-4zfb6zj728hhr****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The billing method.
+     *
+     * > This parameter is available only when you reset desktop groups. If you leave this parameter empty, all cloud desktops in the specified desktop group are reset, regardless of how the cloud desktops are billed.
+     * @example PrePaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the disk that you want to reset.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $resetType;

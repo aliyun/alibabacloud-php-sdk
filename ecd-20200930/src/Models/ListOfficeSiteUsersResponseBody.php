@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteUsersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The usernames of AD users.
+     *
+     * This parameter is empty if the AD users include only Administrator and Guest.
+     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The usernames of AD users.
+     *
      * @var users[]
      */
     public $users;

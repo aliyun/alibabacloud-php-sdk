@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientEventsResponseBody extends Model
 {
     /**
+     * @description Details about the events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The query token that is returned in this call.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 28A40F12-F340-442B-A35F-46EF6A03227B
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class modifyResults extends Model
 {
     /**
+     * @description The result of the modification. A value of success indicates that the policy is modified. If the policy failed to be modified, an error message is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-7w78ozhjcwa3u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The error message. This parameter is not returned if the value of Code is `success`.
+     *
+     * @example The specified param DesktopId ecd-ia2zw38bi6cm7**** is not found.
+     *
      * @var string
      */
     public $message;

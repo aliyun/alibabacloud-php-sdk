@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteOverviewRequest extends Model
 {
     /**
+     * @description Specifies whether to refresh the cache.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceRefresh;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. If this is your first query or no next query is to be sent, skip this parameter. If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Details about the IDs of the workspaces. You can specify 1 to 100 workspace IDs.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string[]
      */
     public $officeSiteId;
 
     /**
+     * @description The beginning of the time range that you want to query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $queryRange;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

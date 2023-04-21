@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ActivateOfficeSiteResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string
      */
     public $policyGroupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

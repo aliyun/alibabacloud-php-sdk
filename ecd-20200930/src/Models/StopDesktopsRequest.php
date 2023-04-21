@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class StopDesktopsRequest extends Model
 {
     /**
+     * @description The IDs of cloud desktops. You can specify up to 20 cloud desktop IDs.
+     *
+     * @example ecd-7w78ozhjcwa3u****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The billing mode after you stop the cloud desktop.
+     *
+     *   StopCharging: Computing resources are not billed after you stop the cloud desktop. After the cloud desktop is stopped, the system automatically reclaims computing resources. From this point on, you are no longer charged for computing resources. However, you are still charged for storage resources.
+     *   KeepCharging: The billing continues after you stop the cloud desktop. After the cloud desktop is stopped, the system does not reclaim resources to avoid startup failures due to insufficient resources. You are still charged for the resources.
+     *
+     * Default value: StopCharging
+     * @example StopCharging
+     *
      * @var string
      */
     public $stoppedMode;

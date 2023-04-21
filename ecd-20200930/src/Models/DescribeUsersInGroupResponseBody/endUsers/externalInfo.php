@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class externalInfo extends Model
 {
     /**
+     * @description The external name.
+     *
+     * @example nameDemo
+     *
      * @var string
      */
     public $externalName;
 
     /**
+     * @description The employee ID.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $jobNumber;

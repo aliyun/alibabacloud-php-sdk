@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetNASDefaultMountTargetRequest extends Model
 {
     /**
+     * @description The ID of the NAS file system.
+     *
+     * @example 3a6ef4****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

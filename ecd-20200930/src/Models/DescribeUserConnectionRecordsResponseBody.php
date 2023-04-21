@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConnectionRecordsResponseBody extends Model
 {
     /**
+     * @description Details about connection records.
+     *
      * @var connectionRecords[]
      */
     public $connectionRecords;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A8E03
+     *
      * @var string
      */
     public $requestId;

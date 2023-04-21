@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ApplyCoordinatePrivilegeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C43EEAC3-84F8-5C1E-A067-4751C3D1422E
+     *
      * @var string
      */
     public $requestId;

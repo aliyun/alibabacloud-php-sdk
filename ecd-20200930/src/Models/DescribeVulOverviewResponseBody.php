@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulOverviewResponseBody extends Model
 {
     /**
+     * @description The number of high-risk vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $asapCount;
 
     /**
+     * @description The number of medium-risk vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $laterCount;
 
     /**
+     * @description The number of low-risk vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nntfCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

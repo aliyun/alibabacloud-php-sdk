@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelCopyImageResponseBody extends Model
 {
     /**
+     * @example 5BEFE642-A383-4A18-8939-FB7DE452****
+     *
      * @var string
      */
     public $requestId;

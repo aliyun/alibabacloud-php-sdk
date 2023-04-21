@@ -9,51 +9,98 @@ use AlibabaCloud\Tea\Model;
 class quaraFiles extends Model
 {
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-138dsptkrt00u****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The name of the alert.
+     *
+     * @example WEBSHELL
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The type of the alert.
+     *
+     * @example WebshellQuaraEventTyp
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the quarantined file.
+     *
+     * @example 3920516
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The message-digest algorithm 5 (MD5) value of the quarantined file.
+     *
+     * @example 5ddebe926acc7ed39a664409bfd0****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The time when the quarantined file was updated.
+     *
+     * @example 2021-05-18 20:37:08
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The path where the quarantined file is stored on the cloud desktop.
+     *
+     * @example /var/www/html/webshell-sample-master/others/def.jpg
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The status of the quarantined file. Valid values:
+     *
+     *   quaraFailed: The file failed to be quarantined.
+     *   quaraDone: The file is quarantined.
+     *   quaraing: The file is being quarantined.
+     *   rollbackFailed: Quarantine for the file failed to be canceled.
+     *   rollbackDone: Quarantine for the file is canceled.
+     *   rollbacking: Quarantine for the file is being canceled.
+     *
+     * @example rollbackDone
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tag of the alert.
+     *
+     * @example 228f890e56eae9eec6a42c7ea801b538
+     *
      * @var string
      */
     public $tag;

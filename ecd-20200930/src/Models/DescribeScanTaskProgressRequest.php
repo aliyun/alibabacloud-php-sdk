@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the virus scan task. If this parameter is not specified, the status of the latest scan task is queried by default.
+     *
+     * You can call the [StartVirusScanTask](~~217908~~) operation to query the ID of a virus scan task.
+     * @example 123456
+     *
      * @var int
      */
     public $taskId;

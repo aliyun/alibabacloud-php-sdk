@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsResponseBody extends Model
 {
     /**
+     * @description If multiple cloud desktops are created in a call, the IDs of the cloud desktops are returned.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the order.
+     *
+     * > This parameter is returned only when you set the ChargeType parameter to PrePaid.
+     * @example 123456789
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

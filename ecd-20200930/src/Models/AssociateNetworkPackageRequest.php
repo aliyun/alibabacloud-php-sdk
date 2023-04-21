@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AssociateNetworkPackageRequest extends Model
 {
     /**
+     * @description The ID of the Internet access package. You can call the [DescribeNetworkPackages](~~216079~~) operation to query the ID of the Internet access package.
+     *
+     * @example np-e0iodl3yzb62q****
+     *
      * @var string
      */
     public $networkPackageId;
 
     /**
+     * @description The ID of the workspace. You can call the [DescribeOfficeSites](~~216071~~) operation to query the ID of the workspace.
+     *
+     * @example cn-hangzhou+dir-*********
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

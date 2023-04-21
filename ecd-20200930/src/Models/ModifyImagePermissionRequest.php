@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyImagePermissionRequest extends Model
 {
     /**
+     * @description The IDs of the recipient Alibaba Cloud accounts. You can share an image with up to 50 Alibaba Cloud accounts.
+     *
      * @var int[]
      */
     public $addAccount;
 
     /**
+     * @description The ID of the image that you want to share.
+     *
+     * @example m-gx2x1dhsmusr2****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the recipient Alibaba Cloud accounts from which you want to unshare the image. You can unshare an image from up to 50 Alibaba Cloud accounts.
+     *
      * @var int[]
      */
     public $removeAccount;

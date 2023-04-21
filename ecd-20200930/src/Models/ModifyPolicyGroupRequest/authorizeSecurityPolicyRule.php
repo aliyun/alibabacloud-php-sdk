@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class authorizeSecurityPolicyRule extends Model
 {
     /**
+     * @example 10.0.XX.XX/8
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example tcp
+     *
      * @var string
      */
     public $ipProtocol;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 22/22
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @example inflow
+     *
      * @var string
      */
     public $type;

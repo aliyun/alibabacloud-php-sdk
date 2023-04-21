@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class imageModifiedRecords extends Model
 {
     /**
+     * @description The ID of the original image.
+     *
+     * @example m-8rnz2imrpcfuh****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the original image.
+     *
+     * @example win10-0307
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The ID of the new image.
+     *
+     * @example xxxNewImageID
+     *
      * @var string
      */
     public $newImageId;
 
     /**
+     * @description The name of the new image.
+     *
+     * @example xxxxImageID
+     *
      * @var string
      */
     public $newImageName;
 
     /**
+     * @description The status of the image.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The time when the image was last changed.
+     *
+     * @example 2022-03-03T02:43:44.851Z
+     *
      * @var string
      */
     public $updateTime;

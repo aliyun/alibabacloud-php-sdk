@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class authorizeAccessPolicyRules extends Model
 {
     /**
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;

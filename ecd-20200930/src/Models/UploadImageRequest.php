@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class UploadImageRequest extends Model
 {
     /**
+     * @example 80
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @example test description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableSecurityCheck;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $gpuCategory;
 
     /**
+     * @example gpu_grid9
+     *
      * @var string
      */
     public $gpuDriverType;
 
     /**
+     * @example Win10_Test
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example Auto
+     *
      * @var string
      */
     public $licenseType;
 
     /**
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example https://ossbucket:endpoint/object
+     *
      * @var string
      */
     public $ossObjectPath;
 
     /**
+     * @example HDX
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

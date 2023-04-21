@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaPendingDesktopsResponseBody extends Model
 {
     /**
+     * @description Details about the cloud desktops whose images have not been updated. The cloud desktops can be updated to the image of a specific version that is described in an image update task (TaskUid).
+     *
      * @var fotaPendingDesktops[]
      */
     public $fotaPendingDesktops;
 
     /**
+     * @description The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;

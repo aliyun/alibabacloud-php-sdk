@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfficeSitesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 100.
+     *   Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The IDs of the workspaces. You can specify 1 to 100 IDs of workspaces.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string[]
      */
     public $officeSiteId;
 
     /**
+     * @description The account type of the workspace.
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $officeSiteType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The state of the workspace.
+     *
+     * @example REGISTERED
+     *
      * @var string
      */
     public $status;

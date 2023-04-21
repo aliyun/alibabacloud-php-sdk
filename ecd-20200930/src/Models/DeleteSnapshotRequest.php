@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the snapshots. You can specify 1 to 100 IDs of snapshots.
+     *
+     * @example s-2ze81owrnv9pity4****
+     *
      * @var string[]
      */
     public $snapshotId;

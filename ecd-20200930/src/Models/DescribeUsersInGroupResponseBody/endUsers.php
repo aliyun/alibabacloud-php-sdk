@@ -11,66 +11,114 @@ use AlibabaCloud\Tea\Model;
 class endUsers extends Model
 {
     /**
+     * @description The status of the desktop connection for the end user.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The display name of the enterprise AD account.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The email address of the end user.
+     *
+     * @example alice@example.com
+     *
      * @var string
      */
     public $endUserEmail;
 
     /**
+     * @description The name of the end user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The name of the end user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserName;
 
     /**
+     * @description The mobile number of the end user.
+     *
+     * @example 1381111****
+     *
      * @var string
      */
     public $endUserPhone;
 
     /**
+     * @description The remarks of the end user.
+     *
+     * @example Note
+     *
      * @var string
      */
     public $endUserRemark;
 
     /**
+     * @description The account type of the end user.
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $endUserType;
 
     /**
+     * @description The appended information.
+     *
      * @var externalInfo
      */
     public $externalInfo;
 
     /**
+     * @description The ID of the desktop of the end user.
+     *
+     * @example ud-i896ze8hazpvl****
+     *
      * @var string
      */
     public $userDesktopId;
 
     /**
+     * @description Details about the seats of end users.
+     *
      * @var userSetPropertiesModels[]
      */
     public $userSetPropertiesModels;

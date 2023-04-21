@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotResponseBody extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example 3EB7FCEE-D731-4948-85A3-4B2C341CA983
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-2ze81owrnv9pity4****
+     *
      * @var string
      */
     public $snapshotId;

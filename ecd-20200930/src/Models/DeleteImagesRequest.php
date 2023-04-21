@@ -9,17 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteImagesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteCascadedBundle;
+
+    /**
+     * @description The IDs of the images that you want to delete.
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
+     * @description The ID of the region where the images to delete are located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'imageId'  => 'ImageId',
-        'regionId' => 'RegionId',
+        'deleteCascadedBundle' => 'DeleteCascadedBundle',
+        'imageId'              => 'ImageId',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -29,6 +41,9 @@ class DeleteImagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteCascadedBundle) {
+            $res['DeleteCascadedBundle'] = $this->deleteCascadedBundle;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -47,6 +62,9 @@ class DeleteImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteCascadedBundle'])) {
+            $model->deleteCascadedBundle = $map['DeleteCascadedBundle'];
+        }
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {
                 $model->imageId = $map['ImageId'];

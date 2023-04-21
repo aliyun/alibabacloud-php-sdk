@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StartDesktopsRequest extends Model
 {
     /**
+     * @description The IDs of the cloud desktops. You can specify up to 100 IDs.
+     *
+     * @example ecd-7w78ozhjcwa3u****
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

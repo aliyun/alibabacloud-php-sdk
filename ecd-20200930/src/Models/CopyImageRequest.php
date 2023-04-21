@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CopyImageRequest extends Model
 {
     /**
+     * @example This is a test.
+     *
      * @var string
      */
     public $destinationDescription;
 
     /**
+     * @example Office_Shanghai
+     *
      * @var string
      */
     public $destinationImageName;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @example m-gx2x1dhsmusr2****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
