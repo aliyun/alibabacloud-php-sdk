@@ -131,6 +131,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationResponse;
@@ -233,6 +234,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSystemTemplatesRequest;
@@ -259,6 +262,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoRequest;
@@ -267,6 +274,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetContentAnalyzeConfigRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetContentAnalyzeConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
@@ -279,6 +288,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobShrinkRequest;
@@ -3553,6 +3564,39 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetContentAnalyzeConfigResponse
+     */
+    public function getContentAnalyzeConfigWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetContentAnalyzeConfig',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetContentAnalyzeConfigResponse
+     */
+    public function getContentAnalyzeConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContentAnalyzeConfigWithOptions($runtime);
+    }
+
+    /**
      * @param GetCustomTemplateRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5967,6 +6011,46 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListSmartSysAvatarModelsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListSmartSysAvatarModelsResponse
+     */
+    public function listSmartSysAvatarModelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSmartSysAvatarModels',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSmartSysAvatarModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSmartSysAvatarModelsRequest $request
+     *
+     * @return ListSmartSysAvatarModelsResponse
+     */
+    public function listSmartSysAvatarModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSmartSysAvatarModelsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSnapshotJobsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6788,6 +6872,116 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SearchMediaByFaceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SearchMediaByFaceResponse
+     */
+    public function searchMediaByFaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->faceSearchToken)) {
+            $query['FaceSearchToken'] = $request->faceSearchToken;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->personImageUrl)) {
+            $query['PersonImageUrl'] = $request->personImageUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaByFace',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchMediaByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchMediaByFaceRequest $request
+     *
+     * @return SearchMediaByFaceResponse
+     */
+    public function searchMediaByFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaByFaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchMediaClipByFaceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchMediaClipByFaceResponse
+     */
+    public function searchMediaClipByFaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->faceSearchToken)) {
+            $query['FaceSearchToken'] = $request->faceSearchToken;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaClipByFace',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchMediaClipByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchMediaClipByFaceRequest $request
+     *
+     * @return SearchMediaClipByFaceResponse
+     */
+    public function searchMediaClipByFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaClipByFaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchPublicMediaInfoRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -6941,6 +7135,55 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendLiveTranscodeJobCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetContentAnalyzeConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetContentAnalyzeConfigResponse
+     */
+    public function setContentAnalyzeConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auto)) {
+            $query['Auto'] = $request->auto;
+        }
+        if (!Utils::isUnset($request->saveType)) {
+            $query['SaveType'] = $request->saveType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetContentAnalyzeConfig',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetContentAnalyzeConfigRequest $request
+     *
+     * @return SetContentAnalyzeConfigResponse
+     */
+    public function setContentAnalyzeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setContentAnalyzeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -7259,6 +7502,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAudioProduceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitAvatarVideoJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitAvatarVideoJobResponse
+     */
+    public function submitAvatarVideoJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->editingConfig)) {
+            $query['EditingConfig'] = $request->editingConfig;
+        }
+        if (!Utils::isUnset($request->inputConfig)) {
+            $query['InputConfig'] = $request->inputConfig;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAvatarVideoJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitAvatarVideoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAvatarVideoJobRequest $request
+     *
+     * @return SubmitAvatarVideoJobResponse
+     */
+    public function submitAvatarVideoJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAvatarVideoJobWithOptions($request, $runtime);
     }
 
     /**
