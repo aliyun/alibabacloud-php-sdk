@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarSceneQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarSceneQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponse;
@@ -1753,6 +1755,50 @@ class BtripOpen extends OpenApiClient
         $headers = new CarOrderQueryHeaders([]);
 
         return $this->carOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CarSceneQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CarSceneQueryResponse
+     */
+    public function carSceneQueryWithOptions($headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'CarSceneQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/car/v1/scenes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CarSceneQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return CarSceneQueryResponse
+     */
+    public function carSceneQuery()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CarSceneQueryHeaders([]);
+
+        return $this->carSceneQueryWithOptions($headers, $runtime);
     }
 
     /**

@@ -74,6 +74,11 @@ class module extends Model
     public $departName;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @example 2022-05-15T22:27Z
      *
      * @var string
@@ -230,6 +235,7 @@ class module extends Model
         'costCenter'                 => 'cost_center',
         'departId'                   => 'depart_id',
         'departName'                 => 'depart_name',
+        'extendField'                => 'extend_field',
         'gmtCreate'                  => 'gmt_create',
         'gmtModified'                => 'gmt_modified',
         'guest'                      => 'guest',
@@ -295,6 +301,9 @@ class module extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -424,6 +433,9 @@ class module extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
