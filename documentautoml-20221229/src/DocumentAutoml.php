@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictClassifierModelReque
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictClassifierModelResponse;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictModelRequest;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictModelResponse;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictPreTrainModelRequest;
+use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictPreTrainModelResponse;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictTemplateModelRequest;
 use AlibabaCloud\SDK\DocumentAutoml\V20221229\Models\PredictTemplateModelResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -270,6 +272,63 @@ class DocumentAutoml extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->predictModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PredictPreTrainModelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PredictPreTrainModelResponse
+     */
+    public function predictPreTrainModelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->binaryToText)) {
+            $query['BinaryToText'] = $request->binaryToText;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PredictPreTrainModel',
+            'version'     => '2022-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PredictPreTrainModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PredictPreTrainModelRequest $request
+     *
+     * @return PredictPreTrainModelResponse
+     */
+    public function predictPreTrainModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->predictPreTrainModelWithOptions($request, $runtime);
     }
 
     /**
