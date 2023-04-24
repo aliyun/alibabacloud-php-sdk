@@ -4,52 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\QueryDataTrackResultDownloadStatusResponseBody\statusResult;
 use AlibabaCloud\Tea\Model;
 
-class CreateLakeHouseSpaceResponseBody extends Model
+class QueryDataTrackResultDownloadStatusResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example InvalidParameterValid
+     * @example UnknownError
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
-     * @example Invalid parameters: space name,mode,prod db id,db type,config.
+     * @example UnknownError
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the workspace.
-     *
-     * @example 24
-     *
-     * @var int
+     * @var statusResult
      */
-    public $spaceId;
+    public $statusResult;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool
@@ -59,7 +45,7 @@ class CreateLakeHouseSpaceResponseBody extends Model
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
-        'spaceId'      => 'SpaceId',
+        'statusResult' => 'StatusResult',
         'success'      => 'Success',
     ];
 
@@ -79,8 +65,8 @@ class CreateLakeHouseSpaceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->statusResult) {
+            $res['StatusResult'] = null !== $this->statusResult ? $this->statusResult->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -92,7 +78,7 @@ class CreateLakeHouseSpaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateLakeHouseSpaceResponseBody
+     * @return QueryDataTrackResultDownloadStatusResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -106,8 +92,8 @@ class CreateLakeHouseSpaceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['StatusResult'])) {
+            $model->statusResult = statusResult::fromMap($map['StatusResult']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

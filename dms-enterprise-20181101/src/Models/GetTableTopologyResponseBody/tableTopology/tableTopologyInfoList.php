@@ -106,7 +106,7 @@ class tableTopologyInfoList extends Model
      *
      **
      *
-     **Description**This parameter is not returned for physical tables.
+     **Description** This parameter is not returned for physical tables.
      *
      * @example test_ch_[0000-0005]
      *

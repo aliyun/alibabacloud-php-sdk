@@ -6,61 +6,48 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateLakeHouseSpaceResponseBody extends Model
+class DownloadDataTrackResultResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @example e23dd7ec-a19f-4a69-8eb3-8ffd26e6****
      *
-     * @example InvalidParameterValid
+     * @var string
+     */
+    public $downloadKeyId;
+
+    /**
+     * @example UnknownError
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
-     * @example Invalid parameters: space name,mode,prod db id,db type,config.
+     * @example UnknownError
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     * @example B43AD641-49C2-5299-9E06-1B37EC1B****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the workspace.
-     *
-     * @example 24
-     *
-     * @var int
-     */
-    public $spaceId;
-
-    /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'spaceId'      => 'SpaceId',
-        'success'      => 'Success',
+        'downloadKeyId' => 'DownloadKeyId',
+        'errorCode'     => 'ErrorCode',
+        'errorMessage'  => 'ErrorMessage',
+        'requestId'     => 'RequestId',
+        'success'       => 'Success',
     ];
 
     public function validate()
@@ -70,6 +57,9 @@ class CreateLakeHouseSpaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadKeyId) {
+            $res['DownloadKeyId'] = $this->downloadKeyId;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -78,9 +68,6 @@ class CreateLakeHouseSpaceResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -92,11 +79,14 @@ class CreateLakeHouseSpaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateLakeHouseSpaceResponseBody
+     * @return DownloadDataTrackResultResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadKeyId'])) {
+            $model->downloadKeyId = $map['DownloadKeyId'];
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -105,9 +95,6 @@ class CreateLakeHouseSpaceResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -34,6 +34,11 @@ class DDLPublishRecordList extends Model
     public $auditStatus;
 
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
      * @description The ID of the user who creates the ticket. You can obtain the user ID by calling the [GetUser](~~147098~~) operation and querying the value of the UserId parameter. The value is not the unique ID (UID) of the Alibaba Cloud account.
      *
      * @example 1423
@@ -120,6 +125,7 @@ class DDLPublishRecordList extends Model
     protected $_name = [
         'auditExpireTime'     => 'AuditExpireTime',
         'auditStatus'         => 'AuditStatus',
+        'comment'             => 'Comment',
         'creatorId'           => 'CreatorId',
         'finality'            => 'Finality',
         'finalityReason'      => 'FinalityReason',
@@ -142,6 +148,9 @@ class DDLPublishRecordList extends Model
         }
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -190,6 +199,9 @@ class DDLPublishRecordList extends Model
         }
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];

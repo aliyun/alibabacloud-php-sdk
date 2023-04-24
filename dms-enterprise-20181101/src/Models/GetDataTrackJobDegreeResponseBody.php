@@ -4,52 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeResponseBody\jobDegree;
 use AlibabaCloud\Tea\Model;
 
-class CreateLakeHouseSpaceResponseBody extends Model
+class GetDataTrackJobDegreeResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example InvalidParameterValid
+     * @example UnknownError
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
-     * @example Invalid parameters: space name,mode,prod db id,db type,config.
+     * @example UnknownError
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+     * @var jobDegree
+     */
+    public $jobDegree;
+
+    /**
+     * @example C51420E3-144A-4A94-B473-8662FCF4AD10
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the workspace.
-     *
-     * @example 24
-     *
-     * @var int
-     */
-    public $spaceId;
-
-    /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool
@@ -58,8 +44,8 @@ class CreateLakeHouseSpaceResponseBody extends Model
     protected $_name = [
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'jobDegree'    => 'JobDegree',
         'requestId'    => 'RequestId',
-        'spaceId'      => 'SpaceId',
         'success'      => 'Success',
     ];
 
@@ -76,11 +62,11 @@ class CreateLakeHouseSpaceResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->jobDegree) {
+            $res['JobDegree'] = null !== $this->jobDegree ? $this->jobDegree->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -92,7 +78,7 @@ class CreateLakeHouseSpaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateLakeHouseSpaceResponseBody
+     * @return GetDataTrackJobDegreeResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -103,11 +89,11 @@ class CreateLakeHouseSpaceResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['JobDegree'])) {
+            $model->jobDegree = jobDegree::fromMap($map['JobDegree']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

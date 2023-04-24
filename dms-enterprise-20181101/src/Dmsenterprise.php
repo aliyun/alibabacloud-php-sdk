@@ -31,15 +31,24 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
@@ -103,6 +112,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DownloadDataTrackResultRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DownloadDataTrackResultResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DownloadDataTrackResultShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseShrinkRequest;
@@ -124,6 +136,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectBackupFilesRequest;
@@ -147,6 +161,12 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobTableMetaRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobTableMetaResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackOrderDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
@@ -332,6 +352,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\QueryDataTrackResultDownloadStatusRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\QueryDataTrackResultDownloadStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RefundPayAsYouGoOrderRequest;
@@ -354,6 +376,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
@@ -1238,6 +1263,72 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateDataExportOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataExportOrderResponse
+     */
+    public function createDataExportOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataExportOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->pluginParam)) {
+            $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->pluginParamShrink)) {
+            $query['PluginParam'] = $request->pluginParamShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataExportOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataExportOrderRequest $request
+     *
+     * @return CreateDataExportOrderResponse
+     */
+    public function createDataExportOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataExportOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * For more information about the Large Data Import feature, see [Import data](~~161439~~).
      *   *
      * @param CreateDataImportOrderRequest $tmpReq  CreateDataImportOrderRequest
@@ -1302,6 +1393,132 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataImportOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataTrackOrderRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataTrackOrderResponse
+     */
+    public function createDataTrackOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataTrackOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataTrackOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataTrackOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataTrackOrderRequest $request
+     *
+     * @return CreateDataTrackOrderResponse
+     */
+    public function createDataTrackOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataTrackOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatabaseExportOrderRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDatabaseExportOrderResponse
+     */
+    public function createDatabaseExportOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDatabaseExportOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->pluginParam)) {
+            $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->pluginParamShrink)) {
+            $query['PluginParam'] = $request->pluginParamShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatabaseExportOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatabaseExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatabaseExportOrderRequest $request
+     *
+     * @return CreateDatabaseExportOrderResponse
+     */
+    public function createDatabaseExportOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatabaseExportOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -2868,6 +3085,87 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param DownloadDataTrackResultRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DownloadDataTrackResultResponse
+     */
+    public function downloadDataTrackResultWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DownloadDataTrackResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->columnFilter)) {
+            $request->columnFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->eventIdList)) {
+            $request->eventIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filterTableList)) {
+            $request->filterTableListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filterTypeList)) {
+            $request->filterTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->columnFilterShrink)) {
+            $query['ColumnFilter'] = $request->columnFilterShrink;
+        }
+        if (!Utils::isUnset($request->eventIdListShrink)) {
+            $query['EventIdList'] = $request->eventIdListShrink;
+        }
+        if (!Utils::isUnset($request->filterEndTime)) {
+            $query['FilterEndTime'] = $request->filterEndTime;
+        }
+        if (!Utils::isUnset($request->filterStartTime)) {
+            $query['FilterStartTime'] = $request->filterStartTime;
+        }
+        if (!Utils::isUnset($request->filterTableListShrink)) {
+            $query['FilterTableList'] = $request->filterTableListShrink;
+        }
+        if (!Utils::isUnset($request->filterTypeListShrink)) {
+            $query['FilterTypeList'] = $request->filterTypeListShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->rollbackSQLType)) {
+            $query['RollbackSQLType'] = $request->rollbackSQLType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadDataTrackResult',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadDataTrackResultRequest $request
+     *
+     * @return DownloadDataTrackResultResponse
+     */
+    public function downloadDataTrackResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadDataTrackResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EditLogicDatabaseRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -3914,6 +4212,144 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetDataTrackJobDegreeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDataTrackJobDegreeResponse
+     */
+    public function getDataTrackJobDegreeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataTrackJobDegree',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataTrackJobDegreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataTrackJobDegreeRequest $request
+     *
+     * @return GetDataTrackJobDegreeResponse
+     */
+    public function getDataTrackJobDegree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataTrackJobDegreeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataTrackJobTableMetaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataTrackJobTableMetaResponse
+     */
+    public function getDataTrackJobTableMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataTrackJobTableMeta',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataTrackJobTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataTrackJobTableMetaRequest $request
+     *
+     * @return GetDataTrackJobTableMetaResponse
+     */
+    public function getDataTrackJobTableMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataTrackJobTableMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataTrackOrderDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDataTrackOrderDetailResponse
+     */
+    public function getDataTrackOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataTrackOrderDetail',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataTrackOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataTrackOrderDetailRequest $request
+     *
+     * @return GetDataTrackOrderDetailResponse
+     */
+    public function getDataTrackOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataTrackOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDatabaseRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3966,6 +4402,54 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatabaseExportOrderDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDatabaseExportOrderDetailResponse
+     */
+    public function getDatabaseExportOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $body['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatabaseExportOrderDetail',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatabaseExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDatabaseExportOrderDetailRequest $request
+     *
+     * @return GetDatabaseExportOrderDetailResponse
+     */
+    public function getDatabaseExportOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatabaseExportOrderDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -8618,6 +9102,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param QueryDataTrackResultDownloadStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return QueryDataTrackResultDownloadStatusResponse
+     */
+    public function queryDataTrackResultDownloadStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->downloadKeyId)) {
+            $query['DownloadKeyId'] = $request->downloadKeyId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDataTrackResultDownloadStatus',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDataTrackResultDownloadStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDataTrackResultDownloadStatusRequest $request
+     *
+     * @return QueryDataTrackResultDownloadStatusResponse
+     */
+    public function queryDataTrackResultDownloadStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDataTrackResultDownloadStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReDeployLhDagVersionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -9217,6 +9750,78 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeUserPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchDataTrackResultRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchDataTrackResultResponse
+     */
+    public function searchDataTrackResultWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SearchDataTrackResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->columnFilter)) {
+            $request->columnFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filterTableList)) {
+            $request->filterTableListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filterTypeList)) {
+            $request->filterTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->columnFilterShrink)) {
+            $query['ColumnFilter'] = $request->columnFilterShrink;
+        }
+        if (!Utils::isUnset($request->filterEndTime)) {
+            $query['FilterEndTime'] = $request->filterEndTime;
+        }
+        if (!Utils::isUnset($request->filterStartTime)) {
+            $query['FilterStartTime'] = $request->filterStartTime;
+        }
+        if (!Utils::isUnset($request->filterTableListShrink)) {
+            $query['FilterTableList'] = $request->filterTableListShrink;
+        }
+        if (!Utils::isUnset($request->filterTypeListShrink)) {
+            $query['FilterTypeList'] = $request->filterTypeListShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchDataTrackResult',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchDataTrackResultRequest $request
+     *
+     * @return SearchDataTrackResultResponse
+     */
+    public function searchDataTrackResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchDataTrackResultWithOptions($request, $runtime);
     }
 
     /**

@@ -11,12 +11,7 @@ class GetTableTopologyRequest extends Model
     /**
      * @description The GUID of the table in Data Management (DMS).
      *
-     * >
-     *
-     *   You can call the [ListLogicTables](~~141875~~) operation with ReturnGuid set to true to query the GUIDs of logical tables in a specific logical database.
-     *
-     *   You can call the [ListTables](~~141878~~) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
-     *
+     * > - You can call the [ListTables](~~141878~~) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
      * @example IDB_L_308302.yuyang_test.test_ch
      *
      * @var string
