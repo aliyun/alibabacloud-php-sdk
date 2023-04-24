@@ -25,6 +25,11 @@ class ExtendClusterShrinkRequest extends Model
     /**
      * @var string
      */
+    public $ipAllocationPolicyShrink;
+
+    /**
+     * @var string
+     */
     public $nodeGroupsShrink;
 
     /**
@@ -32,10 +37,11 @@ class ExtendClusterShrinkRequest extends Model
      */
     public $vpdSubnetsShrink;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
-        'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodeGroupsShrink'      => 'NodeGroups',
-        'vpdSubnetsShrink'      => 'VpdSubnets',
+        'clusterId'                => 'ClusterId',
+        'ignoreFailedNodeTasks'    => 'IgnoreFailedNodeTasks',
+        'ipAllocationPolicyShrink' => 'IpAllocationPolicy',
+        'nodeGroupsShrink'         => 'NodeGroups',
+        'vpdSubnetsShrink'         => 'VpdSubnets',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class ExtendClusterShrinkRequest extends Model
         }
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
+        }
+        if (null !== $this->ipAllocationPolicyShrink) {
+            $res['IpAllocationPolicy'] = $this->ipAllocationPolicyShrink;
         }
         if (null !== $this->nodeGroupsShrink) {
             $res['NodeGroups'] = $this->nodeGroupsShrink;
@@ -74,6 +83,9 @@ class ExtendClusterShrinkRequest extends Model
         }
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
+        }
+        if (isset($map['IpAllocationPolicy'])) {
+            $model->ipAllocationPolicyShrink = $map['IpAllocationPolicy'];
         }
         if (isset($map['NodeGroups'])) {
             $model->nodeGroupsShrink = $map['NodeGroups'];

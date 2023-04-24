@@ -52,6 +52,11 @@ class DescribeNodeResponseBody extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
      * @example efg1.nvga1
      *
      * @var string
@@ -118,6 +123,7 @@ class DescribeNodeResponseBody extends Model
         'expiredTime'    => 'ExpiredTime',
         'hostname'       => 'Hostname',
         'imageId'        => 'ImageId',
+        'imageName'      => 'ImageName',
         'machineType'    => 'MachineType',
         'networks'       => 'Networks',
         'nodeGroupId'    => 'NodeGroupId',
@@ -153,6 +159,9 @@ class DescribeNodeResponseBody extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
         }
         if (null !== $this->machineType) {
             $res['MachineType'] = $this->machineType;
@@ -216,6 +225,9 @@ class DescribeNodeResponseBody extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
         }
         if (isset($map['MachineType'])) {
             $model->machineType = $map['MachineType'];

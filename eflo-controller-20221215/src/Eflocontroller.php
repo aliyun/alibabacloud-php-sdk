@@ -484,6 +484,9 @@ class Eflocontroller extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ExtendClusterShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipAllocationPolicy)) {
+            $request->ipAllocationPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipAllocationPolicy, 'IpAllocationPolicy', 'json');
+        }
         if (!Utils::isUnset($tmpReq->nodeGroups)) {
             $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
@@ -496,6 +499,9 @@ class Eflocontroller extends OpenApiClient
         }
         if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
             $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+        }
+        if (!Utils::isUnset($request->ipAllocationPolicyShrink)) {
+            $body['IpAllocationPolicy'] = $request->ipAllocationPolicyShrink;
         }
         if (!Utils::isUnset($request->nodeGroupsShrink)) {
             $body['NodeGroups'] = $request->nodeGroupsShrink;

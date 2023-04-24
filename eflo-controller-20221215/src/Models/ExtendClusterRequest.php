@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\ipAllocationPolicy;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\nodeGroups;
 use AlibabaCloud\Tea\Model;
 
@@ -24,6 +25,11 @@ class ExtendClusterRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @var ipAllocationPolicy[]
+     */
+    public $ipAllocationPolicy;
+
+    /**
      * @var nodeGroups[]
      */
     public $nodeGroups;
@@ -35,6 +41,7 @@ class ExtendClusterRequest extends Model
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
+        'ipAllocationPolicy'    => 'IpAllocationPolicy',
         'nodeGroups'            => 'NodeGroups',
         'vpdSubnets'            => 'VpdSubnets',
     ];
@@ -51,6 +58,15 @@ class ExtendClusterRequest extends Model
         }
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
+        }
+        if (null !== $this->ipAllocationPolicy) {
+            $res['IpAllocationPolicy'] = [];
+            if (null !== $this->ipAllocationPolicy && \is_array($this->ipAllocationPolicy)) {
+                $n = 0;
+                foreach ($this->ipAllocationPolicy as $item) {
+                    $res['IpAllocationPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->nodeGroups) {
             $res['NodeGroups'] = [];
@@ -81,6 +97,15 @@ class ExtendClusterRequest extends Model
         }
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
+        }
+        if (isset($map['IpAllocationPolicy'])) {
+            if (!empty($map['IpAllocationPolicy'])) {
+                $model->ipAllocationPolicy = [];
+                $n                         = 0;
+                foreach ($map['IpAllocationPolicy'] as $item) {
+                    $model->ipAllocationPolicy[$n++] = null !== $item ? ipAllocationPolicy::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {

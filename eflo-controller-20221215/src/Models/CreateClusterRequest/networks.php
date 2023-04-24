@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
 
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\ipAllocationPolicy;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\newVpdInfo;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\vpdInfo;
 use AlibabaCloud\Tea\Model;
 
 class networks extends Model
 {
+    /**
+     * @var ipAllocationPolicy[]
+     */
+    public $ipAllocationPolicy;
+
     /**
      * @var newVpdInfo
      */
@@ -20,8 +26,9 @@ class networks extends Model
      */
     public $vpdInfo;
     protected $_name = [
-        'newVpdInfo' => 'NewVpdInfo',
-        'vpdInfo'    => 'VpdInfo',
+        'ipAllocationPolicy' => 'IpAllocationPolicy',
+        'newVpdInfo'         => 'NewVpdInfo',
+        'vpdInfo'            => 'VpdInfo',
     ];
 
     public function validate()
@@ -31,6 +38,15 @@ class networks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipAllocationPolicy) {
+            $res['IpAllocationPolicy'] = [];
+            if (null !== $this->ipAllocationPolicy && \is_array($this->ipAllocationPolicy)) {
+                $n = 0;
+                foreach ($this->ipAllocationPolicy as $item) {
+                    $res['IpAllocationPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->newVpdInfo) {
             $res['NewVpdInfo'] = null !== $this->newVpdInfo ? $this->newVpdInfo->toMap() : null;
         }
@@ -49,6 +65,15 @@ class networks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpAllocationPolicy'])) {
+            if (!empty($map['IpAllocationPolicy'])) {
+                $model->ipAllocationPolicy = [];
+                $n                         = 0;
+                foreach ($map['IpAllocationPolicy'] as $item) {
+                    $model->ipAllocationPolicy[$n++] = null !== $item ? ipAllocationPolicy::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['NewVpdInfo'])) {
             $model->newVpdInfo = newVpdInfo::fromMap($map['NewVpdInfo']);
         }
