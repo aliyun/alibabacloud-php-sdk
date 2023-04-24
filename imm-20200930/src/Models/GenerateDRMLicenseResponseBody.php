@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GenerateDRMLicenseResponseBody extends Model
 {
     /**
+     * @example IEEE1284DeviceID
+     *
      * @var string
      */
     public $deviceInfo;
 
     /**
+     * @example AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
+     *
      * @var string
      */
     public $license;
 
     /**
+     * @example 896ABAD1-C452-4BED-B5E0-302955F*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $states;

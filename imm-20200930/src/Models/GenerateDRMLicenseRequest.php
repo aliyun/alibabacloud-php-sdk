@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GenerateDRMLicenseRequest extends Model
 {
     /**
+     * @example AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @example http://1111111111.mns.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $notifyEndpoint;
 
     /**
+     * @example topic1
+     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example widevine
+     *
      * @var string
      */
     public $protectionSystem;

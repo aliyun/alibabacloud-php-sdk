@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarImageClusteringTaskResponseBody extends Model
 {
     /**
+     * @example 3BF-1UhtFyrua71eOkFlqYq23Co****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SimilarImageClustering-48d0a0f3-8459-47f4-b8af-ff49c64****
+     *
      * @var string
      */
     public $taskId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySimilarImageClustersResponseBody extends Model
 {
     /**
+     * @example CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
+     *
      * @var string
      */
     public $requestId;

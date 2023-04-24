@@ -16,7 +16,7 @@ class UpdateFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @var FileForReq
+     * @var InputFile
      */
     public $file;
 
@@ -64,7 +64,7 @@ class UpdateFileMetaRequest extends Model
             $model->datasetName = $map['DatasetName'];
         }
         if (isset($map['File'])) {
-            $model->file = FileForReq::fromMap($map['File']);
+            $model->file = InputFile::fromMap($map['File']);
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

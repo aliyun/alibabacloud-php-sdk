@@ -16,7 +16,7 @@ class BatchUpdateFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @var FileForReq[]
+     * @var InputFile[]
      */
     public $files;
 
@@ -74,7 +74,7 @@ class BatchUpdateFileMetaRequest extends Model
                 $model->files = [];
                 $n            = 0;
                 foreach ($map['Files'] as $item) {
-                    $model->files[$n++] = null !== $item ? FileForReq::fromMap($item) : $item;
+                    $model->files[$n++] = null !== $item ? InputFile::fromMap($item) : $item;
                 }
             }
         }

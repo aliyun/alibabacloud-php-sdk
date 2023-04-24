@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QuerySimilarImageClustersRequest extends Model
 {
     /**
+     * @example {"key": "val"}
+     *
      * @var string
      */
     public $customLabels;
 
     /**
+     * @example dataset001
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example UpdateTime
+     *
      * @var string
      */
     public $sort;
