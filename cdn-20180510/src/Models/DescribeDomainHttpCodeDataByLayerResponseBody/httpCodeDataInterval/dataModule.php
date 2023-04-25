@@ -18,7 +18,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total number of times that HTTP status codes were returned at each time interval.
+     * @description The total number of times that HTTP status codes were returned.
      *
      * @example 110
      *
@@ -29,7 +29,7 @@ class dataModule extends Model
     /**
      * @description The number of times that the HTTP status code was returned.
      *
-     * @example "Value": { "200": 10, "206": 100}
+     * @example { "200": 10, "206": 100}
      *
      * @var string
      */

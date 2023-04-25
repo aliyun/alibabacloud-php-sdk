@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeQpsDataResponseBody extends Model
 {
     /**
-     * @description The response parameters.
+     * @description The data entries returned.
      *
      * @var data
      */

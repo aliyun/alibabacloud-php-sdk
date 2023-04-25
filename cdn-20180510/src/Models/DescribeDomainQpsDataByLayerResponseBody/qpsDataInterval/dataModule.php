@@ -18,7 +18,7 @@ class dataModule extends Model
     public $accDomesticValue;
 
     /**
-     * @description The number of requests in the Chinese mainland.
+     * @description The number of requests outside the Chinese mainland.
      *
      * @example 44
      *
@@ -54,7 +54,7 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2015-12-10T21:00:00Z
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total number of queries per second in all regions.
+     * @description The total number of queries per second.
      *
      * @example 0.56
      *

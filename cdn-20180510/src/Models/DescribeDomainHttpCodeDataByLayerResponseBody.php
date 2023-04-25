@@ -19,7 +19,7 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The number of HTTP status codes returned at each time interval.
+     * @description The statistics of HTTP status codes returned at each time interval.
      *
      * @var httpCodeDataInterval
      */

@@ -18,7 +18,7 @@ class bpsDataModel extends Model
     public $bps;
 
     /**
-     * @description The name of the ISP for your Content Delivery Network (CDN) service.
+     * @description The name of the ISP.
      *
      * @example unicom
      *
@@ -36,7 +36,7 @@ class bpsDataModel extends Model
     public $locationName;
 
     /**
-     * @description The timestamp of the data.
+     * @description The timestamp of the data returned.
      *
      * @example 2019-11-30T05:40:00Z
      *

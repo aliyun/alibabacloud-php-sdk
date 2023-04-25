@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usageTotal extends Model
 {
     /**
-     * @description The cache hit ratio that is calculated based on bytes. The cache hit ratio is measured in percentage.
+     * @description The byte hit ratio. The byte hit ratio is measured in percentage.
      *
      * @example 97.03110726801242
      *
@@ -63,7 +63,7 @@ class usageTotal extends Model
     public $requestHitRate;
 
     /**
-     * @description The total number of requests.
+     * @description The total amount of requests.
      *
      * @example 1319500
      *

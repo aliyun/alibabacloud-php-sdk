@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByLayerRequest extends Model
 {
     /**
-     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     * @description The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
      *
-     * >  If you do not specify an accelerated domain name, the bandwidth data of all the accelerated domain names that belong to your Alibaba Cloud account is queried.
+     * > If you do not specify this parameter, the bandwidth data about all accelerated domain names that belong to your Alibaba Cloud account is queried.
      * @example example.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDomainBpsDataByLayerRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2020-05-06T07:20:00Z
      *
      * @var string
@@ -29,9 +29,9 @@ class DescribeDomainBpsDataByLayerRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time granularity of the data entries. Unit: seconds.
      *
-     * The time granularity varies with the time range to query. Supported values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -39,7 +39,7 @@ class DescribeDomainBpsDataByLayerRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent ISP list. If you do not specify an ISP, data of all ISPs is queried.
+     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query ISPs. If you do not specify an ISP, data of all ISPs is queried.
      *
      * @example unicom
      *
@@ -48,7 +48,7 @@ class DescribeDomainBpsDataByLayerRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The layers at which you want to query the bandwidth data. Valid values:
+     * @description The layer at which you want to query the bandwidth data. Valid values:
      *
      *   Network layer: **IPv4** and **IPv6**.
      *   Application layer: **http**, **https**, and **quic**.
@@ -62,7 +62,7 @@ class DescribeDomainBpsDataByLayerRequest extends Model
     public $layer;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not specify a region, data in all regions is queried.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query regions. If you do not specify a region, data in all regions is queried.
      *
      * @example beijing
      *

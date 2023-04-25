@@ -29,14 +29,14 @@ class domainLogDetail extends Model
     public $logCount;
 
     /**
-     * @description The detailed log information, which is indicated by the LogInfoDetail parameter.
+     * @description A set of LogInfoDetail data.
      *
      * @var logInfos
      */
     public $logInfos;
 
     /**
-     * @description The detailed log information, which is indicated by the PageInfoDetail parameter.
+     * @description A set of PageInfoDetail data.
      *
      * @var pageInfos
      */

@@ -45,7 +45,7 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The number of HTTPS requests sent to L1 edge nodes in the Chinese mainland.
+     * @description The number of HTTPS requests sent to POPs in the Chinese mainland.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class dataModule extends Model
     public $httpsAccDomesticValue;
 
     /**
-     * @description The number of HTTPS requests sent to L1 edge nodes outside the Chinese mainland.
+     * @description The number of HTTPS requests sent to POPs outside the Chinese mainland.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $httpsAccOverseasValue;
 
     /**
-     * @description The total number of HTTPS requests sent to L1 edge nodes.
+     * @description The number of HTTPS requests sent to POPs.
      *
      * @example 1
      *
@@ -72,7 +72,7 @@ class dataModule extends Model
     public $httpsAccValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes in the Chinese mainland.
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
      *
      * @example 1
      *
@@ -81,7 +81,7 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes outside the Chinese mainland.
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to POPs outside the Chinese mainland.
      *
      * @example 1
      *
@@ -90,7 +90,7 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to L1 edge nodes.
+     * @description The number of queries per second that is calculated based on the HTTPS requests sent to points of presence (POPs).
      *
      * @example 1
      *
@@ -117,7 +117,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total number of queries per second.
+     * @description The total QPS.
      *
      * @example 0
      *

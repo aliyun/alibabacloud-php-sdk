@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPathDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time interval. Unit: seconds.
      *
      * @example 300
      *
@@ -28,7 +28,7 @@ class DescribeDomainPathDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2017-09-30T17:00:00Z
      *
@@ -46,7 +46,7 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -62,7 +62,7 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pathDataPerInterval;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2017-09-30T16:00:00Z
      *
@@ -71,7 +71,7 @@ class DescribeDomainPathDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The total count.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

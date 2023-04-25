@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
-     * @description The billable region where the usage information was collected.
+     * @description The billable region where the data was collected.
      *
      * @example CN
      *
@@ -19,7 +19,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $area;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 300
      *
@@ -37,7 +37,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-12-10T22:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -64,7 +64,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of content based on which the usage information was collected.
+     * @description The type of content.
      *
      * @example static
      *
@@ -73,7 +73,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $type;
 
     /**
-     * @description The network traffic that was collected at each interval.
+     * @description The resource usage that was collected at each interval.
      *
      * @var usageDataPerInterval
      */

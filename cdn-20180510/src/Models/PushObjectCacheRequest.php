@@ -11,14 +11,14 @@ class PushObjectCacheRequest extends Model
     /**
      * @description The accelerated region where content is to be prefetched. Valid values:
      *
-     *   **domestic**: **Chinese Mainland Only**
-     *   **overseas**: **Global (Excluding the Chinese Mainland)**
+     *   **domestic****: Chinese mainland**
+     *   **overseas****: regions outside the Chinese mainland**
      *
-     * If you do not set this parameter, content in the accelerated region of the domain name is prefetched. Content is prefetched based on the following rules:
+     * If you do not set this parameter, content in the accelerated region of the domain name is prefetched.
      *
-     *   If the accelerated region is set to ****Chinese Mainland Only****, content in regions in the Chinese mainland is prefetched.
+     *   If the accelerated region is set to **Mainland China Only**, content in regions in the Chinese mainland is prefetched.
      *   If the accelerated region is set to **Global**, content in all regions is prefetched.
-     *   If the accelerated region is set to **Global (Excluding the Chinese Mainland)**, content in regions outside the Chinese mainland is prefetched.
+     *   If the accelerated region is set to **Global (Excluding Mainland China)**, content in regions outside the Chinese mainland is prefetched.
      *
      * @example domestic
      *
@@ -29,8 +29,8 @@ class PushObjectCacheRequest extends Model
     /**
      * @description Specifies whether to prefetch content to POPs. Valid values:
      *
-     *   **true**: prefetch content to L2 edge nodes.
-     *   **false**: prefetch content to regular edge nodes. Regular edge nodes can be L2 edge nodes or L3 edge nodes. Default value: **false**.
+     *   **true**: prefetches content to POPs.
+     *   **false**: prefetches content to regular POPs. Regular POPs can be L2 POPs or L3 POPs. Default value: **false**.
      *
      * @example true
      *
@@ -41,7 +41,7 @@ class PushObjectCacheRequest extends Model
     /**
      * @description The URLs based on which content is prefetched. Format: **accelerated domain name/files to be prefetched**.
      *
-     * >  Separate URLs with line feeds (\n or \r\n). Each object path can be up to 1,024 characters in length.
+     * > Separate URLs with line feeds (\n or \r\n). Each object path can be up to 1,024 characters in length.
      * @example example.com/image/1.png\nexample.org/image/2.png
      *
      * @var string
@@ -59,6 +59,10 @@ class PushObjectCacheRequest extends Model
     public $securityToken;
 
     /**
+     * @description The custom header for prefetch in the JSON format.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $withHeader;

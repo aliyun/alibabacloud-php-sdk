@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeQpsDataRequest extends Model
 {
     /**
-     * @description The accelerated domain names. You can specify multiple accelerated domain names and separate them with commas (,).
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
-     * >  You can specify at most 500 accelerated domain names in each call.
+     * > You can specify up to 500 domain names in each request.
      * @example example.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDomainRealTimeQpsDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2019-12-02T11:26:00Z
      *
      * @var string
@@ -29,9 +29,9 @@ class DescribeDomainRealTimeQpsDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service.
+     * @description The name of the Internet service provider (ISP).
      *
-     * If you do not set this parameter, all ISPs are queried. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
+     * If you do not set this parameter, data of all ISPs is queried. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
      * @example telecom
      *
      * @var string
@@ -41,7 +41,7 @@ class DescribeDomainRealTimeQpsDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * If you do not set this parameter, all regions are queried. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
+     * If you do not set this parameter, data in all regions is queried. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
      * @example beijing
      *
      * @var string

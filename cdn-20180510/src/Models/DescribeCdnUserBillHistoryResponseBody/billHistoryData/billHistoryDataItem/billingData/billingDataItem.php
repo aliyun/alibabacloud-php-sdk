@@ -20,8 +20,8 @@ class billingDataItem extends Model
     /**
      * @description The billable region. Valid values:
      *
-     *   **CN**: mainland China
-     *   **OverSeas**: regions outside mainland China
+     *   **CN**: Chinese mainland
+     *   **OverSeas**: outside the Chinese mainland
      *   **AP1**: Asia Pacific 1
      *   **AP2**: Asia Pacific 2
      *   **AP3**: Asia Pacific 3
@@ -37,7 +37,7 @@ class billingDataItem extends Model
     public $cdnRegion;
 
     /**
-     * @description The billable item. Valid values:
+     * @description The billing method. Valid values:
      *
      *   **StaticHttp**: static HTTP requests
      *   **DynamicHttp**: dynamic HTTP requests

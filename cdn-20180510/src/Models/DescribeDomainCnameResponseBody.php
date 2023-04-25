@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCnameResponseBody extends Model
 {
     /**
+     * @description Details about the CNAME detection results.
+     *
      * @var cnameDatas
      */
     public $cnameDatas;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
      *
      * @var string

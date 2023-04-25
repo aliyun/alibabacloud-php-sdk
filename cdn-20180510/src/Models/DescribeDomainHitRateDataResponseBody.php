@@ -28,7 +28,7 @@ class DescribeDomainHitRateDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-12-30T08:10:00Z
      *
@@ -53,7 +53,7 @@ class DescribeDomainHitRateDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-30T08:00:00Z
      *

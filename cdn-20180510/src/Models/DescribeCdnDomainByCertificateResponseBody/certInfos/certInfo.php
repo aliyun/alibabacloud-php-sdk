@@ -21,7 +21,7 @@ class certInfo extends Model
     public $certCaIsLegacy;
 
     /**
-     * @description The time when the SSL certificate expires.
+     * @description The time at which the certificate expires.
      *
      * @example Nov 29 00:00:00 2016 GMT
      *
@@ -42,7 +42,7 @@ class certInfo extends Model
     public $certExpired;
 
     /**
-     * @description The time when the SSL certificate became effective.
+     * @description The time at which the certificate became effective.
      *
      * @example Nov 29 23:59:59 2017 GMT
      *
@@ -60,7 +60,7 @@ class certInfo extends Model
     public $certSubjectCommonName;
 
     /**
-     * @description The type of the certificate. Valid responses: **RSA**, **DSA**, and **ECDSA**.
+     * @description The type of the certificate. Valid values: **RSA**, **DSA**, and **ECDSA**.
      *
      * @example RSA
      *
@@ -69,7 +69,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description If a value is returned, the value matches the SSL certificate. Multiple domain names are separated with commas (,).
+     * @description If a value is returned, the value matches the SSL certificate. Multiple domain names are separated by commas (,).
      *
      * @example example.com,aliyundoc.com
      *
@@ -78,7 +78,7 @@ class certInfo extends Model
     public $domainList;
 
     /**
-     * @description The domain names (DNS fields) that match the SSL certificate. Multiple domain names are separated with commas (,).
+     * @description The domain names (DNS fields) that match the SSL certificate. Multiple domain names are separated by commas (,).
      *
      * @example *.example.com,aliyundoc.com
      *
@@ -87,7 +87,7 @@ class certInfo extends Model
     public $domainNames;
 
     /**
-     * @description The certificate authority that issued the SSL certificate.
+     * @description The certificate authority (CA) that issued the certificate.
      *
      * @example C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
      *

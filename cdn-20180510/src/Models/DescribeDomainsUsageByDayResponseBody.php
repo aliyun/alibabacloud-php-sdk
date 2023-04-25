@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsUsageByDayResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 86400
      *
@@ -20,7 +20,7 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The information about the accelerated domain name.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -29,7 +29,7 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-12-23T09:00:00Z
      *
@@ -47,7 +47,7 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-22T08:00:00Z
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMax95BpsDataRequest extends Model
 {
     /**
+     * @description The cycle to query the 95th percentile bandwidth data. Default value: **day**. Valid values:
+     *
+     *   **day**: queries the 95th percentile bandwidth data by day.
+     *   **month**: queries the 95th percentile bandwidth data by month.
+     *
      * @example month
      *
      * @var string
@@ -16,6 +21,9 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $cycle;
 
     /**
+     * @description The accelerated domain name. If you do not specify this parameter, data of all accelerated domain names under your account is queried.
+     *
+     * > You cannot specify multiple domain names at a time.
      * @example example.com
      *
      * @var string
@@ -23,6 +31,9 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * > The end time must be later than the start time.
      * @example 2017-12-22T08:00:00Z
      *
      * @var string
@@ -30,6 +41,9 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-21T08:00:00Z
      *
      * @var string
@@ -37,6 +51,9 @@ class DescribeDomainMax95BpsDataRequest extends Model
     public $startTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-21T10:00:00Z
      *
      * @var string

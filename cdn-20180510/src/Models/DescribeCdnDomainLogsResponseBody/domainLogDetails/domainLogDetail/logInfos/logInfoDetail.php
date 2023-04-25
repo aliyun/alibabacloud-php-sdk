@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
-     * @description The end of the time range where the QPS data was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-05-23T14:00:00Z
      *
@@ -45,7 +45,7 @@ class logInfoDetail extends Model
     public $logSize;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-05-23T13:00:00Z
      *

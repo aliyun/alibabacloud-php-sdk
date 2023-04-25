@@ -12,7 +12,7 @@ class DescribeDomainRealTimeTrafficDataResponseBody extends Model
     /**
      * @description The time interval between the data entries returned. Unit: seconds.
      *
-     * The time granularity varies with the time range to query. Supported values: 60 (1 minute), 300 (5 minutes), and 3600(1 hour). For more information, see the usage notes.
+     * Depending on the maximum time range per query, the value is 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the "Time granularity" section in Usage notes.
      * @example 60
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeDomainRealTimeTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-12-10T20:01:00Z
      *
@@ -38,7 +38,7 @@ class DescribeDomainRealTimeTrafficDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The amount of network traffic at each time interval. Unit: bytes.
+     * @description The network traffic returned at each time interval. Unit: bytes.
      *
      * @var realTimeTrafficDataPerInterval
      */
@@ -54,7 +54,7 @@ class DescribeDomainRealTimeTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-10T20:00:00Z
      *

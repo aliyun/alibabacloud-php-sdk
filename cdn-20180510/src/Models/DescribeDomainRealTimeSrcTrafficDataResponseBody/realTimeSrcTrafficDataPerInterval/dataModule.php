@@ -18,7 +18,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The amount of back-to-origin network traffic.
+     * @description The amount of traffic.
      *
      * @example 0
      *

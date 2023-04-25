@@ -20,7 +20,7 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time. The interval between the end time and the start time cannot exceed 1 hour.
+     * > The end time must be later than the start time. The maximum time range that can be specified is 1 hour.
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
     public $ispNames;
 
     /**
-     * @description The names of the regions. Separate regions with commas (,).
+     * @description The names of the regions. Separate multiple region names with commas (,).
      *
      * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
      * @example liaoning,guangxi
@@ -50,7 +50,7 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-11-30T05:33:00Z
      *
      * @var string

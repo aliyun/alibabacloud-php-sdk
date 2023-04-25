@@ -28,7 +28,7 @@ class DescribeDomainSrcTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-12-10T21:00:00Z
      *
@@ -46,14 +46,14 @@ class DescribeDomainSrcTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The amount of back-to-origin network traffic at each time interval. Unit: bytes.
+     * @description The amount of origin traffic returned at each time interval. Unit: bytes.
      *
      * @var srcTrafficDataPerInterval
      */
     public $srcTrafficDataPerInterval;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *

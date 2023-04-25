@@ -28,7 +28,7 @@ class DescribeDomainReqHitRateDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2017-12-22T08:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDomainReqHitRateDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The request hit ratio at each time interval. The hit ratio is measured in percentage.
+     * @description The request hit ratio data at each time interval. The hit ratio is measured in percentage.
      *
      * @var reqHitRateInterval
      */
@@ -53,7 +53,7 @@ class DescribeDomainReqHitRateDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2017-12-21T08:00:00Z
      *

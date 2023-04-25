@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainLogsRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name.
+     * @description The domain name. You can specify only one domain name.
      *
      * @example example.com
      *
@@ -20,7 +20,7 @@ class DescribeCdnDomainLogsRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2017-12-22T08:00:00Z
      *
      * @var string
@@ -48,7 +48,7 @@ class DescribeCdnDomainLogsRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-21T08:00:00Z
      *
      * @var string

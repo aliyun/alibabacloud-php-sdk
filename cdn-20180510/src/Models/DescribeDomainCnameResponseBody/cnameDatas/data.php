@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The CNAME assigned to the domain name by Alibaba Cloud CDN.
+     *
      * @example a.com.w.alikunlun.net
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $cname;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example a.com
      *
      * @var string
@@ -23,6 +27,11 @@ class data extends Model
     public $domain;
 
     /**
+     * @description The CNAME detection result. Valid values:
+     *
+     *   0: The DNS can detect the CNAME assigned to the domain name.
+     *   Value other than 0: The DNS cannot detect the CNAME assigned to the domain name.
+     *
      * @example 0
      *
      * @var int

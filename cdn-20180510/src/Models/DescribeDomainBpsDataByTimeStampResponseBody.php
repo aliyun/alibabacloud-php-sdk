@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByTimeStampResponseBody extends Model
 {
     /**
-     * @description A list of bandwidth values queried by ISP and region.
+     * @description A list of bandwidth values by ISP and region.
      *
      * @var bpsDataList
      */
@@ -35,7 +35,7 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timestamp of the data.
+     * @description The point in time.
      *
      * @example 2019-11-30T05:40:00Z
      *

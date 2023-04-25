@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcBpsDataRequest extends Model
 {
     /**
-     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     * @description The accelerated domain name. You can specify up to 500 domain names in each call. Separate multiple domain names with commas (,).
      *
-     * By default, this operation queries the bandwidth values during back-to-origin routing for all accelerated domain names that belong to your Alibaba Cloud account.
+     * By default, this operation queries the geographic distribution of users for all accelerated domain names.
      * @example example.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDomainSrcBpsDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2019-12-10T20:30:00Z
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeDomainSrcBpsDataRequest extends Model
     /**
      * @description The time interval between the data entries. Unit: seconds.
      *
-     * The time granularity varies with the time range to query. Supported values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
      * @example 300
      *
      * @var string
@@ -39,7 +39,7 @@ class DescribeDomainSrcBpsDataRequest extends Model
     public $interval;
 
     /**
-     * @description The start of the time range to query.
+     * @description The beginning of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-12-10T20:00:00Z

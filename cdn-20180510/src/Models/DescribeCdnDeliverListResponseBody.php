@@ -11,7 +11,7 @@ class DescribeCdnDeliverListResponseBody extends Model
     /**
      * @description The information about the tracking task.
      *
-     * @example "data": [{"deliverId": 1,"status": "enable","createTime": "2020-10-14T11:19:26Z","crontab": "0 0 0 * * ?","frequency": "d","name": "domain subscribe","dmList": ["www.example.com"],"reports": [{"reportId": 1,"conditions": [{"op": "in","field": "prov"}]},{"reportId": 2}],"deliver": {"email": {"subject": "subject","to": ["example***@alibaba-inc.com"]}}}]}}
+     * @example "data": \[{"deliverId": 1,"status": "enable","createTime": "2020-10-14T11:19:26Z","crontab": "0 0 0 \* \* ?","frequency": "d","name": "The name of the tracking task","dmList": \["www.example.com"],"reports": \[{"reportId": 1,"conditions": \[{"op": "in","field": "prov","value": \["Heilongjiang","Beijing"]}} },{"reportId": 2}],"deliver": {"email": {"subject": "subject","to": \["example@alibaba-inc.com","example@alibaba-inc.com"]}}}]}
      *
      * @var string
      */

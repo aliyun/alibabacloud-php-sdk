@@ -18,7 +18,7 @@ class bpsModel extends Model
     public $bps;
 
     /**
-     * @description The timestamp of the data entry. The time follows the ISO 8601 standard. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-11-30T05:41:00Z
      *

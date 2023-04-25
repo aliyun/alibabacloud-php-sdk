@@ -28,7 +28,7 @@ class DescribeDomainSrcHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-11-30T05:40:00Z
      *
@@ -53,7 +53,7 @@ class DescribeDomainSrcHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-11-30T05:33:00Z
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The expiration time of the certificate.
+     * @description The time at which the certificate expires.
      *
      * @example 2098-02-08 08:02:07 +0000 UTC
      *
@@ -38,9 +38,9 @@ class certInfo extends Model
     /**
      * @description The type of the certificate.
      *
-     *   free: a free certificate.
-     *   cas: a certificate purchased by using Certificate Management Service.
-     *   upload: a user-uploaded certificate.
+     *   free: a free certificate
+     *   cas: a certificate purchased by using Certificate Management Service
+     *   upload: a user-uploaded certificate
      *
      * @example cas
      *
@@ -58,7 +58,7 @@ class certInfo extends Model
     public $createTime;
 
     /**
-     * @description A list of domain names that use the certificate.
+     * @description The domain names that use the certificate.
      *
      * @example ["example.com"]
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The Common Name on the SSL certificate.
+     * @description The returned primary domain name of the certificate.
      *
      * @example example.org
      *
@@ -18,7 +18,7 @@ class certInfo extends Model
     public $certCommonName;
 
     /**
-     * @description The time when the SSL certificate expires.
+     * @description The time at which the certificate expires.
      *
      * @example 2018-12-26 14:45:09
      *
@@ -27,7 +27,7 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description The name of the SSL certificate.
+     * @description The name of the certificate.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class certInfo extends Model
     public $certName;
 
     /**
-     * @description The time when the SSL certificate became effective.
+     * @description The time at which the certificate became effective.
      *
      * @example 2018-11-26 14:45:09
      *
@@ -45,12 +45,12 @@ class certInfo extends Model
     public $certStartTime;
 
     /**
-     * @description The status of the SSL certificate. Valid values:
+     * @description The status of the certificate.
      *
-     *   **ok**: The SSL certificate is working as expected.
-     *   **mismatch**: The SSL certificate does not match the specified domain name.
-     *   **expired**: The SSL certificate has expired.
-     *   **expire_soon**: The SSL certificate will expire soon.
+     *   **ok**: The certificate is working as expected.
+     *   **mismatch**: The certificate does not match the specified domain name.
+     *   **expired**: The certificate has expired.
+     *   **expire_soon**: The certificate will expire soon.
      *
      * @example mismatch
      *
@@ -59,11 +59,11 @@ class certInfo extends Model
     public $certStatus;
 
     /**
-     * @description The type of the SSL certificate. Valid values:
+     * @description The type of the certificate.
      *
-     *   **free**: a free SSL certificate.
-     *   **cas**: an SSL certificate purchased from Alibaba Cloud SSL Certificates Service.
-     *   **upload**: a user uploaded certificate.
+     *   **free**: a free certificate.
+     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service.
+     *   **upload**: a certificate that is uploaded by the user.
      *
      * @example free
      *
@@ -72,7 +72,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The time when the certificate was renewed.
+     * @description The time at which the certificate was updated.
      *
      * @example 2019-01-08 18:33:16
      *

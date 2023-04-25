@@ -18,7 +18,7 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The amount of HTTPS network traffic on L1 edge nodes in the Chinese mainland.
+     * @description The amount of HTTPS traffic on points of presence (POPs) in the Chinese mainland.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The amount of HTTPS network traffic on L1 edge nodes outside the Chinese mainland.
+     * @description The amount of HTTPS traffic on POPs outside the Chinese mainland.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The total amount of HTTPS network traffic on L1 edge nodes.
+     * @description The total amount of HTTPS traffic on POPs.
      *
      * @example 423304182
      *
@@ -54,7 +54,7 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total amount of network traffic.
+     * @description The total volume of traffic.
      *
      * @example 423304182
      *

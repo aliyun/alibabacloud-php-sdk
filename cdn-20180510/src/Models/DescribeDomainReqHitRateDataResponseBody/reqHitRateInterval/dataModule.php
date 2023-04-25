@@ -18,7 +18,7 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2017-12-22T08:00:00:00Z
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The byte hit ratio.
+     * @description The request hit ratio.
      *
      * @example 100.0
      *

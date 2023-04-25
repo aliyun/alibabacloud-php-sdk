@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUvDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time interval. Unit: seconds.
      *
      * @example 3600
      *

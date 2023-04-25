@@ -39,7 +39,7 @@ class DescribeDomainTopUrlVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-10-03T16:00:00Z
      *

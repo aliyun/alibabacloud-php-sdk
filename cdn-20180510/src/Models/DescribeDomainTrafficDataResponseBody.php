@@ -28,7 +28,7 @@ class DescribeDomainTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-12-10T21:00:00Z
      *
@@ -46,7 +46,7 @@ class DescribeDomainTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *

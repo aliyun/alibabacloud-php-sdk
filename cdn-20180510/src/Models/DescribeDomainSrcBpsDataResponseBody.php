@@ -28,7 +28,7 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-12-10T20:30:00Z
      *
@@ -46,14 +46,14 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The bandwidth value at each time interval. Unit: bit/s.
+     * @description The origin bandwidth data at each time interval. Unit: bit/s.
      *
      * @var srcBpsDataPerInterval
      */
     public $srcBpsDataPerInterval;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-10T20:00:00Z
      *

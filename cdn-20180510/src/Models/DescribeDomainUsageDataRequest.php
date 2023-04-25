@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataRequest extends Model
 {
     /**
-     * @description The ID of the billable region. Valid values:
+     * @description The billable region. Default value: CN. Valid values:
      *
-     *   **CN** (default): the Chinese mainland
+     *   **CN**: Chinese mainland
      *   **OverSeas**: outside the Chinese mainland
      *   **AP1**: Asia Pacific 1
      *   **AP2**: Asia Pacific 2
@@ -20,9 +20,8 @@ class DescribeDomainUsageDataRequest extends Model
      *   **SA**: South America
      *   **EU**: Europe
      *   **MEAA**: Middle East and Africa
-     *   **all**: all billable regions
+     *   **all**: all the preceding billable regions
      *
-     * >  For more information about billable regions, see [Billable regions](~~142221~~).
      * @example CN
      *
      * @var string
@@ -30,12 +29,12 @@ class DescribeDomainUsageDataRequest extends Model
     public $area;
 
     /**
-     * @description The protocol by which the data is queried. Valid values:
+     * @description The protocol of the data that you want to query. Default value: all. Valid values:
      *
      *   **http**: HTTP
      *   **https**: HTTPS
      *   **quic**: QUIC
-     *   **all** (default): HTTP, HTTPS, and QUIC
+     *   **all**: HTTP, HTTPS, and QUIC
      *
      * @example all
      *
@@ -44,9 +43,9 @@ class DescribeDomainUsageDataRequest extends Model
     public $dataProtocol;
 
     /**
-     * @description The accelerated domain name. You can query the resource usage data for a maximum of 100 domain names in each call. Separate domain names with commas (,).
+     * @description The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
      *
-     * >  If you do not set this parameter, the usage data of all accelerated domain names within your Alibaba Cloud account is returned.
+     * > If you leave this parameter empty, the usage data of all accelerated domain names in your Alibaba Cloud account is returned.
      * @example example.com
      *
      * @var string
@@ -56,7 +55,7 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time. The maximum time range that can be queried is 31 days.
+     * > The end time must be later than the start time. The maximum time range that can be specified is 31 days.
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -64,13 +63,13 @@ class DescribeDomainUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of data to be queried. Valid values:
+     * @description The type of data that you want to query. Valid values:
      *
      *   **bps**: bandwidth
-     *   **traf**: network traffic
+     *   **traf**: traffic
      *   **acc**: requests
      *
-     * >  **acc** does not support the **Area** parameter.
+     * > If you set this parameter to **acc**, the **Area** parameter is not supported.
      * @example bps
      *
      * @var string
@@ -78,9 +77,12 @@ class DescribeDomainUsageDataRequest extends Model
     public $field;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time interval between the data entries to return. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
      *
-     * The time granularity varies with the time range to query. Supported values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+     *   If **Interval** is set to **300**, you can query usage data in the last six months. The maximum time range per query that can be specified is three days.
+     *   If **Interval** is set to **3600** or **86400**, you can query usage data of the previous year.
+     *   If you do not set the **Interval** parameter, the maximum time range that you can query is one month. If you specify a time range of 1 to 3 days, the time interval between the entries that are returned is 1 hour. If you specify a time range of at least 4 days, the time interval between the entries that are returned is 1 day.
+     *
      * @example 300
      *
      * @var string
@@ -90,7 +92,7 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * >  The data is collected every 5 minutes.
+     * > Data is collected every 5 minutes.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -98,11 +100,11 @@ class DescribeDomainUsageDataRequest extends Model
     public $startTime;
 
     /**
-     * @description The type of content based on which the data is queried. Valid values:
+     * @description The type of content that you want to query. Default value: all. Valid values:
      *
      *   **static**: static content
      *   **dynamic**: dynamic content
-     *   **all** (default): both static and dynamic content
+     *   **all**: both static and dynamic content
      *
      * @example static
      *

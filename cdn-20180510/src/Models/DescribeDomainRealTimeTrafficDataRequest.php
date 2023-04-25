@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeTrafficDataRequest extends Model
 {
     /**
-     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 100 domain names in each call.
+     * @description The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *
@@ -20,7 +20,7 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2019-12-10T20:01:00Z
      *
      * @var string
@@ -28,7 +28,7 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the ISP for your Alibaba Cloud CDN service.
+     * @description The name of the Internet service provider (ISP).
      *
      * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
      * @example telecom

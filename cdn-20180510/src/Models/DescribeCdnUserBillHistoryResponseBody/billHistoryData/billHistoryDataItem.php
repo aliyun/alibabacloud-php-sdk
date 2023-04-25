@@ -19,7 +19,7 @@ class billHistoryDataItem extends Model
     public $billTime;
 
     /**
-     * @description The billing method.
+     * @description The metering method.
      *
      * @example month_4th_day_bandwidth
      *

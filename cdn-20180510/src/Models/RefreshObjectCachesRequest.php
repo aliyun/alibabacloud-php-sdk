@@ -16,7 +16,7 @@ class RefreshObjectCachesRequest extends Model
     public $objectPath;
 
     /**
-     * @description The type of the object that you want to refresh. Valid values:
+     * @description The type of the object that you want to refresh. Default value: File. Valid values:
      *
      *   **File**: refreshes one or more files.
      *   **Directory**: refreshes the files in one or more directories.

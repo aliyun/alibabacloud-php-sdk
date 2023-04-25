@@ -28,7 +28,7 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -46,7 +46,7 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $layer;
 
     /**
-     * @description The number of queries per second at each time interval.
+     * @description The number of queries per second at each interval.
      *
      * @var qpsDataInterval
      */
@@ -62,7 +62,7 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-11-30T05:33:00Z
      *

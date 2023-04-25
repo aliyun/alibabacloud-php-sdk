@@ -28,7 +28,7 @@ class DescribeDomainQpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDomainQpsDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The number of queries per second at each time interval.
+     * @description The list of QPS records at each interval.
      *
      * @var qpsDataInterval
      */
@@ -53,7 +53,7 @@ class DescribeDomainQpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-11-30T05:33:00Z
      *

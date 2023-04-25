@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataResponseBody\detailData;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDomainMax95BpsDataResponseBody extends Model
 {
+    /**
+     * @var detailData
+     */
+    public $detailData;
+
     /**
      * @description The accelerated domain name.
      *
@@ -18,6 +24,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The 95th percentile bandwidth in the Chinese mainland.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -25,6 +33,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $domesticMax95Bps;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
      * @example 2015-12-11T21:00:00Z
      *
      * @var string
@@ -32,6 +42,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The 95th percentile bandwidth.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -39,6 +51,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $max95Bps;
 
     /**
+     * @description The 95th percentile bandwidth outside the Chinese mainland.
+     *
      * @example 0
      *
      * @var string
@@ -55,12 +69,15 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
+        'detailData'       => 'DetailData',
         'domainName'       => 'DomainName',
         'domesticMax95Bps' => 'DomesticMax95Bps',
         'endTime'          => 'EndTime',
@@ -77,6 +94,9 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detailData) {
+            $res['DetailData'] = null !== $this->detailData ? $this->detailData->toMap() : null;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -110,6 +130,9 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DetailData'])) {
+            $model->detailData = detailData::fromMap($map['DetailData']);
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

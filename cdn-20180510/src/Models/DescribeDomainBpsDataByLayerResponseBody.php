@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByLayerResponseBody extends Model
 {
     /**
-     * @description The number of bytes per second collected at each time interval.
+     * @description The data returned at each time interval.
      *
      * @var bpsDataInterval
      */

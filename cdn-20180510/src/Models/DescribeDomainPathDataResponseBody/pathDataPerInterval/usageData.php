@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
-     * @description The number of visits to the specified path.
+     * @description The number of visits to the URL.
      *
      * @example 10
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth values of HTTPS requests.
+     * @description The bandwidth values of origin HTTPS requests.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2019-12-10T20:00:00Z
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The bandwidth value.
+     * @description The traffic value at each time interval.
      *
      * @example 500
      *

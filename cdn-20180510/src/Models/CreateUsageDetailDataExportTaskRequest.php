@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @description The accelerated domain names based on which the resource usage details are generated. If you do not specify a domain name group, resource usage details are exported based on this parameter.
+     * @description The domain names. If you do not specify the Group parameter, resource usage details of these domain names are exported.
      *
-     * If you do not set this parameter, resource usage details are exported based on user accounts.
+     * If you do not specify this parameter, resource usage details are exported based on accounts.
      * @example example.com
      *
      * @var string
@@ -21,7 +21,7 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2019-12-10T21:00:00Z
      *
      * @var string
@@ -29,7 +29,7 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public $endTime;
 
     /**
-     * @description The group of accelerated domain names based on which the resource usage details are generated. If you set this parameter, ignore the **DomainNames** parameter.
+     * @description The domain name group. If you specify this parameter, the **DomainNames** parameter is ignored.
      *
      * @example xxx
      *
@@ -38,7 +38,7 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public $group;
 
     /**
-     * @description The language of the exported file. Valid values:
+     * @description The language in which you want to export the file. Valid values:
      *
      *   **zh-cn**: Chinese. This is the default value.
      *   **en-us**: English
@@ -52,7 +52,7 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-12-10T20:00:00Z
      *
      * @var string
@@ -62,16 +62,16 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     /**
      * @description The name of the task.
      *
-     * @example refresh
+     * @example Refresh
      *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The type of content based on which the data is generated. Valid values:
+     * @description The type of resource usage data to query. Valid values:
      *
-     *   **flow**: network traffic and bandwidth
+     *   **flow**: traffic and bandwidth
      *   **vas**: requests
      *
      * @example flow

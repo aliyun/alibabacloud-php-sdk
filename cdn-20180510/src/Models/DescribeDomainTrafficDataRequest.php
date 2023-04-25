@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTrafficDataRequest extends Model
 {
     /**
-     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     * @description The accelerated domain name. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,).
      *
-     * By default, this operation queries the monitoring data of network traffic for all accelerated domain names that belong to your Alibaba Cloud account.
+     * By default, this operation queries the network traffic for all accelerated domain names that belong to your Alibaba Cloud account.
      * @example example.com
      *
      * @var string
@@ -19,9 +19,9 @@ class DescribeDomainTrafficDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -29,9 +29,9 @@ class DescribeDomainTrafficDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The time granularity of the data entries. Unit: seconds.
      *
-     * The time granularity varies with the time range to query. Supported values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -39,9 +39,9 @@ class DescribeDomainTrafficDataRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
+     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query ISPs.
      *
-     * If you do not specify an ISP, monitoring data of all ISPs is queried.
+     * If you do not specify an ISP, data of all ISPs is queried.
      * @example unicom
      *
      * @var string
@@ -49,9 +49,9 @@ class DescribeDomainTrafficDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~DescribeCdnRegionAndIsp~~) operation to query regions.
      *
-     * If you do not specify a region, monitoring data in all regions is queried.
+     * If you do not specify a region, data in all regions is queried.
      * @example beijing
      *
      * @var string
@@ -59,9 +59,8 @@ class DescribeDomainTrafficDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The start of the time range to query.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth values in the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     * @description The bandwidth value in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *
      * @example 11286111
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The bandwidth values for HTTPS requests in the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     * @description The bandwidth data for HTTPS requests in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *
      * @example 11286111
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The bandwidth values for HTTPS requests in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     * @description The bandwidth data for HTTPS requests in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *
      * @example 2000
      *
@@ -36,7 +36,7 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The bandwidth values for HTTPS requests. Unit: bit/s.
+     * @description The bandwidth value for HTTPS requests. Unit: bit/s.
      *
      * @example 11288111
      *
@@ -45,7 +45,7 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The bandwidth values in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, no value is returned.
+     * @description The bandwidth data in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *
      * @example 2000
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The bandwidth value. Unit: bit/s.
+     * @description The bandwidth. Unit: bit/s.
      *
      * @example 11288111
      *

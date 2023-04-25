@@ -18,7 +18,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The number of back-to-origin requests per second.
+     * @description The QPS value.
      *
      * @example 0
      *

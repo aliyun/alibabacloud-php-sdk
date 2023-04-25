@@ -18,7 +18,7 @@ class qpsModel extends Model
     public $qps;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard and is in UTC.
      *
      * @example 2019-12-02T11:25:00Z
      *
