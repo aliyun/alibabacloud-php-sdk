@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpTrafficDataResponseBody extends Model
 {
     /**
-     * @description The BGP traffic data that is collected for each interval.
+     * @description The BGP traffic at each time interval.
      *
      * @var bgpDataInterval[]
      */

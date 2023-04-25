@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @var string
+     */
+    public $dynamicTrafficValue;
+
+    /**
+     * @var string
+     */
+    public $dynamicValue;
+
+    /**
+     * @var string
+     */
+    public $staticTrafficValue;
+
+    /**
+     * @var string
+     */
+    public $staticValue;
+
+    /**
      * @description The timestamp of the data returned.
      *
      * @example 2015-12-10T21:00:00Z
@@ -35,9 +55,13 @@ class dataModule extends Model
      */
     public $value;
     protected $_name = [
-        'timeStamp'    => 'TimeStamp',
-        'trafficValue' => 'TrafficValue',
-        'value'        => 'Value',
+        'dynamicTrafficValue' => 'DynamicTrafficValue',
+        'dynamicValue'        => 'DynamicValue',
+        'staticTrafficValue'  => 'StaticTrafficValue',
+        'staticValue'         => 'StaticValue',
+        'timeStamp'           => 'TimeStamp',
+        'trafficValue'        => 'TrafficValue',
+        'value'               => 'Value',
     ];
 
     public function validate()
@@ -47,6 +71,18 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dynamicTrafficValue) {
+            $res['DynamicTrafficValue'] = $this->dynamicTrafficValue;
+        }
+        if (null !== $this->dynamicValue) {
+            $res['DynamicValue'] = $this->dynamicValue;
+        }
+        if (null !== $this->staticTrafficValue) {
+            $res['StaticTrafficValue'] = $this->staticTrafficValue;
+        }
+        if (null !== $this->staticValue) {
+            $res['StaticValue'] = $this->staticValue;
+        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -68,6 +104,18 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DynamicTrafficValue'])) {
+            $model->dynamicTrafficValue = $map['DynamicTrafficValue'];
+        }
+        if (isset($map['DynamicValue'])) {
+            $model->dynamicValue = $map['DynamicValue'];
+        }
+        if (isset($map['StaticTrafficValue'])) {
+            $model->staticTrafficValue = $map['StaticTrafficValue'];
+        }
+        if (isset($map['StaticValue'])) {
+            $model->staticValue = $map['StaticValue'];
+        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnDeliverTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the change tracking task.
+     * @description The ID of the tracking task.
      *
      * @example 92
      *

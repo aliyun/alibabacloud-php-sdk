@@ -31,7 +31,7 @@ class OpenDcdnServiceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The metering method of WebSocket. Default value: off. Valid values:
+     * @description The metering method of WebSocket. Valid values:
      *
      *   **websockettraffic**: pay-by-data-transfer
      *   **websocketbps**: pay-by-bandwidth

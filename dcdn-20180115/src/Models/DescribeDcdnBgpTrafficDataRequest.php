@@ -27,7 +27,7 @@ class DescribeDcdnBgpTrafficDataRequest extends Model
     public $interval;
 
     /**
-     * @description The ISPs. If you need to specify multiple ISPs, separate them with commas (,). If you specify multiple ISPs, the data for the ISPs is aggregated. If you do not specify this parameter, the operation returns the data for all the ISPs.
+     * @description The ISP. Separate multiple ISPs with commas (,). If you specify multiple ISPs, the data for the ISPs is aggregated. If you do not specify this parameter, the operation returns the data for all the ISPs.
      *
      * Valid values:
      *

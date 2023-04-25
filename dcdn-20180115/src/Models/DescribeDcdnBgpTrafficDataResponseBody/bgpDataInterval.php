@@ -27,7 +27,7 @@ class bgpDataInterval extends Model
     public $out;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The timestamp of the data returned.
      *
      * @example 2018-11-29T20:00:00Z
      *

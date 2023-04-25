@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnL2VipsResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnL2VipsResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDcdnL2VipsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The virtual IP addresses (VIPs).
+     *
      * @var string[]
      */
     public $vips;
