@@ -9,43 +9,75 @@ use AlibabaCloud\Tea\Model;
 class BlindTransferRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $callPriority;
+
+    /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $strategyName;
+
+    /**
+     * @var string
+     */
+    public $strategyParams;
+
+    /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $transferee;
 
     /**
+     * @example 08314325****
+     *
      * @var string
      */
     public $transferor;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
+        'callPriority'   => 'CallPriority',
         'deviceId'       => 'DeviceId',
         'instanceId'     => 'InstanceId',
         'jobId'          => 'JobId',
+        'strategyName'   => 'StrategyName',
+        'strategyParams' => 'StrategyParams',
         'timeoutSeconds' => 'TimeoutSeconds',
         'transferee'     => 'Transferee',
         'transferor'     => 'Transferor',
@@ -59,6 +91,9 @@ class BlindTransferRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callPriority) {
+            $res['CallPriority'] = $this->callPriority;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -67,6 +102,12 @@ class BlindTransferRequest extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->strategyName) {
+            $res['StrategyName'] = $this->strategyName;
+        }
+        if (null !== $this->strategyParams) {
+            $res['StrategyParams'] = $this->strategyParams;
         }
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
@@ -92,6 +133,9 @@ class BlindTransferRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallPriority'])) {
+            $model->callPriority = $map['CallPriority'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
@@ -100,6 +144,12 @@ class BlindTransferRequest extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['StrategyName'])) {
+            $model->strategyName = $map['StrategyName'];
+        }
+        if (isset($map['StrategyParams'])) {
+            $model->strategyParams = $map['StrategyParams'];
         }
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];

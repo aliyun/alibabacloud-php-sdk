@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example M0NQNG/uRUrfIxW7er/S9gKX****
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 1602585817:****
+     *
      * @var string
      */
     public $userName;

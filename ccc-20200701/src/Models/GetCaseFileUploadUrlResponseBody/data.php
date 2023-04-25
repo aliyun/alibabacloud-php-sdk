@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ccc-test/namelist.csv
+     *
      * @var string
      */
     public $caseFileKey;
 
     /**
+     * @example https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
+     *
      * @var string
      */
     public $url;

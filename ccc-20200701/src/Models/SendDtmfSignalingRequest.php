@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SendDtmfSignalingRequest extends Model
 {
     /**
+     * @example ch:customer:0108989****->1318888****:1609234221870:job-6573574060089****
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $dtmf;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6573574060089****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

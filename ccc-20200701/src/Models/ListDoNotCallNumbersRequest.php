@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListDoNotCallNumbersRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example RemarkA
+     *
      * @var string
      */
     public $searchPattern;

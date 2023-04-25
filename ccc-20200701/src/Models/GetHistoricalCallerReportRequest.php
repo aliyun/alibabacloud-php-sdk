@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalCallerReportRequest extends Model
 {
     /**
+     * @example 1900000****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1646841600000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 1646928000000
+     *
      * @var int
      */
     public $stopTime;

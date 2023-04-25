@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListLegacyAgentEventLogsRequest extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example 1658026440011
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1657853640015
+     *
      * @var int
      */
     public $startTime;

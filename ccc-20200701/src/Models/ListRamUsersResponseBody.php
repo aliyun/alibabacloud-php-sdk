@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRamUsersResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListRamUsersResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListRamUsersResponseBody extends Model
     public $message;
 
     /**
+     * @example 24753D71-C91D-1A38-A8AD-372BF12453F6
+     *
      * @var string
      */
     public $requestId;

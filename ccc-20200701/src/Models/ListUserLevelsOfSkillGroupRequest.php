@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListUserLevelsOfSkillGroupRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isMember;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +42,8 @@ class ListUserLevelsOfSkillGroupRequest extends Model
     public $searchPattern;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

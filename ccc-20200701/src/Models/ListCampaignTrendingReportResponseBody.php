@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCampaignTrendingReportResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListCampaignTrendingReportResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListCampaignTrendingReportResponseBody extends Model
     public $message;
 
     /**
+     * @example 6CCEF32F-8614-535F-A1D9-D85B8C0DC4F0
+     *
      * @var string
      */
     public $requestId;

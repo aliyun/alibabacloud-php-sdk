@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @example ["24861380681070****","105980354482****"]
+     *
      * @var string
      */
     public $adminRamIdList;
@@ -19,6 +21,8 @@ class CreateInstanceRequest extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $domainName;
@@ -29,6 +33,8 @@ class CreateInstanceRequest extends Model
     public $name;
 
     /**
+     * @example ["0830011xxxx", "0830312xxxx"]
+     *
      * @var string
      */
     public $numberList;

@@ -14,11 +14,15 @@ class caseList extends Model
     public $customVariables;
 
     /**
+     * @example 1888888888
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example 01
+     *
      * @var string
      */
     public $referenceId;

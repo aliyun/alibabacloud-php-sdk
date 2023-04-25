@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class overall extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageReadyTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageWorkTime;
 
     /**
+     * @example 37
+     *
      * @var int
      */
     public $maxReadyTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $occupancyRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $oneTransferCalls;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalBreakTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalLoggedInTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalReadyTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

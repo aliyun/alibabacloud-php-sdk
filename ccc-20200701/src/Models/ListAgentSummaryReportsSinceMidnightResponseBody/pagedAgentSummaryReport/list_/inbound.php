@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class inbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHandled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsOffered;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $handleRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $serviceLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

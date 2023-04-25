@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example NA
+     *
      * @var string
      */
     public $abandonType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $attemptCount;
 
     /**
+     * @example 60ecb1a2-4480-4d01-bede-c5b7655bfadf
+     *
      * @var string
      */
     public $caseId;
@@ -34,11 +40,15 @@ class list_ extends Model
     public $failureReason;
 
     /**
+     * @example 1888888****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example Connected
+     *
      * @var string
      */
     public $state;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class outbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAnswered;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $statsTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalCalls;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReadyForServiceRequest extends Model
 {
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example user-test@ccc-test
+     *
      * @var string
      */
     public $userId;

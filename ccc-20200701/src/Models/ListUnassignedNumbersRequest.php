@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListUnassignedNumbersRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0833
+     *
      * @var string
      */
     public $searchPattern;

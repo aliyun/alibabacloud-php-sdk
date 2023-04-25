@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class LaunchAuthenticationRequest extends Model
 {
     /**
+     * @example af145gfc-1108-4d55-8fca-f719bd512ebb
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example {"customerID":"208880281831****","operateType":"cipherCode","taskId":"1234567890","crmOhter":"123"}
+     *
      * @var string
      */
     public $contactFlowVariables;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

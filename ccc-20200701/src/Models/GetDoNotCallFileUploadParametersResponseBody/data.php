@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example 1647313420
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example ccc-test/blacklist.xlsx
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example eyJleHBpcmF0aW9uIjoiMjAyMi0wMy0xNVQwMzowMzo0MC4zMTJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwidGVtcC9ibGFja2xpc3QvaW1wb3J0LzE1NzcyNDcxMTU0OTA0MDEvY2NjVjIta216LzIwMjIE1MTAwMzQwLyJd****
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example zi31STIMtIfa/UN2l+6lww****
+     *
      * @var string
      */
     public $signature;

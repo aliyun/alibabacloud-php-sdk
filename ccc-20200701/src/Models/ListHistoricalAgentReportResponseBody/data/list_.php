@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example agent1@ccc-test
+     *
      * @var string
      */
     public $agentId;
@@ -22,6 +24,8 @@ class list_ extends Model
     public $agentName;
 
     /**
+     * @example 001
+     *
      * @var string
      */
     public $displayId;
@@ -42,6 +46,8 @@ class list_ extends Model
     public $overall;
 
     /**
+     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+     *
      * @var string
      */
     public $skillGroupIds;

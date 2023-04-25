@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipCallRecordsResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\BridgeRtcCallResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListSipCallRecordsResponseBody extends Model
+class BridgeRtcCallResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +15,7 @@ class ListSipCallRecordsResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -30,6 +30,11 @@ class ListSipCallRecordsResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -38,6 +43,7 @@ class ListSipCallRecordsResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -52,19 +58,16 @@ class ListSipCallRecordsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -76,7 +79,7 @@ class ListSipCallRecordsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListSipCallRecordsResponseBody
+     * @return BridgeRtcCallResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -85,19 +88,18 @@ class ListSipCallRecordsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

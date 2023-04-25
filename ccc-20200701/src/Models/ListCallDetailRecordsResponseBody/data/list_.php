@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 0533128****
+     *
      * @var string
      */
     public $additionalBroker;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentIds;
@@ -24,16 +28,22 @@ class list_ extends Model
     public $agentNames;
 
     /**
+     * @example 0533127****
+     *
      * @var string
      */
     public $broker;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $callDuration;
 
     /**
+     * @example 1332315****
+     *
      * @var string
      */
     public $calledNumber;
@@ -49,61 +59,90 @@ class list_ extends Model
     public $callerLocation;
 
     /**
+     * @example 0533128****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $contactDisposition;
 
     /**
+     * @example job-12515239414412****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @var int
+     */
+    public $dialingTime;
+
+    /**
+     * @example NotConnected
+     *
      * @var string
      */
     public $earlyMediaState;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $establishedTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $ivrTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $queueTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $recordingDuration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $recordingReady;
 
     /**
+     * @example customer
+     *
      * @var string
      */
     public $releaseInitiator;
@@ -114,11 +153,15 @@ class list_ extends Model
     public $releaseReason;
 
     /**
+     * @example 1532707199000
+     *
      * @var int
      */
     public $releaseTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $ringTime;
@@ -129,21 +172,29 @@ class list_ extends Model
     public $satisfactionDescription;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $satisfactionIndex;
 
     /**
+     * @example IVR
+     *
      * @var string
      */
     public $satisfactionSurveyChannel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $satisfactionSurveyOffered;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupIds;
@@ -154,11 +205,20 @@ class list_ extends Model
     public $skillGroupNames;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $talkTime;
+
+    /**
+     * @example 5
+     *
      * @var int
      */
     public $waitTime;
@@ -175,6 +235,7 @@ class list_ extends Model
         'contactDisposition'        => 'ContactDisposition',
         'contactId'                 => 'ContactId',
         'contactType'               => 'ContactType',
+        'dialingTime'               => 'DialingTime',
         'earlyMediaState'           => 'EarlyMediaState',
         'establishedTime'           => 'EstablishedTime',
         'instanceId'                => 'InstanceId',
@@ -193,6 +254,7 @@ class list_ extends Model
         'skillGroupIds'             => 'SkillGroupIds',
         'skillGroupNames'           => 'SkillGroupNames',
         'startTime'                 => 'StartTime',
+        'talkTime'                  => 'TalkTime',
         'waitTime'                  => 'WaitTime',
     ];
 
@@ -238,6 +300,9 @@ class list_ extends Model
         }
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
+        }
+        if (null !== $this->dialingTime) {
+            $res['DialingTime'] = $this->dialingTime;
         }
         if (null !== $this->earlyMediaState) {
             $res['EarlyMediaState'] = $this->earlyMediaState;
@@ -293,6 +358,9 @@ class list_ extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->talkTime) {
+            $res['TalkTime'] = $this->talkTime;
+        }
         if (null !== $this->waitTime) {
             $res['WaitTime'] = $this->waitTime;
         }
@@ -343,6 +411,9 @@ class list_ extends Model
         }
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
+        }
+        if (isset($map['DialingTime'])) {
+            $model->dialingTime = $map['DialingTime'];
         }
         if (isset($map['EarlyMediaState'])) {
             $model->earlyMediaState = $map['EarlyMediaState'];
@@ -397,6 +468,9 @@ class list_ extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TalkTime'])) {
+            $model->talkTime = $map['TalkTime'];
         }
         if (isset($map['WaitTime'])) {
             $model->waitTime = $map['WaitTime'];

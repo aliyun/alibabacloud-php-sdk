@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class numberList extends Model
 {
     /**
+     * @example 0830011****
+     *
      * @var string
      */
     public $number;

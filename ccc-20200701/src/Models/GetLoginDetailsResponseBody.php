@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLoginDetailsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class GetLoginDetailsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class GetLoginDetailsResponseBody extends Model
     public $params;
 
     /**
+     * @example F1A4774A-F28B-5C40-AEF6-D88D2DD6C7E4
+     *
      * @var string
      */
     public $requestId;

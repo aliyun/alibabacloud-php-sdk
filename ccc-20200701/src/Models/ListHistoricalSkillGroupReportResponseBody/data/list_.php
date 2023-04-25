@@ -27,11 +27,15 @@ class list_ extends Model
     public $overall;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $skillGroupName;

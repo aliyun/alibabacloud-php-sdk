@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddCasesResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
@@ -24,6 +28,8 @@ class AddCasesResponseBody extends Model
     public $message;
 
     /**
+     * @example 41298961-CAD7-5270-9378-FFD69F153144
+     *
      * @var string
      */
     public $requestId;

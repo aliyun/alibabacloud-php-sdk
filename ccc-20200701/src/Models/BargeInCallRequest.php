@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class BargeInCallRequest extends Model
 {
     /**
+     * @example agent2@ccc-test
+     *
      * @var string
      */
     public $bargedUserId;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

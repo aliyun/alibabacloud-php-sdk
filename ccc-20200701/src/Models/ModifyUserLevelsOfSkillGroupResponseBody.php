@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserLevelsOfSkillGroupResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class ModifyUserLevelsOfSkillGroupResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +33,8 @@ class ModifyUserLevelsOfSkillGroupResponseBody extends Model
     public $message;
 
     /**
+     * @example E49D8B83-A3EC-44D4-A920-578BC3C698AD
+     *
      * @var string
      */
     public $requestId;

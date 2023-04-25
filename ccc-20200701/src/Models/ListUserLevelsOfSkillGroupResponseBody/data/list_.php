@@ -14,6 +14,8 @@ class list_ extends Model
     public $displayName;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
@@ -24,31 +26,43 @@ class list_ extends Model
     public $ramId;
 
     /**
+     * @example Admin@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $skillGroupName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $skillLevel;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

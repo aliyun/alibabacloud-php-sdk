@@ -27,6 +27,8 @@ class data extends Model
     public $overall;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $statsTime;

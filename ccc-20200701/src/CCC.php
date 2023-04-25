@@ -25,18 +25,25 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AnswerCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AnswerCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AppendCasesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AppendCasesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AppendCasesShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AssignUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AssignUsersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\BargeInCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\BargeInCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\BlindTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\BlindTransferResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\BridgeRtcCallRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\BridgeRtcCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CancelAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CancelAttendedTransferResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CommitContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CommitContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateAudioFileRequest;
@@ -46,6 +53,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceRequest;
@@ -58,10 +67,14 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteAudioFileRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteAudioFileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DiscardEditingContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DiscardEditingContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
@@ -80,10 +93,16 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDataChannelCredentialsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDataChannelCredentialsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetEarlyMediaRecordingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetEarlyMediaRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCampaignReportRequest;
@@ -186,6 +205,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentEventLogsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentEventLogsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentStatusLogsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentStatusLogsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyQueueEventLogsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyQueueEventLogsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsRequest;
@@ -254,8 +275,12 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RedialCallRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RedialCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesRequest;
@@ -306,6 +331,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartEditContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartEditContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPrivacyCallRequest;
@@ -838,6 +865,62 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param AppendCasesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AppendCasesResponse
+     */
+    public function appendCasesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AppendCasesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->body)) {
+            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->campaignId)) {
+            $query['CampaignId'] = $request->campaignId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bodyShrink)) {
+            $body['body'] = $request->bodyShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AppendCases',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AppendCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AppendCasesRequest $request
+     *
+     * @return AppendCasesResponse
+     */
+    public function appendCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->appendCasesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AssignUsersRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -960,6 +1043,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->callPriority)) {
+            $query['CallPriority'] = $request->callPriority;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }
@@ -968,6 +1054,12 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->strategyParams)) {
+            $query['StrategyParams'] = $request->strategyParams;
         }
         if (!Utils::isUnset($request->timeoutSeconds)) {
             $query['TimeoutSeconds'] = $request->timeoutSeconds;
@@ -1009,6 +1101,73 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->blindTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BridgeRtcCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BridgeRtcCallResponse
+     */
+    public function bridgeRtcCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callee)) {
+            $query['Callee'] = $request->callee;
+        }
+        if (!Utils::isUnset($request->caller)) {
+            $query['Caller'] = $request->caller;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->serviceProvider)) {
+            $query['ServiceProvider'] = $request->serviceProvider;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->timeoutSeconds)) {
+            $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->videoEnabled)) {
+            $query['VideoEnabled'] = $request->videoEnabled;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BridgeRtcCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BridgeRtcCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BridgeRtcCallRequest $request
+     *
+     * @return BridgeRtcCallResponse
+     */
+    public function bridgeRtcCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bridgeRtcCallWithOptions($request, $runtime);
     }
 
     /**
@@ -1177,6 +1336,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->coachCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CommitContactFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CommitContactFlowResponse
+     */
+    public function commitContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->draftId)) {
+            $query['DraftId'] = $request->draftId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CommitContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CommitContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CommitContactFlowRequest $request
+     *
+     * @return CommitContactFlowResponse
+     */
+    public function commitContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->commitContactFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -1359,6 +1573,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->executingUntilTimeout)) {
+            $query['ExecutingUntilTimeout'] = $request->executingUntilTimeout;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -1417,6 +1634,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateContactFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateContactFlowResponse
+     */
+    public function createContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateContactFlowRequest $request
+     *
+     * @return CreateContactFlowResponse
+     */
+    public function createContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContactFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -1735,6 +2007,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteContactFlowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteContactFlowResponse
+     */
+    public function deleteContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteContactFlowRequest $request
+     *
+     * @return DeleteContactFlowResponse
+     */
+    public function deleteContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContactFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCustomCallTaggingRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1827,6 +2145,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DiscardEditingContactFlowRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DiscardEditingContactFlowResponse
+     */
+    public function discardEditingContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->draftId)) {
+            $query['DraftId'] = $request->draftId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DiscardEditingContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DiscardEditingContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DiscardEditingContactFlowRequest $request
+     *
+     * @return DiscardEditingContactFlowResponse
+     */
+    public function discardEditingContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->discardEditingContactFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -2247,6 +2614,55 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetContactFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetContactFlowResponse
+     */
+    public function getContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->draftId)) {
+            $query['DraftId'] = $request->draftId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetContactFlowRequest $request
+     *
+     * @return GetContactFlowResponse
+     */
+    public function getContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContactFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetConversationDetailRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2293,6 +2709,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetDataChannelCredentialsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataChannelCredentialsResponse
+     */
+    public function getDataChannelCredentialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataChannelCredentials',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataChannelCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataChannelCredentialsRequest $request
+     *
+     * @return GetDataChannelCredentialsResponse
+     */
+    public function getDataChannelCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataChannelCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDoNotCallFileUploadParametersRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2336,6 +2798,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDoNotCallFileUploadParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetEarlyMediaRecordingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetEarlyMediaRecordingResponse
+     */
+    public function getEarlyMediaRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEarlyMediaRecording',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEarlyMediaRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetEarlyMediaRecordingRequest $request
+     *
+     * @return GetEarlyMediaRecordingResponse
+     */
+    public function getEarlyMediaRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEarlyMediaRecordingWithOptions($request, $runtime);
     }
 
     /**
@@ -3320,6 +3828,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->callPriority)) {
+            $query['CallPriority'] = $request->callPriority;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }
@@ -3328,6 +3839,12 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->strategyParams)) {
+            $query['StrategyParams'] = $request->strategyParams;
         }
         if (!Utils::isUnset($request->timeoutSeconds)) {
             $query['TimeoutSeconds'] = $request->timeoutSeconds;
@@ -4131,6 +4648,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->phoneNumber)) {
             $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4959,6 +5479,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLegacyAgentStatusLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLegacyAppraiseLogsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListLegacyAppraiseLogsResponse
+     */
+    public function listLegacyAppraiseLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLegacyAppraiseLogs',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLegacyAppraiseLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLegacyAppraiseLogsRequest $request
+     *
+     * @return ListLegacyAppraiseLogsResponse
+     */
+    public function listLegacyAppraiseLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLegacyAppraiseLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -6402,6 +6977,12 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->displayId)) {
             $query['DisplayId'] = $request->displayId;
         }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -6754,6 +7335,55 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param PublishContactFlowRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PublishContactFlowResponse
+     */
+    public function publishContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->draftId)) {
+            $query['DraftId'] = $request->draftId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishContactFlowRequest $request
+     *
+     * @return PublishContactFlowResponse
+     */
+    public function publishContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishContactFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReadyForServiceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -6803,6 +7433,70 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->readyForServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RedialCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RedialCallResponse
+     */
+    public function redialCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callee)) {
+            $query['Callee'] = $request->callee;
+        }
+        if (!Utils::isUnset($request->caller)) {
+            $query['Caller'] = $request->caller;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->timeoutSeconds)) {
+            $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RedialCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RedialCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RedialCallRequest $request
+     *
+     * @return RedialCallResponse
+     */
+    public function redialCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->redialCallWithOptions($request, $runtime);
     }
 
     /**
@@ -7265,6 +7959,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -8106,6 +8803,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartEditContactFlowRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartEditContactFlowResponse
+     */
+    public function startEditContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartEditContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartEditContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartEditContactFlowRequest $request
+     *
+     * @return StartEditContactFlowResponse
+     */
+    public function startEditContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startEditContactFlowWithOptions($request, $runtime);
     }
 
     /**

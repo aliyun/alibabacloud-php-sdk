@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SignInGroupRequest extends Model
 {
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+     *
      * @var string
      */
     public $signedSkillGroupIdList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

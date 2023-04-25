@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example d7b818c3-8d3a-732f-bc9e-1782wa16****
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example sip:8032****@33.89.XX.XX:64189;transport=tcp;registering_acc=18_134_23_4
+     *
      * @var string
      */
     public $contact;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 1609118499750
+     *
      * @var int
      */
     public $expires;
 
     /**
+     * @example 8032****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

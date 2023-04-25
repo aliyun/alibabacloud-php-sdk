@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StartPrivacyCallRequest extends Model
 {
     /**
+     * @example ALIPUBB7A727C170949
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1888888****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 0109810****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

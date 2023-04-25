@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyAudioFileRequest extends Model
 {
     /**
+     * @example new-test-file.wav
+     *
      * @var string
      */
     public $audioFileName;
 
     /**
+     * @example acc300c4-75c9-41ba-ba5e-2a365c96c248
+     *
      * @var string
      */
     public $audioResourceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +35,8 @@ class ModifyAudioFileRequest extends Model
     public $name;
 
     /**
+     * @example ccc-test/new-test-file.wav
+     *
      * @var string
      */
     public $ossFileKey;

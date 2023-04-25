@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListMonoRecordingsRequest extends Model
 {
     /**
+     * @example job-25697383427137****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

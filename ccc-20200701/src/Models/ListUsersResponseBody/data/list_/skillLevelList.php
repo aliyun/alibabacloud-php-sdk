@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class skillLevelList extends Model
 {
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $skillGroupName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $skillLevel;

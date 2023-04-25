@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListRamUsersRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $searchPattern;

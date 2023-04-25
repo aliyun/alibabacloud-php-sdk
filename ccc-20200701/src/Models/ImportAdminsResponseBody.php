@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ImportAdminsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ImportAdminsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ImportAdminsResponseBody extends Model
     public $message;
 
     /**
+     * @example 1CDB5C94-ACFB-59B5-85FE-C1DAF8049C63
+     *
      * @var string
      */
     public $requestId;

@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSipCallRecordsRequest extends Model
+class GetDataChannelCredentialsRequest extends Model
 {
     /**
      * @var string
      */
-    public $contactIdList;
+    public $deviceId;
 
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactIdList' => 'ContactIdList',
-        'instanceId'    => 'InstanceId',
+        'deviceId'   => 'DeviceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class ListSipCallRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactIdList) {
-            $res['ContactIdList'] = $this->contactIdList;
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -42,13 +42,13 @@ class ListSipCallRecordsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListSipCallRecordsRequest
+     * @return GetDataChannelCredentialsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactIdList'])) {
-            $model->contactIdList = $map['ContactIdList'];
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

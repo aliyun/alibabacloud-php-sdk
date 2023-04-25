@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $displayId;
@@ -19,41 +21,57 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $resetPassword;
 
     /**
+     * @example Agent@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example [{"skillGroupId":"skillgroup1@ccc-test","skillLevel":1},{"skillGroupId":"skillgroup2@ccc-test","skillLevel":10}]
+     *
      * @var string
      */
     public $skillLevelList;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

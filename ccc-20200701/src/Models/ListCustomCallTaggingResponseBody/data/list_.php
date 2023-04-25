@@ -15,6 +15,8 @@ class list_ extends Model
     public $callTagList;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $creator;
@@ -25,16 +27,22 @@ class list_ extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 2020-07-05 00:00:00.0
+     *
      * @var string
      */
     public $updateTime;

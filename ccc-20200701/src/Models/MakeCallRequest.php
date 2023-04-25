@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class MakeCallRequest extends Model
 {
     /**
+     * @example 1318888****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 010989****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 131****8888
+     *
      * @var string
      */
     public $maskedCallee;
 
     /**
+     * @example tags
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetVoicemailRecordingRequest extends Model
 {
     /**
+     * @example job-12515239414412****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

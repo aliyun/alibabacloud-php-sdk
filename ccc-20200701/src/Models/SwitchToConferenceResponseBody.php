@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchToConferenceResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class SwitchToConferenceResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class SwitchToConferenceResponseBody extends Model
     public $params;
 
     /**
+     * @example D9C96A73-09C9-5E2A-8CDB-85EC0BC246DA
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example agent1@ccc-test
+     *
      * @var string
      */
     public $agentId;
@@ -19,36 +21,50 @@ class list_ extends Model
     public $agentName;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $callType;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $counterParty;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 80317391
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
@@ -64,21 +80,29 @@ class list_ extends Model
     public $skillGroupNameList;
 
     /**
+     * @example ACW
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example Monitored
+     *
      * @var string
      */
     public $stateCode;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $stateTime;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

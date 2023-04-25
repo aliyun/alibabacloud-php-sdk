@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListCasesRequest extends Model
 {
     /**
+     * @example 6badb397-a8b5-40b6-21019d382a09
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
@@ -32,12 +40,18 @@ class ListCasesRequest extends Model
      * @var string
      */
     public $phoneNumber;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'campaignId'  => 'CampaignId',
         'instanceId'  => 'InstanceId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'phoneNumber' => 'PhoneNumber',
+        'state'       => 'State',
     ];
 
     public function validate()
@@ -61,6 +75,9 @@ class ListCasesRequest extends Model
         }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -88,6 +105,9 @@ class ListCasesRequest extends Model
         }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class LaunchSurveyResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class LaunchSurveyResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class LaunchSurveyResponseBody extends Model
     public $params;
 
     /**
+     * @example AF1E5957-5276-48FF-A6E6-347166A4ADCD
+     *
      * @var string
      */
     public $requestId;

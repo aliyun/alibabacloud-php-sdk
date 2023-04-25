@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class userContext extends Model
 {
     /**
+     * @example Warm-up
+     *
      * @var string
      */
     public $breakCode;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
@@ -24,36 +28,50 @@ class userContext extends Model
     public $deviceState;
 
     /**
+     * @example 8020****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 1618217872911
+     *
      * @var int
      */
     public $heartbeat;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-1034159089076****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1324730****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example 1618217794599
+     *
      * @var int
      */
     public $reserved;
@@ -64,16 +82,22 @@ class userContext extends Model
     public $signedSkillGroupIdList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example OFFLINE
+     *
      * @var string
      */
     public $userState;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ImportDoNotCallNumbersRequest extends Model
 {
     /**
+     * @example temp/blacklist/import/15772471154xxxx/ccc-test/20220315100340/blacklist.xlsx
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["1900000****","1312121****"]
+     *
      * @var string
      */
     public $numberList;

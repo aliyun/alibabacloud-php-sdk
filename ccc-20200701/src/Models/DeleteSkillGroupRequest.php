@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteSkillGroupRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

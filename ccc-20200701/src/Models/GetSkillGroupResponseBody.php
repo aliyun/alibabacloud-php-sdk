@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSkillGroupResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class GetSkillGroupResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class GetSkillGroupResponseBody extends Model
     public $message;
 
     /**
+     * @example CF1C21B9-2D49-4B54-880F-FBE248C16903
+     *
      * @var string
      */
     public $requestId;

@@ -18,21 +18,29 @@ class data extends Model
     public $agentEvents;
 
     /**
+     * @example agent1@ccc-test,agent2@ccc-test
+     *
      * @var string
      */
     public $agentIds;
 
     /**
+     * @example agent1,agent2
+     *
      * @var string
      */
     public $agentNames;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $callDuration;
 
     /**
+     * @example 1332315****
+     *
      * @var string
      */
     public $calledNumber;
@@ -48,21 +56,29 @@ class data extends Model
     public $callerLocation;
 
     /**
+     * @example 0533128****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $contactDisposition;
 
     /**
+     * @example job-10963442671187****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $contactType;
@@ -73,16 +89,22 @@ class data extends Model
     public $customerEvents;
 
     /**
+     * @example NotConnected
+     *
      * @var string
      */
     public $earlyMediaState;
 
     /**
+     * @example 1532458000000
+     *
      * @var int
      */
     public $establishedTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -98,41 +120,57 @@ class data extends Model
     public $queueEvents;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $recordingReady;
 
     /**
+     * @example customer
+     *
      * @var string
      */
     public $releaseInitiator;
 
     /**
+     * @example 200 - OK
+     *
      * @var string
      */
     public $releaseReason;
 
     /**
+     * @example 1532458000000
+     *
      * @var int
      */
     public $releaseTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $satisfaction;
 
     /**
+     * @example IVR
+     *
      * @var string
      */
     public $satisfactionSurveyChannel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $satisfactionSurveyOffered;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupIds;
@@ -143,6 +181,8 @@ class data extends Model
     public $skillGroupNames;
 
     /**
+     * @example 1532458000000
+     *
      * @var int
      */
     public $startTime;

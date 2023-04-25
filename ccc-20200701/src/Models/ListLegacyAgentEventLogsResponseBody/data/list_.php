@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $agentDropCall;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentNo;
@@ -24,6 +28,8 @@ class list_ extends Model
     public $callDir;
 
     /**
+     * @example 378654****
+     *
      * @var string
      */
     public $callId;
@@ -39,16 +45,22 @@ class list_ extends Model
     public $callType;
 
     /**
+     * @example 1312343****
+     *
      * @var string
      */
     public $calleeId;
 
     /**
+     * @example 08331111****
+     *
      * @var string
      */
     public $callerId;
 
     /**
+     * @example 345467****
+     *
      * @var string
      */
     public $connId;
@@ -59,41 +71,57 @@ class list_ extends Model
     public $event;
 
     /**
+     * @example skillgroup1@ccc-test,skillgroup2@ccc-test
+     *
      * @var string
      */
     public $groupNo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example 8012****
+     *
      * @var string
      */
     public $phoneNo;
 
     /**
+     * @example 2021-12-03T10:15:30
+     *
      * @var string
      */
     public $statisticDate;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $targetRequest;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $targetSelect;
 
     /**
+     * @example acc101
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example 07518888****
+     *
      * @var string
      */
     public $transferNumber;

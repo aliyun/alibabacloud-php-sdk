@@ -9,261 +9,365 @@ use AlibabaCloud\Tea\Model;
 class inbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $abandonRate;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageAbandonTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageAbandonedInIVRTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageAbandonedInQueueTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageAbandonedInRingTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageHoldTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageRingTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageWaitTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandoned;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInIVR;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInQueue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInRing;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInVoiceNavigator;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAttendedTransferred;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsBlindTransferred;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsForwardToOutsideNumber;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHandled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHold;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsIVRException;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsQueued;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsQueuingFailed;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsQueuingOverflow;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsQueuingTimeout;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsRinged;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsVoicemail;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $handleRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxAbandonTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxAbandonedInIVRTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxAbandonedInQueueTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxAbandonedInRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWaitTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $serviceLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalAbandonTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalAbandonedInIVRTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalAbandonedInQueueTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalAbandonedInRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWaitTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

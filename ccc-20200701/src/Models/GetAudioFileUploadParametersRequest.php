@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAudioFileUploadParametersRequest extends Model
 {
     /**
+     * @example test-file.wav
+     *
      * @var string
      */
     public $audioFileName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class eventSequence extends Model
 {
     /**
+     * @example Route2IVR
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $eventTime;

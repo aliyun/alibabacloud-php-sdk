@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResumeCampaignResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
@@ -24,6 +28,8 @@ class ResumeCampaignResponseBody extends Model
     public $message;
 
     /**
+     * @example F505C4C8-1E12-573A-9BA7-4BEAAD129553
+     *
      * @var string
      */
     public $requestId;

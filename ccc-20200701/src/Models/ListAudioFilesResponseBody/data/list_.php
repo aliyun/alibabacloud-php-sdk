@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example test-file.wav
+     *
      * @var string
      */
     public $audioFileName;
 
     /**
+     * @example d5cd7a94-3b6a-47d2-b7fd-0b1cd839bf77
+     *
      * @var string
      */
     public $audioResourceId;
 
     /**
+     * @example 2021-03-05 17:35:45.0
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -34,11 +42,15 @@ class list_ extends Model
     public $name;
 
     /**
+     * @example ccc-test/test-file.wav
+     *
      * @var string
      */
     public $ossFileKey;
 
     /**
+     * @example 2021-03-08 15:34:49.0
+     *
      * @var string
      */
     public $updatedTime;

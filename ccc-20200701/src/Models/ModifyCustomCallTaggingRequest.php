@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomCallTaggingRequest extends Model
 {
     /**
+     * @example ["TagA","TagB"]
+     *
      * @var string
      */
     public $callTagNameList;
@@ -19,11 +21,15 @@ class ModifyCustomCallTaggingRequest extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $number;

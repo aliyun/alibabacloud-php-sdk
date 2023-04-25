@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListCampaignsRequest extends Model
 {
     /**
+     * @example 2021-10-14 20:59:59
+     *
      * @var string
      */
     public $actualStartTimeFrom;
 
     /**
+     * @example 2021-10-14 20:59:59
+     *
      * @var string
      */
     public $actualStartTimeTo;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test-campaign
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2021-10-14 00:00:00
+     *
      * @var string
      */
     public $planedStartTimeFrom;
 
     /**
+     * @example 2021-10-14 20:59:59
+     *
      * @var string
      */
     public $planedStartTimeTo;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;
 
     /**
+     * @example Draft
+     *
      * @var string
      */
     public $state;

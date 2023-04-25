@@ -14,6 +14,8 @@ class ModifyInstanceRequest extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

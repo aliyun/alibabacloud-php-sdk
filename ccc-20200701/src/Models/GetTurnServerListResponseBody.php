@@ -19,6 +19,8 @@ class GetTurnServerListResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 8021****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 26972543893791****
+     *
      * @var string
      */
     public $ramId;
 
     /**
+     * @example Admin@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

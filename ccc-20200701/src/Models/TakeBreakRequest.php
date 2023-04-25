@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class TakeBreakRequest extends Model
 {
     /**
+     * @example lunchtime
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

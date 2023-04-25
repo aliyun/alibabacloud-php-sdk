@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class LaunchSurveyRequest extends Model
 {
     /**
+     * @example 4685b65a-eb8f-11ec-8ea0-0242ac120002
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example {"customerID":"208880281831****","operateType":"cipherCode","taskId":"1234567890","crmOhter":"123"}
+     *
      * @var string
      */
     public $contactFlowVariables;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6580466654649****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 4685b65a-eb8f-11ec-8ea0-0242ac120002
+     *
      * @var string
      */
     public $smsMetadataId;
 
     /**
+     * @example IVR
+     *
      * @var string
      */
     public $surveyChannel;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

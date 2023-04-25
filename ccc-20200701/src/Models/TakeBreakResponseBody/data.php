@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example lunchtime
+     *
      * @var string
      */
     public $breakCode;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 8001****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 1609249563836
+     *
      * @var int
      */
     public $heartbeat;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -39,16 +49,22 @@ class data extends Model
     public $jobId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example 1609234221864
+     *
      * @var int
      */
     public $reserved;
@@ -59,16 +75,22 @@ class data extends Model
     public $signedSkillGroupIdList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example BREAK
+     *
      * @var string
      */
     public $userState;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

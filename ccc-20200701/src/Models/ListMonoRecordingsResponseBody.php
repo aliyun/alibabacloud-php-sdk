@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMonoRecordingsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListMonoRecordingsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListMonoRecordingsResponseBody extends Model
     public $message;
 
     /**
+     * @example E836EF2A-EDAE-5310-8921-F983C967D42D
+     *
      * @var string
      */
     public $requestId;

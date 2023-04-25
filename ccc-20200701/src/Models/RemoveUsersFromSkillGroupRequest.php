@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersFromSkillGroupRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example ["agent1@ccc-test","agent2@ccc-test"]
+     *
      * @var string
      */
     public $userIdList;

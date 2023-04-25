@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListLegacyQueueEventLogsRequest extends Model
 {
     /**
+     * @example 1658026180018
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example 1657939540015
+     *
      * @var int
      */
     public $startTime;

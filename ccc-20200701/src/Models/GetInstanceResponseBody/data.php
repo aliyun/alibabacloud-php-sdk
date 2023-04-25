@@ -16,11 +16,15 @@ class data extends Model
     public $adminList;
 
     /**
+     * @example 157123456789****
+     *
      * @var string
      */
     public $aliyunUid;
 
     /**
+     * @example https://ccc-v2.aliyun.com/#/workbench/ccc-test
+     *
      * @var string
      */
     public $consoleUrl;
@@ -31,11 +35,15 @@ class data extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $id;
@@ -51,6 +59,8 @@ class data extends Model
     public $numberList;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

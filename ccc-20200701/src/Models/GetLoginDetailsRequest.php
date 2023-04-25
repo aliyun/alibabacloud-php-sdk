@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetLoginDetailsRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

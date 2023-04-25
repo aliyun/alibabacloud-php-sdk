@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddNumbersToSkillGroupRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["0103182****","0102387****"]
+     *
      * @var string
      */
     public $numberList;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

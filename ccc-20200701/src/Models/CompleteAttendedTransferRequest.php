@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CompleteAttendedTransferRequest extends Model
 {
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

@@ -9,151 +9,211 @@ use AlibabaCloud\Tea\Model;
 class inbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $abandonedInQueueOfQueueCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $answeredByAgentOfQueueCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $answeredByAgentOfQueueMaxWaitTimeDuration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $answeredByAgentOfQueueWaitTimeDuration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAttendedTransferOut;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsBlindTransferOut;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHandled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsServiceLevel10;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsServiceLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsServiceLevel30;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $giveUpByAgentOfQueueCount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $handleRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $inComingQueueOfQueueCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRingTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $overFlowInQueueOfQueueCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $queueMaxWaitTimeDuration;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $queueWaitTimeDuration;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $serviceLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

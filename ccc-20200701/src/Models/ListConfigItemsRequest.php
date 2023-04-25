@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListConfigItemsRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $objectType;

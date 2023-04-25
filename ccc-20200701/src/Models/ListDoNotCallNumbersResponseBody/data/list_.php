@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 1626962425000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 1900000****
+     *
      * @var string
      */
     public $number;
@@ -29,6 +35,8 @@ class list_ extends Model
     public $remark;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $scope;

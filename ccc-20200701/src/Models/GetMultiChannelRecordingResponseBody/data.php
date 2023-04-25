@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example job-6538214103689****.mkv
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2021/04/job-6538214103689****.mkv?Expires=1617435462&OSSAccessKeyId=****&Signature=****
+     *
      * @var string
      */
     public $fileUrl;

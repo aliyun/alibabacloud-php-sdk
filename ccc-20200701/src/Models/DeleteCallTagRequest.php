@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCallTagRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example TagA
+     *
      * @var string
      */
     public $tagName;

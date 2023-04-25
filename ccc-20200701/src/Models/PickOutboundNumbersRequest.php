@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PickOutboundNumbersRequest extends Model
 {
     /**
+     * @example 1388888****
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["skillgroup@ccc-test"]
+     *
      * @var string
      */
     public $skillGroupIdList;

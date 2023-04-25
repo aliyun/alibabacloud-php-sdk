@@ -15,11 +15,15 @@ class queueEvents extends Model
     public $eventSequence;
 
     /**
+     * @example edaf2eaa-8f88-44ca-812e-41b3cd2b7a90
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;
@@ -30,6 +34,8 @@ class queueEvents extends Model
     public $queueName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $queueType;

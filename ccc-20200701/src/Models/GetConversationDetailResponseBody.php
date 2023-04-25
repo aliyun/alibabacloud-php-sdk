@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetConversationDetailResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class GetConversationDetailResponseBody extends Model
     public $phrases;
 
     /**
+     * @example 7E407F9B-A278-52A0-B193-3EE5471D7A87
+     *
      * @var string
      */
     public $requestId;

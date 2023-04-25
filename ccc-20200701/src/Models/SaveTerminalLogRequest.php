@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SaveTerminalLogRequest extends Model
 {
     /**
+     * @example CCCClient
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example e13c9740-1e37-123b-21b6-00163e352f9
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataType;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-b8b0ca63-330c-4e65-8ae3-9de2c7ce7683
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example TurnServerTest
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $uniqueRequestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example voicemail.job-054ded02****.wav
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2022/06/voicemail.job-054ded02****.wav?Expires=1656074923&OSSAccessKeyId=****&Signature=****
+     *
      * @var string
      */
     public $fileUrl;

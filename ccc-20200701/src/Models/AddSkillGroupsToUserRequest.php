@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddSkillGroupsToUserRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{"skillGroupId":"test1@ccc-test","skillLevel":5},{"skillGroupId":"test2@ccc-test","skillLevel":5}]
+     *
      * @var string
      */
     public $skillLevelList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

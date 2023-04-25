@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDoNotCallNumbersResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListDoNotCallNumbersResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListDoNotCallNumbersResponseBody extends Model
     public $message;
 
     /**
+     * @example BA03159C-E808-4FF1-B27E-A61B6E888D7F
+     *
      * @var string
      */
     public $requestId;

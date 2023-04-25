@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 75c1346c-1dc2-4ed8-973f-edf8b1e5fe77
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +35,8 @@ class CreateInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @example 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+     *
      * @var string
      */
     public $requestId;

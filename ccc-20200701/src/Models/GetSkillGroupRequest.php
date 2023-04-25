@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSkillGroupRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

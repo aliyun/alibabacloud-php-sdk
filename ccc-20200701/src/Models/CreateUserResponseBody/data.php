@@ -14,31 +14,43 @@ class data extends Model
     public $displayName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 8032****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

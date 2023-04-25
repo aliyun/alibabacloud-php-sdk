@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ReadyForServiceResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ReadyForServiceResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class ReadyForServiceResponseBody extends Model
     public $params;
 
     /**
+     * @example CC49060B-87ED-489A-AD3D-00E57775DBFF
+     *
      * @var string
      */
     public $requestId;

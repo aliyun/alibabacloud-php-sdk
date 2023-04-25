@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 78128960-bb00-4ddc-8e82-923a8c5bd22d
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example 2021-03-05 17:35:45.0
+     *
      * @var string
      */
     public $createdTime;
@@ -24,21 +28,29 @@ class list_ extends Model
     public $definition;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example db07c0bb-6b1f-47d2-b37e-2451c617562d
+     *
      * @var string
      */
     public $draftId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $editor;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -54,16 +66,22 @@ class list_ extends Model
     public $numberList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $published;
 
     /**
+     * @example MAIN_FLOW
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2021-03-08 15:34:49.0
+     *
      * @var string
      */
     public $updatedTime;

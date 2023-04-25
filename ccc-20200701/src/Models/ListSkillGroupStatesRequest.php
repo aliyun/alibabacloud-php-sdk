@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListSkillGroupStatesRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+     *
      * @var string
      */
     public $skillGroupIds;

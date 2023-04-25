@@ -9,126 +9,176 @@ use AlibabaCloud\Tea\Model;
 class inbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageHoldTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageRingTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAttendedTransferIn;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAttendedTransferOut;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsBlindTransferIn;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsBlindTransferOut;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHandled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHold;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsRinged;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $handleRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

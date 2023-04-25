@@ -14,6 +14,8 @@ class data extends Model
     public $city;
 
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $number;

@@ -14,16 +14,22 @@ class data extends Model
     public $description;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

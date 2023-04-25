@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $breakingAgents;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $caps;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $loggedInAgents;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $readyAgents;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $talkingAgents;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalAgents;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $workingAgents;

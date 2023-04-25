@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
+     * @example 8003****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

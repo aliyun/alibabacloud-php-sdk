@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListAgentSummaryReportsSinceMidnightRequest extends Model
 {
     /**
+     * @example ["agent1@ccc-test", "agent2@ccc-test"]
+     *
      * @var string
      */
     public $agentIds;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

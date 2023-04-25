@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CoachCallRequest extends Model
 {
     /**
+     * @example coached-agent@ccc-test
+     *
      * @var string
      */
     public $coachedUserId;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-65382141036853491
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

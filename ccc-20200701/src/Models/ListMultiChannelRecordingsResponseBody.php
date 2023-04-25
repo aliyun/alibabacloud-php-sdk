@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultiChannelRecordingsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListMultiChannelRecordingsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListMultiChannelRecordingsResponseBody extends Model
     public $message;
 
     /**
+     * @example B19CD719-9F65-56A6-8B79-DA4282EA4797
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class personalOutboundNumberList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -19,6 +21,8 @@ class personalOutboundNumberList extends Model
     public $city;
 
     /**
+     * @example 0830011****
+     *
      * @var string
      */
     public $number;
@@ -29,6 +33,8 @@ class personalOutboundNumberList extends Model
     public $province;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;

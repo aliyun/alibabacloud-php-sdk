@@ -19,11 +19,15 @@ class ModifySkillGroupRequest extends Model
     public $displayName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

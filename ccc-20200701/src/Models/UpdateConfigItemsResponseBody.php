@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigItemsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,6 +28,8 @@ class UpdateConfigItemsResponseBody extends Model
     public $message;
 
     /**
+     * @example 8E7Y5B39-3E24-4A04-81E6-6C4F5B39DF75
+     *
      * @var string
      */
     public $requestId;

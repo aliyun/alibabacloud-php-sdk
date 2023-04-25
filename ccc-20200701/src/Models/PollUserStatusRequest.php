@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PollUserStatusRequest extends Model
 {
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

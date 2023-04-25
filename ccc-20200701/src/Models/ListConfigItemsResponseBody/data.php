@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example config-item
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $value;

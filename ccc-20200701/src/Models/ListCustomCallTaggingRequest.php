@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListCustomCallTaggingRequest extends Model
 {
     /**
+     * @example ["TagA"]
+     *
      * @var string
      */
     public $callTagNameList;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $searchPattern;

@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class ListCallDetailRecordsRequest extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example 1320523****
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 07353988****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $contactDisposition;
 
     /**
+     * @example ["Success","NoAnswer"]
+     *
      * @var string
      */
     public $contactDispositionList;
 
     /**
+     * @example job-12515239414412****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example ["Internal","Inbound"]
+     *
      * @var string
      */
     public $contactTypeList;
 
     /**
+     * @example {"phoneNumber":"0735"}
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @example ["NotConnected","NoAnswer"]
+     *
      * @var string
      */
     public $earlyMediaStateList;
 
     /**
+     * @example 1532707199000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example startTime
+     *
      * @var string
      */
     public $orderByField;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
@@ -89,26 +119,36 @@ class ListCallDetailRecordsRequest extends Model
     public $satisfactionDescriptionList;
 
     /**
+     * @example ["1","3"]
+     *
      * @var string
      */
     public $satisfactionList;
 
     /**
+     * @example IVR
+     *
      * @var string
      */
     public $satisfactionSurveyChannel;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $startTime;

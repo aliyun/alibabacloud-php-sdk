@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class channelContexts extends Model
 {
     /**
+     * @example OUTBOUND
+     *
      * @var string
      */
     public $callType;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $channelFlags;
 
     /**
+     * @example ch:user:1318888****->8001****:1609253204816:job-6581536084722****
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example ANSWERED
+     *
      * @var string
      */
     public $channelState;
 
     /**
+     * @example 8001****
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example job-6581536084722****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1318888****
+     *
      * @var string
      */
     public $originator;
@@ -59,16 +75,22 @@ class channelContexts extends Model
     public $releaseReason;
 
     /**
+     * @example 1609253212511
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example 8001****
+     *
      * @var string
      */
     public $userExtension;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

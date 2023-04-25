@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 0533128****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 1332315****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example 65cp2c15-92ac-4e67-98b2-073a3c541c5d
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example A=B;C=D
+     *
      * @var string
      */
     public $channelVariables;
 
     /**
+     * @example job-10963442671187****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example 1621910542876
+     *
      * @var int
      */
     public $enterTime;
 
     /**
+     * @example abc99462-1058-47d0-a114-f145ea7444ff
+     *
      * @var string
      */
     public $flowId;
@@ -49,21 +63,29 @@ class list_ extends Model
     public $flowName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instance;
 
     /**
+     * @example 1621910545105
+     *
      * @var int
      */
     public $leaveTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $nodeExitCode;
 
     /**
+     * @example e0bc19a3
+     *
      * @var string
      */
     public $nodeId;
@@ -79,11 +101,15 @@ class list_ extends Model
     public $nodeProperties;
 
     /**
+     * @example PLAY_OR_SAY
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example {"digits":"2"}
+     *
      * @var mixed[]
      */
     public $nodeVariables;

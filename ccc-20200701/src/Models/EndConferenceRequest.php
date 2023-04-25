@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EndConferenceRequest extends Model
 {
     /**
+     * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

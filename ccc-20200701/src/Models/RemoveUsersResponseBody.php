@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +33,8 @@ class RemoveUsersResponseBody extends Model
     public $params;
 
     /**
+     * @example EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+     *
      * @var string
      */
     public $requestId;

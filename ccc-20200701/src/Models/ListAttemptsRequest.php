@@ -9,66 +9,97 @@ use AlibabaCloud\Tea\Model;
 class ListAttemptsRequest extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example job-16976964500325****
+     *
      * @var string
      */
     public $attemptId;
 
     /**
+     * @example 1888888****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 05711234****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example 6badb397-a8b5-40b6-21019d382a09
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example 60ecb1a2-4480-4d01-bede-c5b7655bfadf
+     *
      * @var string
      */
     public $caseId;
 
     /**
+     * @example job-16976964500325****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @var string
+     */
+    public $criteria;
+
+    /**
+     * @example 1634115698291
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;
 
     /**
+     * @example 1634115688291
+     *
      * @var int
      */
     public $startTime;
@@ -80,6 +111,7 @@ class ListAttemptsRequest extends Model
         'campaignId' => 'CampaignId',
         'caseId'     => 'CaseId',
         'contactId'  => 'ContactId',
+        'criteria'   => 'Criteria',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
@@ -115,6 +147,9 @@ class ListAttemptsRequest extends Model
         }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->criteria) {
+            $res['Criteria'] = $this->criteria;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -166,6 +201,9 @@ class ListAttemptsRequest extends Model
         }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['Criteria'])) {
+            $model->criteria = $map['Criteria'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

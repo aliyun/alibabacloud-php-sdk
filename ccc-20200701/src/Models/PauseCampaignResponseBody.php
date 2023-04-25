@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PauseCampaignResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
@@ -24,6 +28,8 @@ class PauseCampaignResponseBody extends Model
     public $message;
 
     /**
+     * @example 4A68E287-6888-5ADB-8048-DB488B4DEF35
+     *
      * @var string
      */
     public $requestId;

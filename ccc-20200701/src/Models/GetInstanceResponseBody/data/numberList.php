@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class numberList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -20,16 +22,22 @@ class numberList extends Model
     public $city;
 
     /**
+     * @example 2ec7a58f-3243-4815-bb21-97b480b95f5e
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0830011****
+     *
      * @var string
      */
     public $number;
@@ -45,11 +53,15 @@ class numberList extends Model
     public $skillGroups;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

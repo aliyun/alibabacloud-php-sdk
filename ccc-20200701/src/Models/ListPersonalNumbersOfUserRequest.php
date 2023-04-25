@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListPersonalNumbersOfUserRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isMember;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0833
+     *
      * @var string
      */
     public $searchPattern;
 
     /**
+     * @example user-test@ccc-test
+     *
      * @var string
      */
     public $userId;

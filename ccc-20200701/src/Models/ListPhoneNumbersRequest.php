@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListPhoneNumbersRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0833
+     *
      * @var string
      */
     public $searchPattern;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;

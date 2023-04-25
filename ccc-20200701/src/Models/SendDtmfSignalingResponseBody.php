@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SendDtmfSignalingResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class SendDtmfSignalingResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class SendDtmfSignalingResponseBody extends Model
     public $params;
 
     /**
+     * @example 842399EC-7D32-4472-AD08-9504C3F141FF
+     *
      * @var string
      */
     public $requestId;

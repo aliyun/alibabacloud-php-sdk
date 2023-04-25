@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAudioFileDownloadUrlRequest extends Model
 {
     /**
+     * @example acc300c4-75c9-41ba-ba5e-2a365c96c248
+     *
      * @var string
      */
     public $audioResourceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

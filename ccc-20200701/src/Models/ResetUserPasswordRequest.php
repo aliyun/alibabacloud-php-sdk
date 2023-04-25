@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResetUserPasswordRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

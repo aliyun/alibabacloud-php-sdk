@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $displayId;
@@ -16,34 +18,56 @@ class ModifyUserRequest extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var bool
+     */
+    public $force;
+
+    /**
+     * @example ccc-test
+     *
+     * @var string
+     */
     public $instanceId;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example Admin@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example user-test@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'displayId'  => 'DisplayId',
-        'instanceId' => 'InstanceId',
-        'mobile'     => 'Mobile',
-        'roleId'     => 'RoleId',
-        'userId'     => 'UserId',
-        'workMode'   => 'WorkMode',
+        'displayId'   => 'DisplayId',
+        'displayName' => 'DisplayName',
+        'force'       => 'Force',
+        'instanceId'  => 'InstanceId',
+        'mobile'      => 'Mobile',
+        'roleId'      => 'RoleId',
+        'userId'      => 'UserId',
+        'workMode'    => 'WorkMode',
     ];
 
     public function validate()
@@ -55,6 +79,12 @@ class ModifyUserRequest extends Model
         $res = [];
         if (null !== $this->displayId) {
             $res['DisplayId'] = $this->displayId;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -85,6 +115,12 @@ class ModifyUserRequest extends Model
         $model = new self();
         if (isset($map['DisplayId'])) {
             $model->displayId = $map['DisplayId'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

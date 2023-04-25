@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigItemsRequest extends Model
 {
     /**
+     * @example [{"name":"ShowCalledID","value":"-1"},{"name":"ShowCalleeID","value":"1"},{"name":"AllowHangup","value":"0"},{"name":"AutoAnswerCall","value":"-1"},{"name":"AllowAudioDownload","value":"1"},{"name":"AllowChooseSignedSkillGroup","value":"1"}]
+     *
      * @var string
      */
     public $configItems;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $objectType;

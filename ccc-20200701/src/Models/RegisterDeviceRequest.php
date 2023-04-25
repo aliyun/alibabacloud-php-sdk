@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RegisterDeviceRequest extends Model
 {
     /**
+     * @example test-device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

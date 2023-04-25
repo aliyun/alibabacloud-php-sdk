@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class callContext extends Model
 {
     /**
+     * @example OUTBOUND
+     *
      * @var string
      */
     public $callType;
@@ -20,11 +22,15 @@ class callContext extends Model
     public $channelContexts;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6573574060089****
+     *
      * @var string
      */
     public $jobId;

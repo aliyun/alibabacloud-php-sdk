@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 15772400000****
+     *
      * @var int
      */
     public $aliyunUid;
@@ -19,26 +21,36 @@ class list_ extends Model
     public $displayName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $primary;
 
     /**
+     * @example 28036411123456****
+     *
      * @var string
      */
     public $ramId;

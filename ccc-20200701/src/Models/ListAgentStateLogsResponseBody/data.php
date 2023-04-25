@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 5903871
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example 1620259200000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example Break
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example CHECK_IN_BREAK
+     *
      * @var string
      */
     public $stateCode;

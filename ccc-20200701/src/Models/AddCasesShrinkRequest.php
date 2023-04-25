@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCasesShrinkRequest extends Model
 {
     /**
+     * @example c58b9719-3bc3-441d-a4d3-fc0309ef7066
+     *
      * @var string
      */
     public $campaignId;
@@ -19,6 +21,8 @@ class AddCasesShrinkRequest extends Model
     public $caseListShrink;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

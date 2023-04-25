@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartPrivacyCallResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example job-xxx
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -34,6 +40,8 @@ class StartPrivacyCallResponseBody extends Model
     public $params;
 
     /**
+     * @example 0630E5DF-CEB0-445B-8626-D5C7481181C3
+     *
      * @var string
      */
     public $requestId;

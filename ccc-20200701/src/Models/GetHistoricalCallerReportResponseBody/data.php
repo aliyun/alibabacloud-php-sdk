@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1646917200000
+     *
      * @var int
      */
     public $lastCallingTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCalls;

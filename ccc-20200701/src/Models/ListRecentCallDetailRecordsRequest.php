@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRecentCallDetailRecordsRequest extends Model
 {
     /**
+     * @example {"phoneNumber":"1312121****","callingNumber":"1312121****","calledNumber":"1312121****"}
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1604638129000
+     *
      * @var int
      */
     public $startTime;

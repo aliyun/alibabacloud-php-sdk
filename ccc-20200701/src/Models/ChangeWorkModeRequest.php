@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ChangeWorkModeRequest extends Model
 {
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -29,11 +33,15 @@ class ChangeWorkModeRequest extends Model
     public $signedSkillGroupIdList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

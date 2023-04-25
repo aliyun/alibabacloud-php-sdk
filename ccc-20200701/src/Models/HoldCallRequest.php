@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class HoldCallRequest extends Model
 {
     /**
+     * @example ch:customer:010123****->1318888****:1609255715825:job-6582589278232****
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6582589278232****
+     *
      * @var string
      */
     public $jobId;
@@ -34,6 +42,8 @@ class HoldCallRequest extends Model
     public $music;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ImportAdminsRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["26972543893791****"]
+     *
      * @var string
      */
     public $ramIdList;

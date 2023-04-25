@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $breakingAgents;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $interactiveCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $loggedInAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $longestWaitingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $readyAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $talkingAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $workingAgents;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneNumberRequest extends Model
 {
     /**
+     * @example 78128960-bb00-4ddc-8a82-923a8c5bd22d
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0102134****
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemovePersonalNumbersFromUserRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["0101234****", "0105678****"]
+     *
      * @var string
      */
     public $numberList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

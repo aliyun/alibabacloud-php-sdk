@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class eventSequence extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example Dialing
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $eventTime;

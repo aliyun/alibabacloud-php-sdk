@@ -14,6 +14,8 @@ class CreateCustomCallTaggingRequest extends Model
     public $customNumberList;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

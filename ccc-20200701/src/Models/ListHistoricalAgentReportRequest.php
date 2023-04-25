@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListHistoricalAgentReportRequest extends Model
 {
     /**
+     * @example ["agent1@ccc-test", "agent2@ccc-test"]
+     *
      * @var string
      */
     public $agentIdList;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 1532707199000
+     *
      * @var int
      */
     public $stopTime;

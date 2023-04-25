@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 8033****
+     *
      * @var string
      */
     public $deviceExt;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example OFFLINE
+     *
      * @var string
      */
     public $deviceState;
 
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $displayId;
@@ -36,21 +44,29 @@ class list_ extends Model
     public $displayName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 8031****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
@@ -61,21 +77,29 @@ class list_ extends Model
     public $personalOutboundNumberList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $primaryAccount;
 
     /**
+     * @example 21234502254620****
+     *
      * @var int
      */
     public $ramId;
 
     /**
+     * @example Admin@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $roleName;
@@ -86,11 +110,15 @@ class list_ extends Model
     public $skillLevelList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

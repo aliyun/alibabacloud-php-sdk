@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListIntervalInstanceReportRequest extends Model
 {
     /**
+     * @example 1620316799000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Hourly
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example 1620230400000
+     *
      * @var int
      */
     public $startTime;

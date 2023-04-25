@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveWebRtcInfoResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,21 +28,29 @@ class SaveWebRtcInfoResponseBody extends Model
     public $message;
 
     /**
+     * @example CF1C21B9-2D49-4B54-880F-FBE248C16903
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rowCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1647262108395
+     *
      * @var int
      */
     public $timeStamp;

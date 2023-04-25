@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class callTagList extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example TagA
+     *
      * @var string
      */
     public $tagName;

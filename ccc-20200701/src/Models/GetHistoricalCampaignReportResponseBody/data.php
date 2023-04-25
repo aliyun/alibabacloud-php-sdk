@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0.10
+     *
      * @var float
      */
     public $abandonedRate;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $callsAbandoned;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $callsConnected;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $callsDialed;
 
     /**
+     * @example 0.50
+     *
      * @var float
      */
     public $connectedRate;
 
     /**
+     * @example 0.50
+     *
      * @var float
      */
     public $occupancyRate;

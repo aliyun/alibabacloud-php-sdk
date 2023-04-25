@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListAgentStateLogsRequest extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example 1620273600000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1620230400000
+     *
      * @var int
      */
     public $startTime;

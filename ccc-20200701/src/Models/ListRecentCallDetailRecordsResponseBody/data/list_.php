@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentIds;
 
     /**
+     * @example 16
+     *
      * @var string
      */
     public $callDuration;
 
     /**
+     * @example 1332315****
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 0533128****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $contactDisposition;
 
     /**
+     * @example job-7660472242845****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupIds;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $startTime;

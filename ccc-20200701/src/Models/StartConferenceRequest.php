@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartConferenceRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["8045****","1317511****"]
+     *
      * @var string
      */
     public $participantListJson;
@@ -24,11 +28,15 @@ class StartConferenceRequest extends Model
     public $tags;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

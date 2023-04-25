@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAudioFileResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class DeleteAudioFileResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +33,8 @@ class DeleteAudioFileResponseBody extends Model
     public $message;
 
     /**
+     * @example FB77821C-912F-57FF-8834-6336A6479093
+     *
      * @var string
      */
     public $requestId;

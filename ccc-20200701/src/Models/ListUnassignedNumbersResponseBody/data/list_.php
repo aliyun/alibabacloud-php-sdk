@@ -14,6 +14,8 @@ class list_ extends Model
     public $city;
 
     /**
+     * @example 08330011****
+     *
      * @var string
      */
     public $number;

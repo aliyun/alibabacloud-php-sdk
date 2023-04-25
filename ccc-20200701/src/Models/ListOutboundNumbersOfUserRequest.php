@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListOutboundNumbersOfUserRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+     *
      * @var string
      */
     public $skillGroupIdList;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

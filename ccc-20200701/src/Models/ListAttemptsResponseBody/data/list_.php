@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 1632883592732
+     *
      * @var int
      */
     public $agentEstablishedTime;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $agentRingDuration;
 
     /**
+     * @example 1634196287869
+     *
      * @var int
      */
     public $assignAgentTime;
 
     /**
+     * @example job-1704342174816****
+     *
      * @var string
      */
     public $attemptId;
 
     /**
+     * @example 1888888****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 05711234****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example 083046e3-5822-4cda-9b84-04f2a02eb605
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example 21d194a7-60b7-4824-932b-48ed03a83704
+     *
      * @var string
      */
     public $caseId;
 
     /**
+     * @example job-1704342174816****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example 1634196286708
+     *
      * @var int
      */
     public $customerEstablishedTime;
 
     /**
+     * @example 1634196317888
+     *
      * @var int
      */
     public $customerReleasedTime;
 
     /**
+     * @example 2734
+     *
      * @var int
      */
     public $dialDuration;
 
     /**
+     * @example 1634196283974
+     *
      * @var int
      */
     public $dialTime;
 
     /**
+     * @example 1634196287789
+     *
      * @var int
      */
     public $enqueueTime;
 
     /**
+     * @example 1634196286740
+     *
      * @var int
      */
     public $enterIvrTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1049
+     *
      * @var int
      */
     public $ivrDuration;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $queueDuration;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;

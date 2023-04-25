@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +34,15 @@ class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
     public $pagedSkillGroupSummaryReport;
 
     /**
+     * @example 2B36CEBC-6D11-5451-9E6B-C6D1927841C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

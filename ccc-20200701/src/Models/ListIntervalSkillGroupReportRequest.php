@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListIntervalSkillGroupReportRequest extends Model
 {
     /**
+     * @example 1604725528000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Hourly
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example skg-default@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $startTime;

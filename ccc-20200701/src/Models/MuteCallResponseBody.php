@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MuteCallResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class MuteCallResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class MuteCallResponseBody extends Model
     public $params;
 
     /**
+     * @example A275B008-A25B-494D-AB53-93CE253815B6
+     *
      * @var string
      */
     public $requestId;

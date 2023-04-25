@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class StartBack2BackCallRequest extends Model
 {
     /**
+     * @example 0102156****
+     *
      * @var string
      */
     public $additionalBroker;
 
     /**
+     * @example 0102157****
+     *
      * @var string
      */
     public $broker;
 
     /**
+     * @example 1372168****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 1391814****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +49,8 @@ class StartBack2BackCallRequest extends Model
     public $tags;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $timeoutSeconds;

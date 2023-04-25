@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 456328****
+     *
      * @var string
      */
     public $acid;
 
     /**
+     * @example 8012****
+     *
      * @var string
      */
     public $ani;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $answerPhone;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $answerTime;
@@ -34,6 +42,8 @@ class list_ extends Model
     public $cause;
 
     /**
+     * @example 1312211****
+     *
      * @var string
      */
     public $dnis;
@@ -41,19 +51,32 @@ class list_ extends Model
     /**
      * @var int
      */
+    public $id;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
     public $queueTime;
 
     /**
+     * @example 2021-12-03T10:15:30
+     *
      * @var string
      */
     public $statisticDate;
 
     /**
+     * @example acc3733
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $vq;
@@ -64,6 +87,7 @@ class list_ extends Model
         'answerTime'    => 'AnswerTime',
         'cause'         => 'Cause',
         'dnis'          => 'Dnis',
+        'id'            => 'Id',
         'queueTime'     => 'QueueTime',
         'statisticDate' => 'StatisticDate',
         'tenantId'      => 'TenantId',
@@ -94,6 +118,9 @@ class list_ extends Model
         }
         if (null !== $this->dnis) {
             $res['Dnis'] = $this->dnis;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->queueTime) {
             $res['QueueTime'] = $this->queueTime;
@@ -136,6 +163,9 @@ class list_ extends Model
         }
         if (isset($map['Dnis'])) {
             $model->dnis = $map['Dnis'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['QueueTime'])) {
             $model->queueTime = $map['QueueTime'];

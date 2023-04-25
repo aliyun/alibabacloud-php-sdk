@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateCampaignRequest extends Model
 {
     /**
+     * @example [{"beginTime":"00:00:00","endTime":"23:00:00" }]
+     *
      * @var string
      */
     public $callableTime;
 
     /**
+     * @example ccc-test/namelist.csv
+     *
      * @var string
      */
     public $caseFileKey;
@@ -25,36 +29,55 @@ class CreateCampaignRequest extends Model
     public $caseList;
 
     /**
+     * @example c1f2bc75-422e-43c7-9c9d9d95633a
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example 1634313600000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $executingUntilTimeout;
+
+    /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxAttemptCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minAttemptInterval;
 
     /**
+     * @example test-campaign
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;
@@ -70,35 +93,42 @@ class CreateCampaignRequest extends Model
     public $simulationParameters;
 
     /**
+     * @example 1634140800000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example {"ratio":1}
+     *
      * @var string
      */
     public $strategyParameters;
 
     /**
+     * @example PACING
+     *
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'callableTime'         => 'CallableTime',
-        'caseFileKey'          => 'CaseFileKey',
-        'caseList'             => 'CaseList',
-        'contactFlowId'        => 'ContactFlowId',
-        'endTime'              => 'EndTime',
-        'instanceId'           => 'InstanceId',
-        'maxAttemptCount'      => 'MaxAttemptCount',
-        'minAttemptInterval'   => 'MinAttemptInterval',
-        'name'                 => 'Name',
-        'queueId'              => 'QueueId',
-        'simulation'           => 'Simulation',
-        'simulationParameters' => 'SimulationParameters',
-        'startTime'            => 'StartTime',
-        'strategyParameters'   => 'StrategyParameters',
-        'strategyType'         => 'StrategyType',
+        'callableTime'          => 'CallableTime',
+        'caseFileKey'           => 'CaseFileKey',
+        'caseList'              => 'CaseList',
+        'contactFlowId'         => 'ContactFlowId',
+        'endTime'               => 'EndTime',
+        'executingUntilTimeout' => 'ExecutingUntilTimeout',
+        'instanceId'            => 'InstanceId',
+        'maxAttemptCount'       => 'MaxAttemptCount',
+        'minAttemptInterval'    => 'MinAttemptInterval',
+        'name'                  => 'Name',
+        'queueId'               => 'QueueId',
+        'simulation'            => 'Simulation',
+        'simulationParameters'  => 'SimulationParameters',
+        'startTime'             => 'StartTime',
+        'strategyParameters'    => 'StrategyParameters',
+        'strategyType'          => 'StrategyType',
     ];
 
     public function validate()
@@ -128,6 +158,9 @@ class CreateCampaignRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->executingUntilTimeout) {
+            $res['ExecutingUntilTimeout'] = $this->executingUntilTimeout;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -191,6 +224,9 @@ class CreateCampaignRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExecutingUntilTimeout'])) {
+            $model->executingUntilTimeout = $map['ExecutingUntilTimeout'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

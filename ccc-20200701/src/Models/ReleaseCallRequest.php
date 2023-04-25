@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ReleaseCallRequest extends Model
 {
     /**
+     * @example ch:user:1390501****->8032****:1609138902226:job-6538214103685****
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

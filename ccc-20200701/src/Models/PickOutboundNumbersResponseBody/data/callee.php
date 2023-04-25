@@ -14,6 +14,8 @@ class callee extends Model
     public $city;
 
     /**
+     * @example 1388888****
+     *
      * @var string
      */
     public $number;

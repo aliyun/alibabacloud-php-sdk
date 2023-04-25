@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example CUSTOM_NUMBER_DUPLICATED
+     *
      * @var string
      */
     public $reason;

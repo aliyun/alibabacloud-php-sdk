@@ -9,111 +9,155 @@ use AlibabaCloud\Tea\Model;
 class overall extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageBreakTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageHoldTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageReadyTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxBreakTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxReadyTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $occupancyRate;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalBreakTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalLoggedInTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalReadyTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

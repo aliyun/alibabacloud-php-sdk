@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TakeBreakResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class TakeBreakResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class TakeBreakResponseBody extends Model
     public $params;
 
     /**
+     * @example B59382D2-5755-4C6D-861F-FA2AAD8F89F7
+     *
      * @var string
      */
     public $requestId;

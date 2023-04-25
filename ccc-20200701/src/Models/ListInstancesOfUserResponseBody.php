@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesOfUserResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListInstancesOfUserResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListInstancesOfUserResponseBody extends Model
     public $message;
 
     /**
+     * @example 3969FC68-CEC2-4398-B76A-60D2F7EDEBAF
+     *
      * @var string
      */
     public $requestId;

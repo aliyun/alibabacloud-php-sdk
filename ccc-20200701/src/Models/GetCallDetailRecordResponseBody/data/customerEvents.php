@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class customerEvents extends Model
 {
     /**
+     * @example 1332315****
+     *
      * @var string
      */
     public $customerId;

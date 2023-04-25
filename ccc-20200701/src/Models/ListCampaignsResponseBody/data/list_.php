@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 1634008800000
+     *
      * @var int
      */
     public $actualEndTime;
 
     /**
+     * @example 1634000460000
+     *
      * @var int
      */
     public $actualStartTime;
 
     /**
+     * @example 6badb397-a8b5-40b6-21019d382a09
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $casesAborted;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $casesConnected;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $casesUncompleted;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxAttemptCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minAttemptInterval;
 
     /**
+     * @example test-campaign
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1634054400000
+     *
      * @var int
      */
     public $planedEndTime;
 
     /**
+     * @example 1633968000000
+     *
      * @var int
      */
     public $planedStartTime;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $queueId;
@@ -74,26 +98,36 @@ class list_ extends Model
     public $queueName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $simulation;
 
     /**
+     * @example Completed
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example {"ratio":1}
+     *
      * @var string
      */
     public $strategyParameters;
 
     /**
+     * @example PACING
+     *
      * @var string
      */
     public $strategyType;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCases;

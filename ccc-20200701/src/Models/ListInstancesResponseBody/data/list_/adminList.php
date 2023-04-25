@@ -14,46 +14,64 @@ class adminList extends Model
     public $displayName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 8032****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example Admin@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

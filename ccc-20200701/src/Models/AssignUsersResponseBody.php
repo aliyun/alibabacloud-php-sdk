@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AssignUsersResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1ca2b084-6f0a-454b-9851-29768a9a5832
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,11 +35,15 @@ class AssignUsersResponseBody extends Model
     public $message;
 
     /**
+     * @example EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1ca2b084-6f0a-454b-9851-29768a9a5832
+     *
      * @var string
      */
     public $workflowId;

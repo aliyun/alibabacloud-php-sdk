@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceTrendingReportRequest extends Model
 {
     /**
+     * @example 1604725528000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $startTime;

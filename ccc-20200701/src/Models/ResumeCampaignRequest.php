@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResumeCampaignRequest extends Model
 {
     /**
+     * @example 6badb397-a8b5-40b6-21019d382a09
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

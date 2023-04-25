@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRolesResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListRolesResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListRolesResponseBody extends Model
     public $message;
 
     /**
+     * @example 711D948F-C616-4E23-8573-0F260513CE09
+     *
      * @var string
      */
     public $requestId;

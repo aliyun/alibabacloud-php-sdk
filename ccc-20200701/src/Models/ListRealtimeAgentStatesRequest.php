@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListRealtimeAgentStatesRequest extends Model
 {
     /**
+     * @example ["agent1@ccc-test", "agent2@ccc-test"]
+     *
      * @var string
      */
     public $agentIdList;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $agentName;
 
     /**
+     * @example ["INBOUND", "OUTBOUND"]
+     *
      * @var string
      */
     public $callTypeList;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example ["ACW", "Dialing"]
+     *
      * @var string
      */
     public $stateList;
 
     /**
+     * @example ["OFFICE_PHONE","ON_SITE"]
+     *
      * @var string
      */
     public $workModeList;

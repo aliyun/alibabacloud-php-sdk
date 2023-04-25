@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExportDoNotCallNumbersRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example RemarkA
+     *
      * @var string
      */
     public $searchPattern;

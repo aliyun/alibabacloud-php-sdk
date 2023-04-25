@@ -4,22 +4,26 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RedialCallResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListSipTracesResponseBody extends Model
+class RedialCallResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,13 @@ class ListSipTracesResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
+     * @example BF268B34-09C2-43FD-BAC4-5D31EA63****
+     *
      * @var string
      */
     public $requestId;
@@ -38,6 +49,7 @@ class ListSipTracesResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -52,19 +64,16 @@ class ListSipTracesResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -76,7 +85,7 @@ class ListSipTracesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListSipTracesResponseBody
+     * @return RedialCallResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -85,19 +94,18 @@ class ListSipTracesResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AddPhoneNumbersRequest extends Model
 {
     /**
+     * @example dDMD_0mif4hv
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2cb77c29-5f60-4b90-b21e-9d2ba9833f14
+     *
      * @var string
      */
     public $numberGroupId;
 
     /**
+     * @example ["0101234****", "0105678****"]
+     *
      * @var string
      */
     public $numberList;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;

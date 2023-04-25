@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeWorkModeResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ChangeWorkModeResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class ChangeWorkModeResponseBody extends Model
     public $params;
 
     /**
+     * @example 87731ED1-6224-48A5-99E3-6237FF9B1C00
+     *
      * @var string
      */
     public $requestId;

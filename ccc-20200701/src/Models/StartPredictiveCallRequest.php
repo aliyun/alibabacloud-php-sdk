@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartPredictiveCallRequest extends Model
 {
     /**
+     * @example 1312353****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 0109810****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example 9774c36c-12fe-4e37-adce-89bc77ce****
+     *
      * @var string
      */
     public $contactFlowId;
@@ -29,16 +35,22 @@ class StartPredictiveCallRequest extends Model
     public $contactFlowVariables;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1312353****
+     *
      * @var string
      */
     public $maskedCallee;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
@@ -49,6 +61,8 @@ class StartPredictiveCallRequest extends Model
     public $tags;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeoutSeconds;

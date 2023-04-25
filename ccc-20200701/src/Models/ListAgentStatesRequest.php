@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListAgentStatesRequest extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $excludeOfflineUsers;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $state;

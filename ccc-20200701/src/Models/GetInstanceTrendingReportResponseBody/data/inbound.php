@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class inbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInIVR;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInQueue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAbandonedInRing;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHandled;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsQueued;
 
     /**
+     * @example 1604639129000
+     *
      * @var int
      */
     public $statsTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalCalls;

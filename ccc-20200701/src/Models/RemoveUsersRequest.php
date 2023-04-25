@@ -9,15 +9,25 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["agent1@ccc-test","agent2@ccc-test"]
+     *
      * @var string
      */
     public $userIdList;
     protected $_name = [
+        'force'      => 'Force',
         'instanceId' => 'InstanceId',
         'userIdList' => 'UserIdList',
     ];
@@ -29,6 +39,9 @@ class RemoveUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,6 +60,9 @@ class RemoveUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -19,26 +19,36 @@ class list_ extends Model
     public $displayName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $phoneNumberCount;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $skillGroupName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $userCount;

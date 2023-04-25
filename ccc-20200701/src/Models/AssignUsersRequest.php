@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AssignUsersRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["28036411123456****","29234301123456****"]
+     *
      * @var string
      */
     public $ramIdList;
 
     /**
+     * @example Agent@ccc-test
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @example [{"skillGroupId":"skillgroup@ccc-test","skillLevel":5}]
+     *
      * @var string
      */
     public $skillLevelList;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

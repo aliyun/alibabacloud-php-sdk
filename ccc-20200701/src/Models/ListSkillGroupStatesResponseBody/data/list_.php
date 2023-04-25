@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $averageWaitingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $breakingAgents;
@@ -24,21 +28,29 @@ class list_ extends Model
     public $inboundTalkingAgents;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $loggedInAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $longestCall;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $outboundScenarioReadyAgents;
@@ -49,11 +61,15 @@ class list_ extends Model
     public $outboundTalkingAgents;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $readyAgents;
 
     /**
+     * @example skillgroup1@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
@@ -64,31 +80,43 @@ class list_ extends Model
     public $skillGroupName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $talkingAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel10;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel30;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $workingAgents;

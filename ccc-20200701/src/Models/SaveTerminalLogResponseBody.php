@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveTerminalLogResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,16 +28,22 @@ class SaveTerminalLogResponseBody extends Model
     public $message;
 
     /**
+     * @example BA03159C-E808-4FF1-B27E-A61B6E888D7F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1647309061000
+     *
      * @var int
      */
     public $timeStamp;

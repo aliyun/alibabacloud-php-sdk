@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
@@ -19,36 +21,50 @@ class data extends Model
     public $agentName;
 
     /**
+     * @example job-25920271311543****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example 5903871
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.wav
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://ccc-v2-shanghai.oss-cn-shanghai.aliyuncs.com/ccc-test/job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.wav?Expires=1657014031&OSSAccessKeyId=****&Signature=****
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 26972543893791****
+     *
      * @var string
      */
     public $ramId;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example 1620259200000
+     *
      * @var string
      */
     public $startTime;

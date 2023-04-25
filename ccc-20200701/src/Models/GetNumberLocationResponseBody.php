@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetNumberLocationResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class GetNumberLocationResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class GetNumberLocationResponseBody extends Model
     public $message;
 
     /**
+     * @example 584AA2E3-9AC4-561B-BC8D-C74BA11B1387
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class HoldCallResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class HoldCallResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -35,6 +39,8 @@ class HoldCallResponseBody extends Model
     public $params;
 
     /**
+     * @example 174F7777-2F6C-4F10-B889-C698E26C1AE0
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalInstanceReportRequest extends Model
 {
     /**
+     * @example 1532707199000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1532448000000
+     *
      * @var int
      */
     public $startTime;

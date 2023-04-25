@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAudioFileResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class ModifyAudioFileResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +33,8 @@ class ModifyAudioFileResponseBody extends Model
     public $message;
 
     /**
+     * @example D2F84AAC-7C79-547F-8EE9-7B735F42B93F
+     *
      * @var string
      */
     public $requestId;

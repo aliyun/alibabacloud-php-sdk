@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddSkillGroupsToUserResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -24,6 +28,8 @@ class AddSkillGroupsToUserResponseBody extends Model
     public $message;
 
     /**
+     * @example BA7F9545-8312-4190-9BD0-63144B3F1ACC
+     *
      * @var string
      */
     public $requestId;

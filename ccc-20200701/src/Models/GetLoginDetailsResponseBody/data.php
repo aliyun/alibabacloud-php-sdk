@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example sh-wss-ccc.aliyuncs.com
+     *
      * @var string
      */
     public $agentServerUrl;
 
     /**
+     * @example 8033****
+     *
      * @var string
      */
     public $deviceExt;
 
     /**
+     * @example Yealink SIP-T23G 44.84.XX.XX
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example OFFLINE
+     *
      * @var string
      */
     public $deviceState;
@@ -34,26 +42,36 @@ class data extends Model
     public $displayName;
 
     /**
+     * @example 8001****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example zi31STIMtIfa/UN2l+6lww****
+     *
      * @var string
      */
     public $signature;
 
     /**
+     * @example zi31STIMtIfa/UN2l+6lww****
+     *
      * @var string
      */
     public $signature2;
 
     /**
+     * @example sh-sip-ccc.aliyuncs.com:443
+     *
      * @var string
      */
     public $sipServerUrl;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
@@ -64,11 +82,15 @@ class data extends Model
     public $userKey;
 
     /**
+     * @example 802001:1656406628862"
+     *
      * @var string
      */
     public $userKey2;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

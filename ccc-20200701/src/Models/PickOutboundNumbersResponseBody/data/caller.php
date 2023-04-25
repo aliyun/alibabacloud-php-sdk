@@ -14,6 +14,8 @@ class caller extends Model
     public $city;
 
     /**
+     * @example 0108989****
+     *
      * @var string
      */
     public $number;

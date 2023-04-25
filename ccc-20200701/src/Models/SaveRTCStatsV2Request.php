@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveRTCStatsV2Request extends Model
 {
     /**
+     * @example 257e73de-1ee8-123b-0b9a-00163e0a****
+     *
      * @var string
      */
     public $callId;
@@ -19,21 +21,29 @@ class SaveRTCStatsV2Request extends Model
     public $generalInfo;
 
     /**
+     * @example ["47.101.XX.XX","44368","47.104.XX.XX","37947"]
+     *
      * @var string
      */
     public $googAddress;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["1","1649328987","40","PCMU","383560","89","49","ssrc_1649328987_recv","2022-03-15T09:52:08.820Z","","0","20000"]
+     *
      * @var string
      */
     public $receiverReport;
 
     /**
+     * @example ["11090","2055127460","0","2236","384592","ssrc_2055127460_send","2022-03-15T09:52:08.820Z","1"]
+     *
      * @var string
      */
     public $senderReport;

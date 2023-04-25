@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class MonitorCallRequest extends Model
 {
     /**
+     * @example device
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example agent2@ccc-test
+     *
      * @var string
      */
     public $monitoredUserId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $timeoutSeconds;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

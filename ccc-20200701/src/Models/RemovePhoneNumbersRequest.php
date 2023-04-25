@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemovePhoneNumbersRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["0101234****","0105678****"]
+     *
      * @var string
      */
     public $numberList;

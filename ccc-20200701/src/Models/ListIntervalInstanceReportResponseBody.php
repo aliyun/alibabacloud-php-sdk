@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListIntervalInstanceReportResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListIntervalInstanceReportResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListIntervalInstanceReportResponseBody extends Model
     public $message;
 
     /**
+     * @example 943D8EF3-3321-471F-A104-51C96FCA94D6
+     *
      * @var string
      */
     public $requestId;

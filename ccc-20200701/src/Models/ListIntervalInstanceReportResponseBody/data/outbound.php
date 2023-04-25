@@ -9,131 +9,183 @@ use AlibabaCloud\Tea\Model;
 class outbound extends Model
 {
     /**
+     * @example 0
+     *
      * @var float
      */
     public $answerRate;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageDialingTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageHoldTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageRingTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageTalkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $averageWorkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAnswered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsAttendedTransferred;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsBlindTransferred;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsDialed;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsHold;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $callsRinged;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxDialingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxWorkTime;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $satisfactionRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalDialingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalHoldTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalRingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalTalkTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalWorkTime;

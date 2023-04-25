@@ -19,11 +19,15 @@ class CreateSkillGroupRequest extends Model
     public $displayName;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example skillgroup
+     *
      * @var string
      */
     public $name;

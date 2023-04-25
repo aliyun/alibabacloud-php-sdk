@@ -17,6 +17,8 @@ class list_ extends Model
     public $inbound;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -32,6 +34,8 @@ class list_ extends Model
     public $overall;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
@@ -42,6 +46,8 @@ class list_ extends Model
     public $skillGroupName;
 
     /**
+     * @example 2018-09-13 00:00:00
+     *
      * @var string
      */
     public $timestamp;

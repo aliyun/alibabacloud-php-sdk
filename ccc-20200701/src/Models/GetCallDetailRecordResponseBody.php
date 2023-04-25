@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCallDetailRecordResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class GetCallDetailRecordResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class GetCallDetailRecordResponseBody extends Model
     public $message;
 
     /**
+     * @example 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+     *
      * @var string
      */
     public $requestId;

@@ -16,6 +16,8 @@ class data extends Model
     public $callContext;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $contextId;

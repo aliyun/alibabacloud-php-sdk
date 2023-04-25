@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRealtimeInstanceStatesRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;

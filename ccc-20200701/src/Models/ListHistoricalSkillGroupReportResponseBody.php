@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListHistoricalSkillGroupReportResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListHistoricalSkillGroupReportResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,6 +34,8 @@ class ListHistoricalSkillGroupReportResponseBody extends Model
     public $message;
 
     /**
+     * @example 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+     *
      * @var string
      */
     public $requestId;

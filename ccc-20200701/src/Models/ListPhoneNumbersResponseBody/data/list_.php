@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -20,6 +22,8 @@ class list_ extends Model
     public $city;
 
     /**
+     * @example a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
+     *
      * @var string
      */
     public $contactFlowId;
@@ -30,21 +34,29 @@ class list_ extends Model
     public $contactFlowName;
 
     /**
+     * @example 1617958538000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 08330011****
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example alicom
+     *
      * @var string
      */
     public $provider;
@@ -60,16 +72,22 @@ class list_ extends Model
     public $skillGroups;
 
     /**
+     * @example M1
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class agentEvents extends Model
 {
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $agentId;
@@ -25,6 +27,8 @@ class agentEvents extends Model
     public $eventSequence;
 
     /**
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;

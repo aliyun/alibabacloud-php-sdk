@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLegacyQueueEventLogsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class ListLegacyQueueEventLogsResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +34,15 @@ class ListLegacyQueueEventLogsResponseBody extends Model
     public $message;
 
     /**
+     * @example 1A5A8998-41F9-5F85-BFCF-EB2B6E376812
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

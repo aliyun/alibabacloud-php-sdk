@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveDoNotCallNumbersRequest extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["1900000****","1312211****"]
+     *
      * @var string
      */
     public $numberList;
