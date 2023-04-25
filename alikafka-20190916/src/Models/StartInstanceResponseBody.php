@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

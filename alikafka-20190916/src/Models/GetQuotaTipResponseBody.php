@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaTipResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional message. This message is typically used to describe API call failures for troubleshooting.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The quota.
+     *
      * @var quotaData
      */
     public $quotaData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0178A3A7-E87B-5E50-A16F-3E62F534****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

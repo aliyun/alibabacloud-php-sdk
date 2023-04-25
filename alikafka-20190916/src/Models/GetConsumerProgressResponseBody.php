@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerProgressResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The time when the last message consumed by the consumer group was generated.
+     *
      * @var consumerProgress
      */
     public $consumerProgress;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example 252820E1-A2E6-45F2-B4C9-1056B8CE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The consumption status of the consumer group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

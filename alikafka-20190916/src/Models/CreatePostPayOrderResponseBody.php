@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreatePostPayOrderResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 20497346575****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 06084011-E093-46F3-A51F-4B19A8AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class internetList extends Model
 {
     /**
+     * @description The IP address whitelist group.
+     *
      * @var string[]
      */
     public $allowedIpGroup;
@@ -19,6 +21,12 @@ class internetList extends Model
     public $allowedIpList;
 
     /**
+     * @description The port range. Valid values:
+     *
+     **9093/9093**.
+     *
+     * @example 9093/9093
+     *
      * @var string
      */
     public $portRange;

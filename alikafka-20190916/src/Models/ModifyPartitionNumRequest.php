@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyPartitionNumRequest extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $addPartitionNum;
 
     /**
+     * @example alikafka_post-cn-0pp1l9z****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example TopicPartitionNum
+     *
      * @var string
      */
     public $topic;

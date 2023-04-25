@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E57A8862-DF68-4055-8E55-B80CB4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

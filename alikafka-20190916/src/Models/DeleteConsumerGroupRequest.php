@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupRequest extends Model
 {
     /**
+     * @description The name of the consumer group.
+     *
+     * @example CID-test
+     *
      * @var string
      */
     public $consumerId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

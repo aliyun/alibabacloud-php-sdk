@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateSaslUserResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example C5CA600C-7D5A-45B5-B6DB-44FAC2C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

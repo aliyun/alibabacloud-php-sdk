@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeNodeStatusResponse extends Model
+class UpdateConsumerOffsetResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeNodeStatusResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeNodeStatusResponseBody
+     * @var UpdateConsumerOffsetResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeNodeStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeNodeStatusResponse
+     * @return UpdateConsumerOffsetResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeNodeStatusResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeNodeStatusResponseBody::fromMap($map['body']);
+            $model->body = UpdateConsumerOffsetResponseBody::fromMap($map['body']);
         }
 
         return $model;

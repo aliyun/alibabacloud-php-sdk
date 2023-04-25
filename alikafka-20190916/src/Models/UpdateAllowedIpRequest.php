@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateAllowedIpRequest extends Model
 {
     /**
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $allowedListIp;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $allowedListType;
 
     /**
+     * @example tf-testAccEcsImageConfigBasic3549descriptionChange
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example alikafka_pre-cn-0pp1cng20***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 9092/9092
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example add
+     *
      * @var string
      */
     public $updateType;

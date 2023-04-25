@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag that is attached to the resource.
+     *
+     *   If this parameter is left empty, all tag keys are matched.
+     *   A tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *
+     * @example test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that is attached to the resource.
+     *
+     *   If the Key parameter is left empty, this parameter must be left empty. If this parameter is left empty, all tag values are matched.
+     *   A tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

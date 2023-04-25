@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpgradePrePayOrderResponseBody extends Model
 {
     /**
+     * @description Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description 261860
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

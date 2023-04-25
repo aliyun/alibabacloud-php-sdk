@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class saslUserVO extends Model
 {
     /**
+     * @example ******
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example scram
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example test12***
+     *
      * @var string
      */
     public $username;

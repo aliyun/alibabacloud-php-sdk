@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceConfigRequest extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example {"kafka.log.retention.hours":"33"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The message returned.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,46 +10,109 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRequest extends Model
 {
     /**
+     * @description The number of replicas for the topic.
+     *
+     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
+     *   Valid values: 1 to 3.
+     *
+     * > If you set this parameter to **1**, the risk of data loss increases. Exercise caution when you configure this parameter.
+     * @example false
+     *
      * @var bool
      */
     public $compactTopic;
 
     /**
-     * @var mixed[]
+     * @description The status code returned. The status code 200 indicates that the request is successful.
+     *
+     * @example {"replications": 3}
+     *
+     * @var string
      */
     public $config;
 
     /**
+     * @description The region ID of the instance in which you want to create a topic.
+     *
+     * @example alikafka_pre-cn-mp919o4v****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Additional configurations.
+     *
+     *   The value of this parameter must be in JSON format.
+     *   The key must be **replications**. The value specifies the number of replicas for the topic. The value must be an integer that ranges from 1 to 3.
+     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
+     *
+     * > If you configure this parameter, the **ReplicationFactor** parameter does not take effect.
+     * @example false
+     *
      * @var bool
      */
     public $localTopic;
 
     /**
+     * @description The value of tag N to add to the resource.
+     *
+     *   Valid values of N: 1 to 20.
+     *   This parameter can be left empty.
+     *   A tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minInsyncReplicas;
 
     /**
+     * @description The minimum number of in-sync replicas (ISRs).
+     *
+     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
+     *   The value of this parameter must be smaller than the value of the ReplicationFactor parameter.
+     *   Valid values: 1 to 3.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $partitionNum;
 
     /**
+     * @description Specifies whether the topic uses local storage. Valid values:
+     *
+     *   false: The topic uses cloud storage.
+     *   true: The topic uses local storage.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of partitions in the topic.
+     *
+     *   Valid values: 1 to 360.
+     *   In the Message Queue for Apache Kafka console, you can view the number of partitions that the system recommends based on the specification of the instance. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
+     *
+     * @example alikafka_topic_test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The key of tag N to add to the resource.
+     *
+     *   Valid values of N: 1 to 20.
+     *   If this parameter is left empty, the keys of all tags are matched.
+     *   A tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *
+     * @example 3
+     *
      * @var int
      */
     public $replicationFactor;
@@ -60,6 +123,13 @@ class CreateTopicRequest extends Model
     public $tag;
 
     /**
+     * @description The log cleanup policy that is used for the topic. This parameter is available only when the LocalTopic parameter is set to true. Valid values:
+     *
+     *   false: The topic uses the delete policy.
+     *   true: The topic uses the compact policy.
+     *
+     * @example alikafka_topic_test
+     *
      * @var string
      */
     public $topic;

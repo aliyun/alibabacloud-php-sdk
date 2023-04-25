@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateSaslUserRequest extends Model
 {
     /**
+     * @example alikafka_pre-cn-v0h1cng0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 12***
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example plain
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example test***
+     *
      * @var string
      */
     public $username;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example 06084011-E093-46F3-A51F-4B19A8AD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deletes a topic.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -19,6 +19,12 @@ class vpcList extends Model
     public $allowedIpList;
 
     /**
+     * @description The port range. Valid values:
+     *
+     **9092/9092**.
+     *
+     * @example 9092/9092
+     *
      * @var string
      */
     public $portRange;

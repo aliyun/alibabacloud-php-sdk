@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteSaslUserResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example 3CB89F5C-CD97-4C1D-BC7C-FEDEC2F4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deletes a Simple Authentication and Security Layer (SASL) user.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

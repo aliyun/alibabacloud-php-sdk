@@ -11,16 +11,28 @@ use AlibabaCloud\Tea\Model;
 class allowedList extends Model
 {
     /**
+     * @description The deployment mode of the instance. Valid values:
+     *
+     *   **4**: allows access from the Internet and a virtual private cloud (VPC).
+     *   **5**: allows access from a VPC.
+     *
+     * >  Only integrators need to concern themselves with the value of this parameter.
+     * @example 4
+     *
      * @var int
      */
     public $deployType;
 
     /**
+     * @description The whitelist for access from the Internet.
+     *
      * @var internetList[]
      */
     public $internetList;
 
     /**
+     * @description The whitelist for access from a VPC.
+     *
      * @var vpcList[]
      */
     public $vpcList;

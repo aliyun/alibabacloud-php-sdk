@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetAllInstanceIdListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example [{"cn-shenzhen": ["alikafka_post-cn-7pp2btvo****"],"us-west-1": ["alikafka_pre-cn-i7m2lxid****"],"cn-hangzhou": ["alikafka_pre-cn-i7m2hflj****","alikafka_pre-cn-zvp2hsje****","alikafka_pre-cn-zvp2kvc9****"]}]
+     *
      * @var mixed[]
      */
     public $instanceIds;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

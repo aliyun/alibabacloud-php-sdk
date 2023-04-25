@@ -10,60 +10,122 @@ use AlibabaCloud\Tea\Model;
 class topicVO extends Model
 {
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $autoCreate;
+
+    /**
+     * @description The region ID of the instance whose topics were queried.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $compactTopic;
 
     /**
+     * @description Running
+     *
+     * @example 1576563109000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The tags.
+     *
+     * @example alikafka_pre-cn-0pp1954n****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $localTopic;
 
     /**
+     * @description The name of the topic. Valid values:
+     *
+     *   The name contains only letters, digits, hyphens (-), and underscores (\_).
+     *   The name is 3 to 64 characters in length. If the name that you specified contains more than 64 characters, the returned name is automatically truncated.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $partitionNum;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the topic. Valid values:
+     *
+     **Running**
+     *
+     * If the topic is deleted, this parameter is not returned.
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The timestamp that indicates when the topic was created. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The ID of the instance
+     *
+     * @example The storage type used by the topic. Valid values:
+     *
+     *   false: The topic uses cloud storage.
+     *   true: The topic uses local storage.
+     *
      * @var string
      */
     public $statusName;
 
     /**
+     * @description Indicates whether the topic was automatically created.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The log cleanup policy that is used for the topic. This parameter is returned when the **LocalTopic** parameter is set to **true**. Valid values:
+     *
+     *   false: The topic uses the delete policy.
+     *   true: The topic uses the compact policy.
+     *
+     * @example topic_name
+     *
      * @var string
      */
     public $topic;
     protected $_name = [
+        'autoCreate'   => 'AutoCreate',
         'compactTopic' => 'CompactTopic',
         'createTime'   => 'CreateTime',
         'instanceId'   => 'InstanceId',
@@ -84,6 +146,9 @@ class topicVO extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoCreate) {
+            $res['AutoCreate'] = $this->autoCreate;
+        }
         if (null !== $this->compactTopic) {
             $res['CompactTopic'] = $this->compactTopic;
         }
@@ -129,6 +194,9 @@ class topicVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoCreate'])) {
+            $model->autoCreate = $map['AutoCreate'];
+        }
         if (isset($map['CompactTopic'])) {
             $model->compactTopic = $map['CompactTopic'];
         }

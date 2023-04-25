@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class CreatePostPayOrderRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $deployType;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $eipMax;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $ioMax;
 
     /**
+     * @example alikafka.hw.2xlarge
+     *
      * @var string
      */
     public $ioMaxSpec;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $partitionNum;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-ac***********7q
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $specType;
@@ -65,6 +85,8 @@ class CreatePostPayOrderRequest extends Model
     public $tag;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $topicQuota;

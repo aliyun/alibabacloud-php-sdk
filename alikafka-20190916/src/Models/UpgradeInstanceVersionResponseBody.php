@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpgradeInstanceVersionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message returned.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRequest extends Model
 {
     /**
+     * @example {"kafka.log.retention.hours":"33"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $deployModule;
 
     /**
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isEipInner;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isForceSelectedZones;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSetUserAndPassword;
 
     /**
+     * @example 0d24xxxx-da7b-4786-b981-9a164dxxxxxx
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @example newInstanceName
+     *
      * @var string
      */
     public $name;
@@ -54,51 +70,71 @@ class StartInstanceRequest extends Model
     public $notifier;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example sg-bp13wfx7kz9pko****
+     *
      * @var string
      */
     public $securityGroup;
 
     /**
+     * @example [[\"zonel\"],[\"zonek\"]]
+     *
      * @var string
      */
     public $selectedZones;
 
     /**
+     * @example 0.10.2
+     *
      * @var string
      */
     public $serviceVersion;
 
     /**
+     * @example 1581234****
+     *
      * @var string
      */
     public $userPhoneNum;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $username;
 
     /**
+     * @example vsw-bp1j3sg5979fstnpl****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp1r4eg3yrxmygv****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-k
+     *
      * @var string
      */
     public $zoneId;

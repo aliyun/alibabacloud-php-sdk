@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class UpgradeInstanceVersionRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The major version to be upgraded to. Valid values:
+     *
+     *   **0.10.2**
+     *   **2.2.0**
+     *
+     * If you set this parameter to the current major version, the system upgrades the instance to the latest minor version.
+     * @example 0.10.2
+     *
      * @var string
      */
     public $targetVersion;

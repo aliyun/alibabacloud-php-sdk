@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaTipRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_pre-cn-i7m2wpm5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

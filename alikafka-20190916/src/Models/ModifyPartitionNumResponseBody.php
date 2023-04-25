@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyPartitionNumResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B7A39AE5-0B36-4442-A304-E088526****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

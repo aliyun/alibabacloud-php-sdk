@@ -9,36 +9,81 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
+     * @description The type of operation allowed by the ACL. Valid values:
+     *
+     *   **Write**: data writes.
+     *   **Read**: data reads.
+     *   **Describe**: reads of transaction IDs.****
+     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *
+     * @example Read
+     *
      * @var string
      */
     public $aclOperationType;
 
     /**
+     * @description The name or ID of the resource.
+     *
+     *   The value can be the name of a topic, consumer group, or cluster, or the ID of a transaction.
+     *   You can use an asterisk (\*) to represent the names or IDs of all relevant resources.
+     *
+     * @example X****
+     *
      * @var string
      */
     public $aclResourceName;
 
     /**
+     * @description The mode that is used to match resources. Valid values:
+     *
+     *   **LITERAL**: exact match
+     *   **PREFIXED**: prefix match
+     *
+     * @example LITERAL
+     *
      * @var string
      */
     public $aclResourcePatternType;
 
     /**
+     * @description The resource type. Valid values:
+     *
+     *   **Topic**: specifies topics.
+     *   **Group**: specifies consumer groups.
+     *   **Cluster**: specifies instances.
+     *   **TransactionalId**: specifies transactions.
+     *
+     * @example Group
+     *
      * @var string
      */
     public $aclResourceType;
 
     /**
+     * @description The instance ID.
+     *
+     * @example alikafka_pre-cn-v0h1cng0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The username.
+     *
+     * You can use an asterisk (\*) to represent all usernames.
+     * @example test***
+     *
      * @var string
      */
     public $username;

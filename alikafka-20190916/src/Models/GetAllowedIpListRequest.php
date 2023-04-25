@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetAllowedIpListRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example alikafka_post-cn-mp91inkw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

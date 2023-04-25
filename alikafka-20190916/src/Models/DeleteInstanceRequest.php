@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @description The region ID of the instance.
+     *
+     * @example alikafka_post-cn-mp919o4v****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

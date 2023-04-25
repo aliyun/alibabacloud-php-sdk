@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deletes a Message Queue for Apache Kafka instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -6,38 +6,28 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTopicListRequest extends Model
+class UpdateConsumerOffsetShrinkRequest extends Model
 {
     /**
-     * @description The name of the topic that you want to query.
-     *
-     * @example 1
+     * @example kafka-test
      *
      * @var string
      */
-    public $currentPage;
+    public $consumerId;
 
     /**
-     * @description The region ID of the instance whose topics you want to query.
-     *
-     * @example alikafka_pre-cn-0pp1954n****
+     * @example alikafka_post-cn-mp91inkw****
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of the returned page.
-     *
-     * @example 10
-     *
      * @var string
      */
-    public $pageSize;
+    public $offsetsShrink;
 
     /**
-     * @description The ID of the request.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,19 +35,33 @@ class GetTopicListRequest extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @example timestamp
      *
+     * @var string
+     */
+    public $resetType;
+
+    /**
+     * @example -1
+     *
+     * @var string
+     */
+    public $time;
+
+    /**
      * @example topic_name
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'topic'       => 'Topic',
+        'consumerId'    => 'ConsumerId',
+        'instanceId'    => 'InstanceId',
+        'offsetsShrink' => 'Offsets',
+        'regionId'      => 'RegionId',
+        'resetType'     => 'ResetType',
+        'time'          => 'Time',
+        'topic'         => 'Topic',
     ];
 
     public function validate()
@@ -67,17 +71,23 @@ class GetTopicListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->consumerId) {
+            $res['ConsumerId'] = $this->consumerId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->offsetsShrink) {
+            $res['Offsets'] = $this->offsetsShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resetType) {
+            $res['ResetType'] = $this->resetType;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
@@ -89,22 +99,28 @@ class GetTopicListRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetTopicListRequest
+     * @return UpdateConsumerOffsetShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['ConsumerId'])) {
+            $model->consumerId = $map['ConsumerId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Offsets'])) {
+            $model->offsetsShrink = $map['Offsets'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResetType'])) {
+            $model->resetType = $map['ResetType'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example rg-ac***********7q
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @example C5CA600C-7D5A-45B5-B6DB-44FAC2C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var int
      */
     public $success;

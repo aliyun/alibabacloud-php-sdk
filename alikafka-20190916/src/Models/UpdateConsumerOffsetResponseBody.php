@@ -4,41 +4,42 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusResponseBody\statusList;
 use AlibabaCloud\Tea\Model;
 
-class DescribeNodeStatusResponseBody extends Model
+class UpdateConsumerOffsetResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 56729737-C428-4E1B-AC68-7A8C2D5****
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var statusList
-     */
-    public $statusList;
-
-    /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'statusList' => 'StatusList',
-        'success'    => 'Success',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -57,9 +58,6 @@ class DescribeNodeStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = null !== $this->statusList ? $this->statusList->toMap() : null;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -70,7 +68,7 @@ class DescribeNodeStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeNodeStatusResponseBody
+     * @return UpdateConsumerOffsetResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -83,9 +81,6 @@ class DescribeNodeStatusResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StatusList'])) {
-            $model->statusList = statusList::fromMap($map['StatusList']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

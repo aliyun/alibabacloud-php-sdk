@@ -9,36 +9,76 @@ use AlibabaCloud\Tea\Model;
 class DeleteAclRequest extends Model
 {
     /**
+     * @description The type of operation allowed by the ACL. Valid values:
+     *
+     *   **Write**
+     *   **Read**
+     *
+     * @example Write
+     *
      * @var string
      */
     public $aclOperationType;
 
     /**
+     * @description The name of the resource.
+     *
+     *   The value can be the name of a topic or consumer group.
+     *   You can use an asterisk (\*) to indicate the names of all topics or consumer groups.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $aclResourceName;
 
     /**
+     * @description The mode that is used to match resources. Valid values:
+     *
+     *   **LITERAL:** full match
+     *   **PREFIXED**: prefix match
+     *
+     * @example LITERAL
+     *
      * @var string
      */
     public $aclResourcePatternType;
 
     /**
+     * @description The type of the resource.
+     *
+     *   **Topic**
+     *   **Group**
+     *
+     * @example Topic
+     *
      * @var string
      */
     public $aclResourceType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_pre-cn-v0h1cng0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the user.
+     *
+     * @example test12****
+     *
      * @var string
      */
     public $username;

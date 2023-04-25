@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $consumerId;
 
     /**
+     * @example alikafka_post-cn-0pp1l9z8****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $remark;

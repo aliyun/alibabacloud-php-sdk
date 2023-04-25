@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsRequest extends Model
 {
     /**
+     * @example demo
+     *
      * @var string
      */
     public $aclResourceName;
 
     /**
+     * @example LITERAL
+     *
      * @var string
      */
     public $aclResourcePatternType;
 
     /**
+     * @example Topic
+     *
      * @var string
      */
     public $aclResourceType;
 
     /**
+     * @example alikafka_pre-cn-v0h1cng****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test12****
+     *
      * @var string
      */
     public $username;

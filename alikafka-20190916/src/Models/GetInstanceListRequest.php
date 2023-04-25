@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceListRequest extends Model
 {
     /**
+     * @description The IDs of instances.
+     *
+     * @example alikafka_post-cn-mp91gnw0p***
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The ID of the order. You can obtain the order ID on the [Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\&pageSize=20\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in Alibaba Cloud User Center.
+     *
+     * @example 6072673****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can obtain this ID on the Resource Group page in the Resource Management console.
+     *
+     * @example rg-ac***********7q
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

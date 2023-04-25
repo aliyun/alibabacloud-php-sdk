@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class kafkaAclVO extends Model
 {
     /**
+     * @example Write
+     *
      * @var string
      */
     public $aclOperationType;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $aclResourceName;
 
     /**
+     * @example LITERAL
+     *
      * @var string
      */
     public $aclResourcePatternType;
 
     /**
+     * @example Topic
+     *
      * @var string
      */
     public $aclResourceType;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example test12***
+     *
      * @var string
      */
     public $username;

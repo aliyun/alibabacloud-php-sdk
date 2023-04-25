@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceDeleteInstance;
 
     /**
+     * @description Specifies whether to immediately release the physical resources of the instance. Valid values:
+     *
+     *   **true**: The physical resources of the instance are immediately released.
+     *   **false**: The physical resources of the instance are retained for a period of time before they are released.
+     *
+     * @example alikafka_post-cn-mp919o4v****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,16 +22,22 @@ class DescribeAclsResponseBody extends Model
     public $kafkaAclList;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 46496E38-881E-4719-A2F3-F3DA6AE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

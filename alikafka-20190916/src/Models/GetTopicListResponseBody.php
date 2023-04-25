@@ -10,41 +10,77 @@ use AlibabaCloud\Tea\Model;
 class GetTopicListResponseBody extends Model
 {
     /**
+     * @description The number of topics.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The information about the topic.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the topic. Valid values:
+     *
+     **0:** indicates that the topic is running.
+     *
+     * If the topic is deleted, this parameter is not returned.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The message returned.
+     *
+     * @example C0D3DC5B-5C37-47AD-9F22-1F559880****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The description. Valid values:
+     *
+     *   The description contains only letters, digits, hyphens (-), and underscores (\_).
+     *   The description is 3 to 64 characters in length.
+     *
      * @var topicList
      */
     public $topicList;
 
     /**
+     * @description The number of partitions in the topic.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

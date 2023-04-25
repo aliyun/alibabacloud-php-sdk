@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetTopicStatusRequest extends Model
 {
     /**
+     * @example alikafka_pre-cn-v0h15tjm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example normal_topic_9d034262835916103455551be06cc****
+     *
      * @var string
      */
     public $topic;

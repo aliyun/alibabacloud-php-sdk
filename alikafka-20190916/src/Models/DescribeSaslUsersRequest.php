@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSaslUsersRequest extends Model
 {
     /**
+     * @example alikafka_pre-cn-v0h1cng0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

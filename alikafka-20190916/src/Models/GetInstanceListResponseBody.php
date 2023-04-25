@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The details of the instances.
+     *
      * @var instanceList
      */
     public $instanceList;
 
     /**
+     * @description The message returned.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example 4B6D821D-7F67-4CAA-9E13-A5A997C3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

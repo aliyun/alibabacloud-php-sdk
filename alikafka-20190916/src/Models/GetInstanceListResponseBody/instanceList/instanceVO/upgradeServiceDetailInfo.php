@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class upgradeServiceDetailInfo extends Model
 {
     /**
+     * @description The open source Apache Kafka version that corresponds to the instance.
+     *
+     * @example 2.2.0
+     *
      * @var string
      */
     public $current2OpenSourceVersion;

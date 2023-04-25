@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class offsetTable extends Model
 {
     /**
+     * @example 1566470063547
+     *
      * @var int
      */
     public $lastUpdateTimestamp;
 
     /**
+     * @example 76
+     *
      * @var int
      */
     public $maxOffset;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minOffset;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $partition;
 
     /**
+     * @example testkafka
+     *
      * @var string
      */
     public $topic;

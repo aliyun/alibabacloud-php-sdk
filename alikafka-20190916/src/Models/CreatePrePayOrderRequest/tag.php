@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The region ID of the instance.
+     *
+     * @example FinanceDept
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value.
+     *
+     *   Valid values of N: 1 to 20.
+     *   This parameter is optional.
+     *   The tag value can be 1 to 128 characters in length. The tag value cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *
+     * @example FinanceJoshua
+     *
      * @var string
      */
     public $value;

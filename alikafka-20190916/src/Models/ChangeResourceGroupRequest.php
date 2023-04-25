@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @example rg-ac***********7q
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $resourceId;

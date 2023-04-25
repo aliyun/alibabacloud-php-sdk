@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     *
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015A***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

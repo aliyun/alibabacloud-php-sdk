@@ -22,7 +22,6 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicResponse;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteAclRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteAclResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteConsumerGroupRequest;
@@ -71,6 +70,9 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateAllowedIpRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateAllowedIpResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionRequest;
@@ -409,10 +411,14 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreatePrePayOrderRequest $request
-     * @param RuntimeOptions           $runtime
+     * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+     *   * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
+     *   * *   For more information about the valid values, see [Billing](~~84737~~).
+     *   *
+     * @param CreatePrePayOrderRequest $request CreatePrePayOrderRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrePayOrderResponse
+     * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
      */
     public function createPrePayOrderWithOptions($request, $runtime)
     {
@@ -473,9 +479,13 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreatePrePayOrderRequest $request
+     * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+     *   * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
+     *   * *   For more information about the valid values, see [Billing](~~84737~~).
+     *   *
+     * @param CreatePrePayOrderRequest $request CreatePrePayOrderRequest
      *
-     * @return CreatePrePayOrderResponse
+     * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
      */
     public function createPrePayOrder($request)
     {
@@ -540,25 +550,24 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * The description of the topic.
+     *   * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
+     *   * *   The description must be 3 to 64 characters in length.
+     *   *
+     * @param CreateTopicRequest $request CreateTopicRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
-    public function createTopicWithOptions($tmpReq, $runtime)
+    public function createTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateTopicShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->compactTopic)) {
             $query['CompactTopic'] = $request->compactTopic;
         }
-        if (!Utils::isUnset($request->configShrink)) {
-            $query['Config'] = $request->configShrink;
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -606,9 +615,13 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRequest $request
+     * The description of the topic.
+     *   * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
+     *   * *   The description must be 3 to 64 characters in length.
+     *   *
+     * @param CreateTopicRequest $request CreateTopicRequest
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
     public function createTopic($request)
     {
@@ -1579,10 +1592,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * The region ID of the instance.
+     *   *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstanceResponse
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
@@ -1616,9 +1631,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request
+     * The region ID of the instance.
+     *   *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
-     * @return ReleaseInstanceResponse
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -1896,10 +1913,78 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceConfigRequest $request
+     * @param UpdateConsumerOffsetRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
-     * @return UpdateInstanceConfigResponse
+     * @return UpdateConsumerOffsetResponse
+     */
+    public function updateConsumerOffsetWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateConsumerOffsetShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->offsets)) {
+            $request->offsetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->offsets, 'Offsets', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->offsetsShrink)) {
+            $query['Offsets'] = $request->offsetsShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resetType)) {
+            $query['ResetType'] = $request->resetType;
+        }
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConsumerOffset',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateConsumerOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConsumerOffsetRequest $request
+     *
+     * @return UpdateConsumerOffsetResponse
+     */
+    public function updateConsumerOffset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConsumerOffsetWithOptions($request, $runtime);
+    }
+
+    /**
+     * The region ID of the instance.
+     *   *
+     * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateInstanceConfigResponse UpdateInstanceConfigResponse
      */
     public function updateInstanceConfigWithOptions($request, $runtime)
     {
@@ -1933,9 +2018,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceConfigRequest $request
+     * The region ID of the instance.
+     *   *
+     * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
      *
-     * @return UpdateInstanceConfigResponse
+     * @return UpdateInstanceConfigResponse UpdateInstanceConfigResponse
      */
     public function updateInstanceConfig($request)
     {
@@ -1945,10 +2032,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradeInstanceVersionRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## **Permissions**
+     *   * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+     *   * |API|Action|Resource|
+     *   * |---|---|---|
+     *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     *   * ## **QPS limits**
+     *   * You can send a maximum of two queries per second (QPS).
+     *   *
+     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeInstanceVersionResponse
+     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersionWithOptions($request, $runtime)
     {
@@ -1982,9 +2077,17 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradeInstanceVersionRequest $request
+     * ## **Permissions**
+     *   * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+     *   * |API|Action|Resource|
+     *   * |---|---|---|
+     *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     *   * ## **QPS limits**
+     *   * You can send a maximum of two queries per second (QPS).
+     *   *
+     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
      *
-     * @return UpgradeInstanceVersionResponse
+     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersion($request)
     {
@@ -1994,10 +2097,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradePostPayOrderRequest $request
-     * @param RuntimeOptions             $runtime
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+     *   *
+     * @param UpgradePostPayOrderRequest $request UpgradePostPayOrderRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradePostPayOrderResponse
+     * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
      */
     public function upgradePostPayOrderWithOptions($request, $runtime)
     {
@@ -2052,9 +2157,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradePostPayOrderRequest $request
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+     *   *
+     * @param UpgradePostPayOrderRequest $request UpgradePostPayOrderRequest
      *
-     * @return UpgradePostPayOrderResponse
+     * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
      */
     public function upgradePostPayOrder($request)
     {
@@ -2064,10 +2171,14 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradePrePayOrderRequest $request
-     * @param RuntimeOptions            $runtime
+     * The size of the disk.
+     *   * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
+     *   * *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   *
+     * @param UpgradePrePayOrderRequest $request UpgradePrePayOrderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradePrePayOrderResponse
+     * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse
      */
     public function upgradePrePayOrderWithOptions($request, $runtime)
     {
@@ -2122,9 +2233,13 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpgradePrePayOrderRequest $request
+     * The size of the disk.
+     *   * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
+     *   * *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   *
+     * @param UpgradePrePayOrderRequest $request UpgradePrePayOrderRequest
      *
-     * @return UpgradePrePayOrderResponse
+     * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse
      */
     public function upgradePrePayOrder($request)
     {

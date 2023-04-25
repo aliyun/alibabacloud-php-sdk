@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyTopicRemarkRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_post-cn-0pp1l9z****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The description of the topic.
+     *
+     * @example testremark
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The name of the topic.
+     *
+     * @example alikafka_post-cn-0pp1l9z8****
+     *
      * @var string
      */
     public $topic;

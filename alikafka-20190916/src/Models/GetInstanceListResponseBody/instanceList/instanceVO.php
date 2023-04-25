@@ -11,56 +11,112 @@ use AlibabaCloud\Tea\Model;
 class instanceVO extends Model
 {
     /**
+     * @description The configurations of the instance.
+     *
+     * @example {\"enable.vpc_sasl_ssl\":\"false\",\"kafka.log.retention.hours\":\"66\",\"enable.acl\":\"false\",\"kafka.message.max.bytes\":\"6291456\"}
+     *
      * @var string
      */
     public $allConfig;
 
     /**
+     * @description The time when the instance was created. Unit: milliseconds.
+     *
+     * @example 1577961819000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The type of the network in which the instance is deployed. Valid values:
+     *
+     *   **4**: the Internet and virtual private clouds (VPCs).
+     *   **5**: VPCs.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $deployType;
 
     /**
+     * @description The size of the disk.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @description The type of the disk. Unit: GB. Valid values:
+     *
+     *   **0**: ultra disk
+     *   **1**: standard SSD
+     *
+     * @example 1
+     *
      * @var int
      */
     public $diskType;
 
     /**
+     * @description The default endpoint of the instance in domain name mode. The default endpoint of an instance can be in domain name mode or IP address mode.
+     *
+     *   Domain name mode: A default endpoint in this mode consists of a domain name of the instance and a port number. The format of a default endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   IP address mode: A default endpoint in this mode consists of the IP address of a broker and a port number. The format of a default endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example alikafka-pre-cn-zv**********-1-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-zv**********-2-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-zv**********-3-vpc.alikafka.aliyuncs.com:9092
+     *
      * @var string
      */
     public $domainEndpoint;
 
     /**
+     * @description The peak public traffic allowed for the instance.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $eipMax;
 
     /**
+     * @description The default endpoint of the instance in IP address mode. The default endpoint of an instance can be in domain name mode or IP address mode.
+     *
+     *   Domain name mode: A default endpoint in this mode consists of a domain name of the instance and a port number. The format of a default endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   IP address mode: A default endpoint in this mode consists of the IP address of a broker and a port number. The format of a default endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example 192.168.XX.XX:9092,192.168.XX.XX:9092,192.168.XX.XX:9092
+     *
      * @var string
      */
     public $endPoint;
 
     /**
+     * @description The expiration time. Unit: milliseconds.
+     *
+     * @example 1893581018000
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_pre-cn-mp919o4v****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The peak traffic allowed for the instance.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $ioMax;
@@ -68,109 +124,222 @@ class instanceVO extends Model
     /**
      * @var string
      */
+    public $ioMaxSpec;
+
+    /**
+     * @description The ID of the key that is used for disk encryption in the region where the instance resides.
+     *
+     * @example 0d24xxxx-da7b-4786-b981-9a164dxxxxxx
+     *
+     * @var string
+     */
     public $kmsKeyId;
 
     /**
+     * @description The retention period of messages on the instance. Unit: hours.
+     *
+     * @example 72
+     *
      * @var int
      */
     public $msgRetain;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example alikafka_post-cn-mp91gnw0****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **0**: the subscription billing method
+     *   **1**: the pay-as-you-go billing method
+     *
+     * @example 1
+     *
      * @var int
      */
     public $paidType;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-ac***********7q
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The Simple Authentication and Security Layer (SASL) endpoint of the instance in domain name mode. The SASL endpoint of an instance can be in domain name mode or IP address mode.
+     *
+     *   Domain name mode: An SASL endpoint in this mode consists of a domain name of the instance and a port number. The format of an SASL endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   IP address mode: An SASL endpoint in this mode consists of the IP address of the broker and a port number. The format of an SASL endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example alikafka-pre-cn-zv**********-1-vpc.alikafka.aliyuncs.com:9094,alikafka-pre-cn-zv**********-2-vpc.alikafka.aliyuncs.com:9094,alikafka-pre-cn-zv**********-3-vpc.alikafka.aliyuncs.com:9094
+     *
      * @var string
      */
     public $saslDomainEndpoint;
 
     /**
+     * @description The security group of the instance.
+     *
+     *   If the instance is deployed in the Message Queue for Apache Kafka console or by calling the [StartInstance](~~157786~~) operation without configuring a security group, no value is returned for this parameter.
+     *   If the instance is deployed by calling the [StartInstance](~~157786~~) operation and a security group is configured, the return value is the configured security group.
+     *
+     * @example sg-bp13wfx7kz9pkow****
+     *
      * @var string
      */
     public $securityGroup;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   **0**: pending
+     *   **1**: deploying
+     *   **5**: running
+     *   **15**: expired
+     *
+     * @example 5
+     *
      * @var int
      */
     public $serviceStatus;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **professional**: Professional Edition (High Write)
+     *   **professionalForHighRead**: Professional Edition (High Read)
+     *   **normal**: Standard Edition
+     *
+     * @example professional
+     *
      * @var string
      */
     public $specType;
 
     /**
+     * @description The SSL endpoint of the instance in domain name mode. The SSL endpoint of an instance can be in domain name mode or IP address mode.
+     *
+     *   Domain name mode: An SSL endpoint in this mode consists of a domain name of the instance and a port number. The format of an SSL endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   IP address mode: An SSL endpoint in this mode consists of the IP address of the broker and a port number. The format of an SSL endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example alikafka-pre-cn-zv**********-1.alikafka.aliyuncs.com:9093,alikafka-pre-cn-zv**********-2.alikafka.aliyuncs.com:9093,alikafka-pre-cn-zv**********-3.alikafka.aliyuncs.com:9093
+     *
      * @var string
      */
     public $sslDomainEndpoint;
 
     /**
+     * @description The Secure Sockets Layer (SSL) endpoint of the instance in IP address mode. The SSL endpoint of an instance can be in domain name mode or IP address mode.
+     *
+     *   Domain name mode: An SSL endpoint in this mode consists of a domain name of the instance and a port number. The format of an SSL endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   IP address mode: An SSL endpoint in this mode consists of the IP address of the broker and a port number. The format of an SSL endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example 192.0.XX.XX:9093,198.51.XX.XX:9093,203.0.XX.XX:9093
+     *
      * @var string
      */
     public $sslEndPoint;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-k
+     *
      * @var string
      */
     public $standardZoneId;
 
     /**
+     * @description The tags that are attached to the instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The maximum number of topics that can be created on the instance.
+     *
+     * @example 180
+     *
      * @var int
      */
     public $topicNumLimit;
 
     /**
+     * @description The upgrade information about the instance.
+     *
      * @var upgradeServiceDetailInfo
      */
     public $upgradeServiceDetailInfo;
 
     /**
+     * @description The number of used groups.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $usedGroupCount;
 
     /**
+     * @description The number of used partitions.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $usedPartitionCount;
 
     /**
+     * @description The number of used topics.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $usedTopicCount;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1fvuw0ljd7vzmo3****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1ojac7bv448nifj****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example zonei
+     *
      * @var string
      */
     public $zoneId;
@@ -186,6 +355,7 @@ class instanceVO extends Model
         'expiredTime'              => 'ExpiredTime',
         'instanceId'               => 'InstanceId',
         'ioMax'                    => 'IoMax',
+        'ioMaxSpec'                => 'IoMaxSpec',
         'kmsKeyId'                 => 'KmsKeyId',
         'msgRetain'                => 'MsgRetain',
         'name'                     => 'Name',
@@ -249,6 +419,9 @@ class instanceVO extends Model
         }
         if (null !== $this->ioMax) {
             $res['IoMax'] = $this->ioMax;
+        }
+        if (null !== $this->ioMaxSpec) {
+            $res['IoMaxSpec'] = $this->ioMaxSpec;
         }
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
@@ -360,6 +533,9 @@ class instanceVO extends Model
         }
         if (isset($map['IoMax'])) {
             $model->ioMax = $map['IoMax'];
+        }
+        if (isset($map['IoMaxSpec'])) {
+            $model->ioMaxSpec = $map['IoMaxSpec'];
         }
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];

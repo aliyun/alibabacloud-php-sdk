@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class topicStatus extends Model
 {
     /**
+     * @example 1566470063575
+     *
      * @var int
      */
     public $lastTimeStamp;
@@ -20,6 +22,8 @@ class topicStatus extends Model
     public $offsetTable;
 
     /**
+     * @example 423
+     *
      * @var int
      */
     public $totalCount;

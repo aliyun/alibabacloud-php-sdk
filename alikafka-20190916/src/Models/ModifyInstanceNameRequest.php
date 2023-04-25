@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNameRequest extends Model
 {
     /**
+     * @description The region ID of the instance.
+     *
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
+     * @example dev-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The name of the instance. Valid values:
+     *
+     *   The name can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The name must be 3 to 64 characters in length. If the name that you specify contains more than 64 characters, the system automatically truncates the name to 64 characters.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,56 +9,103 @@ use AlibabaCloud\Tea\Model;
 class quotaData extends Model
 {
     /**
+     * @description The number of available groups.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $groupLeft;
 
     /**
+     * @description The number of used groups.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $groupUsed;
 
     /**
+     * @description The method that you use to purchase partitions. Valid values:
+     *
+     *   0: indicates that the instance is purchased based on topics.
+     *   1: indicates that the instance is purchased based on partitions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isPartitionBuy;
 
     /**
+     * @description The number of available partitions.
+     *
+     * @example 1050
+     *
      * @var int
      */
     public $partitionLeft;
 
     /**
+     * @description The number of purchased partitions.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $partitionNumOfBuy;
 
     /**
+     * @description The quota of partitions.
+     *
+     * @example 1100
+     *
      * @var int
      */
-    public $partitionQuata;
+    public $partitionQuota;
 
     /**
+     * @description The number of used partitions.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $partitionUsed;
 
     /**
+     * @description The number of available topics.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $topicLeft;
 
     /**
+     * @description The number of purchased topics.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $topicNumOfBuy;
 
     /**
+     * @description The quota of topics.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $topicQuota;
 
     /**
+     * @description The number of used topics.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $topicUsed;
@@ -68,7 +115,7 @@ class quotaData extends Model
         'isPartitionBuy'    => 'IsPartitionBuy',
         'partitionLeft'     => 'PartitionLeft',
         'partitionNumOfBuy' => 'PartitionNumOfBuy',
-        'partitionQuata'    => 'PartitionQuata',
+        'partitionQuota'    => 'PartitionQuota',
         'partitionUsed'     => 'PartitionUsed',
         'topicLeft'         => 'TopicLeft',
         'topicNumOfBuy'     => 'TopicNumOfBuy',
@@ -98,8 +145,8 @@ class quotaData extends Model
         if (null !== $this->partitionNumOfBuy) {
             $res['PartitionNumOfBuy'] = $this->partitionNumOfBuy;
         }
-        if (null !== $this->partitionQuata) {
-            $res['PartitionQuata'] = $this->partitionQuata;
+        if (null !== $this->partitionQuota) {
+            $res['PartitionQuota'] = $this->partitionQuota;
         }
         if (null !== $this->partitionUsed) {
             $res['PartitionUsed'] = $this->partitionUsed;
@@ -143,8 +190,8 @@ class quotaData extends Model
         if (isset($map['PartitionNumOfBuy'])) {
             $model->partitionNumOfBuy = $map['PartitionNumOfBuy'];
         }
-        if (isset($map['PartitionQuata'])) {
-            $model->partitionQuata = $map['PartitionQuata'];
+        if (isset($map['PartitionQuota'])) {
+            $model->partitionQuota = $map['PartitionQuota'];
         }
         if (isset($map['PartitionUsed'])) {
             $model->partitionUsed = $map['PartitionUsed'];

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSaslUsersResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9E3B3592-5994-4F65-A61E-E62A77A****
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class DescribeSaslUsersResponseBody extends Model
     public $saslUserList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
