@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class storageDataItem extends Model
 {
     /**
-     * @description The outbound traffic. Unit: byte. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
+     * @description The outbound traffic. Unit: bytes. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
      *
      * @example 111111
      *
@@ -18,7 +18,7 @@ class storageDataItem extends Model
     public $networkOut;
 
     /**
-     * @description The storage volume. Unit: byte.
+     * @description The detailed usage data of storage-related resources. Unit: bytes.
      *
      * @example 111111
      *

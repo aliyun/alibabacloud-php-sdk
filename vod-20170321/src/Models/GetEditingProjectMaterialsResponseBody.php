@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsResponseBody extends Model
 {
     /**
-     * @description The materials.
+     * @description The duration of the material. The value is rounded to four decimal places. Unit: seconds.
      *
      * @var materialList
      */
     public $materialList;
 
     /**
-     * @description The ID of the request.
+     * @description The tag of the material. Multiple tags are separated by commas (,).
      *
      * @example 746FFA07-8BBB-46B1-3E94E3B2915E****
      *

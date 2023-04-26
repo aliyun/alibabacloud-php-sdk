@@ -18,10 +18,7 @@ class CreateUploadAttachedMediaRequest extends Model
     public $appId;
 
     /**
-     * @description The type of the media asset. Valid values:
-     *   **watermark**
-     *   **subtitle**
-     *   **material**
+     * @description The name of the source file.
      *
      * @example watermark
      *
@@ -53,8 +50,6 @@ class CreateUploadAttachedMediaRequest extends Model
     public $description;
 
     /**
-     * @description The name of the source file.
-     *
      * @example D:\test.png
      *
      * @var string
@@ -62,8 +57,6 @@ class CreateUploadAttachedMediaRequest extends Model
     public $fileName;
 
     /**
-     * @description The size of the auxiliary media asset. Unit: byte.
-     *
      * @example 123
      *
      * @var string
@@ -71,10 +64,7 @@ class CreateUploadAttachedMediaRequest extends Model
     public $fileSize;
 
     /**
-     * @description The file name extension. Valid values:
-     *   Valid values for watermarks: **png, gif, apng, and mov**
-     *   Valid values for subtitles: **srt, ass, stl, ttml, and vtt**
-     *   Valid values for materials: **jpg, gif, png, mp4, mat, and zip**
+     * @description The size of the auxiliary media asset. Unit: byte.
      *
      * @example png
      *
@@ -107,11 +97,10 @@ class CreateUploadAttachedMediaRequest extends Model
     public $tags;
 
     /**
-     * @description The title of the media asset. Take note of the following items:
-     *   The title can be up to 128 bytes in length.
-     *   The value must be encoded in UTF-8.
-     *
-     * @example Test
+     * @description The file name extension. Valid values:
+     *   Valid values for watermarks: **png, gif, apng, and mov**
+     *   Valid values for subtitles: **srt, ass, stl, ttml, and vtt**
+     *   Valid values for materials: **jpg, gif, png, mp4, mat, and zip**
      *
      * @var string
      */

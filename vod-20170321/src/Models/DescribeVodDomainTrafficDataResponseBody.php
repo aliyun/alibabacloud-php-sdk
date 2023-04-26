@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainTrafficDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the returned entries. Unit: seconds.
+     * @description The time interval between the entries returned. Unit: seconds.
      *
      * @example 3600
      *
@@ -19,7 +19,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The domain name for CDN.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-20T14:59:58Z
      *
@@ -46,7 +46,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-20T13:59:58Z
      *
@@ -55,7 +55,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The total traffic.
+     * @description The total amount of network traffic.
      *
      * @example 5906662826
      *
@@ -64,7 +64,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $totalTraffic;
 
     /**
-     * @description The network traffic data that is collected for each interval.
+     * @description The network traffic that was collected at each interval.
      *
      * @var trafficDataPerInterval
      */

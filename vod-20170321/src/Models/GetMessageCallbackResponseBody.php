@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMessageCallbackResponseBody extends Model
 {
     /**
-     * @description The configuration of the event notification.
+     * @description The cryptographic key. This parameter is returned only for HTTP callbacks.
      *
      * @var messageCallback
      */
     public $messageCallback;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the MNS queue. This parameter is returned only for MNS callbacks.
      *
      * @example 272A222A-F7F7-4A3E-****-F531574F1234
      *

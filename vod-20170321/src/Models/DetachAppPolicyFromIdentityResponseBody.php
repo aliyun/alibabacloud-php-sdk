@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DetachAppPolicyFromIdentityResponseBody extends Model
 {
     /**
-     * @description The name of the policy that failed to be detached from the identity.
-     *
      * @var string[]
      */
     public $failedPolicyNames;
 
     /**
-     * @description The name of the policy that was not found.
-     *
      * @var string[]
      */
     public $nonExistPolicyNames;
 
     /**
-     * @description The ID of the request.
+     * @description Revokes application permissions from the specified identity. The identity may a RAM user or RAM role.
      *
      * @example 25818875-5F78-4A13-****-D7393642C
      *

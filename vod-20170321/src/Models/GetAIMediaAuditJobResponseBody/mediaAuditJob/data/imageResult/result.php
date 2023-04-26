@@ -9,58 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The category of the review result.
+     * @description The recommendation for review results. Valid values:
      *
-     * Valid values if scene is **porn**:
-     *
-     *   **porn**
-     *   **sexy**
-     *   **normal**
-     *
-     * Valid values if scene is **terrorism**:
-     *
-     *   **normal**
-     *   **bloody**
-     *   **explosion**
-     *   **outfit**
-     *   **logo**
-     *   **weapon**
-     *   **politics**
-     *   **violence**
-     *   **crowd**
-     *   **parade**
-     *   **carcrash**
-     *   **flag**
-     *   **location**
-     *   **others**
-     *
-     * Valid values if scene is **ad**:
-     *
-     *   **normal**
-     *   **ad**
-     *   **politics**
-     *   **porn**
-     *   **abuse**
-     *   **terrorism**
-     *   **contraband**
-     *   **spam**
-     *   **npx**: illegal ad
-     *   **qrcode**: QR code
-     *   **programCode**
-     *
-     * Valid values if scene is **live**:
-     *
-     *   **normal**
-     *   **meaningless**
-     *   **PIP**
-     *   **smoking**
-     *   **drivelive**
-     *
-     * Valid values if scene is **logo**:
-     *
-     *   **normal**
-     *   **TV**
-     *   **trademark**
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example porn
      *
@@ -69,13 +22,10 @@ class result extends Model
     public $label;
 
     /**
-     * @description The review scenario. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **porn**
-     *   **terrorism**
      *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
+     *   **normal**
      *
      * @example porn
      *
@@ -84,7 +34,7 @@ class result extends Model
     public $scene;
 
     /**
-     * @description The score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The score is representative of the confidence.
+     * @description The number of images.
      *
      * @example 0
      *
@@ -93,11 +43,7 @@ class result extends Model
     public $score;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The results of logo review.
      *
      * @example pass
      *

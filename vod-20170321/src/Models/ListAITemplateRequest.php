@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListAITemplateRequest extends Model
 {
     /**
-     * @description The type of the AI template. Valid values:
+     * @description Indicates whether the template is the default AI template. Valid values:
      *
-     *   **AIMediaAudit**: automated review
-     *   **AIImage**: smart thumbnail
+     *   **Default**
+     *   **NotDefault**
      *
      * @example AIMediaAudit
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAppPoliciesForIdentityRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application.
      *
      * @example app-****
      *
@@ -18,10 +18,10 @@ class ListAppPoliciesForIdentityRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the identity.
+     * @description The type of the identity. Valid values:
      *
-     *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
-     *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
+     *   **RamUser**: a RAM user.
+     *   **RamRole**: a RAM role.
      *
      * @example test****name
      *
@@ -30,10 +30,10 @@ class ListAppPoliciesForIdentityRequest extends Model
     public $identityName;
 
     /**
-     * @description The type of the identity. Valid values:
+     * @description The type of the policy. Valid values:
      *
-     *   **RamUser**: a RAM user.
-     *   **RamRole**: a RAM role.
+     *   **System**
+     *   **Custom**
      *
      * @example RamUser
      *

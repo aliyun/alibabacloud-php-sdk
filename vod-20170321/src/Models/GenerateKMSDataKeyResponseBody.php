@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GenerateKMSDataKeyResponseBody extends Model
 {
     /**
-     * @description The ciphertext of the encrypted data key. This is used as CipherText when you create a transcoding job.
-     *
      * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
      *
      * @var string
@@ -18,8 +16,6 @@ class GenerateKMSDataKeyResponseBody extends Model
     public $ciphertextBlob;
 
     /**
-     * @description The ID of the customer master key (CMK). The ID must be globally unique.
-     *
      * @example 7906979c-8e06-46a2-be2d-68e3ccbc****
      *
      * @var string
@@ -27,8 +23,6 @@ class GenerateKMSDataKeyResponseBody extends Model
     public $keyId;
 
     /**
-     * @description The Base64-encoded plaintext of the data key.
-     *
      * @example QmFzZTY0IGVuY29kZWQgcGxhaW50****
      *
      * @var string
@@ -36,8 +30,6 @@ class GenerateKMSDataKeyResponseBody extends Model
     public $plaintext;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string

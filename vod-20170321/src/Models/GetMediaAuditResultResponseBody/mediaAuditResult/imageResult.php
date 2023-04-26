@@ -10,12 +10,11 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     * @description The recommendation for review results. Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **normal**
-     *
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example porn
      *
      * @var string
@@ -23,18 +22,14 @@ class imageResult extends Model
     public $label;
 
     /**
-     * @description Details of image review results.
+     * @description The URL of the image.
      *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**
-     *   **review**
-     *   **pass**
+     * @description The results of ad review.
      *
      * @example pass
      *
@@ -43,7 +38,7 @@ class imageResult extends Model
     public $suggestion;
 
     /**
-     * @description The type of the image. The value is **cover**.
+     * @description The score.
      *
      * @example cover
      *
@@ -52,7 +47,7 @@ class imageResult extends Model
     public $type;
 
     /**
-     * @description The URL of the image.
+     * @description The type of the image. The value is **cover**.
      *
      * @example http://www.test.com/****.jpg
      *

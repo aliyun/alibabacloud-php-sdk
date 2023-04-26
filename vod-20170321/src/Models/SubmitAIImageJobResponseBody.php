@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIImageJobResponseBody extends Model
 {
     /**
-     * @description The ID of the image AI processing job.
-     *
      * @example cf08a2c6e11e*****de1711b738b9067
      *
      * @var string
@@ -18,8 +16,6 @@ class SubmitAIImageJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 218A6807-A21E-43*****54-C0512880B0B0
      *
      * @var string

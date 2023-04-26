@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class adResult extends Model
 {
     /**
-     * @description The average score of the review results.
+     * @description The number of images.
      *
      * @example 100
      *
@@ -20,17 +20,14 @@ class adResult extends Model
     public $averageScore;
 
     /**
-     * @description The statistics about tag frames.
+     * @description The results of video review.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **ad**
-     *   **normal**
+     * @description The type of the image. Valid value: **cover**.
      *
      * @example ad
      *
@@ -39,7 +36,11 @@ class adResult extends Model
     public $label;
 
     /**
-     * @description The highest review score.
+     * @description The category of the review result. Valid values:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
      *
      * @example 100
      *
@@ -48,11 +49,7 @@ class adResult extends Model
     public $maxScore;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The statistics about tag frames.
      *
      * @example block
      *

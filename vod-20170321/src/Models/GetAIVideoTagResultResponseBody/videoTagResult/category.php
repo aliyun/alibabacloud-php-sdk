@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
-     * @description The tag string.
+     * @description John
      *
-     * @example Retouching
+     * @example Asia
      *
      * @var string
      */

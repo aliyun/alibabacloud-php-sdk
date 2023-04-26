@@ -9,29 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageRequest extends Model
 {
     /**
-     * @description The method that is used to delete images. Valid values:
-     *
-     *   **ImageURL**: Delete the specified image based on the image URL.
-     *   **ImageId**: Delete the specified image based on the image ID.
-     *   **VideoId**: Delete the image that is associated with a video ID.
+     * @description The ID of the request.
      *
      * @example VideoId
      *
      * @var string
      */
     public $deleteImageType;
-
-    /**
-     * @description The ID of the image.
-     *
-     *   This parameter only takes effect when the **DeleteImageType** parameter is set to **ImageId**. In this case, you must set this parameter.
-     *   Separate multiple IDs with commas (,).
-     *
-     * @example bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****
-     *
-     * @var string
-     */
-    public $imageIds;
 
     /**
      * @description The type of the image. This parameter only takes effect when the **DeleteImageType** parameter is set to **VideoId**. In this case, you must set this parameter. Valid values:
@@ -42,6 +26,13 @@ class DeleteImageRequest extends Model
      *   **SpriteOriginSnapshot**: sprite source snapshot.
      *   **All**: images of all the preceding types. If this parameter is not set to All, you can specify multiple types and separate them with commas (,).
      *
+     * @example bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****
+     *
+     * @var string
+     */
+    public $imageIds;
+
+    /**
      * @example All
      *
      * @var string
@@ -49,11 +40,7 @@ class DeleteImageRequest extends Model
     public $imageType;
 
     /**
-     * @description The URL of the image.
-     *
-     *   This parameter only takes effect when the **DeleteImageType** parameter is set to **ImageURL**. In this case, you must set this parameter.
-     *   Encode multiple image URLs and separate them with commas (,).
-     *   The use of special characters in image URLs may lead to the failure to delete the images. To prevent such failure, you must encode the image URLs before you concatenate them into a string with commas (,).
+     * @description The operation that you want to perform. Set the value to **DeleteImage**.
      *
      * @example https://example.aliyundoc.com/image/default/41AE7ADABBE*****.png
      *
@@ -62,7 +49,7 @@ class DeleteImageRequest extends Model
     public $imageURLs;
 
     /**
-     * @description The ID of the video. This parameter only takes effect when the **DeleteImageType** parameter is set to **VideoId**. In this case, you must set this parameter.
+     * @description Deletes uploaded images and automatic snapshots of videos.
      *
      * @example eb1861d2c9a8842340e989dd56****
      *

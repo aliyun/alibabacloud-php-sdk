@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The volume of the network traffic in mainland China. Unit: byte.
+     * @description The amount of network traffic in the Chinese mainland. Unit: bytes.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The volume of the HTTPS network traffic on L1 nodes in mainland China. Unit: byte.
+     * @description The amount of HTTPS network traffic on points of presence (POPs) in the Chinese mainland. Unit: bytes.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The volume of the HTTPS network traffic on L1 nodes outside mainland China. Unit: byte.
+     * @description The amount of HTTPS network traffic on POPs outside the Chinese mainland. Unit: bytes.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The total volume of the HTTPS network traffic on L1 nodes. Unit: byte.
+     * @description The total amount of HTTPS network traffic on POPs. Unit: bytes.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The volume of the network traffic outside mainland China. Unit: byte.
+     * @description The amount of network traffic outside the Chinese mainland. Unit: bytes.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total volume of the network traffic. Unit: byte.
+     * @description The total amount of network traffic. Unit: bytes.
      *
      * @example 0
      *

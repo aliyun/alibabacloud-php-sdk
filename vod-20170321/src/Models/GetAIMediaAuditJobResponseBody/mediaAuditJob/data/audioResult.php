@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class audioResult extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description The recommendation for review results. Valid values:
      *
-     *   **normal**
-     *   **spam**
-     *   **ad**
-     *   **politics**
-     *   **terrorism**
-     *   **abuse**
-     *   **porn**
-     *   **flood**: spam posts
-     *   **contraband**
-     *   **meaningless**
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example normal
      *
@@ -29,7 +22,11 @@ class audioResult extends Model
     public $label;
 
     /**
-     * @description The review scenario. Valid value: **antispam**.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example antispam
      *
@@ -38,7 +35,7 @@ class audioResult extends Model
     public $scene;
 
     /**
-     * @description The score.
+     * @description The categories of the review results and the number of images.
      *
      * @example 99.91
      *
@@ -47,11 +44,22 @@ class audioResult extends Model
     public $score;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
      *
      * @example pass
      *

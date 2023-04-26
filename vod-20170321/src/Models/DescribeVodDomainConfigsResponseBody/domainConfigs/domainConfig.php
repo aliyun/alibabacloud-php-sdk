@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class domainConfig extends Model
 {
     /**
-     * @description The ID of the configuration.
+     * @description ## Feature description
      *
+     * | tmd_signature | Specifies the self-defined rules for the rate limit. |
      * @example 5003576
      *
      * @var string
@@ -19,14 +20,12 @@ class domainConfig extends Model
     public $configId;
 
     /**
-     * @description The parameters of each feature.
-     *
      * @var functionArgs
      */
     public $functionArgs;
 
     /**
-     * @description The name of the function.
+     * @description Queries the configurations of a specified domain name for CDN. You can query the configurations of one or more features at a time.
      *
      * @example set_req_host_header
      *
@@ -35,11 +34,8 @@ class domainConfig extends Model
     public $functionName;
 
     /**
-     * @description The status of the configuration. Valid values:
-     * - **success**
-     * - **testing**
-     * - **failed**
-     * - **configuring**
+     * @description The operation that you want to perform. Set the value to **DescribeVodDomainConfigs**.
+     *
      * @example success
      *
      * @var string

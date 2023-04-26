@@ -17,7 +17,7 @@ class AIDataItem extends Model
     public $data;
 
     /**
-     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2019-02-01T13:00:00Z
      *

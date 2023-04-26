@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMezzaninesRequest extends Model
 {
     /**
-     * @description Specifies whether to forcibly delete the mezzanine file. Default value: **false**.
+     * @description Deletes one or more mezzanine files at a time.
      *
-     * > If a video is delivered without transcoding or is asynchronously transcoded, the mezzanine file of the video is used for original-quality playback. By default, the mezzanine file of the video cannot be deleted. To forcibly delete the mezzanine file, set this parameter to **true**.
      * @example false
      *
      * @var bool
@@ -19,7 +18,7 @@ class DeleteMezzaninesRequest extends Model
     public $force;
 
     /**
-     * @description The list of video IDs. A maximum of 20 video IDs can be specified at a time. Separate multiple IDs with commas (,).
+     * @description The operation that you want to perform. Set the value to **DeleteMezzanines**.
      *
      * @example 23ab850b4f654b6e91d24d8157****,93ab850b4f6f4b6e91d24d81d4****
      *

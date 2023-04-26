@@ -10,14 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultDetailResponseBody extends Model
 {
     /**
-     * @description Details about review results.
+     * @description The total number of snapshots returned.
      *
      * @var mediaAuditResultDetail
      */
     public $mediaAuditResultDetail;
 
     /**
-     * @description The ID of the request.
+     * @description The category of the terrorist content review result.
+     *
+     *   **normal**: normal
+     *   **terrorism**: terrorist content
+     *   **outfit**: special costume
+     *   **logo**: special logo
+     *   **weapon**: weapon
+     *   **politics**: politically sensitive content
+     *   **others**: other terrorist content and politically sensitive content
      *
      * @example 6438BD76-D523-46FC-956F-****
      *

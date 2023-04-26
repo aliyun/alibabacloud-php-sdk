@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetCrossdomainContentRequest extends Model
 {
     /**
-     * @description The content of the cross-domain policy file. The file must be in the XML format and can contain up to 2,048 characters.
+     * @description The URL of the Object Storage Service (OSS) bucket.
      *
      * @example &lt;cross-domain-policy&gt;&lt;allow-access-from domain="*"/&gt;&lt;allow-http-request-headers-from domain="*" headers="*" secure="false"/&gt;&lt;/cross-domain-policy&gt;
      *
@@ -38,8 +38,6 @@ class SetCrossdomainContentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the resource owner.
-     *
      * @example 3461111
      *
      * @var string
@@ -47,7 +45,7 @@ class SetCrossdomainContentRequest extends Model
     public $resourceRealOwnerId;
 
     /**
-     * @description The URL of the Object Storage Service (OSS) bucket.
+     * @description Updates the cross-domain policy file crossdomain.xml.
      *
      * @example outin-67870fd5b****1e98a3900163e1c35d5.oss-cn-shanghai.aliyuncs.com
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListVodTemplateRequest extends Model
 {
     /**
-     * @description The ID of the application. Set the value to **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The snapshot templates.
      *
      * @example app-****
      *
@@ -18,7 +18,10 @@ class ListVodTemplateRequest extends Model
     public $appId;
 
     /**
-     * @description The type of the template. Set the value to **Snapshot**.
+     * @description Indicates whether the template is the default one. Valid values:
+     *
+     *   **Default**: The template is the default one.
+     *   **NotDefault**: The template is not the default one.
      *
      * @example Snapshot
      *

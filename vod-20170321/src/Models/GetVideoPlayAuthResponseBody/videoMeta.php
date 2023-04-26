@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class videoMeta extends Model
 {
     /**
-     * @description The thumbnail URL of the audio or video file.
-     *
      * @example https://example.aliyundoc.com/****.jpg
      *
      * @var string
@@ -18,8 +16,6 @@ class videoMeta extends Model
     public $coverURL;
 
     /**
-     * @description The duration of the audio or video file. Unit: seconds.
-     *
      * @example 120.0
      *
      * @var float
@@ -27,8 +23,6 @@ class videoMeta extends Model
     public $duration;
 
     /**
-     * @description The status of the audio or video file. For more information about the value range and description, see the [Status](~~52839~~) table.
-     *
      * @example Normal
      *
      * @var string
@@ -36,17 +30,11 @@ class videoMeta extends Model
     public $status;
 
     /**
-     * @description The title of the audio or video file.
-     *
-     * @example VOD
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The ID of the audio or video file.
-     *
      * @example dfde02284a5c46622a097adaf44a****
      *
      * @var string

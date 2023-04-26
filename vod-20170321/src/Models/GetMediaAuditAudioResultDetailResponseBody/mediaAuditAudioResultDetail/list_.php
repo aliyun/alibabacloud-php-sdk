@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The end time of the audio that failed the review. Unit: seconds.
+     * @description The list of results.
      *
      * @example 10
      *
@@ -18,15 +18,6 @@ class list_ extends Model
     public $endTime;
 
     /**
-     * @description The review results. Valid values:
-     *   **spam**
-     *   **ad**
-     *   **abuse**
-     *   **flood**
-     *   **contraband**
-     *   **meaningless**
-     *   **normal**
-     *
      * @example abuse
      *
      * @var string
@@ -34,7 +25,7 @@ class list_ extends Model
     public $label;
 
     /**
-     * @description The start time of the audio that failed the review. Unit: seconds.
+     * @description Queries the details of audio review results.
      *
      * @example 8
      *
@@ -43,10 +34,6 @@ class list_ extends Model
     public $startTime;
 
     /**
-     * @description The text that corresponds to the audio.
-     *
-     * @example beauty
-     *
      * @var string
      */
     public $text;

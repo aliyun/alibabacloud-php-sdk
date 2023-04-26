@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddVodTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string
@@ -18,8 +16,6 @@ class AddVodTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the snapshot template. You can call the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
-     *
      * @example f5b228fe6930e*****0d6bf55bd87789
      *
      * @var string

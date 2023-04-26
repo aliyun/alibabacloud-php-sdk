@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PreloadVodObjectCachesResponseBody extends Model
 {
     /**
-     * @description The ID of the prefetch task. Separate multiple task IDs with commas (,).
-     *
      * @example 9524****
      *
      * @var string
@@ -18,8 +16,6 @@ class PreloadVodObjectCachesResponseBody extends Model
     public $preloadTaskId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example E5BD4B50-7A02-493A-*****-97B9024B4135
      *
      * @var string

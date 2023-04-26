@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAIImageJobsResponseBody extends Model
 {
     /**
-     * @description The image AI processing jobs.
+     * @description The time when the image AI processing job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var AIImageJobList[]
      */
     public $AIImageJobList;
 
     /**
-     * @description The ID of the request.
+     * @description The information about the image AI processing job.
      *
      * @example 7721B494-1F78-4E*****E8-A7CEE7315BFA
      *

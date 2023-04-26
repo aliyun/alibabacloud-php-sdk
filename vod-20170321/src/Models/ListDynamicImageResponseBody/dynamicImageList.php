@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dynamicImageList extends Model
 {
     /**
-     * @description The time when the animated sticker was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The job ID for creating the animated sticker.
      *
      * @example 2020-07-28T02:01:06Z
      *
@@ -18,8 +18,6 @@ class dynamicImageList extends Model
     public $creationTime;
 
     /**
-     * @description The duration of the animated sticker. Unit: seconds.
-     *
      * @example 2
      *
      * @var string
@@ -27,8 +25,6 @@ class dynamicImageList extends Model
     public $duration;
 
     /**
-     * @description The ID of the animated sticker.
-     *
      * @example 2b4e51df60323ef43d6e336ecf****
      *
      * @var string
@@ -36,8 +32,6 @@ class dynamicImageList extends Model
     public $dynamicImageId;
 
     /**
-     * @description The size of the animated sticker file. Unit: byte.
-     *
      * @example 119866
      *
      * @var string
@@ -45,7 +39,7 @@ class dynamicImageList extends Model
     public $fileSize;
 
     /**
-     * @description The URL of the animated sticker file.
+     * @description The time when the animated sticker was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example https://example.aliyundoc.com/2e114f110059*****0c3193918fd449a/image/dynamic/2b4e51df60*****323ef43d6e336ecf.webp?auth_key=1597296785-0-0-4a48e85*****bd2bb358e0b3cade
      *
@@ -54,8 +48,6 @@ class dynamicImageList extends Model
     public $fileURL;
 
     /**
-     * @description The format of the animated sticker. Valid values: gif and webp.
-     *
      * @example webp
      *
      * @var string
@@ -63,7 +55,7 @@ class dynamicImageList extends Model
     public $format;
 
     /**
-     * @description The frame rate of the animated sticker. Unit: frames per second.
+     * @description Queries the information about animated stickers of a video based on the video ID.
      *
      * @example 10
      *
@@ -72,7 +64,7 @@ class dynamicImageList extends Model
     public $fps;
 
     /**
-     * @description The height of the animated sticker. Unit: pixel.
+     * @description The frame rate of the animated sticker. Unit: frames per second.
      *
      * @example 360
      *
@@ -81,7 +73,7 @@ class dynamicImageList extends Model
     public $height;
 
     /**
-     * @description The job ID for creating the animated sticker.
+     * @description The ID of the request.
      *
      * @example 2bf4390af9e5491c09cc720ad****
      *
@@ -90,7 +82,7 @@ class dynamicImageList extends Model
     public $jobId;
 
     /**
-     * @description The ID of the video.
+     * @description The duration of the animated sticker. Unit: seconds.
      *
      * @example 2e114f1100590c3193918fd449a****
      *
@@ -99,7 +91,7 @@ class dynamicImageList extends Model
     public $videoId;
 
     /**
-     * @description The width of the animated sticker. Unit: pixel.
+     * @description The list of animated stickers.
      *
      * @example 640
      *

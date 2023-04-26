@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The IDs of transcoding templates that were not found when the system removed transcoding templates based on the IDs.
-     *
      * @var string[]
      */
     public $nonExistTranscodeTemplateIds;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string

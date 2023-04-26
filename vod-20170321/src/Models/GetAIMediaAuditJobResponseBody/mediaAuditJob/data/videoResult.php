@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class videoResult extends Model
 {
     /**
-     * @description The results of ad review.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @var adResult
      */
@@ -23,7 +23,7 @@ class videoResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **ad**
+     *   **live**: The content contains undesirable scenes.
      *   **normal**
      *
      * @example normal
@@ -33,32 +33,30 @@ class videoResult extends Model
     public $label;
 
     /**
-     * @description The results of undesired content review.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @var liveResult
      */
     public $liveResult;
 
     /**
-     * @description The results of logo review.
-     *
      * @var logoResult
      */
     public $logoResult;
 
     /**
-     * @description The results of pornography content review.
+     * @description The time when the job started to run. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var pornResult
      */
     public $pornResult;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example pass
      *
@@ -67,7 +65,10 @@ class videoResult extends Model
     public $suggestion;
 
     /**
-     * @description The results of terrorism content review.
+     * @description The category of the review result. Valid values:
+     *
+     *   **ad**
+     *   **normal**
      *
      * @var terrorismResult
      */

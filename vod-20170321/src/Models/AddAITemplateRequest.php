@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddAITemplateRequest extends Model
 {
     /**
-     * @description The detailed configurations of the AI template. The value is a JSON string.
+     * @description Adds an AI template for automated review and smart thumbnail tasks.
      *
      * @example {"AuditItem":["terrorism","porn"],"AuditRange":["image-cover","text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
      *
@@ -18,7 +18,7 @@ class AddAITemplateRequest extends Model
     public $templateConfig;
 
     /**
-     * @description The name of the AI template. The name can be up to 128 bytes in length.
+     * @description The ID of the request.
      *
      * @example AI-media-test
      *
@@ -27,10 +27,7 @@ class AddAITemplateRequest extends Model
     public $templateName;
 
     /**
-     * @description The type of the AI template. Valid values:
-     *
-     *   **AIMediaAudit**: automated review
-     *   **AIImage**: smart thumbnail
+     * @description The operation that you want to perform. Set the value to **AddAITemplate**.
      *
      * @example AIMediaAudit
      *

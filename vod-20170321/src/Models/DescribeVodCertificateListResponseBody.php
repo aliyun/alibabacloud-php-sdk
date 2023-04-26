@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodCertificateListResponseBody extends Model
 {
     /**
-     * @description The information about the returned certificates.
+     * @description The common name of the certificate.
      *
      * @var certificateListModel
      */
     public $certificateListModel;
 
     /**
-     * @description The ID of the request.
+     * @description The certificate authority (CA) that issued the certificate.
      *
      * @example FC0E34AC-0239-44A7-****-800DE522C8DA
      *

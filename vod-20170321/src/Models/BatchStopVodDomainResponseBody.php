@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchStopVodDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 15C66C7B-671A-4297-****-2C4477247A74
      *
      * @var string

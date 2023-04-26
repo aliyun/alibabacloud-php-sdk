@@ -10,14 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodUserDomainsResponseBody extends Model
 {
     /**
-     * @description The detailed information about each domain name for CDN. The returned information is displayed in the format that is specified by the PageData parameter.
+     * @description The status of the domain name. The value of this parameter is used as a condition to filter domain names. Value values:
+     *
+     *   **online**: indicates that the domain name is enabled.
+     *   **offline**: indicates that the domain name is disabled.
+     *   **configuring**: indicates that the domain name is being configured.
+     *   **configure_failed**: indicates that the domain name failed to be configured.
+     *   **checking**: indicates that the domain name is under review.
+     *   **check_failed**: indicates that the domain name failed the review.
      *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The page number of the returned page.
+     * @description The domain name. The value of this parameter is used as a filter condition for a fuzzy match.
      *
      * @example 1
      *
@@ -26,7 +33,7 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The time when the domain name for CDN was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 20
      *
@@ -35,7 +42,7 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The number of the page to return.
      *
      * @example E4EBD2BF-5EB0-4476-****-9D94E1B15267
      *
@@ -44,8 +51,10 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description Indicates whether HTTPS is enabled.
      *
+     * - **on**: indicates that HTTPS is enabled.
+     * - **off**: indicates that HTTPS is disabled.
      * @example 2
      *
      * @var int

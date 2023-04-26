@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainUsageDataResponseBody extends Model
 {
     /**
-     * @description The region where the data was queried.
+     * @description The billable region where the data was collected.
      *
      * @example CN
      *
@@ -19,7 +19,7 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $area;
 
     /**
-     * @description The time interval between the returned entries. Unit: seconds.
+     * @description The time interval between the entries returned. Unit: seconds.
      *
      * @example 300
      *
@@ -28,7 +28,7 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The domain name for CDN.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -37,7 +37,7 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2015-12-10T12:20:00Z
      *
@@ -55,7 +55,7 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2015-12-10T10:20:00Z
      *
@@ -64,11 +64,11 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of the content based on which the data is generated. Valid values:
+     * @description The type of content returned. Valid values:
      *
-     *   **static**
-     *   **dynamic**
-     *   **all**
+     *   **static**: static content
+     *   **dynamic**: dynamic requests
+     *   **all**: all content
      *
      * @example static
      *
@@ -77,7 +77,7 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $type;
 
     /**
-     * @description The details of traffic or bandwidth data.
+     * @description The traffic or bandwidth data returned at each interval.
      *
      * @var usageDataPerInterval
      */

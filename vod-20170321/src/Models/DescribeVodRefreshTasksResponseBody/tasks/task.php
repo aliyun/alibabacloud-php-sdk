@@ -18,11 +18,11 @@ class task extends Model
     public $creationTime;
 
     /**
-     * @description The type of the error that was returned when the refresh or prefetch task failed. Valid values:
+     * @description The type of error returned when the refresh or prefetch task failed. Valid values: Valid values:
      *
-     *   **Internal Error**: indicates that an internal error occurred.
-     *   **Origin Timeout**: indicates that the response from the origin server timed out.
-     *   **Origin Return StatusCode 5XX**: indicates that the origin server returned a 5XX error.
+     *   **Internal Error**: An internal error occurred.
+     *   **Origin Timeout**: The response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: The origin server returned an HTTP status code 5xx.
      *
      * @example Internal Error
      *
@@ -31,7 +31,7 @@ class task extends Model
     public $description;
 
     /**
-     * @description The URL of the object to which the refresh or prefetch task is applied.
+     * @description The URL of the object refreshed.
      *
      * @example http://example.com/****.txt
      *
@@ -40,10 +40,10 @@ class task extends Model
     public $objectPath;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The type of the task. Default value: file. Valid values:
      *
-     *   **file**: refreshes one or more files. This is the default value.
-     *   **directory**: refreshes the files under one or more directories.
+     *   **file**: refreshes one or more files.
+     *   **directory**: refreshes files in the specified directory.
      *   **preload**: prefetches one or more files.
      *
      * @example file
@@ -53,7 +53,7 @@ class task extends Model
     public $objectType;
 
     /**
-     * @description The progress of the task, in percentage.
+     * @description The progress of the task in percentage.
      *
      * @example 100%
      *
@@ -64,10 +64,10 @@ class task extends Model
     /**
      * @description The status of the task. Valid values:
      *
-     *   **Complete**: indicates that the task is complete.
-     *   **Refreshing**: indicates that the task is in progress.
-     *   **Failed**: indicates that the task failed.
-     *   **Pending**: indicates that the task is pending.
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *   **Pending**: The task is pending.
      *
      * @example Complete
      *

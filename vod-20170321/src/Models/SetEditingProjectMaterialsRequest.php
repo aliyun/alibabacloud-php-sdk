@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description The ID of the material. A material is a media asset, such as a video, an image, or an auxiliary media asset. Separate multiple material IDs with commas (,).
-     *
      * @example 9e3101bf24bf41c*****123318788ca
      *
      * @var string
@@ -28,7 +26,7 @@ class SetEditingProjectMaterialsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the online editing project.
+     * @description Sets materials to be edited for an online editing project.
      *
      * @example fb2101bf24bf4*****754cb318787dc
      *

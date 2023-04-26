@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultTimelineResponseBody extends Model
 {
     /**
-     * @description The collection of review result timelines.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @var mediaAuditResultTimeline
      */
     public $mediaAuditResultTimeline;
 
     /**
-     * @description The ID of the request.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example 6438BD76-D523-46FC-956F-****
      *

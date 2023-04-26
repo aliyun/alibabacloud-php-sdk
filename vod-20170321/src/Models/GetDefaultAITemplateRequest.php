@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetDefaultAITemplateRequest extends Model
 {
     /**
-     * @description The type of the AI template. Set the value to **AIMediaAudit**, which specifies intelligent review.
+     * @description The source of the AI template. Valid values:
+     *
+     *   **System**
+     *   **Custom**
      *
      * @example AIMediaAudit
      *

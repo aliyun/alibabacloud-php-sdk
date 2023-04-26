@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The download switch. The audio file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
      *
      * @example app-****
      *
@@ -18,7 +21,15 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The category ID of the video file.
+     * @description The status of the video file. Valid values:
+     *
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSucc**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**
      *
      * @example 10000123
      *
@@ -36,7 +47,7 @@ class video extends Model
     public $cateName;
 
     /**
-     * @description The URL of the thumbnail.
+     * @description The filter condition. For more information about the syntax, see [Protocol for media asset search](~~86991~~).
      *
      * @example https://example.aliyundoc.com/image01.png
      *
@@ -45,7 +56,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The category ID of the auxiliary media asset.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -54,19 +65,17 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The description of the video file.
+     * @description The endpoint of the OSS bucket in which the image file is stored.
      *
-     * @example Video test
+     * @example The media asset fields to return in the query results.
      *
+     * By default, only the basic media asset fields are returned. You can specify additional media asset fields that need to be returned in the request. For more information, see the "API examples" section of the [Search for media asset information](~~99179~~) topic.
      * @var string
      */
     public $description;
 
     /**
-     * @description The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
-     *
-     *   **on**
-     *   **off**
+     * @description The ID of the application.
      *
      * @example on
      *
@@ -75,7 +84,7 @@ class video extends Model
     public $downloadSwitch;
 
     /**
-     * @description The duration of the video file. Unit: seconds.
+     * @description The description of the auxiliary media asset.
      *
      * @example 123
      *
@@ -84,12 +93,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The source. Valid values:
-     *
-     *   **general**: The video file is uploaded by using ApsaraVideo VOD.
-     *   **short_video**: The video file is uploaded by using the short video SDK.
-     *   **editing**: The video file is produced after online editing.
-     *   **live**: The video stream is recorded and uploaded as a file.
+     * @description [Details about video files](~~86991~~).
      *
      * @example general
      *
@@ -98,7 +102,7 @@ class video extends Model
     public $mediaSource;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The description of the audio file.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -107,12 +111,7 @@ class video extends Model
     public $modificationTime;
 
     /**
-     * @description The preprocessing status. Valid values:
-     *
-     *   **UnPreprocess**
-     *   **Preprocessing**
-     *   **PreprocessSucceed**
-     *   **PreprocessFailed**
+     * @description The URL of the image file.
      *
      * @example Preprocessing
      *
@@ -121,7 +120,21 @@ class video extends Model
     public $preprocessStatus;
 
     /**
-     * @description The size of the video file.
+     * @example 2023-03-30T10:14:14Z
+     *
+     * @var string
+     */
+    public $restoreExpiration;
+
+    /**
+     * @example Success
+     *
+     * @var string
+     */
+    public $restoreStatus;
+
+    /**
+     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 123
      *
@@ -130,29 +143,21 @@ class video extends Model
     public $size;
 
     /**
-     * @description The list of automatic snapshots.
+     * @description The endpoint of the OSS bucket in which the auxiliary media asset is stored.
      *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The list of sprite snapshots.
+     * @description The list of automatic snapshots.
      *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
-     * @description The status of the video file. Valid values:
-     *
-     *   **Uploading**
-     *   **UploadFail**
-     *   **UploadSucc**
-     *   **Transcoding**
-     *   **TranscodeFail**
-     *   **Blocked**
-     *   **Normal**
+     * @description The ID of the application.
      *
      * @example UploadSucc
      *
@@ -161,7 +166,14 @@ class video extends Model
     public $status;
 
     /**
-     * @description The endpoint of the OSS bucket in which the video file is stored.
+     * @example Standard
+     *
+     * @var string
+     */
+    public $storageClass;
+
+    /**
+     * @description The time when the audio file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *
@@ -170,7 +182,7 @@ class video extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the video file.
+     * @description The title of the image file.
      *
      * @example tag1
      *
@@ -179,7 +191,7 @@ class video extends Model
     public $tags;
 
     /**
-     * @description The title of the video file.
+     * @description The title of the audio file.
      *
      * @example ceshi
      *
@@ -188,11 +200,7 @@ class video extends Model
     public $title;
 
     /**
-     * @description The transcoding mode. Default value: FastTranscode. Valid values:
-     *
-     *   **FastTranscode**: The video file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
-     *   **NoTranscode**: The video file can be played without being transcoded. You can immediately play the file after it is uploaded.
-     *   **AsyncTranscode**: The video file can be immediately played and asynchronously transcoded after it is uploaded.
+     * @description The category ID of the audio file.
      *
      * @example FastTranscode
      *
@@ -201,7 +209,7 @@ class video extends Model
     public $transcodeMode;
 
     /**
-     * @description The ID of the video file.
+     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example a82a2asdasqadaf3faa0ed6c1ee372****
      *
@@ -209,26 +217,29 @@ class video extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'            => 'AppId',
-        'cateId'           => 'CateId',
-        'cateName'         => 'CateName',
-        'coverURL'         => 'CoverURL',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'downloadSwitch'   => 'DownloadSwitch',
-        'duration'         => 'Duration',
-        'mediaSource'      => 'MediaSource',
-        'modificationTime' => 'ModificationTime',
-        'preprocessStatus' => 'PreprocessStatus',
-        'size'             => 'Size',
-        'snapshots'        => 'Snapshots',
-        'spriteSnapshots'  => 'SpriteSnapshots',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'transcodeMode'    => 'TranscodeMode',
-        'videoId'          => 'VideoId',
+        'appId'             => 'AppId',
+        'cateId'            => 'CateId',
+        'cateName'          => 'CateName',
+        'coverURL'          => 'CoverURL',
+        'creationTime'      => 'CreationTime',
+        'description'       => 'Description',
+        'downloadSwitch'    => 'DownloadSwitch',
+        'duration'          => 'Duration',
+        'mediaSource'       => 'MediaSource',
+        'modificationTime'  => 'ModificationTime',
+        'preprocessStatus'  => 'PreprocessStatus',
+        'restoreExpiration' => 'RestoreExpiration',
+        'restoreStatus'     => 'RestoreStatus',
+        'size'              => 'Size',
+        'snapshots'         => 'Snapshots',
+        'spriteSnapshots'   => 'SpriteSnapshots',
+        'status'            => 'Status',
+        'storageClass'      => 'StorageClass',
+        'storageLocation'   => 'StorageLocation',
+        'tags'              => 'Tags',
+        'title'             => 'Title',
+        'transcodeMode'     => 'TranscodeMode',
+        'videoId'           => 'VideoId',
     ];
 
     public function validate()
@@ -271,6 +282,12 @@ class video extends Model
         if (null !== $this->preprocessStatus) {
             $res['PreprocessStatus'] = $this->preprocessStatus;
         }
+        if (null !== $this->restoreExpiration) {
+            $res['RestoreExpiration'] = $this->restoreExpiration;
+        }
+        if (null !== $this->restoreStatus) {
+            $res['RestoreStatus'] = $this->restoreStatus;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -282,6 +299,9 @@ class video extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
@@ -343,6 +363,12 @@ class video extends Model
         if (isset($map['PreprocessStatus'])) {
             $model->preprocessStatus = $map['PreprocessStatus'];
         }
+        if (isset($map['RestoreExpiration'])) {
+            $model->restoreExpiration = $map['RestoreExpiration'];
+        }
+        if (isset($map['RestoreStatus'])) {
+            $model->restoreStatus = $map['RestoreStatus'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
@@ -358,6 +384,9 @@ class video extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];

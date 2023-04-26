@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetMessageCallbackRequest extends Model
 {
     /**
-     * @description The ID of the application. If you do not set this parameter, the default value **app-1000000** is used.
+     * @description The callback method. Valid values:
+     *
+     *   **HTTP**
+     *   **MNS**
      *
      * @example app-1000000
      *

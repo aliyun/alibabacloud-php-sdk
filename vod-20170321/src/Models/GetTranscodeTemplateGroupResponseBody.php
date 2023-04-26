@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the transcoding template.
      *
      * @example 6730AC93-7B12-4B*****7F-49EE1FE8BC49
      *
@@ -19,7 +19,7 @@ class GetTranscodeTemplateGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the transcoding template group.
+     * @description The format of the container used to encapsulate audio and video streams. The value is a JSON-formatted string.
      *
      * @var transcodeTemplateGroup
      */

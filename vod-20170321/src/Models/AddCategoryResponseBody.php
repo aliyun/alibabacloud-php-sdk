@@ -17,7 +17,7 @@ class AddCategoryResponseBody extends Model
     public $category;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **AddCategory**.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *

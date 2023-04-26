@@ -9,9 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N. Valid values of N: **1** to **20**.
+     * @description The status of the domain name for CDN. Valid values:
      *
-     * If you do not specify this parameter, all tag keys are queried.
+     *   **online**: indicates that the domain name is enabled.
+     *   **offline**: indicates that the domain name is disabled.
+     *   **configuring**: indicates that the domain name is being configured.
+     *   **configure_failed**: indicates that the domain name failed to be configured.
+     *   **checking**: indicates that the domain name is under review.
+     *   **check_failed**: indicates that the domain name failed the review.
+     *
      * @example key
      *
      * @var string
@@ -19,9 +25,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N. Valid values of N: **1** to **20**.
+     * @description The canonical domain name that is assigned to the domain name for CDN.
      *
-     * If you do not specify this parameter, all tag values are queried.
      * @example value
      *
      * @var string

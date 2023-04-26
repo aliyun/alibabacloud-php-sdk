@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfoResponseBody extends Model
 {
     /**
-     * @description The details of each application.
+     * @description The status of the application. After an application is created, it enters the **Normal** state. Valid values:
+     *
+     *   **Normal**
+     *   **Disable**
      *
      * @var appInfoList[]
      */
     public $appInfoList;
 
     /**
-     * @description The ID of the request.
+     * @description The last time when the application was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 25818875-5F78-4A13-4D5C-D7393642****
      *
@@ -26,7 +29,10 @@ class ListAppInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The status of the application. Valid values:
+     *
+     *   **Normal**
+     *   **Disable**
      *
      * @example 10
      *

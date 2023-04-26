@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddVodDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The URL that is used for health checks.
      *
      * @example 15C66C7B-671A-4297-****-2C4477247A74
      *

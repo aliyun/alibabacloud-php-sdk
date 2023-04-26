@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAIVideoTagResultResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The location tag of the video.
      *
      * @example 8829B4DB-AFD9-4FF6-12965DBFFA14****
      *
@@ -19,7 +19,7 @@ class GetAIVideoTagResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned result.
+     * @description The tag string.
      *
      * @var videoTagResult
      */

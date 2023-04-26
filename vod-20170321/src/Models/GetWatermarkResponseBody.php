@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetWatermarkResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The time when the watermark was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
@@ -19,7 +19,7 @@ class GetWatermarkResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the watermark.
+     * @description The ID of the application.
      *
      * @var watermarkInfo
      */

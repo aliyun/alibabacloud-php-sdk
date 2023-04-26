@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultDetailRequest extends Model
 {
     /**
-     * @description The ID of the video.
+     * @description The category of the pornographic content review result. Valid values:
+     *
+     *   **normal**
+     *   **porn**
+     *   **sexy**
      *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
@@ -18,7 +22,7 @@ class GetMediaAuditResultDetailRequest extends Model
     public $mediaId;
 
     /**
-     * @description The page number of the review result to return. The default value is **1**. A maximum of **20** records can be returned on each page.
+     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
      *
      * @example 1
      *

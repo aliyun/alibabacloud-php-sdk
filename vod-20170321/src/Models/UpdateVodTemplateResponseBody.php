@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateVodTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateVodTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the snapshot template.
-     *
      * @example 8c75a02e339b*****0b0d2c48171a22
      *
      * @var string

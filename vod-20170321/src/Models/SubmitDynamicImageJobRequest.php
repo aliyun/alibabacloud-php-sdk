@@ -18,7 +18,7 @@ class SubmitDynamicImageJobRequest extends Model
     public $dynamicImageTemplateId;
 
     /**
-     * @description The parameters used for overriding. The value is a JSON-formatted string. For more information, see the "OverrideParams" section of the [Media processing parameters](~~98618~~) topic. The parameters are used to replace the parameters in the animated image template. For more information, see the [Basic data types](~~52839~~) topic.
+     * @description The ID of the animated image job.
      *
      * @example {"Watermarks":[{"Content":"UserID: 666**","WatermarkId":"8ca03c884944bd05efccc312367****"}]}
      *
@@ -27,7 +27,7 @@ class SubmitDynamicImageJobRequest extends Model
     public $overrideParams;
 
     /**
-     * @description The ID of the video.
+     * @description The returned data.
      *
      * @example 7d2fbc3e273441bdb0e08e55f8****
      *

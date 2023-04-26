@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMediaDNAResultResponseBody extends Model
 {
     /**
-     * @description The media fingerprinting results.
+     * @description The similarity between the fingerprints of the input video and the matched video. 1 indicates that the fingerprints of the two videos are the same.
      *
      * @var DNAResult
      */
     public $DNAResult;
 
     /**
-     * @description The ID of the request.
+     * @description The start time of the video. Unit: seconds.
      *
      * @example 63FC4896-E956-4B*****7D-134FF1BC597A
      *

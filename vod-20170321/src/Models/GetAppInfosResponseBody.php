@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAppInfosResponseBody extends Model
 {
     /**
-     * @description The details of each application.
+     * @description The time when the application was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var appInfoList[]
      */
@@ -22,14 +22,14 @@ class GetAppInfosResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the application that was not found.
+     * @description The ID of the application. You can specify a maximum of 10 application IDs. Separate them with commas (,).
      *
      * @var string[]
      */
     public $nonExistAppIds;
 
     /**
-     * @description The ID of the request.
+     * @description The last time when the application was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 25818875-5F78-4A13-4DC4-D7393642****
      *

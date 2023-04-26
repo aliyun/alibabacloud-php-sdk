@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
-     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The total number of entries returned.
      *
      * @example 2018-05-31T05:00:00Z
      *
@@ -18,7 +18,7 @@ class logInfoDetail extends Model
     public $endTime;
 
     /**
-     * @description The name of the log file.
+     * @description Queries the information about the raw access logs for a specific domain name, including the log path.
      *
      * @example example.com_2018_03_25_180000_19****.gz
      *
@@ -27,8 +27,6 @@ class logInfoDetail extends Model
     public $logName;
 
     /**
-     * @description The path of the log file.
-     *
      * @example example.com/2018_03_25/example.com_2018_03_25_180000_19****.gz?Expires=1522659931&OSSAccessKeyId=****&Signature=****
      *
      * @var string
@@ -36,7 +34,7 @@ class logInfoDetail extends Model
     public $logPath;
 
     /**
-     * @description The size of the log file.
+     * @description The ID of the request.
      *
      * @example 2645401
      *
@@ -45,7 +43,7 @@ class logInfoDetail extends Model
     public $logSize;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The pagination settings of Alibaba Cloud CDN logs.
      *
      * @example 2018-05-31T04:00:00Z
      *

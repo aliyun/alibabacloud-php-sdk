@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaResponseBody extends Model
 {
     /**
-     * @description Details about media assets.
+     * @description The status of the audio file. Valid values:
+     *
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
+     *   **Deleted**
      *
      * @var mediaList[]
      */
     public $mediaList;
 
     /**
-     * @description The ID of the request.
+     * @description The tags of the audio file.
      *
      * @example 3E0CEF83-FB09-4E34-BA1451814B03****
      *
@@ -26,7 +31,7 @@ class SearchMediaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The pagination identifier.
+     * @description The title of the auxiliary media asset.
      *
      * @example 24e0fba7188fae707e146esa54****
      *
@@ -35,7 +40,7 @@ class SearchMediaResponseBody extends Model
     public $scrollToken;
 
     /**
-     * @description The total number of data records that meet the specified filter criteria.
+     * @description [Details about image files](~~86991~~).
      *
      * @example 10
      *

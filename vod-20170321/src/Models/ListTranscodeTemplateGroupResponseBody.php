@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the transcoding template group.
      *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
@@ -19,7 +19,10 @@ class ListTranscodeTemplateGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The transcoding template groups.
+     * @description The lock status of the transcoding template group. Valid values:
+     *
+     *   **Disabled**: The template group is not locked.
+     *   **Enabled**: The template group is locked.
      *
      * @var transcodeTemplateGroupList[]
      */

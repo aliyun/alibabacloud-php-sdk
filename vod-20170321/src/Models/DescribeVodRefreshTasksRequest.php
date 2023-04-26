@@ -27,7 +27,7 @@ class DescribeVodRefreshTasksRequest extends Model
     public $endTime;
 
     /**
-     * @description The object URL based on which the query is performed. The URL is used as a condition for an exact match.
+     * @description The path of the object. The path is used as a condition for exact matching.
      *
      * @example http://example.com/***.txt
      *
@@ -39,10 +39,10 @@ class DescribeVodRefreshTasksRequest extends Model
      * @description The type of the task. Valid values:
      *
      *   **file**: refreshes one or more files.
-     *   **directory**: refreshes the files under one or more directories.
+     *   **directory**: refreshes files in the specified directories.
      *   **preload**: prefetches one or more files.
      *
-     * > If you specify the DomainName or TaskStatus parameter, you must also specify the ObjectType parameter.
+     * > If you specify the DomainName or Status parameter, you must also specify the ObjectType parameter.
      * @example file
      *
      * @var string
@@ -90,9 +90,9 @@ class DescribeVodRefreshTasksRequest extends Model
     /**
      * @description The status of the task. Valid values:
      *
-     *   **Complete**: indicates that the task is complete.
-     *   **Refreshing**: indicates that the task is in progress.
-     *   **Failed**: indicates that the task failed.
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
      *
      * @example Complete
      *
@@ -101,7 +101,7 @@ class DescribeVodRefreshTasksRequest extends Model
     public $status;
 
     /**
-     * @description The task ID based on which the query is performed.
+     * @description The ID of the task that you want to query.
      *
      * @example 70422****
      *

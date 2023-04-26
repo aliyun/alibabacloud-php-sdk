@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class pornResult extends Model
 {
     /**
-     * @description The average score of the images of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description Test
      *
      * @example 100
      *
@@ -20,18 +20,14 @@ class pornResult extends Model
     public $averageScore;
 
     /**
-     * @description The categories of the review results and the number of images.
+     * @description The URL of the image.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **porn**
-     *   **sexy**
-     *   **normal**
+     * @description The average score of the review results.
      *
      * @example porn
      *
@@ -40,7 +36,7 @@ class pornResult extends Model
     public $label;
 
     /**
-     * @description The highest score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description The number of images.
      *
      * @example 100
      *
@@ -49,11 +45,7 @@ class pornResult extends Model
     public $maxScore;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The score of the image of the category that is indicated by Label.
      *
      * @example pass
      *
@@ -62,7 +54,11 @@ class pornResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The category of the review result. Valid values:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
      *
      * @var topList[]
      */

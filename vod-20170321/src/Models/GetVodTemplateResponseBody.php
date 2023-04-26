@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetVodTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The time when the template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example DE7A1F49-41C1-47*****DF-4CD0C02087DB
      *
@@ -19,7 +19,7 @@ class GetVodTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the snapshot template.
+     * @description The ID of the template.
      *
      * @var vodTemplateInfo
      */

@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description The type of the material. Valid values:
-     *
-     *   **video**
-     *   **audio**
-     *   **image**
+     * @description The URLs of material snapshots. The value is an array.
      *
      * @example video
      *
@@ -54,10 +50,7 @@ class GetEditingProjectMaterialsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the material. Valid values:
-     *
-     *   **video**
-     *   **audio**
+     * @description The ID of the material.
      *
      * @example video
      *

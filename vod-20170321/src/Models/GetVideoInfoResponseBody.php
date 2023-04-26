@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetVideoInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -19,8 +17,6 @@ class GetVideoInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the video.
-     *
      * @var video
      */
     public $video;

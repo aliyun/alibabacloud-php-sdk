@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The domain name that matches the certificate.
-     *
      * @example example.com
      *
      * @var string
@@ -18,8 +16,6 @@ class certInfo extends Model
     public $certDomainName;
 
     /**
-     * @description The time when the certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
      * @example 2018-06-03T13:03:39Z
      *
      * @var string
@@ -27,8 +23,6 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description The validity period of the certificate. Unit: month or year.
-     *
      * @example 3 months
      *
      * @var string
@@ -36,8 +30,6 @@ class certInfo extends Model
     public $certLife;
 
     /**
-     * @description The name of the certificate.
-     *
      * @example cert-example.com
      *
      * @var string
@@ -45,8 +37,6 @@ class certInfo extends Model
     public $certName;
 
     /**
-     * @description The certificate authority (CA) that issued the certificate.
-     *
      * @example Let\"s Encrypt
      *
      * @var string
@@ -54,12 +44,6 @@ class certInfo extends Model
     public $certOrg;
 
     /**
-     * @description The type of the certificate. Valid values:
-     *
-     *   **free**: a free certificate.
-     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service.
-     *   **upload**: a user-uploaded certificate.
-     *
      * @example free
      *
      * @var string
@@ -67,8 +51,6 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The domain name for CDN.
-     *
      * @example example.com
      *
      * @var string
@@ -76,16 +58,6 @@ class certInfo extends Model
     public $domainName;
 
     /**
-     * @description The status of the server certificate.
-     *
-     *   **success**: indicates that the certificate has taken effect.
-     *   **checking**: indicates that the system is checking whether the domain name has been added to ApsaraVideo VOD.
-     *   **cname_error**: indicates that the domain name has not been added to ApsaraVideo VOD.
-     *   **domain_invalid**: indicates that the domain name contains invalid characters.
-     *   **unsupport_wildcard**: indicates that wildcard domain names are not supported.
-     *   **applying**: indicates that the certificate is in the application process.
-     *   **failed**: indicates that the request of applying for the certificate has failed.
-     *
      * @example checking
      *
      * @var string
@@ -93,16 +65,6 @@ class certInfo extends Model
     public $serverCertificateStatus;
 
     /**
-     * @description The status of the certificate.
-     *
-     *   **success**: indicates that the certificate has taken effect.
-     *   **checking**: indicates that the system is checking whether the domain name has been added to ApsaraVideo VOD.
-     *   **cname_error**: indicates that the domain name has not been added to ApsaraVideo VOD.
-     *   **domain_invalid**: indicates that the domain name contains invalid characters.
-     *   **unsupport_wildcard**: indicates that wildcard domain names are not supported.
-     *   **applying**: indicates that the certificate is in the application process.
-     *   **failed**: indicates that the request of applying for the certificate has failed.
-     *
      * @example success
      *
      * @var string

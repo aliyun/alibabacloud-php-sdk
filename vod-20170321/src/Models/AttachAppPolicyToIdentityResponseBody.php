@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AttachAppPolicyToIdentityResponseBody extends Model
 {
     /**
-     * @description The name of the policy that failed to be attached to the identity.
-     *
      * @var string[]
      */
     public $failedPolicyNames;
 
     /**
-     * @description The name of the policy that was not found.
-     *
      * @var string[]
      */
     public $nonExistPolicyNames;
 
     /**
-     * @description The ID of the request.
+     * @description Authorizes the specified identity to access the applications of ApsaraVideo VOD. The identity may be a RAM user or RAM role.
      *
      * @example 25818875-5F78-4A13-****-D7393642CA58
      *

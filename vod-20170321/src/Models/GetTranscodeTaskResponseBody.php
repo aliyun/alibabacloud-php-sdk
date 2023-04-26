@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The size of the output file. Unit: byte.
      *
      * @example F4C6D5BE-BF13-45*****6C-516EA8906DCD
      *
@@ -19,7 +19,7 @@ class GetTranscodeTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about transcoding tasks.
+     * @description The length of the output file. Unit: seconds.
      *
      * @var transcodeTask
      */

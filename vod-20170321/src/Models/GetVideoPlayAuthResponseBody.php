@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPlayAuthResponseBody extends Model
 {
     /**
-     * @description The credential for video or audio playback.
+     * @description The ID of the request.
      *
      * @example sstyYuew6789000000xtt7TYUh****
      *
@@ -19,7 +19,7 @@ class GetVideoPlayAuthResponseBody extends Model
     public $playAuth;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **GetVideoPlayAuth**.
      *
      * @example E4EBD2BF-5EB0-4476-8829-9D94E1B1****
      *
@@ -28,7 +28,7 @@ class GetVideoPlayAuthResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The metadata of the audio or video file.
+     * @description Queries the credential required for media playback.
      *
      * @var videoMeta
      */

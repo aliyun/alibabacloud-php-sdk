@@ -9,10 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelUrlUploadJobsRequest extends Model
 {
     /**
-     * @description The IDs of the upload jobs. You can obtain the job IDs in the response parameter PlayInfo of the [GetPlayInfo](~~56124~~) operation.
-     *   You can specify a maximum of 10 IDs.
-     *   Separate multiple IDs with commas (,).
-     * > You must set one of the JobIds and the UploadUrls parameters. If you set both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
+     * @description The ID of the request.
+     *
      * @example 341c92e6c18dc435ee31253685****,0193d395194a83ad6ee2ef27a5b5****
      *
      * @var string
@@ -20,9 +18,8 @@ class CancelUrlUploadJobsRequest extends Model
     public $jobIds;
 
     /**
-     * @description The upload URLs of source files. Separate multiple URLs with commas (,). You can specify a maximum of 10 URLs.
-     * > *   You must encode the URLs before you use the URLs.
-     * > *   You must set one of the JobIds and the UploadUrls parameters. If you set both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
+     * @description The operation that you want to perform. Set the value to **CancelUrlUploadJobs**.
+     *
      * @example http://www.example.aliyundoc.com/***\/video01.mp4,http://www.example.aliyundoc.com/***\/video02.mp4
      *
      * @var string

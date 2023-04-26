@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The number of frames.
+     * @description The highest review score.
      *
      * @example 1
      *
@@ -18,11 +18,11 @@ class counterList extends Model
     public $count;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The recommendation for review results. Valid values:
      *
-     * - **porn**
-     * - **sexy**
-     * - **normal**
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example porn
      *
      * @var string

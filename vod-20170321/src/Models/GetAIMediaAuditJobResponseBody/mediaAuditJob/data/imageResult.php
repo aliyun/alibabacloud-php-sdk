@@ -10,15 +10,7 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
-     *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
-     *   **audio**: audio anti-spam
-     *   **normal**
+     * @description The error code. This parameter is returned if the value of Status is fail.
      *
      * @example normal
      *
@@ -27,18 +19,14 @@ class imageResult extends Model
     public $label;
 
     /**
-     * @description Details of image review results.
+     * @description The results of terrorism content review.
      *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The categories of the review results and the number of images.
      *
      * @example pass
      *
@@ -47,7 +35,7 @@ class imageResult extends Model
     public $suggestion;
 
     /**
-     * @description The type of the image. Valid value: **cover**.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @example cover
      *
@@ -56,7 +44,7 @@ class imageResult extends Model
     public $type;
 
     /**
-     * @description The URL of the image.
+     * @description The score of the image of the category that is indicated by Label.
      *
      * @example http://www.test.com/****.jpg
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDynamicImageResponseBody extends Model
 {
     /**
-     * @description The list of animated stickers.
+     * @description The format of the animated sticker. Valid values: gif and webp.
      *
      * @var dynamicImageList[]
      */
     public $dynamicImageList;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **ListDynamicImage**.
      *
      * @example 570189B6-572E-4953-13B4278EE0D8****
      *

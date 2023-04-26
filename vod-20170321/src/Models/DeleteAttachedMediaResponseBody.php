@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteAttachedMediaResponseBody extends Model
 {
     /**
-     * @description The ID of the auxiliary media asset that failed to be deleted.
-     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string

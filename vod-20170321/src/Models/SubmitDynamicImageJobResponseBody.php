@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicImageJobResponseBody extends Model
 {
     /**
-     * @description The information about the animated image job.
+     * @description The ID of the request.
      *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
 
     /**
-     * @description The ID of the request.
+     * @description The parameters used for overriding. The value is a JSON-formatted string. For more information, see the "OverrideParams" section of the [Media processing parameters](~~98618~~) topic. The parameters are used to replace the parameters in the animated image template. For more information, see the [Basic data types](~~52839~~) topic.
      *
      * @example 25818875-5F78-74A6-BEF6-D7393642****
      *

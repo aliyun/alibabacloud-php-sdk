@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInfoRequest extends Model
 {
     /**
-     * @description The name of the application, which must be unique.
+     * @description Creates an application.
      *
-     * - The name can contain only UTF-8 characters.
      * @example test
      *
      * @var string
@@ -19,8 +18,9 @@ class CreateAppInfoRequest extends Model
     public $appName;
 
     /**
-     * @description The description of the application.
-     * - The description can contain only UTF-8 characters.
+     * @description ## Common errors
+     *
+     * | LimitExceeded.AppCount | App Count has exceeded 10. | 400 | The error message returned because the number of applications that can be created exceeds the upper limit. |
      * @example myfirstapp
      *
      * @var string

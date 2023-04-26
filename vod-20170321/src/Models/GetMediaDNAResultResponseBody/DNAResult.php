@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DNAResult extends Model
 {
     /**
-     * @description The video fingerprint recognition result.
+     * @description The media fingerprinting results.
      *
      * @var videoDNA[]
      */

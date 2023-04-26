@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainLogRequest extends Model
 {
     /**
-     * @description The domain name.
+     * @description The page number of the returned page.
      *
-     * > You can specify only one domain name in each query.
      * @example example.com
      *
      * @var string
@@ -19,7 +18,7 @@ class DescribeVodDomainLogRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. The time range that is specified by the StartTime and EndTime parameters cannot exceed one year. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The operation that you want to perform. Set the value to **DescribeVodDomainLog**.
      *
      * @example 2016-10-20T05:00:00Z
      *
@@ -33,7 +32,7 @@ class DescribeVodDomainLogRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The name of the log file.
      *
      * @example 1
      *
@@ -42,10 +41,7 @@ class DescribeVodDomainLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     *   Default value: **300.**
-     *   Maximum value: **1000.**
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 300
      *
@@ -54,7 +50,7 @@ class DescribeVodDomainLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2016-10-20T04:00:00Z
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class MoveAppResourceRequest extends Model
 {
     /**
-     * @description The ID of the resource. You can specify a maximum of 20 IDs at a time. Separate them with commas (,).
+     * @description The operation that you want to perform. Set the value to **MoveAppResource**.
      *
      * @example 9afb4****06de180880e,f7bba****caa546cfe2ba
      *
@@ -18,11 +18,7 @@ class MoveAppResourceRequest extends Model
     public $resourceIds;
 
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   **video**
-     *   **image**
-     *   **attached**
+     * @description The ID of the request.
      *
      * @example video
      *
@@ -31,7 +27,7 @@ class MoveAppResourceRequest extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the application to which resources are migrated. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the resource. You can specify a maximum of 20 IDs at a time. Separate them with commas (,).
      *
      * @example app-****
      *

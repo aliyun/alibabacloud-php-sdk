@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaDNADeleteJobRequest extends Model
 {
     /**
-     * @description The ID of the video.
+     * @description Deletes a video fingerprinting job.
      *
      * @example 656eaaa8c43a4597******1f09a36
      *

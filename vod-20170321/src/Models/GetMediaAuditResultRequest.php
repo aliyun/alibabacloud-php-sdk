@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditResultRequest extends Model
 {
     /**
-     * @description The ID of the video or image.
+     * @description The operation that you want to perform. Set the value to **GetMediaAuditResult**.
      *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *

@@ -9,18 +9,12 @@ use AlibabaCloud\Tea\Model;
 class topList extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
-     *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
-     * @example normal
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description Queries the summary of automated review results.
      *
      * @example 100
      *
@@ -29,8 +23,6 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
-     *
      * @example 10
      *
      * @var string
@@ -38,8 +30,11 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
      *
+     * - **porn**
+     * - **terrorism**
+     * - **normal**
      * @example http://temp-testbucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class categories extends Model
 {
     /**
-     * @description The category ID of the auxiliary media asset.
-     *
      * @example 10027394
      *
      * @var int
@@ -18,17 +16,11 @@ class categories extends Model
     public $cateId;
 
     /**
-     * @description The name of the category.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description The level of the category.
-     *
      * @example 1
      *
      * @var int
@@ -36,8 +28,6 @@ class categories extends Model
     public $level;
 
     /**
-     * @description The ID of the parent category.
-     *
      * @example -1
      *
      * @var int

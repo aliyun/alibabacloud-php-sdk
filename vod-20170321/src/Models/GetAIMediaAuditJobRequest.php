@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAIMediaAuditJobRequest extends Model
 {
     /**
-     * @description The ID of the intelligent review job.
+     * @description http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *
      * @example bdbc266af6894*****943a70176d92e9
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAuditHistoryRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The reason why the video failed the review. If the video failed the review, specify the reason.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class GetAuditHistoryRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+     * @description The ID of the video.
      *
      * @example 10
      *
@@ -27,9 +27,7 @@ class GetAuditHistoryRequest extends Model
     public $pageSize;
 
     /**
-     * @description The sorting rule of the results. Valid values:
-     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+     * @description The review records.
      *
      * @example CreationTime:Desc
      *
@@ -38,7 +36,7 @@ class GetAuditHistoryRequest extends Model
     public $sortBy;
 
     /**
-     * @description The ID of the video.
+     * @description The operation that you want to perform. Set the value to **GetAuditHistory**.
      *
      * @example 93ab850b4f6f44*****6e91d24d81d4
      *

@@ -11,21 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListAIJobResponseBody extends Model
 {
     /**
-     * @description The information about the jobs.
+     * @description The list of job IDs. You can obtain the job ID from the PlayInfo parameter in the response to the [GetPlayInfo](~~56124~~) operation.
      *
+     * >  You can specify a maximum of 10 job IDs in a request. Separate multiple IDs with commas (,).
      * @var AIJobList
      */
     public $AIJobList;
 
     /**
-     * @description The IDs of the jobs that do not exist.
+     * @description The error code. This parameter is returned if the value of Status is fail.
      *
      * @var nonExistAIJobIds
      */
     public $nonExistAIJobIds;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the job.
      *
      * @example 8233A0E4-E112-44*****58-2BCED1B88173
      *

@@ -9,22 +9,6 @@ use AlibabaCloud\Tea\Model;
 class topList extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
-     *
-     * - **normal**
-     * - **bloody**
-     * - **explosion**
-     * - **outfit**
-     * - **logo**
-     * - **weapon**
-     * - **politics**
-     * - **violence**
-     * - **crowd**
-     * - **parade**
-     * - **carcrash**
-     * - **flag**
-     * - **location**
-     * - **others**
      * @example normal
      *
      * @var string
@@ -32,8 +16,6 @@ class topList extends Model
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
-     *
      * @example 100.000
      *
      * @var string
@@ -41,8 +23,6 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
-     *
      * @example 3005
      *
      * @var string
@@ -50,8 +30,6 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
-     *
      * @example http://temp-testbucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the application.
-     *
      * @example app-****
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateAppInfoResponseBody extends Model
     public $appId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A13-34D5-D7393642****
      *
      * @var string

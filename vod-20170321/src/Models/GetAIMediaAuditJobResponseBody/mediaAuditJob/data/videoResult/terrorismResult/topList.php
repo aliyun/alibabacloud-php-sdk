@@ -11,20 +11,8 @@ class topList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **normal**
-     *   **bloody**
-     *   **explosion**
-     *   **outfit**
      *   **logo**
-     *   **weapon**
-     *   **politics**
-     *   **violence**
-     *   **crowd**
-     *   **parade**
-     *   **carcrash**
-     *   **flag**
-     *   **location**
-     *   **others**
+     *   **normal**
      *
      * @example normal
      *
@@ -33,7 +21,7 @@ class topList extends Model
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description The ID of the job.
      *
      * @example 100
      *
@@ -42,7 +30,7 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The highest review score.
      *
      * @example 5
      *
@@ -51,7 +39,7 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example http://ali*****.com/aivideocensor/yytysursrutyrxuq/****.jpg
      *

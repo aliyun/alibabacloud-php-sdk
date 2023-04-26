@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordVideoResponseBody extends Model
 {
     /**
-     * @description The list of videos.
+     * @description The total number of videos returned.
      *
      * @var liveRecordVideoList
      */
     public $liveRecordVideoList;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the video.
      *
      * @example 25818875-5F78-4A13-****-D7393642CA58
      *
@@ -26,7 +26,7 @@ class ListLiveRecordVideoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of videos returned.
+     * @description The title of the video.
      *
      * @example 123
      *

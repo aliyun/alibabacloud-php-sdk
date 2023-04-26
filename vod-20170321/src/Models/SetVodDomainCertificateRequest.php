@@ -18,7 +18,7 @@ class SetVodDomainCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description The domain name that is secured by the certificate. The domain name uses HTTPS acceleration.
+     * @description The domain name that is secured by the certificate. The domain name must use HTTPS acceleration.
      *
      * @example example.com
      *
@@ -41,10 +41,10 @@ class SetVodDomainCertificateRequest extends Model
     public $SSLPri;
 
     /**
-     * @description Specifies whether to enable the SSL certificate. Valid values:
+     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
      *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate. Default value: off.
+     *   **on**
+     *   **off**
      *
      * @example off
      *

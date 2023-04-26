@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class videoDNA extends Model
 {
     /**
-     * @description The details of the matched video. Information such as the location and duration of the video is returned.
+     * @description The duration of the video. Unit: seconds.
      *
      * @var detail[]
      */
     public $detail;
 
     /**
-     * @description The ID of the video that has a similar fingerprint.
+     * @description The start time and duration of the input video.
      *
      * @example 6ad8987da46f4b*****490ce2873745
      *
@@ -26,7 +26,7 @@ class videoDNA extends Model
     public $primaryKey;
 
     /**
-     * @description The similarity between the fingerprints of the input video and the matched video. 1 indicates that the fingerprints of the two videos are the same.
+     * @description The video fingerprint recognition result.
      *
      * @example 0.98
      *

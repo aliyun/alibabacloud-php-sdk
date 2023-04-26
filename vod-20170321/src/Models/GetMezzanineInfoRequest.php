@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMezzanineInfoRequest extends Model
 {
     /**
-     * @description The type of additional information. Separate multiple values with commas (,). By default, only the basic information is returned. Valid values:
-     *
-     *   **video**: video stream information
-     *   **audio**: audio stream information
+     * @description The ID of the video.
      *
      * @example video
      *
@@ -21,24 +18,12 @@ class GetMezzanineInfoRequest extends Model
     public $additionType;
 
     /**
-     * @description The validity period of the mezzanine file URL. Unit: seconds. Default value: **1800**. Minimum value: **1**.
+     * @description The type of the mezzanine file URL. Valid values:
      *
-     *   If the OutputType parameter is set to **cdn**:
+     * - **oss**: OSS URL
+     * - **cdn** (default): CDN URL
      *
-     *   The mezzanine file URL has a validity period only if URL signing is enabled. Otherwise, the mezzanine file URL is permanently valid.
-     *   Minimum value: **1**.
-     *   Maximum Value: unlimited.
-     *   Default value: If you do not set this parameter, the default validity period that is specified in URL signing is used.
-     *
-     * <!---->
-     *
-     *   If the OutputType parameter is set to **oss**:
-     *
-     *   The mezzanine file URL has a validity period only if the permissions on the Object Storage Service (OSS) bucket are private. Otherwise, the mezzanine file URL is permanently valid.
-     *   Minimum value: **1**.
-     *   Maximum value: **2592000** (30 days). The maximum value is limited to reduce security risks of the origin.
-     *   Default value: If you do not set this parameter, the default value is **3600**.
-     *
+     * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
      * @example 3600
      *
      * @var int
@@ -46,12 +31,8 @@ class GetMezzanineInfoRequest extends Model
     public $authTimeout;
 
     /**
-     * @description The type of the mezzanine file URL. Valid values:
+     * @description The frame rate of the file. Unit: frames per second.
      *
-     * - **oss**: OSS URL
-     * - **cdn** (default): Content Delivery Network (CDN) URL
-     *
-     * > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
      * @example oss
      *
      * @var string
@@ -59,7 +40,7 @@ class GetMezzanineInfoRequest extends Model
     public $outputType;
 
     /**
-     * @description The ID of the video.
+     * @description The operation that you want to perform. Set the value to **GetMezzanineInfo**.
      *
      * @example 1f1a6fc03ca04814031b8a6559e****
      *

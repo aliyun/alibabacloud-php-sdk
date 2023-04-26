@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vodTemplateInfoList extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The name of the template.
      *
      * @example app-****
      *
@@ -18,7 +18,7 @@ class vodTemplateInfoList extends Model
     public $appId;
 
     /**
-     * @description The time when the template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the application.
      *
      * @example 2018-11-30T08:05:59:57Z
      *
@@ -27,10 +27,7 @@ class vodTemplateInfoList extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether the template is the default one. Valid values:
-     *
-     *   **Default**: The template is the default one.
-     *   **NotDefault**: The template is not the default one.
+     * @description The type of the template. Set the value to **Snapshot**.
      *
      * @example NotDefault
      *
@@ -39,8 +36,6 @@ class vodTemplateInfoList extends Model
     public $isDefault;
 
     /**
-     * @description The time when the template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
      * @example 2018-11-30T09:05:59:97Z
      *
      * @var string
@@ -48,8 +43,6 @@ class vodTemplateInfoList extends Model
     public $modifyTime;
 
     /**
-     * @description The name of the template.
-     *
      * @example test
      *
      * @var string
@@ -57,7 +50,7 @@ class vodTemplateInfoList extends Model
     public $name;
 
     /**
-     * @description The detailed configurations of the template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](~~98618~~) topic.
+     * @description Queries snapshot templates.
      *
      * @example {\"SnapshotConfig\":{\"Count\":10,\"SpecifiedOffsetTime\":0,\"Interval\":1},\"SnapshotType\":\"NormalSnapshot\"}
      *
@@ -66,10 +59,7 @@ class vodTemplateInfoList extends Model
     public $templateConfig;
 
     /**
-     * @description The type of the template. Valid values:
-     *
-     *   **Snapshot**
-     *   **DynamicImage**
+     * @description The detailed configurations of the template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](~~98618~~) topic.
      *
      * @example Snapshot
      *
@@ -78,7 +68,7 @@ class vodTemplateInfoList extends Model
     public $templateType;
 
     /**
-     * @description The ID of the template.
+     * @description The ID of the request.
      *
      * @example 7c49f2f42b1c*****0969fcd446690
      *

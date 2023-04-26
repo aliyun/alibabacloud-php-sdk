@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class outputFile extends Model
 {
     /**
-     * @description The audio streams.
+     * @description The ID of the transcoding job.
      *
      * @example "AudioStreamList": "[{\"Bitrate\":\"64.533\",\"ChannelLayout\":\"stereo\",\"Channels\":\"2\",\"CodecLongName\":\"AAC (Advanced Audio Coding)\",\"CodecName\":\"aac\",\"CodecTag\":\"0x6134706d\",\"CodecTagString\":\"mp4a\",\"CodecTimeBase\":\"1/44100\",\"Duration\":\"12.615533\",\"Index\":\"1\",\"Lang\":\"und\",\"SampleFmt\":\"fltp\",\"Samplerate\":\"44100\",\"StartTime\":\"-0.046440\",\"Timebase\":\"1/44100\"}]
      *
@@ -18,7 +18,7 @@ class outputFile extends Model
     public $audioStreamList;
 
     /**
-     * @description The average bitrate of the output file. Unit: Kbit/s.
+     * @description The time when the transcoding task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 964
      *
@@ -27,7 +27,7 @@ class outputFile extends Model
     public $bitrate;
 
     /**
-     * @description The length of the output file. Unit: seconds.
+     * @description The frame rate of the output file. Unit: frames per second.
      *
      * @example 12
      *
@@ -36,10 +36,7 @@ class outputFile extends Model
     public $duration;
 
     /**
-     * @description The encryption method of the output file. Valid values:
-     *
-     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     * @description The audio streams.
      *
      * @example {\"EncryptType\":\"AliyunVoDEncryption\"}
      *
@@ -48,7 +45,7 @@ class outputFile extends Model
     public $encryption;
 
     /**
-     * @description The size of the output file. Unit: byte.
+     * @description Queries details about transcoding jobs based on the transcoding task ID.
      *
      * @example 851076
      *
@@ -57,7 +54,7 @@ class outputFile extends Model
     public $filesize;
 
     /**
-     * @description The container format of the output file.
+     * @description The IDs of the watermarks used by the output file.
      *
      * @example m3u8
      *
@@ -66,7 +63,7 @@ class outputFile extends Model
     public $format;
 
     /**
-     * @description The frame rate of the output file. Unit: frames per second.
+     * @description The ID of the request.
      *
      * @example 25
      *
@@ -75,7 +72,7 @@ class outputFile extends Model
     public $fps;
 
     /**
-     * @description The height of the output video. Unit: pixels.
+     * @description The error message returned when the transcoding job failed.
      *
      * @example 360
      *
@@ -84,7 +81,7 @@ class outputFile extends Model
     public $height;
 
     /**
-     * @description The OSS URL of the output file.
+     * @description The ID of the transcoding task.
      *
      * @example http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/883f5d*****f20aaa352f/c3be4f073*****7d5193ec8-{DestMd5}-od-S00000001-200000.mp4
      *
@@ -93,7 +90,7 @@ class outputFile extends Model
     public $outputFileUrl;
 
     /**
-     * @description The subtitle streams.
+     * @description The time when the transcoding task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example []
      *
@@ -102,7 +99,7 @@ class outputFile extends Model
     public $subtitleStreamList;
 
     /**
-     * @description The video streams.
+     * @description The time when the transcoding job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example [{\"AvgFPS\":\"30.0\",\"Bitrate\":\"933.814\",\"CodecLongName\":\"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\",\"CodecName\":\"h264\",\"CodecTag\":\"0x31637661\",\"CodecTagString\":\"avc1\",\"CodecTimeBase\":\"1/60\",\"Dar\":\"9:16\",\"Duration\":\"12.033333\",\"Fps\":\"30.0\",\"HasBFrames\":\"2\",\"Height\":\"360\",\"Index\":\"0\",\"Lang\":\"und\",\"Level\":\"30\",\"PixFmt\":\"yuv420p\",\"Profile\":\"High\",\"Sar\":\"81:256\",\"StartTime\":\"0.000000\",\"Timebase\":\"1/15360\",\"Width\":\"640\"}]
      *
@@ -111,14 +108,12 @@ class outputFile extends Model
     public $videoStreamList;
 
     /**
-     * @description The IDs of the watermarks used by the output file.
-     *
      * @var string[]
      */
     public $watermarkIdList;
 
     /**
-     * @description The width of the output video. Unit: pixels.
+     * @description Details about transcoding tasks.
      *
      * @example 640
      *

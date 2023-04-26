@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaResponseBody extends Model
 {
     /**
-     * @description The URLs of the media files that failed to be registered.
+     * @description ## RegisterMetadata
      *
+     * | CoverURL | String | No | The URL of the thumbnail. The URL can be up to 1,024 bytes in length. |
+     * | CateId | Long | No | The category ID of the media file. You can use one of the following methods to obtain the category ID: <br>Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories**. On the Categories page, you can view the category ID of the media file.  <br>View the value of the CateId parameter returned by the [AddCategory](~~AddCategory~~) operation that you called to create a category.  <br>View the value of the CateId parameter returned by the [GetCategories](~~GetCategories~~) operation that you called to query a category. |
      * @var string[]
      */
     public $failedFileURLs;
 
     /**
-     * @description The media files that are registered, including newly registered and repeatedly registered media files.
-     *
      * @var registeredMediaList[]
      */
     public $registeredMediaList;
 
     /**
-     * @description The ID of the request.
+     * @description The OSS URL of the media file.
      *
      * @example 14F43C5C-8033-448B-AD04F64E5098****
      *

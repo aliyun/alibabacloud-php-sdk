@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The number of frames.
+     * @description The ID of the request.
      *
      * @example 2
      *
@@ -18,11 +18,9 @@ class counterList extends Model
     public $count;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The score of the image of the category that is indicated by Label.
      *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
-     * @example live
+     * @example The URL of the image.
      *
      * @var string
      */

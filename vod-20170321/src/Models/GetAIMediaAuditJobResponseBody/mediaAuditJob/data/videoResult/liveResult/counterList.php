@@ -11,19 +11,31 @@ class counterList extends Model
     /**
      * @description The number of images.
      *
-     * @example 0
+     * @example The position in the video. Unit: milliseconds.
      *
      * @var int
      */
     public $count;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The recommendation for review results. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
+     *
+     * @example The category of the review result. Valid values:
+     *
      *   **normal**
-     *
-     * @example live
+     *   **spam**
+     *   **ad**
+     *   **politics**
+     *   **terrorism**
+     *   **abuse**
+     *   **porn**
+     *   **flood**: spam posts
+     *   **contraband**
+     *   **meaningless**
      *
      * @var string
      */

@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
-     * @description The text content for review.
+     * @description The category of the review result. Valid values:
      *
-     * @example hot line 123****
+     * - **live**: The content contains undesirable scenes.
+     * - **normal**: normal content.
+     * @example The position in the video. Unit: milliseconds.
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The statistics about tag frames.
      *
-     * - **spam**
-     * - **ad**
-     * - **abuse**
-     * - **flood**
-     * - **contraband**
-     * - **meaningless**
-     * - **normal**
      * @example ad
      *
      * @var string
@@ -34,7 +29,7 @@ class textResult extends Model
     public $label;
 
     /**
-     * @description The review scenario. The value is **antispam**.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example antispam
      *
@@ -43,7 +38,11 @@ class textResult extends Model
     public $scene;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example 100.00000
      *
@@ -52,11 +51,12 @@ class textResult extends Model
     public $score;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
      *
-     * - **block**
-     * - **review**
-     * - **pass**
+     *   **porn**
+     *   **terrorism**
+     *   **normal**
+     *
      * @example pass
      *
      * @var string
@@ -64,7 +64,7 @@ class textResult extends Model
     public $suggestion;
 
     /**
-     * @description The type of the text. The value is **title**.
+     * @description The results of terrorist content review.
      *
      * @example title
      *

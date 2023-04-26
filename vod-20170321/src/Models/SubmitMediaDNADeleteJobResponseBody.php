@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaDNADeleteJobResponseBody extends Model
 {
     /**
-     * @description The ID of the job.
-     *
      * @example 6805B2EC-CE87-****-8FF6-9C0E97719A26
      *
      * @var string
@@ -18,8 +16,6 @@ class SubmitMediaDNADeleteJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example e5b1a2e7bee******b632c2710b9423f
      *
      * @var string

@@ -10,14 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetVideoInfosResponseBody extends Model
 {
     /**
-     * @description The IDs of the videos that do not exist.
+     * @description The status of the video. By default, videos in all states are returned. Multiple states are separated by commas (,). Valid values:
+     *
+     *   **Uploading**: The video is being uploaded.
+     *   **UploadFail**: The video fails to be uploaded.
+     *   **UploadSucc**: The video is uploaded.
+     *   **Transcoding**: The video is being transcoded.
+     *   **TranscodeFail**: The video fails to be transcoded.
+     *   **Blocked**: The video is blocked.
+     *   **Normal**: The video can be played.
      *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
-     * @description The ID of the request.
+     * @description The title of the video.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
@@ -26,7 +34,7 @@ class GetVideoInfosResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the video.
+     * @description The description of the video.
      *
      * @var videoList[]
      */

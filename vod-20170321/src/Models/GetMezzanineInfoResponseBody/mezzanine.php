@@ -11,15 +11,19 @@ use AlibabaCloud\Tea\Model;
 class mezzanine extends Model
 {
     /**
-     * @description The information about the audio stream.
+     * @description The language.
      *
      * @var audioStreamList[]
      */
     public $audioStreamList;
 
     /**
-     * @description The bitrate of the file. Unit: Kbit/s.
+     * @description The type of the mezzanine file URL. Valid values:
      *
+     * - **oss**: OSS URL
+     * - **cdn** (default): Content Delivery Network (CDN) URL
+     *
+     * > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
      * @example 771.2280
      *
      * @var string
@@ -27,7 +31,7 @@ class mezzanine extends Model
     public $bitrate;
 
     /**
-     * @description The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The information about the mezzanine file.
      *
      * @example 2017-11-14T09:15:50Z
      *
@@ -36,7 +40,10 @@ class mezzanine extends Model
     public $creationTime;
 
     /**
-     * @description The duration of the file. Unit: seconds.
+     * @description The type of additional information. Separate multiple values with commas (,). By default, only the basic information is returned. Valid values:
+     *
+     *   **video**: video stream information
+     *   **audio**: audio stream information
      *
      * @example 42.4930
      *
@@ -45,7 +52,7 @@ class mezzanine extends Model
     public $duration;
 
     /**
-     * @description The name of the file.
+     * @description The language.
      *
      * @example 27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
@@ -54,7 +61,7 @@ class mezzanine extends Model
     public $fileName;
 
     /**
-     * @description The URL of the file.
+     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
@@ -63,7 +70,7 @@ class mezzanine extends Model
     public $fileURL;
 
     /**
-     * @description The frame rate of the file. Unit: frames per second.
+     * @description The sample aspect ratio.
      *
      * @example 25.0000
      *
@@ -72,7 +79,7 @@ class mezzanine extends Model
     public $fps;
 
     /**
-     * @description The height of the file. Unit: pixel.
+     * @description The height of the video resolution.
      *
      * @example 540
      *
@@ -81,12 +88,8 @@ class mezzanine extends Model
     public $height;
 
     /**
-     * @description The type of the mezzanine file URL. Valid values:
+     * @description The total number of frames.
      *
-     * - **oss**: OSS URL
-     * - **cdn** (default): CDN URL
-     *
-     * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
      * @example oss
      *
      * @var string
@@ -94,7 +97,17 @@ class mezzanine extends Model
     public $outputType;
 
     /**
-     * @description The size of the file. Unit: byte.
+     * @var string
+     */
+    public $restoreExpiration;
+
+    /**
+     * @var string
+     */
+    public $restoreStatus;
+
+    /**
+     * @description The duration of the file. Unit: seconds.
      *
      * @example 4096477
      *
@@ -103,12 +116,23 @@ class mezzanine extends Model
     public $size;
 
     /**
-     * @description The status of the file. Valid values:
+     * @description The validity period of the mezzanine file URL. Unit: seconds. Default value: **1800**. Minimum value: **1**.
      *
-     *   **Uploading**: The file is being uploaded. This is the initial status.
-     *   **Normal**: The file is uploaded.
-     *   **UploadFail**: The file fails to be uploaded.
-     *   **Deleted**: The file is deleted.
+     *   If the OutputType parameter is set to **cdn**:
+     *
+     *   The mezzanine file URL has a validity period only if URL signing is enabled. Otherwise, the mezzanine file URL is permanently valid.
+     *   Minimum value: **1**.
+     *   Maximum Value: unlimited.
+     *   Default value: If you do not set this parameter, the default validity period that is specified in URL signing is used.
+     *
+     * <!---->
+     *
+     *   If the OutputType parameter is set to **oss**:
+     *
+     *   The mezzanine file URL has a validity period only if the permissions on the Object Storage Service (OSS) bucket are private. Otherwise, the mezzanine file URL is permanently valid.
+     *   Minimum value: **1**.
+     *   Maximum value: **2592000** (30 days). The maximum value is limited to reduce security risks of the origin.
+     *   Default value: If you do not set this parameter, the default value is **3600**.
      *
      * @example Normal
      *
@@ -117,7 +141,12 @@ class mezzanine extends Model
     public $status;
 
     /**
-     * @description The ID of the video.
+     * @var string
+     */
+    public $storageClass;
+
+    /**
+     * @description The average frame rate.
      *
      * @example 1f1a6fc03ca04814031b8a6559e****
      *
@@ -126,14 +155,17 @@ class mezzanine extends Model
     public $videoId;
 
     /**
-     * @description The information about the video stream.
+     * @description The output layout of the sound channels. Valid values:
+     *
+     *   **mono**: mono sound channel
+     *   **stereo**: two sound channels
      *
      * @var videoStreamList[]
      */
     public $videoStreamList;
 
     /**
-     * @description The width of the file. Unit: pixel.
+     * @description The tag of the codec format.
      *
      * @example 960
      *
@@ -141,20 +173,23 @@ class mezzanine extends Model
      */
     public $width;
     protected $_name = [
-        'audioStreamList' => 'AudioStreamList',
-        'bitrate'         => 'Bitrate',
-        'creationTime'    => 'CreationTime',
-        'duration'        => 'Duration',
-        'fileName'        => 'FileName',
-        'fileURL'         => 'FileURL',
-        'fps'             => 'Fps',
-        'height'          => 'Height',
-        'outputType'      => 'OutputType',
-        'size'            => 'Size',
-        'status'          => 'Status',
-        'videoId'         => 'VideoId',
-        'videoStreamList' => 'VideoStreamList',
-        'width'           => 'Width',
+        'audioStreamList'   => 'AudioStreamList',
+        'bitrate'           => 'Bitrate',
+        'creationTime'      => 'CreationTime',
+        'duration'          => 'Duration',
+        'fileName'          => 'FileName',
+        'fileURL'           => 'FileURL',
+        'fps'               => 'Fps',
+        'height'            => 'Height',
+        'outputType'        => 'OutputType',
+        'restoreExpiration' => 'RestoreExpiration',
+        'restoreStatus'     => 'RestoreStatus',
+        'size'              => 'Size',
+        'status'            => 'Status',
+        'storageClass'      => 'StorageClass',
+        'videoId'           => 'VideoId',
+        'videoStreamList'   => 'VideoStreamList',
+        'width'             => 'Width',
     ];
 
     public function validate()
@@ -197,11 +232,20 @@ class mezzanine extends Model
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
         }
+        if (null !== $this->restoreExpiration) {
+            $res['RestoreExpiration'] = $this->restoreExpiration;
+        }
+        if (null !== $this->restoreStatus) {
+            $res['RestoreStatus'] = $this->restoreStatus;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -263,11 +307,20 @@ class mezzanine extends Model
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
         }
+        if (isset($map['RestoreExpiration'])) {
+            $model->restoreExpiration = $map['RestoreExpiration'];
+        }
+        if (isset($map['RestoreStatus'])) {
+            $model->restoreStatus = $map['RestoreStatus'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];

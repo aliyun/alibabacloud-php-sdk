@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMezzaninesResponseBody extends Model
 {
     /**
-     * @description The IDs of the videos that do not exist.
-     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -25,8 +21,6 @@ class DeleteMezzaninesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The IDs of the videos whose mezzanine files cannot be deleted.
-     * > Generally, mezzanine files cannot be deleted if they are used for original-quality playback or you do not have required [permissions](~~113600~~) to delete them.
      * @var string[]
      */
     public $unRemoveableVideoIds;

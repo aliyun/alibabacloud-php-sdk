@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class URLUploadInfoList extends Model
 {
     /**
-     * @description The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The error code returned.
      *
      * @example 2019-01-01T01:11:01Z
      *
@@ -18,7 +18,7 @@ class URLUploadInfoList extends Model
     public $completeTime;
 
     /**
-     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The custom configurations. The value is a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
      *
      * @example 2019-01-01T01:01:01Z
      *
@@ -27,7 +27,7 @@ class URLUploadInfoList extends Model
     public $creationTime;
 
     /**
-     * @description The error code returned.
+     * @description The ID of the request.
      *
      * @example 200
      *
@@ -36,8 +36,9 @@ class URLUploadInfoList extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The upload URL of the source file.
      *
+     * > A maximum of 100 URLs can be returned.
      * @example error_message
      *
      * @var string
@@ -45,8 +46,6 @@ class URLUploadInfoList extends Model
     public $errorMessage;
 
     /**
-     * @description The size of the uploaded media file. Unit: byte.
-     *
      * @example 24
      *
      * @var string
@@ -54,7 +53,7 @@ class URLUploadInfoList extends Model
     public $fileSize;
 
     /**
-     * @description The ID of the upload job.
+     * @description Queries the information about URL-based upload jobs.
      *
      * @example 86c1925fba0****
      *
@@ -63,8 +62,6 @@ class URLUploadInfoList extends Model
     public $jobId;
 
     /**
-     * @description The ID of the uploaded media file.
-     *
      * @example 93ab850b4f6f54b6e91d24d81d4****
      *
      * @var string
@@ -72,7 +69,7 @@ class URLUploadInfoList extends Model
     public $mediaId;
 
     /**
-     * @description The status of the URL-based upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](~~52839~~) topic.
+     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example SUCCESS
      *
@@ -81,9 +78,6 @@ class URLUploadInfoList extends Model
     public $status;
 
     /**
-     * @description The upload URL of the source file.
-     *
-     * > A maximum of 100 URLs can be returned.
      * @example http://****.mp4
      *
      * @var string
@@ -91,8 +85,6 @@ class URLUploadInfoList extends Model
     public $uploadURL;
 
     /**
-     * @description The custom configurations. The value is a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
-     *
      * @example {"MessageCallback":"{"CallbackURL":"http://example.aliyundoc.com"}", "Extend":"{"localId":"***", "test":"www"}"}
      *
      * @var string

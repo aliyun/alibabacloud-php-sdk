@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditAudioResultDetailRequest extends Model
 {
     /**
-     * @description The ID of the video. You can query the video ID by using the ApsaraVideo VOD console or calling the [SearchMedia](~~86044~~) operation.
+     * @description The end time of the audio that failed the review. Unit: seconds.
      *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
@@ -28,7 +28,7 @@ class GetMediaAuditAudioResultDetailRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. This parameter is optional. If you do not specify this parameter, all results are returned without pagination.
+     * @description Details of review results.
      *
      * @example 1
      *

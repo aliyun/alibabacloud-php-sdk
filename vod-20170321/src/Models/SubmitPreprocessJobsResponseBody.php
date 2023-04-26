@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitPreprocessJobsResponseBody extends Model
 {
     /**
-     * @description The job information.
-     *
      * @var preprocessJobs
      */
     public $preprocessJobs;
 
     /**
-     * @description The ID of the request.
-     *
      * @example E4EBD2BF-5EB0-4476-8829-9D94E1B1****
      *
      * @var string

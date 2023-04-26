@@ -13,7 +13,7 @@ class dataItem extends Model
      *
      *   **Audio**: audio transcoding
      *   **Segmentation**: container format conversion
-     *   H.264 and H.265-related video transcoding specifications, such as **H264.LD, H264.SD, H264.HD, H264.2K, and H264.4K**
+     *   **H264.LD, H264.SD, H264.HD, H264.2K, H264.4K, and more**
      *
      * @example H264.SD
      *
@@ -22,7 +22,7 @@ class dataItem extends Model
     public $name;
 
     /**
-     * @description The transcoding length. Unit: seconds.
+     * @description The transcoding duration. Unit: seconds.
      *
      * @example 111
      *

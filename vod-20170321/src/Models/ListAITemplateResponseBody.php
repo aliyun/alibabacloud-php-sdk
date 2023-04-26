@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListAITemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The source of the AI template. Valid values:
+     *
+     *   **System**
+     *   **Custom**
      *
      * @example 75B7BC67-FB8C-4653-4788-F4B01ED2****
      *
@@ -19,7 +22,7 @@ class ListAITemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the AI templates.
+     * @description The name of the AI template.
      *
      * @var templateInfoList[]
      */

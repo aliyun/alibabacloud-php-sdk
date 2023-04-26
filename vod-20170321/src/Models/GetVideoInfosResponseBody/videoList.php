@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class videoList extends Model
 {
     /**
-     * @description The ID of the application.
-     *
      * @example app-****
      *
      * @var string
@@ -18,7 +16,7 @@ class videoList extends Model
     public $appId;
 
     /**
-     * @description The ID of the video category.
+     * @description The Object Storage Service (OSS) bucket where the video file is stored.
      *
      * @example 781111****
      *
@@ -29,15 +27,13 @@ class videoList extends Model
     /**
      * @description The name of the video category.
      *
-     * @example This is a category name.
+     * @example The ID of the request.
      *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description The URL of the video thumbnail.
-     *
      * @example https://example.aliyundoc.com/****.jpg
      *
      * @var string
@@ -54,17 +50,13 @@ class videoList extends Model
     public $creationTime;
 
     /**
-     * @description The description of the video.
-     *
-     * @example This is a category description.
+     * @description Queries the information about multiple videos at a time.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The duration of the video. Unit: seconds.
-     *
      * @example 120
      *
      * @var float
@@ -72,7 +64,7 @@ class videoList extends Model
     public $duration;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The URL array of video snapshots.
      *
      * @example 2017-06-26T06:38:48Z
      *
@@ -81,8 +73,16 @@ class videoList extends Model
     public $modificationTime;
 
     /**
-     * @description The size of the video mezzanine file. Unit: byte.
-     *
+     * @var string
+     */
+    public $restoreExpiration;
+
+    /**
+     * @var string
+     */
+    public $restoreStatus;
+
+    /**
      * @example 453
      *
      * @var int
@@ -90,22 +90,12 @@ class videoList extends Model
     public $size;
 
     /**
-     * @description The URL array of video snapshots.
-     *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The status of the video. By default, videos in all states are returned. Multiple states are separated by commas (,). Valid values:
-     *
-     *   **Uploading**: The video is being uploaded.
-     *   **UploadFail**: The video fails to be uploaded.
-     *   **UploadSucc**: The video is uploaded.
-     *   **Transcoding**: The video is being transcoded.
-     *   **TranscodeFail**: The video fails to be transcoded.
-     *   **Blocked**: The video is blocked.
-     *   **Normal**: The video can be played.
+     * @description The URL of the video thumbnail.
      *
      * @example Normal
      *
@@ -114,7 +104,12 @@ class videoList extends Model
     public $status;
 
     /**
-     * @description The Object Storage Service (OSS) bucket where the video file is stored.
+     * @var string
+     */
+    public $storageClass;
+
+    /**
+     * @description The information about the video.
      *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
@@ -123,17 +118,15 @@ class videoList extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the video. Multiple tags are separated by commas (,).
+     * @description The ID of the video category.
      *
-     * @example tag1, tag2
+     * @example The size of the video mezzanine file. Unit: byte.
      *
      * @var string
      */
     public $tags;
 
     /**
-     * @description The ID of the template group that was used to transcode the video.
-     *
      * @example b4039216985f4312a5382a4ed****
      *
      * @var string
@@ -141,16 +134,12 @@ class videoList extends Model
     public $templateGroupId;
 
     /**
-     * @description The title of the video.
-     *
-     * @example Video tiltle
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The ID of the video.
+     * @description The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
      *
      * @example 7753d144efd74d6c45fe0570****
      *
@@ -158,22 +147,25 @@ class videoList extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'            => 'AppId',
-        'cateId'           => 'CateId',
-        'cateName'         => 'CateName',
-        'coverURL'         => 'CoverURL',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'duration'         => 'Duration',
-        'modificationTime' => 'ModificationTime',
-        'size'             => 'Size',
-        'snapshots'        => 'Snapshots',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'templateGroupId'  => 'TemplateGroupId',
-        'title'            => 'Title',
-        'videoId'          => 'VideoId',
+        'appId'             => 'AppId',
+        'cateId'            => 'CateId',
+        'cateName'          => 'CateName',
+        'coverURL'          => 'CoverURL',
+        'creationTime'      => 'CreationTime',
+        'description'       => 'Description',
+        'duration'          => 'Duration',
+        'modificationTime'  => 'ModificationTime',
+        'restoreExpiration' => 'RestoreExpiration',
+        'restoreStatus'     => 'RestoreStatus',
+        'size'              => 'Size',
+        'snapshots'         => 'Snapshots',
+        'status'            => 'Status',
+        'storageClass'      => 'StorageClass',
+        'storageLocation'   => 'StorageLocation',
+        'tags'              => 'Tags',
+        'templateGroupId'   => 'TemplateGroupId',
+        'title'             => 'Title',
+        'videoId'           => 'VideoId',
     ];
 
     public function validate()
@@ -207,6 +199,12 @@ class videoList extends Model
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
         }
+        if (null !== $this->restoreExpiration) {
+            $res['RestoreExpiration'] = $this->restoreExpiration;
+        }
+        if (null !== $this->restoreStatus) {
+            $res['RestoreStatus'] = $this->restoreStatus;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -215,6 +213,9 @@ class videoList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
@@ -267,6 +268,12 @@ class videoList extends Model
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
         }
+        if (isset($map['RestoreExpiration'])) {
+            $model->restoreExpiration = $map['RestoreExpiration'];
+        }
+        if (isset($map['RestoreStatus'])) {
+            $model->restoreStatus = $map['RestoreStatus'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
@@ -277,6 +284,9 @@ class videoList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];

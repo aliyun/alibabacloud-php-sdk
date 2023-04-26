@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class domainDetail extends Model
 {
     /**
-     * @description The name of the certificate. The value of this parameter is returned if HTTPS is enabled.
+     * @description The time when the domain name for CDN was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example testCertName
      *
@@ -19,7 +19,14 @@ class domainDetail extends Model
     public $certName;
 
     /**
-     * @description The CNAME that is assigned to the domain name for CDN. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name for CDN to the CNAME.
+     * @description The status of the domain name for CDN. Value values:
+     *
+     *   **online**: indicates that the domain name is enabled.
+     *   **offline**: indicates that the domain name is disabled.
+     *   **configuring**: indicates that the domain name is being configured.
+     *   **configure_failed**: indicates that the domain name failed to be configured.
+     *   **checking**: indicates that the domain name is under review.
+     *   **check_failed**: indicates that the domain name failed the review.
      *
      * @example example.com.w.alikunlun.net
      *
@@ -28,7 +35,7 @@ class domainDetail extends Model
     public $cname;
 
     /**
-     * @description The description of the domain name for CDN.
+     * @description The name of the certificate. The value of this parameter is returned if HTTPS is enabled.
      *
      * @example testDescription
      *
@@ -37,7 +44,7 @@ class domainDetail extends Model
     public $description;
 
     /**
-     * @description The domain name for CDN.
+     * @description The port number. Valid values: 443 and 80.
      *
      * @example example.com
      *
@@ -46,13 +53,7 @@ class domainDetail extends Model
     public $domainName;
 
     /**
-     * @description The status of the domain name for CDN. Value values:
-     *   **online**: indicates that the domain name is enabled.
-     *   **offline**: indicates that the domain name is disabled.
-     *   **configuring**: indicates that the domain name is being configured.
-     *   **configure_failed**: indicates that the domain name failed to be configured.
-     *   **checking**: indicates that the domain name is under review.
-     *   **check_failed**: indicates that the domain name failed the review.
+     * @description The address of the origin server.
      *
      * @example online
      *
@@ -61,7 +62,7 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the domain name for CDN was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The last time when the domain name for CDN was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-27T06:51:26Z
      *
@@ -70,7 +71,10 @@ class domainDetail extends Model
     public $gmtCreated;
 
     /**
-     * @description The last time when the domain name for CDN was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description Indicates whether the Secure Sockets Layer (SSL) certificate is enabled. Valid values:
+     *
+     *   **on**: indicates that the SSL certificate is enabled.
+     *   **off**: indicates that the SSL certificate is disabled.
      *
      * @example 2017-11-27T06:55:26Z
      *
@@ -79,9 +83,11 @@ class domainDetail extends Model
     public $gmtModified;
 
     /**
-     * @description Indicates whether the Secure Sockets Layer (SSL) certificate is enabled. Valid values:
-     *   **on**: indicates that the SSL certificate is enabled.
-     *   **off**: indicates that the SSL certificate is disabled.
+     * @description This parameter is applicable to users of level 3 or higher in mainland China and users outside mainland China. Valid values:
+     *
+     *   **domestic**: mainland China. This is the default value.
+     *   **overseas**: outside mainland China.
+     *   **global**: regions in and outside mainland China.
      *
      * @example on
      *
@@ -90,7 +96,7 @@ class domainDetail extends Model
     public $SSLProtocol;
 
     /**
-     * @description The public key of the certificate. The value of this parameter is returned if HTTPS is enabled.
+     * @description The domain name for CDN.
      *
      * @example yourSSLPub
      *
@@ -99,10 +105,7 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
-     * @description This parameter is applicable to users of level 3 or higher in mainland China and users outside mainland China. Valid values:
-     *   **domestic**: mainland China. This is the default value.
-     *   **overseas**: outside mainland China.
-     *   **global**: regions in and outside mainland China.
+     * @description The weight of the origin server.
      *
      * @example domestic
      *
@@ -111,14 +114,14 @@ class domainDetail extends Model
     public $scope;
 
     /**
-     * @description The information about the origin server.
+     * @description The ID of the request.
      *
      * @var sources
      */
     public $sources;
 
     /**
-     * @description The weight of the origin server.
+     * @description The CNAME that is assigned to the domain name for CDN. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name for CDN to the CNAME.
      *
      * @example 1
      *

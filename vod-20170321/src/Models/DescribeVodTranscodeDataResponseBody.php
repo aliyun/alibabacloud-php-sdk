@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodTranscodeDataResponseBody extends Model
 {
     /**
-     * @description The time granularity at which the data was queried. Valid values:
+     * @description The interval at which the data was queried. Valid values:
      *
      *   **hour**
      *   **day**
@@ -31,7 +31,7 @@ class DescribeVodTranscodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The statistics on transcoding.
+     * @description The transcoding statistics returned.
      *
      * @var transcodeData
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The ID of the transcoding template group.
+     * @description The transcoding configurations of the video stream. The value is a JSON-formatted string.
      *
      * @example a591f697c7167*****6ae1502142d0
      *

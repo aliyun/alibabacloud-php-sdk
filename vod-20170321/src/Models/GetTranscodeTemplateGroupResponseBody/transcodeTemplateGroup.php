@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class transcodeTemplateGroup extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The configurations of the transcoding templates.
      *
      * @example app-****
      *
@@ -19,7 +19,7 @@ class transcodeTemplateGroup extends Model
     public $appId;
 
     /**
-     * @description The time when the template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The video rotation identifier. It is used to control the image rotation angle. For example, if you set this parameter to 180, the video image is turned upside down. Valid values: `0 to 360`.
      *
      * @example 2018-12-12T10:20:51Z
      *
@@ -28,9 +28,7 @@ class transcodeTemplateGroup extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether the template group is the default one. Valid values:
-     *   **Default**: The template group is the default one.
-     *   **NotDefault**: The template group is not the default one.
+     * @description The operation that you want to perform. Set the value to **GetTranscodeTemplateGroup**.
      *
      * @example NotDefault
      *
@@ -39,9 +37,7 @@ class transcodeTemplateGroup extends Model
     public $isDefault;
 
     /**
-     * @description Indicates whether the template group is locked. Valid values:
-     *   **Disabled**: The template group is not locked.
-     *   **Enabled**: The template group is locked.
+     * @description The packaging configurations. Only HLS packaging and DASH packaging are supported. The value is a JSON-formatted string.
      *
      * @example Enabled
      *
@@ -50,7 +46,7 @@ class transcodeTemplateGroup extends Model
     public $locked;
 
     /**
-     * @description The time when the template group was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The information about the transcoding template group.
      *
      * @example 2018-12-12T11:20:51Z
      *
@@ -59,7 +55,7 @@ class transcodeTemplateGroup extends Model
     public $modifyTime;
 
     /**
-     * @description The name of the template group.
+     * @description The transcoding segment configurations. This parameter must be returned if HTTP-Live-Streaming (HLS) encryption is used. The value is a JSON-formatted string.
      *
      * @example test
      *
@@ -77,7 +73,7 @@ class transcodeTemplateGroup extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The configurations of the transcoding templates.
+     * @description The name of the transcoding template.
      *
      * @var transcodeTemplateList[]
      */

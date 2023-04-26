@@ -1,3 +1,6 @@
+2023-04-26 Version: 2.16.13
+- Api add media storage class.
+
 2022-12-23 Version: 2.16.12
 - Support resourcegroup.
 

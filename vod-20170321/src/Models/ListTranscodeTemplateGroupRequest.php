@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The name of the template group.
      *
      * @example app-****
      *

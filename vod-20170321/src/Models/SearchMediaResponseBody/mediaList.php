@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody;
 
+use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiData;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiRoughData;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\attachedMedia;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\audio;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\image;
@@ -13,21 +15,35 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
-     * @description [Details about auxiliary media assets](~~86991~~).
+     * @description AI详细信息
+     *
+     * @var aiData
+     */
+    public $aiData;
+
+    /**
+     * @description AI简介数据
+     *
+     * @var aiRoughData
+     */
+    public $aiRoughData;
+
+    /**
+     * @description Queries the information about media assets such as video, audio, and image files, and auxiliary media assets.
      *
      * @var attachedMedia
      */
     public $attachedMedia;
 
     /**
-     * @description [Details about audio files](~~86991~~).
+     * @description The name of the category.
      *
      * @var audio
      */
     public $audio;
 
     /**
-     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The list of category IDs.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -36,14 +52,14 @@ class mediaList extends Model
     public $creationTime;
 
     /**
-     * @description [Details about image files](~~86991~~).
+     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var image
      */
     public $image;
 
     /**
-     * @description The ID of the media asset.
+     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example a82a2cd7d4e147bbed6c1ee372****
      *
@@ -52,12 +68,7 @@ class mediaList extends Model
     public $mediaId;
 
     /**
-     * @description The type of the media asset. Valid values:
-     *
-     *   **video**
-     *   **audio**
-     *   **image**
-     *   **attached**
+     * @description The description of the image file.
      *
      * @example video
      *
@@ -66,12 +77,17 @@ class mediaList extends Model
     public $mediaType;
 
     /**
-     * @description [Details about video files](~~86991~~).
+     * @description The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
      *
      * @var video
      */
     public $video;
     protected $_name = [
+        'aiData'        => 'AiData',
+        'aiRoughData'   => 'AiRoughData',
         'attachedMedia' => 'AttachedMedia',
         'audio'         => 'Audio',
         'creationTime'  => 'CreationTime',
@@ -88,6 +104,12 @@ class mediaList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiData) {
+            $res['AiData'] = null !== $this->aiData ? $this->aiData->toMap() : null;
+        }
+        if (null !== $this->aiRoughData) {
+            $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toMap() : null;
+        }
         if (null !== $this->attachedMedia) {
             $res['AttachedMedia'] = null !== $this->attachedMedia ? $this->attachedMedia->toMap() : null;
         }
@@ -121,6 +143,12 @@ class mediaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiData'])) {
+            $model->aiData = aiData::fromMap($map['AiData']);
+        }
+        if (isset($map['AiRoughData'])) {
+            $model->aiRoughData = aiRoughData::fromMap($map['AiRoughData']);
+        }
         if (isset($map['AttachedMedia'])) {
             $model->attachedMedia = attachedMedia::fromMap($map['AttachedMedia']);
         }

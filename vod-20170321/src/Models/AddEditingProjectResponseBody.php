@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectResponseBody extends Model
 {
     /**
-     * @description The information about the online editing project. For more information about the structure, see [EditingProject](~~52839~~).
+     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var project
      */
     public $project;
 
     /**
-     * @description The ID of the request.
+     * @description The thumbnail URL of the online editing project. If you do not specify this parameter and the video track in the timeline has mezzanine files, the thumbnail of the first mezzanine file in the timeline is used.
      *
      * @example E4EBD2BF-5EB0-4476-8829-9D94E1B1****
      *

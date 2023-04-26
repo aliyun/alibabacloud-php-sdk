@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteMessageCallbackRequest extends Model
 {
     /**
-     * @description The ID of the application. If you do not set this parameter, the default value **app-1000000** is used.
-     *
      * @example app-1000000
      *
      * @var string

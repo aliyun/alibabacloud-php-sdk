@@ -19,7 +19,7 @@ class GetVideoListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of videos.
+     * @description The total number of media files returned.
      *
      * @example 100
      *
@@ -28,7 +28,7 @@ class GetVideoListResponseBody extends Model
     public $total;
 
     /**
-     * @description The information about the video. The information about a maximum of first 5,000 video records can be obtained in a single request.
+     * @description The information about the media file. Information about a maximum of 5,000 media files can be returned.
      *
      * @var videoList
      */

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DecryptKMSDataKeyResponseBody extends Model
 {
     /**
-     * @description The ID of the customer master key (CMK) that was used to decrypt the ciphertext.
-     *
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string
@@ -18,8 +16,6 @@ class DecryptKMSDataKeyResponseBody extends Model
     public $keyId;
 
     /**
-     * @description The plaintext that is generated after decryption.
-     *
      * @example tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****
      *
      * @var string
@@ -27,8 +23,6 @@ class DecryptKMSDataKeyResponseBody extends Model
     public $plaintext;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string

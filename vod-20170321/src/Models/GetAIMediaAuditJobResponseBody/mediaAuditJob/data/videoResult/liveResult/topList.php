@@ -9,19 +9,16 @@ use AlibabaCloud\Tea\Model;
 class topList extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description Queries the information about an intelligent review job. After the job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
      *
-     *   **live**: The content contains undesirable scenes.
-     *   **normal**
-     *
-     * @example live
+     * @example GetAIMediaAuditJob
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The ID of the request.
      *
      * @example 100
      *
@@ -30,7 +27,7 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The results of text review.
      *
      * @example 500
      *
@@ -39,9 +36,15 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The category of the review result. Valid values:
      *
-     * @example http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
+     *   **live**: The content contains undesirable scenes.
+     *   **normal**
+     *
+     * @example The category of the review result. Valid values:
+     *
+     *   **ad**
+     *   **normal**
      *
      * @var string
      */

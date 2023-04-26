@@ -13,11 +13,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The content that violates the regulations. Separate multiple values with commas (,). Valid values:
-     *
-     *   **video**: the video.
-     *   **image-cover**: the cover.
-     *   **text-title**: the title.
+     * @description The ID of the video.
      *
      * @example video
      *
@@ -26,35 +22,11 @@ class data extends Model
     public $abnormalModules;
 
     /**
-     * @description The results of audio review.
+     * @description The job result data.
      *
      * @var audioResult[]
      */
     public $audioResult;
-
-    /**
-     * @description The results of image review.
-     *
-     * @var imageResult[]
-     */
-    public $imageResult;
-
-    /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
-     *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
-     *   **audio**: audio anti-spam
-     *   **normal**
-     *
-     * @example normal
-     *
-     * @var string
-     */
-    public $label;
 
     /**
      * @description The recommendation for review results. Valid values:
@@ -63,6 +35,26 @@ class data extends Model
      *   **review**: The content may violate the regulations.
      *   **pass**: The content passes the review.
      *
+     * @var imageResult[]
+     */
+    public $imageResult;
+
+    /**
+     * @description The content that violates the regulations. Separate multiple values with commas (,). Valid values:
+     *
+     *   **video**: the video.
+     *   **image-cover**: the cover.
+     *   **text-title**: the title.
+     *
+     * @example normal
+     *
+     * @var string
+     */
+    public $label;
+
+    /**
+     * @description The results of pornography content review.
+     *
      * @example pass
      *
      * @var string
@@ -70,14 +62,17 @@ class data extends Model
     public $suggestion;
 
     /**
-     * @description The results of text review.
+     * @description The results of ad review.
      *
      * @var textResult[]
      */
     public $textResult;
 
     /**
-     * @description The results of video review.
+     * @description The category of the review result. Valid values:
+     *
+     *   **logo**
+     *   **normal**
      *
      * @var videoResult
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2015-12-10T10:00:00Z
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The traffic or bandwidth data. The unit of bandwidth is bit/s.
+     * @description The traffic or bandwidth data. Unit: bit/s.
      *
      * @example 2592.3920000000003
      *

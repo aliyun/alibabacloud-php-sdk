@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class userPlayStatisTotal extends Model
 {
     /**
-     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for HTML5.
      *
      * @example 20170120
      *
@@ -20,7 +20,7 @@ class userPlayStatisTotal extends Model
     public $date;
 
     /**
-     * @description The total playback duration. Unit: milliseconds.
+     * @description The operation that you want to perform. Set the value to **DescribePlayUserTotal**.
      *
      * @example 9340070
      *
@@ -29,7 +29,7 @@ class userPlayStatisTotal extends Model
     public $playDuration;
 
     /**
-     * @description The distribution of the playback duration.
+     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
      *
      * @example "<=1m:74.3%;>1<=5m:22.8%;>5<=10m:1.0%;>10<=15m:1.0%;>15<=30m:1.0%"
      *
@@ -38,14 +38,14 @@ class userPlayStatisTotal extends Model
     public $playRange;
 
     /**
-     * @description The total number of unique visitors.
+     * @description The ID of the request.
      *
      * @var UV
      */
     public $UV;
 
     /**
-     * @description The total number of video views.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @var VV
      */

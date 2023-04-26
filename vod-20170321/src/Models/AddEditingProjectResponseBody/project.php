@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
-     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the request.
      *
      * @example 2017-01-11T12:00:00Z
      *
@@ -18,7 +18,7 @@ class project extends Model
     public $creationTime;
 
     /**
-     * @description The description of the online editing project.
+     * @description 朴灵
      *
      * @example testtimeline001desciption
      *
@@ -27,7 +27,7 @@ class project extends Model
     public $description;
 
     /**
-     * @description The last time when the online editing project was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description 58928
      *
      * @example 2017-01-11T13:00:00Z
      *
@@ -36,8 +36,6 @@ class project extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the online editing project.
-     *
      * @example fb2101bf24bf4df34c4cb3187****
      *
      * @var string
@@ -45,12 +43,8 @@ class project extends Model
     public $projectId;
 
     /**
-     * @description The status of the online editing project. Valid values:
+     * @description Creates an online editing project.
      *
-     * - **Normal**: indicates that the online editing project is in draft.
-     * - **Producing**: indicates that the video is being produced.
-     * - **Produced**: indicates that the video was produced.
-     * - **ProduceFailed**: indicates that the video failed to be produced.
      * @example Normal
      *
      * @var string
@@ -58,8 +52,6 @@ class project extends Model
     public $status;
 
     /**
-     * @description The title of the online editing project.
-     *
      * @example testtimeline
      *
      * @var string

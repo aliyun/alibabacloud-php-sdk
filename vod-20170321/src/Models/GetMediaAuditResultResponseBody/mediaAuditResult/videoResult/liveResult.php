@@ -11,8 +11,10 @@ use AlibabaCloud\Tea\Model;
 class liveResult extends Model
 {
     /**
-     * @description The average score of the review results.
+     * @description The category of the review result. Valid values:
      *
+     * - **ad**
+     * - **normal**
      * @example 100
      *
      * @var string
@@ -20,26 +22,37 @@ class liveResult extends Model
     public $averageScore;
 
     /**
-     * @description The statistics about tag frames.
+     * @description The category of the review result. Valid values:
      *
+     * - **spam**
+     * - **ad**
+     * - **abuse**
+     * - **flood**
+     * - **contraband**
+     * - **meaningless**
+     * - **normal**
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The results of image review.
      *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
-     * @example live
+     * @example The recommendation for review results. Valid values:
      *
+     * - **block**
+     * - **review**
+     * - **pass**
      * @var string
      */
     public $label;
 
     /**
-     * @description The highest review score.
+     * @description The category of the review result. Valid values:
      *
+     * - **porn**
+     * - **sexy**
+     * - **normal**
      * @example 100
      *
      * @var string
@@ -47,11 +60,8 @@ class liveResult extends Model
     public $maxScore;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The number of frames.
      *
-     * - **block**
-     * - **review**
-     * - **pass**
      * @example block
      *
      * @var string
@@ -59,8 +69,10 @@ class liveResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The category of the review result. Valid values:
      *
+     * - **logo**
+     * - **normal**
      * @var topList[]
      */
     public $topList;

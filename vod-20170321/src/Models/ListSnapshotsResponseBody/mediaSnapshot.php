@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class mediaSnapshot extends Model
 {
     /**
-     * @description The time when the snapshot job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the snapshot job.
      *
      * @example 2017-12-20T12:23:45Z
      *
@@ -19,7 +19,7 @@ class mediaSnapshot extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the snapshot job.
+     * @description Queries the snapshots that are captured from the specified media.
      *
      * @example ad90a501b1b9472374ad005046****
      *
@@ -28,7 +28,7 @@ class mediaSnapshot extends Model
     public $jobId;
 
     /**
-     * @description The rule for generating snapshot URLs.
+     * @description The ID of the request.
      *
      * @example http://example.aliyundoc.com/snapshot/sample{SnapshotCount}.jpg
      *
@@ -37,8 +37,6 @@ class mediaSnapshot extends Model
     public $regular;
 
     /**
-     * @description The snapshot data.
-     *
      * @var snapshots
      */
     public $snapshots;

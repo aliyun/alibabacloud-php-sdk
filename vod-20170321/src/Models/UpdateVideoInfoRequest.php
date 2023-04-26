@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateVideoInfoRequest extends Model
 {
     /**
-     * @description The ID of the video category.
-     *
      * @example 384761111
      *
      * @var int
@@ -18,8 +16,6 @@ class UpdateVideoInfoRequest extends Model
     public $cateId;
 
     /**
-     * @description The URL of the video thumbnail.
-     *
      * @example https://example.aliyundoc.com/****.jpg
      *
      * @var string
@@ -27,44 +23,33 @@ class UpdateVideoInfoRequest extends Model
     public $coverURL;
 
     /**
-     * @description The description of the video.
-     *
-     *   The value can be up to 1,024 bytes in length.
-     *   The string must be encoded in the UTF-8 format.
-     *
-     * @example video description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The tags of the video.
+     * @description The URL of the video thumbnail.
      *
-     *   Each tag can be up to 32 bytes in length. A maximum of 16 tags can be specified.
-     *   Separate multiple tags with commas (,).
-     *   The string must be encoded in the UTF-8 format.
-     *
-     * @example tag1,tag2
+     * @example Modifies the information about a video.
      *
      * @var string
      */
     public $tags;
 
     /**
-     * @description The title of the video.
+     * @description The ID of the request.
      *
-     *   The value can be up to 128 bytes in length.
-     *   The string must be encoded in the UTF-8 format.
-     *
-     * @example video title
+     * @example The operation that you want to perform. Set the value to **UpdateVideoInfo**.
      *
      * @var string
      */
     public $title;
 
     /**
-     * @description The ID of the video.
+     * @description The description of the video.
+     *
+     *   The value can be up to 1,024 bytes in length.
+     *   The string must be encoded in the UTF-8 format.
      *
      * @example 2deda93265312baf9b0ed810d****
      *

@@ -9,19 +9,23 @@ use AlibabaCloud\Tea\Model;
 class logo extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description The ID of the request.
      *
+     * @example The category of the review result. Valid values:
+     *
+     *   **porn**
+     *   **sexy**
      *   **normal**
-     *   **logo**
-     *
-     * @example logo
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The category of the review result. Valid values:
+     *
+     *   **normal**: normal content
+     *   **ad**: ad or text violation
      *
      * @example 100
      *
@@ -30,7 +34,7 @@ class logo extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 13
      *

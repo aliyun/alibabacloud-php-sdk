@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class snapshotJob extends Model
 {
     /**
-     * @description The ID of the snapshot job.
-     *
      * @example ad90a501b1b94b72374ad0050464****
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UploadStreamByURLResponseBody extends Model
 {
     /**
-     * @description The URL of the OSS object.
-     *
      * @example http://outin-31059bcee7810a200163e1c8dba****.oss-cn-shanghai.aliyuncs.com/lesson-01.mp4
      *
      * @var string
@@ -18,7 +16,7 @@ class UploadStreamByURLResponseBody extends Model
     public $fileURL;
 
     /**
-     * @description The ID of the request.
+     * @description Uploads transcoded streams to ApsaraVideo VOD from external storage.
      *
      * @example 7AE96389-DF1E-598D-816B-7B40F13B4620
      *
@@ -27,8 +25,6 @@ class UploadStreamByURLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The URL of the input stream. This parameter is used when you call the [GetURLUploadInfos](~~106830~~) operation.
-     *
      * @example https://example.com/lesson-01.mp4
      *
      * @var string
@@ -36,9 +32,8 @@ class UploadStreamByURLResponseBody extends Model
     public $sourceURL;
 
     /**
-     * @description The ID of the stream upload job. This parameter is used when you call the [GetURLUploadInfos](~~106830~~) operation.
+     * @description UploadStreamByURL
      *
-     * In ApsaraVideo VOD, you can upload only one transcoded stream in an upload job. For more information, see the PlayInfo: the playback information about a video stream section in [Basic structures](~~52839~~).
      * @example e304b34fb3d959f92baef97b6496****
      *
      * @var string

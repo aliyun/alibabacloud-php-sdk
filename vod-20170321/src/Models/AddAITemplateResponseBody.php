@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddAITemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 25818875-5F78-4A13-BEF6-****
      *
      * @var string
@@ -18,8 +16,6 @@ class AddAITemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the AI template.
-     *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string

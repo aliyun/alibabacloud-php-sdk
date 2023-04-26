@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class transcodeJob extends Model
 {
     /**
-     * @description The ID of the job.
-     *
      * @example d8921ce8505716cfe86fb112c4****
      *
      * @var string

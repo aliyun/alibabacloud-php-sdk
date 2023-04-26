@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The ID of the transcoding template group.
-     *
      * @example d58079958be8d*****b699ab7ab6e1bf
      *
      * @var string

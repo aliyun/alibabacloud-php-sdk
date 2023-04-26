@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteVodSpecificConfigRequest extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
      * @example 2317****
      *
      * @var string
@@ -18,7 +16,7 @@ class DeleteVodSpecificConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The domain name for CDN.
+     * @description Deletes the configurations of a domain name for CDN.
      *
      * @example www.example.com
      *

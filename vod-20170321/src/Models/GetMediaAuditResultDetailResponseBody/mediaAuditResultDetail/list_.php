@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The category of the ad review result. Valid values:
-     *
-     *   **normal**: normal content
-     *   **ad**: ad or text violation
+     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
      *
      * @example normal
      *
@@ -21,7 +18,7 @@ class list_ extends Model
     public $adLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The ID of the request.
      *
      * @example 100
      *
@@ -30,10 +27,7 @@ class list_ extends Model
     public $adScore;
 
     /**
-     * @description The category of the undesirable scene review result. Valid values:
-     *
-     *   **normal**: The video does not contain undesirable scenes.
-     *   **live**: The video contains undesirable scenes.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example normal
      *
@@ -42,8 +36,6 @@ class list_ extends Model
     public $liveLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
-     *
      * @example 100
      *
      * @var string
@@ -51,11 +43,6 @@ class list_ extends Model
     public $liveScore;
 
     /**
-     * @description The category of the logo review result. Valid values:
-     *
-     *   **normal**
-     *   **tlogo**
-     *
      * @example normal
      *
      * @var string
@@ -63,8 +50,6 @@ class list_ extends Model
     public $logoLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
-     *
      * @example 100
      *
      * @var string
@@ -72,11 +57,7 @@ class list_ extends Model
     public $logoScore;
 
     /**
-     * @description The category of the pornographic content review result. Valid values:
-     *
-     *   **normal**
-     *   **porn**
-     *   **sexy**
+     * @description The ID of the video.
      *
      * @example normal
      *
@@ -85,7 +66,10 @@ class list_ extends Model
     public $pornLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The category of the logo review result. Valid values:
+     *
+     *   **normal**
+     *   **tlogo**
      *
      * @example 100.00
      *
@@ -94,16 +78,6 @@ class list_ extends Model
     public $pornScore;
 
     /**
-     * @description The category of the terrorist content review result.
-     *
-     *   **normal**: normal
-     *   **terrorism**: terrorist content
-     *   **outfit**: special costume
-     *   **logo**: special logo
-     *   **weapon**: weapon
-     *   **politics**: politically sensitive content
-     *   **others**: other terrorist content and politically sensitive content
-     *
      * @example normal
      *
      * @var string
@@ -111,7 +85,7 @@ class list_ extends Model
     public $terrorismLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The URL of the image.
      *
      * @example 100.00
      *
@@ -120,7 +94,7 @@ class list_ extends Model
     public $terrorismScore;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The review results returned.
      *
      * @example 3005
      *
@@ -129,7 +103,10 @@ class list_ extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The category of the ad review result. Valid values:
+     *
+     *   **normal**: normal content
+     *   **ad**: ad or text violation
      *
      * @example http://temp-testbucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *

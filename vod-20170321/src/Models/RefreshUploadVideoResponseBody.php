@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RefreshUploadVideoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Obtains a new upload credential after the video upload times out.
      *
      * @example 25818875-5F78-4A43-7DF6-D7393642****
      *
@@ -18,9 +18,6 @@ class RefreshUploadVideoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The upload URL.
-     *
-     * > The upload URL returned by this operation is Base64-encoded. Before you can use an SDK or an API operation to upload a media asset based on the upload URL, you must decode the upload URL by using the Base64 algorithm. You must parse the upload URL only if you use native Object Storage Service (OSS) SDKs or OSS API for uploads.
      * @example eyJTZWN1cml0eVRiQ0FJU3p3TjFxNkZ0NUIyeW****
      *
      * @var string
@@ -28,9 +25,6 @@ class RefreshUploadVideoResponseBody extends Model
     public $uploadAddress;
 
     /**
-     * @description The upload credential.
-     *
-     * > The upload credential returned by this operation is Base64-encoded. Before you can use an SDK or an API operation to upload a media asset based on the upload credential, you must decode the upload credential by using the Base64 algorithm. You must parse the upload credential only if you use native OSS SDKs or OSS API for uploads.
      * @example FJU3p3TZ0NUIyeW****
      *
      * @var string
@@ -38,8 +32,6 @@ class RefreshUploadVideoResponseBody extends Model
     public $uploadAuth;
 
     /**
-     * @description The ID of the audio or video file.
-     *
      * @example c6a23a870c8c4ffcd40cbd381333****
      *
      * @var string

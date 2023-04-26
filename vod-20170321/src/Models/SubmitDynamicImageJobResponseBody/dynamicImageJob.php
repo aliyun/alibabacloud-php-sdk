@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dynamicImageJob extends Model
 {
     /**
-     * @description The ID of the animated image job.
+     * @description The operation that you want to perform. Set the value to **SubmitDynamicImageJob**.
      *
      * @example ad90a501b1bfb72374ad0050746****
      *

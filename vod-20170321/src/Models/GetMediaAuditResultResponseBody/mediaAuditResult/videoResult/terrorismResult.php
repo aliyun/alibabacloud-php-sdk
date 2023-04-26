@@ -11,8 +11,6 @@ use AlibabaCloud\Tea\Model;
 class terrorismResult extends Model
 {
     /**
-     * @description The average score of the review results.
-     *
      * @example 100
      *
      * @var string
@@ -20,29 +18,11 @@ class terrorismResult extends Model
     public $averageScore;
 
     /**
-     * @description The statistics about tag frames.
-     *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     * - **normal**
-     * - **bloody**
-     * - **explosion**
-     * - **outfit**
-     * - **logo**
-     * - **weapon**
-     * - **politics**
-     * - **violence**
-     * - **crowd**
-     * - **parade**
-     * - **carcrash**
-     * - **flag**
-     * - **location**
-     * - **others**
      * @example normal
      *
      * @var string
@@ -50,8 +30,6 @@ class terrorismResult extends Model
     public $label;
 
     /**
-     * @description The highest review score.
-     *
      * @example 100
      *
      * @var string
@@ -59,11 +37,6 @@ class terrorismResult extends Model
     public $maxScore;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     * - **block**
-     * - **review**
-     * - **pass**
      * @example pass
      *
      * @var string
@@ -71,8 +44,6 @@ class terrorismResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
-     *
      * @var topList[]
      */
     public $topList;

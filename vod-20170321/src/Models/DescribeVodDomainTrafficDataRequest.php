@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainTrafficDataRequest extends Model
 {
     /**
-     * @description The domain name to be queried. If you do not specify this parameter, the merged data of all your domain names for CDN is returned. You can specify multiple domain names. Separate them with commas (,).
+     * @description The accelerated domain name that you want to query. If you leave this parameter empty, the merged data of all your accelerated domain names is returned. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *
@@ -27,11 +27,11 @@ class DescribeVodDomainTrafficDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The query interval. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or the specified value is invalid, the default value is used.
+     * @description The interval at which to return data. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you leave this parameter empty or specify an invalid value, the default value is used.
      *
-     *   If the time range to query is less than 3 days, valid values are **300**, **3600**, and **86400**. The default value is 300.
-     *   If the time range to query is from 3 to less than 31 days, valid values are **3600** and **86400**. The default value is 3600.
-     *   If the time range to query is from 31 to 90 days, the valid value is **86400**.
+     *   Valid values if the time range to query is less than 3 days: **300**, **3600**, and **86400**. Default value: 300.
+     *   Valid values if the time range to query is 3 to less than 31 days: **3600** and **86400**. Default value: 3600.
+     *   Valid value if the time range to query is 31 to 90 days: **86400**.
      *
      * @example 300
      *
@@ -40,7 +40,7 @@ class DescribeVodDomainTrafficDataRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP). If you do not specify this parameter, the data of all ISPs is returned.
+     * @description The name of the Internet service provider (ISP). If you leave this parameter empty, all ISPs are queried.
      *
      * @example Alibaba
      *
@@ -49,7 +49,7 @@ class DescribeVodDomainTrafficDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. If you do not specify this parameter, the data in all regions is returned. Only data in the China (Shanghai) region can be queried.
+     * @description The name of the region. If you leave this parameter empty, all regions are queried. You can specify only the China (Shanghai) region.
      *
      * @example cn-shanghai
      *
@@ -65,7 +65,7 @@ class DescribeVodDomainTrafficDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * > The minimum query interval is 5 minutes. If you do not specify this parameter, the data in the last 24 hours is queried.
+     * > The minimum time granularity to query data is 5 minutes. If you leave this parameter empty, the data in the last 24 hours is queried.
      * @example 2019-01-20T13:59:58Z
      *
      * @var string

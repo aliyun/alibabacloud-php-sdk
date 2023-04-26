@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodAIDataRequest extends Model
 {
     /**
-     * @description The type of video AI. If you do not set this parameter, the data of all video AI types is returned. You can specify multiple types. Separate them with commas (,). Valid values:
+     * @description The type of video AI. If you leave this parameter empty, statistics on video AI of all types are returned. Separate multiple types with commas (,). Valid values:
      *
      *   **AIVideoCensor**: automated review
      *   **AIVideoFPShot**: media fingerprinting
-     *   **AIVideoTag**: smart tag
+     *   **AIVideoTag**: smart tagging
      *
      * @example AIVideoCensor
      *
@@ -22,7 +22,7 @@ class DescribeVodAIDataRequest extends Model
     public $AIType;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2019-02-01T15:00:00Z
      *
@@ -36,7 +36,7 @@ class DescribeVodAIDataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region where the processed file is stored. If you do not set this parameter, the data in all regions is returned. You can specify multiple regions. Separate them with commas (,). Valid values:
+     * @description The region in which you want to query data. If you leave this parameter empty, data in all regions is returned. Separate multiple regions with commas (,). Valid values:
      *
      *   **cn-shanghai**: China (Shanghai)
      *   **cn-beijing**: China (Beijing)
@@ -50,7 +50,7 @@ class DescribeVodAIDataRequest extends Model
     public $region;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2019-02-01T13:00:00Z
      *

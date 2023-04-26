@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainUsageDataRequest extends Model
 {
     /**
-     * @description The region where the data is queried. The default value is CN, which indicates mainland China. Valid values:
+     * @description The region where you want to query data. Default value: CN. Valid values:
      *
-     *   **CN**: mainland China.
-     *   **OverSeas**: outside mainland China.
+     *   **CN**: Chinese mainland
+     *   **OverSeas**: outside the Chinese mainland
      *
      * @example CN
      *
@@ -21,7 +21,7 @@ class DescribeVodDomainUsageDataRequest extends Model
     public $area;
 
     /**
-     * @description The domain name for CDN. If you do not specify this parameter, the merged data of all your domain names for CDN is returned. You can specify multiple domain names. Separate them with commas (,).
+     * @description The accelerated domain name. If you leave this parameter empty, the merged data of all your accelerated domain names is returned. Separate multiple accelerated domain names with commas (,).
      *
      * @example example.com
      *
@@ -39,16 +39,29 @@ class DescribeVodDomainUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of the data to be queried. Valid values:
+     * @description The type of the data to return. Valid values:
      *
-     *   **bps**: bandwidth.
-     *   **traf**: traffic.
+     *   **bps**: bandwidth
+     *   **traf**: traffic
      *
      * @example bps
      *
      * @var string
      */
     public $field;
+
+    /**
+     * @description The time interval between the data entries to return. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
+     *
+     *   If **Interval** is set to **300**, you can query usage data in the last six months. The maximum time range per query that can be specified is three days.
+     *   If **Interval** is set to **3600** or **86400**, you can query usage data of the previous year.
+     *   If you do not set the **Interval** parameter, the maximum time range that you can query is one month. If you specify a time range of 1 to 3 days, the time interval between the entries that are returned is 1 hour. If you specify a time range of at least 4 days, the time interval between the entries that are returned is 1 day.
+     *
+     * @example 300
+     *
+     * @var string
+     */
+    public $interval;
 
     /**
      * @var int
@@ -65,11 +78,11 @@ class DescribeVodDomainUsageDataRequest extends Model
     public $startTime;
 
     /**
-     * @description The type of the content based on which the data is generated. Valid values:
+     * @description The type of content that you want to query. Valid values:
      *
-     *   **static**
-     *   **dynamic**
-     *   **all**
+     *   **static**: static content
+     *   **dynamic**: dynamic requests
+     *   **all**: all content
      *
      * @example static
      *
@@ -81,6 +94,7 @@ class DescribeVodDomainUsageDataRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'field'      => 'Field',
+        'interval'   => 'Interval',
         'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
         'type'       => 'Type',
@@ -104,6 +118,9 @@ class DescribeVodDomainUsageDataRequest extends Model
         }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -137,6 +154,9 @@ class DescribeVodDomainUsageDataRequest extends Model
         }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

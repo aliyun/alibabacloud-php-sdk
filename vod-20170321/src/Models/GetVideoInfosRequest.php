@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVideoInfosRequest extends Model
 {
     /**
-     * @description The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
+     * @description The tags of the video. Multiple tags are separated by commas (,).
      *
      * @example 7753d144efd8e649c6c45fe0579****,7753d144efd74d6c45fe0570****
      *

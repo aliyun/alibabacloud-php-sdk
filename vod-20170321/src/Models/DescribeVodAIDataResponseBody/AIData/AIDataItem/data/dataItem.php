@@ -11,9 +11,10 @@ class dataItem extends Model
     /**
      * @description The type of video AI. Valid values:
      *
-     * - **AIVideoCensor**: automated review
-     * - **AIVideoFPShot**: media fingerprinting
-     * - **AIVideoTag**: smart tag
+     *   **AIVideoCensor**: automated review
+     *   **AIVideoFPShot**: media fingerprinting
+     *   **AIVideoTag**: smart tagging
+     *
      * @example AIVideoCensor
      *
      * @var string

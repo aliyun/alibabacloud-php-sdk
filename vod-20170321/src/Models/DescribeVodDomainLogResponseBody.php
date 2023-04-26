@@ -17,7 +17,7 @@ class DescribeVodDomainLogResponseBody extends Model
     public $domainLogDetails;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 077D0284-F041-4A41-4D3C-B48377FD****
      *

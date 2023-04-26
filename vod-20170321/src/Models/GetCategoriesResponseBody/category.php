@@ -18,18 +18,22 @@ class category extends Model
     public $cateId;
 
     /**
-     * @description The name of the category.
-     *   The value can be up to 64 bytes in length.
-     *   The string must be encoded in the UTF-8 format.
+     * @description The ID of the parent category. The parent category ID of a level 1 category is **-1**.
      *
-     * @example film
+     * @example The method for sorting the results. Valid values:
+     *
+     *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.
+     *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
      *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description The level of the category. A value of **0** indicates a level 1 category.
+     * @description The name of the category.
+     *
+     *   The value can be up to 64 bytes in length.
+     *   The string must be encoded in the UTF-8 format.
      *
      * @example 0
      *
@@ -38,7 +42,7 @@ class category extends Model
     public $level;
 
     /**
-     * @description The ID of the parent category. The parent category ID of a level 1 category is **-1**.
+     * @description The level of the category. A value of **0** indicates a level 1 category.
      *
      * @example 100012****
      *
@@ -47,9 +51,7 @@ class category extends Model
     public $parentId;
 
     /**
-     * @description The type of the category. Valid values:
-     *   **default** (default): default category
-     *   **material**: material category
+     * @description The total number of subcategories.
      *
      * @example default
      *

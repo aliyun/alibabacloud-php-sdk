@@ -31,7 +31,7 @@ class DescribeVodStorageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The detailed usage of storage-related resources.
+     * @description The storage usage data returned.
      *
      * @var storageData
      */

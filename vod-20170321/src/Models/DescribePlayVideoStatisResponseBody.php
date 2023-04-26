@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayVideoStatisResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the video.
      *
      * @example A92D3600-A3E7-43D6-****-B6E3B4A1FE6B
      *
@@ -19,7 +19,7 @@ class DescribePlayVideoStatisResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The daily playback statistics on the video.
+     * @description The number of unique visitors.
      *
      * @var videoPlayStatisDetails
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**.
+     * @description The application ID. Default value: **app-1000000**.
      *
      * @example app-1000000
      *
@@ -19,7 +19,7 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The ID of the video category.
+     * @description The category ID.
      *
      * @example 781111
      *
@@ -28,16 +28,16 @@ class video extends Model
     public $cateId;
 
     /**
-     * @description The name of the video category.
+     * @description The category name.
      *
-     * @example category name
+     * @example Category name
      *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description The URL of the video thumbnail.
+     * @description The thumbnail URL of the media file.
      *
      * @example https://example.aliyundoc.com/****.jpg
      *
@@ -46,7 +46,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the media file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T09:15:50Z
      *
@@ -55,16 +55,16 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The description of the video.
+     * @description The description of the media file.
      *
-     * @example video description
+     * @example Video description in ApsaraVideo VOD
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The duration of the video. Unit: seconds.
+     * @description The duration of the media file. Unit: seconds.
      *
      * @example 135.6
      *
@@ -73,7 +73,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T09:16:50Z
      *
@@ -82,7 +82,17 @@ class video extends Model
     public $modificationTime;
 
     /**
-     * @description The size of the video mezzanine file. Unit: byte.
+     * @var string
+     */
+    public $restoreExpiration;
+
+    /**
+     * @var string
+     */
+    public $restoreStatus;
+
+    /**
+     * @description The size of the source file. Unit: bytes.
      *
      * @example 10897890
      *
@@ -91,23 +101,26 @@ class video extends Model
     public $size;
 
     /**
-     * @description The URL array of video snapshots.
+     * @description The video snapshot URLs.
      *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The status of the video. By default, videos in all states are returned. Multiple states are separated by commas (,). Valid values:
+     * @description The video status. Valid values:
      *
      *   **Uploading**: The video is being uploaded.
-     *   **UploadFail**: The video fails to be uploaded.
-     *   **UploadSucc**: The video is uploaded.
+     *   **UploadFail**: The video failed to be uploaded.
+     *   **UploadSucc**: The video has been uploaded.
      *   **Transcoding**: The video is being transcoded.
-     *   **TranscodeFail**: The video fails to be transcoded.
+     *   **TranscodeFail**: The video failed to be transcoded.
+     *   **checking**: The video is being reviewed.
      *   **Blocked**: The video is blocked.
-     *   **Normal**: The video can be played.
+     *   **Normal**: The video is normal.
+     *   **ProduceFail**: The video failed to be produced.
      *
+     * For more information about each video status, see the "Status: the status of a video" section of the [Basic data types](~~52839#section-p7c-jgy-070~~) topic.
      * @example Normal
      *
      * @var string
@@ -115,7 +128,12 @@ class video extends Model
     public $status;
 
     /**
-     * @description The OSS bucket where the video file is stored.
+     * @var string
+     */
+    public $storageClass;
+
+    /**
+     * @description The storage address of the media file.
      *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
@@ -124,25 +142,25 @@ class video extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the video. Multiple tags are separated by commas (,).
+     * @description The tags of the media file. Multiple tags are separated by commas (,).
      *
-     * @example tag1,tag2
+     * @example Tag 1,Tag 2
      *
      * @var string
      */
     public $tags;
 
     /**
-     * @description The title of the video.
+     * @description The title of the media file.
      *
-     * @example video title
+     * @example Video title in ApsaraVideo VOD
      *
      * @var string
      */
     public $title;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the media file.
      *
      * @example 9ae2af636ca6c10412f44891fc****
      *
@@ -150,21 +168,24 @@ class video extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'            => 'AppId',
-        'cateId'           => 'CateId',
-        'cateName'         => 'CateName',
-        'coverURL'         => 'CoverURL',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'duration'         => 'Duration',
-        'modificationTime' => 'ModificationTime',
-        'size'             => 'Size',
-        'snapshots'        => 'Snapshots',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'videoId'          => 'VideoId',
+        'appId'             => 'AppId',
+        'cateId'            => 'CateId',
+        'cateName'          => 'CateName',
+        'coverURL'          => 'CoverURL',
+        'creationTime'      => 'CreationTime',
+        'description'       => 'Description',
+        'duration'          => 'Duration',
+        'modificationTime'  => 'ModificationTime',
+        'restoreExpiration' => 'RestoreExpiration',
+        'restoreStatus'     => 'RestoreStatus',
+        'size'              => 'Size',
+        'snapshots'         => 'Snapshots',
+        'status'            => 'Status',
+        'storageClass'      => 'StorageClass',
+        'storageLocation'   => 'StorageLocation',
+        'tags'              => 'Tags',
+        'title'             => 'Title',
+        'videoId'           => 'VideoId',
     ];
 
     public function validate()
@@ -198,6 +219,12 @@ class video extends Model
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
         }
+        if (null !== $this->restoreExpiration) {
+            $res['RestoreExpiration'] = $this->restoreExpiration;
+        }
+        if (null !== $this->restoreStatus) {
+            $res['RestoreStatus'] = $this->restoreStatus;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -206,6 +233,9 @@ class video extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
@@ -255,6 +285,12 @@ class video extends Model
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
         }
+        if (isset($map['RestoreExpiration'])) {
+            $model->restoreExpiration = $map['RestoreExpiration'];
+        }
+        if (isset($map['RestoreStatus'])) {
+            $model->restoreStatus = $map['RestoreStatus'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
@@ -263,6 +299,9 @@ class video extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];

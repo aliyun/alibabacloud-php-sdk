@@ -19,8 +19,9 @@ class DescribeVodAIDataResponseBody extends Model
     /**
      * @description The time granularity at which the data was queried. Valid values:
      *
-     * - **hour**
-     * - **day**
+     *   **hour**
+     *   **day**
+     *
      * @example day
      *
      * @var string
