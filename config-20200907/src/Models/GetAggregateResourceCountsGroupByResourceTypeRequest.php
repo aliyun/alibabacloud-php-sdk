@@ -38,6 +38,8 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     public $region;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;

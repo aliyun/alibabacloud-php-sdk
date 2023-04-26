@@ -21,7 +21,7 @@ class GetIntegratedServiceStatusResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2E396C84-8D50-5F95-97FA-C0367181BA8A
      *

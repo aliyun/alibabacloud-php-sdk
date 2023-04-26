@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateDiscoveredResourcesResponseBody extends Model
 {
     /**
-     * @description The return result of the request.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @var discoveredResourceProfiles
      */
     public $discoveredResourceProfiles;
 
     /**
-     * @description The ID of the request.
-     *
      * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
      *
      * @var string

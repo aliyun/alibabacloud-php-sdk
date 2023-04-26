@@ -9,9 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceByConfigRuleRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The compliance evaluation result of the resources. Valid values:
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -19,12 +23,7 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The compliance evaluation result of the resources. Valid values:
-     *
-     *   COMPLIANT: The resources are evaluated as compliant.
-     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to your resources.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     * @description The total number of evaluated resources.
      *
      * @example COMPLIANT
      *
@@ -33,9 +32,8 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     public $complianceType;
 
     /**
-     * @description The ID of the rule.
+     * @description The compliance evaluation results returned.
      *
-     * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-d369626622af008e****
      *
      * @var string
@@ -43,6 +41,8 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     public $configRuleId;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;

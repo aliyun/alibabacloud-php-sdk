@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class complianceResult extends Model
 {
     /**
+     * @description The evaluation results grouped by region.
+     *
      * @var complianceResultList[]
      */
     public $complianceResultList;

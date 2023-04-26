@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationTemplatesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @description The details of the remediation template.
      *
      * @var remediationTemplates[]
@@ -24,9 +34,17 @@ class ListRemediationTemplatesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'remediationTemplates' => 'RemediationTemplates',
         'requestId'            => 'RequestId',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -36,6 +54,12 @@ class ListRemediationTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->remediationTemplates) {
             $res['RemediationTemplates'] = [];
             if (null !== $this->remediationTemplates && \is_array($this->remediationTemplates)) {
@@ -47,6 +71,9 @@ class ListRemediationTemplatesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -60,6 +87,12 @@ class ListRemediationTemplatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RemediationTemplates'])) {
             if (!empty($map['RemediationTemplates'])) {
                 $model->remediationTemplates = [];
@@ -71,6 +104,9 @@ class ListRemediationTemplatesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

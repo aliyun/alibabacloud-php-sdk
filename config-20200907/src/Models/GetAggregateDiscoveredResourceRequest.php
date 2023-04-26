@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateDiscoveredResourceRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The type of the resource.
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-5885626622af0008****
      *
      * @var string
@@ -19,9 +18,8 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the region in which the resource resides.
+     * @description The ID of the zone in which the resource resides.
      *
-     * For more information about how to query the region ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -29,14 +27,15 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $region;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;
 
     /**
-     * @description The ID of the resource.
+     * @description The ID of the request.
      *
-     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example new-bucket
      *
      * @var string
@@ -51,9 +50,8 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource.
+     * @description The information about the resource.
      *
-     * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example ACS::OSS::Bucket
      *
      * @var string

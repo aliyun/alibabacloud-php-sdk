@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class complianceResultList extends Model
 {
     /**
+     * @description The queried evaluation results.
+     *
      * @var compliances[]
      */
     public $compliances;
 
     /**
+     * @description The type of the evaluated resource.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

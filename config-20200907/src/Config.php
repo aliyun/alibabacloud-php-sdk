@@ -167,6 +167,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksRequest;
@@ -192,6 +194,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesShrinkRequest;
@@ -284,7 +288,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+     * The ID of the rule. Separate multiple rule IDs with commas (,).
+     *   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -320,7 +325,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+     * The ID of the rule. Separate multiple rule IDs with commas (,).
+     *   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
      *
@@ -705,9 +711,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The return result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-     *   * ## Limits
-     *   * A management account can contain up to 200 rules.
+     * The description of the rule.
      *   *
      * @param CreateAggregateConfigRuleRequest $tmpReq  CreateAggregateConfigRuleRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -805,9 +809,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The return result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-     *   * ## Limits
-     *   * A management account can contain up to 200 rules.
+     * The description of the rule.
      *   *
      * @param CreateAggregateConfigRuleRequest $request CreateAggregateConfigRuleRequest
      *
@@ -1381,7 +1383,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+     * The ID of the rule. Separate multiple rule IDs with commas (,).
+     *   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param DeactiveAggregateConfigRulesRequest $request DeactiveAggregateConfigRulesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -1417,7 +1420,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+     * The ID of the rule. Separate multiple rule IDs with commas (,).
+     *   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param DeactiveAggregateConfigRulesRequest $request DeactiveAggregateConfigRulesRequest
      *
@@ -1688,7 +1692,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * In the example of this topic, a request is sent to delete the account group whose ID is `ca-9190626622af00a9****`.
+     * The operation that you want to perform. Set the value to **DeleteAggregators**.
      *   *
      * @param DeleteAggregatorsRequest $request DeleteAggregatorsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1724,7 +1728,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * In the example of this topic, a request is sent to delete the account group whose ID is `ca-9190626622af00a9****`.
+     * The operation that you want to perform. Set the value to **DeleteAggregators**.
      *   *
      * @param DeleteAggregatorsRequest $request DeleteAggregatorsRequest
      *
@@ -2631,7 +2635,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
+     * The type of the resource.
+     *   * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      *   *
      * @param GetAggregateDiscoveredResourceRequest $request GetAggregateDiscoveredResourceRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2661,7 +2666,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
+     * The type of the resource.
+     *   * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      *   *
      * @param GetAggregateDiscoveredResourceRequest $request GetAggregateDiscoveredResourceRequest
      *
@@ -2675,7 +2681,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     * The ID of the rule.
+     *   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
@@ -2720,7 +2727,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     * The ID of the rule.
+     *   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      *   *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
      *
@@ -2870,7 +2878,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
      *   *
      * @param GetAggregateResourceComplianceTimelineRequest $request GetAggregateResourceComplianceTimelineRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -2900,7 +2908,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
      *   *
      * @param GetAggregateResourceComplianceTimelineRequest $request GetAggregateResourceComplianceTimelineRequest
      *
@@ -2914,7 +2922,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     * The ID of the resource.
+     *   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      *   *
      * @param GetAggregateResourceConfigurationTimelineRequest $request GetAggregateResourceConfigurationTimelineRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
@@ -2944,7 +2953,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     * The ID of the resource.
+     *   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      *   *
      * @param GetAggregateResourceConfigurationTimelineRequest $request GetAggregateResourceConfigurationTimelineRequest
      *
@@ -2958,7 +2968,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+     * The ID of the account group.
+     *   * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      *   *
      * @param GetAggregateResourceCountsGroupByRegionRequest $request GetAggregateResourceCountsGroupByRegionRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
@@ -3003,7 +3014,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+     * The ID of the account group.
+     *   * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      *   *
      * @param GetAggregateResourceCountsGroupByRegionRequest $request GetAggregateResourceCountsGroupByRegionRequest
      *
@@ -3876,7 +3888,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
      *   *
      * @param GetResourceConfigurationTimelineRequest $request GetResourceConfigurationTimelineRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -3906,7 +3918,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
      *   *
      * @param GetResourceConfigurationTimelineRequest $request GetResourceConfigurationTimelineRequest
      *
@@ -4299,7 +4311,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This example shows how to query the resources in the `ca-c560626622af0005****` account group. The response shows that the account group contains eight resources.
+     * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``.
      *   *
      * @param ListAggregateDiscoveredResourcesRequest $request ListAggregateDiscoveredResourcesRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -4356,7 +4368,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This example shows how to query the resources in the `ca-c560626622af0005****` account group. The response shows that the account group contains eight resources.
+     * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``.
      *   *
      * @param ListAggregateDiscoveredResourcesRequest $request ListAggregateDiscoveredResourcesRequest
      *
@@ -4482,6 +4494,76 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAggregateResourceEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateResourceRelationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAggregateResourceRelationsResponse
+     */
+    public function listAggregateResourceRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->resourceAccountId)) {
+            $query['ResourceAccountId'] = $request->resourceAccountId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->targetResourceId)) {
+            $query['TargetResourceId'] = $request->targetResourceId;
+        }
+        if (!Utils::isUnset($request->targetResourceType)) {
+            $query['TargetResourceType'] = $request->targetResourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateResourceRelations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateResourceRelationsRequest $request
+     *
+     * @return ListAggregateResourceRelationsResponse
+     */
+    public function listAggregateResourceRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateResourceRelationsWithOptions($request, $runtime);
     }
 
     /**
@@ -4984,6 +5066,12 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->managedRuleIdentifier)) {
             $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->remediationType)) {
             $query['RemediationType'] = $request->remediationType;
         }
@@ -5033,6 +5121,12 @@ class Config extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->configRuleIds)) {
             $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5126,6 +5220,70 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listResourceEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListResourceRelationsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListResourceRelationsResponse
+     */
+    public function listResourceRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->targetResourceId)) {
+            $query['TargetResourceId'] = $request->targetResourceId;
+        }
+        if (!Utils::isUnset($request->targetResourceType)) {
+            $query['TargetResourceType'] = $request->targetResourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceRelations',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceRelationsRequest $request
+     *
+     * @return ListResourceRelationsResponse
+     */
+    public function listResourceRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceRelationsWithOptions($request, $runtime);
     }
 
     /**
@@ -6276,7 +6434,7 @@ class Config extends OpenApiClient
 
     /**
      * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-     *   * In this example, the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` is changed to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+     *   * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
      *   *
      * Deprecated
      *
@@ -6345,7 +6503,7 @@ class Config extends OpenApiClient
 
     /**
      * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-     *   * In this example, the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` is changed to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+     *   * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
      *   *
      * Deprecated
      *

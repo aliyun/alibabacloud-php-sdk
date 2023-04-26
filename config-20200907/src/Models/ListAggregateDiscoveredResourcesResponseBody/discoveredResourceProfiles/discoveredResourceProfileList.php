@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfileList extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The build version of the resource.
      *
      * @example 161259599160****
      *
@@ -18,8 +18,6 @@ class discoveredResourceProfileList extends Model
     public $accountId;
 
     /**
-     * @description The ID of the zone where the resource resides.
-     *
      * @example cn-huhehaote-a
      *
      * @var string
@@ -27,7 +25,10 @@ class discoveredResourceProfileList extends Model
     public $availabilityZone;
 
     /**
-     * @description The region ID.
+     * @description Indicates whether the resource is deleted. Valid values:
+     *
+     *   0: The resource is deleted.
+     *   1: The resource is retained.
      *
      * @example cn-huhehaote
      *
@@ -36,7 +37,10 @@ class discoveredResourceProfileList extends Model
     public $region;
 
     /**
-     * @description The timestamp when the resource was created. Unit: milliseconds.
+     * @description Indicates whether the resource is deleted. The value of this parameter varies based on the resource type and may be left empty. Example:
+     *
+     *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
+     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
      *
      * @example 1618675206000
      *
@@ -45,10 +49,7 @@ class discoveredResourceProfileList extends Model
     public $resourceCreationTime;
 
     /**
-     * @description Indicates whether the resource is deleted. Valid values:
-     *
-     *   0: The resource is deleted.
-     *   1: The resource is retained.
+     * @description The maximum number of entries returned on each page.
      *
      * @example 1
      *
@@ -57,7 +58,7 @@ class discoveredResourceProfileList extends Model
     public $resourceDeleted;
 
     /**
-     * @description The ID of the resource.
+     * @description The ID of the zone where the resource resides.
      *
      * @example eni-hp31cqoba96jagtz****
      *
@@ -66,7 +67,7 @@ class discoveredResourceProfileList extends Model
     public $resourceId;
 
     /**
-     * @description The name of the resource.
+     * @description The token that was used to initiate the next request.
      *
      * @example Cloud Firewall
      *
@@ -75,7 +76,7 @@ class discoveredResourceProfileList extends Model
     public $resourceName;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resources belong.
+     * @description The ID of the request.
      *
      * @example 161259599160****
      *
@@ -84,10 +85,7 @@ class discoveredResourceProfileList extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Indicates whether the resource is deleted. The value of this parameter varies based on the resource type and may be left empty. Example:
-     *
-     *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
-     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+     * @description The total number of resources.
      *
      * @example InUse
      *
@@ -96,7 +94,7 @@ class discoveredResourceProfileList extends Model
     public $resourceStatus;
 
     /**
-     * @description The type of the resource.
+     * @description The name of the resource.
      *
      * @example ACS::ECS::NetworkInterface
      *
@@ -105,7 +103,7 @@ class discoveredResourceProfileList extends Model
     public $resourceType;
 
     /**
-     * @description The tags of the resource.
+     * @description The ID of the Alibaba Cloud account to which the resources belong.
      *
      * @example {\"key1\":[\"value2\"]}
      *
@@ -114,8 +112,6 @@ class discoveredResourceProfileList extends Model
     public $tags;
 
     /**
-     * @description The build version of the resource.
-     *
      * @example 1
      *
      * @var int

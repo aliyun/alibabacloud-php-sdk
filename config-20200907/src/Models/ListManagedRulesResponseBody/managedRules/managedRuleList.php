@@ -49,6 +49,16 @@ class managedRuleList extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $remediationTemplateIdentifier;
+
+    /**
+     * @var string
+     */
+    public $remediationTemplateName;
+
+    /**
      * @description The risk level of the resources that do not comply with the managed rule. Valid values:
      *
      *   1: high risk level
@@ -65,14 +75,22 @@ class managedRuleList extends Model
      * @var scope
      */
     public $scope;
+
+    /**
+     * @var bool
+     */
+    public $supportPreviewManagedRule;
     protected $_name = [
-        'configRuleName' => 'ConfigRuleName',
-        'description'    => 'Description',
-        'helpUrls'       => 'HelpUrls',
-        'identifier'     => 'Identifier',
-        'labels'         => 'Labels',
-        'riskLevel'      => 'RiskLevel',
-        'scope'          => 'Scope',
+        'configRuleName'                => 'ConfigRuleName',
+        'description'                   => 'Description',
+        'helpUrls'                      => 'HelpUrls',
+        'identifier'                    => 'Identifier',
+        'labels'                        => 'Labels',
+        'remediationTemplateIdentifier' => 'RemediationTemplateIdentifier',
+        'remediationTemplateName'       => 'RemediationTemplateName',
+        'riskLevel'                     => 'RiskLevel',
+        'scope'                         => 'Scope',
+        'supportPreviewManagedRule'     => 'SupportPreviewManagedRule',
     ];
 
     public function validate()
@@ -97,11 +115,20 @@ class managedRuleList extends Model
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+        if (null !== $this->remediationTemplateIdentifier) {
+            $res['RemediationTemplateIdentifier'] = $this->remediationTemplateIdentifier;
+        }
+        if (null !== $this->remediationTemplateName) {
+            $res['RemediationTemplateName'] = $this->remediationTemplateName;
+        }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->scope) {
             $res['Scope'] = null !== $this->scope ? $this->scope->toMap() : null;
+        }
+        if (null !== $this->supportPreviewManagedRule) {
+            $res['SupportPreviewManagedRule'] = $this->supportPreviewManagedRule;
         }
 
         return $res;
@@ -132,11 +159,20 @@ class managedRuleList extends Model
                 $model->labels = $map['Labels'];
             }
         }
+        if (isset($map['RemediationTemplateIdentifier'])) {
+            $model->remediationTemplateIdentifier = $map['RemediationTemplateIdentifier'];
+        }
+        if (isset($map['RemediationTemplateName'])) {
+            $model->remediationTemplateName = $map['RemediationTemplateName'];
+        }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['Scope'])) {
             $model->scope = scope::fromMap($map['Scope']);
+        }
+        if (isset($map['SupportPreviewManagedRule'])) {
+            $model->supportPreviewManagedRule = $map['SupportPreviewManagedRule'];
         }
 
         return $model;

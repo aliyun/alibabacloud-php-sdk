@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateDiscoveredResourcesRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The tags of the resource.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-c560626622af0005****
      *
      * @var string
@@ -19,7 +18,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     * @description The information about resources.
      *
      * @example 10
      *
@@ -28,7 +27,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+     * @description The type of the resource.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *
@@ -37,7 +36,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the resource resides. Separate multiple region IDs with commas (,).
+     * @description The timestamp when the resource was created. Unit: milliseconds.
      *
      * @example cn-huhehaote
      *
@@ -46,15 +45,14 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $regions;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;
 
     /**
-     * @description Indicates whether the resource is deleted. Valid values:
-     *
-     *   0: The resource is deleted.
-     *   1: The resource is retained. This is the default value.
+     * @description The return result of the request.
      *
      * @example 1
      *
@@ -63,8 +61,9 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $resourceDeleted;
 
     /**
-     * @description The ID of the resource.
+     * @description The ID of the account group.
      *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example eni-hp31cqoba96jagtz****
      *
      * @var string
@@ -79,7 +78,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Separate multiple resource types with commas (,).
+     * @description The region ID.
      *
      * @example ACS::ECS::NetworkInterface
      *

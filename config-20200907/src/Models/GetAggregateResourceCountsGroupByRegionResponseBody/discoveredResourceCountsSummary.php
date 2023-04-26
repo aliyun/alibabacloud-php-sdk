@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceCountsSummary extends Model
 {
     /**
-     * @description The dimension by which statistics are collected.
-     *
-     * >  In most cases, the `Region` parameter is returned instead of the GroupName parameter.
      * @example cn-hangzhou
      *
      * @var string
@@ -19,8 +16,6 @@ class discoveredResourceCountsSummary extends Model
     public $groupName;
 
     /**
-     * @description The ID of the region by which statistics are collected.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,8 +23,6 @@ class discoveredResourceCountsSummary extends Model
     public $region;
 
     /**
-     * @description The total number of resources in the region.
-     *
      * @example 10
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetResourceConfigurationTimelineRequest extends Model
 {
     /**
-     * @description The timestamp that specifies the end of the time range to query. The default value is the time when the GetResourceConfigurationTimeline operation is called. Unit: milliseconds.
+     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
      *
      * @example 1625821156000
      *
@@ -18,7 +18,7 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $endTime;
 
     /**
-     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+     * @description The maximum number of entries returned for a single request.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *
@@ -36,7 +36,7 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region in which the resource resides.
+     * @description The token that is used to initiate the next request.
      *
      * @example cn-hangzhou
      *
@@ -45,9 +45,9 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the resource.
+     * @description The type of the resource.
      *
-     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
      * @example new-bucket
      *
      * @var string
@@ -55,9 +55,8 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The information about the configuration timeline.
      *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
      * @example ACS::OSS::Bucket
      *
      * @var string
@@ -65,7 +64,7 @@ class GetResourceConfigurationTimelineRequest extends Model
     public $resourceType;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+     * @description The ID of the region in which the resource resides.
      *
      * @example 1623211156000
      *

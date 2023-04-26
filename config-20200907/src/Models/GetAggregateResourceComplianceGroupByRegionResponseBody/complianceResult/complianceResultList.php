@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class complianceResultList extends Model
 {
     /**
+     * @description The queried evaluation results.
+     *
      * @var compliances[]
      */
     public $compliances;
 
     /**
+     * @description The region ID of the evaluated resource.
+     *
      * @example cn-beijing
      *
      * @var string

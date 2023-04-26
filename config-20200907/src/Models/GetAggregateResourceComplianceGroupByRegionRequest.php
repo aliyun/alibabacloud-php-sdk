@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceGroupByRegionRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-d6c9626622af0052****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAggregateResourceComplianceGroupByRegionRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
+     *
      * @example cr-2652626622af005e****
      *
      * @var string

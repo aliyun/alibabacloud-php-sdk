@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRul
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\configRuleEvaluationStatus;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\createBy;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\managedRule;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\scope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\source;
 use AlibabaCloud\Tea\Model;
 
@@ -199,6 +200,11 @@ class configRule extends Model
     public $riskLevel;
 
     /**
+     * @var scope
+     */
+    public $scope;
+
+    /**
      * @description The information about how the rule was created.
      *
      * @var source
@@ -255,6 +261,7 @@ class configRule extends Model
         'resourceGroupIdsScope'      => 'ResourceGroupIdsScope',
         'resourceTypesScope'         => 'ResourceTypesScope',
         'riskLevel'                  => 'RiskLevel',
+        'scope'                      => 'Scope',
         'source'                     => 'Source',
         'tagKeyLogicScope'           => 'TagKeyLogicScope',
         'tagKeyScope'                => 'TagKeyScope',
@@ -327,6 +334,9 @@ class configRule extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = null !== $this->scope ? $this->scope->toMap() : null;
         }
         if (null !== $this->source) {
             $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
@@ -411,6 +421,9 @@ class configRule extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = scope::fromMap($map['Scope']);
         }
         if (isset($map['Source'])) {
             $model->source = source::fromMap($map['Source']);

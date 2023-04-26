@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceGroupByResourceTypeResponseBody extends Model
 {
     /**
+     * @description The queried evaluation results.
+     *
      * @var complianceResult
      */
     public $complianceResult;
 
     /**
+     * @description The request ID.
+     *
      * @example 0CE6AEE1-B3D8-530A-9302-6606B20503BB
      *
      * @var string

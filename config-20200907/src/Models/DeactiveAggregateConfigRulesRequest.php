@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeactiveAggregateConfigRulesRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The result of the operation to disable the rule.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-04b3fd170e340007****
      *
      * @var string
@@ -19,9 +18,8 @@ class DeactiveAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the rule. Separate multiple rule IDs with commas (,).
+     * @description The results of the operations to disable the specified rules.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-5772ba41209e007b****
      *
      * @var string

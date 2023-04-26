@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartRemediationRequest extends Model
 {
     /**
-     * @description The ID of the rule.
+     * @description The ID of the request.
      *
-     * You can call the [ListConfigRules](~~169607~~) operation to obtain the rule ID.
      * @example cr-8a973ac2e2be00a2****
      *
      * @var string

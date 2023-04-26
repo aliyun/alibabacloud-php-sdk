@@ -25,6 +25,11 @@ class remediationTemplates extends Model
     public $templateDefinition;
 
     /**
+     * @var string
+     */
+    public $templateDescription;
+
+    /**
      * @description The identifier of the remediation template.
      *
      * @example ACS-OSS-PutBucketAcl
@@ -40,10 +45,11 @@ class remediationTemplates extends Model
      */
     public $templateName;
     protected $_name = [
-        'remediationType'    => 'RemediationType',
-        'templateDefinition' => 'TemplateDefinition',
-        'templateIdentifier' => 'TemplateIdentifier',
-        'templateName'       => 'TemplateName',
+        'remediationType'     => 'RemediationType',
+        'templateDefinition'  => 'TemplateDefinition',
+        'templateDescription' => 'TemplateDescription',
+        'templateIdentifier'  => 'TemplateIdentifier',
+        'templateName'        => 'TemplateName',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class remediationTemplates extends Model
         }
         if (null !== $this->templateDefinition) {
             $res['TemplateDefinition'] = $this->templateDefinition;
+        }
+        if (null !== $this->templateDescription) {
+            $res['TemplateDescription'] = $this->templateDescription;
         }
         if (null !== $this->templateIdentifier) {
             $res['TemplateIdentifier'] = $this->templateIdentifier;
@@ -82,6 +91,9 @@ class remediationTemplates extends Model
         }
         if (isset($map['TemplateDefinition'])) {
             $model->templateDefinition = $map['TemplateDefinition'];
+        }
+        if (isset($map['TemplateDescription'])) {
+            $model->templateDescription = $map['TemplateDescription'];
         }
         if (isset($map['TemplateIdentifier'])) {
             $model->templateIdentifier = $map['TemplateIdentifier'];

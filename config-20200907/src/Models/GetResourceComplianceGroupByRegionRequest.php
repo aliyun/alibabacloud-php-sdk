@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceGroupByRegionRequest extends Model
 {
     /**
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
+     *
      * @example cr-2541626622af0000****
      *
      * @var string

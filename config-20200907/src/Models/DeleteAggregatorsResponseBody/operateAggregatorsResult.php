@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class operateAggregatorsResult extends Model
 {
     /**
-     * @description The result for the account group.
+     * @description The error code.
      *
+     * >  No error code is returned for the account group if the account group is deleted.
      * @var operateAggregators[]
      */
     public $operateAggregators;

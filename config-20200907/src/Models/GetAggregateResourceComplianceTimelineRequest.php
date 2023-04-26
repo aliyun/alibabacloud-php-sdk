@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceTimelineRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The tags of the resource.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-5885626622af0008****
      *
      * @var string
@@ -19,7 +18,7 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The timestamp that specifies the end of the time range to query. The default value indicates the time when the GetAggregateResourceComplianceTimeline operation is called. Unit: milliseconds.
+     * @description The maximum number of entries returned for a single request.
      *
      * @example 1625821156000
      *
@@ -28,7 +27,7 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $endTime;
 
     /**
-     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     * @description The compliance evaluation records on the compliance timeline.
      *
      * @example 10
      *
@@ -37,7 +36,7 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+     * @description The ID of the zone in which the resource resides.
      *
      * @example 5OVS5J4I1/UKTkHV5oNs****
      *
@@ -46,9 +45,8 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region in which the resource resides.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
-     * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](~~265983~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -56,14 +54,15 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $region;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;
 
     /**
-     * @description The ID of the resource.
+     * @description The information about the compliance timeline.
      *
-     * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      * @example new-bucket
      *
      * @var string
@@ -78,9 +77,8 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource.
+     * @description The ID of the request.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      * @example ACS::OSS::Bucket
      *
      * @var string
@@ -88,7 +86,7 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
     public $resourceType;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the compliance evaluations in the last 30 days for the specified resource. Unit: milliseconds.
+     * @description The token that is used to initiate the next request.
      *
      * @example 1623211156000
      *

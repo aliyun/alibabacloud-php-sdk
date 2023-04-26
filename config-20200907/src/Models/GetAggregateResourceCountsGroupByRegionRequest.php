@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceCountsGroupByRegionRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The total number of resources in the region.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-a260626622af0005****
      *
      * @var string
@@ -19,8 +18,9 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the folder in the resource directory. For more information about how to obtain the ID of a folder, see [View the basic information of a folder](~~111223~~).
+     * @description The dimension by which statistics are collected.
      *
+     * >  In most cases, the `Region` parameter is returned instead of the GroupName parameter.
      * @example r-BU****
      *
      * @var string
@@ -28,6 +28,8 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public $folderId;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;
@@ -40,9 +42,8 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource.
+     * @description The statistics on resources.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      * @example ACS::ECS::Instance
      *
      * @var string
