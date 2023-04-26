@@ -65,6 +65,8 @@ class ListFileRequest extends Model
     public $parentFileId;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;

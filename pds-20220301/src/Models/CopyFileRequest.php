@@ -30,11 +30,15 @@ class CopyFileRequest extends Model
     public $fileId;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $toDriveId;

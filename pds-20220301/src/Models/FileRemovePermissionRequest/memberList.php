@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
+     * @description 可授权对象，表示一个用户或者一个群组
+     *
      * @var Identity
      */
     public $identity;
 
     /**
+     * @description 目前支持两种方式设置权限，一种是通过指定角色设置权限，另一种是自定义操作权限，此字段用于指定角色设置权限，与action\_list互斥，当两个字段同时设置时，以此字段为准
+     *
+     * SystemFileViewer（预览者）
+     * @example SystemFileDownloader
+     *
      * @var string
      */
     public $roleId;

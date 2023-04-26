@@ -77,6 +77,8 @@ class CreateShareLinkRequest extends Model
     public $saveLimit;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $shareAllFiles;

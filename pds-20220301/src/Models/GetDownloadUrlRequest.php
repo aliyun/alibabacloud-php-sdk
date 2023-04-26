@@ -37,6 +37,8 @@ class GetDownloadUrlRequest extends Model
     public $fileName;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;

@@ -14,6 +14,8 @@ class parallelSha1Ctx extends Model
     public $h;
 
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $partOffset;

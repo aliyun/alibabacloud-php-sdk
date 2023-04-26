@@ -28,6 +28,10 @@ class UpdateDriveRequest extends Model
     public $driveName;
 
     /**
+     * @description 归属者
+     * 注意，当前只允许通过 ak 来修改个人 drive 的所有者。
+     * @example user1
+     *
      * @var string
      */
     public $owner;

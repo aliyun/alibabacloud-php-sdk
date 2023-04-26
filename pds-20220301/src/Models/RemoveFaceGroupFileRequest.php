@@ -16,6 +16,8 @@ class RemoveFaceGroupFileRequest extends Model
     public $driveId;
 
     /**
+     * @example Cluster-abc
+     *
      * @var string
      */
     public $faceGroupId;

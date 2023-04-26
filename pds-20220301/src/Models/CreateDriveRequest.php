@@ -35,8 +35,6 @@ class CreateDriveRequest extends Model
     public $driveType;
 
     /**
-     * @example userid1
-     *
      * @var string
      */
     public $owner;

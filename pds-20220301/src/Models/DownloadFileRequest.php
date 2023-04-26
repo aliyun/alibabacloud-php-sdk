@@ -37,6 +37,8 @@ class DownloadFileRequest extends Model
     public $officeThumbnailProcess;
 
     /**
+     * @example 7JQX1FswpQ8
+     *
      * @var string
      */
     public $shareId;

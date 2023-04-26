@@ -51,6 +51,10 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $templateId;
 
     /**
+     * @description url超时时间，单位：秒。
+     * 默认15分钟，最大4小时。
+     * @example 3600
+     *
      * @var int
      */
     public $urlExpireSec;

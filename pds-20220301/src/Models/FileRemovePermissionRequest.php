@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class FileRemovePermissionRequest extends Model
 {
     /**
+     * @description 空间id
+     *
+     * @example 1
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @description 文件id
+     *
+     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description 共享的用户对象集合
+     *
      * @var memberList[]
      */
     public $memberList;

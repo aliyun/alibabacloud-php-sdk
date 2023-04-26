@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateGroupResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserRequest;
@@ -74,6 +76,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetIdentityToBenefitPkgMappingRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetLinkInfoByUserIdRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetLinkInfoByUserIdResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetLinkInfoRequest;
@@ -116,6 +120,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityToBenefitPkgMappingRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyDrivesRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyDrivesResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyGroupDriveRequest;
@@ -174,6 +180,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateGroupResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateIdentityToBenefitPkgMappingRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateRevisionRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateRevisionResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateShareLinkRequest;
@@ -870,6 +878,64 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->createGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateIdentityToBenefitPkgMappingResponse
+     */
+    public function createIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->amount)) {
+            $body['amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->benefitPkgId)) {
+            $body['benefit_pkg_id'] = $request->benefitPkgId;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $body['expire_time'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->identityId)) {
+            $body['identity_id'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['identity_type'] = $request->identityType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIdentityToBenefitPkgMapping',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return CreateIdentityToBenefitPkgMappingResponse
+     */
+    public function createIdentityToBenefitPkgMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2087,6 +2153,58 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param GetIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetIdentityToBenefitPkgMappingResponse
+     */
+    public function getIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->benefitPkgId)) {
+            $body['benefit_pkg_id'] = $request->benefitPkgId;
+        }
+        if (!Utils::isUnset($request->identityId)) {
+            $body['identity_id'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['identity_type'] = $request->identityType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIdentityToBenefitPkgMapping',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/get',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return GetIdentityToBenefitPkgMappingResponse
+     */
+    public function getIdentityToBenefitPkgMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetLinkInfoRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -3235,6 +3353,58 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->listGroupMemberWithOptions($domainId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListIdentityToBenefitPkgMappingResponse
+     */
+    public function listIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identityId)) {
+            $body['identity_id'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['identity_type'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->includeExpired)) {
+            $body['include_expired'] = $request->includeExpired;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIdentityToBenefitPkgMapping',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return ListIdentityToBenefitPkgMappingResponse
+     */
+    public function listIdentityToBenefitPkgMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4879,6 +5049,64 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->updateGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateIdentityToBenefitPkgMappingResponse
+     */
+    public function updateIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->amount)) {
+            $body['amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->benefitPkgId)) {
+            $body['benefit_pkg_id'] = $request->benefitPkgId;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $body['expire_time'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->identityId)) {
+            $body['identity_id'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['identity_type'] = $request->identityType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIdentityToBenefitPkgMapping',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return UpdateIdentityToBenefitPkgMappingResponse
+     */
+    public function updateIdentityToBenefitPkgMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime);
     }
 
     /**

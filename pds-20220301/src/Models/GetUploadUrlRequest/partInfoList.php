@@ -15,6 +15,8 @@ class partInfoList extends Model
     public $parallelSha1Ctx;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $partNumber;

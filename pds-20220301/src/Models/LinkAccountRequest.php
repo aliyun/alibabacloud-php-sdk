@@ -16,15 +16,11 @@ class LinkAccountRequest extends Model
     public $extra;
 
     /**
-     * @example 130***
-     *
      * @var string
      */
     public $identity;
 
     /**
-     * @example mobile
-     *
      * @var string
      */
     public $type;
