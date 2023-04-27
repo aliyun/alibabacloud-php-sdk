@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DisableUserRequest extends Model
 {
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the request.
      *
      * @example -1
      *
@@ -18,7 +18,7 @@ class DisableUserRequest extends Model
     public $tid;
 
     /**
-     * @description The UID of the Alibaba Cloud account.
+     * @description You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
      *
      * @example 12345
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobDetailResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
+     * @description The description of the task.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class GetStructSyncJobDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
+     * @description The ID of the ticket.
      *
      * @example UnknownError
      *
@@ -28,7 +28,17 @@ class GetStructSyncJobDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The status of the task. Valid values:
+     *
+     *   **NEW**: The task was created.
+     *   **COMPARING**: The schemas of tables were being compared.
+     *   **COMPARE_BREAK**: The schema comparison was interrupted.
+     *   **COMPARE_FINISH**: The schema comparison was complete.
+     *   **NOT_SCRIPTS**: The schema comparison was complete. No scripts were available.
+     *   **SUBMITED_DBTASK**: The task was submitted.
+     *   **DBTASK_SUCCESS**: The task was complete.
+     *   **SUBMITED_WORKFLOW**: The ticket was submitted for approval.
+     *   **WORKFLOW_SUCCESS**: The ticket was approved.
      *
      * @example 48602B78-0DDF-414C-8688-70CAB6070115
      *
@@ -37,14 +47,14 @@ class GetStructSyncJobDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the schema synchronization task.
+     * @description 1
      *
      * @var structSyncJobDetail
      */
     public $structSyncJobDetail;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The total number of SQL statements.
      *
      * @example true
      *

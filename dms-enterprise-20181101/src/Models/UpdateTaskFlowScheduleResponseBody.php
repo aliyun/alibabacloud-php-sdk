@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowScheduleResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example InvalidParameterValid
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateTaskFlowScheduleResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example InvalidParameterValid
      *
      * @var string
@@ -27,8 +23,6 @@ class UpdateTaskFlowScheduleResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
-     *
      * @example 7BF38A13-C181-5B5E-97F1-8643F8A10093
      *
      * @var string
@@ -36,11 +30,6 @@ class UpdateTaskFlowScheduleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

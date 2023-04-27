@@ -9,14 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobAnalyzeResultRequest extends Model
 {
     /**
-     * @description The type of the comparison. Valid values:
-     *
-     *   **CREATE_TABLE**: compares the created tables.
-     *   **ALTER_TABLE**: compares the modified tables.
-     *   **EQUAL_TABLE**: compares the identical tables.
-     *   **PASS_TABLE**: compares the tables that are skipped during schema synchronization.
-     *   **NOT_COMPARE**: does not compare tables.
-     *
      * @example CREATE_TABLE
      *
      * @var string
@@ -24,8 +16,6 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public $compareType;
 
     /**
-     * @description The ID of the ticket.
-     *
      * @example 1342355
      *
      * @var int
@@ -33,8 +23,6 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public $orderId;
 
     /**
-     * @description The number of the page to return.
-     *
      * @example 1
      *
      * @var int
@@ -42,8 +30,6 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
      * @example 20
      *
      * @var int
@@ -51,9 +37,6 @@ class GetStructSyncJobAnalyzeResultRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 1
      *
      * @var int

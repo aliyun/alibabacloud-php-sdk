@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
-     * @description The ID of the database. The database can be a physical database or a logical database.
+     * @description The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
-     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
-     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
-     *
+     * >  This parameter is required if you set the **SqlType** parameter to **ATTACHMENT**.
      * @example 1860****
      *
      * @var int
@@ -21,10 +19,10 @@ class dbItemList extends Model
     public $dbId;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
+     * @description The SQL statements used to roll back the data change.
      *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
+     * >
+     *   This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
      *
      * @example false
      *

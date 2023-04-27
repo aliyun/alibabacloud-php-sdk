@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
-     * @description The ID of the task flow edge.
+     * @description The error code returned if the request failed.
      *
      * @example 24***
      *
@@ -18,7 +18,7 @@ class edges extends Model
     public $id;
 
     /**
-     * @description The ID of the end node on the edge.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example 44***
      *
@@ -27,7 +27,7 @@ class edges extends Model
     public $nodeEnd;
 
     /**
-     * @description The ID of the start node on the edge.
+     * @description The operation that you want to perform. Set the value to **UpdateTaskFlowRelations**.
      *
      * @example 44***
      *

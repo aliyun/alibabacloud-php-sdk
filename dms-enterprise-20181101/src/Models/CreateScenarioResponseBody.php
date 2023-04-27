@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateScenarioResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateScenarioResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateScenarioResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -36,8 +30,6 @@ class CreateScenarioResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the business scenario.
-     *
      * @example 36***
      *
      * @var int
@@ -45,11 +37,6 @@ class CreateScenarioResponseBody extends Model
     public $scenarioId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

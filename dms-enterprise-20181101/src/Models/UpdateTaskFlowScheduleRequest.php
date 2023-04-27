@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowScheduleRequest extends Model
 {
     /**
-     * @description The start of the time range for scheduling.
-     *
      * @example CronBeginDate_test
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $cronBeginDate;
 
     /**
-     * @description The end of the time range for scheduling.
-     *
      * @example CronEndDate_test
      *
      * @var string
@@ -27,8 +23,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $cronEndDate;
 
     /**
-     * @description The cron expression for timed scheduling.
-     *
      * @example CronStr_test
      *
      * @var string
@@ -36,14 +30,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $cronStr;
 
     /**
-     * @description The type of the scheduling cycle. Valid values:
-     *
-     *   **MINUTE**: scheduling by minute
-     *   **HOUR**: scheduling by hour
-     *   **DAY**: scheduling by day
-     *   **WEEK**: scheduling by week
-     *   **MONTH**: scheduling by month
-     *
      * @example HOUR
      *
      * @var string
@@ -51,8 +37,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $cronType;
 
     /**
-     * @description The ID of the task flow.
-     *
      * @example 7***
      *
      * @var int
@@ -60,8 +44,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $dagId;
 
     /**
-     * @description The event scheduling configuration. The value of this parameter is a JSON string.
-     *
      * @example ScheduleParam_test
      *
      * @var string
@@ -69,21 +51,11 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $scheduleParam;
 
     /**
-     * @description Specifies whether to enable scheduling. Valid values:
-     *
-     *   **Enable**
-     *   **Disable**
-     *
-     * @example Disable
-     *
      * @var bool
      */
     public $scheduleSwitch;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
@@ -91,8 +63,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $tid;
 
     /**
-     * @description The time zone. The default time zone is UTC+8 (Asia/Shanghai).
-     *
      * @example Asia/Shanghai
      *
      * @var string
@@ -100,11 +70,6 @@ class UpdateTaskFlowScheduleRequest extends Model
     public $timeZoneId;
 
     /**
-     * @description The mode in which the task flow is triggered. Valid values:
-     *
-     *   **Cron**: The task flow is triggered based on timed scheduling.
-     *   **Event**: The task flow is triggered by events.
-     *
      * @example Event
      *
      * @var string

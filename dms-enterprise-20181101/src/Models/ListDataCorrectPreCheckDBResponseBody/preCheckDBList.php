@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class preCheckDBList extends Model
 {
     /**
-     * @description The ID of the database.
-     *
      * @example 43***
      *
      * @var int
@@ -18,8 +16,6 @@ class preCheckDBList extends Model
     public $dbId;
 
     /**
-     * @description The name of the database.
-     *
      * @example test@localhost:3306
      *
      * @var string
@@ -27,8 +23,6 @@ class preCheckDBList extends Model
     public $searchName;
 
     /**
-     * @description The number of SQL statements.
-     *
      * @example 1
      *
      * @var int

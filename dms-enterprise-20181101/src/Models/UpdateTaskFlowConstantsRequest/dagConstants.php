@@ -18,7 +18,7 @@ class dagConstants extends Model
     public $key;
 
     /**
-     * @description The key value of a constant for the task flow.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example poc_test
      *

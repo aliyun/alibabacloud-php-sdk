@@ -9,13 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ListOrdersRequest extends Model
 {
     /**
-     * @description The end of the time range to query.
+     * @description The user who submitted the ticket.
      *
      * @example 2022-04-09 11:00:00
      *
      * @var string
      */
     public $endTime;
+
+    /**
+     * @description The end of the time range to query.
+     *
+     * @example AS_ADMIN
+     *
+     * @var string
+     */
+    public $orderResultType;
+
+    /**
+     * @description The type of the tickets that you want to query. For more information, see [PluginType parameter](~~429109~~).
+     *
+     * @example ALL
+     *
+     * @var string
+     */
+    public $orderStatus;
+
+    /**
+     * @description The keyword that is used to query tickets.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
 
     /**
      * @description The scope of the tickets that you want to query. Valid values:
@@ -26,37 +53,6 @@ class ListOrdersRequest extends Model
      *   **AS_OWNER**: the tickets that are processed by the current user.
      *   **AS_Related**: the tickets that are related to the current user.
      *
-     * @example AS_ADMIN
-     *
-     * @var string
-     */
-    public $orderResultType;
-
-    /**
-     * @description The status of the tickets that you want to query. Valid values:
-     *
-     *   **ALL**: queries the tickets of all statuses.
-     *   **FINISHED**: queries the tickets that are completed.
-     *   **RUNNING**: queries the tickets that are being processed.
-     *
-     * @example ALL
-     *
-     * @var string
-     */
-    public $orderStatus;
-
-    /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @description The number of entries to return on each page.
-     *
      * @example 10
      *
      * @var int
@@ -64,7 +60,7 @@ class ListOrdersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the tickets that you want to query. For more information, see [PluginType parameter](~~429109~~).
+     * @description The ID of the user who submitted the ticket.
      *
      * @example DC_COMMON
      *
@@ -73,7 +69,11 @@ class ListOrdersRequest extends Model
     public $pluginType;
 
     /**
-     * @description The keyword that is used to query tickets.
+     * @description The status of the tickets that you want to query. Valid values:
+     *
+     *   **ALL**: queries the tickets of all statuses.
+     *   **FINISHED**: queries the tickets that are completed.
+     *   **RUNNING**: queries the tickets that are being processed.
      *
      * @example test
      *
@@ -82,10 +82,7 @@ class ListOrdersRequest extends Model
     public $searchContent;
 
     /**
-     * @description The time condition based on which you want to query tickets. Valid values:
-     *
-     *   **CREATE_TIME**: the time when a ticket was created.
-     *   **MODIFY_TIME**: the time when a ticket was last modified.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example CREATE_TIME
      *
@@ -94,7 +91,7 @@ class ListOrdersRequest extends Model
     public $searchDateType;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The remarks of the ticket.
      *
      * @example 2022-04-08 11:00:00
      *
@@ -103,7 +100,7 @@ class ListOrdersRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The beginning of the time range to query.
      *
      * @example 3000
      *

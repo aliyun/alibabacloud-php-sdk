@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InspectProxyAccessSecretResponseBody extends Model
 {
     /**
-     * @description The authorization password of the security protection agent.
-     *
      * @example xxx
      *
      * @var string
@@ -18,8 +16,6 @@ class InspectProxyAccessSecretResponseBody extends Model
     public $accessSecret;
 
     /**
-     * @description The error code returned to the query task.
-     *
      * @example 200
      *
      * @var string
@@ -27,8 +23,6 @@ class InspectProxyAccessSecretResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -36,8 +30,6 @@ class InspectProxyAccessSecretResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
      * @var string
@@ -45,8 +37,6 @@ class InspectProxyAccessSecretResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
-     *
      * @example true
      *
      * @var bool

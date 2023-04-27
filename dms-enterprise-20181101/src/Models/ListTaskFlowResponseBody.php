@@ -19,7 +19,7 @@ class ListTaskFlowResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
+     * @description The ID of the latest deployment record.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class ListTaskFlowResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the task flow.
      *
      * @example 4116147E-C628-5816-8779-8EEAF8E973F4
      *
@@ -37,10 +37,7 @@ class ListTaskFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     * @description The operation that you want to perform. Set the value to **ListTaskFlow**.
      *
      * @example true
      *
@@ -49,7 +46,7 @@ class ListTaskFlowResponseBody extends Model
     public $success;
 
     /**
-     * @description The information about the task flows returned.
+     * @description The name of the user who creates the task flow.
      *
      * @var taskFlowList
      */

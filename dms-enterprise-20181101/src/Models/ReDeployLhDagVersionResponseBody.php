@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ReDeployLhDagVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the deployment record.
-     *
      * @example 15990
      *
      * @var int
@@ -18,7 +16,7 @@ class ReDeployLhDagVersionResponseBody extends Model
     public $deployId;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The ID of the request.
      *
      * @example 403
      *
@@ -27,7 +25,7 @@ class ReDeployLhDagVersionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The operation that you want to perform. Set the value to **ReDeployLhDagVersion**.
      *
      * @example UnknownError
      *
@@ -36,7 +34,7 @@ class ReDeployLhDagVersionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The error code returned if the request fails.
      *
      * @example 035C92E0-2EAD-50E5-A6DD-550F5F73D7CE
      *
@@ -45,11 +43,6 @@ class ReDeployLhDagVersionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

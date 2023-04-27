@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListUserPermissionsResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The ID of the user. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the ID of the user.
      *
+     * >  The user ID is different from the ID of your Alibaba Cloud account.
      * @example UnknownError
      *
      * @var string
@@ -19,7 +20,16 @@ class ListUserPermissionsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     *   product: production environment
+     *   dev: development environment
+     *   pre: staging environment
+     *   test: test environment
+     *   sit: SIT environment
+     *   uat: user acceptance testing (UAT) environment
+     *   pet: stress testing environment
+     *   stag: STAG environment
      *
      * @example UnknownError
      *
@@ -28,7 +38,7 @@ class ListUserPermissionsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The details of the permissions that the user has.
      *
      * @example C51420E3-144A-4A94-B473-8662FCF4AD10
      *
@@ -37,9 +47,6 @@ class ListUserPermissionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     * - false: The request fails.
      * @example true
      *
      * @var bool
@@ -47,7 +54,12 @@ class ListUserPermissionsResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries that meet the query conditions.
+     * @description The permissions on a specific type of resources that you want to query. Valid values:
+     *
+     *   DATABASE: permissions on databases
+     *   TABLE: permissions on tables
+     *   COLUMN: permissions on fields
+     *   INSTANCE: permissions on instances
      *
      * @example 1
      *
@@ -56,7 +68,10 @@ class ListUserPermissionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The details of the permissions that the user has.
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   true: The database is a logical database.
+     *   false: The database is a physical database.
      *
      * @var userPermissions
      */

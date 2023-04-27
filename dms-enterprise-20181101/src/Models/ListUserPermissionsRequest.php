@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserPermissionsRequest extends Model
 {
     /**
-     * @description The name of the database.
+     * @description The keyword used in the query. For example, if you want to query permissions on an instance, you can specify the endpoint of the instance, such as rm-bp144d5ky4l4r****.
      *
      * @example db_name
      *
@@ -18,7 +18,7 @@ class ListUserPermissionsRequest extends Model
     public $databaseName;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The ID of the database.
      *
      * @example polardb
      *
@@ -27,16 +27,7 @@ class ListUserPermissionsRequest extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the database belongs. Valid values:
-     *
-     *   product: production environment
-     *   dev: development environment
-     *   pre: staging environment
-     *   test: test environment
-     *   sit: SIT environment
-     *   uat: user acceptance testing (UAT) environment
-     *   pet: stress testing environment
-     *   stag: STAG environment
+     * @description The time when the permissions were granted.
      *
      * @example dev
      *
@@ -45,11 +36,9 @@ class ListUserPermissionsRequest extends Model
     public $envType;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
+     * @description The ID of the tenant.
      *
-     *   true: The database is a logical database.
-     *   false: The database is a physical database.
-     *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example false
      *
      * @var bool
@@ -57,7 +46,7 @@ class ListUserPermissionsRequest extends Model
     public $logic;
 
     /**
-     * @description The number of the page to return.
+     * @description This parameter is reserved.
      *
      * @example 1
      *
@@ -66,7 +55,7 @@ class ListUserPermissionsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
      *
      * @example 5
      *
@@ -75,12 +64,7 @@ class ListUserPermissionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The permissions on a specific type of resources that you want to query. Valid values:
-     *
-     *   DATABASE: permissions on databases
-     *   TABLE: permissions on tables
-     *   COLUMN: permissions on fields
-     *   INSTANCE: permissions on instances
+     * @description The operation that you want to perform. Set the value to **ListUserPermissions**.
      *
      * @example DATABASE
      *
@@ -89,7 +73,10 @@ class ListUserPermissionsRequest extends Model
     public $permType;
 
     /**
-     * @description The keyword used in the query. For example, if you want to query permissions on an instance, you can specify the endpoint of the instance, such as rm-bp144d5ky4l4r****.
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   true: The database is a logical database.
+     *   false: The database is a physical database.
      *
      * @example rm-bp144d5ky4l4r****
      *
@@ -98,9 +85,8 @@ class ListUserPermissionsRequest extends Model
     public $searchKey;
 
     /**
-     * @description The ID of the tenant.
+     * @description The nickname of the user.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 3***
      *
      * @var int
@@ -108,9 +94,8 @@ class ListUserPermissionsRequest extends Model
     public $tid;
 
     /**
-     * @description The ID of the user. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the ID of the user.
+     * @description The ID of the authorization record.
      *
-     * >  The user ID is different from the ID of your Alibaba Cloud account.
      * @example 51****
      *
      * @var string

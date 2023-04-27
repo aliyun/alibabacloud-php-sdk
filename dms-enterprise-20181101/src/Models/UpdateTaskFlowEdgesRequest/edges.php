@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
-     * @description The ID of the task flow edge.
+     * @description $.parameters[2].schema.description
      *
      * @example 24***
      *
@@ -18,7 +18,7 @@ class edges extends Model
     public $id;
 
     /**
-     * @description The ID of the end node on the edge.
+     * @description $.parameters[2].schema.example
      *
      * @example 44***
      *
@@ -27,7 +27,7 @@ class edges extends Model
     public $nodeEnd;
 
     /**
-     * @description The ID of the start node on the edge.
+     * @description $.parameters[2].schema.enumValueTitles
      *
      * @example 44***
      *

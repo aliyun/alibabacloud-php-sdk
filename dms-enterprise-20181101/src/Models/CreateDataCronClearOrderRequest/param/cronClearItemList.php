@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class cronClearItemList extends Model
 {
     /**
-     * @description The name of the field.
+     * @description The amount of time taken to run the task. Unit: hours.
      *
+     * >  If the **specifyDuration** parameter is set to **true**, this parameter is required.
      * @example gmt_create
      *
      * @var string
@@ -18,7 +19,7 @@ class cronClearItemList extends Model
     public $columnName;
 
     /**
-     * @description The filter conditions.
+     * @description The retention period of the historical data. Unit: days. For example, if you set the parameter to 7, DMS deletes the data that is retained for more than seven days.
      *
      * @example where 1 = 1
      *
@@ -27,7 +28,7 @@ class cronClearItemList extends Model
     public $filterSQL;
 
     /**
-     * @description The retention period of the historical data. Unit: days. For example, if you set the parameter to 7, DMS deletes the data that is retained for more than seven days.
+     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
      *
      * @example 7
      *
@@ -36,7 +37,7 @@ class cronClearItemList extends Model
     public $remainDays;
 
     /**
-     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the name of the table.
+     * @description The parameters of the ticket.
      *
      * @example t1
      *
@@ -45,10 +46,7 @@ class cronClearItemList extends Model
     public $tableName;
 
     /**
-     * @description The type of time granularity. If the ColumnName parameter specifies a field of a time type, this parameter is required. Valid values:
-     *
-     *   **MILLISECONDS**: milliseconds
-     *   **SECONDS**: seconds
+     * @description The error message.
      *
      * @example MILLISECONDS
      *

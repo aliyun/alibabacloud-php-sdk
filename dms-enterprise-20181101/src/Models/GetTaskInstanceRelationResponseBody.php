@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTaskInstanceRelationResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The operation that you want to perform. Set the value to **GetTaskInstanceRelation**.
      *
      * @example UnknownError
      *
@@ -19,7 +19,14 @@ class GetTaskInstanceRelationResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The status of the node. Valid values:
+     *
+     *   **0**: The node is waiting to be scheduled.
+     *   **1**: The node is running.
+     *   **2**: The node is suspended.
+     *   **3**: The node failed to run.
+     *   **4**: The node is run.
+     *   **5**: The node is complete.
      *
      * @example UnknownError
      *
@@ -28,14 +35,14 @@ class GetTaskInstanceRelationResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The information about the nodes in the execution record of the task flow.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
      *
      * @var nodeList
      */
     public $nodeList;
 
     /**
-     * @description The ID of the request.
+     * @description The error code returned if the request fails.
      *
      * @example 028BF827-3801-5869-8548-F4A039256304
      *
@@ -44,10 +51,7 @@ class GetTaskInstanceRelationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     * @description The error message returned if the request fails.
      *
      * @example true
      *

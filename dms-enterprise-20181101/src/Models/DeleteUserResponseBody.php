@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
-     *
      * @example 403
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteUserResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example The specified user not exists.
      *
      * @var string
@@ -27,8 +23,6 @@ class DeleteUserResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
      * @var string
@@ -36,11 +30,6 @@ class DeleteUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

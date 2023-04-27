@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateLogicDatabaseResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateLogicDatabaseResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateLogicDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the logical database.
-     *
      * @example 1***
      *
      * @var int
@@ -36,8 +30,6 @@ class CreateLogicDatabaseResponseBody extends Model
     public $logicDbId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example C51420E3-144A-4A94-B473-8662FCF4AD10
      *
      * @var string
@@ -45,9 +37,6 @@ class CreateLogicDatabaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     * - false: The request fails.
      * @example true
      *
      * @var bool

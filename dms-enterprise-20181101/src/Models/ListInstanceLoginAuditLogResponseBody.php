@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceLoginAuditLogResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The ID of the user.
      *
      * @example InvalidPageSize
      *
@@ -19,7 +19,7 @@ class ListInstanceLoginAuditLogResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The number of the page to return.
      *
      * @example Specified parameter PageSize is not valid.
      *
@@ -28,14 +28,14 @@ class ListInstanceLoginAuditLogResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The logon records of the instance.
+     * @description The database account that is used to log on to the instance.
      *
      * @var instanceLoginAuditLogList
      */
     public $instanceLoginAuditLogList;
 
     /**
-     * @description The ID of the request.
+     * @description The error message returned.
      *
      * @example 074CE7C9-4F9C-5B62-89BC-7B4914A3****
      *
@@ -44,11 +44,9 @@ class ListInstanceLoginAuditLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description The beginning of the time range to query.
      *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
+     * >  The start time supports fuzzy match. Specify the time in the YYYY-MM-DD hh:mm:ss format.
      * @example true
      *
      * @var bool
@@ -56,7 +54,7 @@ class ListInstanceLoginAuditLogResponseBody extends Model
     public $success;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of entries to return on each page. Maximum value: 100.
      *
      * @example 1
      *

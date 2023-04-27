@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowCooperatorsRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The username.
      *
      * @example 15****
      *
@@ -18,9 +18,8 @@ class ListTaskFlowCooperatorsRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The error code returned if the request failed.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

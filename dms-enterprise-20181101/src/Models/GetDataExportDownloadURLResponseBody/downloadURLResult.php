@@ -21,7 +21,7 @@ class downloadURLResult extends Model
     public $hasResult;
 
     /**
-     * @description The message that indicates an exception.
+     * @description The error code.
      *
      * @example tip message
      *
@@ -30,7 +30,7 @@ class downloadURLResult extends Model
     public $tipMessage;
 
     /**
-     * @description The download URL of the file that records the export results for the ticket.
+     * @description The ID of the request.
      *
      * @example https://dms-idb-hangzhou.oss-cn-hangzhou.aliyuncs.com/xxx.zip
      *

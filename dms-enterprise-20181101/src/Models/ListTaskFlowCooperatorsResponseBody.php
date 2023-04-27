@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowCooperatorsResponseBody extends Model
 {
     /**
-     * @description The users that are involved in the task flow.
-     *
      * @var cooperatorList
      */
     public $cooperatorList;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The operation that you want to perform. Set the value to **ListTaskFlowCooperators**.
      *
      * @example UnknownError
      *
@@ -26,7 +24,7 @@ class ListTaskFlowCooperatorsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The users that are involved in the task flow.
      *
      * @example UnknownError
      *
@@ -44,11 +42,6 @@ class ListTaskFlowCooperatorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

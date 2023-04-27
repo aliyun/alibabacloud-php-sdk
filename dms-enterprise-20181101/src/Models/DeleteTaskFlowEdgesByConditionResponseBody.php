@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteTaskFlowEdgesByConditionResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteTaskFlowEdgesByConditionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class DeleteTaskFlowEdgesByConditionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
-     *
      * @example 21234B66-6859-5558-9E5B-006EFE915CD0
      *
      * @var string
@@ -36,11 +30,6 @@ class DeleteTaskFlowEdgesByConditionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

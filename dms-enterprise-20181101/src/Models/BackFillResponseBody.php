@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BackFillResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class BackFillResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class BackFillResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the node.
-     *
      * @example 43****
      *
      * @var int
@@ -36,7 +30,7 @@ class BackFillResponseBody extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the request.
+     * @description Backfills data for task orchestration.
      *
      * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
@@ -45,11 +39,6 @@ class BackFillResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

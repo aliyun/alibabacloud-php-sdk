@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetOwnerApplyOrderDetailResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class GetOwnerApplyOrderDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,15 +24,11 @@ class GetOwnerApplyOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The details of the ticket.
-     *
      * @var ownerApplyOrderDetail
      */
     public $ownerApplyOrderDetail;
 
     /**
-     * @description The ID of the request.
-     *
      * @example CB784055-E8CB-4461-AB0B-483A1DA32BB5
      *
      * @var string
@@ -44,8 +36,6 @@ class GetOwnerApplyOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool

@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class scenarioDAG extends Model
 {
     /**
-     * @description The list of task flows.
-     *
      * @var dagList
      */
     public $dagList;
 
     /**
-     * @description The information about the business scenario.
-     *
      * @var scenario
      */
     public $scenario;

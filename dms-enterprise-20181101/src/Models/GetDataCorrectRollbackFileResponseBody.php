@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectRollbackFileResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class GetDataCorrectRollbackFileResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class GetDataCorrectRollbackFileResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The download URL of the attachment.
-     *
      * @example https://dmsxxx
      *
      * @var string
@@ -36,8 +30,6 @@ class GetDataCorrectRollbackFileResponseBody extends Model
     public $fileUrl;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 3CDB8601-AD74-4A47-8114-08E08CD6****
      *
      * @var string
@@ -45,11 +37,6 @@ class GetDataCorrectRollbackFileResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

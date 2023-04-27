@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataCronClearConfig extends Model
 {
     /**
-     * @description The number of times that the task is run.
-     *
      * @example 2
      *
      * @var string
@@ -18,8 +16,6 @@ class dataCronClearConfig extends Model
     public $cronCallTimes;
 
     /**
-     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
-     *
      * @example 0 0 23 ? * 7,1
      *
      * @var string
@@ -27,8 +23,6 @@ class dataCronClearConfig extends Model
     public $cronFormat;
 
     /**
-     * @description The time when the task was last run.
-     *
      * @example 2022-11-18 00:00:00
      *
      * @var string
@@ -36,8 +30,6 @@ class dataCronClearConfig extends Model
     public $cronLastCallStartTime;
 
     /**
-     * @description The time when the task is run next time. This parameter is displayed only when the status of the scheduled task is SUCCESS.
-     *
      * @example 2022-11-19 00:00:00
      *
      * @var string
@@ -45,21 +37,11 @@ class dataCronClearConfig extends Model
     public $cronNextCallTime;
 
     /**
-     * @description The status of the scheduled task. If this parameter is empty, it indicates the task is not run. Valid values:
-     *
-     *   PAUSE: The task is suspended.
-     *   WAITING: The task is waiting to be run.
-     *   SUCCESS: The task is complete.
-     *
-     * @example PAUSE
-     *
      * @var string
      */
     public $cronStatus;
 
     /**
-     * @description The number of times that the Optimize Table statement is automatically exeuted. This parameter is valid only when the value of the OptimizeTableAfterEveryClearTimes parameter is greater than 0.
-     *
      * @example 0
      *
      * @var int
@@ -67,8 +49,6 @@ class dataCronClearConfig extends Model
     public $currentClearTaskCount;
 
     /**
-     * @description The execution duration of the task. Unit: hours. If the value is 0, it indicates the duration is not specified.
-     *
      * @example 1
      *
      * @var string
@@ -76,11 +56,6 @@ class dataCronClearConfig extends Model
     public $duration;
 
     /**
-     * @description Specifies whether to enable automatic execution of the OPTIMIZE TABLE statement. Valid values:
-     *
-     *   0: disables automatic execution
-     *   A number greater than 0: enables automatic execution. The number specifies the number of times that cleanup operations must be performed before the OPTIMIZE TABLE statement is automatically executed.
-     *
      * @example 0
      *
      * @var int

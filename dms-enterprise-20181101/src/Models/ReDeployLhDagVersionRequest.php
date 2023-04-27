@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReDeployLhDagVersionRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The ID of the deployment record.
      *
      * @example 7***
      *

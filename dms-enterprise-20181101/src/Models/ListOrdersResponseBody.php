@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListOrdersResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class ListOrdersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,15 +24,13 @@ class ListOrdersResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The details about the tickets.
+     * @description The time when the ticket was last modified.
      *
      * @var orders
      */
     public $orders;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *
      * @var string
@@ -44,10 +38,6 @@ class ListOrdersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
      * @example true
      *
      * @var bool
@@ -55,8 +45,6 @@ class ListOrdersResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries that are returned.
-     *
      * @example 1
      *
      * @var int

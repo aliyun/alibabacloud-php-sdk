@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checkStatusResult extends Model
 {
     /**
+     * @description The number of SQL statements that failed to pass the review.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class checkStatusResult extends Model
     public $checkNotPass;
 
     /**
+     * @description The number of SQL statements that passed the review.
+     *
      * @example 8
      *
      * @var int
@@ -23,6 +27,8 @@ class checkStatusResult extends Model
     public $checkPass;
 
     /**
+     * @description The number of SQL statements that failed to pass the manual review.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class checkStatusResult extends Model
     public $forceNotPass;
 
     /**
+     * @description The number of SQL statements that passed the manual review.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class checkStatusResult extends Model
     public $forcePass;
 
     /**
+     * @description The number of SQL statements to be reviewed.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class checkStatusResult extends Model
     public $new;
 
     /**
+     * @description The number of abnormal SQL statements.
+     *
      * @example 0
      *
      * @var int

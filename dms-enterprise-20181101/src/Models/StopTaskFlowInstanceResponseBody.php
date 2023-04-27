@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopTaskFlowInstanceResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description Stops a task flow instance.
      *
      * @example UnknownError
      *
@@ -18,8 +18,6 @@ class StopTaskFlowInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -36,11 +34,6 @@ class StopTaskFlowInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

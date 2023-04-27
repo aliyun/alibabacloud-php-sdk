@@ -18,7 +18,7 @@ class CreateTaskRequest extends Model
     public $dagId;
 
     /**
-     * @description The position of the node on the directed acyclic graph (DAG).
+     * @description The position of the node on the Directed Acyclic Graph (DAG).
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class CreateTaskRequest extends Model
     public $nodeName;
 
     /**
-     * @description The output variables for the task.
+     * @description The output variables configured for the task.
      *
      * @example test
      *
@@ -63,9 +63,9 @@ class CreateTaskRequest extends Model
     public $nodeType;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
+     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 3***
      *
      * @var int
@@ -73,7 +73,7 @@ class CreateTaskRequest extends Model
     public $tid;
 
     /**
-     * @description The time variables for the node.
+     * @description The time variables configured for the node.
      *
      * @example test
      *

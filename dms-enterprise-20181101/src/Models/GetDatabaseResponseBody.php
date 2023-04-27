@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class GetDatabaseResponseBody extends Model
 {
     /**
-     * @description The details of the database.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the ID of the tenant.
      *
      * @var database
      */
     public $database;
 
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +24,6 @@ class GetDatabaseResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example An unknown error occurred.
      *
      * @var string
@@ -35,7 +31,7 @@ class GetDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the database.
      *
      * @example 3CDB8601-AD74-4A47-8114-08E08CD6****
      *
@@ -44,11 +40,6 @@ class GetDatabaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

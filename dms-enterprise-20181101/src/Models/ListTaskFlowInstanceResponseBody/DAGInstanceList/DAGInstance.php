@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DAGInstance extends Model
 {
     /**
-     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     * @description The information about the execution records returned.
      *
      * @example 2021-11-10 14:37:26
      *
@@ -18,7 +18,7 @@ class DAGInstance extends Model
     public $businessTime;
 
     /**
-     * @description The ID of the task flow.
+     * @description The description of the task.
      *
      * @example 7***
      *
@@ -27,8 +27,6 @@ class DAGInstance extends Model
     public $dagId;
 
     /**
-     * @description The name of the task flow.
-     *
      * @example Spark_SQL_test
      *
      * @var string
@@ -43,7 +41,7 @@ class DAGInstance extends Model
     public $dagVersion;
 
     /**
-     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     * @description The end of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
      *
      * @example 2021-11-11 14:38:57
      *
@@ -52,7 +50,7 @@ class DAGInstance extends Model
     public $endTime;
 
     /**
-     * @description The ID of the previously published version of the task flow.
+     * @description Queries the execution records of a task flow.
      *
      * @example 2****
      *
@@ -61,7 +59,7 @@ class DAGInstance extends Model
     public $historyDagId;
 
     /**
-     * @description The ID of the execution record.
+     * @description The error message returned if the request fails.
      *
      * @example 9234
      *
@@ -70,7 +68,10 @@ class DAGInstance extends Model
     public $id;
 
     /**
-     * @description The description of the task.
+     * @description The mode in which the task flow is triggered. Valid values:
+     *
+     *   **0**: The task flow is automatically triggered based on periodic scheduling.
+     *   **1**: The task flow is manually triggered.
      *
      * @example test
      *
@@ -79,8 +80,6 @@ class DAGInstance extends Model
     public $message;
 
     /**
-     * @description The name of the task flow owner.
-     *
      * @example test_name
      *
      * @var string
@@ -88,14 +87,7 @@ class DAGInstance extends Model
     public $ownerName;
 
     /**
-     * @description The status of the task flow. Valid values:
-     *
-     *   **0**: The task flow is waiting to be scheduled.
-     *   **1**: The task flow is being executed.
-     *   **2**: The task flow is paused.
-     *   **3**: The task flow failed.
-     *   **4**: The task flow is executed.
-     *   **5**: The task flow is complete.
+     * @description The ID of the request.
      *
      * @example 4
      *
@@ -104,10 +96,7 @@ class DAGInstance extends Model
     public $status;
 
     /**
-     * @description The mode in which the task flow is triggered. Valid values:
-     *
-     *   **0**: The task flow is automatically triggered based on periodic scheduling.
-     *   **1**: The task flow is manually triggered.
+     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 1
      *

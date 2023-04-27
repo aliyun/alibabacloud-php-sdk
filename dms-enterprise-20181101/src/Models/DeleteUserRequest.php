@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserRequest extends Model
 {
     /**
-     * @description The ID of the tenant.
-     *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example -1
      *
      * @var int
@@ -19,8 +16,6 @@ class DeleteUserRequest extends Model
     public $tid;
 
     /**
-     * @description The UID of the user. You can view your UID by moving the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console.
-     *
      * @example 12345
      *
      * @var string

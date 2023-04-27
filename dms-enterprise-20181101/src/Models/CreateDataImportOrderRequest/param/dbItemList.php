@@ -21,12 +21,13 @@ class dbItemList extends Model
     public $dbId;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
+     * @description The mode in which the data in the CSV format is to be written to the destination table. Valid values:
      *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
+     *   **INSERT**: The database checks the primary key when data is written. If a duplicate primary key value exists, an error message is returned.
+     *   **INSERT_IGNORE**: If the imported data contains data records that are the same as those in the destination table, the new data records are ignored.
+     *   **REPLACE_INTO**: If the imported data contains a row that has the same value for the primary key or unique index as one row in the destination table, the database deletes the existing row and inserts the new row into the destination table.
      *
-     * >  If you set this parameter to **true**, the database that you specify must be a logical database.
+     * >  This parameter is required if you set the **FileType** parameter to **CSV**.
      * @example false
      *
      * @var bool

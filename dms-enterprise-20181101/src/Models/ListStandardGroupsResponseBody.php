@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListStandardGroupsResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The ID of the tenant.
      *
      * @example 403
      *
@@ -19,7 +19,7 @@ class ListStandardGroupsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The security rule sets returned.
      *
      * @example xxx
      *
@@ -28,7 +28,7 @@ class ListStandardGroupsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **ListStandardGroups**.
      *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
@@ -37,17 +37,18 @@ class ListStandardGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The security rule sets returned.
+     * @description The control mode. Valid values:
+     *
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *   **COMMON**: Security Collaboration
      *
      * @var standardGroupList[]
      */
     public $standardGroupList;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     * @description The error message returned if the request fails.
      *
      * @example true
      *

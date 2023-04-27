@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowInstanceRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The operation that you want to perform. Set the value to **ListTaskFlowInstance**.
      *
      * @example 7***
      *
@@ -18,7 +18,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $dagId;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $pageIndex;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
+     * @description The number of the page to return.
      *
      * @example 2022-01-07
      *
@@ -45,7 +45,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $startTimeBegin;
 
     /**
-     * @description The end of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
+     * @description The ID of the task flow.
      *
      * @example 2022-04-08
      *
@@ -54,7 +54,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $startTimeEnd;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the execution record.
      *
      * @example 3***
      *
@@ -63,10 +63,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $tid;
 
     /**
-     * @description The mode in which the task flow is triggered. Valid values:
-     *
-     *   **0**: The task flow is automatically triggered based on periodic scheduling.
-     *   **1**: The task flow is manually triggered.
+     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 1
      *

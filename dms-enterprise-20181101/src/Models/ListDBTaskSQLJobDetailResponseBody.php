@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobDetailResponseBody extends Model
 {
     /**
-     * @description The details of SQL tasks.
+     * @description The point in time when the SQL task ended.
      *
      * @var DBTaskSQLJobDetailList[]
      */
     public $DBTaskSQLJobDetailList;
 
     /**
-     * @description The error code that is returned.
+     * @description The type of the SQL statement, such as DELETE, UPDATE, or ALTER_TABLE.
      *
      * @example MissingJobId
      *
@@ -26,7 +26,7 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
+     * @description The ID of the SQL task. You can call the [ListDBTaskSQLJob](~~207049~~) operation to query the SQL task ID.
      *
      * @example JobId is mandatory for this action.
      *
@@ -35,7 +35,7 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **ListDBTaskSQLJobDetail**.
      *
      * @example 3F044E33-FE09-58F1-8C61-A0F612EC****
      *
@@ -44,10 +44,7 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     * @description The SQL statement that was executed in the SQL task.
      *
      * @example true
      *
@@ -56,8 +53,6 @@ class ListDBTaskSQLJobDetailResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of SQL tasks.
-     *
      * @example 1
      *
      * @var int

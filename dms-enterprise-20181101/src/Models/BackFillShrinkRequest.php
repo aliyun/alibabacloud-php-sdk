@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BackFillShrinkRequest extends Model
 {
     /**
-     * @description The running sequence of task flows for data backfill. Valid values:
-     *
-     *   **0**: reverse chronological order.
-     *   **1**: chronological order. This is the default value.
+     * @description The ID of the request.
      *
      * @example 0
      *
@@ -21,7 +18,7 @@ class BackFillShrinkRequest extends Model
     public $asc;
 
     /**
-     * @description The date for the data to be backfilled. This parameter is required if you specify a date for data backfill.
+     * @description The start date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
      *
      * @example 2022-01-14
      *
@@ -30,7 +27,10 @@ class BackFillShrinkRequest extends Model
     public $backFillDate;
 
     /**
-     * @description The start date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
+     * @description The running sequence of task flows for data backfill. Valid values:
+     *
+     *   **0**: reverse chronological order.
+     *   **1**: chronological order. This is the default value.
      *
      * @example 2022-01-14
      *
@@ -39,8 +39,9 @@ class BackFillShrinkRequest extends Model
     public $backFillDateBegin;
 
     /**
-     * @description The end date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 2022-09-29
      *
      * @var string
@@ -48,7 +49,7 @@ class BackFillShrinkRequest extends Model
     public $backFillDateEnd;
 
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The operation that you want to perform. Set the value to **BackFill**.
      *
      * @example 15***
      *
@@ -57,8 +58,9 @@ class BackFillShrinkRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the historical task flow.
+     * @description The BackFillDate parameter is required if you specify a date for data backfill.
      *
+     * The BackFillDateBegin and BackFillDateEnd parameters are required if you specify a date range for data backfill.
      * @example 16***
      *
      * @var int
@@ -66,7 +68,7 @@ class BackFillShrinkRequest extends Model
     public $historyDagId;
 
     /**
-     * @description The interval at which data backfill is performed. Unit: hours. Minimum value: 1. Default value: 24.
+     * @description Specifies whether to run descendant nodes. Default value: true.
      *
      * @example 24
      *
@@ -75,7 +77,7 @@ class BackFillShrinkRequest extends Model
     public $interval;
 
     /**
-     * @description Specifies whether to run descendant nodes. Default value: true.
+     * @description The error message returned if the request failed.
      *
      * @example true
      *
@@ -84,16 +86,15 @@ class BackFillShrinkRequest extends Model
     public $isTriggerSubTree;
 
     /**
-     * @description The number of nodes for which you want to backfill data.
+     * @description The date for the data to be backfilled. This parameter is required if you specify a date for data backfill.
      *
      * @var string
      */
     public $startNodeIdsShrink;
 
     /**
-     * @description The ID of the tenant.
+     * @description The error code returned if the request failed.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

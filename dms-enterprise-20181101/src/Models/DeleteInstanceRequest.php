@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
-     * @description The endpoint of the database instance. You can call the [ListInstances](~~141936~~) or [GetInstance](~~141567~~) operation to obtain the endpoint.
+     * @description The error code that is returned.
      *
      * @example xxx.mysql.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class DeleteInstanceRequest extends Model
     public $host;
 
     /**
-     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](~~141936~~) or [GetInstance](~~141567~~) operation to obtain the port number.
+     * @description The ID of the request.
      *
      * @example 3306
      *
@@ -27,7 +27,7 @@ class DeleteInstanceRequest extends Model
     public $port;
 
     /**
-     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) or [GetInstance](~~141567~~) operation to obtain the SID.
+     * @description The operation that you want to perform. Set the value to **DeleteInstance**.
      *
      * @example testSid
      *
@@ -36,7 +36,7 @@ class DeleteInstanceRequest extends Model
     public $sid;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) or [GetInstance](~~141567~~) operation to obtain the SID.
      *
      * @example 3***
      *

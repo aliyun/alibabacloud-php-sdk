@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tenantList extends Model
 {
     /**
-     * @description The status of the tenant. Valid values:
-     *
-     *   **ACTIVE**: The tenant is used to access DMS.
-     *   **IN_ACTIVE**: The tenant is not used.
-     *
      * @example ACTIVE
      *
      * @var string
@@ -21,8 +16,6 @@ class tenantList extends Model
     public $status;
 
     /**
-     * @description The name of the tenant.
-     *
      * @example test_name
      *
      * @var string
@@ -30,8 +23,6 @@ class tenantList extends Model
     public $tenantName;
 
     /**
-     * @description The ID of the tenant.
-     *
      * @example 3***
      *
      * @var int

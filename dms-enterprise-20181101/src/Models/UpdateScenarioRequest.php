@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateScenarioRequest extends Model
 {
     /**
-     * @description The description of the business scenario.
-     *
      * @example test
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateScenarioRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the business scenario.
-     *
      * @example 12***
      *
      * @var string
@@ -27,18 +23,11 @@ class UpdateScenarioRequest extends Model
     public $scenarioId;
 
     /**
-     * @description The name of the business scenario.
-     *
-     * @example Business scenario - test
-     *
      * @var string
      */
     public $scenarioName;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

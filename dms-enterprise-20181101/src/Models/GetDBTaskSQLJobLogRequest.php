@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDBTaskSQLJobLogRequest extends Model
 {
     /**
-     * @description The ID of the SQL task. You can call the [ListDBTaskSQLJob](~~207049~~) operation to query the ID of the SQL task.
+     * @description The log that records the scheduling details.
      *
      * @example 1276****
      *
@@ -18,7 +18,7 @@ class GetDBTaskSQLJobLogRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The error code returned.
      *
      * @example 3***
      *

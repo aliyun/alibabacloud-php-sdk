@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStandardGroupRequest extends Model
 {
     /**
-     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The created security rule set.
      *
      * @example mysql
      *
@@ -18,21 +18,25 @@ class CreateStandardGroupRequest extends Model
     public $dbType;
 
     /**
-     * @description The description of the security rule set.
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the security rule set.
+     * @description The control mode. Valid values:
+     *
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *   **COMMON**: Security Collaboration
      *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The ID of the tenant.
+     * @description The error code returned if the request fails.
      *
      * @example 3000
      *

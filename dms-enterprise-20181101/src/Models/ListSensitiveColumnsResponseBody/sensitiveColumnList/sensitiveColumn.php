@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sensitiveColumn extends Model
 {
     /**
-     * @description The number of sensitive fields.
+     * @description Queries sensitive fields in a table of a database.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class sensitiveColumn extends Model
     public $columnCount;
 
     /**
-     * @description The name of the field.
+     * @description The name of the field. You can call the [ListColumns](~~141870~~) operation to query the name of the field.
      *
      * @example test_column
      *
@@ -27,12 +27,6 @@ class sensitiveColumn extends Model
     public $columnName;
 
     /**
-     * @description The type of the de-identification algorithm. Valid values:
-     *
-     *   DEFAULT: All characters are masked. This is the default value.
-     *   FIX_POS: The characters at specific positions are masked.
-     *   FIX_CHAR: Specific characters are masked.
-     *
      * @example DEFAULT
      *
      * @var string
@@ -40,8 +34,6 @@ class sensitiveColumn extends Model
     public $functionType;
 
     /**
-     * @description The name of the database.
-     *
      * @example test_schema
      *
      * @var string
@@ -49,10 +41,7 @@ class sensitiveColumn extends Model
     public $schemaName;
 
     /**
-     * @description The sensitivity level of the field. Valid values:
-     *
-     *   SENSITIVE
-     *   CONFIDENTIAL
+     * @description The ID of the request.
      *
      * @example SENSITIVE
      *
@@ -61,7 +50,7 @@ class sensitiveColumn extends Model
     public $securityLevel;
 
     /**
-     * @description The name of the table.
+     * @description The name of the field.
      *
      * @example test_table
      *

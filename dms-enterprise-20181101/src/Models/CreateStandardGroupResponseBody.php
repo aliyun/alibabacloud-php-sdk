@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStandardGroupResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The name of the security rule set.
      *
      * @example 403
      *
@@ -19,7 +19,7 @@ class CreateStandardGroupResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
      *
      * @example xxx
      *
@@ -28,7 +28,7 @@ class CreateStandardGroupResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **CreateStandardGroup**.
      *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
@@ -37,17 +37,14 @@ class CreateStandardGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The created security rule set.
+     * @description The name of the security rule set.
      *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     * @description The error message returned if the request fails.
      *
      * @example true
      *

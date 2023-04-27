@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DBTopology extends Model
 {
     /**
-     * @description The alias of the logical database.
-     *
      * @example logic_db_test
      *
      * @var string
@@ -19,15 +17,11 @@ class DBTopology extends Model
     public $alias;
 
     /**
-     * @description The topologies of the physical database shards.
-     *
      * @var DBTopologyInfoList[]
      */
     public $DBTopologyInfoList;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
-     *
      * @example polardb
      *
      * @var string
@@ -35,18 +29,6 @@ class DBTopology extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the logical database belongs. Valid values:
-     *
-     *   **product**: production environment
-     *   **dev**: development environment
-     *   **pre**: pre-release environment
-     *   **test**: test environment
-     *   **sit**: system integration testing (SIT) environment
-     *   **uat**: user acceptance testing (UAT) environment
-     *   **pet**: stress testing environment
-     *   **stag**: staging environment
-     *
-     * > For more information, see [Change the environment type of an instance](~~163309~~).
      * @example dev
      *
      * @var string
@@ -54,8 +36,6 @@ class DBTopology extends Model
     public $envType;
 
     /**
-     * @description The ID of the logical database.
-     *
      * @example 1234
      *
      * @var int
@@ -63,8 +43,6 @@ class DBTopology extends Model
     public $logicDbId;
 
     /**
-     * @description The name of the logical database.
-     *
      * @example logic_db_test
      *
      * @var string
@@ -72,8 +50,6 @@ class DBTopology extends Model
     public $logicDbName;
 
     /**
-     * @description The name that is used to search for the logical database.
-     *
      * @example logic_db_test
      *
      * @var string

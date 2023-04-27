@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteLhMembersResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
      * @example 403
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteLhMembersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class DeleteLhMembersResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example F1C78D32-1AFD-58AD-9DD2-C8A0896969DD
      *
      * @var string
@@ -36,11 +30,6 @@ class DeleteLhMembersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

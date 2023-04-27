@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class optimizeDetail extends Model
 {
     /**
-     * @description The ID of the database.
-     *
      * @example 111222
      *
      * @var int
@@ -19,8 +17,6 @@ class optimizeDetail extends Model
     public $dbId;
 
     /**
-     * @description The ID of the instance to which the database belongs.
-     *
      * @example 123321
      *
      * @var int
@@ -28,15 +24,11 @@ class optimizeDetail extends Model
     public $instanceId;
 
     /**
-     * @description The quality of the SQL statement.
-     *
      * @var qualityResult
      */
     public $qualityResult;
 
     /**
-     * @description The key that is used to query the details of optimization suggestions.
-     *
      * @example a57e54ec5433475ea3082d882fdb****
      *
      * @var string
@@ -44,8 +36,6 @@ class optimizeDetail extends Model
     public $queryKey;
 
     /**
-     * @description The type of the SQL statement. Valid values: DELETE, UPDATE, and ALTER_TABLE.
-     *
      * @example UPDATE
      *
      * @var string

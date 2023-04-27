@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckDBResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListDataCorrectPreCheckDBResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The name of the database.
      *
      * @example UnknownError
      *
@@ -28,14 +28,14 @@ class ListDataCorrectPreCheckDBResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The information about the databases that are involved in the precheck.
+     * @description The ID of the request.
      *
      * @var preCheckDBList[]
      */
     public $preCheckDBList;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the ticket for the data change.
      *
      * @example 95A972AF-FAED-4768-9360-7C0DF5D594D0
      *
@@ -44,7 +44,7 @@ class ListDataCorrectPreCheckDBResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The number of SQL statements.
      *
      * @example true
      *

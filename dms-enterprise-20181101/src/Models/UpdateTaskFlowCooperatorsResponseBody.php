@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowCooperatorsResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateTaskFlowCooperatorsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class UpdateTaskFlowCooperatorsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
-     *
      * @example D05B3EE1-B6D3-5B17-8CA6-A8054828E5B2
      *
      * @var string
@@ -36,11 +30,6 @@ class UpdateTaskFlowCooperatorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

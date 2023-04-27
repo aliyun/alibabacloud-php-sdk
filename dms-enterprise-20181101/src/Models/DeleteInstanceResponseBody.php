@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class DeleteInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
      *
      * @var string
@@ -36,11 +30,6 @@ class DeleteInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

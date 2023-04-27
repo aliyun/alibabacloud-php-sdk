@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveDataAuditLogRequest extends Model
 {
     /**
-     * @description The name of the column that contains sensitive data.
-     *
      * @example ExampleColumnName
      *
      * @var string
@@ -18,8 +16,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $columnName;
 
     /**
-     * @description The name of the database that stores the sensitive data.
-     *
      * @example ExampleDbName
      *
      * @var string
@@ -27,8 +23,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $dbName;
 
     /**
-     * @description The end of the time range for which you want to query the audit logs for sensitive information. Specify the time in the yyyy-MM-DD HH:mm:ss format.
-     *
      * @example 2022-11-18 11:00:00
      *
      * @var string
@@ -36,13 +30,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The function module whose audit logs you want to query for sensitive data. If you do not specify this parameter, all audit logs are queried. Valid values:
-     *
-     *   **SQL_CONSOLE**: data query
-     *   **SQL_CONSOLE_EXPORT**: query result export
-     *   **DATA_CHANGE**: data change
-     *   **DATA_EXPORT**: data export
-     *
      * @example SQL_CONSOLE
      *
      * @var string
@@ -50,8 +37,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $moduleName;
 
     /**
-     * @description The username of the requester.
-     *
      * @example ExampleOpUserName
      *
      * @var string
@@ -59,8 +44,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $opUserName;
 
     /**
-     * @description The number of the page to return.
-     *
      * @example 1
      *
      * @var int
@@ -68,8 +51,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Example: 100
-     *
      * @example 100
      *
      * @var int
@@ -77,8 +58,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range for which you want to query the audit logs for sensitive information. Specify the time in the yyyy-MM-DD HH:mm:ss format.
-     *
      * @example 2022-11-18 10:00:00
      *
      * @var string
@@ -86,8 +65,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The name of the table that stores the sensitive data.
-     *
      * @example ExampleTableName
      *
      * @var string
@@ -95,8 +72,6 @@ class ListSensitiveDataAuditLogRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the tenant.
-     *
      * @example 3***
      *
      * @var int

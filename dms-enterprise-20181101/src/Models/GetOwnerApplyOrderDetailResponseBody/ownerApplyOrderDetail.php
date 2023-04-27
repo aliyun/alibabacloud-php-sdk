@@ -10,12 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ownerApplyOrderDetail extends Model
 {
     /**
-     * @description The type of the submitted ticket. Valid values:
-     *
-     *   **INSTANCE**: the ticket that applies for the permissions to be an instance owner
-     *   **DB**: the ticket that applies for the permissions to be a database owner
-     *   **TABLE**: the ticket that applies for the permissions to be a table owner
-     *
      * @example DB
      *
      * @var string
@@ -23,8 +17,6 @@ class ownerApplyOrderDetail extends Model
     public $applyType;
 
     /**
-     * @description The details of the requested resource.
-     *
      * @var resources[]
      */
     public $resources;

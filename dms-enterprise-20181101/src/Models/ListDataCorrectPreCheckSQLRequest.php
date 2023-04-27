@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckSQLRequest extends Model
 {
     /**
-     * @description The ID of the database. The database can be a physical database or a logical database.
-     *
-     *   To query the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
-     *   To query the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
+     * @description The operation that you want to perform. Set the value to **ListDataCorrectPreCheckSQL**.
      *
      * @example 1930****
      *
@@ -21,7 +18,7 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $dbId;
 
     /**
-     * @description The ID of the data change ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the data change ticket.
+     * @description The number of entries to return on each page.
      *
      * @example 453****
      *
@@ -30,7 +27,7 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $orderId;
 
     /**
-     * @description The number of the page to return.
+     * @description The error code returned.
      *
      * @example 1
      *
@@ -39,7 +36,7 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](~~265977~~) operation to query the details of optimization suggestions based on the key.
      *
      * @example 10
      *

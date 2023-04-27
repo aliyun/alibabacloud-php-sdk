@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class structSyncJobAnalyzeResult extends Model
 {
     /**
-     * @description The details of the analysis results.
-     *
      * @var resultList[]
      */
     public $resultList;
 
     /**
-     * @description The statistics on the analysis results.
-     *
      * @var summaryList[]
      */
     public $summaryList;

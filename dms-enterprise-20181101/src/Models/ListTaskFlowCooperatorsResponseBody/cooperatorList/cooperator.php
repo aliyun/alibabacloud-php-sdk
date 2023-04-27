@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class cooperator extends Model
 {
     /**
-     * @description The email address of the user.
-     *
      * @example test@XX.com
      *
      * @var string
@@ -18,8 +16,6 @@ class cooperator extends Model
     public $email;
 
     /**
-     * @description The username.
-     *
      * @example name
      *
      * @var string
@@ -27,8 +23,6 @@ class cooperator extends Model
     public $loginName;
 
     /**
-     * @description The alias of the user.
-     *
      * @example name
      *
      * @var string
@@ -36,6 +30,10 @@ class cooperator extends Model
     public $nickName;
 
     /**
+     * @description 用户ID。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $userId;

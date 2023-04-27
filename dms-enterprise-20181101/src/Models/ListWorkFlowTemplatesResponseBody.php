@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowTemplatesResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class ListWorkFlowTemplatesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,8 +24,6 @@ class ListWorkFlowTemplatesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 41067071-0243-4AAB-B3CF-4DE6D54F53B4
      *
      * @var string
@@ -37,8 +31,6 @@ class ListWorkFlowTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool
@@ -46,8 +38,6 @@ class ListWorkFlowTemplatesResponseBody extends Model
     public $success;
 
     /**
-     * @description The approval templates.
-     *
      * @var workFlowTemplates
      */
     public $workFlowTemplates;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templateList extends Model
 {
     /**
-     * @description The name of the classification template.
+     * @description Queries the classification templates.
      *
      * @example test
      *
@@ -18,8 +18,6 @@ class templateList extends Model
     public $name;
 
     /**
-     * @description The remarks.
-     *
      * @example test
      *
      * @var string
@@ -27,7 +25,7 @@ class templateList extends Model
     public $remark;
 
     /**
-     * @description The ID of the classification template.
+     * @description The ID of the request.
      *
      * @example 3**
      *
@@ -36,11 +34,6 @@ class templateList extends Model
     public $templateId;
 
     /**
-     * @description The type of the classification template. Valid values:
-     *
-     *   **INNER**: built-in template
-     *   **USER_DEFINE**: custom template
-     *
      * @example USER_DEFINE
      *
      * @var string

@@ -13,29 +13,21 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The information about the column.
-     *
      * @var columnInfo
      */
     public $columnInfo;
 
     /**
-     * @description The information about the database.
-     *
      * @var databaseInfo
      */
     public $databaseInfo;
 
     /**
-     * @description The information about the instance.
-     *
      * @var instanceInfo
      */
     public $instanceInfo;
 
     /**
-     * @description The information about the table.
-     *
      * @var tableInfo
      */
     public $tableInfo;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataCorrectResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class ExecuteDataCorrectResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example Unknown server error
      *
      * @var string
@@ -27,7 +23,7 @@ class ExecuteDataCorrectResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **ExecuteDataCorrect**.
      *
      * @example EADDA791-2809-58CE-A303-743A77FF****
      *
@@ -36,11 +32,6 @@ class ExecuteDataCorrectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

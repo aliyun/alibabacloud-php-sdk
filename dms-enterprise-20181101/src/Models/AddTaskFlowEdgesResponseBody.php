@@ -15,7 +15,7 @@ class AddTaskFlowEdgesResponseBody extends Model
     public $edgeIds;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description AddTaskFlowEdges
      *
      * @example UnknownError
      *
@@ -24,8 +24,6 @@ class AddTaskFlowEdgesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -33,7 +31,7 @@ class AddTaskFlowEdgesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description Adds directed edges for an existing task node.
      *
      * @example E5EE2B9E-2F95-57FA-B284-CB441CEE49D6
      *
@@ -42,11 +40,6 @@ class AddTaskFlowEdgesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

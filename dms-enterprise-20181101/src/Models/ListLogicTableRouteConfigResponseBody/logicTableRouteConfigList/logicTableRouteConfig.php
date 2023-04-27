@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class logicTableRouteConfig extends Model
 {
     /**
-     * @description The routing algorithm expression.
-     *
      * @example #id#%16\t
      *
      * @var string
@@ -18,8 +16,6 @@ class logicTableRouteConfig extends Model
     public $routeExpr;
 
     /**
-     * @description The unique key of the routing algorithm.
-     *
      * @example 1
      *
      * @var string
@@ -27,8 +23,6 @@ class logicTableRouteConfig extends Model
     public $routeKey;
 
     /**
-     * @description The ID of the logical table.
-     *
      * @example 4****
      *
      * @var int

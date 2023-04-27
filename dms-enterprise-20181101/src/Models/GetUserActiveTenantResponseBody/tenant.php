@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tenant extends Model
 {
     /**
-     * @description The status of the tenant. Valid values:
-     *
-     *   **ACTIVE**: The tenant is used to access DMS.
-     *   **IN_ACTIVE**: The tenant is not used.
+     * @description The error code.
      *
      * @example ACTIVE
      *
@@ -21,7 +18,7 @@ class tenant extends Model
     public $status;
 
     /**
-     * @description The name of the tenant.
+     * @description The operation that you want to perform. Set the value to **GetUserActiveTenant**.
      *
      * @example test_name
      *
@@ -30,7 +27,7 @@ class tenant extends Model
     public $tenantName;
 
     /**
-     * @description The ID of the tenant.
+     * @description The ID of the request.
      *
      * @example 3***
      *

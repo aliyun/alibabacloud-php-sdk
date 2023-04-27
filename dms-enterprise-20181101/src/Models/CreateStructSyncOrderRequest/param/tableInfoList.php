@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tableInfoList extends Model
 {
     /**
-     * @description The name of the source table.
-     *
      * @example test_tbl
      *
      * @var string
@@ -18,8 +16,6 @@ class tableInfoList extends Model
     public $sourceTableName;
 
     /**
-     * @description The name of the destination table.
-     *
      * @example test_tbl
      *
      * @var string

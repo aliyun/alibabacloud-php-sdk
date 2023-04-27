@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class resourceDetail extends Model
 {
     /**
-     * @description The type of the database engine.
-     *
      * @example MYSQL
      *
      * @var string
@@ -18,8 +16,6 @@ class resourceDetail extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
-     *
      * @example PRODUCT
      *
      * @var string
@@ -27,22 +23,16 @@ class resourceDetail extends Model
     public $envType;
 
     /**
-     * @description The IDs of the original owners.
-     *
      * @var int[]
      */
     public $ownerIds;
 
     /**
-     * @description The nicknames of the owners.
-     *
      * @var string[]
      */
     public $ownerNickNames;
 
     /**
-     * @description The search name of the resource.
-     *
      * @example yuyang【test】
      *
      * @var string
@@ -50,9 +40,6 @@ class resourceDetail extends Model
     public $searchName;
 
     /**
-     * @description The name of the table.
-     *
-     * > : This parameter is returned when you submit a Database-OWNER ticket.
      * @example test
      *
      * @var string

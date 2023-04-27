@@ -10,23 +10,11 @@ use AlibabaCloud\Tea\Model;
 class orderSummary extends Model
 {
     /**
-     * @description The commodity code of DMS.
-     *
-     *   dms_pre_public_cn: DMS that uses the subscription billing method
-     *   dms_post_public_cn: DMS that uses the pay-as-you-go billing method
-     *
-     * @example dms_pre_public_cn
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The type of the service.
-     *
-     *   **VersionType**: DMS that supports control modes
-     *   **SensitiveDataProtection**: DMS that supports sensitive data protection
-     *
      * @example VersionType
      *
      * @var string
@@ -34,15 +22,11 @@ class orderSummary extends Model
     public $commodityType;
 
     /**
-     * @description Details about the orders.
-     *
      * @var orderList[]
      */
     public $orderList;
 
     /**
-     * @description The sum of the number of instances that you can use DMS to manage in all orders.
-     *
      * @example 12
      *
      * @var int
@@ -50,11 +34,6 @@ class orderSummary extends Model
     public $totalQuota;
 
     /**
-     * @description The control mode of DMS. Valid values:
-     *
-     *   **stand**: Stable Change
-     *   **safety**: Security Collaboration
-     *
      * @example safety
      *
      * @var string

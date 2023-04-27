@@ -19,7 +19,7 @@ class CreateDataImportOrderRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description The purpose or objective of the data import. This parameter is used to help reduce unnecessary communication.
+     * @description The operation that you want to perform. Set the value to CreateDataImportOrder.
      *
      * @example test
      *
@@ -28,21 +28,25 @@ class CreateDataImportOrderRequest extends Model
     public $comment;
 
     /**
-     * @description The parameters of the ticket.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @var param
      */
     public $param;
 
     /**
-     * @description The stakeholders of the data import. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     * @description Specifies whether the database is a logical database. Valid values:
      *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
+     * >  If you set this parameter to **true**, the database that you specify must be a logical database.
      * @var int[]
      */
     public $relatedUserList;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the ticket.
      *
      * @example 3***
      *

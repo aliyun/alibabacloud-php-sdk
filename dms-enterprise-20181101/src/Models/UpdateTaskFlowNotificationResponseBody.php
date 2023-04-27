@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowNotificationResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateTaskFlowNotificationResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,7 +23,7 @@ class UpdateTaskFlowNotificationResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description Specifies whether to enable SLA global notifications for task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
      *
      * @example 3BDC762F-2525-5E47-8748-D6C58BDB3B38
      *
@@ -36,11 +32,6 @@ class UpdateTaskFlowNotificationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

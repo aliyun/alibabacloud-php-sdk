@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SQLReviewResult extends Model
 {
     /**
+     * @description The number of SQL statements that must be modified.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class SQLReviewResult extends Model
     public $mustImprove;
 
     /**
+     * @description The number of SQL statements that have potential issues.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class SQLReviewResult extends Model
     public $potentialIssue;
 
     /**
+     * @description The number of SQL statements that can be modified.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class SQLReviewResult extends Model
     public $suggestImprove;
 
     /**
+     * @description The number of SQL statements that can use indexes.
+     *
      * @example 2
      *
      * @var int
@@ -37,6 +45,8 @@ class SQLReviewResult extends Model
     public $tableIndexSuggest;
 
     /**
+     * @description The number of SQL statements that can be used for lock-free data changes.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class SQLReviewResult extends Model
     public $useDmsDmlUnlock;
 
     /**
+     * @description The number of SQL statements that can be used for lock-free schema changes.
+     *
      * @example 0
      *
      * @var int

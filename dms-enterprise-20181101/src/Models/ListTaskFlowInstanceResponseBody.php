@@ -10,14 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowInstanceResponseBody extends Model
 {
     /**
-     * @description The information about the execution records returned.
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: The task flow is waiting to be scheduled.
+     *   **1**: The task flow is being executed.
+     *   **2**: The task flow is paused.
+     *   **3**: The task flow failed.
+     *   **4**: The task flow is executed.
+     *   **5**: The task flow is complete.
      *
      * @var DAGInstanceList
      */
     public $DAGInstanceList;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The beginning of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
      *
      * @example UnknownError
      *
@@ -26,7 +33,7 @@ class ListTaskFlowInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example UnknownError
      *
@@ -35,7 +42,10 @@ class ListTaskFlowInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The mode in which the task flow is triggered. Valid values:
+     *
+     *   **0**: The task flow is automatically triggered based on periodic scheduling.
+     *   **1**: The task flow is manually triggered.
      *
      * @example 8CFF2295-8249-5287-B888-DBD4F0D76CB0
      *
@@ -44,10 +54,7 @@ class ListTaskFlowInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     * @description The name of the task flow.
      *
      * @example true
      *
@@ -56,8 +63,6 @@ class ListTaskFlowInstanceResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of execution records returned.
-     *
      * @example 1
      *
      * @var int

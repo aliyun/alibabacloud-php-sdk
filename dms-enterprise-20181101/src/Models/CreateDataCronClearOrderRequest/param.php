@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The reason for the data change.
+     * @description The purpose or objective of the data change. This reduces unnecessary communication.
      *
      * @example test
      *
@@ -20,14 +20,14 @@ class param extends Model
     public $classify;
 
     /**
-     * @description The tables for which you want to clear historical data.
+     * @description The stakeholders of this operation. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than Data Management (DMS) administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
      * @var cronClearItemList[]
      */
     public $cronClearItemList;
 
     /**
-     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
+     * @description The name of the field.
      *
      * @example 0 0 2 * * ?
      *
@@ -36,16 +36,16 @@ class param extends Model
     public $cronFormat;
 
     /**
-     * @description The databases for which you want to clear historical data.
+     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
      *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
-     * @description The amount of time taken to run the task. Unit: hours.
+     * @description The key of the attachment for the ticket. The attachment provides more instructions for this operation.
      *
-     * >  If the **specifyDuration** parameter is set to **true**, this parameter is required.
+     * You can call the [GetUserUploadFileJob](~~206069~~) operation to query the key of the attachment.
      * @example 4
      *
      * @var int
@@ -53,10 +53,7 @@ class param extends Model
     public $durationHour;
 
     /**
-     * @description Specifies whether to specify an end time for the task. Valid values:
-     *
-     *   **true**: specifies an end time for the task. The task is automatically suspended after this end time.
-     *   **false**: does not specify an end time for the task. The task is stopped after the historical data is cleared.
+     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the name of the table.
      *
      * @example true
      *

@@ -12,18 +12,11 @@ use AlibabaCloud\Tea\Model;
 class dataCorrectOrderDetail extends Model
 {
     /**
-     * @description The information about the database in which data is changed.
-     *
      * @var databaseList
      */
     public $databaseList;
 
     /**
-     * @description The execution mode of the ticket after the ticket is approved. Valid values:
-     *
-     * - **COMMITOR**: The data change is performed by the user who submits the ticket.
-     * - **AUTO**: The data change is automatically performed after the ticket is approved.
-     * - **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
      * @example COMMITOR
      *
      * @var string
@@ -31,8 +24,6 @@ class dataCorrectOrderDetail extends Model
     public $execMode;
 
     /**
-     * @description The details of the ticket.
-     *
      * @var orderDetail
      */
     public $orderDetail;
@@ -45,19 +36,6 @@ class dataCorrectOrderDetail extends Model
     public $preCheckDetail;
 
     /**
-     * @description The status of the ticket. Valid values:
-     *
-     * - **new**: The ticket is created.
-     * - **precheck**: The ticket is being prechecked.
-     * - **precheck_fail**: The ticket fails the precheck.
-     * - **precheck_success**: The ticket passes the precheck and waits to be submitted for approval.
-     * - **toaudit**: The ticket is being reviewed.
-     * - **Approved**: The ticket is approved.
-     * - **reject**: The ticket is rejected.
-     * - **waiting**: The ticket is submitted and waits to be scheduled.
-     * - **processing**: The ticket is being executed.
-     * - **success**: The ticket is executed.
-     * - **closed**: The ticket is closed.
      * @example approved
      *
      * @var string

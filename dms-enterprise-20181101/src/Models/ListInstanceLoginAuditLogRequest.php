@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceLoginAuditLogRequest extends Model
 {
     /**
-     * @description The end of the time range to query.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
      *
-     * >  The end time supports fuzzy match. Specify the time in the YYYY-MM-DD hh:mm:ss format. We recommend that you use the StartTime and EndTime parameters to specify a time range that does not exceed one day. This way, the returned entries can be displayed by page to increase query efficiency.
      * @example 2021-11-18 18:00:00
      *
      * @var string
@@ -19,7 +18,7 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The alias of the user.
+     * @description The error code returned.
      *
      * @example test_OpUserName
      *
@@ -28,7 +27,7 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $opUserName;
 
     /**
-     * @description The number of the page to return.
+     * @description The logon records of the instance.
      *
      * @example 1
      *
@@ -37,7 +36,7 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The alias of the user.
      *
      * @example 20
      *
@@ -46,9 +45,8 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the database or instance whose logon records you want to query.
+     * @description The ID of the instance.
      *
-     * >  If SQL statements are executed at the instance level, you can set this parameter to an instance name. If SQL statements are executed at the database level, you can set this parameter to a database name.
      * @example test_SearchName
      *
      * @var string
@@ -56,9 +54,9 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $searchName;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The name of the database or instance whose logon records you want to query.
      *
-     * >  The start time supports fuzzy match. Specify the time in the YYYY-MM-DD hh:mm:ss format.
+     * >  If SQL statements are executed at the instance level, you can set this parameter to an instance name. If SQL statements are executed at the database level, you can set this parameter to a database name.
      * @example 2021-11-18 11:00:00
      *
      * @var string
@@ -66,7 +64,7 @@ class ListInstanceLoginAuditLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The operation that you want to perform. Set the value to **ListInstanceLoginAuditLog**.
      *
      * @example 3***
      *

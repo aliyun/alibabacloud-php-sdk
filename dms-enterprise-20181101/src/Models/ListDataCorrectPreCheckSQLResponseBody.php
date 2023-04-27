@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckSQLResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The SQL statement.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The ID of the data change ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the data change ticket.
      *
      * @example UnknownError
      *
@@ -28,14 +28,17 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The precheck information about SQL statements.
+     * @description The ID of the database. The database can be a physical database or a logical database.
+     *
+     *   To query the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
+     *   To query the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
      *
      * @var preCheckSQLList[]
      */
     public $preCheckSQLList;
 
     /**
-     * @description The ID of the request.
+     * @description The error message returned.
      *
      * @example 31853A2B-DC9D-5B39-8492-D2AC8BCF550E
      *
@@ -44,10 +47,7 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     * @description The ID of the database.
      *
      * @example true
      *

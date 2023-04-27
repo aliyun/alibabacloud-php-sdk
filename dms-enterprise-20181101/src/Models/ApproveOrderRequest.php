@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ApproveOrderRequest extends Model
 {
     /**
-     * @description The action that you want to perform on the ticket. Valid values:
-     *
-     *   AGREE: approve
-     *   CANCEL: cancel
-     *   REJECT: reject
+     * @description The ID of the region in which you want to call this operation.
      *
      * @example agree
      *
@@ -22,7 +18,7 @@ class ApproveOrderRequest extends Model
     public $approvalType;
 
     /**
-     * @description The description of the ticket.
+     * @description The ID of the request.
      *
      * @example test
      *
@@ -31,7 +27,7 @@ class ApproveOrderRequest extends Model
     public $comment;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](~~144642~~) operation to obtain the ID of the approval process.
      *
      * @example -1
      *
@@ -40,7 +36,11 @@ class ApproveOrderRequest extends Model
     public $tid;
 
     /**
-     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](~~144642~~) operation to obtain the ID of the approval process.
+     * @description The action that you want to perform on the ticket. Valid values:
+     *
+     *   AGREE: approve
+     *   CANCEL: cancel
+     *   REJECT: reject
      *
      * @example 1234
      *

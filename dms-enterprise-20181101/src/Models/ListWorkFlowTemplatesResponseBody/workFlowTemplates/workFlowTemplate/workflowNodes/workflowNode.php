@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class workflowNode extends Model
 {
     /**
-     * @description The description of the approval node.
-     *
      * @example test
      *
      * @var string
@@ -18,8 +16,6 @@ class workflowNode extends Model
     public $comment;
 
     /**
-     * @description The ID of the creator.
-     *
      * @example 1234
      *
      * @var int
@@ -27,8 +23,6 @@ class workflowNode extends Model
     public $createUserId;
 
     /**
-     * @description The ID of the approval node.
-     *
      * @example 123
      *
      * @var int
@@ -36,8 +30,6 @@ class workflowNode extends Model
     public $nodeId;
 
     /**
-     * @description The name of the approval node.
-     *
      * @example test
      *
      * @var string
@@ -45,11 +37,6 @@ class workflowNode extends Model
     public $nodeName;
 
     /**
-     * @description The type of the approval node. Valid values:
-     *
-     *   SYS: The approval node is predefined by the system.
-     *   USER_LIST: The approval node is created by a user.
-     *
      * @example SYS
      *
      * @var string
@@ -57,8 +44,6 @@ class workflowNode extends Model
     public $nodeType;
 
     /**
-     * @description The position of the approval node.
-     *
      * @example 1
      *
      * @var int
@@ -66,8 +51,6 @@ class workflowNode extends Model
     public $position;
 
     /**
-     * @description The ID of the template.
-     *
      * @example 12345
      *
      * @var int

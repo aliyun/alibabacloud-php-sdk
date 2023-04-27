@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
-     * @description The name of the catalog to which the database belongs.
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
      *
      * @example def
      *
@@ -20,7 +20,7 @@ class database extends Model
     public $catalogName;
 
     /**
-     * @description The ID of the database.
+     * @description The names of the owners of the database.
      *
      * @example 984****
      *
@@ -29,8 +29,9 @@ class database extends Model
     public $databaseId;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The system identifier (SID) of the database.
      *
+     * >  The SID uniquely identifies an Oracle database. After a database is created, a SID is generated for the database.
      * @example mysql
      *
      * @var string
@@ -38,7 +39,7 @@ class database extends Model
     public $dbType;
 
     /**
-     * @description The ID of the database administrator (DBA).
+     * @description The port that is used to connect to the database.
      *
      * @example 27****
      *
@@ -47,7 +48,7 @@ class database extends Model
     public $dbaId;
 
     /**
-     * @description The nickname of the DBA.
+     * @description The encoding format of the database.
      *
      * @example dba_name
      *
@@ -56,7 +57,7 @@ class database extends Model
     public $dbaName;
 
     /**
-     * @description The encoding format of the database.
+     * @description The port that is used to connect to the database.
      *
      * @example utf8mb4
      *
@@ -65,16 +66,7 @@ class database extends Model
     public $encoding;
 
     /**
-     * @description The type of the environment to which the database belongs. Valid values:
-     *
-     *   **product**: production environment
-     *   **dev**: development environment
-     *   **pre**: staging environment
-     *   **test**: test environment
-     *   **sit**: SIT environment
-     *   **uat**: user acceptance testing (UAT) environment
-     *   **pet**: stress testing environment
-     *   **stag**: STAG environment
+     * @description The endpoint that is used to connect to the database.
      *
      * @example product
      *
@@ -83,7 +75,7 @@ class database extends Model
     public $envType;
 
     /**
-     * @description The endpoint that is used to connect to the database.
+     * @description The IDs of the owners of the database.
      *
      * @example 192.168.XX.XX
      *
@@ -92,7 +84,12 @@ class database extends Model
     public $host;
 
     /**
-     * @description The ID of the instance.
+     * @description The status of the database. Valid values:
+     *
+     *   **NORMAL**: The database is running as expected.
+     *   **DISABLE**: The database is disabled.
+     *   **OFFLINE**: The database is unpublished.
+     *   **NOT_EXIST**: The database does not exist.
      *
      * @example 149****
      *
@@ -101,21 +98,21 @@ class database extends Model
     public $instanceId;
 
     /**
-     * @description The IDs of the owners of the database.
+     * @description The name of the database.
      *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
-     * @description The names of the owners of the database.
+     * @description The ID of the database administrator (DBA).
      *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
-     * @description The port that is used to connect to the database.
+     * @description The error message.
      *
      * @example 3306
      *
@@ -124,7 +121,7 @@ class database extends Model
     public $port;
 
     /**
-     * @description The name of the database.
+     * @description The ID of the instance.
      *
      * @example mysql
      *
@@ -133,7 +130,7 @@ class database extends Model
     public $schemaName;
 
     /**
-     * @description The keyword that is used to search for the database.
+     * @description The ID of the request.
      *
      * @example mysql@192.168.XX.XX:3306
      *
@@ -142,9 +139,8 @@ class database extends Model
     public $searchName;
 
     /**
-     * @description The SID of the database.
+     * @description The nickname of the DBA.
      *
-     * >  The value of the parameter is returned only for Oracle databases.
      * @example test_sid
      *
      * @var string
@@ -152,12 +148,7 @@ class database extends Model
     public $sid;
 
     /**
-     * @description The status of the database. Valid values:
-     *
-     *   **NORMAL**: The database is running as expected.
-     *   **DISABLE**: The database is disabled.
-     *   **OFFLINE**: The database is unpublished.
-     *   **NOT_EXIST**: The database does not exist.
+     * @description The endpoint that is used to connect to the database.
      *
      * @example NORMAL
      *

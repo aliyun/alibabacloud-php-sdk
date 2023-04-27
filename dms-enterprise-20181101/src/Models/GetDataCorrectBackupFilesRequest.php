@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectBackupFilesRequest extends Model
 {
     /**
-     * @description The parameters that are required to perform the operation. You do not need to specify this parameter.
+     * @description The error code.
      *
      * @example {}
      *
@@ -18,7 +18,7 @@ class GetDataCorrectBackupFilesRequest extends Model
     public $actionDetail;
 
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The download URL of the backup file for the ticket.
      *
      * @example 4200000
      *
@@ -27,7 +27,7 @@ class GetDataCorrectBackupFilesRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The parameters that are required to perform the operation. You do not need to specify this parameter.
      *
      * @example 3***
      *

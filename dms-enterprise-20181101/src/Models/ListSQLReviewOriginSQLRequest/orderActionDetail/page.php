@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](~~257777~~) operation to query the ID of the ticket.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class page extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 20
      *

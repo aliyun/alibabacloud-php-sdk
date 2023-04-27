@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetUserUploadFileJobRequest extends Model
 {
     /**
-     * @description The key of the file upload task. You can call the [CreateUploadFileJob](~~206059~~) or [CreateUploadOSSFileJob](~~206060~~) operation to query the key.
+     * @description The method used to upload the file. Valid values:
+     *
+     *   **URL**
+     *   **OSS**
      *
      * @example 65254a49100e
      *

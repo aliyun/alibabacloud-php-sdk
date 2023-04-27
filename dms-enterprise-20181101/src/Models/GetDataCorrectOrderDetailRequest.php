@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectOrderDetailRequest extends Model
 {
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The information about the data change ticket.
      *
      * @example 420****
      *
@@ -18,7 +18,12 @@ class GetDataCorrectOrderDetailRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The status of the precheck. Valid values:
+     *
+     *   **WAITING**: The ticket is pending precheck.
+     *   **RUNNING**: The ticket is being prechecked.
+     *   **SUCCESS**: The ticket passes the precheck.
+     *   **FAIL**: The ticket fails the precheck.
      *
      * @example 3***
      *

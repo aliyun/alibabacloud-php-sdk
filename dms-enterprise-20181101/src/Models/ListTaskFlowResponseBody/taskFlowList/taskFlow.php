@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskFlow extends Model
 {
     /**
-     * @description The ID of the user who creates the task flow.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 51****
      *
@@ -18,7 +18,7 @@ class taskFlow extends Model
     public $creatorId;
 
     /**
-     * @description The name of the user who creates the task flow.
+     * @description The ID of the user who creates the task flow.
      *
      * @example Creator_NickName
      *
@@ -27,7 +27,11 @@ class taskFlow extends Model
     public $creatorNickName;
 
     /**
-     * @description The name of the task flow owner.
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: The task flow is invalid.
+     *   **1**: Scheduling is disabled for the task flow.
+     *   **2**: The task flow is waiting to be scheduled.
      *
      * @example Owner_NickName
      *
@@ -36,7 +40,7 @@ class taskFlow extends Model
     public $dagOwnerNickName;
 
     /**
-     * @description The ID of the latest deployment record.
+     * @description The ID of the request.
      *
      * @example 12**
      *
@@ -45,7 +49,7 @@ class taskFlow extends Model
     public $deployId;
 
     /**
-     * @description The ID of the task flow.
+     * @description The error message.
      *
      * @example 134137****
      *
@@ -54,12 +58,6 @@ class taskFlow extends Model
     public $id;
 
     /**
-     * @description The status of the latest execution. Valid values:
-     *
-     *   **0**: invalid.
-     *   **1**: scheduling disabled.
-     *   **2**: waiting to be scheduled.
-     *
      * @example 0
      *
      * @var int
@@ -67,8 +65,6 @@ class taskFlow extends Model
     public $latestInstanceStatus;
 
     /**
-     * @description The time when the latest execution record was generated.
-     *
      * @example 2022-04-13
      *
      * @var string
@@ -76,11 +72,7 @@ class taskFlow extends Model
     public $latestInstanceTime;
 
     /**
-     * @description The status of the task flow. Valid values:
-     *
-     *   **0**: The task flow is invalid.
-     *   **1**: Scheduling is disabled for the task flow.
-     *   **2**: The task flow is waiting to be scheduled.
+     * @description The time when the latest execution record was generated.
      *
      * @example 2
      *

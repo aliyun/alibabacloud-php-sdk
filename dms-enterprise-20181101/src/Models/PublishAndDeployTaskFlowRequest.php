@@ -11,16 +11,15 @@ class PublishAndDeployTaskFlowRequest extends Model
     /**
      * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
      *
-     * @example 7***
+     * @example The description of the version.
      *
      * @var int
      */
     public $dagId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The response parameters.
      *
-     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
@@ -28,7 +27,7 @@ class PublishAndDeployTaskFlowRequest extends Model
     public $tid;
 
     /**
-     * @description The description of the version.
+     * @description The error code returned if the request failed.
      *
      * @example vc_test
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDataCorrectPreCheckDBRequest extends Model
 {
     /**
-     * @description The ID of the ticket for the data change.
+     * @description The error code returned.
      *
      * @example 432****
      *
@@ -18,9 +18,8 @@ class ListDataCorrectPreCheckDBRequest extends Model
     public $orderId;
 
     /**
-     * @description The number of the page to return.
+     * @description The operation that you want to perform. Set the value to **ListDataCorrectPreCheckDB**.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -28,7 +27,7 @@ class ListDataCorrectPreCheckDBRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The error message returned.
      *
      * @example 20
      *
@@ -37,7 +36,7 @@ class ListDataCorrectPreCheckDBRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
+     * @description The information about the databases that are involved in the precheck.
      *
      * @example 4321****
      *

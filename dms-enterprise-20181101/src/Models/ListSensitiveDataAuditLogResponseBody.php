@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveDataAuditLogResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example 403
      *
      * @var string
@@ -19,8 +17,6 @@ class ListSensitiveDataAuditLogResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,8 +24,6 @@ class ListSensitiveDataAuditLogResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example E0D21075-CD3E-4D98-8264-FD8AD04A63B6
      *
      * @var string
@@ -37,18 +31,11 @@ class ListSensitiveDataAuditLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The audit logs for sensitive data.
-     *
      * @var sensitiveDataAuditLogList[]
      */
     public $sensitiveDataAuditLogList;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool
@@ -56,8 +43,6 @@ class ListSensitiveDataAuditLogResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries returned.
-     *
      * @example 100
      *
      * @var int

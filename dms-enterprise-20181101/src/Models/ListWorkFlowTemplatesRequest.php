@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListWorkFlowTemplatesRequest extends Model
 {
     /**
-     * @description The name that is used to query approval templates.
-     *
      * @example Admin
      *
      * @var string
@@ -18,9 +16,6 @@ class ListWorkFlowTemplatesRequest extends Model
     public $searchName;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example -1
      *
      * @var int

@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderResponseBody extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The ID of the request.
      *
      * @var createOrderResult
      */
     public $createOrderResult;
 
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +24,6 @@ class CreateOrderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,8 +31,13 @@ class CreateOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description ## PluginParam parameter
      *
+     * "description": "test", // The description of the ticket.
+     * "dbId": 11****, // The database to which changes are made.
+     * "classify": "Reason", // The purpose of the ticket.
+     * "dbId": 17****, // The ID of the database from which data is exported.
+     * ```
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6****
      *
      * @var string
@@ -44,11 +45,6 @@ class CreateOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

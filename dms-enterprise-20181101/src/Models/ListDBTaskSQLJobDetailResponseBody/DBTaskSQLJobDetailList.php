@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobDetailList extends Model
 {
     /**
-     * @description The number of rows affected by the SQL task.
-     *
      * @example 0
      *
      * @var int
@@ -18,7 +16,7 @@ class DBTaskSQLJobDetailList extends Model
     public $affectRows;
 
     /**
-     * @description The SQL statement that was executed in the SQL task.
+     * @description The duration of the SQL task. Unit: milliseconds.
      *
      * @example update a set id = 1 where id  = 1;
      *
@@ -27,7 +25,7 @@ class DBTaskSQLJobDetailList extends Model
     public $currentSql;
 
     /**
-     * @description The ID of the physical database.
+     * @description The number of entries to return on each page.
      *
      * @example 1988****
      *
@@ -36,7 +34,7 @@ class DBTaskSQLJobDetailList extends Model
     public $dbId;
 
     /**
-     * @description The point in time when the SQL task ended.
+     * @description The ID of the request.
      *
      * @example 2021-12-16 00:00:01
      *
@@ -45,7 +43,7 @@ class DBTaskSQLJobDetailList extends Model
     public $endTime;
 
     /**
-     * @description The number of times that the SQL statement was executed.
+     * @description The point in time when the SQL task started.
      *
      * @example 1
      *
@@ -54,7 +52,7 @@ class DBTaskSQLJobDetailList extends Model
     public $executeCount;
 
     /**
-     * @description The ID of the details of the SQL task.
+     * @description The ID of the SQL task.
      *
      * @example 24723****
      *
@@ -63,7 +61,7 @@ class DBTaskSQLJobDetailList extends Model
     public $jobDetailId;
 
     /**
-     * @description The ID of the SQL task.
+     * @description The number of the page to return.
      *
      * @example 1276****
      *
@@ -81,10 +79,7 @@ class DBTaskSQLJobDetailList extends Model
     public $log;
 
     /**
-     * @description Indicates whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
+     * @description The details of SQL tasks.
      *
      * @example false
      *
@@ -93,10 +88,7 @@ class DBTaskSQLJobDetailList extends Model
     public $logic;
 
     /**
-     * @description Indicates whether the SQL statement was skipped. Valid values:
-     *
-     *   **true**: The SQL statement was skipped.
-     *   **false**: The SQL statement was not skipped.
+     * @description The error message that is returned.
      *
      * @example false
      *
@@ -105,7 +97,7 @@ class DBTaskSQLJobDetailList extends Model
     public $skip;
 
     /**
-     * @description The type of the SQL statement, such as DELETE, UPDATE, or ALTER_TABLE.
+     * @description The ID of the details of the SQL task.
      *
      * @example CREATE_TABLE
      *
@@ -114,7 +106,7 @@ class DBTaskSQLJobDetailList extends Model
     public $sqlType;
 
     /**
-     * @description The point in time when the SQL task started.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
      *
      * @example 2021-12-16 00:00:00
      *
@@ -123,16 +115,10 @@ class DBTaskSQLJobDetailList extends Model
     public $startTime;
 
     /**
-     * @description The status of the SQL task. Valid values:
+     * @description Indicates whether the SQL statement was skipped. Valid values:
      *
-     *   **INIT**: The SQL task was initialized.
-     *   **PENDING**: The SQL task waited to be run.
-     *   **BE_SCHEDULED**: The SQL task waited to be scheduled.
-     *   **FAIL**: The SQL task failed.
-     *   **SUCCESS**: The SQL task was successful.
-     *   **PAUSE**: The SQL task was paused.
-     *   **DELETE**: The SQL task was deleted.
-     *   **RUNNING**: The SQL task was being run.
+     *   **true**: The SQL statement was skipped.
+     *   **false**: The SQL statement was not skipped.
      *
      * @example SUCCESS
      *
@@ -141,8 +127,6 @@ class DBTaskSQLJobDetailList extends Model
     public $status;
 
     /**
-     * @description The duration of the SQL task. Unit: milliseconds.
-     *
      * @example 38
      *
      * @var int

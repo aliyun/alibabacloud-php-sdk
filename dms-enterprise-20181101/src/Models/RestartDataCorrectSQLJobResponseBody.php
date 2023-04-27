@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RestartDataCorrectSQLJobResponseBody extends Model
 {
     /**
-     * @description The error code returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class RestartDataCorrectSQLJobResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,7 +23,7 @@ class RestartDataCorrectSQLJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **RestartDataCorrectSQLJob**.
      *
      * @example 809B52F2-CD2B-53DA-88C8-F7042787E673
      *
@@ -36,11 +32,6 @@ class RestartDataCorrectSQLJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

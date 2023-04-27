@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class notification extends Model
 {
     /**
-     * @description Indicates whether notifications for failed task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
      * @example true
      *
      * @var bool
@@ -21,11 +16,6 @@ class notification extends Model
     public $dagNotificationFail;
 
     /**
-     * @description Indicates whether service level agreement (SLA) global notifications for task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
      * @example true
      *
      * @var bool
@@ -33,11 +23,6 @@ class notification extends Model
     public $dagNotificationSla;
 
     /**
-     * @description Indicates whether notifications for successful task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class uploadOSSParam extends Model
 {
     /**
-     * @description The name of the OSS bucket.
+     * @description The information about the Object Storage Service (OSS) bucket from which the file is uploaded.
      *
+     * >  This parameter is returned if the **UploadType** parameter is set to **OSS**.
      * @example test_bucket
      *
      * @var string
@@ -18,8 +19,9 @@ class uploadOSSParam extends Model
     public $bucketName;
 
     /**
-     * @description The endpoint of the OSS bucket.
+     * @description The URL of the file.
      *
+     * >  This parameter is returned if the **UploadType** parameter is set to **URL**.
      * @example http://oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -27,7 +29,7 @@ class uploadOSSParam extends Model
     public $endpoint;
 
     /**
-     * @description The name of the OSS object.
+     * @description The ID of the request.
      *
      * @example test.sql
      *

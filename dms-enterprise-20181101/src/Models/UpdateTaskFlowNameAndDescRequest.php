@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowNameAndDescRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The description that you want to specify for the task flow.
      *
      * @example 15***
      *
@@ -18,7 +18,7 @@ class UpdateTaskFlowNameAndDescRequest extends Model
     public $dagId;
 
     /**
-     * @description The new name that you want to specify for the task flow.
+     * @description The error code returned if the request failed.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class UpdateTaskFlowNameAndDescRequest extends Model
     public $dagName;
 
     /**
-     * @description The description that you want to specify for the task flow.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example test
      *
@@ -36,9 +36,8 @@ class UpdateTaskFlowNameAndDescRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the tenant.
+     * @description The new name that you want to specify for the task flow.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

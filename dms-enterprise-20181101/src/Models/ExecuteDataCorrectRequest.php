@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteDataCorrectRequest extends Model
 {
     /**
-     * @description The parameters that are required to perform the data change.
+     * @description The ID of the request.
      *
-     * ```
      * @example { "startTime" : "2021-07-01 00:00:00", "endTime" : "2021-07-01 01:00:00", "transaction" : false, "backupData" : true }
      *
      * @var mixed[]
@@ -19,7 +18,7 @@ class ExecuteDataCorrectRequest extends Model
     public $actionDetail;
 
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the ticket.
+     * @description The error code.
      *
      * @example 406****
      *
@@ -28,8 +27,9 @@ class ExecuteDataCorrectRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The parameters that are required to perform the data change.
      *
+     * ```
      * @example 3***
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class sensitiveDataLog extends Model
 {
     /**
-     * @description The name of the column that contains sensitive data.
-     *
      * @example ExampleColumnName
      *
      * @var string
@@ -18,46 +16,21 @@ class sensitiveDataLog extends Model
     public $columnName;
 
     /**
-     * @description The permission that the user has on the column. Valid values:
-     *
-     *   **No permission**
-     *   **Partial redaction**
-     *   **Plaintext**
-     *   **Change**
-     *   **Enable data masking**
-     *   **Disable data masking**
-     *
-     * @example Change
-     *
      * @var string
      */
     public $columnPermissionType;
 
     /**
-     * @description The algorithm used for data masking.
-     *
-     * @example Default - Full redaction
-     *
      * @var string
      */
     public $desensitizationRule;
 
     /**
-     * @description The sensitivity level of the data. Valid values:
-     *
-     *   **Low**
-     *   **Medium**
-     *   **High**
-     *
-     * @example Low
-     *
      * @var string
      */
     public $securityLevel;
 
     /**
-     * @description The name of the table that stores the sensitive data.
-     *
      * @example ExampleTableName
      *
      * @var string

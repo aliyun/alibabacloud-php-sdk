@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ResumeTaskFlowInstanceRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
-     *
      * @example 11****
      *
      * @var int
@@ -18,8 +16,6 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to query the execution record ID.
-     *
      * @example 3****
      *
      * @var int
@@ -27,8 +23,6 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagInstanceId;
 
     /**
-     * @description The version number of the task flow. You can call the [ListDAGVersions](~~424682~~) operation to query the version number.
-     *
      * @example []
      *
      * @var string
@@ -36,8 +30,6 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagVersion;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
-     *
      * @example 3***
      *
      * @var int

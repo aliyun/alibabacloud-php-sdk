@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectOrderDetailResponseBody extends Model
 {
     /**
-     * @description The information about the data change ticket.
+     * @description The ID of the request.
      *
      * @var dataCorrectOrderDetail
      */
     public $dataCorrectOrderDetail;
 
     /**
-     * @description The error code returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +24,6 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,7 +31,7 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The message that indicates a check step.
      *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *
@@ -44,10 +40,6 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     * - **true**: The request is successful.
-     * - **false**: The request fails.
      * @example true
      *
      * @var bool

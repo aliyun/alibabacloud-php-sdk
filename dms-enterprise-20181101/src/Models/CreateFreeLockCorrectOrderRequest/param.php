@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The key of the attachment that contains the SQL statements used to change data. This parameter is not supported.
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
      *
      * @example test.sql
      *
@@ -19,7 +22,7 @@ class param extends Model
     public $attachmentName;
 
     /**
-     * @description The reason for the data change.
+     * @description The error code returned if the request fails.
      *
      * @example test
      *
@@ -28,18 +31,17 @@ class param extends Model
     public $classify;
 
     /**
-     * @description The databases in which you want to change data.
+     * @description The key of the attachment that contains the SQL statements used to change data. This parameter is not supported.
      *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
-     * @description The execution mode of the ticket after the ticket is approved. Valid values:
+     * @description The ID of the database. The database can be a physical database or a logical database.
      *
-     *   **COMMITOR**: The data change is performed by the user who submits the ticket.
-     *   **AUTO**: The data change is automatically performed after the ticket is approved.
-     *   **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
+     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
+     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
      *
      * @example COMMITOR
      *
@@ -48,7 +50,10 @@ class param extends Model
     public $execMode;
 
     /**
-     * @description The SQL statements that you want to execute to change data.
+     * @description The format of the SQL statements used to roll back the data change. Valid values:
+     *
+     *   **TEXT**: text
+     *   **ATTACHMENT**: attachment. This value is not supported.
      *
      * @example delete from base_user where 1 = 1;
      *
@@ -57,7 +62,7 @@ class param extends Model
     public $execSQL;
 
     /**
-     * @description The key of the attachment that contains the SQL statements used to roll back the data change.
+     * @description The error message returned if the request fails.
      *
      * @example test_rollback.sql
      *
@@ -66,7 +71,7 @@ class param extends Model
     public $rollbackAttachmentName;
 
     /**
-     * @description The SQL statements used to roll back the data change.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example empty
      *
@@ -75,10 +80,7 @@ class param extends Model
     public $rollbackSQL;
 
     /**
-     * @description The format of the SQL statements used to roll back the data change. Valid values:
-     *
-     *   **TEXT**: text
-     *   **ATTACHMENT**: attachment. This value is not supported.
+     * @description The databases in which you want to change data.
      *
      * @example TEXT
      *
@@ -87,10 +89,7 @@ class param extends Model
     public $rollbackSqlType;
 
     /**
-     * @description The format of the SQL statements used to change data. Valid values:
-     *
-     *   **TEXT**: text
-     *   **ATTACHMENT**: attachment. This value is not supported.
+     * @description The operation that you want to perform. Set the value to CreateFreeLockCorrectOrder.
      *
      * @example TEXT
      *

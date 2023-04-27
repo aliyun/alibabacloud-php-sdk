@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListLogicDatabasesRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
      * @example 1
      *
      * @var int
@@ -18,8 +16,6 @@ class ListLogicDatabasesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
      * @example 50
      *
      * @var int
@@ -27,10 +23,6 @@ class ListLogicDatabasesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
-     *
-     * @example 3422
-     *
      * @var int
      */
     public $tid;

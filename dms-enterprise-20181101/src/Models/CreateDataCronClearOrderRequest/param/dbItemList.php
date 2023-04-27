@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     * @description The type of time granularity. If the ColumnName parameter specifies a field of a time type, this parameter is required. Valid values:
+     *
+     *   **MILLISECONDS**: milliseconds
+     *   **SECONDS**: seconds
      *
      * @example 1234
      *
@@ -18,10 +21,7 @@ class dbItemList extends Model
     public $dbId;
 
     /**
-     * @description Indicates whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is not a logical database.
+     * @description The tables for which you want to clear historical data.
      *
      * @example false
      *

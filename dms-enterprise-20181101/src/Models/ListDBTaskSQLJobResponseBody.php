@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobResponseBody extends Model
 {
     /**
-     * @description The list of the SQL tasks.
-     *
      * @var DBTaskSQLJobList[]
      */
     public $DBTaskSQLJobList;
 
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +22,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,8 +29,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example F6C47680-8D2D-43A4-8902-F2740D71A398
      *
      * @var string
@@ -44,8 +36,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool
@@ -53,8 +43,6 @@ class ListDBTaskSQLJobResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of the SQL tasks.
-     *
      * @example 1
      *
      * @var int

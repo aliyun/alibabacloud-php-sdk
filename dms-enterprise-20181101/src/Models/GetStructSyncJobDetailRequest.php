@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetStructSyncJobDetailRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The total number of tables.
      *
      * @example 4324321
      *
@@ -18,9 +18,8 @@ class GetStructSyncJobDetailRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The error message that is returned.
      *
-     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](~~181330~~).
      * @example 1
      *
      * @var int

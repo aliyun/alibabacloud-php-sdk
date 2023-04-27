@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class checkResultStatus extends Model
 {
     /**
+     * @description The result of the SQL status check.
+     *
      * @var checkStatusResult
      */
     public $checkStatusResult;
 
     /**
+     * @description The number of SQL statements that were reviewed.
+     *
      * @example 10
      *
      * @var int
@@ -23,11 +27,15 @@ class checkResultStatus extends Model
     public $checkedCount;
 
     /**
+     * @description The optimization suggestion for SQL statements.
+     *
      * @var SQLReviewResult
      */
     public $SQLReviewResult;
 
     /**
+     * @description The total number of SQL statements.
+     *
      * @example 10
      *
      * @var int

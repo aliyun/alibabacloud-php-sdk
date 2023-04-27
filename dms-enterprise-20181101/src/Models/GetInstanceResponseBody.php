@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class GetInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message that is returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,14 +24,14 @@ class GetInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The details of the database instance.
+     * @description The ID of the region in which the database instance resides.
      *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The ID of the request.
+     * @description The details of the database instance.
      *
      * @example F6C80B69-3203-56AC-8021-18BA72A6F4E1
      *
@@ -44,10 +40,6 @@ class GetInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
      * @example true
      *
      * @var bool

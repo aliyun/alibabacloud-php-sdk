@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetDBTopologyRequest extends Model
 {
     /**
-     * @description The ID of the logical database.
-     *
-     * > You can call the [ListLogicDatabases](~~141874~~) operation to query the ID of the logical database.
      * @example 134325
      *
      * @var int
@@ -19,9 +16,6 @@ class GetDBTopologyRequest extends Model
     public $logicDbId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 43215
      *
      * @var int

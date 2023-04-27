@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BuyPayAsYouGoOrderRequest extends Model
 {
     /**
-     * @description The type of the resource that you want to purchase.
+     * @description The number of database instances that you want to use DMS to manage.
      *
-     *   **VersionType**: DMS that supports control modes
-     *   **SensitiveDataProtection**: DMS that supports sensitive data protection
-     *
+     * > : A quota can be used for only one database instance.
      * @example SensitiveDataProtection
      *
      * @var string
@@ -21,9 +19,11 @@ class BuyPayAsYouGoOrderRequest extends Model
     public $commodityType;
 
     /**
-     * @description The number of database instances that you want to use DMS to manage.
+     * @description The control mode of DMS. Valid values:
      *
-     * > A quota can be used for only one database instance.
+     *   **stand**: Stable Change
+     *   **safety**: Security Collaboration
+     *
      * @example 7
      *
      * @var int
@@ -31,9 +31,11 @@ class BuyPayAsYouGoOrderRequest extends Model
     public $insNum;
 
     /**
-     * @description The ID of the tenant.
+     * @description The type of the resource that you want to purchase.
      *
-     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     *   **VersionType**: DMS that supports control modes
+     *   **SensitiveDataProtection**: DMS that supports sensitive data protection
+     *
      * @example 3***
      *
      * @var int
@@ -41,10 +43,7 @@ class BuyPayAsYouGoOrderRequest extends Model
     public $tid;
 
     /**
-     * @description The control mode of DMS. Valid values:
-     *
-     *   **stand**: Stable Change
-     *   **safety**: Security Collaboration
+     * @description The error code returned if the request failed.
      *
      * @example stand
      *

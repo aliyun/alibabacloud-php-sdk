@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class OfflineTaskFlowResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class OfflineTaskFlowResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,7 +23,7 @@ class OfflineTaskFlowResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **OfflineTaskFlow**.
      *
      * @example A8FE12AA-300D-5FDF-806F-C2CB99161F32
      *
@@ -36,11 +32,6 @@ class OfflineTaskFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

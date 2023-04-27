@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportDownloadURLRequest extends Model
 {
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The details about the download URL of the file that records the export results for the ticket.
      *
      * @example 546****
      *

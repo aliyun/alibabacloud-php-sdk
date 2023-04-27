@@ -17,7 +17,7 @@ class ListDesensitizationRuleResponseBody extends Model
     public $desensitizationRuleList;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The algorithm used for masking.
      *
      * @example UnknownError
      *
@@ -26,8 +26,9 @@ class ListDesensitizationRuleResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](~~181330~~).
      * @example UnknownError
      *
      * @var string
@@ -35,7 +36,7 @@ class ListDesensitizationRuleResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the user who last modified the masking rule.
      *
      * @example E76DD2E7-EBAC-5724-B163-19AAC233F8F2
      *
@@ -44,10 +45,7 @@ class ListDesensitizationRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description The number of times that the masking was used.
      *
      * @example true
      *
@@ -56,7 +54,7 @@ class ListDesensitizationRuleResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries returned. By default, this parameter is not returned.
+     * @description The number of entries to return on each page. The maximum value is 100.
      *
      * @example 1
      *

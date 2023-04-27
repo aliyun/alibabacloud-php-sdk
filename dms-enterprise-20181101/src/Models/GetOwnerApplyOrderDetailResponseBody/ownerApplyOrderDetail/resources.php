@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description Indicates whether the database is a logical database. Valid values:
-     *
-     *   **true**: The instance is a logical database.
-     *   **false**: The instance is not a logical database.
-     *
      * @example true
      *
      * @var bool
@@ -22,15 +17,11 @@ class resources extends Model
     public $logic;
 
     /**
-     * @description The details of the resource.
-     *
      * @var resourceDetail
      */
     public $resourceDetail;
 
     /**
-     * @description The ID of the resource.
-     *
      * @example 12345
      *
      * @var string

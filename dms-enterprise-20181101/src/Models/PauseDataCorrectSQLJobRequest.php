@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PauseDataCorrectSQLJobRequest extends Model
 {
     /**
-     * @description The ID of the SQL task. You can call the [GetDataCorrectTaskDetail](~~208481~~) and [ListDBTaskSQLJob](~~207049~~) operations to obtain the value of this parameter.
-     *
-     * >  If the Type parameter is set to SINGLE, you must pass the value of the JobId parameter to confirm the ID of the SQL task that you want to rerun.
      * @example 43253
      *
      * @var int
@@ -19,7 +16,7 @@ class PauseDataCorrectSQLJobRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the data change ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the data change ticket.
+     * @description The ID of the request.
      *
      * @example 43253
      *
@@ -28,8 +25,6 @@ class PauseDataCorrectSQLJobRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
-     *
      * @example 4325
      *
      * @var int
@@ -37,10 +32,7 @@ class PauseDataCorrectSQLJobRequest extends Model
     public $tid;
 
     /**
-     * @description The type of the pause operation. Valid values:
-     *
-     *   ALL: pauses all SQL tasks.
-     *   SINGLE: pauses a single SQL task.
+     * @description The operation that you want to perform. Set the value to **PauseDataCorrectSQLJob**.
      *
      * @example SINGLE
      *

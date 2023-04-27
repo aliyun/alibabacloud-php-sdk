@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PauseDataCorrectSQLJobResponseBody extends Model
 {
     /**
-     * @description The error code returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,8 +23,6 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 335C5BC8-490C-56EF-BDDE-94A4B53FEB72
      *
      * @var string
@@ -36,11 +30,6 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
-     *
      * @example true
      *
      * @var bool

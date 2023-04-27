@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class desensitizationRuleList extends Model
 {
     /**
-     * @description The parameter.
+     * @description The type of the masking algorithm.
      *
      * @example {paramName: salt, paramValue: 1}
      *
@@ -18,7 +18,7 @@ class desensitizationRuleList extends Model
     public $funcParams;
 
     /**
-     * @description The example.
+     * @description The algorithm type.
      *
      * @example [{paramName: testStr, paramValue: 1}]
      *
@@ -27,7 +27,7 @@ class desensitizationRuleList extends Model
     public $funcSample;
 
     /**
-     * @description The algorithm type.
+     * @description The algorithm used for masking.
      *
      * @example MD5
      *
@@ -36,7 +36,7 @@ class desensitizationRuleList extends Model
     public $functionType;
 
     /**
-     * @description The ID of the user who last modified the masking rule.
+     * @description The ID of the request.
      *
      * @example 2
      *
@@ -45,15 +45,11 @@ class desensitizationRuleList extends Model
     public $lastModifierId;
 
     /**
-     * @description The name of the user who last modified the masking rule.
-     *
      * @var string
      */
     public $lastModifierName;
 
     /**
-     * @description The number of times that the masking was used.
-     *
      * @example 1
      *
      * @var int
@@ -61,15 +57,13 @@ class desensitizationRuleList extends Model
     public $referenceCount;
 
     /**
-     * @description The description of the rule.
+     * @description The ID of the user who last modified the masking rule.
      *
      * @var string
      */
     public $ruleDesc;
 
     /**
-     * @description The ID of the masking rule.
-     *
      * @example 23
      *
      * @var int
@@ -77,14 +71,14 @@ class desensitizationRuleList extends Model
     public $ruleId;
 
     /**
-     * @description The name of the masking rule.
+     * @description The error message returned if the request failed.
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The algorithm used for masking.
+     * @description The parameter.
      *
      * @example HASH
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ApproveOrderResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example UnknownError
      *
@@ -18,7 +21,7 @@ class ApproveOrderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error code returned.
      *
      * @example UnknownError
      *
@@ -27,7 +30,7 @@ class ApproveOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The error message returned.
      *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *
@@ -36,11 +39,6 @@ class ApproveOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

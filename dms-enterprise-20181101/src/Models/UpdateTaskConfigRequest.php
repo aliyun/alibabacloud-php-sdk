@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskConfigRequest extends Model
 {
     /**
-     * @description The advanced configuration for the node. The value of this parameter must be a JSON string.
-     *
      * @example { "rerun":{ "rerunEnable":true,  "rerunCount":1,   "rerunInterval":10 } }
      *
      * @var string
@@ -18,8 +16,6 @@ class UpdateTaskConfigRequest extends Model
     public $nodeConfig;
 
     /**
-     * @description The ID of the task node. You can call the [GetTaskInstanceRelation](~~424711~~) operation to query the node ID.
-     *
      * @example 43****
      *
      * @var string
@@ -27,8 +23,6 @@ class UpdateTaskConfigRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
-     *
      * @example 3***
      *
      * @var int

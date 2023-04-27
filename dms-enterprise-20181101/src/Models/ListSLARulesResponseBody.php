@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListSLARulesResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class ListSLARulesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,8 +24,6 @@ class ListSLARulesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
-     *
      * @example 3D1A59F4-EB2B-5D24-80A5-90C446A00DE2
      *
      * @var string
@@ -37,18 +31,11 @@ class ListSLARulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of SLA rules.
-     *
      * @var SLARuleList
      */
     public $SLARuleList;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

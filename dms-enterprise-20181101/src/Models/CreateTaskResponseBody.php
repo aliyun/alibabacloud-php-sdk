@@ -18,7 +18,7 @@ class CreateTaskResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned if the request failed.
      *
      * @example InvalidParameterValid
      *
@@ -27,7 +27,7 @@ class CreateTaskResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the task node returned if the node is created.
+     * @description The ID of the task node returned when the task was created.
      *
      * @example 3***
      *
@@ -47,8 +47,8 @@ class CreateTaskResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

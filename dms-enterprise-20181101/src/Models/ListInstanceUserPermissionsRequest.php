@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceUserPermissionsRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [ListInstances](~~141936~~) or [GetInstance](~~141567~~) operation to query the ID of the instance.
+     * @description The user who grants the permissions.
      *
      * @example 174****
      *
@@ -18,7 +18,7 @@ class ListInstanceUserPermissionsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the instance.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListInstanceUserPermissionsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The time when the permissions expire.
      *
      * @example 100
      *
@@ -36,9 +36,9 @@ class ListInstanceUserPermissionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant.
+     * @description The nickname of the user. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query the nickname of the user.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * >  The value of the NickName parameter is that of the UserName parameter.
      * @example 3***
      *
      * @var int
@@ -46,9 +46,8 @@ class ListInstanceUserPermissionsRequest extends Model
     public $tid;
 
     /**
-     * @description The nickname of the user. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query the nickname of the user.
+     * @description The error code.
      *
-     * >  The value of the NickName parameter is that of the UserName parameter.
      * @example test_nick_name
      *
      * @var string

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListEffectiveOrdersResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -19,8 +17,6 @@ class ListEffectiveOrdersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -28,15 +24,11 @@ class ListEffectiveOrdersResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The information about orders.
-     *
      * @var orderSummary[]
      */
     public $orderSummary;
 
     /**
-     * @description The ID of the request.
-     *
      * @example A8FE12AA-300D-5FDF-806F-C2CB99161F32
      *
      * @var string
@@ -44,11 +36,6 @@ class ListEffectiveOrdersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

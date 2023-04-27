@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DisableUserResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
      * @example 403
      *
      * @var string
@@ -18,8 +16,6 @@ class DisableUserResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example The specified user not exists.
      *
      * @var string
@@ -27,7 +23,7 @@ class DisableUserResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description DisableUser
      *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
@@ -36,9 +32,6 @@ class DisableUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     * - false: The request fails.
      * @example true
      *
      * @var bool

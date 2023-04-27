@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class orderDetail extends Model
 {
     /**
-     * @description The number of affected rows that is obtained by the precheck.
-     *
      * @example 100
      *
      * @var int
@@ -18,8 +16,6 @@ class orderDetail extends Model
     public $actualAffectRows;
 
     /**
-     * @description The name of the attachment that contains the SQL statements used to change data.
-     *
      * @example xxx
      *
      * @var string
@@ -27,8 +23,6 @@ class orderDetail extends Model
     public $attachmentName;
 
     /**
-     * @description The category of the reason for the data change.
-     *
      * @example test
      *
      * @var string
@@ -36,8 +30,6 @@ class orderDetail extends Model
     public $classify;
 
     /**
-     * @description The estimated number of affected rows.
-     *
      * @example 100
      *
      * @var int
@@ -45,8 +37,6 @@ class orderDetail extends Model
     public $estimateAffectRows;
 
     /**
-     * @description The executed SQL statements.
-     *
      * @example update t1 set name = \"xxx\" where id <= 100
      *
      * @var string
@@ -54,10 +44,6 @@ class orderDetail extends Model
     public $exeSQL;
 
     /**
-     * @description Indicates whether the precheck result is ignored. Valid values:
-     *
-     * - **true**: The precheck result is ignored.
-     * - **false**: The precheck result is not ignored.
      * @example false
      *
      * @var bool
@@ -65,8 +51,6 @@ class orderDetail extends Model
     public $ignoreAffectRows;
 
     /**
-     * @description The reason why the precheck result is ignored.
-     *
      * @example test
      *
      * @var string
@@ -74,8 +58,6 @@ class orderDetail extends Model
     public $ignoreAffectRowsReason;
 
     /**
-     * @description The name of the attachment that contains the SQL statements used to roll back the data change.
-     *
      * @example test
      *
      * @var string
@@ -83,8 +65,6 @@ class orderDetail extends Model
     public $rbAttachmentName;
 
     /**
-     * @description The SQL statements used to roll back the data change.
-     *
      * @example empty
      *
      * @var string
@@ -92,10 +72,6 @@ class orderDetail extends Model
     public $rbSQL;
 
     /**
-     * @description The format of the SQL statements used to roll back the data change. Valid values:
-     *
-     * - **TEXT**: text
-     * - **ATTACHMENT**: attachment
      * @example text
      *
      * @var string
@@ -103,10 +79,6 @@ class orderDetail extends Model
     public $rbSQLType;
 
     /**
-     * @description The format of the SQL statements used to change data. Valid values:
-     *
-     * - **TEXT**: text
-     * - **ATTACHMENT**: attachment
      * @example text
      *
      * @var string

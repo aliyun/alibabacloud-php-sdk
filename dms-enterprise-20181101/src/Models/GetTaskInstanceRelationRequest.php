@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTaskInstanceRelationRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to obtain the execution record ID.
      *
      * @example 7***
      *
@@ -18,7 +18,7 @@ class GetTaskInstanceRelationRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to obtain the execution record ID.
+     * @description The business time of the node.
      *
      * @example 47****
      *

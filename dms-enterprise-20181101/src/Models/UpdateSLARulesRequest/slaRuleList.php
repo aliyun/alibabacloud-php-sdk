@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slaRuleList extends Model
 {
     /**
-     * @description The ID of the task flow.
+     * @description The error code returned if the request failed.
      *
      * @example 15***
      *
@@ -18,7 +18,7 @@ class slaRuleList extends Model
     public $dagId;
 
     /**
-     * @description The timeout period. Unit: minutes.
+     * @description Updates the service level agreement (SLA) timeout reminder for a task flow.
      *
      * @example 1080
      *
@@ -27,7 +27,7 @@ class slaRuleList extends Model
     public $intervalMinutes;
 
     /**
-     * @description The ID of the task node.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example 0
      *
