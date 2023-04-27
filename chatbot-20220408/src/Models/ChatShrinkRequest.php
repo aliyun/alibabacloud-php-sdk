@@ -40,6 +40,11 @@ class ChatShrinkRequest extends Model
     public $perspectiveShrink;
 
     /**
+     * @var bool
+     */
+    public $sandBox;
+
+    /**
      * @example custumer_123456
      *
      * @var string
@@ -75,6 +80,7 @@ class ChatShrinkRequest extends Model
         'intentName'        => 'IntentName',
         'knowledgeId'       => 'KnowledgeId',
         'perspectiveShrink' => 'Perspective',
+        'sandBox'           => 'SandBox',
         'senderId'          => 'SenderId',
         'senderNick'        => 'SenderNick',
         'sessionId'         => 'SessionId',
@@ -103,6 +109,9 @@ class ChatShrinkRequest extends Model
         }
         if (null !== $this->perspectiveShrink) {
             $res['Perspective'] = $this->perspectiveShrink;
+        }
+        if (null !== $this->sandBox) {
+            $res['SandBox'] = $this->sandBox;
         }
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
@@ -145,6 +154,9 @@ class ChatShrinkRequest extends Model
         }
         if (isset($map['Perspective'])) {
             $model->perspectiveShrink = $map['Perspective'];
+        }
+        if (isset($map['SandBox'])) {
+            $model->sandBox = $map['SandBox'];
         }
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];
