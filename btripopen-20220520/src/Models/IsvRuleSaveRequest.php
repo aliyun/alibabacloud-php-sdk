@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class IsvRuleSaveRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bookType;

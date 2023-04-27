@@ -38,8 +38,6 @@ class TicketChangingFlightListRequest extends Model
     public $disOrderId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isVoluntary;

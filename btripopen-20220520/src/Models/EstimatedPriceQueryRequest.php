@@ -47,6 +47,8 @@ class EstimatedPriceQueryRequest extends Model
     public $startTime;
 
     /**
+     * @example btrip123
+     *
      * @var string
      */
     public $subCorpId;

@@ -40,6 +40,10 @@ class CorpTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 是否成功
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

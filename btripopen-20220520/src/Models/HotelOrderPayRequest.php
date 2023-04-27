@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderPayRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $btripOrderId;
+
+    /**
      * @example 23918781
      *
      * @var string
@@ -21,13 +26,6 @@ class HotelOrderPayRequest extends Model
      * @var int
      */
     public $companyPayFee;
-
-    /**
-     * @example dis123
-     *
-     * @var string
-     */
-    public $disOrderId;
 
     /**
      * @example 100
@@ -57,9 +55,9 @@ class HotelOrderPayRequest extends Model
      */
     public $totalPrice;
     protected $_name = [
+        'btripOrderId'    => 'btrip_order_id',
         'btripUserId'     => 'btrip_user_id',
         'companyPayFee'   => 'company_pay_fee',
-        'disOrderId'      => 'dis_order_id',
         'personPayFee'    => 'person_pay_fee',
         'thirdPayAccount' => 'third_pay_account',
         'thirdTradeNo'    => 'third_trade_no',
@@ -73,14 +71,14 @@ class HotelOrderPayRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->btripOrderId) {
+            $res['btrip_order_id'] = $this->btripOrderId;
+        }
         if (null !== $this->btripUserId) {
             $res['btrip_user_id'] = $this->btripUserId;
         }
         if (null !== $this->companyPayFee) {
             $res['company_pay_fee'] = $this->companyPayFee;
-        }
-        if (null !== $this->disOrderId) {
-            $res['dis_order_id'] = $this->disOrderId;
         }
         if (null !== $this->personPayFee) {
             $res['person_pay_fee'] = $this->personPayFee;
@@ -106,14 +104,14 @@ class HotelOrderPayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['btrip_order_id'])) {
+            $model->btripOrderId = $map['btrip_order_id'];
+        }
         if (isset($map['btrip_user_id'])) {
             $model->btripUserId = $map['btrip_user_id'];
         }
         if (isset($map['company_pay_fee'])) {
             $model->companyPayFee = $map['company_pay_fee'];
-        }
-        if (isset($map['dis_order_id'])) {
-            $model->disOrderId = $map['dis_order_id'];
         }
         if (isset($map['person_pay_fee'])) {
             $model->personPayFee = $map['person_pay_fee'];

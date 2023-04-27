@@ -16,6 +16,10 @@ class module extends Model
     public $hotelFeeDetail;
 
     /**
+     * @description 酒店费用总额，单位为元
+     *
+     * @example 500
+     *
      * @var int
      */
     public $totalHotelFee;

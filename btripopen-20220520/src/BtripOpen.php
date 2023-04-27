@@ -4633,14 +4633,14 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->btripOrderId)) {
+            $body['btrip_order_id'] = $request->btripOrderId;
+        }
         if (!Utils::isUnset($request->btripUserId)) {
             $body['btrip_user_id'] = $request->btripUserId;
         }
         if (!Utils::isUnset($request->companyPayFee)) {
             $body['company_pay_fee'] = $request->companyPayFee;
-        }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
         }
         if (!Utils::isUnset($request->personPayFee)) {
             $body['person_pay_fee'] = $request->personPayFee;

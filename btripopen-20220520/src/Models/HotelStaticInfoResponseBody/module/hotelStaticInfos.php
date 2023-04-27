@@ -136,8 +136,6 @@ class hotelStaticInfos extends Model
     public $hotelfax;
 
     /**
-     * @example //img.alicdn.com/imgextra/i4/6000000006401/O1CN01lF6MGK1x9hzQFGg9r_!!6000000006401-0-hotel.jpg,//img.alicdn.com/imgextra/i1/6000000000360/O1CN01LIliyt1EWvH6STZYo_!!6000000000360-0-hotel.jpg
-     *
      * @var string
      */
     public $hotelpics;

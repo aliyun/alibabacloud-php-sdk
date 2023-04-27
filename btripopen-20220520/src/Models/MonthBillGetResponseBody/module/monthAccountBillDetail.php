@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class monthAccountBillDetail extends Model
 {
     /**
+     * @description 用车金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $carAmount;
 
     /**
+     * @description 违约金金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $damageAmount;
 
     /**
+     * @description 机票金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $flightAmount;
 
     /**
+     * @description 福豆金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $fuPoint;
 
     /**
+     * @description 酒店金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $hotelAmount;
 
     /**
+     * @description 国际机票金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $ieFlightAmount;
 
     /**
+     * @description 账期日：YYYYMMDD
+     *
+     * @example 20200501
+     *
      * @var int
      */
     public $mailBillDate;
 
     /**
+     * @description 服务费金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $serviceAmount;
 
     /**
+     * @description 火车票金额（单位：元）
+     *
+     * @example xx.xx
+     *
      * @var float
      */
     public $trainAmount;

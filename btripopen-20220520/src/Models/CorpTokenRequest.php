@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CorpTokenRequest extends Model
 {
     /**
+     * @example Z2FyYmE1YTZjMDAwTixJU1M5LnZlLXtMO3FKbiYqJSM
+     *
      * @var string
      */
     public $appSecret;

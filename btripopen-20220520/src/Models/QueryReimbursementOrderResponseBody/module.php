@@ -86,8 +86,6 @@ class module extends Model
     public $remark;
 
     /**
-     * @example wait_commit
-     *
      * @var string
      */
     public $status;

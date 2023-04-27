@@ -9,61 +9,103 @@ use AlibabaCloud\Tea\Model;
 class flights extends Model
 {
     /**
+     * @description 航班至
+     *
      * @var string
      */
     public $arrivalStation;
 
     /**
+     * @description 座位等级
+     *
+     * @example M
+     *
      * @var string
      */
     public $cabinClass;
 
     /**
+     * @description 承运人
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @description 航班从
+     *
      * @var string
      */
     public $departureStation;
 
     /**
+     * @description 日期
+     *
+     * @example 2018-11-18
+     *
      * @var string
      */
     public $flightDate;
 
     /**
+     * @description 航班号
+     *
+     * @example MU2271
+     *
      * @var string
      */
     public $flightNumber;
 
     /**
+     * @description 时间
+     *
+     * @example 18:25
+     *
      * @var string
      */
     public $flightTime;
 
     /**
+     * @description 免费行李
+     *
+     * @example 20K
+     *
      * @var string
      */
     public $freeBaggageAllowance;
 
     /**
+     * @description 行号
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description 客票级别
+     *
+     * @example M
+     *
      * @var string
      */
     public $seatClass;
 
     /**
+     * @description 客票生效日期
+     *
+     * @example 2023-01-01
+     *
      * @var string
      */
     public $validFromDate;
 
     /**
+     * @description 有效截止日期
+     *
+     * @example 2023-01-01
+     *
      * @var string
      */
     public $validToDate;

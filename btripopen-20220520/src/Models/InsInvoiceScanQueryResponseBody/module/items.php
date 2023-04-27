@@ -109,6 +109,11 @@ class items extends Model
     public $invoiceTitle;
 
     /**
+     * @var string
+     */
+    public $machineCode;
+
+    /**
      * @example 3137168772101111000
      *
      * @var int
@@ -237,6 +242,7 @@ class items extends Model
         'invoiceLocation'          => 'invoice_location',
         'invoiceNo'                => 'invoice_no',
         'invoiceTitle'             => 'invoice_title',
+        'machineCode'              => 'machine_code',
         'orderId'                  => 'order_id',
         'ossUrl'                   => 'oss_url',
         'passenger'                => 'passenger',
@@ -322,6 +328,9 @@ class items extends Model
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+        if (null !== $this->machineCode) {
+            $res['machine_code'] = $this->machineCode;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
@@ -451,6 +460,9 @@ class items extends Model
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+        if (isset($map['machine_code'])) {
+            $model->machineCode = $map['machine_code'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];

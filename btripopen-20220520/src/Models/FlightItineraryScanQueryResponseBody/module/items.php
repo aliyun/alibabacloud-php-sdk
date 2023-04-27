@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description 销售单位代号
+     *
+     * @example SIA25608336893
+     *
      * @var string
      */
     public $agentCode;
@@ -39,6 +43,8 @@ class items extends Model
     public $department;
 
     /**
+     * @description 机票行程明细
+     *
      * @var flights[]
      */
     public $flights;
@@ -51,6 +57,10 @@ class items extends Model
     public $fuelSurcharge;
 
     /**
+     * @description UK
+     *
+     * @example 30
+     *
      * @var string
      */
     public $id;
@@ -68,11 +78,17 @@ class items extends Model
     public $invoiceTitle;
 
     /**
+     * @description 填开单位
+     *
      * @var string
      */
     public $issueCompany;
 
     /**
+     * @description 填开日期
+     *
+     * @example 2019-02-28
+     *
      * @var string
      */
     public $issueDate;
@@ -109,6 +125,8 @@ class items extends Model
     public $project;
 
     /**
+     * @description 提示信息
+     *
      * @var string
      */
     public $promptMessage;
@@ -149,6 +167,10 @@ class items extends Model
     public $totalPrice;
 
     /**
+     * @description 验证码
+     *
+     * @example 9817
+     *
      * @var string
      */
     public $validationCode;

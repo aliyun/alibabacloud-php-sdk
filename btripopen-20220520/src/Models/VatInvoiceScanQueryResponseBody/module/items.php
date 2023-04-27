@@ -101,6 +101,11 @@ class items extends Model
     public $invoiceTypeDesc;
 
     /**
+     * @var string
+     */
+    public $machineCode;
+
+    /**
      * @example https://www.testurl.com
      *
      * @var string
@@ -210,6 +215,7 @@ class items extends Model
         'invoiceSubTaskId'         => 'invoice_sub_task_id',
         'invoiceType'              => 'invoice_type',
         'invoiceTypeDesc'          => 'invoice_type_desc',
+        'machineCode'              => 'machine_code',
         'ossUrl'                   => 'oss_url',
         'passwordArea'             => 'password_area',
         'purchaserBankAccountInfo' => 'purchaser_bank_account_info',
@@ -286,6 +292,9 @@ class items extends Model
         }
         if (null !== $this->invoiceTypeDesc) {
             $res['invoice_type_desc'] = $this->invoiceTypeDesc;
+        }
+        if (null !== $this->machineCode) {
+            $res['machine_code'] = $this->machineCode;
         }
         if (null !== $this->ossUrl) {
             $res['oss_url'] = $this->ossUrl;
@@ -400,6 +409,9 @@ class items extends Model
         }
         if (isset($map['invoice_type_desc'])) {
             $model->invoiceTypeDesc = $map['invoice_type_desc'];
+        }
+        if (isset($map['machine_code'])) {
+            $model->machineCode = $map['machine_code'];
         }
         if (isset($map['oss_url'])) {
             $model->ossUrl = $map['oss_url'];

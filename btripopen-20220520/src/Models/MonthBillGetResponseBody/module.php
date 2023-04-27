@@ -10,20 +10,18 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @example 2020-04-03
-     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description CorpMonthAccountBillFeeDetail
+     *
      * @var monthAccountBillDetail
      */
     public $monthAccountBillDetail;
 
     /**
-     * @example 2020-04-30
-     *
      * @var string
      */
     public $startDate;

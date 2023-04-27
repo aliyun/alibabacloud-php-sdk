@@ -46,11 +46,19 @@ class orderBaseInfo extends Model
     public $departName;
 
     /**
+     * @description 火车票超标审批id
+     *
+     * @example 1422113021033961000
+     *
      * @var string
      */
     public $exceedApplyId;
 
     /**
+     * @description 火车票超标审批三方id
+     *
+     * @example 2022113021030003600001715
+     *
      * @var string
      */
     public $exceedThirdPartApplyId;
