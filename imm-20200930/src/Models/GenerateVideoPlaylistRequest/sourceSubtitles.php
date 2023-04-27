@@ -16,8 +16,6 @@ class sourceSubtitles extends Model
     public $language;
 
     /**
-     * @example oss://imm-test/subtitle/eng.scc
-     *
      * @var string
      */
     public $URI;

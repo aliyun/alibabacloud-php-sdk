@@ -14,8 +14,6 @@ class QueryFigureClustersShrinkRequest extends Model
     public $createTimeRangeShrink;
 
     /**
-     * @example {"Bucket": "examplebucket"}
-     *
      * @var string
      */
     public $customLabels;
@@ -28,8 +26,6 @@ class QueryFigureClustersShrinkRequest extends Model
     public $datasetName;
 
     /**
-     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
-     *
      * @var int
      */
     public $maxResults;
@@ -66,6 +62,11 @@ class QueryFigureClustersShrinkRequest extends Model
      * @var string
      */
     public $updateTimeRangeShrink;
+
+    /**
+     * @var bool
+     */
+    public $withTotalCount;
     protected $_name = [
         'createTimeRangeShrink' => 'CreateTimeRange',
         'customLabels'          => 'CustomLabels',
@@ -76,6 +77,7 @@ class QueryFigureClustersShrinkRequest extends Model
         'projectName'           => 'ProjectName',
         'sort'                  => 'Sort',
         'updateTimeRangeShrink' => 'UpdateTimeRange',
+        'withTotalCount'        => 'WithTotalCount',
     ];
 
     public function validate()
@@ -111,6 +113,9 @@ class QueryFigureClustersShrinkRequest extends Model
         }
         if (null !== $this->updateTimeRangeShrink) {
             $res['UpdateTimeRange'] = $this->updateTimeRangeShrink;
+        }
+        if (null !== $this->withTotalCount) {
+            $res['WithTotalCount'] = $this->withTotalCount;
         }
 
         return $res;
@@ -150,6 +155,9 @@ class QueryFigureClustersShrinkRequest extends Model
         }
         if (isset($map['UpdateTimeRange'])) {
             $model->updateTimeRangeShrink = $map['UpdateTimeRange'];
+        }
+        if (isset($map['WithTotalCount'])) {
+            $model->withTotalCount = $map['WithTotalCount'];
         }
 
         return $model;

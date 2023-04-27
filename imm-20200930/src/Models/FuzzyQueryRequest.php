@@ -44,8 +44,6 @@ class FuzzyQueryRequest extends Model
     public $projectName;
 
     /**
-     * @example examplebucket
-     *
      * @var string
      */
     public $query;

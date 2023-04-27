@@ -5138,6 +5138,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->updateTimeRangeShrink)) {
             $query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
         }
+        if (!Utils::isUnset($request->withTotalCount)) {
+            $query['WithTotalCount'] = $request->withTotalCount;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

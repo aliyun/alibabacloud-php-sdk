@@ -21,8 +21,6 @@ class DetectImageFacesRequest extends Model
     public $projectName;
 
     /**
-     * @example oss://bucket1/object
-     *
      * @var string
      */
     public $sourceURI;

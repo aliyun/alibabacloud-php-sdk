@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerResponseBody extends Model
 {
     /**
-     * @example 50146
-     *
      * @var string
      */
     public $id;

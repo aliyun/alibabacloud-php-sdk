@@ -16,8 +16,6 @@ class dateOptions extends Model
     public $gapDays;
 
     /**
-     * @example 9999
-     *
      * @var int
      */
     public $maxDays;

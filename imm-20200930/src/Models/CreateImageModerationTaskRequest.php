@@ -28,6 +28,8 @@ class CreateImageModerationTaskRequest extends Model
     public $maxFrames;
 
     /**
+     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     *
      * @var Notification
      */
     public $notification;

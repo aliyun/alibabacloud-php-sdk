@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoPlaylistResponseBody extends Model
 {
     /**
+     * @description 转码文件列表。
+     *
      * @var audioPlaylist[]
      */
     public $audioPlaylist;
@@ -24,6 +26,8 @@ class GenerateVideoPlaylistResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 转码文件列表。
+     *
      * @var subtitlePlaylist[]
      */
     public $subtitlePlaylist;
@@ -43,6 +47,8 @@ class GenerateVideoPlaylistResponseBody extends Model
     public $URI;
 
     /**
+     * @description 转码文件列表。
+     *
      * @var videoPlaylist[]
      */
     public $videoPlaylist;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsResponseBody extends Model
 {
     /**
-     * @example 12345678:immtest01
-     *
      * @var string
      */
     public $nextToken;

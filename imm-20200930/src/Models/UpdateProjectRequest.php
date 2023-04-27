@@ -44,6 +44,8 @@ class UpdateProjectRequest extends Model
     public $datasetMaxTotalFileSize;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $description;
@@ -56,8 +58,6 @@ class UpdateProjectRequest extends Model
     public $projectMaxDatasetCount;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

@@ -21,8 +21,6 @@ class SimpleQueryShrinkRequest extends Model
     public $datasetName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;

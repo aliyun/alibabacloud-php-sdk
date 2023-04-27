@@ -16,15 +16,11 @@ class files extends Model
     public $message;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example oss://imm-test-co-cn-beijing/zqh/input/Image/indexImage/nn1.jpg
-     *
      * @var string
      */
     public $URI;

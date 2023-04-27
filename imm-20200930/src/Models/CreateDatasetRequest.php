@@ -51,13 +51,13 @@ class CreateDatasetRequest extends Model
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

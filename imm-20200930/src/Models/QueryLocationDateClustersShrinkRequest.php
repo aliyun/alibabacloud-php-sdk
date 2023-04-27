@@ -26,8 +26,6 @@ class QueryLocationDateClustersShrinkRequest extends Model
     public $customLabels;
 
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
@@ -48,8 +46,6 @@ class QueryLocationDateClustersShrinkRequest extends Model
     public $locationDateClusterStartTimeRangeShrink;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;
@@ -62,8 +58,6 @@ class QueryLocationDateClustersShrinkRequest extends Model
     public $nextToken;
 
     /**
-     * @example id1
-     *
      * @var string
      */
     public $objectId;
@@ -76,8 +70,6 @@ class QueryLocationDateClustersShrinkRequest extends Model
     public $order;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
@@ -90,8 +82,6 @@ class QueryLocationDateClustersShrinkRequest extends Model
     public $sort;
 
     /**
-     * @example title1
-     *
      * @var string
      */
     public $title;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileMetaRequest extends Model
 {
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

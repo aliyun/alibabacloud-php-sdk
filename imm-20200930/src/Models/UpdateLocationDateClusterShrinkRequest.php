@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateLocationDateClusterShrinkRequest extends Model
 {
     /**
-     * @example customid1
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @example {"UserScore": "5"}
-     *
      * @var string
      */
     public $customLabelsShrink;
 
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example id1
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example title1
-     *
      * @var string
      */
     public $title;

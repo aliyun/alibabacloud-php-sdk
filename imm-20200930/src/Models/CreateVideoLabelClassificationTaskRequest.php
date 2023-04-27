@@ -14,6 +14,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     *
      * @var Notification
      */
     public $notification;

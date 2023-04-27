@@ -44,20 +44,18 @@ class UpdateDatasetRequest extends Model
     public $datasetMaxTotalFileSize;
 
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example immtest
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

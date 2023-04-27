@@ -14,8 +14,6 @@ class QueryStoriesShrinkRequest extends Model
     public $createTimeRangeShrink;
 
     /**
-     * @example {"key": "val"}
-     *
      * @var string
      */
     public $customLabels;

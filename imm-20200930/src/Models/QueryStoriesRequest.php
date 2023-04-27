@@ -14,8 +14,6 @@ class QueryStoriesRequest extends Model
     public $createTimeRange;
 
     /**
-     * @example {"key": "val"}
-     *
      * @var string
      */
     public $customLabels;

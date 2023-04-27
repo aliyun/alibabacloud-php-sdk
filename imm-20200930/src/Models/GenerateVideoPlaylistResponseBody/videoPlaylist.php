@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class videoPlaylist extends Model
 {
     /**
+     * @description 转码生成的Token。用于LiveTranscoding访问的参数。
+     *
+     * @example affe0c6042f09722fec95a21b8b******
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @description 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+     *
+     * @example oss://imm-test/testcases/video.m3u8
+     *
      * @var string
      */
     public $URI;
