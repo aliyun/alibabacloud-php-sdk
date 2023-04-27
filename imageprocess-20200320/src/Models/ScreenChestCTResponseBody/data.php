@@ -6,7 +6,9 @@ namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBo
 
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\analyzeChestVessel;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\CACS;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\calcBMD;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\covid;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectLiverSteatosis;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectLymph;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectPdac;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
@@ -27,9 +29,19 @@ class data extends Model
     public $CACS;
 
     /**
+     * @var calcBMD
+     */
+    public $calcBMD;
+
+    /**
      * @var covid
      */
     public $covid;
+
+    /**
+     * @var detectLiverSteatosis
+     */
+    public $detectLiverSteatosis;
 
     /**
      * @var detectLymph
@@ -77,17 +89,19 @@ class data extends Model
      */
     public $URLList;
     protected $_name = [
-        'analyzeChestVessel' => 'AnalyzeChestVessel',
-        'CACS'               => 'CACS',
-        'covid'              => 'Covid',
-        'detectLymph'        => 'DetectLymph',
-        'detectPdac'         => 'DetectPdac',
-        'detectRibFracture'  => 'DetectRibFracture',
-        'errorMessage'       => 'ErrorMessage',
-        'lungNodule'         => 'LungNodule',
-        'nestedUrlList'      => 'NestedUrlList',
-        'screenEc'           => 'ScreenEc',
-        'URLList'            => 'URLList',
+        'analyzeChestVessel'   => 'AnalyzeChestVessel',
+        'CACS'                 => 'CACS',
+        'calcBMD'              => 'CalcBMD',
+        'covid'                => 'Covid',
+        'detectLiverSteatosis' => 'DetectLiverSteatosis',
+        'detectLymph'          => 'DetectLymph',
+        'detectPdac'           => 'DetectPdac',
+        'detectRibFracture'    => 'DetectRibFracture',
+        'errorMessage'         => 'ErrorMessage',
+        'lungNodule'           => 'LungNodule',
+        'nestedUrlList'        => 'NestedUrlList',
+        'screenEc'             => 'ScreenEc',
+        'URLList'              => 'URLList',
     ];
 
     public function validate()
@@ -103,8 +117,14 @@ class data extends Model
         if (null !== $this->CACS) {
             $res['CACS'] = null !== $this->CACS ? $this->CACS->toMap() : null;
         }
+        if (null !== $this->calcBMD) {
+            $res['CalcBMD'] = null !== $this->calcBMD ? $this->calcBMD->toMap() : null;
+        }
         if (null !== $this->covid) {
             $res['Covid'] = null !== $this->covid ? $this->covid->toMap() : null;
+        }
+        if (null !== $this->detectLiverSteatosis) {
+            $res['DetectLiverSteatosis'] = null !== $this->detectLiverSteatosis ? $this->detectLiverSteatosis->toMap() : null;
         }
         if (null !== $this->detectLymph) {
             $res['DetectLymph'] = null !== $this->detectLymph ? $this->detectLymph->toMap() : null;
@@ -148,8 +168,14 @@ class data extends Model
         if (isset($map['CACS'])) {
             $model->CACS = CACS::fromMap($map['CACS']);
         }
+        if (isset($map['CalcBMD'])) {
+            $model->calcBMD = calcBMD::fromMap($map['CalcBMD']);
+        }
         if (isset($map['Covid'])) {
             $model->covid = covid::fromMap($map['Covid']);
+        }
+        if (isset($map['DetectLiverSteatosis'])) {
+            $model->detectLiverSteatosis = detectLiverSteatosis::fromMap($map['DetectLiverSteatosis']);
         }
         if (isset($map['DetectLymph'])) {
             $model->detectLymph = detectLymph::fromMap($map['DetectLymph']);

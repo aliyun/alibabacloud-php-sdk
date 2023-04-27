@@ -19,6 +19,8 @@ class detections extends Model
     public $coordinates;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $fracSOPInstanceUID;

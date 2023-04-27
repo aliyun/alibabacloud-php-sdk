@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CalcCACSAdvanceRequest extends Model
 {
     /**
-     * @example NIFTI
-     *
      * @var string
      */
     public $dataFormat;
 
     /**
-     * @example HTTP_NII
-     *
      * @var string
      */
     public $dataSourceType;

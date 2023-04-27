@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example leg
+     *
      * @var string
      */
     public $bodyPart;
 
     /**
+     * @example 90.9812
+     *
      * @var float
      */
     public $imageQuality;
 
     /**
+     * @example skin_lesion
+     *
      * @var string
      */
     public $imageType;
@@ -29,6 +35,8 @@ class data extends Model
     public $results;
 
     /**
+     * @example "psoriasis": 0.998,                     "eczema_dermatitis": 0.0011,                     "lupus_erythematosus": 0.0004
+     *
      * @var mixed[]
      */
     public $resultsEnglish;

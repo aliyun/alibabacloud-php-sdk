@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DetectRibFractureAdvanceRequest extends Model
 {
     /**
-     * @example NIFTI
-     *
      * @var string
      */
     public $dataFormat;
@@ -29,8 +27,6 @@ class DetectRibFractureAdvanceRequest extends Model
     public $orgName;
 
     /**
-     * @example HTTP_NII
-     *
      * @var string
      */
     public $sourceType;

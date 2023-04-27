@@ -82,11 +82,19 @@ class elements extends Model
     public $minorAxis;
 
     /**
+     * @description 结节最大径位置所在帧的ID标识。
+     *
+     * @example 1.3.6.1.4.1.14519.5.2.1.6279.6001.468208655866166788627471660948
+     *
      * @var string
      */
     public $recistSOPInstanceUID;
 
     /**
+     * @description 结节为恶性的置信度。取值范围0~1。
+     *
+     * @example 0.173
+     *
      * @var float
      */
     public $risk;
