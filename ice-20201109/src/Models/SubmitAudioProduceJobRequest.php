@@ -30,7 +30,7 @@ class SubmitAudioProduceJobRequest extends Model
     public $inputConfig;
 
     /**
-     * @example {"bucket":"bucket","object":"object"}
+     * @example {"bucket":"bucket","object":"objeck"}
      *
      * @var string
      */

@@ -52,6 +52,8 @@ class workflowTask extends Model
     public $taskInput;
 
     /**
+     * @example {"NotifyAddress":"http://xx.xx.xxx"}
+     *
      * @var string
      */
     public $userData;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class tracks extends Model
 {
     /**
+     * @example 468.0;67.0;615.0;267.0
+     *
      * @var string
      */
     public $position;
 
     /**
+     * @example 50.2
+     *
      * @var float
      */
     public $size;
 
     /**
+     * @example 1.4
+     *
      * @var float
      */
     public $timestamp;

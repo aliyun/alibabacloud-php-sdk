@@ -21,11 +21,16 @@ class SubmitMediaProducingJobRequest extends Model
     public $clipsParam;
 
     /**
-     * @example { 	"AutoRegisterInputVodMedia": "true", 	"OutputWebmTransparentChannel": "true" }
-     *
      * @var string
      */
     public $editingProduceConfig;
+
+    /**
+     * @example {
+     * }
+     * @var string
+     */
+    public $mediaMetadata;
 
     /**
      * @example {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
@@ -82,6 +87,7 @@ class SubmitMediaProducingJobRequest extends Model
         'clientToken'          => 'ClientToken',
         'clipsParam'           => 'ClipsParam',
         'editingProduceConfig' => 'EditingProduceConfig',
+        'mediaMetadata'        => 'MediaMetadata',
         'outputMediaConfig'    => 'OutputMediaConfig',
         'outputMediaTarget'    => 'OutputMediaTarget',
         'projectId'            => 'ProjectId',
@@ -107,6 +113,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (null !== $this->editingProduceConfig) {
             $res['EditingProduceConfig'] = $this->editingProduceConfig;
+        }
+        if (null !== $this->mediaMetadata) {
+            $res['MediaMetadata'] = $this->mediaMetadata;
         }
         if (null !== $this->outputMediaConfig) {
             $res['OutputMediaConfig'] = $this->outputMediaConfig;
@@ -152,6 +161,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (isset($map['EditingProduceConfig'])) {
             $model->editingProduceConfig = $map['EditingProduceConfig'];
+        }
+        if (isset($map['MediaMetadata'])) {
+            $model->mediaMetadata = $map['MediaMetadata'];
         }
         if (isset($map['OutputMediaConfig'])) {
             $model->outputMediaConfig = $map['OutputMediaConfig'];

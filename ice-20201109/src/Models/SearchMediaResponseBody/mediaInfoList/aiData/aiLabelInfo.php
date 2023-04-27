@@ -15,11 +15,15 @@ class aiLabelInfo extends Model
     public $category;
 
     /**
+     * @example 5FE19530C7A422197535FE74F5DB2B9F
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @example 10310250338
+     *
      * @var string
      */
     public $labelId;
@@ -40,6 +44,8 @@ class aiLabelInfo extends Model
     public $occurrences;
 
     /**
+     * @example vision
+     *
      * @var string
      */
     public $source;

@@ -8279,6 +8279,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->editingProduceConfig)) {
             $query['EditingProduceConfig'] = $request->editingProduceConfig;
         }
+        if (!Utils::isUnset($request->mediaMetadata)) {
+            $query['MediaMetadata'] = $request->mediaMetadata;
+        }
         if (!Utils::isUnset($request->outputMediaConfig)) {
             $query['OutputMediaConfig'] = $request->outputMediaConfig;
         }

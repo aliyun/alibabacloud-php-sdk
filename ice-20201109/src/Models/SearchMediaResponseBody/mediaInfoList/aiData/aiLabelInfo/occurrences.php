@@ -15,6 +15,8 @@ class occurrences extends Model
     public $content;
 
     /**
+     * @example 10310250338
+     *
      * @var string
      */
     public $finegrainId;
@@ -25,26 +27,36 @@ class occurrences extends Model
     public $finegrainName;
 
     /**
+     * @example 1.4
+     *
      * @var float
      */
     public $from;
 
     /**
+     * @example 99C64F6287
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example 0.75287705
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @example 85010D1
+     *
      * @var string
      */
     public $tableBatchSeqId;
 
     /**
+     * @example 2.5
+     *
      * @var float
      */
     public $to;
@@ -55,6 +67,8 @@ class occurrences extends Model
     public $tracks;
 
     /**
+     * @example 5FE19530C7A422197535FE74F5DB2B9F
+     *
      * @var string
      */
     public $clipId;

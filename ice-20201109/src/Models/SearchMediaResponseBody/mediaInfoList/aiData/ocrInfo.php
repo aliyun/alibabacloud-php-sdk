@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ocrInfo extends Model
 {
     /**
+     * @example 5FE19530C7A422197535FE74F5DB2B9F
+     *
      * @var string
      */
     public $clipId;
@@ -19,16 +21,22 @@ class ocrInfo extends Model
     public $content;
 
     /**
+     * @example 1.4
+     *
      * @var float
      */
     public $from;
 
     /**
+     * @example 1.4
+     *
      * @var float
      */
     public $timestamp;
 
     /**
+     * @example 2.5
+     *
      * @var float
      */
     public $to;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobResult extends Model
 {
     /**
+     * @description 智能分析结果
+     *
      * @example 拆条或智能标签信息
      *
      * @var string
@@ -16,6 +18,8 @@ class jobResult extends Model
     public $aiResult;
 
     /**
+     * @description 媒资Id
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

@@ -44,7 +44,7 @@ class SubmitASRJobRequest extends Model
     public $title;
 
     /**
-     * @example {"your-key":"your-value"}
+     * @example {"user":"data"}
      *
      * @var string
      */
