@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopUa extends Model
 {
     /**
+     * @description The number of attacks that are initiated from the IP address.
+     *
+     * @example 531
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The user agent.
+     *
+     * @example android
+     *
      * @var string
      */
     public $ua;

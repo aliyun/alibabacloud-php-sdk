@@ -9,27 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeVisitUasRequest extends Model
 {
     /**
+     * @example 1665386280
+     *
      * @var string
      */
     public $endTimestamp;
 
     /**
+     * @example waf_cdnsdf3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @example 1665331200
+     *
      * @var string
      */
     public $startTimestamp;
     protected $_name = [
         'endTimestamp'   => 'EndTimestamp',
         'instanceId'     => 'InstanceId',
+        'regionId'       => 'RegionId',
         'resource'       => 'Resource',
         'startTimestamp' => 'StartTimestamp',
     ];
@@ -46,6 +62,9 @@ class DescribeVisitUasRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
@@ -70,6 +89,9 @@ class DescribeVisitUasRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];

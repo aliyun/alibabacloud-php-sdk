@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
-    public $resourceGroupId;
+    public $resourceManagerResourceGroupId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'regionId'                       => 'RegionId',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
     public function validate()
@@ -32,8 +43,8 @@ class DescribeInstanceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
         return $res;
@@ -50,8 +61,8 @@ class DescribeInstanceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
 
         return $model;

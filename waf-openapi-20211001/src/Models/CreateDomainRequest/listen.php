@@ -9,71 +9,134 @@ use AlibabaCloud\Tea\Model;
 class listen extends Model
 {
     /**
+     * @description $.parameters[3].schema.properties.TLSVersion.example
+     *
+     * @example 123
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description $.parameters[3].schema.properties.EnableTLSv3.example
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cipherSuite;
 
     /**
+     * @description $.parameters[3].schema.properties.EnableTLSv3.enumValueTitles
+     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description $.parameters[3].schema.properties.EnableTLSv3.description
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTLSv3;
 
     /**
+     * @description $.parameters[3].schema.properties.CustomCiphers.example
+     *
+     * @example true
+     *
      * @var bool
      */
     public $exclusiveIp;
 
     /**
+     * @description $.parameters[3].schema.properties.CipherSuite.example
+     *
+     * @example true
+     *
      * @var bool
      */
     public $focusHttps;
 
     /**
+     * @description $.parameters[3].schema.properties.TLSVersion.description
+     *
+     * @example true
+     *
      * @var bool
      */
     public $http2Enabled;
 
     /**
+     * @description $.parameters[3].schema.properties.CertId.example
+     *
      * @var int[]
      */
     public $httpPorts;
 
     /**
+     * @description $.parameters[3].schema.properties.Http2Enabled.enumValueTitles
+     *
      * @var int[]
      */
     public $httpsPorts;
 
     /**
+     * @description $.parameters[3].schema.properties.CustomCiphers.items.enumValueTitles
+     *
+     * @example true
+     *
      * @var bool
      */
     public $IPv6Enabled;
 
     /**
+     * @description $.parameters[3].schema.properties.CustomCiphers.description
+     *
+     * @example share
+     *
      * @var string
      */
     public $protectionResource;
 
     /**
+     * @var bool
+     */
+    public $SM2AccessOnly;
+
+    /**
+     * @var string
+     */
+    public $SM2CertId;
+
+    /**
+     * @var bool
+     */
+    public $SM2Enabled;
+
+    /**
+     * @description $.parameters[3].schema.properties.TLSVersion.enumValueTitles
+     *
+     * @example tlsv1
+     *
      * @var string
      */
     public $TLSVersion;
 
     /**
+     * @description $.parameters[3].schema.properties.CipherSuite.enumValueTitles
+     *
+     * @example 1
+     *
      * @var int
      */
     public $xffHeaderMode;
 
     /**
+     * @description $.parameters[3].schema.properties.CustomCiphers.items.description
+     *
      * @var string[]
      */
     public $xffHeaders;
@@ -89,6 +152,9 @@ class listen extends Model
         'httpsPorts'         => 'HttpsPorts',
         'IPv6Enabled'        => 'IPv6Enabled',
         'protectionResource' => 'ProtectionResource',
+        'SM2AccessOnly'      => 'SM2AccessOnly',
+        'SM2CertId'          => 'SM2CertId',
+        'SM2Enabled'         => 'SM2Enabled',
         'TLSVersion'         => 'TLSVersion',
         'xffHeaderMode'      => 'XffHeaderMode',
         'xffHeaders'         => 'XffHeaders',
@@ -133,6 +199,15 @@ class listen extends Model
         }
         if (null !== $this->protectionResource) {
             $res['ProtectionResource'] = $this->protectionResource;
+        }
+        if (null !== $this->SM2AccessOnly) {
+            $res['SM2AccessOnly'] = $this->SM2AccessOnly;
+        }
+        if (null !== $this->SM2CertId) {
+            $res['SM2CertId'] = $this->SM2CertId;
+        }
+        if (null !== $this->SM2Enabled) {
+            $res['SM2Enabled'] = $this->SM2Enabled;
         }
         if (null !== $this->TLSVersion) {
             $res['TLSVersion'] = $this->TLSVersion;
@@ -193,6 +268,15 @@ class listen extends Model
         }
         if (isset($map['ProtectionResource'])) {
             $model->protectionResource = $map['ProtectionResource'];
+        }
+        if (isset($map['SM2AccessOnly'])) {
+            $model->SM2AccessOnly = $map['SM2AccessOnly'];
+        }
+        if (isset($map['SM2CertId'])) {
+            $model->SM2CertId = $map['SM2CertId'];
+        }
+        if (isset($map['SM2Enabled'])) {
+            $model->SM2Enabled = $map['SM2Enabled'];
         }
         if (isset($map['TLSVersion'])) {
             $model->TLSVersion = $map['TLSVersion'];

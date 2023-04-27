@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopTuleType extends Model
 {
     /**
+     * @example 698455
+     *
      * @var int
      */
     public $count;

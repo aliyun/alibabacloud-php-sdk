@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopClientIp extends Model
 {
     /**
+     * @description The IP address of the service client.
+     *
+     * @example 3.3.XX.XX
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The number of attacks that are initiated from the IP address.
+     *
+     * @example 531
+     *
      * @var int
      */
     public $count;

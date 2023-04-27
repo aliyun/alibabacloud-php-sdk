@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 02E9A4B8-90FB-5F41-A049-C82277EB82FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of regular expression rule groups.
+     *
      * @var ruleGroups[]
      */
     public $ruleGroups;
 
     /**
+     * @description The total number of entries that are returned.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $totalCount;

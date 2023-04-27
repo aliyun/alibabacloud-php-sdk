@@ -11,41 +11,77 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
+     * @description $.parameters[3].schema.properties.ExclusiveIp.description
+     *
+     * @example share
+     *
      * @var string
      */
     public $accessType;
 
     /**
+     * @description $.parameters[3].schema.properties.Http2Enabled.description
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description $.parameters[3].schema.properties.HttpPorts.enumValueTitles
+     *
+     * @example waf_cdnsdf3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description $.parameters[3].schema.properties.Http2Enabled.example
+     *
      * @var listen
      */
     public $listen;
 
     /**
+     * @description $.parameters[3].schema.properties.CustomCiphers.enumValueTitles
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
+     * @description $.parameters[3].schema.properties.ProtectionResource.enumValueTitles
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
+     * @description $.parameters[3].schema.properties.ExclusiveIp.example
+     *
+     * @example 0.0.XX.XX
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'accessType' => 'AccessType',
-        'domain'     => 'Domain',
-        'instanceId' => 'InstanceId',
-        'listen'     => 'Listen',
-        'redirect'   => 'Redirect',
-        'regionId'   => 'RegionId',
+        'accessType'                     => 'AccessType',
+        'domain'                         => 'Domain',
+        'instanceId'                     => 'InstanceId',
+        'listen'                         => 'Listen',
+        'redirect'                       => 'Redirect',
+        'regionId'                       => 'RegionId',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'sourceIp'                       => 'SourceIp',
     ];
 
     public function validate()
@@ -72,6 +108,12 @@ class CreateDomainRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -102,6 +144,12 @@ class CreateDomainRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

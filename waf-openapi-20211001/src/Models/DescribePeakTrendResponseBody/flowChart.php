@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class flowChart extends Model
 {
     /**
+     * @description The number of requests that are monitored or blocked by the custom rule (access control) module.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $aclSum;
 
     /**
+     * @description The number of requests that are monitored or blocked by the scan protection module.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $antiScanSum;
 
     /**
+     * @description The number of requests that are monitored or blocked by the HTTP flood protection module.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ccSum;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 2622
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The serial number of the time interval. The serial numbers are arranged in chronological order.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The number of requests that are monitored or blocked by the regular expression protection engine.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $wafSum;

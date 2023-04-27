@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class wafSourceIp extends Model
 {
     /**
+     * @description An array of back-to-origin IPv4 CIDR blocks.
+     *
      * @var string[]
      */
     public $IPv4;
 
     /**
+     * @description An array of back-to-origin IPv6 CIDR blocks.
+     *
      * @var string[]
      */
     public $IPv6;

@@ -10,76 +10,139 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
+     * @description $.parameters[3].schema.properties.FocusHttps.description
+     *
      * @var string[]
      */
     public $backends;
 
     /**
+     * @description 是否开启公共云容灾。取值：
+     *
+     * - **true**：表示开启公共云容灾。
+     *
+     * - **false**（默认）：表示不开启公共云容灾。
+     * @example true
+     *
      * @var bool
      */
     public $cnameEnabled;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaders.example
+     *
+     * @example 120
+     *
      * @var int
      */
     public $connectTimeout;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaderMode.description
+     *
+     * @example true
+     *
      * @var bool
      */
     public $focusHttpBackend;
 
     /**
+     * @description $.parameters[3].schema.properties.IPv6Enabled.example
+     *
+     * @example true
+     *
      * @var bool
      */
     public $keepalive;
 
     /**
+     * @description $.parameters[3].schema.properties.ProtectionResource.description
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $keepaliveRequests;
 
     /**
+     * @description $.parameters[3].schema.properties.ProtectionResource.example
+     *
+     * @example 15
+     *
      * @var int
      */
     public $keepaliveTimeout;
 
     /**
+     * @description $.parameters[3].schema.properties.FocusHttps.enumValueTitles
+     *
+     * @example roundRobin
+     *
      * @var string
      */
     public $loadbalance;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaders.enumValueTitles
+     *
+     * @example 200
+     *
      * @var int
      */
     public $readTimeout;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaders.items.description
+     *
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
+     * @description $.parameters[3].schema.properties.IPv6Enabled.enumValueTitles
+     *
+     * @example true
+     *
      * @var bool
      */
     public $retry;
 
     /**
+     * @description 混合云转发规则。使用JSON数组转化的字符串格式表示。JSON数组中的每个元素是一个结构体，包含以下字段：
+     * - **rs**：Array类型 | 表示回源IP地址或者回源CNAME列表
+     *
+     * - **location**：String类型 | 表示防护节点名称
+     *
+     * - **locationId**：Long类型 | 表示防护节点ID
+     * @example [
+     * ]
      * @var string
      */
     public $routingRules;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaderMode.example
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sniEnabled;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaderMode.enumValueTitles
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $sniHost;
 
     /**
+     * @description $.parameters[3].schema.properties.IPv6Enabled.description
+     *
+     * @example 200
+     *
      * @var int
      */
     public $writeTimeout;

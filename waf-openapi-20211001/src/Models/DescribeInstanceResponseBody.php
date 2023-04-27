@@ -10,51 +10,103 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @description The details of the WAF instance.
+     *
      * @var details
      */
     public $details;
 
     /**
+     * @description The edition of the WAF instance.
+     *
+     * @example default_version
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @description The expiration time of the WAF instance.
+     *
+     * @example 4809859200000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description Indicates whether the WAF instance has overdue payments. Valid values:
+     *
+     *   **0:** The WAF instance has overdue payments.
+     *   **1:** The WAF instance does not have overdue payments.
+     *
+     * >  This parameter is returned only when the value of the **PayType** parameter is **POSTPAY**.
+     * @example 1
+     *
      * @var string
      */
     public $inDebt;
 
     /**
+     * @description The ID of the WAF instance.
+     *
+     * @example waf-cn-xxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The billing method of the WAF instance. Valid values:
+     *
+     *   **POSTPAY:** The WAF instance uses the pay-as-you-go billing method.
+     *   **PREPAY:** The WAF instance uses the subscription billing method.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The purchase time of the WAF instance. The time is in the UNIX timestamp format. The time is displayed in UTC. Unit: milliseconds.
+     *
+     * @example 1668496310000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the WAF instance. Valid values:
+     *
+     *   **1:** The WAF instance is in a normal state.
+     *   **2:** The WAF instance has expired.
+     *   **3:** The WAF instance has been released.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleHitsTopUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3D8AF43B-08EB-51CE-B33A-93AAEF3F9B0C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 URLs that trigger protection rules.
+     *
      * @var ruleHitsTopUrl[]
      */
     public $ruleHitsTopUrl;

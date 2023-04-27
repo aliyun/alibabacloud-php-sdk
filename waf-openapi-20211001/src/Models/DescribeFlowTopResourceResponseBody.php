@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowTopResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8F0E0B9A-B518-5C6D-BEFC-A373DDE4F652
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 protected objects that receive requests.
+     *
      * @var ruleHitsTopResource[]
      */
     public $ruleHitsTopResource;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleHitsTopTuleTypeResponseBody extends Model
 {
     /**
+     * @description The number of requests that match the rules of the protection module.
+     *
+     * @example 45E377CE-0B04-578E-B653-EEA63CFE8DE0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The type of rules. For details, see the description of **RuleType** in [DescribeRuleHitsTopRuleId](~~DescribeRuleHitsTopRuleId~~).
+     *
      * @var ruleHitsTopTuleType[]
      */
     public $ruleHitsTopTuleType;

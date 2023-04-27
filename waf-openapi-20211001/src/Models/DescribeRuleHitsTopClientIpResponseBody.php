@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleHitsTopClientIpResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F0F9AD6-62E2-50BB-A3E5-30FFB9410262
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 IP addresses from which attacks are initiated.
+     *
      * @var ruleHitsTopClientIp[]
      */
     public $ruleHitsTopClientIp;

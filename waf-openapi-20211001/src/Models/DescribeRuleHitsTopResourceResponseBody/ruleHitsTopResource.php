@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopResource extends Model
 {
     /**
+     * @description The number of requests that match protection rules.
+     *
+     * @example 14219
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The protected object.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $resource;

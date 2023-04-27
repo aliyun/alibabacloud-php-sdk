@@ -9,41 +9,79 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The scenario in which the protection rule template is used. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~ID~~) topic.
+     *
+     * @example waf_group
+     *
      * @var string
      */
     public $defenseScene;
 
     /**
+     * @description The description of the protection rule template.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The most recent time when the protection rule template was modified.
+     *
+     * @example 1665283642000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the protection rule template.
+     *
+     * @example 10097
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @description The name of the protection rule template.
+     *
+     * @example test0621
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The origin of the protection rule template. If the value of this parameter is custom, the protection rule template is created by the user.
+     *
+     * @example custom
+     *
      * @var string
      */
     public $templateOrigin;
 
     /**
+     * @description The status of the protection rule template. Valid values:
+     *
+     *   **0:** disabled.
+     *   **1:** enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $templateStatus;
 
     /**
+     * @description The type of the protection rule template. Valid values:
+     *
+     *   **user_default:** default template.
+     *   **user_custom:** custom template.
+     *
+     * @example user_default
+     *
      * @var string
      */
     public $templateType;

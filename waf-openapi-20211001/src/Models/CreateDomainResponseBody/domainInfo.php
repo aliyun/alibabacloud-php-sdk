@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
+     * @description $.parameters[3].schema.enumValueTitles
+     *
+     * @example xxxxxwww.****.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description $.parameters[4].schema.properties.Backends.items.description
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;

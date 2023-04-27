@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseRulesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 80736FA5-FA87-55F6-AA69-C5477C6FE6D0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of protection rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class topIp extends Model
 {
     /**
+     * @description The ordinal number of the area to which the IP address belongs.
+     *
+     * @example 310000
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The total number of requests that are sent from the IP address.
+     *
+     * @example 2622
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The IP address.
+     *
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ISP.
+     *
+     * @example AAA
+     *
      * @var string
      */
     public $isp;

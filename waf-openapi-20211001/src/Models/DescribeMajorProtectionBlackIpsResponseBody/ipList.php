@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ipList extends Model
 {
     /**
+     * @description The description of the IP address in the blacklist.
+     *
+     * @example test0003asdffas
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time after which the IP address blacklist becomes invalid. Unit: seconds.
+     *
+     * >  If the value of this parameter is **0**, the blacklist is permanently valid.
+     * @example 1662603328
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The most recent time when the IP address blacklist was modified.
+     *
+     * @example 1665456202000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The IP address in the IP address blacklist.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the IP address blacklist rule for major event protection.
+     *
+     * @example 8508970
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The ID of the rule template for major event protection.
+     *
+     * @example 9684
+     *
      * @var int
      */
     public $templateId;

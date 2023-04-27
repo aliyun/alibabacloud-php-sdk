@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseResourceGroupResponseBody extends Model
 {
     /**
+     * @description The information about the protected object group.
+     *
      * @var group
      */
     public $group;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E67D21C6-5376-5F94-B745-70E08D03E3CB
+     *
      * @var string
      */
     public $requestId;

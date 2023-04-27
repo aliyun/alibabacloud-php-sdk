@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2EC856FE-6D31-5861-8275-E5DEDB539089
+     *
      * @var string
      */
     public $requestId;

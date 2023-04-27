@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The description of the protected object group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the protected object group was created.
+     *
+     * @example 23242312312
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The most recent time when the protected object group was modified.
+     *
+     * @example 23242312312
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The name of the protected object group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The protected objects in the protected object group. The protected objects are separated with commas (,).
+     *
+     * @example test1.aliyundoc.com,test2.aliyundoc.com
+     *
      * @var string
      */
     public $resourceList;

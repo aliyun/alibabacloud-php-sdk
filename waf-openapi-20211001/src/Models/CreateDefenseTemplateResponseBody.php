@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDefenseTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F48ABDF7-D777-5F26-892A-57349765D7A9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the protection rule template.
+     *
+     * @example 2212
+     *
      * @var int
      */
     public $templateId;

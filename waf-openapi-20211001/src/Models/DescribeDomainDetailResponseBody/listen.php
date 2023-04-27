@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class listen extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $certId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cipherSuite;
@@ -24,21 +28,29 @@ class listen extends Model
     public $customCiphers;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableTLSv3;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exclusiveIp;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $focusHttps;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $http2Enabled;
@@ -54,21 +66,44 @@ class listen extends Model
     public $httpsPorts;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $IPv6Enabled;
 
     /**
+     * @example share
+     *
      * @var string
      */
     public $protectionResource;
 
     /**
+     * @var bool
+     */
+    public $SM2AccessOnly;
+
+    /**
+     * @var bool
+     */
+    public $SM2CertId;
+
+    /**
+     * @var bool
+     */
+    public $SM2Enabled;
+
+    /**
+     * @example tlsv1.2
+     *
      * @var string
      */
     public $TLSVersion;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $xffHeaderMode;
@@ -89,6 +124,9 @@ class listen extends Model
         'httpsPorts'         => 'HttpsPorts',
         'IPv6Enabled'        => 'IPv6Enabled',
         'protectionResource' => 'ProtectionResource',
+        'SM2AccessOnly'      => 'SM2AccessOnly',
+        'SM2CertId'          => 'SM2CertId',
+        'SM2Enabled'         => 'SM2Enabled',
         'TLSVersion'         => 'TLSVersion',
         'xffHeaderMode'      => 'XffHeaderMode',
         'xffHeaders'         => 'XffHeaders',
@@ -133,6 +171,15 @@ class listen extends Model
         }
         if (null !== $this->protectionResource) {
             $res['ProtectionResource'] = $this->protectionResource;
+        }
+        if (null !== $this->SM2AccessOnly) {
+            $res['SM2AccessOnly'] = $this->SM2AccessOnly;
+        }
+        if (null !== $this->SM2CertId) {
+            $res['SM2CertId'] = $this->SM2CertId;
+        }
+        if (null !== $this->SM2Enabled) {
+            $res['SM2Enabled'] = $this->SM2Enabled;
         }
         if (null !== $this->TLSVersion) {
             $res['TLSVersion'] = $this->TLSVersion;
@@ -193,6 +240,15 @@ class listen extends Model
         }
         if (isset($map['ProtectionResource'])) {
             $model->protectionResource = $map['ProtectionResource'];
+        }
+        if (isset($map['SM2AccessOnly'])) {
+            $model->SM2AccessOnly = $map['SM2AccessOnly'];
+        }
+        if (isset($map['SM2CertId'])) {
+            $model->SM2CertId = $map['SM2CertId'];
+        }
+        if (isset($map['SM2Enabled'])) {
+            $model->SM2Enabled = $map['SM2Enabled'];
         }
         if (isset($map['TLSVersion'])) {
             $model->TLSVersion = $map['TLSVersion'];

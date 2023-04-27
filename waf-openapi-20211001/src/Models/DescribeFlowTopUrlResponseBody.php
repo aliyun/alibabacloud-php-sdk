@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowTopUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 520D4E4C-B8EC-5602-ACB6-4D378ACBA28D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 URLs that are used to initiate requests.
+     *
      * @var ruleHitsTopUrl[]
      */
     public $ruleHitsTopUrl;

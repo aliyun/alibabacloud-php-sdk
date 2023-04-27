@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeMajorProtectionBlackIpsResponseBody extends Model
 {
     /**
+     * @description An array of IP addresses in the IP address blacklist.
+     *
      * @var ipList[]
      */
     public $ipList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 41631674-EEB0-5B02-BEB4-40A758E9B841
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of IP addresses in the blacklist.
+     *
+     * @example 63
+     *
      * @var int
      */
     public $totalCount;

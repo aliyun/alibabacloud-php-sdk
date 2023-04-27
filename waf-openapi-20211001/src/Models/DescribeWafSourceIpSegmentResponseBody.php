@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWafSourceIpSegmentResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9087ADDC-9047-4D02-82A7-33021B58083C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The back-to-origin CIDR blocks that are used by the protection cluster.
+     *
      * @var wafSourceIp
      */
     public $wafSourceIp;

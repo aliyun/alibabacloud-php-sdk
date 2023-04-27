@@ -16,11 +16,15 @@ class domains extends Model
     public $backeds;
 
     /**
+     * @example xxxxxcvdaf.****.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
@@ -31,15 +35,27 @@ class domains extends Model
     public $listenPorts;
 
     /**
+     * @description 阿里云资源组ID。
+     *
+     * @example rg-acfmvtc5z52****
+     *
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'backeds'     => 'Backeds',
-        'cname'       => 'Cname',
-        'domain'      => 'Domain',
-        'listenPorts' => 'ListenPorts',
-        'status'      => 'Status',
+        'backeds'                        => 'Backeds',
+        'cname'                          => 'Cname',
+        'domain'                         => 'Domain',
+        'listenPorts'                    => 'ListenPorts',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'status'                         => 'Status',
     ];
 
     public function validate()
@@ -60,6 +76,9 @@ class domains extends Model
         }
         if (null !== $this->listenPorts) {
             $res['ListenPorts'] = null !== $this->listenPorts ? $this->listenPorts->toMap() : null;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -87,6 +106,9 @@ class domains extends Model
         }
         if (isset($map['ListenPorts'])) {
             $model->listenPorts = listenPorts::fromMap($map['ListenPorts']);
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

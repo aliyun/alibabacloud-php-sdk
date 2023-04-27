@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class requestHeaders extends Model
 {
     /**
+     * @description $.parameters[3].schema.properties.XffHeaders.items.enumValueTitles
+     *
+     * @example aaa
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description $.parameters[3].schema.properties.XffHeaders.description
+     *
+     * @example bbb
+     *
      * @var string
      */
     public $value;

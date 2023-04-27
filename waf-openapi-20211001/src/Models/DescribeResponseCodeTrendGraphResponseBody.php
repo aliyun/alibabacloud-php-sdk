@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeResponseCodeTrendGraphResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 7D46493E-84DD-58CE-80A7-8643F2B09ECC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the statistics of the error codes.
+     *
      * @var responseCodes[]
      */
     public $responseCodes;

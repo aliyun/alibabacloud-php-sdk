@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class https extends Model
 {
     /**
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $backend;

@@ -9,11 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeWafSourceIpSegmentRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * @example waf_v2_public_cn-*****
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-acfm***q
+     *
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'instanceId'                     => 'InstanceId',
+        'regionId'                       => 'RegionId',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
     public function validate()
@@ -25,6 +53,12 @@ class DescribeWafSourceIpSegmentRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
         return $res;
@@ -40,6 +74,12 @@ class DescribeWafSourceIpSegmentRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
 
         return $model;

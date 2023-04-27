@@ -16,36 +16,50 @@ class redirect extends Model
     public $backends;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $connectTimeout;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $focusHttpBackend;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keepalive;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $keepaliveRequests;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $keepaliveTimeout;
 
     /**
+     * @example iphash
+     *
      * @var string
      */
     public $loadbalance;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $readTimeout;
@@ -56,21 +70,29 @@ class redirect extends Model
     public $requestHeaders;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $retry;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sniEnabled;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $sniHost;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $writeTimeout;

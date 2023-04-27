@@ -15,11 +15,15 @@ class DescribeDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example ABF68BB3-2C48-5FA4-9750-D5FE55700E36
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 146
+     *
      * @var int
      */
     public $totalCount;

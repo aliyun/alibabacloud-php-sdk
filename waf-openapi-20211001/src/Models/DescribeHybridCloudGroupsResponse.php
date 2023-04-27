@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeInstanceExtendResponse extends Model
+class DescribeHybridCloudGroupsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeInstanceExtendResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeInstanceExtendResponseBody
+     * @var DescribeHybridCloudGroupsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeInstanceExtendResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeInstanceExtendResponse
+     * @return DescribeHybridCloudGroupsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeInstanceExtendResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeInstanceExtendResponseBody::fromMap($map['body']);
+            $model->body = DescribeHybridCloudGroupsResponseBody::fromMap($map['body']);
         }
 
         return $model;

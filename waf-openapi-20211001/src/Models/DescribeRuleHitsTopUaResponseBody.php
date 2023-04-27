@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleHitsTopUaResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8E5C7ED7-503A-5986-A005-36F2511EB89F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 user agents that are used to initiate attacks.
+     *
      * @var ruleHitsTopUa[]
      */
     public $ruleHitsTopUa;

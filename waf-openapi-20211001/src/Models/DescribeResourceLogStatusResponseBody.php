@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceLogStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0DABF8AB-2321-5F8D-A8D7-922D757FBFFE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

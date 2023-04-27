@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcePortResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of HTTP and HTTPS listener ports that are added to the WAF instance.
+     *
      * @var string[]
      */
     public $resourcePorts;

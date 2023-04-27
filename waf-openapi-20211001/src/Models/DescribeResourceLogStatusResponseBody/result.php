@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The protected object.
+     *
+     * @example alb-wewbb23dfsetetcic****
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description Indicates whether the log collection feature is enabled for the protected object. Valid values:
+     *
+     *   **true:** The log collection feature is enabled.
+     *   **false:** The log collection feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $status;

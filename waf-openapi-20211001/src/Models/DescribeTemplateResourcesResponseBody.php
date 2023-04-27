@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplateResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C7BC9373-3960-53B0-8968-2B13454AE18F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of protected objects or protected object groups that are associated to the protection rule template.
+     *
      * @var string[]
      */
     public $resources;

@@ -49,6 +49,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsRequest;
@@ -180,6 +186,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
         }
@@ -238,6 +250,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -283,6 +301,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->rules)) {
             $query['Rules'] = $request->rules;
@@ -338,6 +362,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
@@ -417,6 +447,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -448,10 +484,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateMajorProtectionBlackIpRequest $request
-     * @param RuntimeOptions                      $runtime
+     * This operation is available only on the China site (aliyun.com).
+     *   *
+     * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMajorProtectionBlackIpResponse
+     * @return CreateMajorProtectionBlackIpResponse CreateMajorProtectionBlackIpResponse
      */
     public function createMajorProtectionBlackIpWithOptions($request, $runtime)
     {
@@ -468,6 +506,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->ipList)) {
             $query['IpList'] = $request->ipList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
@@ -494,9 +538,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateMajorProtectionBlackIpRequest $request
+     * This operation is available only on the China site (aliyun.com).
+     *   *
+     * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
      *
-     * @return CreateMajorProtectionBlackIpResponse
+     * @return CreateMajorProtectionBlackIpResponse CreateMajorProtectionBlackIpResponse
      */
     public function createMajorProtectionBlackIp($request)
     {
@@ -520,6 +566,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -563,6 +615,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleIds)) {
             $query['RuleIds'] = $request->ruleIds;
@@ -613,6 +671,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -662,11 +726,17 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
         }
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -713,6 +783,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->ipList)) {
             $query['IpList'] = $request->ipList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
@@ -766,6 +842,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -818,6 +900,18 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -860,6 +954,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
@@ -919,6 +1019,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
@@ -964,6 +1070,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
@@ -1013,6 +1125,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1069,6 +1187,18 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1118,8 +1248,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -1170,6 +1306,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
         }
@@ -1219,8 +1361,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -1256,6 +1404,189 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeHybridCloudGroupsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHybridCloudGroupsResponse
+     */
+    public function describeHybridCloudGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterProxyType)) {
+            $query['ClusterProxyType'] = $request->clusterProxyType;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridCloudGroups',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridCloudGroupsRequest $request
+     *
+     * @return DescribeHybridCloudGroupsResponse
+     */
+    public function describeHybridCloudGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridCloudResourcesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeHybridCloudResourcesResponse
+     */
+    public function describeHybridCloudResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backend)) {
+            $query['Backend'] = $request->backend;
+        }
+        if (!Utils::isUnset($request->cnameEnabled)) {
+            $query['CnameEnabled'] = $request->cnameEnabled;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridCloudResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridCloudResourcesRequest $request
+     *
+     * @return DescribeHybridCloudResourcesResponse
+     */
+    public function describeHybridCloudResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHybridCloudUserRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeHybridCloudUserResponse
+     */
+    public function describeHybridCloudUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridCloudUser',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHybridCloudUserRequest $request
+     *
+     * @return DescribeHybridCloudUserResponse
+     */
+    public function describeHybridCloudUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1268,8 +1599,8 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1326,6 +1657,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
         }
@@ -1381,8 +1718,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -1430,6 +1773,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->resources)) {
             $query['Resources'] = $request->resources;
         }
@@ -1476,8 +1825,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceInstanceId)) {
             $query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1528,8 +1883,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -1586,6 +1947,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->searchType)) {
             $query['SearchType'] = $request->searchType;
         }
@@ -1638,8 +2005,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
@@ -1693,6 +2066,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
@@ -1745,8 +2124,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
@@ -1800,6 +2185,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
         }
@@ -1852,8 +2240,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -1904,8 +2298,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
@@ -1955,6 +2355,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
@@ -2008,8 +2414,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -2060,6 +2472,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
         }
@@ -2108,6 +2523,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2164,6 +2585,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2209,6 +2636,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->rules)) {
             $query['Rules'] = $request->rules;
@@ -2258,6 +2691,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
@@ -2314,6 +2753,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -2362,6 +2807,12 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
@@ -2435,6 +2886,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2487,6 +2941,12 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->ipList)) {
             $query['IpList'] = $request->ipList;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
         }
@@ -2536,8 +2996,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
@@ -2590,6 +3056,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;

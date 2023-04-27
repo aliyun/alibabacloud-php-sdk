@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class responseCodes extends Model
 {
     /**
+     * @description The number of 302 error codes that are returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $code302Pv;
 
     /**
+     * @description The number of 405 error codes that are returned.
+     *
+     * @example 121645464
+     *
      * @var int
      */
     public $code405Pv;
 
     /**
+     * @description The number of 499 error codes that are returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $code499Pv;
 
     /**
+     * @description The number of 5xx error codes that are returned.
+     *
+     * @example 2932
+     *
      * @var int
      */
     public $code5xxPv;
 
     /**
+     * @description The serial number of the time interval. The serial numbers are arranged in chronological order.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $index;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopRuleId extends Model
 {
     /**
+     * @description The number of requests that match the rule.
+     *
+     * @example 181174784
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The protected object.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example 5465465
+     *
      * @var string
      */
     public $ruleId;

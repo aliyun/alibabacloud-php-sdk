@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVisitTopIpResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5D2B8DAE-A761-58CB-A68D-74989E4831DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 IP addresses from which requests are sent.
+     *
      * @var topIp[]
      */
     public $topIp;

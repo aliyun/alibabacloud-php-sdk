@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopUrl extends Model
 {
     /**
+     * @description The total number of requests that are initiated by using the URL.
+     *
+     * @example 181174784
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The URL that is used to initiate requests.
+     *
+     * @example www.aliyundoc.com/path1
+     *
      * @var string
      */
     public $url;

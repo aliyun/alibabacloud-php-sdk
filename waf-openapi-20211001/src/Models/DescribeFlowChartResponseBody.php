@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowChartResponseBody extends Model
 {
     /**
+     * @description The array of the traffic statistics.
+     *
      * @var flowChart[]
      */
     public $flowChart;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BFA71416-670E-585D-AAE6-E7BBEE248FAB
+     *
      * @var string
      */
     public $requestId;

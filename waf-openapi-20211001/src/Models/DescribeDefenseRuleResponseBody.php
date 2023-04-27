@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The configurations of the protection rule. The value of this parameter is a string that contains multiple parameters in the JSON format.
+     *
      * @var rule
      */
     public $rule;

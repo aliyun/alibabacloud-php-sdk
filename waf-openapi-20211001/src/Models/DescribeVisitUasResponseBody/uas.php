@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class uas extends Model
 {
     /**
+     * @example 698455
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example chrome
+     *
      * @var string
      */
     public $ua;
