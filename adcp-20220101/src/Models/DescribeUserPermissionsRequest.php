@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserPermissionsRequest extends Model
 {
     /**
+     * @description The ID of the RAM user that you want to query.
+     *
      * @example 21175****
      *
      * @var string

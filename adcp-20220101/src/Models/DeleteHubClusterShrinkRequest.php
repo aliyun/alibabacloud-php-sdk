@@ -18,8 +18,12 @@ class DeleteHubClusterShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to forcefully delete the master instance. Valid values: - true: forcefully delete the master instance. - false: does not forcefully delete the master instance. Default value: false.
+     * @description Specifies whether to forcefully delete the master instance in ACK One. Valid values:
      *
+     *   true: forcefully deletes the master instance in ACK One.
+     *   false: does not forcibly delete the master instance in ACK One.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -27,6 +31,8 @@ class DeleteHubClusterShrinkRequest extends Model
     public $force;
 
     /**
+     * @description The list of resources to retain.
+     *
      * @var string
      */
     public $retainResourcesShrink;

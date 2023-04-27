@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserPermissionsResponseBody extends Model
 {
     /**
+     * @description The details about the permissions of the RAM user.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EA06613B-37A3-549E-BAE0-E4AD8A6E93D7
      *
      * @var string

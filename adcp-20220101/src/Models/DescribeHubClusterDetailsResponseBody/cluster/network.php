@@ -18,7 +18,11 @@ class network extends Model
     public $clusterDomain;
 
     /**
-     * @description The IP version that is supported by the master instance. Valid values: - ipv4: IPv4. - ipv6: IPv6. - dual: IPv4 and IPv6.
+     * @description The IP version that is supported by the master instance. Valid values:
+     *
+     *   ipv4: IPv4.
+     *   ipv6: IPv6.
+     *   dual: IPv4 and IPv6.
      *
      * @example ipv4
      *
@@ -27,14 +31,14 @@ class network extends Model
     public $IPStack;
 
     /**
-     * @description The ID of the associated security group.
+     * @description The IDs of the associated security groups.
      *
      * @var string[]
      */
     public $securityGroupIDs;
 
     /**
-     * @description A list of the vSwitches that are used by the master instance.
+     * @description The details of the vSwitches.
      *
      * @var string[]
      */

@@ -11,14 +11,17 @@ class apiServer extends Model
     /**
      * @description The ID of the elastic IP address (EIP).
      *
-     * @example eip-abc
+     * @example eip-abc****
      *
      * @var string
      */
     public $apiServerEipId;
 
     /**
-     * @description Indicates whether a public endpoint is used to expose the API server. Valid values: - true: a public endpoint is used to expose the API server. - false: no public endpoint is used to expose the API server.
+     * @description Indicates whether the API server is accessible over the Internet. Valid values:
+     *
+     *   true: The API server is accessible over the Internet.
+     *   false: The API server is inaccessible over the Internet.
      *
      * @example true
      *

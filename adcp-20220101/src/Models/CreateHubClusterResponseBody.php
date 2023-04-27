@@ -20,7 +20,7 @@ class CreateHubClusterResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 62F5AA2B-A2C9-5135-BCE2-C21670998D01
+     * @example 62F5AA2B-A2C9-5135-BCE2-C2167099****
      *
      * @var string
      */

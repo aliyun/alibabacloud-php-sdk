@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterDetailsResponseBody extends Model
 {
     /**
-     * @description The details about the master instance.
+     * @description The details of the master instance.
      *
      * @var cluster
      */

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class logConfig extends Model
 {
     /**
-     * @description Indicates whether audit logs are enabled. Valid values: - true: audit logs are enabled. - false: audit logs are disabled.
+     * @description Indicates whether the audit logging feature is enabled. Valid values:
+     *
+     *   true: Audit logging is enabled.
+     *   false: Audit logging is disabled.
      *
      * @example false
      *
@@ -18,7 +21,7 @@ class logConfig extends Model
     public $enableLog;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the project of Log Service.
      *
      * @example k8s-log-abc
      *
@@ -27,7 +30,7 @@ class logConfig extends Model
     public $logProject;
 
     /**
-     * @description The retention period of the logs.
+     * @description The number of days that logs are retained by Log Service.
      *
      * @example 7
      *

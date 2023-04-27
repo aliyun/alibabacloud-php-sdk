@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class workflowUnits extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
@@ -20,6 +22,8 @@ class workflowUnits extends Model
     public $vSwitches;
 
     /**
+     * @example vpc-f8zukabbkv5aw7zkm****
+     *
      * @var string
      */
     public $vpcId;

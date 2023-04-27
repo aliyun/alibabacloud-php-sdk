@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @description The authorization setting. Valid values:
+     *
+     *   {cluster_id} is returned if the permissions are scoped to a cluster.
+     *   {cluster_id}/{namespace} is returned if the permissions are scoped to a namespace of a cluster.
+     *   all-clusters is returned if the permissions are scoped to all clusters.
+     *
      * @example cffef3c9c7ba145b083292942a2c3****
      *
      * @var string
@@ -16,6 +22,11 @@ class permissions extends Model
     public $resourceId;
 
     /**
+     * @description The authorization type. Valid values:
+     *
+     *   cluster: indicates that the permissions are scoped to a cluster.
+     *   namespace: indicates that the permissions are scoped to a namespace of a cluster.
+     *
      * @example cluster
      *
      * @var string
@@ -23,6 +34,8 @@ class permissions extends Model
     public $resourceType;
 
     /**
+     * @description The name of the custom role. If a custom role is assigned, the value is the name of the assigned custom role.
+     *
      * @example view
      *
      * @var string
@@ -30,6 +43,11 @@ class permissions extends Model
     public $roleName;
 
     /**
+     * @description The type of predefined role. Valid values:
+     *
+     *   admin: administrator
+     *   dev: developer
+     *
      * @example dev
      *
      * @var string

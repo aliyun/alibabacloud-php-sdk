@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class workflowConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $argoServerEnabled;
 
     /**
+     * @example 0.08
+     *
      * @var string
      */
     public $priceLimit;
 
     /**
+     * @example cost-optimized
+     *
      * @var string
      */
     public $workflowScheduleMode;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteHubClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description The ID of the cluster.
      *
      * @example cb09fda0dc2f94a8397c76638c7ec****
      *
@@ -27,7 +27,7 @@ class DeleteHubClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the master instance.
+     * @description The ID of the job.
      *
      * @example T-623a96b7bbeaac074b00****
      *

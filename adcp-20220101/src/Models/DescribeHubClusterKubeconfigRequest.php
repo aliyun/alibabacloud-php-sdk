@@ -18,8 +18,12 @@ class DescribeHubClusterKubeconfigRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to obtain the credential that is used to connect to the master instance over the internal network. Valid values: - `true`: obtains only the credential that is used to access the master instance over the internal network. - `false`: obtains only the credential that is used to access the master instance over the Internet. Default value: `false`.
+     * @description Specifies whether to obtain the kubeconfig file that is used to connect to the cluster over the internal network. Valid values:
      *
+     *   `true`: obtains the kubeconfig file that is used to connect to the master instance over the internal network.
+     *   `false`: obtains the kubeconfig file that is used to connect to the master instance over the Internet.
+     *
+     * Default value: `false`
      * @example false
      *
      * @var bool

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @example vsw-wz9sf0hsuizl7bxnj****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

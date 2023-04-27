@@ -18,17 +18,24 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $apiServerEipId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $argoCDEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $argoServerEnabled;
 
     /**
-     * @description Specifies whether to enable audit logs. Valid values: - true: enable audit logs. - false: disables audit logs.
+     * @description Specifies whether to enable the audit logging feature. Valid values:
+     *
+     *   true: enables the audit logging feature.
+     *   false: disables the audit logging feature.
      *
      * @example true
      *
@@ -37,7 +44,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $auditLogEnabled;
 
     /**
-     * @description The ID of the master instance.
+     * @description The ID of the cluster.
      *
      * @example c46979b1075f04d99b5f2b710393e5****
      *
@@ -46,7 +53,10 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to enable deletion protection for the master instance. After you enable deletion protection, you cannot delete the master instance in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable deletion protection for the cluster. After you enable deletion protection, you cannot delete the master instance in the console or by calling the DeleteHubCluster operation. Valid values:
+     *
+     *   true: enables deletion protection for the cluster.
+     *   false: disables deletion protection for the cluster. This is the default value.
      *
      * @example true
      *
@@ -55,8 +65,9 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description Specifies whether to enable Service Mesh (ASM). Valid values: true: enables ASM. false: disables ASM.
+     * @description Specifies whether to enable Alibaba Cloud Service Mesh (ASM). Valid values:
      *
+     * true: enables ASM. false: disables ASM.
      * @example true
      *
      * @var bool
@@ -64,7 +75,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $enableMesh;
 
     /**
-     * @description The name of the master instance. The name must be 1 to 63 characters in length, and can contain letters and digits. The name must start with a letter. The name can contain letters, digits, underscores (_), and hyphens (-).
+     * @description The name of the cluster. The name must be 1 to 63 characters in length. It must start with a letter, and can contain letters, digits, underscores (\_), and hyphens (-).
      *
      * @example ack-demo
      *
@@ -73,12 +84,19 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The limit on the prices of containers in the workflow. This parameter takes effect only if the WorkflowScheduleMode parameter is set to cost-optimized.
+     *
+     * @example 0.08
+     *
      * @var string
      */
     public $priceLimit;
 
     /**
-     * @description Specifies whether to associate an elastic IP address (EIP) with the API server. Default value: false. To associate an EIP with the API server, set the value to true. You can use a custom EIP by setting the ApiServerEipId parameter. If you do not set the ApiServerEipId parameter, the system automatically creates an EIP.
+     * @description Specifies whether to associate an elastic IP address (EIP) with the API server. Valid values:
+     *
+     *   true: associates an EIP with the API server. You can specify the ApiServerEipId parameter. If you do not specify the ApiServerEipId parameter, the system automatically creates an EIP.
+     *   false: disassociates an EIP from the API server.
      *
      * @example true
      *
@@ -92,6 +110,8 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $vSwitchesShrink;
 
     /**
+     * @example cost-optimized
+     *
      * @var string
      */
     public $workflowScheduleMode;

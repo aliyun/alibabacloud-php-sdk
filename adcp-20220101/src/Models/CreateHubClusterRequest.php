@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateHubClusterRequest extends Model
 {
     /**
-     * @description Specifies whether to use a public IP address to expose the API server. Valid values: - true: uses a public IP address to expose the API server. - true: uses an internal IP address to expose the API server.
+     * @description Specifies whether to expose the API server to the Internet. Valid values:
+     *
+     *   true: exposes the API server to the Internet.
+     *   false: exposes the API server to the internal network.
      *
      * @example true
      *
@@ -18,12 +21,17 @@ class CreateHubClusterRequest extends Model
     public $apiServerPublicEip;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $argoServerEnabled;
 
     /**
-     * @description Specifies whether to enable audit logs. Valid values: - true: enables audit logs. - false: disables audit logs.
+     * @description Specifies whether to enable the audit log feature. Valid values:
+     *
+     *   true: enables the audit log feature.
+     *   false: disables the audit log feature.
      *
      * @example false
      *
@@ -32,7 +40,7 @@ class CreateHubClusterRequest extends Model
     public $auditLogEnabled;
 
     /**
-     * @description Specifies whether the security group is an advanced security group.
+     * @description Specifies whether to use an advanced security group.
      *
      * @example false
      *
@@ -50,14 +58,19 @@ class CreateHubClusterRequest extends Model
     public $name;
 
     /**
+     * @example 0.08
+     *
      * @var string
      */
     public $priceLimit;
 
     /**
-     * @description Scenario-oriented master control type. The value can be:
+     * @description The type of scenario for which the master instance is suitable. Valid values:
      *
-     * Default Value: `Default`.
+     *   `Default`: The master instance is suitable for standard scenarios.
+     *   `XFlow`: The master instance is suitable for workflow scenarios.
+     *
+     * Default value: `Default`.
      * @example Default
      *
      * @var string
@@ -92,6 +105,8 @@ class CreateHubClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @example cost-optimized
+     *
      * @var string
      */
     public $workflowScheduleMode;

@@ -17,21 +17,21 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
-     * @description Information about the API server of the master instance.
+     * @description The details of the API server of the master instance.
      *
      * @var apiServer
      */
     public $apiServer;
 
     /**
-     * @description The details about the master instance.
+     * @description The details of the master instance.
      *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
-     * @description The list of the deletion conditions of the master instance.
+     * @description The deletion conditions of the master instance.
      *
      * @var conditions[]
      */
@@ -52,7 +52,7 @@ class cluster extends Model
     public $logConfig;
 
     /**
-     * @description The Service Mesh (ASM) configurations.
+     * @description The configurations of Alibaba Cloud Service Mesh (ASM).
      *
      * @var meshConfig
      */

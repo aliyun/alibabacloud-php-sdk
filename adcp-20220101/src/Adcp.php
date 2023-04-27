@@ -13,6 +13,14 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterShrinkRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeletePolicyInstanceRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeletePolicyInstanceResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeletePolicyInstanceShrinkRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteUserPermissionRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteUserPermissionResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeployPolicyInstanceRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeployPolicyInstanceResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DeployPolicyInstanceShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterKubeconfigRequest;
@@ -23,18 +31,31 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePoliciesResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyDetailsRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyDetailsResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyGovernanceInClusterRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyGovernanceInClusterResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyInstancesRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyInstancesResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyInstancesStatusRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePolicyInstancesStatusResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeUserPermissionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeUserPermissionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\GrantUserPermissionsShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureShrinkRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateUserPermissionRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateUserPermissionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -279,6 +300,169 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param DeletePolicyInstanceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeletePolicyInstanceResponse
+     */
+    public function deletePolicyInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeletePolicyInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterIds)) {
+            $request->clusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterIdsShrink)) {
+            $query['ClusterIds'] = $request->clusterIdsShrink;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicyInstance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePolicyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePolicyInstanceRequest $request
+     *
+     * @return DeletePolicyInstanceResponse
+     */
+    public function deletePolicyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolicyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteUserPermissionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteUserPermissionResponse
+     */
+    public function deleteUserPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserPermission',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserPermissionRequest $request
+     *
+     * @return DeleteUserPermissionResponse
+     */
+    public function deleteUserPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeployPolicyInstanceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeployPolicyInstanceResponse
+     */
+    public function deployPolicyInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeployPolicyInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterIds)) {
+            $request->clusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->namespaces)) {
+            $request->namespacesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterIdsShrink)) {
+            $query['ClusterIds'] = $request->clusterIdsShrink;
+        }
+        if (!Utils::isUnset($request->namespacesShrink)) {
+            $query['Namespaces'] = $request->namespacesShrink;
+        }
+        if (!Utils::isUnset($request->policyAction)) {
+            $query['PolicyAction'] = $request->policyAction;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployPolicyInstance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeployPolicyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeployPolicyInstanceRequest $request
+     *
+     * @return DeployPolicyInstanceResponse
+     */
+    public function deployPolicyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployPolicyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeHubClusterDetailsRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -497,6 +681,214 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribePoliciesResponse
+     */
+    public function describePoliciesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribePolicies',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribePoliciesResponse
+     */
+    public function describePolicies()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePoliciesWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribePolicyDetailsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePolicyDetailsResponse
+     */
+    public function describePolicyDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyDetails',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePolicyDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyDetailsRequest $request
+     *
+     * @return DescribePolicyDetailsResponse
+     */
+    public function describePolicyDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyGovernanceInClusterRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribePolicyGovernanceInClusterResponse
+     */
+    public function describePolicyGovernanceInClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyGovernanceInCluster',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePolicyGovernanceInClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyGovernanceInClusterRequest $request
+     *
+     * @return DescribePolicyGovernanceInClusterResponse
+     */
+    public function describePolicyGovernanceInCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyGovernanceInClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePolicyInstancesResponse
+     */
+    public function describePolicyInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyInstances',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePolicyInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyInstancesRequest $request
+     *
+     * @return DescribePolicyInstancesResponse
+     */
+    public function describePolicyInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyInstancesStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePolicyInstancesStatusResponse
+     */
+    public function describePolicyInstancesStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyInstancesStatus',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePolicyInstancesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyInstancesStatusRequest $request
+     *
+     * @return DescribePolicyInstancesStatusResponse
+     */
+    public function describePolicyInstancesStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyInstancesStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -631,6 +1023,61 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param GrantUserPermissionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GrantUserPermissionResponse
+     */
+    public function grantUserPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantUserPermission',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantUserPermissionRequest $request
+     *
+     * @return GrantUserPermissionResponse
+     */
+    public function grantUserPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantUserPermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GrantUserPermissionsRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
@@ -760,5 +1207,60 @@ class Adcp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateHubClusterFeatureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserPermissionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateUserPermissionResponse
+     */
+    public function updateUserPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserPermission',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserPermissionRequest $request
+     *
+     * @return UpdateUserPermissionResponse
+     */
+    public function updateUserPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserPermissionWithOptions($request, $runtime);
     }
 }

@@ -18,7 +18,9 @@ class clusterInfo extends Model
     public $clusterId;
 
     /**
-     * @description The specification of the master instance. Valid values: - ack.pro.small: ACK Pro
+     * @description The specification of the master instance. Valid value:
+     *
+     *   ack.pro.small: ACK Pro cluster
      *
      * @example ack.pro.small
      *
@@ -36,7 +38,7 @@ class clusterInfo extends Model
     public $creationTime;
 
     /**
-     * @description The error message that is returned when the system fails to create the master instance.
+     * @description The error message returned when the master instance failed to be created.
      *
      * @example The specified product does not exist.
      *
@@ -72,7 +74,15 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
-     * @description The status of the master instance. Valid values: - initial: The master instance is being initialized. - failed: The master instance failed to be created. - running: The master instance is running. - inactive: The master instance is inactive. - deleting: The master instance is being deleted. - delete_failed: The master instance failed to be deleted. - deleted: The master instance is deleted.
+     * @description The status of the master instance. Valid values:
+     *
+     *   initial: The master instance is being initialized.
+     *   failed: The master instance failed to be created.
+     *   running: The master instance is running
+     *   inactive: The master instance is pending.
+     *   deleting: The master instance is being deleted.
+     *   delete_failed: The master instance failed to be deleted.
+     *   deleted: The master instance is deleted.
      *
      * @example running
      *
@@ -90,7 +100,7 @@ class clusterInfo extends Model
     public $updateTime;
 
     /**
-     * @description The Kubernetes version of the master instance.
+     * @description The version of the master instance.
      *
      * @example 1.22.3-aliyun.1
      *
