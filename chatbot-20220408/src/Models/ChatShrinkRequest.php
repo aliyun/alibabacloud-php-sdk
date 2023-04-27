@@ -40,6 +40,8 @@ class ChatShrinkRequest extends Model
     public $perspectiveShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sandBox;

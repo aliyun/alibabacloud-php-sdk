@@ -40,6 +40,8 @@ class ChatRequest extends Model
     public $perspective;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sandBox;

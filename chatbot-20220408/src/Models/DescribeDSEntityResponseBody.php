@@ -77,8 +77,6 @@ class DescribeDSEntityResponseBody extends Model
     public $requestId;
 
     /**
-     * @example @sys.date
-     *
      * @var string
      */
     public $sysEntityCode;

@@ -70,8 +70,6 @@ class entities extends Model
     public $modifyUserName;
 
     /**
-     * @example @sys_date
-     *
      * @var string
      */
     public $sysEntityCode;

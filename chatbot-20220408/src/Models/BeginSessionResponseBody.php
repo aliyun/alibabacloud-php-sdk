@@ -16,6 +16,10 @@ class BeginSessionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 静默超时时间
+     *
+     * @example 5
+     *
      * @var int
      */
     public $silenceReplyTimeout;

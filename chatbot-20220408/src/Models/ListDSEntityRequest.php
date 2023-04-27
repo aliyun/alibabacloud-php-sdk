@@ -16,7 +16,7 @@ class ListDSEntityRequest extends Model
     public $agentKey;
 
     /**
-     * @example synonyms
+     * @example system
      *
      * @var string
      */
