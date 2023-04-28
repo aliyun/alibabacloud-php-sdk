@@ -40,6 +40,10 @@ class AccessTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 成功标识
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

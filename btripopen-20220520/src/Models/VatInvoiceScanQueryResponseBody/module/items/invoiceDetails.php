@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class invoiceDetails extends Model
 {
     /**
+     * @example 75.21
+     *
      * @var string
      */
     public $amount;
 
     /**
+     * @description 行号
+     *
+     * @example 0
+     *
      * @var string
      */
     public $index;
@@ -24,21 +30,29 @@ class invoiceDetails extends Model
     public $itemName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quantity;
 
     /**
+     * @example 66PT11230069
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @example 12.79
+     *
      * @var string
      */
     public $tax;
 
     /**
+     * @example 17%
+     *
      * @var string
      */
     public $taxRate;
@@ -49,6 +63,8 @@ class invoiceDetails extends Model
     public $unit;
 
     /**
+     * @example 75.21
+     *
      * @var string
      */
     public $unitPrice;

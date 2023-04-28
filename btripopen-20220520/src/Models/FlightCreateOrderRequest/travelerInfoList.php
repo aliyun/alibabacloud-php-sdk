@@ -47,11 +47,19 @@ class travelerInfoList extends Model
     public $name;
 
     /**
+     * @description 国籍
+     *
+     * @example 中国大陆
+     *
      * @var string
      */
     public $nationality;
 
     /**
+     * @description 国籍二字码
+     *
+     * @example CN
+     *
      * @var string
      */
     public $nationalityCode;
@@ -71,6 +79,8 @@ class travelerInfoList extends Model
     public $phone;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sex;

@@ -738,6 +738,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
         }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $body['sub_corp_id'] = $request->subCorpId;
+        }
         if (!Utils::isUnset($request->thirdpartApplyId)) {
             $body['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
@@ -845,6 +848,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $body['sub_corp_id'] = $request->subCorpId;
         }
         if (!Utils::isUnset($request->userId)) {
             $body['user_id'] = $request->userId;
@@ -987,6 +993,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['start_time'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
@@ -1117,6 +1126,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
         }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $body['sub_corp_id'] = $request->subCorpId;
+        }
         if (!Utils::isUnset($request->thirdpartApplyId)) {
             $body['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
@@ -1214,6 +1226,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->applyShowId)) {
             $query['apply_show_id'] = $request->applyShowId;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
         }
         if (!Utils::isUnset($request->thirdpartApplyId)) {
             $query['thirdpart_apply_id'] = $request->thirdpartApplyId;

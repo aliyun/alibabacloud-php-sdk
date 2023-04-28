@@ -23,8 +23,6 @@ class TicketChangingApplyShrinkRequest extends Model
     public $disSubOrderId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isVoluntary;

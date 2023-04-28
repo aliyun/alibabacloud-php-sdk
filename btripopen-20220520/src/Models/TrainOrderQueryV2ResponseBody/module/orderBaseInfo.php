@@ -69,15 +69,11 @@ class orderBaseInfo extends Model
     public $exceedThirdpartApplyId;
 
     /**
-     * @example 2022-07-22 15:54:29
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2022-07-22 15:54:29
-     *
      * @var string
      */
     public $gmtModify;

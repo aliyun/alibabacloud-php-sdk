@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class priceInfoList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $categoryCode;
@@ -49,8 +47,6 @@ class priceInfoList extends Model
     public $tradeId;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $type;

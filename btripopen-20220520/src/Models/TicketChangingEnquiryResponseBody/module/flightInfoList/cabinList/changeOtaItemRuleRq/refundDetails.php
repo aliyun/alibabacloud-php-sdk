@@ -16,6 +16,8 @@ class refundDetails extends Model
     public $extraContents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $index;
@@ -36,6 +38,8 @@ class refundDetails extends Model
     public $title;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

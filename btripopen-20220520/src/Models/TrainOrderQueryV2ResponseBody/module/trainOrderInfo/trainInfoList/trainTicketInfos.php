@@ -16,15 +16,11 @@ class trainTicketInfos extends Model
     public $changed;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $checkInTime;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $checkOutTime;
@@ -37,22 +33,16 @@ class trainTicketInfos extends Model
     public $coachNo;
 
     /**
-     * @example 2023-01-29 17:50:23
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 2022-07-22 15:54:29
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $gmtModify;
@@ -98,8 +88,6 @@ class trainTicketInfos extends Model
     public $serviceFee;
 
     /**
-     * @example 2023-02-05 16:43:45
-     *
      * @var string
      */
     public $startTime;

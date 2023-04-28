@@ -21,8 +21,6 @@ class itineraryList extends Model
     public $arrCityCode;
 
     /**
-     * @example 2022-07-22
-     *
      * @var string
      */
     public $arrDate;

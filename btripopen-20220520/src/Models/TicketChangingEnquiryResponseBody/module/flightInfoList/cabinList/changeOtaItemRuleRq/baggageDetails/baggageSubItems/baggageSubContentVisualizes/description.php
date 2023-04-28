@@ -14,11 +14,15 @@ class description extends Model
     public $desc;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $image;

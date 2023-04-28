@@ -31,6 +31,8 @@ class items extends Model
     public $billDate;
 
     /**
+     * @example 07122942791187744475
+     *
      * @var string
      */
     public $checkCode;
@@ -41,6 +43,8 @@ class items extends Model
     public $drawer;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $id;
@@ -101,6 +105,10 @@ class items extends Model
     public $invoiceTypeDesc;
 
     /**
+     * @description 机器码
+     *
+     * @example 661619906841
+     *
      * @var string
      */
     public $machineCode;
@@ -113,6 +121,8 @@ class items extends Model
     public $ossUrl;
 
     /**
+     * @example <87*>>53>5023>-446>/4+83/5* *>5/81<75/1931>4>>
+     *
      * @var string
      */
     public $passwordArea;
@@ -177,6 +187,8 @@ class items extends Model
     public $sellerTaxNo;
 
     /**
+     * @example 4475
+     *
      * @var string
      */
     public $smartCheckCode;

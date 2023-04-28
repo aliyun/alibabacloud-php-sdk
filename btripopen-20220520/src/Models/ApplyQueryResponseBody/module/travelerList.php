@@ -43,6 +43,8 @@ class travelerList extends Model
     public $hotelCitys;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $premiumEconomyDiscount;

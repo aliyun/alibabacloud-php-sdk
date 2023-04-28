@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tips extends Model
 {
     /**
+     * @example https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
+     *
      * @var string
      */
     public $logo;
@@ -19,6 +21,8 @@ class tips extends Model
     public $tipsDesc;
 
     /**
+     * @example https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
+     *
      * @var string
      */
     public $tipsImage;

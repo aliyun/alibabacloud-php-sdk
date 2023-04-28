@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderPayRequest extends Model
 {
     /**
+     * @description 供应商订单号（取自创单返回的订单号）
+     *
+     * @example 1002202194207077022
+     *
      * @var int
      */
     public $btripOrderId;

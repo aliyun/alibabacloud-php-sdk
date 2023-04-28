@@ -40,6 +40,10 @@ class ApplyModifyShrinkRequest extends Model
     public $departName;
 
     /**
+     * @description 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
+     *
+     * @example {"cost_center":"成本中心"}
+     *
      * @var string
      */
     public $extendField;
@@ -105,6 +109,11 @@ class ApplyModifyShrinkRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $subCorpId;
 
     /**
      * @example 0001A1100000007EX08O
@@ -208,6 +217,7 @@ class ApplyModifyShrinkRequest extends Model
         'itinerarySetListShrink'         => 'itinerary_set_list',
         'limitTraveler'                  => 'limit_traveler',
         'status'                         => 'status',
+        'subCorpId'                      => 'sub_corp_id',
         'thirdpartApplyId'               => 'thirdpart_apply_id',
         'thirdpartBusinessId'            => 'thirdpart_business_id',
         'thirdpartDepartId'              => 'thirdpart_depart_id',
@@ -278,6 +288,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->subCorpId) {
+            $res['sub_corp_id'] = $this->subCorpId;
         }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
@@ -380,6 +393,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['sub_corp_id'])) {
+            $model->subCorpId = $map['sub_corp_id'];
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];

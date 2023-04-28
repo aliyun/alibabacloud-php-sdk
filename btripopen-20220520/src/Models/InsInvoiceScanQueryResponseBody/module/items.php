@@ -31,6 +31,10 @@ class items extends Model
     public $billDate;
 
     /**
+     * @description 校验码
+     *
+     * @example 07122942791187744475
+     *
      * @var string
      */
     public $checkCode;
@@ -46,11 +50,17 @@ class items extends Model
     public $department;
 
     /**
+     * @description 开票人
+     *
      * @var string
      */
     public $drawer;
 
     /**
+     * @description 应用ID
+     *
+     * @example 566
+     *
      * @var string
      */
     public $id;
@@ -87,11 +97,15 @@ class items extends Model
     public $invoiceDay;
 
     /**
+     * @description 发票明细
+     *
      * @var invoiceDetails[]
      */
     public $invoiceDetails;
 
     /**
+     * @description 发票地区
+     *
      * @var string
      */
     public $invoiceLocation;
@@ -104,11 +118,17 @@ class items extends Model
     public $invoiceNo;
 
     /**
+     * @description 发票抬头
+     *
      * @var string
      */
     public $invoiceTitle;
 
     /**
+     * @description 机器码
+     *
+     * @example 661619906841
+     *
      * @var string
      */
     public $machineCode;
@@ -133,6 +153,10 @@ class items extends Model
     public $passenger;
 
     /**
+     * @description 密码区
+     *
+     * @example <87*>>53>5023>-446>/4+83/5* *>5/81<75/1931>4>>
+     *
      * @var string
      */
     public $passwordArea;
@@ -143,11 +167,15 @@ class items extends Model
     public $project;
 
     /**
+     * @description 购方银行信息
+     *
      * @var string
      */
     public $purchaserBankAccountInfo;
 
     /**
+     * @description 购方联系方式
+     *
      * @var string
      */
     public $purchaserContactInfo;
@@ -165,26 +193,36 @@ class items extends Model
     public $purchaserTaxNo;
 
     /**
+     * @description 收款人
+     *
      * @var string
      */
     public $recipient;
 
     /**
+     * @description 备注
+     *
      * @var string
      */
     public $remarks;
 
     /**
+     * @description 复核人
+     *
      * @var string
      */
     public $reviewer;
 
     /**
+     * @description 销售方银行信息
+     *
      * @var string
      */
     public $sellerBankAccountInfo;
 
     /**
+     * @description 销售方联系方式
+     *
      * @var string
      */
     public $sellerContactInfo;
@@ -202,6 +240,10 @@ class items extends Model
     public $sellerTaxNo;
 
     /**
+     * @description 校验码
+     *
+     * @example 4475
+     *
      * @var string
      */
     public $smartCheckCode;
@@ -221,6 +263,8 @@ class items extends Model
     public $taxRate;
 
     /**
+     * @description 大写金额
+     *
      * @var string
      */
     public $totalAmountInWords;

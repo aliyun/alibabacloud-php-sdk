@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class refundTicketInfoList extends Model
 {
     /**
-     * @example 2022-07-22 15:54:29
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $gmtModify;

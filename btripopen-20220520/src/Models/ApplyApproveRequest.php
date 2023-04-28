@@ -35,6 +35,11 @@ class ApplyApproveRequest extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $subCorpId;
+
+    /**
      * @example thirdpart12138
      *
      * @var string
@@ -50,6 +55,7 @@ class ApplyApproveRequest extends Model
         'note'        => 'note',
         'operateTime' => 'operate_time',
         'status'      => 'status',
+        'subCorpId'   => 'sub_corp_id',
         'userId'      => 'user_id',
         'userName'    => 'user_name',
     ];
@@ -72,6 +78,9 @@ class ApplyApproveRequest extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->subCorpId) {
+            $res['sub_corp_id'] = $this->subCorpId;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -102,6 +111,9 @@ class ApplyApproveRequest extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['sub_corp_id'])) {
+            $model->subCorpId = $map['sub_corp_id'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

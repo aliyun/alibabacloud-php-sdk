@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class imageDO extends Model
 {
     /**
+     * @example https://gw.alicdn.com/imgextra/i3/O1CN01kLt3m923XsUs6WVif_!!6000000007266-2-tps-280-300.png
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $largest;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $middle;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $smallest;

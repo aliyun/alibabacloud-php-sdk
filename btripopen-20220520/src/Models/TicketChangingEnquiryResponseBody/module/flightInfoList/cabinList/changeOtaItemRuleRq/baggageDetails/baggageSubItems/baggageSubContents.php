@@ -19,6 +19,8 @@ class baggageSubContents extends Model
     public $icon;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $style;

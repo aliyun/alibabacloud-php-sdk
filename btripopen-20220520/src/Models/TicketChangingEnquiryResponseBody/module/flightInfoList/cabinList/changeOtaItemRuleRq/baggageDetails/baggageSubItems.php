@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class baggageSubItems extends Model
 {
     /**
+     * @description attributes
+     *
      * @var mixed[]
      */
     public $attributes;
@@ -26,16 +28,22 @@ class baggageSubItems extends Model
     public $baggageSubContents;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isStruct;
 
     /**
+     * @example ADT
+     *
      * @var string
      */
     public $ptc;

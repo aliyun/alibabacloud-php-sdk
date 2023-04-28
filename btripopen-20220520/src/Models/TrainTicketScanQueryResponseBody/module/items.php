@@ -48,6 +48,8 @@ class items extends Model
     public $department;
 
     /**
+     * @example 71
+     *
      * @var string
      */
     public $id;
@@ -120,11 +122,19 @@ class items extends Model
     public $taxRate;
 
     /**
+     * @description 取票号
+     *
+     * @example 784-1111111111
+     *
      * @var string
      */
     public $ticketNo;
 
     /**
+     * @description 车次
+     *
+     * @example G99
+     *
      * @var string
      */
     public $trainNo;

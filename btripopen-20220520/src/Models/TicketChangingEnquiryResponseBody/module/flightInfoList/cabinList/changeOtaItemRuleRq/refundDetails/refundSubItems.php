@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class refundSubItems extends Model
 {
     /**
+     * @example demo
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isStruct;
 
     /**
+     * @example ADT
+     *
      * @var string
      */
     public $ptc;

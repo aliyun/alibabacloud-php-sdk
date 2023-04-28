@@ -89,8 +89,6 @@ class module extends Model
     public $settleType;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $status;

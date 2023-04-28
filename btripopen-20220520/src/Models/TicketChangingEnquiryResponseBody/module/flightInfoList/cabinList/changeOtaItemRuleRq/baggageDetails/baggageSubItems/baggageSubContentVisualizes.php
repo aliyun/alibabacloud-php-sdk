@@ -16,6 +16,8 @@ class baggageSubContentVisualizes extends Model
     public $baggageDesc;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $baggageSubContentType;
@@ -31,6 +33,8 @@ class baggageSubContentVisualizes extends Model
     public $imageDO;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isHighlight;

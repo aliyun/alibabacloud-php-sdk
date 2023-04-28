@@ -9,46 +9,78 @@ use AlibabaCloud\Tea\Model;
 class invoiceDetails extends Model
 {
     /**
+     * @description 金额
+     *
+     * @example 75.21
+     *
      * @var string
      */
     public $amount;
 
     /**
+     * @description 行号
+     *
+     * @example 0
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description 货物或应税劳务、服务名称
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @description 数量
+     *
+     * @example 1
+     *
      * @var string
      */
     public $quantity;
 
     /**
+     * @description 规格型号
+     *
+     * @example 66PT11230069
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @description 税额
+     *
+     * @example 12.79
+     *
      * @var string
      */
     public $tax;
 
     /**
+     * @description 税率
+     *
+     * @example 17%
+     *
      * @var string
      */
     public $taxRate;
 
     /**
+     * @description 单位
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description 单价
+     *
+     * @example 75.21
+     *
      * @var string
      */
     public $unitPrice;

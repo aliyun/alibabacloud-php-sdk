@@ -14,6 +14,8 @@ class items extends Model
     public $employeeNick;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $leaveStatus;

@@ -43,6 +43,10 @@ class travelerStandard extends Model
     public $hotelCitys;
 
     /**
+     * @description 超级经济舱折扣。1到10的整数
+     *
+     * @example 1
+     *
      * @var int
      */
     public $premiumEconomyDiscount;

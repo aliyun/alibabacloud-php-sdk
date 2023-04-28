@@ -61,8 +61,6 @@ class rooms extends Model
     public $networkService;
 
     /**
-     * @example https://img.alicdn.com/imgextra/i4/6000000007171/O1CN01NHHdOw22qMoYHweI9_!!6000000007171-0-hotel.jpg,https://img.alicdn.com/imgextra/i2/6000000006478/O1CN013Zpar91xiyLB3FTyD_!!6000000006478-0-hotel.jpg,https://img.alicdn.com/imgextra/i1/6000000007863/O1CN01W37IMa27xItRvtVIY_!!6000000007863-0-hotel.jpg
-     *
      * @var string
      */
     public $pics;

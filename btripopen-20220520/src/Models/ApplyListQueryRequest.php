@@ -65,6 +65,11 @@ class ApplyListQueryRequest extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $subCorpId;
+
+    /**
      * @example 2
      *
      * @var int
@@ -93,6 +98,7 @@ class ApplyListQueryRequest extends Model
         'page'             => 'page',
         'pageSize'         => 'page_size',
         'startTime'        => 'start_time',
+        'subCorpId'        => 'sub_corp_id',
         'type'             => 'type',
         'unionNo'          => 'union_no',
         'userId'           => 'user_id',
@@ -128,6 +134,9 @@ class ApplyListQueryRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->subCorpId) {
+            $res['sub_corp_id'] = $this->subCorpId;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -173,6 +182,9 @@ class ApplyListQueryRequest extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['sub_corp_id'])) {
+            $model->subCorpId = $map['sub_corp_id'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

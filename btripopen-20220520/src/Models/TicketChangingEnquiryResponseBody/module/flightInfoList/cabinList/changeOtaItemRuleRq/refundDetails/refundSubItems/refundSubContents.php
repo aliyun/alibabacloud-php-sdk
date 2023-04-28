@@ -19,6 +19,8 @@ class refundSubContents extends Model
     public $feeRange;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $style;

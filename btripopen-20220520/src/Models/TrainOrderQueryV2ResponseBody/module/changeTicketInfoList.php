@@ -61,22 +61,16 @@ class changeTicketInfoList extends Model
     public $changeTrainTypeName;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $checkInTime;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $checkOutTime;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $endTime;
@@ -92,15 +86,11 @@ class changeTicketInfoList extends Model
     public $fromStationName;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $gmtModify;

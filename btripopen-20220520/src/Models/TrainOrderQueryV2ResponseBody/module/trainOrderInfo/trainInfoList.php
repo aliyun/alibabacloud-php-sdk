@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class trainInfoList extends Model
 {
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $arrTime;
 
     /**
-     * @example 2023-01-29 18:10:00
-     *
      * @var string
      */
     public $depTime;

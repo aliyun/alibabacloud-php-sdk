@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class extraContents extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $content;
