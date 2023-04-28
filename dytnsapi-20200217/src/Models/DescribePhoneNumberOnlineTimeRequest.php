@@ -23,6 +23,11 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
     public $carrier;
 
     /**
+     * @var string
+     */
+    public $extendFunction;
+
+    /**
      * @example 1390000****
      *
      * @var string
@@ -53,6 +58,7 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
     protected $_name = [
         'authCode'             => 'AuthCode',
         'carrier'              => 'Carrier',
+        'extendFunction'       => 'ExtendFunction',
         'inputNumber'          => 'InputNumber',
         'mask'                 => 'Mask',
         'ownerId'              => 'OwnerId',
@@ -72,6 +78,9 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
         }
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
+        }
+        if (null !== $this->extendFunction) {
+            $res['ExtendFunction'] = $this->extendFunction;
         }
         if (null !== $this->inputNumber) {
             $res['InputNumber'] = $this->inputNumber;
@@ -105,6 +114,9 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
         }
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
+        }
+        if (isset($map['ExtendFunction'])) {
+            $model->extendFunction = $map['ExtendFunction'];
         }
         if (isset($map['InputNumber'])) {
             $model->inputNumber = $map['InputNumber'];

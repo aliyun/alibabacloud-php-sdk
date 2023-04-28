@@ -6,22 +6,14 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOnlineTimeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOnlineTimeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
@@ -96,6 +88,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -139,61 +134,6 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEmptyNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEmptyNumberDetectRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeEmptyNumberDetectResponse
-     */
-    public function describeEmptyNumberDetectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->encryptType)) {
-            $query['EncryptType'] = $request->encryptType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEmptyNumberDetect',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeEmptyNumberDetectResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEmptyNumberDetectRequest $request
-     *
-     * @return DescribeEmptyNumberDetectResponse
-     */
-    public function describeEmptyNumberDetect($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEmptyNumberDetectWithOptions($request, $runtime);
     }
 
     /**
@@ -261,58 +201,6 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribePhoneNumberAttributeResponse
-     */
-    public function describePhoneNumberAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePhoneNumberAttribute',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePhoneNumberAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePhoneNumberAttributeRequest $request
-     *
-     * @return DescribePhoneNumberAttributeResponse
-     */
-    public function describePhoneNumberAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePhoneNumberAttributeWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePhoneNumberOnlineTimeRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -327,6 +215,9 @@ class Dytnsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->carrier)) {
             $query['Carrier'] = $request->carrier;
+        }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -432,113 +323,6 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberResaleRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribePhoneNumberResaleResponse
-     */
-    public function describePhoneNumberResaleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->since)) {
-            $query['Since'] = $request->since;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePhoneNumberResale',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePhoneNumberResaleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePhoneNumberResaleRequest $request
-     *
-     * @return DescribePhoneNumberResaleResponse
-     */
-    public function describePhoneNumberResale($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePhoneNumberResaleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePhoneNumberStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribePhoneNumberStatusResponse
-     */
-    public function describePhoneNumberStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePhoneNumberStatus',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePhoneNumberStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePhoneNumberStatusRequest $request
-     *
-     * @return DescribePhoneNumberStatusResponse
-     */
-    public function describePhoneNumberStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePhoneNumberStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePhoneTwiceTelVerifyRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -550,6 +334,9 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -728,6 +515,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -844,6 +634,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -901,6 +694,9 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -960,6 +756,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -1017,6 +816,9 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -1079,6 +881,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->certCode)) {
             $query['CertCode'] = $request->certCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -1096,9 +901,6 @@ class Dytnsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->routeName)) {
-            $query['RouteName'] = $request->routeName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1142,6 +944,9 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;

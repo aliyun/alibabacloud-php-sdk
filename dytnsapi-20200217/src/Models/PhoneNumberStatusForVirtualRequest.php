@@ -16,6 +16,11 @@ class PhoneNumberStatusForVirtualRequest extends Model
     public $authCode;
 
     /**
+     * @var string
+     */
+    public $extendFunction;
+
+    /**
      * @example 189****8999
      *
      * @var string
@@ -45,6 +50,7 @@ class PhoneNumberStatusForVirtualRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'authCode'             => 'AuthCode',
+        'extendFunction'       => 'ExtendFunction',
         'inputNumber'          => 'InputNumber',
         'mask'                 => 'Mask',
         'ownerId'              => 'OwnerId',
@@ -61,6 +67,9 @@ class PhoneNumberStatusForVirtualRequest extends Model
         $res = [];
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
+        }
+        if (null !== $this->extendFunction) {
+            $res['ExtendFunction'] = $this->extendFunction;
         }
         if (null !== $this->inputNumber) {
             $res['InputNumber'] = $this->inputNumber;
@@ -91,6 +100,9 @@ class PhoneNumberStatusForVirtualRequest extends Model
         $model = new self();
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
+        }
+        if (isset($map['ExtendFunction'])) {
+            $model->extendFunction = $map['ExtendFunction'];
         }
         if (isset($map['InputNumber'])) {
             $model->inputNumber = $map['InputNumber'];
