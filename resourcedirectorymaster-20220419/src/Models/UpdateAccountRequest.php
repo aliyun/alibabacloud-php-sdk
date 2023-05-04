@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
      * @example 12323344****
      *
      * @var string
@@ -18,12 +16,6 @@ class UpdateAccountRequest extends Model
     public $accountId;
 
     /**
-     * @description The new type of the member. Valid values:
-     *
-     *   ResourceAccount: resource account
-     *   CloudAccount: cloud account
-     *
-     * > You can specify either `NewDisplayName` or `NewAccountType`.
      * @example ResourceAccount
      *
      * @var string
@@ -31,9 +23,6 @@ class UpdateAccountRequest extends Model
     public $newAccountType;
 
     /**
-     * @description The new display name of the member.
-     *
-     * > You can specify either `NewDisplayName` or `NewAccountType`.
      * @example admin
      *
      * @var string

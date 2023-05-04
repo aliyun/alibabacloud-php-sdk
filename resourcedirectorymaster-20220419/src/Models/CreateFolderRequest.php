@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateFolderRequest extends Model
 {
     /**
-     * @description The name of the folder.
-     *
-     * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (\_), periods (.),and hyphens (-).
      * @example rdFolder
      *
      * @var string
@@ -19,8 +16,6 @@ class CreateFolderRequest extends Model
     public $folderName;
 
     /**
-     * @description The ID of the parent folder.
-     *
      * @example r-b1****
      *
      * @var string

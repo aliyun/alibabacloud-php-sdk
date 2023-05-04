@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeregisterDelegatedAdministratorRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member in the resource directory.
-     *
      * @example 181761095690****
      *
      * @var string
@@ -18,8 +16,6 @@ class DeregisterDelegatedAdministratorRequest extends Model
     public $accountId;
 
     /**
-     * @description The identifier of the trusted service.
-     *
      * @example cloudfw.aliyuncs.com
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CancelChangeAccountEmailRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
      * @example 181761095690****
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class failReasonList extends Model
 {
     /**
-     * @description The description of the check item.
-     *
      * @example This account has a payer account. Please release the financial relationship of this account first.
      *
      * @var string
@@ -18,8 +16,6 @@ class failReasonList extends Model
     public $description;
 
     /**
-     * @description The name of the cloud service to which the check item belongs.
-     *
      * @example Others
      *
      * @var string

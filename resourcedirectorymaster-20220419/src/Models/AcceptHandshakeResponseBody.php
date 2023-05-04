@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AcceptHandshakeResponseBody extends Model
 {
     /**
-     * @description The information of the invitation.
-     *
      * @var handshake
      */
     public $handshake;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 5828C836-3286-49A6-9006-15231BB19342
      *
      * @var string

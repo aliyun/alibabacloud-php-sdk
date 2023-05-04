@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BindSecureMobilePhoneRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
      * @example 138660628348****
      *
      * @var string
@@ -18,9 +16,6 @@ class BindSecureMobilePhoneRequest extends Model
     public $accountId;
 
     /**
-     * @description The mobile phone number that you want to bind to the member for security purposes.
-     *
-     * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
      * @example xx-13900001234
      *
      * @var string
@@ -28,9 +23,6 @@ class BindSecureMobilePhoneRequest extends Model
     public $secureMobilePhone;
 
     /**
-     * @description The verification code.
-     *
-     * You can call the [SendVerificationCodeForBindSecureMobilePhone](~~SendVerificationCodeForBindSecureMobilePhone~~) operation to obtain the verification code.
      * @example 123456
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class folder extends Model
 {
     /**
-     * @description The time when the folder was created.
-     *
      * @example 2021-06-15T06:39:08.521Z
      *
      * @var string
@@ -18,8 +16,6 @@ class folder extends Model
     public $createTime;
 
     /**
-     * @description The ID of the folder.
-     *
      * @example fd-Jyl5U7****
      *
      * @var string
@@ -27,8 +23,6 @@ class folder extends Model
     public $folderId;
 
     /**
-     * @description The name of the folder.
-     *
      * @example Applications
      *
      * @var string
@@ -36,8 +30,6 @@ class folder extends Model
     public $folderName;
 
     /**
-     * @description The ID of the parent folder.
-     *
      * @example r-Wm****
      *
      * @var string
@@ -45,8 +37,6 @@ class folder extends Model
     public $parentFolderId;
 
     /**
-     * @description The path of the folder in the resource directory.
-     *
      * @example rd-3G****\/r-Wm****\/fd-Jyl5U7****
      *
      * @var string

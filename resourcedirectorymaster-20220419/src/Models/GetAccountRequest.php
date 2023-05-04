@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetAccountRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
      * @example 181761095690****
      *
      * @var string
@@ -18,11 +16,6 @@ class GetAccountRequest extends Model
     public $accountId;
 
     /**
-     * @description Specifies whether to return the information of tags. Valid values:
-     *
-     *   false (default value)
-     *   true
-     *
      * @example true
      *
      * @var bool

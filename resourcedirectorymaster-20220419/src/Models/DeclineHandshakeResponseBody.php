@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DeclineHandshakeResponseBody extends Model
 {
     /**
-     * @description The information of the invitation.
-     *
      * @var handshake
      */
     public $handshake;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BindSecureMobilePhoneResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 0217AFEB-5318-56D4-B167-1933D83EDF3F
      *
      * @var string

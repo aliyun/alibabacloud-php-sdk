@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class notAllowReason extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
      * @example NON_SP_efc
      *
      * @var string
@@ -18,8 +16,6 @@ class notAllowReason extends Model
     public $checkId;
 
     /**
-     * @description The name of the cloud service to which the check item belongs.
-     *
      * @example Enterprise finance
      *
      * @var string
@@ -27,8 +23,6 @@ class notAllowReason extends Model
     public $checkName;
 
     /**
-     * @description The description of the check item.
-     *
      * @example This account is an Enterprise Finance associated account. Please remove the financial association of this account before deleting it.
      *
      * @var string

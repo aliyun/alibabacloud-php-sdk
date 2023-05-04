@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetachControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
      * @example cp-jExXAqIYkwHN****
      *
      * @var string
@@ -18,12 +16,6 @@ class DetachControlPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The ID of the object from which you want to detach the access control policy. Access control policies can be attached to the following objects:
-     *
-     *   Root folder
-     *   Subfolders of the Root folder
-     *   Members
-     *
      * @example fd-ZDNPiT****
      *
      * @var string

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetAccountDeletionStatusResponseBody extends Model
 {
     /**
-     * @description The deletion status of the member.
-     *
      * @var rdAccountDeletionStatus
      */
     public $rdAccountDeletionStatus;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 8AA43293-7C8F-5730-8F2D-7F864EC092C5
      *
      * @var string

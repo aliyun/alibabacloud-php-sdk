@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountDeleteResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 7CDDDCEF-CDFD-0825-B7D7-217BE0897B22
      *
      * @var string

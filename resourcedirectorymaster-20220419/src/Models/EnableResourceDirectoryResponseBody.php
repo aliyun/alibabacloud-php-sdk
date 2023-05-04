@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class EnableResourceDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example EC2FE94D-A4A2-51A1-A493-5C273A36C46A
      *
      * @var string
@@ -19,8 +17,6 @@ class EnableResourceDirectoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the resource directory.
-     *
      * @var resourceDirectory
      */
     public $resourceDirectory;
