@@ -16,13 +16,14 @@ class RefreshObjectCachesRequest extends Model
     public $objectPath;
 
     /**
-     * @description The type of the object that you want to refresh. Default value: File. Valid values:
+     * @description The type of the object that you want to refresh. Valid values:
      *
-     *   **File**: refreshes one or more files.
+     *   **File** (default): refreshes one or more files.
      *   **Directory**: refreshes the files in one or more directories.
      *   **Regex**: refreshes content based on regular expressions.
+     *   **ExQuery**: omits parameters after the question mark in the URL and refreshes content.
      *
-     * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the most recent version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
+     * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
      * @example File
      *
      * @var string

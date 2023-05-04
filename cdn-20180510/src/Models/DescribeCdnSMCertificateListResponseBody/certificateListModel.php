@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class certificateListModel extends Model
 {
     /**
-     * @description A list of certificates.
+     * @description The list of certificates.
      *
      * @var certList
      */

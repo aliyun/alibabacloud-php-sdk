@@ -11,7 +11,7 @@ class DescribeCdnUserBillPredictionRequest extends Model
     /**
      * @description The billable region. Valid values:
      *
-     *   **CN**: Chinese mainland
+     *   **CN**: the Chinese mainland
      *   **OverSeas**: outside the Chinese mainland
      *   **AP1**: Asia Pacific 1
      *   **AP2**: Asia Pacific 2
@@ -21,9 +21,9 @@ class DescribeCdnUserBillPredictionRequest extends Model
      *   **EU**: Europe
      *   **MEAA**: Middle East and Africa
      *
-     * The default value is the current metering method. Regions inside and outside the Chinese mainland are classified into the **CN** or **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
+     * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
      *
-     * >  For more information about billable regions, see [Billable regions](~~142221~~).
+     * > For more information about billable regions, see [Billable regions](~~142221~~).
      * @example CN,OverSeas
      *
      * @var string
@@ -31,18 +31,18 @@ class DescribeCdnUserBillPredictionRequest extends Model
     public $area;
 
     /**
-     * @description The billable item. A value of flow indicates bandwidth.
+     * @description The billable item. A value of flow specifies bandwidth.
      *
-     * @example fiow
+     * @example flow
      *
      * @var string
      */
     public $dimension;
 
     /**
-     * @description The default value is the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The end time of the estimation. The default value is the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2018-10-25T10:00:00Z
      *
      * @var string
@@ -50,7 +50,7 @@ class DescribeCdnUserBillPredictionRequest extends Model
     public $endTime;
 
     /**
-     * @description The default value is 00:00 on the first day of the current month. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The start time of the estimation. The default value is 00:00 on the first day of the current month. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2018-09-30T16:00:00Z
      *

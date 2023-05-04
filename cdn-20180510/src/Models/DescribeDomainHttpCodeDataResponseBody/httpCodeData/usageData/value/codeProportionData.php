@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class codeProportionData extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class codeProportionData extends Model
     public $code;
 
     /**
-     * @description The total number of HTTP status code returned.
+     * @description The count of each HTTP status code.
      *
      * @example 300
      *

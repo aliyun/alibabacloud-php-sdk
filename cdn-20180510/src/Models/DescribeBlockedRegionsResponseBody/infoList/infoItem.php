@@ -11,7 +11,7 @@ class infoItem extends Model
     /**
      * @description The district to which the country or region belongs.
      *
-     * @example 亚洲
+     * @example Asia
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class infoItem extends Model
     /**
      * @description The name of the country or region.
      *
-     * @example 阿富汗
+     * @example Afghanistan
      *
      * @var string
      */

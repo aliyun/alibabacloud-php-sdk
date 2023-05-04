@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRealTimeLogDeliveryRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to configure real-time log delivery. You can specify multiple domain names and separate them with commas (,).
+     * @description The accelerated domain name for which you want to configure real-time log delivery.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class CreateRealTimeLogDeliveryRequest extends Model
     public $domain;
 
     /**
-     * @description The name of the Logstore that collects log data from Alibaba Cloud Content Delivery Network (CDN) in real time.
+     * @description The name of the Logstore where log entries are stored.
      *
      * @example LogstoreName
      *

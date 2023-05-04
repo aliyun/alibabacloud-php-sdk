@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class clientIpList extends Model
 {
     /**
-     * @description The total number of requests.
+     * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
      *
+     * - You can call this operation up to 10 times per second per account.
      * @example 256
      *
      * @var int
@@ -18,7 +19,7 @@ class clientIpList extends Model
     public $acc;
 
     /**
-     * @description The client IP address returned. Only IPv4 addressed are supported.
+     * @description The total amount of network traffic consumed. Unit: bytes.
      *
      * @example 1.1.xxx
      *
@@ -27,7 +28,7 @@ class clientIpList extends Model
     public $clientIp;
 
     /**
-     * @description The ranking of the client IP address returned.
+     * @description The total number of requests.
      *
      * @example 2
      *
@@ -36,7 +37,7 @@ class clientIpList extends Model
     public $rank;
 
     /**
-     * @description The total amount of network traffic consumed. Unit: bytes.
+     * @description The total number of requests.
      *
      * @example 1024
      *

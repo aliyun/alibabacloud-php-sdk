@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataRequest extends Model
 {
     /**
-     * @description The billable region. Default value: CN. Valid values:
+     * @description The ID of the billable region. Valid values:
      *
-     *   **CN**: Chinese mainland
+     *   **CN** (default): inside the Chinese mainland
      *   **OverSeas**: outside the Chinese mainland
      *   **AP1**: Asia Pacific 1
      *   **AP2**: Asia Pacific 2
@@ -29,12 +29,12 @@ class DescribeDomainUsageDataRequest extends Model
     public $area;
 
     /**
-     * @description The protocol of the data that you want to query. Default value: all. Valid values:
+     * @description The protocol of the data that you want to query. Valid values:
      *
      *   **http**: HTTP
      *   **https**: HTTPS
      *   **quic**: QUIC
-     *   **all**: HTTP, HTTPS, and QUIC
+     *   **all** (default): HTTP, HTTPS, and QUIC
      *
      * @example all
      *
@@ -63,7 +63,7 @@ class DescribeDomainUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of data that you want to query. Valid values:
+     * @description The type of the data that you want to query. Valid values:
      *
      *   **bps**: bandwidth
      *   **traf**: traffic
@@ -77,11 +77,11 @@ class DescribeDomainUsageDataRequest extends Model
     public $field;
 
     /**
-     * @description The time interval between the data entries to return. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
+     * @description The time granularity of the data entries. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
      *
-     *   If **Interval** is set to **300**, you can query usage data in the last six months. The maximum time range per query that can be specified is three days.
+     *   If **Interval** is set to **300**, you can query usage data in the last 6 months. The maximum time range per query that can be specified is 3 days.
      *   If **Interval** is set to **3600** or **86400**, you can query usage data of the previous year.
-     *   If you do not set the **Interval** parameter, the maximum time range that you can query is one month. If you specify a time range of 1 to 3 days, the time interval between the entries that are returned is 1 hour. If you specify a time range of at least 4 days, the time interval between the entries that are returned is 1 day.
+     *   If you leave the **Interval** parameter empty, the maximum time range that you can query is 1 month. If you specify a time range of 1 to 3 days, the time interval between the entries that are returned is 1 hour. If you specify a time range of at least 4 days, the time interval between the entries that are returned is 1 day.
      *
      * @example 300
      *
@@ -100,11 +100,11 @@ class DescribeDomainUsageDataRequest extends Model
     public $startTime;
 
     /**
-     * @description The type of content that you want to query. Default value: all. Valid values:
+     * @description The type of content that you want to query. Valid values:
      *
      *   **static**: static content
      *   **dynamic**: dynamic content
-     *   **all**: both static and dynamic content
+     *   **all** (default): both static and dynamic content
      *
      * @example static
      *

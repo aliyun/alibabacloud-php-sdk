@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class resourcePackageInfo extends Model
 {
     /**
-     * @description The ID of the resource plan.
+     * @description The total quota of the resource plan.
+     *
+     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
+     *   The total number of requests provided by the resource plan.
      *
      * @example cdnflowbag
      *
@@ -18,10 +21,7 @@ class resourcePackageInfo extends Model
     public $commodityCode;
 
     /**
-     * @description The remaining quota of the resource plan.
-     *
-     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
-     *   The remaining number of requests provided by the resource plan.
+     * @description The ID of the instance.
      *
      * @example 10995089554629
      *
@@ -30,16 +30,19 @@ class resourcePackageInfo extends Model
     public $currCapacity;
 
     /**
-     * @description The name of the resource plan.
+     * @description The time when the resource plan took effect.
      *
-     * @example my_plan
+     * @example Resource plan status:
+     *
+     *   **valid**: valid
+     *   **closed**: invalid
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description The time when the resource plan expires.
+     * @description The operation that you want to perform. Set the value to **DescribeCdnUserResourcePackage**.
      *
      * @example 2018-07-01T08:00:00Z
      *
@@ -48,10 +51,7 @@ class resourcePackageInfo extends Model
     public $endTime;
 
     /**
-     * @description The total quota of the resource plan.
-     *
-     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
-     *   The total number of requests provided by the resource plan.
+     * @description The ID of the resource plan.
      *
      * @example 536870912000
      *
@@ -60,7 +60,7 @@ class resourcePackageInfo extends Model
     public $initCapacity;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the request.
      *
      * @example FP-ilttxc23a
      *
@@ -69,7 +69,7 @@ class resourcePackageInfo extends Model
     public $instanceId;
 
     /**
-     * @description The time when the resource plan took effect.
+     * @description The name of the template.
      *
      * @example 2017-12-05T19:10:58Z
      *
@@ -90,9 +90,9 @@ class resourcePackageInfo extends Model
     public $status;
 
     /**
-     * @description The name of the template.
+     * @description The details about each resource plan. The details are organized in an array. The array consists of the subparameter values of the ResourcePackageInfo parameter.
      *
-     * @example my_template
+     * @example Queries the resource plans that you have purchased for Alibaba Cloud CDN.
      *
      * @var string
      */

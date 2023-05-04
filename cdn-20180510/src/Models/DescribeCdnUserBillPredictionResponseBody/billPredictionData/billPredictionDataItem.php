@@ -18,7 +18,7 @@ class billPredictionDataItem extends Model
     public $area;
 
     /**
-     * @description The time when the value used as the estimated value is generated. This field is returned only if the metering method is pay by 95th percentile, pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00, or pay by 4th peak bandwidth per month.
+     * @description The time when the value used as the estimated value is generated. This parameter is returned only if the metering method is pay by 95th percentile, pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00, or pay by 4th peak bandwidth per month.
      *
      * @example 2018-10-15T16:00:00Z
      *

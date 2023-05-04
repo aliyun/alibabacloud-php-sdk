@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartCdnDomainRequest extends Model
 {
     /**
-     * @description The domain name that you want to enable. You can specify only one domain name.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *

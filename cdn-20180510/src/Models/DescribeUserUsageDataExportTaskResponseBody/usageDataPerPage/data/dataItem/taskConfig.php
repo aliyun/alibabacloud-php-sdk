@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskConfig extends Model
 {
     /**
-     * @description The end of the time range that was queried.
+     * @description The ID of the request.
      *
      * @example 2019-12-30T15:59:59Z
      *
@@ -18,7 +18,7 @@ class taskConfig extends Model
     public $endTime;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The last time when the task was modified.
      *
      * @example 2019-12-29T16:00:00Z
      *

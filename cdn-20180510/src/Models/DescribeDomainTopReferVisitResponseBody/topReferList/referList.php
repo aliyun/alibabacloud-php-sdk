@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class referList extends Model
 {
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description The proportion of visits to the web page.
      *
      * @example 200
      *
@@ -18,8 +18,9 @@ class referList extends Model
     public $flow;
 
     /**
-     * @description The proportion of the amount of network traffic consumed for visiting the web page.
+     * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to analyze data.
      *
+     * - You can call this operation up to 10 times per second per account.
      * @example 0.5
      *
      * @var float
@@ -27,7 +28,7 @@ class referList extends Model
     public $flowProportion;
 
     /**
-     * @description The URLs to the most frequently requested web pages.
+     * @description The accelerated domain name.
      *
      * @example learn.aliyundoc.com
      *
@@ -36,7 +37,7 @@ class referList extends Model
     public $referDetail;
 
     /**
-     * @description The number of visits to the web page.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 3
      *
@@ -45,8 +46,9 @@ class referList extends Model
     public $visitData;
 
     /**
-     * @description The proportion of visits to the web page.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * The end time must be later than the start time.
      * @example 0.5
      *
      * @var float

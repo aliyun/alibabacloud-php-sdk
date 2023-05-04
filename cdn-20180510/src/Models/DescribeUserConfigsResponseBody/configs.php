@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The configurations of Object Storage Service (OSS).
+     *
      * @var ossLogConfig
      */
     public $ossLogConfig;
 
     /**
+     * @description The configurations of Web Application Firewall (WAF).
+     *
      * @var wafConfig
      */
     public $wafConfig;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLogConfigResponseBody extends Model
 {
     /**
-     * @description The format of the log configuration.
+     * @description The operation that you want to perform. Set the value to **DescribeCustomLogConfig**.
      *
      * @example $time_iso8601_$request_method_$
      *
@@ -36,7 +36,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     public $sample;
 
     /**
-     * @description The tag information about the log configuration.
+     * @description The format of the log configuration.
      *
      * @example img1
      *

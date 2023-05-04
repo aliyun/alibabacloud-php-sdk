@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnServiceResponseBody extends Model
 {
     /**
-     * @description The time when the next billing method takes effect. The time is displayed in GMT.
+     * @description The time when the metering method for the next cycle takes effect. The time is displayed in GMT.
      *
      * @example 2019-11-27T16:00:00Z
      *
@@ -19,10 +19,10 @@ class DescribeCdnServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
-     * @description The next billing method that Alibaba Cloud CDN will use. Valid values:
+     * @description The metering method for the next cycle. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer.
-     *   **PayByBandwidth**: pay-by-bandwidth.
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
      *
      * @example PayByTraffic
      *
@@ -40,10 +40,10 @@ class DescribeCdnServiceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The current billing method of Alibaba Cloud CDN.
+     * @description The current metering method. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer.
-     *   **PayByBandwidth**: pay-by-bandwidth.
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
      *
      * @example PayByTraffic
      *
@@ -52,7 +52,7 @@ class DescribeCdnServiceResponseBody extends Model
     public $internetChargeType;
 
     /**
-     * @description The time when Alibaba Cloud CDN was activated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format.
+     * @description The time when the service was activated. The time follows the ISO 8601 standard.
      *
      * @example 2019-02-28T13:11:49Z
      *
@@ -61,7 +61,7 @@ class DescribeCdnServiceResponseBody extends Model
     public $openingTime;
 
     /**
-     * @description The lock status of Alibaba Cloud CDN.
+     * @description The lock status.
      *
      * @var operationLocks
      */

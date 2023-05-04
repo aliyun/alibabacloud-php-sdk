@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpInfoResponseBody extends Model
 {
     /**
-     * @description Indicates whether the specified IP address is assigned to an Alibaba Cloud CDN node.
+     * @description Indicates whether the IP address belongs to an Alibaba Cloud CDN POP.
      *
-     *   **True**: Yes
-     *   **False**: No
+     *   **True**
+     *   **False**
      *
      * @example True
      *
@@ -21,16 +21,14 @@ class DescribeIpInfoResponseBody extends Model
     public $cdnIp;
 
     /**
-     * @description The Chinese name of the Internet service provider (ISP).
-     *
-     * @example 电信
+     * @description The Chinese name of the ISP.
      *
      * @var string
      */
     public $ISP;
 
     /**
-     * @description The English name of the ISP.
+     * @description The English name of the Internet service provider (ISP).
      *
      * @example telecom
      *
@@ -40,8 +38,6 @@ class DescribeIpInfoResponseBody extends Model
 
     /**
      * @description The Chinese name of the region.
-     *
-     * @example 中国-贵州省-贵阳市
      *
      * @var string
      */

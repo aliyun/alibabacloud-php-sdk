@@ -19,7 +19,7 @@ class DescribeDomainsBySourceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The origin servers. Separate origin servers with commas (,). Fuzzy match is not supported.
+     * @description The origin servers. Separate multiple origin servers with commas (,). Fuzzy match is not supported.
      *
      * @example example.com
      *

@@ -11,8 +11,8 @@ class certInfo extends Model
     /**
      * @description Indicates whether the SSL certificate is obsolete. Valid values:
      *
-     *   **yes**: The SSL certificate is obsolete.
-     *   **no**: The SSL certificate is working as expected.
+     *   **yes**
+     *   **no**
      *
      * @example yes
      *
@@ -21,7 +21,7 @@ class certInfo extends Model
     public $certCaIsLegacy;
 
     /**
-     * @description The time at which the certificate expires.
+     * @description The expiration time of the certificate.
      *
      * @example Nov 29 00:00:00 2016 GMT
      *
@@ -32,8 +32,8 @@ class certInfo extends Model
     /**
      * @description Indicates whether the SSL certificate is expired. Valid values:
      *
-     *   **yes**: The SSL certificate is expired.
-     *   **no**: The SSL certificate is not expired.
+     *   **yes**
+     *   **no**
      *
      * @example yes
      *
@@ -42,7 +42,7 @@ class certInfo extends Model
     public $certExpired;
 
     /**
-     * @description The time at which the certificate became effective.
+     * @description The effective time of the certificate.
      *
      * @example Nov 29 23:59:59 2017 GMT
      *
@@ -69,7 +69,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description If a value is returned, the value matches the SSL certificate. Multiple domain names are separated by commas (,).
+     * @description The list of domain names. If a value is returned, the value matches the SSL certificate. Multiple domain names are separated by commas (,).
      *
      * @example example.com,aliyundoc.com
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRealtimeLogDeliveryDomainsRequest extends Model
 {
     /**
-     * @description The name of the Logstore that collects log data from Alibaba Cloud Content Delivery Network (CDN) in real time. You can specify multiple Logstore names and separate them with commas (,).
+     * @description The name of the Logstore that collects log data from Alibaba Cloud CDN in real time. You can specify multiple Logstore names and separate them with commas (,).
      *
      * @example LogstoreName
      *

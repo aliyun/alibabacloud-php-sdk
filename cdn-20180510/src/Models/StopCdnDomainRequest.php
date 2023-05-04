@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopCdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name that you want to disable. You can specify only one domain name.
+     * @description The accelerated domain name that you want to disable. You can specify only one domain name in each request.
      *
      * @example example.com
      *

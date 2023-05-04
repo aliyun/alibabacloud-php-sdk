@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpecificStagingConfigRequest extends Model
 {
     /**
-     * @description The configuration IDs. Separate configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
+     * @description The ID of the request.
      *
      * @example 2317
      *

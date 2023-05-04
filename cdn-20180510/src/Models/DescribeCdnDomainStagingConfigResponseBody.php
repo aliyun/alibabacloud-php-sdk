@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainStagingConfigResponseBody extends Model
 {
     /**
-     * @description The configurations of the domain name.
+     * @description The domain name configurations.
      *
      * @var domainConfigs[]
      */
@@ -26,7 +26,7 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
      *

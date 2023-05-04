@@ -6,11 +6,16 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchSetCdnDomainServerCertificateRequest extends Model
+class SetCdnDomainSSLCertificateRequest extends Model
 {
     /**
-     * @description The region.
+     * @example 8089870
      *
+     * @var int
+     */
+    public $certId;
+
+    /**
      * @example yourCertName
      *
      * @var string
@@ -18,17 +23,20 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+     * @example cn-hangzhou
      *
-     * @example cas
+     * @var string
+     */
+    public $certRegion;
+
+    /**
+     * @example upload
      *
      * @var string
      */
     public $certType;
 
     /**
-     * @description The private key. Specify the private key only if you enable the SSL certificate.
-     *
      * @example example.com
      *
      * @var string
@@ -36,52 +44,26 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
-     *
-     * @example 1
-     *
-     * @var string
-     */
-    public $forceSet;
-
-    /**
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
-     *
-     * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
-     * @example your region
-     *
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @description The private key. Specify the private key only if you enable the SSL certificate.
-     *
-     * @example yourSSLPri
+     * @example y****
      *
      * @var string
      */
     public $SSLPri;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example on
+     * @example off
      *
      * @var string
      */
     public $SSLProtocol;
 
     /**
-     * @description > *   The maximum number of times that each user can call this operation per second is 10.
-     *   You can specify multiple domain names (no more than 50) and separate them with commas (,).
-     *
-     * @example yourSSLPub
+     * @example xxx
      *
      * @var string
      */
@@ -92,12 +74,12 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'certId'        => 'CertId',
         'certName'      => 'CertName',
+        'certRegion'    => 'CertRegion',
         'certType'      => 'CertType',
         'domainName'    => 'DomainName',
-        'forceSet'      => 'ForceSet',
         'ownerId'       => 'OwnerId',
-        'region'        => 'Region',
         'SSLPri'        => 'SSLPri',
         'SSLProtocol'   => 'SSLProtocol',
         'SSLPub'        => 'SSLPub',
@@ -111,8 +93,14 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certId) {
+            $res['CertId'] = $this->certId;
+        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
+        }
+        if (null !== $this->certRegion) {
+            $res['CertRegion'] = $this->certRegion;
         }
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
@@ -120,14 +108,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->forceSet) {
-            $res['ForceSet'] = $this->forceSet;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->SSLPri) {
             $res['SSLPri'] = $this->SSLPri;
@@ -148,13 +130,19 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     /**
      * @param array $map
      *
-     * @return BatchSetCdnDomainServerCertificateRequest
+     * @return SetCdnDomainSSLCertificateRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertId'])) {
+            $model->certId = $map['CertId'];
+        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
+        }
+        if (isset($map['CertRegion'])) {
+            $model->certRegion = $map['CertRegion'];
         }
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
@@ -162,14 +150,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ForceSet'])) {
-            $model->forceSet = $map['ForceSet'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['SSLPri'])) {
             $model->SSLPri = $map['SSLPri'];

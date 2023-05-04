@@ -27,7 +27,7 @@ class accData extends Model
     public $successNum;
 
     /**
-     * @description The timestamp of the data.
+     * @description The timestamp of the data returned.
      *
      * @example 2018-09-03T06:00:00Z
      *

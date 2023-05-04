@@ -27,7 +27,7 @@ class UpdateFCTriggerRequest extends Model
     public $notes;
 
     /**
-     * @description The assigned Resource Access Management (RAM) role.
+     * @description The assigned RAM role.
      *
      * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
      *

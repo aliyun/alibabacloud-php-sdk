@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeDetailDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to query data. You can specify multiple accelerated domain names and separate them with commas (,).
+     * @description The metrics that you want to query. You can specify multiple metrics and separate them with commas (,). Valid values:
+     *
+     *   **qps**: the number of queries per second
+     *   **bps**: bandwidth values
+     *   **http_code**: HTTP status codes
      *
      * @example example.com
      *
@@ -18,45 +22,13 @@ class DescribeDomainRealTimeDetailDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
+     * @description The name of the Internet service provider. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs.
      *
-     * >  The end time must be later than the start time. The time range between the end time and the start time cannot exceed 10 minutes.
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
      */
     public $endTime;
-
-    /**
-     * @description The metrics that you want to query. You can specify multiple metrics and separate them with commas (,). Valid values:
-     *
-     *   **qps**: the number of queries per second
-     *   **bps**: bandwidth values
-     *   **http_code**: HTTP status codes
-     *
-     * @example qps
-     *
-     * @var string
-     */
-    public $field;
-
-    /**
-     * @description The name of the Internet service provider. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs.
-     *
-     * @example telecom
-     *
-     * @var string
-     */
-    public $ispNameEn;
-
-    /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
-     *
-     * @example Guangdong
-     *
-     * @var string
-     */
-    public $locationNameEn;
 
     /**
      * @description Specifies whether to merge the results. Valid values:
@@ -65,11 +37,20 @@ class DescribeDomainRealTimeDetailDataRequest extends Model
      *   **false**: does not merge the results. This is the default value.
      *
      * Default value: **false**.
-     * @example false
+     * @example qps
      *
      * @var string
      */
-    public $merge;
+    public $field;
+
+    /**
+     * @description The data usage of each ISP and the number of visits in each region.
+     *
+     * @example telecom
+     *
+     * @var string
+     */
+    public $ispNameEn;
 
     /**
      * @description Specifies whether to merge the results. Valid values:
@@ -78,6 +59,24 @@ class DescribeDomainRealTimeDetailDataRequest extends Model
      *   **false**: groups the results by domain name.
      *
      * Default value: **false**.
+     * @example Guangdong
+     *
+     * @var string
+     */
+    public $locationNameEn;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example false
+     *
+     * @var string
+     */
+    public $merge;
+
+    /**
+     * @description - You can query data within the last seven days. Data is collected every minute.
+     * - The maximum number of times that each user can call this operation per second is 10.
      * @example false
      *
      * @var string
@@ -85,9 +84,8 @@ class DescribeDomainRealTimeDetailDataRequest extends Model
     public $mergeLocIsp;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
      * @example 2019-11-30T05:33:00Z
      *
      * @var string

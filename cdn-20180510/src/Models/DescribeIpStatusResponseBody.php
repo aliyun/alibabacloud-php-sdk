@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpStatusResponseBody extends Model
 {
     /**
-     * @description The status of the node IP addresses.
+     * @description The status of the IP addresses of the POPs.
      *
      * @var ipStatus[]
      */

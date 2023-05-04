@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
-     * @description The average response size. Unit: bytes.
+     * @description cn-shenzhen
      *
      * @example 800019.0
      *
@@ -18,7 +18,7 @@ class regionProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The average response speed. Unit: bit/s.
+     * @description The number of queries per second.
      *
      * @example 154.3345765545624
      *
@@ -27,7 +27,7 @@ class regionProportionData extends Model
     public $avgResponseRate;
 
     /**
-     * @description The average response time. Unit: milliseconds.
+     * @description The name of the region.
      *
      * @example 5183.666666666667
      *
@@ -36,7 +36,7 @@ class regionProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The bandwidth.
+     * @description The proportion of visits from each region. For example, a value of 90 indicates that 90% of the visits are from the specified area.
      *
      * @example 380.9614285714286
      *
@@ -45,7 +45,7 @@ class regionProportionData extends Model
     public $bps;
 
     /**
-     * @description The proportion of bytes transferred from each region. For example, a value of 90 indicates that 90% of the bytes are transferred from the specified area.
+     * @description The accelerated domain name.
      *
      * @example 0.003544181046236794
      *
@@ -54,7 +54,7 @@ class regionProportionData extends Model
     public $bytesProportion;
 
     /**
-     * @description The proportion of visits from each region. For example, a value of 90 indicates that 90% of the visits are from the specified area.
+     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
      *
      * @example 0.01155980271270037
      *
@@ -63,7 +63,7 @@ class regionProportionData extends Model
     public $proportion;
 
     /**
-     * @description The number of queries per second.
+     * @description The proportion of bytes transferred from each region. For example, a value of 90 indicates that 90% of the bytes are transferred from the specified area.
      *
      * @example 5.9523809523809524E-5
      *
@@ -72,17 +72,19 @@ class regionProportionData extends Model
     public $qps;
 
     /**
-     * @description The information of the regions.
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * @example cn-shenzhen
+     * @example The total traffic. Unit: bytes.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The name of the region.
+     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
      *
+     * > - If you do not set **StartTime** or **EndTime**, data collected within the last **24** hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
+     * - You can call this operation up to 100 times per second per account.
      * @example japan
      *
      * @var string
@@ -90,7 +92,7 @@ class regionProportionData extends Model
     public $regionEname;
 
     /**
-     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
+     * @description The information of the regions.
      *
      * @example 0.0
      *
@@ -99,7 +101,7 @@ class regionProportionData extends Model
     public $reqErrRate;
 
     /**
-     * @description The total traffic. Unit: bytes.
+     * @description The bandwidth.
      *
      * @example 2400057
      *
@@ -108,7 +110,7 @@ class regionProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The total number of requests.
+     * @description The average response size. Unit: bytes.
      *
      * @example 3
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnCertificateDetailResponseBody extends Model
 {
     /**
-     * @description The content of the SSL certificate.
+     * @description The certificate.
      *
      * @example -----BEGIN CERTIFICATE-----\nMIIFzDCCBLSgAwIBxxxx
      *
@@ -18,7 +18,7 @@ class DescribeCdnCertificateDetailResponseBody extends Model
     public $cert;
 
     /**
-     * @description The ID of the SSL certificate.
+     * @description The ID of the certificate.
      *
      * @example 881049
      *
@@ -27,7 +27,7 @@ class DescribeCdnCertificateDetailResponseBody extends Model
     public $certId;
 
     /**
-     * @description The name of the SSL certificate.
+     * @description The name of the certificate.
      *
      * @example cert-15480655xxxx
      *

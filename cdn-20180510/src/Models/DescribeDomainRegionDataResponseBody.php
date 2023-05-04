@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRegionDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
+     * @description The average response time. Unit: milliseconds.
      *
      * @example 86400
      *
@@ -19,7 +19,7 @@ class DescribeDomainRegionDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
+     * @description The average response speed. Unit: bit/s.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeDomainRegionDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The proportions of requests initiated from each area.
      *
      * @example 2015-12-07T12:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDomainRegionDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The total traffic. Unit: bytes.
      *
      * @example 2E5AD83F-BD7B-462E-8319-2E30E305519A
      *
@@ -46,7 +46,7 @@ class DescribeDomainRegionDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The total number of requests.
      *
      * @example 2015-12-05T12:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeDomainRegionDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The proportions of requests initiated from each area.
+     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
      *
      * @var value
      */

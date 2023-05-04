@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDomainsResponseBody extends Model
 {
     /**
-     * @description The information about the accelerated domain name.
+     * @description The list of the accelerated domain names returned.
      *
      * @var domains
      */
@@ -44,7 +44,7 @@ class DescribeUserDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates the total number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

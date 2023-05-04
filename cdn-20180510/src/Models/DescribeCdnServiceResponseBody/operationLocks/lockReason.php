@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
-     * @description The reason why Alibaba Cloud CDN is locked. A value of financial indicates that the service is locked due to overdue payments.
+     * @description The reason why the service is locked. A value of financial indicates that the service is locked due to overdue payments.
      *
      * @example financial
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
-     * @description The network traffic consumed to visit the URL, in bytes.
-     *
      * @example 460486880
      *
      * @var string
@@ -18,8 +16,6 @@ class urlList extends Model
     public $flow;
 
     /**
-     * @description The proportion of network traffic consumed to access the URL.
-     *
      * @example 0.35
      *
      * @var float
@@ -27,8 +23,6 @@ class urlList extends Model
     public $flowProportion;
 
     /**
-     * @description The complete URL.
-     *
      * @example http://example.com/nn_live/nn_x64/a0.m3u8
      *
      * @var string
@@ -36,8 +30,6 @@ class urlList extends Model
     public $urlDetail;
 
     /**
-     * @description The number of visits to the URL.
-     *
      * @example 161673
      *
      * @var string
@@ -45,8 +37,6 @@ class urlList extends Model
     public $visitData;
 
     /**
-     * @description The proportion of visits to the URL.
-     *
      * @example 0.35
      *
      * @var float

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class functionArgs extends Model
 {
     /**
-     * @description The name of the configuration.
+     * @description The configuration name.
      *
      * @example auth_type
      *
@@ -18,7 +18,7 @@ class functionArgs extends Model
     public $argName;
 
     /**
-     * @description The value of the configuration.
+     * @description The configuration value.
      *
      * @example req_auth
      *

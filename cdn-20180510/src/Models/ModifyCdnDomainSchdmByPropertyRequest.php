@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainSchdmByPropertyRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to change the accelerated region. You can specify only one domain name.
+     * @description The operation that you want to perform. Set the value to **ModifyCdnDomainSchdmByProperty**.
      *
      * @example example.com
      *

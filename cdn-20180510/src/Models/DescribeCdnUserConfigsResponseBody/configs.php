@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The name of the feature.
      *
-     * The configurations set by enterprise or government users.
      * @example allow_function
      *
      * @var string
@@ -25,7 +24,7 @@ class configs extends Model
      *   **ddos_dispatch**: integration with Anti-DDoS
      *   **edge_safe**: application security settings on edge nodes
      *   **blocked_regions**: blocked regions
-     *   **http\_acl\_policy**: access control list (ACL) rules
+     *   **http_acl_policy**: access control list (ACL) rules
      *   **bot_manager**: bot traffic management
      *   **ip_reputation**: IP reputation library
      *
@@ -36,7 +35,10 @@ class configs extends Model
     public $argValue;
 
     /**
-     * @description The name of the feature.
+     * @description The configuration item that you want to query. Valid values:
+     *
+     *   **domain_business_control**: Alibaba Cloud CDN configurations
+     *   **waf**: Web Application Firewall (WAF) configurations
      *
      * @example domain_business_control
      *

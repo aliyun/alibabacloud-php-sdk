@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCdnCertificateSigningRequestResponseBody extends Model
 {
     /**
-     * @description The Common Name of the certificate.
+     * @description The name of the organization unit. Default value: Aliyun CDN.
      *
      * @example CommonName
      *
@@ -18,7 +18,7 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     public $commonName;
 
     /**
-     * @description The content of the CSR.
+     * @description The Common Name of the SSL certificate.
      *
      * @example CSRName
      *
@@ -27,7 +27,7 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     public $csr;
 
     /**
-     * @description The MD5 value of the certificate public key.
+     * @description The provincial district to which the organization belongs. Default value: Zhejiang.
      *
      * @example 629bf4fd8104eda171135bcb0f77****
      *
@@ -36,7 +36,7 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     public $pubMd5;
 
     /**
-     * @description The ID of the request.
+     * @description The country to which the organization belongs. Default value: CN.
      *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *

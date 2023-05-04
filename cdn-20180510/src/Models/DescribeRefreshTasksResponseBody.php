@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTasksResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
      * @example 10
      *
      * @var int
@@ -19,8 +17,6 @@ class DescribeRefreshTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 1
      *
      * @var int
@@ -28,8 +24,6 @@ class DescribeRefreshTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 174F6032-AA26-470D-B90E-36F0EB205BEE
      *
      * @var string
@@ -37,15 +31,11 @@ class DescribeRefreshTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about tasks.
-     *
      * @var tasks
      */
     public $tasks;
 
     /**
-     * @description The total number of entries returned.
-     *
      * @example 2
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnCertificateListResponseBody extends Model
 {
     /**
-     * @description The data type of the SSL certificate information.
+     * @description Details about certificates.
      *
      * @var certificateListModel
      */

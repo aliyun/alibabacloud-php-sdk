@@ -9,12 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchAddCdnDomainRequest extends Model
 {
     /**
-     * @description The workload type of the domain name to accelerate. Valid values:
-     *
-     *   **web**: images and small files
-     *   **download**: large files
-     *   **video**: on-demand video and audio streaming
-     *
      * @example web
      *
      * @var string
@@ -22,8 +16,6 @@ class BatchAddCdnDomainRequest extends Model
     public $cdnType;
 
     /**
-     * @description The URL that is used for health checks.
-     *
      * @example url
      *
      * @var string
@@ -31,8 +23,6 @@ class BatchAddCdnDomainRequest extends Model
     public $checkUrl;
 
     /**
-     * @description The domain names that you want to add to Alibaba Cloud CDN. Separate domain names with commas (,).
-     *
      * @example example.com,aliyundoc.com
      *
      * @var string
@@ -50,8 +40,6 @@ class BatchAddCdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. If you do not specify a value for this parameter, the system uses the ID of the default resource group.
-     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -59,12 +47,6 @@ class BatchAddCdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The acceleration region. Default value: domestic. Valid values:
-     *
-     *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
-     *   **global**: global
-     *
      * @example domestic
      *
      * @var string
@@ -77,8 +59,6 @@ class BatchAddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
-     *
      * @example [
      * ]
      * @var string
@@ -86,8 +66,6 @@ class BatchAddCdnDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain.
-     *
      * @example example.com
      *
      * @var string

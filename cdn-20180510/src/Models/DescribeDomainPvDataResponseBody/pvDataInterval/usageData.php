@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
-     * @description The timestamp of the returned data.
+     * @description The accelerated domain name. You can specify only one domain name.
      *
      * @example 2015-11-28T03:00:00Z
      *

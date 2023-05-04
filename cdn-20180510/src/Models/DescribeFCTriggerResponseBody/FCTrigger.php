@@ -27,7 +27,7 @@ class FCTrigger extends Model
     public $eventMetaVersion;
 
     /**
-     * @description The remarks.
+     * @description The remarks of the Function Compute trigger.
      *
      * @example test
      *

@@ -47,9 +47,9 @@ class sourceModel extends Model
     /**
      * @description The type of the origin server. Valid values:
      *
-     *   **ipaddr:** an IP address.
-     *   **domain:** a domain name
-     *   **oss:** the OSS domain of an Object Storage Service (OSS) bucket
+     *   **ipaddr**: an origin IP address
+     *   **domain**: an origin domain name
+     *   **oss**: the domain name of an Object Storage Service (OSS) bucket
      *   **fc_domain:** a Function Compute domain name
      *
      * @example domain

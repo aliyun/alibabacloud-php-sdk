@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCdnSubTaskRequest extends Model
 {
     /**
-     * @description The domain names that you want to track. You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     * @description The domain name that you want to track. You can specify up to 500 domain names in each request. If you specify multiple domain names, separate them with commas (,). If you do not specify a domain name, operations reports are updated for all domain names in your Alibaba Cloud account.
      *
-     * If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
      * @example www.example.com
      *
      * @var string
@@ -19,7 +18,7 @@ class UpdateCdnSubTaskRequest extends Model
     public $domainName;
 
     /**
-     * @description The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-11-17T00:00:00Z
      *
@@ -37,7 +36,7 @@ class UpdateCdnSubTaskRequest extends Model
     public $reportIds;
 
     /**
-     * @description The start time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The start time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-09-17T00:00:00Z
      *

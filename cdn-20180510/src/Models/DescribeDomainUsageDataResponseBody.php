@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
-     * @description The billable region where the data was collected.
+     * @description The ID of the billable region where the data was collected.
      *
      * @example CN
      *
@@ -55,7 +55,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *

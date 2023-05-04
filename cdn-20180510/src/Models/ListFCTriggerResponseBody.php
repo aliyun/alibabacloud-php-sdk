@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListFCTriggerResponseBody extends Model
 {
     /**
-     * @description The information about the Function Compute trigger returned.
+     * @description The Function Compute triggers that are set for Alibaba Cloud CDN events.
      *
      * @var FCTriggers[]
      */

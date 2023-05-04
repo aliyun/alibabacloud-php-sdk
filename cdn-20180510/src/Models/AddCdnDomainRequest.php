@@ -10,12 +10,6 @@ use AlibabaCloud\Tea\Model;
 class AddCdnDomainRequest extends Model
 {
     /**
-     * @description The workload type of the domain name to accelerate. Valid values:
-     *
-     *   **web**: images and small files
-     *   **download**: large files
-     *   **video**: on-demand video and audio streaming
-     *
      * @example web
      *
      * @var string
@@ -23,8 +17,6 @@ class AddCdnDomainRequest extends Model
     public $cdnType;
 
     /**
-     * @description The URL that is used for health checks.
-     *
      * @example www.example.com/test.html
      *
      * @var string
@@ -32,9 +24,6 @@ class AddCdnDomainRequest extends Model
     public $checkUrl;
 
     /**
-     * @description The domain name that you want to add to Alibaba Cloud CDN.
-     *
-     * A wildcard domain that starts with a period (.) is supported, such as .example.com.
      * @example .example.com
      *
      * @var string
@@ -52,9 +41,6 @@ class AddCdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * If you do not set this parameter, the system uses the ID of the default resource group.
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -62,12 +48,6 @@ class AddCdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The acceleration region. Default value: domestic. Valid values:
-     *
-     *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
-     *   **global**: global
-     *
      * @example domestic
      *
      * @var string
@@ -80,8 +60,6 @@ class AddCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
-     *
      * @example [
      * ]
      * @var string
@@ -89,15 +67,11 @@ class AddCdnDomainRequest extends Model
     public $sources;
 
     /**
-     * @description Details about the tags. You can specify up to 20 tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The top-level domain.
-     *
      * @example example.com
      *
      * @var string

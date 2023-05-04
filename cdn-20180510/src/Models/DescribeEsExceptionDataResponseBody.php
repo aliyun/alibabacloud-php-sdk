@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExceptionDataResponseBody extends Model
 {
     /**
-     * @description The content of the script.
+     * @description The content of the script for which an error was reported.
      *
      * @var contents[]
      */

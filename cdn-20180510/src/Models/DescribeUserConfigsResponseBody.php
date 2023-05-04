@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConfigsResponseBody extends Model
 {
     /**
+     * @description The configurations of the specified feature.
+     *
      * @var configs
      */
     public $configs;

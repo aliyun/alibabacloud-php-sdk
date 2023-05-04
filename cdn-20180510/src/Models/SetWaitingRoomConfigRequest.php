@@ -27,7 +27,7 @@ class SetWaitingRoomConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The length of waiting time to skip after users exit the queue. Unit: seconds.
+     * @description The length of waiting time to skip after an exit from the queue. Unit: seconds.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class SetWaitingRoomConfigRequest extends Model
     public $gapTime;
 
     /**
-     * @description The maximum length of time that users need to wait in the queue. Unit: seconds.
+     * @description The maximum length of waiting time in the queue. Unit: seconds.
      *
      * @example 30
      *

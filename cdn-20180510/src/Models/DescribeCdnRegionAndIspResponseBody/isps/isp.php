@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class isp extends Model
 {
     /**
-     * @description The English name of the region.
+     * @description The English name of the ISP.
      *
      * @example unicom
      *
@@ -19,8 +19,6 @@ class isp extends Model
 
     /**
      * @description The Chinese name of the ISP.
-     *
-     * @example 联通
      *
      * @var string
      */

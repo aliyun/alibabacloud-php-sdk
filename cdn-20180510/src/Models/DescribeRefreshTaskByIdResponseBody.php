@@ -10,7 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes an individual file.
+     *   **directory**: refreshes files under the specified directory.
+     *   **preload**: prefetches an individual file.
+     *   **regex**: refreshes content based on a regular expression.
      *
      * @example E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
      *
@@ -19,14 +24,14 @@ class DescribeRefreshTaskByIdResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tasks.
+     * @description The progress of the task, in percentage.
      *
      * @var tasks[]
      */
     public $tasks;
 
     /**
-     * @description The total number of tasks.
+     * @description The time when the task was created. The time is displayed in UTC.
      *
      * @example 2
      *

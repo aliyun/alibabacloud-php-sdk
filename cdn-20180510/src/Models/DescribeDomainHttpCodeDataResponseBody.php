@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainHttpCodeDataResponseBody extends Model
 {
     /**
-     * @description The interval at which the monitoring data is queried.
+     * @description The time interval.
      *
      * @example 300
      *
@@ -28,7 +28,7 @@ class DescribeDomainHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2021-06-29T05:45:00Z
      *
@@ -53,7 +53,7 @@ class DescribeDomainHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2021-06-29T05:30:00Z
      *

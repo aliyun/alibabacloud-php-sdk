@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPvDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
      *
+     * - You can call this operation up to 50 times per second per account.
      * @example 3600
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
+     * @description The timestamp of the returned data.
      *
      * @example example.com
      *
@@ -28,7 +29,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The time interval between the data entries. Unit: seconds.
      *
      * @example 2015-11-28T04:00:00Z
      *
@@ -37,14 +38,14 @@ class DescribeDomainPvDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The number of PVs at each interval.
+     * @description The end of the time range during which data was queried.
      *
      * @var pvDataInterval
      */
     public $pvDataInterval;
 
     /**
-     * @description The ID of the request.
+     * @description The number of PVs.
      *
      * @example BCD7D917-76F1-442F-BB75-C810DE34C761
      *
@@ -53,7 +54,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The number of PVs at each interval.
      *
      * @example 2015-11-28T03:00:00Z
      *

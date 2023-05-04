@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCertificateInfoResponseBody extends Model
 {
     /**
-     * @description The information about the SSL certificate.
+     * @description The unit of the validity period of the SSL certificate.
+     *
+     *   **months**: The validity period is measured in months.
+     *   **years**: The validity period is measured in years.
      *
      * @var certInfos
      */
     public $certInfos;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the SSL certificate expires.
      *
      * @example 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
      *

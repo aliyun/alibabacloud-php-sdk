@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExceptionDataRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2021-02-18T20:00:00Z
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeEsExceptionDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the script that you want to query. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
+     * @description The script ID. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
      *
      * @example 212896**
      *
@@ -28,8 +28,9 @@ class DescribeEsExceptionDataRequest extends Model
     public $ruleId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The beginning of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2021-02-17T20:00:00Z
      *
      * @var string

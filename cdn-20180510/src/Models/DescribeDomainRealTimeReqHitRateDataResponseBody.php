@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeReqHitRateDataResponseBody extends Model
 {
     /**
-     * @description The response parameters.
+     * @description - The maximum number of times that each user can call this operation per second is 10.
+     * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the request hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
      *
+     **Time granularity**
+     *
+     * | 1 hour | 31 days | 186 days | 4 hours |
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description 624461
      *
      * @example 70A26B11-3673-479C-AEA8-E03FC5D3496D
      *

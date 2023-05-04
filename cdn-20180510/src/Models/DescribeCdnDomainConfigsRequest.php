@@ -18,7 +18,7 @@ class DescribeCdnDomainConfigsRequest extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *
@@ -27,7 +27,7 @@ class DescribeCdnDomainConfigsRequest extends Model
     public $domainName;
 
     /**
-     * @description The names of the features. Separate multiple feature names with commas (,). For more information, see [BatchSetCdnDomainConfig](~~388460~~).
+     * @description The names of the features. Separate multiple feature names with commas (,). For more information, see [Parameters for configuring features for domain names](~~388460~~).
      *
      * @example aliauth
      *

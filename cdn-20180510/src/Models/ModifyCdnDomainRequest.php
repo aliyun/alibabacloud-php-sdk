@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *
@@ -37,9 +37,9 @@ class ModifyCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The list of origin URLs.
+     * @description The information about the addresses of origin servers.
      *
-     * >  You cannot set both the **Sources** and **TopLevelDomain** parameters in the same request. Otherwise, ********the **TopLevelDomain** parameter cannot take effect.
+     * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
      * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string
@@ -47,9 +47,9 @@ class ModifyCdnDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain name. To add a top-level domain name, set the parameter CDN_TOP_LEVEL_DOMAIN_GREY_USER_LIST. This feature is available to only selected users.
+     * @description The root domain. To add a root domain name, you must be added to the whitelist specified by the CDN_TOP_LEVEL_DOMAIN_GREY_USER_LIST parameter.
      *
-     * >  You cannot set both the **Sources** and **TopLevelDomain** parameters in the same request. Otherwise, ****the **TopLevelDomain** parameter cannot take effect.
+     * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
      * @example aliyundoc.com
      *
      * @var string

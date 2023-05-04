@@ -11,9 +11,9 @@ class domainInfo extends Model
     /**
      * @description The workload type of the accelerated domain name. Valid values:
      *
-     *   **web**: images and small files.
-     *   **download**: large files.
-     *   **video**: on-demand video and audio streaming.
+     *   **web**: images and small files
+     *   **download**: large files
+     *   **video**: on-demand video and audio streaming
      *
      * @example web
      *
@@ -22,7 +22,7 @@ class domainInfo extends Model
     public $cdnType;
 
     /**
-     * @description The time when the domain name was added to Alibaba Cloud CDN.
+     * @description The creation time.
      *
      * @example 2016-07-12T11:53:19+08:00
      *
@@ -31,7 +31,7 @@ class domainInfo extends Model
     public $createTime;
 
     /**
-     * @description The CNAME assigned to the domain name.
+     * @description The CNAME record assigned to the domain name.
      *
      * @example ***.alikunlun.com
      *
@@ -49,15 +49,14 @@ class domainInfo extends Model
     public $domainName;
 
     /**
-     * @description The status of the accelerated domain name. Valid values:
+     * @description The status of the domain name. Valid values:
      *
      *   **applying**: The domain name is under review.
-     *   **configure_failed**: The domain name failed the review.
      *   **configuring**: The domain name is being configured.
      *   **online**: The domain name is working as expected.
      *   **stopping**: The domain name is being stopped.
      *   **offline**: The domain name is disabled.
-     *   **disabling**: The domain name is being disabled.
+     *   **disabling**: The domain name is being removed.
      *
      * @example online
      *
@@ -66,7 +65,7 @@ class domainInfo extends Model
     public $status;
 
     /**
-     * @description The time when the configuration was updated.
+     * @description The update time.
      *
      * @example 2017-03-31T04:49:00+08:00
      *

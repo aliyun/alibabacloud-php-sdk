@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
-     * @description The data usage of each ISP and the number of visits in each region.
+     * @description The name of the Internet service provider. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs.
      *
-     * @example {         "2019-11-30T05:40:00Z": {             "example.com": {                 "Guangdong": {                     "telecom": {                         "qps": 10.0,                         "http_code": {"200": 1, "304": 2}                     }                 },                 "Jiangsu": {                     "unicom": {                         "qps": 11.1,                         "http_code": {"200": 1, "304": 2, "403": 3}                     }                 }             }         }    }
-     *
+     * @example [
+     * ]
      * @var string
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The accelerated domain name for which you want to query data. You can specify multiple accelerated domain names and separate them with commas (,).
      *
      * @example B49E6DDA-F413-422B-B58E-2FA23F286726
      *

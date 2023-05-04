@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailDataByLayerResponseBody extends Model
 {
     /**
-     * @description The detailed data of the accelerated domain names.
+     * @description The number of IPv6 requests per second.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The number of queries per second.
      *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *

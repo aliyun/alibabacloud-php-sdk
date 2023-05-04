@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnRegionAndIspResponseBody extends Model
 {
     /**
-     * @description A list of ISPs.
+     * @description The list of ISPs.
      *
      * @var isps
      */
     public $isps;
 
     /**
-     * @description A list of regions.
+     * @description The list of regions.
      *
      * @var regions
      */

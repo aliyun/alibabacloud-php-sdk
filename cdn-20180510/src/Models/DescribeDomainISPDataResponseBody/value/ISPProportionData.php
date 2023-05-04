@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ISPProportionData extends Model
 {
     /**
-     * @description The average response size. Unit: bytes.
+     * @description The name of the ISP.
      *
      * @example 7081884.7
      *
@@ -18,7 +18,7 @@ class ISPProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The average response speed. Unit: byte/ms.
+     * @description The bandwidth value.
      *
      * @example 88.92594866772144
      *
@@ -27,7 +27,7 @@ class ISPProportionData extends Model
     public $avgResponseRate;
 
     /**
-     * @description The average response time. Unit: milliseconds.
+     * @description The number of queries per second.
      *
      * @example 79638.0
      *
@@ -36,7 +36,7 @@ class ISPProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The bandwidth value.
+     * @description The information about the ISP.
      *
      * @example 1311.4601296296296
      *
@@ -45,7 +45,7 @@ class ISPProportionData extends Model
     public $bps;
 
     /**
-     * @description The proportion of network traffic.
+     * @description The total amount of network traffic.
      *
      * @example 0.012220518530445479
      *
@@ -54,17 +54,18 @@ class ISPProportionData extends Model
     public $bytesProportion;
 
     /**
-     * @description The information about the ISP.
+     * @description The name of the ISP.
      *
-     * @example chinanet
+     * @example The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @var string
      */
     public $ISP;
 
     /**
-     * @description The name of the ISP.
+     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
      *
+     * - You can call this operation up to 100 times per second per account.
      * @example alibaba
      *
      * @var string
@@ -72,7 +73,7 @@ class ISPProportionData extends Model
     public $ispEname;
 
     /**
-     * @description The proportion of the HTTP status code.
+     * @description The proportion of network traffic.
      *
      * @example 0.004509176173513099
      *
@@ -81,7 +82,7 @@ class ISPProportionData extends Model
     public $proportion;
 
     /**
-     * @description The number of queries per second.
+     * @description chinanet
      *
      * @example 2.3148148148148147E-5
      *
@@ -90,7 +91,7 @@ class ISPProportionData extends Model
     public $qps;
 
     /**
-     * @description The request error rate.
+     * @description The proportion of the HTTP status code.
      *
      * @example 0.0
      *
@@ -99,7 +100,7 @@ class ISPProportionData extends Model
     public $reqErrRate;
 
     /**
-     * @description The total amount of network traffic.
+     * @description The average response size. Unit: bytes.
      *
      * @example 7081884
      *
@@ -108,7 +109,7 @@ class ISPProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The total number of requests.
+     * @description The request error rate.
      *
      * @example 1
      *

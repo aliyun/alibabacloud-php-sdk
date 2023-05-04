@@ -18,7 +18,7 @@ class SetReqHeaderConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain names. You can specify one or more domain names and separate them with commas (,).
+     * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *
@@ -27,7 +27,7 @@ class SetReqHeaderConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The parameter of the custom header.
+     * @description The name of the custom header.
      *
      * @example testkey
      *
@@ -46,7 +46,7 @@ class SetReqHeaderConfigRequest extends Model
     public $securityToken;
 
     /**
-     * @description The value of the custom parameter.
+     * @description The value of the custom header.
      *
      * @example testvalue
      *

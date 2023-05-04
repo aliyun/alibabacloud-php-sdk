@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetCdnDomainSMCertificateRequest extends Model
 {
     /**
-     * @description The ID of the SM certificate that you want to configure.
+     * @description The ID of the SM certificate that you want to configure. The identifier of the certificate. The value is Certificate ID-cn-hangzhou. For example, if the certificate ID is 123, set the value of this parameter to 123-cn-hangzhou.
      *
-     * @example 1234****
+     * @example 1234****-cn-hangzhou
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class SetCdnDomainSMCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which you want to configure the SM certificate.
      *
-     * >  The domain name uses HTTPS secure acceleration.
+     * > The domain name must use HTTPS acceleration.
      * @example example.com
      *
      * @var string
@@ -35,8 +35,8 @@ class SetCdnDomainSMCertificateRequest extends Model
     /**
      * @description Specifies whether to enable the SSL certificate. Valid values:
      *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate.
+     *   **on**
+     *   **off**
      *
      * @example on
      *

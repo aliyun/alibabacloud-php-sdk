@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVipsByDomainResponseBody extends Model
 {
     /**
-     * @description The domain name.
+     * @description >  The maximum number of times that each user can call this operation per second is 30.
      *
      * @example example.com
      *
@@ -19,7 +19,7 @@ class DescribeUserVipsByDomainResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description A list of virtual IP addresses.
      *
      * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
      *
@@ -28,7 +28,7 @@ class DescribeUserVipsByDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of virtual IP addresses.
+     * @description The accelerated domain name. You can specify only one domain name.
      *
      * @var vips
      */

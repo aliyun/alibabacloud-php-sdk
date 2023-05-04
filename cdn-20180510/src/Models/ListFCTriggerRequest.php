@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListFCTriggerRequest extends Model
 {
     /**
-     * @description The name of the event for which the Function Compute trigger is set. You can specify only one name.
+     * @description The name of the event. You can specify only one name.
      *
      * @example LogFileCreated
      *

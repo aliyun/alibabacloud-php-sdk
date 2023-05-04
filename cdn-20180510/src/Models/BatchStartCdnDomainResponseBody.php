@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchStartCdnDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description 1.0.0
      *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *

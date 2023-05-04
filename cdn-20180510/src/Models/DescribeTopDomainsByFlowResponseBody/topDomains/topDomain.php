@@ -45,7 +45,7 @@ class topDomain extends Model
     public $rank;
 
     /**
-     * @description The number of visits to the accelerated domain name.
+     * @description The number of visits to the domain name.
      *
      * @example 107784230
      *
@@ -54,7 +54,7 @@ class topDomain extends Model
     public $totalAccess;
 
     /**
-     * @description The total amount of network traffic.
+     * @description The total volume of traffic.
      *
      * @example 2043859876683.9001
      *
@@ -63,7 +63,7 @@ class topDomain extends Model
     public $totalTraffic;
 
     /**
-     * @description The proportion of the amount of network traffic consumed for visiting the web page.
+     * @description The proportion of network traffic consumed to access the domain name.
      *
      * @example 30.64191989360235
      *

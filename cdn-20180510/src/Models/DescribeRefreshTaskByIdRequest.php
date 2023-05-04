@@ -9,9 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdRequest extends Model
 {
     /**
-     * @description The ID of the task that you want to query.
+     * @description The status of the task. Valid values:
      *
-     * You can specify up to 10 task IDs. Separate task IDs with commas (,).
+     *   **Complete**: The task is complete.
+     *   **Pending**: The task is pending.
+     *   **Refreshing**: The task is running.
+     *   **Failed**: The task failed.
+     *
      * @example 12345678
      *
      * @var string

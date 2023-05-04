@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRealtimeDeliveryAccResponseBody extends Model
 {
     /**
-     * @description The information about real-time log delivery.
+     * @description The statistics about real-time log deliveries.
      *
      * @var reatTimeDeliveryAccData
      */

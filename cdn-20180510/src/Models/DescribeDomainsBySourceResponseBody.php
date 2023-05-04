@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsBySourceResponseBody extends Model
 {
     /**
-     * @description The domain names corresponding to each origin server. The data is indicated by the DomainsData parameter. Data type: array.
+     * @description The domain names corresponding to each origin server.
      *
      * @var domainsList
      */

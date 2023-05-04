@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetCdnDomainCSRCertificateRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to configure an SSL certificate. The domain name must have HTTPS secure acceleration enabled.
+     * @description The ID of the request.
      *
      * @example example.com
      *

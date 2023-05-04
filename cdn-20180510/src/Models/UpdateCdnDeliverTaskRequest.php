@@ -11,7 +11,7 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
      *
-     * @example {\"email\":{\"to\":[\"yewei@myhayo.com\"]}}
+     * @example {\\"email\\":{\\"subject\\":\\"The email subject\\",\\"to\\":\[\\"songmingyuan@alibaba-inc.com\\",\\"songmingyuan@alibaba-inc.com\\"]}}"
      *
      * @var string
      */
@@ -27,9 +27,8 @@ class UpdateCdnDeliverTaskRequest extends Model
     public $deliverId;
 
     /**
-     * @description The domain name that you want to track. You can specify multiple domain names and separate them with commas (,). You can specify at most 500 domain names in each call.
+     * @description The domain name that you want to track. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
      *
-     * If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
      * @example www.example.com
      *
      * @var string
@@ -39,7 +38,7 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @description The name of the tracking task.
      *
-     * @example subscribe
+     * @example Domain name report
      *
      * @var string
      */
@@ -48,7 +47,7 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
      *
-     * @example [{\"reportId\":3},{\"reportId\":1}]
+     * @example \[{\\"reportId\\":1,\\"conditions\\":\[{\\"field\\":\\"prov\\",\\"op\\":\\"in\\",\\"value\\":\[\\"Heilongjiang\\",\\"Beijing\\"]}]}]
      *
      * @var string
      */
@@ -57,7 +56,7 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
      *
-     * @example {\"crontab\":\"00 00 08 * * ?\",\"frequency\":\"d\"}
+     * @example "{\\"schedName\\":\\"The name of the tracking task\\",\\"description\\":\\"The description\\",\\"crontab\\":\\"000\*\*?\\",\\"frequency\\":\\"d\\",\\"status\\":\\"enable\\",\\"effectiveFrom\\":\\"2020-09-17T00:00:00Z\\",\\"effectiveEnd\\":\\"2020-11-17T00:00:00Z\\"}"
      *
      * @var string
      */

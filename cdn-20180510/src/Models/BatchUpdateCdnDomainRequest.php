@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateCdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain names. You can specify one or more accelerated domain names. Separate domain names with commas (,).
+     * @description The top-level domain name.
      *
+     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
      * @example example.com,example.org
      *
      * @var string
@@ -23,7 +24,7 @@ class BatchUpdateCdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the request.
      *
      * @example rg-acfmyuji4b6r4**
      *
@@ -37,9 +38,8 @@ class BatchUpdateCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
+     * @description The accelerated domain names. You can specify one or more accelerated domain names. Separate domain names with commas (,).
      *
-     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string
@@ -47,9 +47,8 @@ class BatchUpdateCdnDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain name.
+     * @description The operation that you want to perform. Set the value to **BatchUpdateCdnDomain**.
      *
-     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
      * @example example.com
      *
      * @var string

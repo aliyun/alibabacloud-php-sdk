@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class contents extends Model
 {
     /**
-     * @description The column names of the chart that shows the status of the script and the time of each data entry.
+     * @description The time and column names in the table that shows the status of the script.
      *
      * @var string[]
      */
     public $columns;
 
     /**
-     * @description The name of the chart that shows the status of the script.
+     * @description The name of the table that shows the status of the script.
      *
      * @example Exception
      *
@@ -25,7 +25,7 @@ class contents extends Model
     public $name;
 
     /**
-     * @description The value of each time and the column of each data entry.
+     * @description The list of timestamps and values in the corresponding columns of the table that shows the status of the script.
      *
      * @var string[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wafConfig extends Model
 {
     /**
+     * @description Indicates whether WAF is enabled.
+     *
      * @example on
      *
      * @var string

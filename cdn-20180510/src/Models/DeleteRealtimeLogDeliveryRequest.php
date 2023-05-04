@@ -18,7 +18,7 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     public $domain;
 
     /**
-     * @description The name of the Logstore that collects log data from Alibaba Cloud Content Delivery Network (CDN) in real time.
+     * @description The name of the Logstore where log entries are stored.
      *
      * @example LogstoreName
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBlockedRegionsResponseBody extends Model
 {
     /**
-     * @description A list of countries and regions.
+     * @description The information returned.
      *
      * @var infoList
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ossLogConfig extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
      * @example Buckettest
      *
      * @var string
@@ -16,6 +18,8 @@ class ossLogConfig extends Model
     public $bucket;
 
     /**
+     * @description Indicates whether the OSS bucket is enabled.
+     *
      * @example off
      *
      * @var string
@@ -23,6 +27,8 @@ class ossLogConfig extends Model
     public $enable;
 
     /**
+     * @description The prefix.
+     *
      * @example test
      *
      * @var string

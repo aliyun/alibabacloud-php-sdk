@@ -26,7 +26,7 @@ class DescribeUserDomainsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2019-10-10T12:14:58Z
      *
      * @var string
@@ -45,8 +45,8 @@ class DescribeUserDomainsRequest extends Model
     /**
      * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -55,11 +55,11 @@ class DescribeUserDomainsRequest extends Model
     public $checkDomainShow;
 
     /**
-     * @description The accelerated region. By default, all accelerated regions are queried. Valid values:
+     * @description The acceleration region. By default, all acceleration regions are queried. Valid values:
      *
      *   **domestic**: Chinese mainland
-     *   **global**
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
      *
      * @example domestic
      *
@@ -68,7 +68,7 @@ class DescribeUserDomainsRequest extends Model
     public $coverage;
 
     /**
-     * @description The accelerated domain names. If you do not set this parameter, configurations of all domain names that match the conditions are returned.
+     * @description The accelerated domain. If you do not set this parameter, all domain names that match the conditions are returned.
      *
      * @example example.com
      *
@@ -84,7 +84,7 @@ class DescribeUserDomainsRequest extends Model
      *   **suf_match**: suffix match
      *   **full_match** (default): exact match
      *
-     * >  If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
+     * > If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
      * @example fuzzy_match
      *
      * @var string
@@ -92,18 +92,18 @@ class DescribeUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
-     * @description The status of the domain name. You can filter domain names by status. Valid values:
+     * @description The status of the domain name. Valid values:
      *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: being configured
-     *   **configure_failed**: failed to be configured
-     *   **checking**: under review
-     *   **check_failed**: failed the review
-     *   **stopping**: being disabled
-     *   **deleting**: deleting
+     *   **online**
+     *   **offline**
+     *   **configuring**
+     *   **configure_failed**
+     *   **checking**
+     *   **check_failed**
+     *   **stopping**
+     *   **deleting**
      *
-     * If you do not set this parameter, all states are queried.
+     * If you do not set this parameter, domain names in all states are queried.
      * @example configure_failed
      *
      * @var string
@@ -157,7 +157,7 @@ class DescribeUserDomainsRequest extends Model
     public $source;
 
     /**
-     * @description The tags.
+     * @description The list of tags. Maximum number of elements in the list: 20
      *
      * @var tag[]
      */

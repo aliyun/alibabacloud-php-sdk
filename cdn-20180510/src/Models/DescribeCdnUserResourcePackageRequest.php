@@ -19,10 +19,10 @@ class DescribeCdnUserResourcePackageRequest extends Model
     public $securityToken;
 
     /**
-     * @description Resource plan status:
+     * @description The remaining quota of the resource plan.
      *
-     *   **valid**: valid
-     *   **closed**: invalid
+     *   The total amount of data transfer provided by the resource plan. Unit: bytes.
+     *   The remaining number of requests provided by the resource plan.
      *
      * @example valid
      *

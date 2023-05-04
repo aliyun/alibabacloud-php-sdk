@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class trafficDataModule extends Model
 {
     /**
-     * @description The name of the district.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * >  The end time must be later than the start time.
      * @example CN
      *
      * @var string
@@ -18,7 +19,7 @@ class trafficDataModule extends Model
     public $area;
 
     /**
-     * @description The bandwidth. Unit: bit/s.
+     * @description The timestamp of the data returned.
      *
      * @example 11288111.1
      *
@@ -27,7 +28,11 @@ class trafficDataModule extends Model
     public $bps;
 
     /**
-     * @description The accelerated domain name.
+     * @description > *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
+     *   The maximum time range between StartTime and EndTime can be 1 hour.
+     *   You can query data within the last 90 days.
+     *   You can query the amount of data transfer and the number of requests for accelerated domain names that have been already removed from Alibaba Cloud CDN.
+     *   The maximum number of times that each user can call this operation per second is 50.
      *
      * @example example.com
      *
@@ -36,7 +41,7 @@ class trafficDataModule extends Model
     public $domain;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-12-10T20:00:00Z
      *
@@ -45,13 +50,8 @@ class trafficDataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The type of data returned. Valid values:
+     * @description The bandwidth. Unit: bit/s.
      *
-     * - **StaticHttps**: the number of HTTPS requests for static content.
-     * - **DynamicHttps**: the number of HTTPS requests for dynamic content.
-     * - **DynamicHttp**: the number of HTTP requests for dynamic content.
-     * - **StaticQuic**: the number of QUIC requests for static content.
-     * - **DynamicQuic**: the number of QUIC requests for dynamic content.
      * @example DynamicHttp
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class certificateListModel extends Model
 {
     /**
-     * @description The details about each SSL certificate.
+     * @description The list of certificates.
      *
      * @var certList
      */
     public $certList;
 
     /**
-     * @description The number of SSL certificates returned.
+     * @description The number of certificates that are returned.
      *
      * @example 2
      *

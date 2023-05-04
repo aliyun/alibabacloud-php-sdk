@@ -18,7 +18,7 @@ class dataModule extends Model
     public $peakTime;
 
     /**
-     * @description The data usage in a specific scenario.
+     * @description The resource usage in a specific scenario.
      *
      * > SpecialValue indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
      * @example 423304182
@@ -30,7 +30,7 @@ class dataModule extends Model
     /**
      * @description The timestamp of the data returned.
      *
-     * > **TimeStamp** indicates the timestamp of the returned data at each interval.
+     * > **TimeStamp** indicates the timestamp of the data returned at each interval.
      * @example 2015-12-10T21:30:00Z
      *
      * @var string

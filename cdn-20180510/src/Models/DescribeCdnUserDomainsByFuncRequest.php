@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserDomainsByFuncRequest extends Model
 {
     /**
-     * @description The ID of the feature. For more information about how to query feature IDs, see [Feature settings for a domain name](~~388460~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
-     *
      * @example 7
      *
      * @var int
@@ -18,9 +16,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public $funcId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * Valid values: **1** to **100000**.
      * @example 10
      *
      * @var int
@@ -28,9 +23,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * Valid values: **1** to **50**.
      * @example 20
      *
      * @var int
@@ -38,8 +30,6 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
-     *
      * @example rg-xxxxx
      *
      * @var string

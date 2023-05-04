@@ -18,7 +18,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $city;
 
     /**
-     * @description The Common Name of the SSL certificate.
+     * @description The email address that can be used to contact the organization.
      *
      * @example CommonName
      *
@@ -27,7 +27,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $commonName;
 
     /**
-     * @description The country to which the organization belongs. Default value: CN.
+     * @description The content of the CSR.
      *
      * @example CN
      *
@@ -36,7 +36,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $country;
 
     /**
-     * @description The email address that can be used to contact the organization.
+     * @description The operation that you want to perform. Set the value to **CreateCdnCertificateSigningRequest**.
      *
      * @example username@example.com
      *
@@ -45,7 +45,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $email;
 
     /**
-     * @description The name of the organization. Default value: Alibaba Inc.
+     * @description The Subject Alternative Name (SAN) extension of the SSL certificate. This extension is used to add domain names to the certificate. Separate multiple domain names with commas (,).
      *
      * @example Alibaba Inc
      *
@@ -54,7 +54,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $organization;
 
     /**
-     * @description The name of the organization unit. Default value: Aliyun CDN.
+     * @description The MD5 value of the certificate public key.
      *
      * @example Aliyun CDN
      *
@@ -63,7 +63,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $organizationUnit;
 
     /**
-     * @description The Subject Alternative Name (SAN) extension of the SSL certificate. This extension is used to add domain names to the certificate. Separate multiple domain names with commas (,).
+     * @description The Common Name of the certificate.
      *
      * @example example.com
      *
@@ -72,7 +72,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $SANs;
 
     /**
-     * @description The provincial district to which the organization belongs. Default value: Zhejiang.
+     * @description The name of the organization. Default value: Alibaba Inc.
      *
      * @example Zhejiang
      *

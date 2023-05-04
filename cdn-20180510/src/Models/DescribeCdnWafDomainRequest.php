@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnWafDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The domain name that you want to query.
+     *
+     * You can specify only one domain name in each request. You have three options to configure this parameter:
+     *
+     *   Specify an exact domain name. For example, if you set this parameter to example.com, configuration information of example.com is queried.
+     *   Specify a keyword. For example, if you set this parameter to example, configuration information about all domain names that contain example is queried.
+     *   Leave this parameter empty. If this parameter is left empty, all accelerated domain names for which WAF is configured are queried.
      *
      * @example example.com
      *
@@ -18,8 +24,12 @@ class DescribeCdnWafDomainRequest extends Model
     public $domainName;
 
     /**
-     * @description The ID of the region.
+     * @description The region where WAF is enabled. Valid values:
      *
+     *   **cn-hangzhou**: inside the Chinese mainland
+     *   **ap-southeast-1**: outside the Chinese mainland
+     *
+     * > ap-southeast-1 includes Hong Kong (China), Macao (China), Taiwan (China), and other countries and regions.
      * @example cn-hangzhou
      *
      * @var string

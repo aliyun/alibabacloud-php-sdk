@@ -18,7 +18,7 @@ class DescribeIllegalUrlExportTaskResponseBody extends Model
     public $downloadUrl;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **DescribeIllegalUrlExportTask**.
      *
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *
@@ -27,7 +27,7 @@ class DescribeIllegalUrlExportTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the export task. A value of **complete** indicates that the task is successful.
+     * @description The ID of the request.
      *
      * @example complete
      *

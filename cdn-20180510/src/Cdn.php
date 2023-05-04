@@ -281,6 +281,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainCSRCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainCSRCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSSLCertificateRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSSLCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateRequest;
@@ -358,16 +360,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
-     *   * *   For more information, see [Add a domain name](~~122181~~).
-     *   * *   You can call this operation up to 30 times per second per account.
-     *   *
-     * @param AddCdnDomainRequest $request AddCdnDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param AddCdnDomainRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return AddCdnDomainResponse AddCdnDomainResponse
+     * @return AddCdnDomainResponse
      */
     public function addCdnDomainWithOptions($request, $runtime)
     {
@@ -425,15 +421,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
-     *   * *   For more information, see [Add a domain name](~~122181~~).
-     *   * *   You can call this operation up to 30 times per second per account.
-     *   *
-     * @param AddCdnDomainRequest $request AddCdnDomainRequest
+     * @param AddCdnDomainRequest $request
      *
-     * @return AddCdnDomainResponse AddCdnDomainResponse
+     * @return AddCdnDomainResponse
      */
     public function addCdnDomain($request)
     {
@@ -506,11 +496,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
-     *   * *   For more information, see [Add a domain name](~~122181~~).
-     *   * *   You can call this operation up to 30 times per second per account.
+     * The top-level domain.
      *   *
      * @param BatchAddCdnDomainRequest $request BatchAddCdnDomainRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -570,11 +556,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-     *   * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
-     *   * *   For more information, see [Add a domain name](~~122181~~).
-     *   * *   You can call this operation up to 30 times per second per account.
+     * The top-level domain.
      *   *
      * @param BatchAddCdnDomainRequest $request BatchAddCdnDomainRequest
      *
@@ -588,8 +570,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can configure features for at most 50 domain names in each API call.
-     *   * - The maximum number of times that each user can call this operation per second is 30.
+     * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchDeleteCdnDomainConfigRequest $request BatchDeleteCdnDomainConfigRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -634,8 +616,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can configure features for at most 50 domain names in each API call.
-     *   * - The maximum number of times that each user can call this operation per second is 30.
+     * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchDeleteCdnDomainConfigRequest $request BatchDeleteCdnDomainConfigRequest
      *
@@ -649,9 +631,61 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   You can call this operation up to 30 times per second per account.
-     *   * *   You can specify multiple domain names and must separate them with commas (,). You can specify up to 50 domain names in each call.
-     *   * *   If the BatchSetCdnDomainConfig operation is successful, a unique configuration ID (ConfigId) is generated. You can use configuration IDs to update or delete configurations. For more information, see [Usage notes on ConfigId](~~388994~~).
+     * The features that you want to configure. Format:
+     *   * *   **functionName**: the name of the feature. This parameter is required. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
+     *   * *   **argName**: the feature parameter for **functionName**. This parameter is required. You can specify multiple feature parameters.
+     *   * *   **argValue**: the parameter value that is specified for **functionName**. This parameter is required.
+     *   * *   **parentid**: the rule condition ID. This parameter is optional. You can use the **condition** rule engine to create a rule condition. For information, see [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~). A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. After you create a rule condition, a [configid](~~388994~~) is generated. configid can be used as parentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+     *   * If you set **parentId** to **-1**, the existing rule conditions in the configurations are deleted.
+     *   *     [{
+     *   *        "functionArgs": [{
+     *   *          "argName": "Parameter A",
+     *   *          "argValue": Value of parameter A"
+     *   *         },
+     *   *       {
+     *   *         "argName": "Parameter B",
+     *   *         "argValue": "Value of parameter B"
+     *   *          }],
+     *   *      "functionName": "Feature name"
+     *   *      "parentId": "Optional, which corresponds to configid of the referenced rule condition"
+     *   *     }]
+     *   * The following code shows a sample configuration if **parentId** is not used.
+     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
+     *   *     [{
+     *   *             "functionArgs": [{
+     *   *                 "argName": "header_operation_type",
+     *   *                 "argValue": "add"
+     *   *             }, {
+     *   *                 "argName": "header_name",
+     *   *                 "argValue": "Accept-Encoding"
+     *   *             }, {
+     *   *                 "argName": "header_value",
+     *   *                 "argValue": "gzip"
+     *   *             }, {
+     *   *                 "argName": "duplicate",
+     *   *                 "argValue": "off"
+     *   *             }],
+     *   *             "functionName": "origin_request_header"
+     *   *     }]
+     *   * The following code shows a sample configuration if **parentId** is used.
+     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
+     *   *     [{
+     *   *             "functionArgs": [{
+     *   *                 "argName": "header_operation_type",
+     *   *                 "argValue": "add"
+     *   *             }, {
+     *   *                 "argName": "header_name",
+     *   *                 "argValue": "Accept-Encoding"
+     *   *             }, {
+     *   *                 "argName": "header_value",
+     *   *                 "argValue": "gzip"
+     *   *             }, {
+     *   *                 "argName": "duplicate",
+     *   *                 "argValue": "off"
+     *   *             }],
+     *   *             "functionName": "origin_request_header",
+     *   *             "parentId": "222728944812032"
+     *   *     }].
      *   *
      * @param BatchSetCdnDomainConfigRequest $request BatchSetCdnDomainConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -696,9 +730,61 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   You can call this operation up to 30 times per second per account.
-     *   * *   You can specify multiple domain names and must separate them with commas (,). You can specify up to 50 domain names in each call.
-     *   * *   If the BatchSetCdnDomainConfig operation is successful, a unique configuration ID (ConfigId) is generated. You can use configuration IDs to update or delete configurations. For more information, see [Usage notes on ConfigId](~~388994~~).
+     * The features that you want to configure. Format:
+     *   * *   **functionName**: the name of the feature. This parameter is required. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
+     *   * *   **argName**: the feature parameter for **functionName**. This parameter is required. You can specify multiple feature parameters.
+     *   * *   **argValue**: the parameter value that is specified for **functionName**. This parameter is required.
+     *   * *   **parentid**: the rule condition ID. This parameter is optional. You can use the **condition** rule engine to create a rule condition. For information, see [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~). A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. After you create a rule condition, a [configid](~~388994~~) is generated. configid can be used as parentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+     *   * If you set **parentId** to **-1**, the existing rule conditions in the configurations are deleted.
+     *   *     [{
+     *   *        "functionArgs": [{
+     *   *          "argName": "Parameter A",
+     *   *          "argValue": Value of parameter A"
+     *   *         },
+     *   *       {
+     *   *         "argName": "Parameter B",
+     *   *         "argValue": "Value of parameter B"
+     *   *          }],
+     *   *      "functionName": "Feature name"
+     *   *      "parentId": "Optional, which corresponds to configid of the referenced rule condition"
+     *   *     }]
+     *   * The following code shows a sample configuration if **parentId** is not used.
+     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
+     *   *     [{
+     *   *             "functionArgs": [{
+     *   *                 "argName": "header_operation_type",
+     *   *                 "argValue": "add"
+     *   *             }, {
+     *   *                 "argName": "header_name",
+     *   *                 "argValue": "Accept-Encoding"
+     *   *             }, {
+     *   *                 "argName": "header_value",
+     *   *                 "argValue": "gzip"
+     *   *             }, {
+     *   *                 "argName": "duplicate",
+     *   *                 "argValue": "off"
+     *   *             }],
+     *   *             "functionName": "origin_request_header"
+     *   *     }]
+     *   * The following code shows a sample configuration if **parentId** is used.
+     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
+     *   *     [{
+     *   *             "functionArgs": [{
+     *   *                 "argName": "header_operation_type",
+     *   *                 "argValue": "add"
+     *   *             }, {
+     *   *                 "argName": "header_name",
+     *   *                 "argValue": "Accept-Encoding"
+     *   *             }, {
+     *   *                 "argName": "header_value",
+     *   *                 "argValue": "gzip"
+     *   *             }, {
+     *   *                 "argName": "duplicate",
+     *   *                 "argValue": "off"
+     *   *             }],
+     *   *             "functionName": "origin_request_header",
+     *   *             "parentId": "222728944812032"
+     *   *     }].
      *   *
      * @param BatchSetCdnDomainConfigRequest $request BatchSetCdnDomainConfigRequest
      *
@@ -712,8 +798,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The maximum number of times that each user can call this operation per second is 10.
-     *   * *   You can specify multiple domain names (no more than 50) and separate them with commas (,).
+     * The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -773,8 +858,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The maximum number of times that each user can call this operation per second is 10.
-     *   * *   You can specify multiple domain names (no more than 50) and separate them with commas (,).
+     * The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      *
@@ -788,9 +872,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - If the domain name is in an invalid state or your have an overdue payment in your account, the domain name cannot be enabled.
-     *   * - The maximum number of times that each user can call this operation per second is 30.
-     *   * - The maximum number of domain names configured at a time is 50.
+     * The domain names that you want to enable. Separate multiple domain names with commas (,).
      *   *
      * @param BatchStartCdnDomainRequest $request BatchStartCdnDomainRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -829,9 +911,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - If the domain name is in an invalid state or your have an overdue payment in your account, the domain name cannot be enabled.
-     *   * - The maximum number of times that each user can call this operation per second is 30.
-     *   * - The maximum number of domain names configured at a time is 50.
+     * The domain names that you want to enable. Separate multiple domain names with commas (,).
      *   *
      * @param BatchStartCdnDomainRequest $request BatchStartCdnDomainRequest
      *
@@ -1036,7 +1116,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The ID of the tracking task.
      *   *
      * @param CreateCdnDeliverTaskRequest $request CreateCdnDeliverTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1161,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The ID of the tracking task.
      *   *
      * @param CreateCdnDeliverTaskRequest $request CreateCdnDeliverTaskRequest
      *
@@ -1147,9 +1227,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   You can query data only by day. You can query data of the last month or later.
-     *   * *   In most cases, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL where you can download the file.
-     *   * *   The maximum number of times that each user can call this operation per second is 1.
+     * *   You can query data only by day. You can query data within the last 31 days.
+     *   * *   Typically, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL from which you can download the file.
+     *   * *   You can call this operation only once per second per account.
      *   *
      * @param CreateIllegalUrlExportTaskRequest $request CreateIllegalUrlExportTaskRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1185,9 +1265,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   You can query data only by day. You can query data of the last month or later.
-     *   * *   In most cases, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL where you can download the file.
-     *   * *   The maximum number of times that each user can call this operation per second is 1.
+     * *   You can query data only by day. You can query data within the last 31 days.
+     *   * *   Typically, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL from which you can download the file.
+     *   * *   You can call this operation only once per second per account.
      *   *
      * @param CreateIllegalUrlExportTaskRequest $request CreateIllegalUrlExportTaskRequest
      *
@@ -1201,7 +1281,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * >  You can call this API operation up to 100 times per second per account.
      *   *
      * @param CreateRealTimeLogDeliveryRequest $request CreateRealTimeLogDeliveryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1231,7 +1311,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * >  You can call this API operation up to 100 times per second per account.
      *   *
      * @param CreateRealTimeLogDeliveryRequest $request CreateRealTimeLogDeliveryRequest
      *
@@ -1417,9 +1497,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - We recommend that you add an A record for the domain name in the system of your DNS service provider before you delete the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
-     *   * - After you successfully call the DeleteCdnDomain operation, all records of the deleted domain name are removed. If you need to only disable the domain name, we recommend that you call the StopCdnDomain operation.
-     *   * - The maximum number of times that each user can call this operation per second is 10.
+     * The accelerated domain name that you want to delete. You can specify only one domain name in each call.
      *   *
      * @param DeleteCdnDomainRequest $request DeleteCdnDomainRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1458,9 +1536,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - We recommend that you add an A record for the domain name in the system of your DNS service provider before you delete the domain name from Alibaba Cloud CDN. Otherwise, the domain name may become inaccessible. Proceed with caution.
-     *   * - After you successfully call the DeleteCdnDomain operation, all records of the deleted domain name are removed. If you need to only disable the domain name, we recommend that you call the StopCdnDomain operation.
-     *   * - The maximum number of times that each user can call this operation per second is 10.
+     * The accelerated domain name that you want to delete. You can specify only one domain name in each call.
      *   *
      * @param DeleteCdnDomainRequest $request DeleteCdnDomainRequest
      *
@@ -1598,7 +1674,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DeleteRealtimeLogDeliveryRequest $request DeleteRealtimeLogDeliveryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1628,7 +1704,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DeleteRealtimeLogDeliveryRequest $request DeleteRealtimeLogDeliveryRequest
      *
@@ -1642,7 +1718,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DeleteSpecificConfigRequest $request DeleteSpecificConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1684,7 +1760,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DeleteSpecificConfigRequest $request DeleteSpecificConfigRequest
      *
@@ -1848,7 +1924,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 50 times per second.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeBlockedRegionsRequest $request DescribeBlockedRegionsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1878,7 +1954,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 50 times per second.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeBlockedRegionsRequest $request DescribeBlockedRegionsRequest
      *
@@ -1892,7 +1968,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 20.
+     * > You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeCdnCertificateDetailRequest $request DescribeCdnCertificateDetailRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -1931,7 +2007,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 20.
+     * > You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeCdnCertificateDetailRequest $request DescribeCdnCertificateDetailRequest
      *
@@ -1945,7 +2021,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnCertificateListRequest $request DescribeCdnCertificateListRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1984,7 +2060,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnCertificateListRequest $request DescribeCdnCertificateListRequest
      *
@@ -1998,7 +2074,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 10.
+     * > You can call this operation up to 10 times per second per account.
      *   *
      * @param DescribeCdnDeletedDomainsRequest $request DescribeCdnDeletedDomainsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2034,7 +2110,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 10.
+     * > You can call this operation up to 10 times per second per account.
      *   *
      * @param DescribeCdnDeletedDomainsRequest $request DescribeCdnDeletedDomainsRequest
      *
@@ -2145,7 +2221,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnDomainConfigsRequest $request DescribeCdnDomainConfigsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2266,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnDomainConfigsRequest $request DescribeCdnDomainConfigsRequest
      *
@@ -2204,7 +2280,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnDomainDetailRequest $request DescribeCdnDomainDetailRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2319,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnDomainDetailRequest $request DescribeCdnDomainDetailRequest
      *
@@ -2322,7 +2398,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnDomainStagingConfigRequest $request DescribeCdnDomainStagingConfigRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2358,7 +2434,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnDomainStagingConfigRequest $request DescribeCdnDomainStagingConfigRequest
      *
@@ -2474,8 +2550,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
-     *   * *   The maximum number of times that each user can call this operation per second is 30.
+     * *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnRegionAndIspRequest $request DescribeCdnRegionAndIspRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2511,8 +2587,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
-     *   * *   The maximum number of times that each user can call this operation per second is 30.
+     * *   The lists of ISPs and regions that are supported by Alibaba Cloud CDN are updated and published on the Alibaba Cloud International site.
+     *   * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnRegionAndIspRequest $request DescribeCdnRegionAndIspRequest
      *
@@ -2591,8 +2667,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
-     *   * - You can call this API operation up to three times per second per account.
+     * *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+     *   * *   You can call this operation up to three times per second per account.
      *   *
      * @param DescribeCdnReportListRequest $request DescribeCdnReportListRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2625,8 +2701,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
-     *   * - You can call this API operation up to three times per second per account.
+     * *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+     *   * *   You can call this operation up to three times per second per account.
      *   *
      * @param DescribeCdnReportListRequest $request DescribeCdnReportListRequest
      *
@@ -2693,7 +2769,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnSMCertificateListRequest $request DescribeCdnSMCertificateListRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2732,7 +2808,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnSMCertificateListRequest $request DescribeCdnSMCertificateListRequest
      *
@@ -2746,7 +2822,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnServiceRequest $request DescribeCdnServiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2782,7 +2858,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnServiceRequest $request DescribeCdnServiceRequest
      *
@@ -2796,8 +2872,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
-     *   * *   You can call this operation up to three times per second per account.
+     * {"RequestId":"3250A51D-C11D-46BA-B6B3-95348EEDE652","Description":"Successful","Content":{"data":\\[{"subId":5,"reportId":\\[1,2,3],"createTime":"2020-09-25T09:39:33Z","domains"\\["www.example.com","www.example.com"],"effectiveFrom":"2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z","status":"enable"}]}}.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2822,8 +2897,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
-     *   * *   You can call this operation up to three times per second per account.
+     * {"RequestId":"3250A51D-C11D-46BA-B6B3-95348EEDE652","Description":"Successful","Content":{"data":\\[{"subId":5,"reportId":\\[1,2,3],"createTime":"2020-09-25T09:39:33Z","domains"\\["www.example.com","www.example.com"],"effectiveFrom":"2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z","status":"enable"}]}}.
      *   *
      * @return DescribeCdnSubListResponse DescribeCdnSubListResponse
      */
@@ -2887,13 +2961,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * You can call this operation to estimate resource usage of the current month based on the metering method set on the first day of the current month. This operation can estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
-     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The highest value among the remaining values is the estimated value.
+     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
      *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 4th peak bandwidth per month: The 4th peak bandwidth value between the start time and end time is the estimated value. If the time range is less than 4 days, the estimated value is 0.
+     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
      *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The highest value among the remaining values is the estimated value.
-     *   * >  The maximum number of times that each user can call this operation per second is 1.
+     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * > You can call this operation only once per second per account.
      *   *
      * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2935,13 +3009,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * You can call this operation to estimate resource usage of the current month based on the metering method set on the first day of the current month. This operation can estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
-     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The highest value among the remaining values is the estimated value.
+     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
      *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 4th peak bandwidth per month: The 4th peak bandwidth value between the start time and end time is the estimated value. If the time range is less than 4 days, the estimated value is 0.
+     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
      *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The highest value among the remaining values is the estimated value.
-     *   * >  The maximum number of times that each user can call this operation per second is 1.
+     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * > You can call this operation only once per second per account.
      *   *
      * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
      *
@@ -3005,7 +3079,14 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The value of the configuration. Valid values:
+     *   * *   **cc_rule**: HTTP flood protection rules
+     *   * *   **ddos_dispatch**: integration with Anti-DDoS
+     *   * *   **edge_safe**: application security settings on edge nodes
+     *   * *   **blocked_regions**: blocked regions
+     *   * *   **http\\_acl\\_policy**: access control list (ACL) rules
+     *   * *   **bot_manager**: bot traffic management
+     *   * *   **ip_reputation**: IP reputation library.
      *   *
      * @param DescribeCdnUserConfigsRequest $request DescribeCdnUserConfigsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3038,7 +3119,14 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The value of the configuration. Valid values:
+     *   * *   **cc_rule**: HTTP flood protection rules
+     *   * *   **ddos_dispatch**: integration with Anti-DDoS
+     *   * *   **edge_safe**: application security settings on edge nodes
+     *   * *   **blocked_regions**: blocked regions
+     *   * *   **http\\_acl\\_policy**: access control list (ACL) rules
+     *   * *   **bot_manager**: bot traffic management
+     *   * *   **ip_reputation**: IP reputation library.
      *   *
      * @param DescribeCdnUserConfigsRequest $request DescribeCdnUserConfigsRequest
      *
@@ -3052,12 +3140,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param DescribeCdnUserDomainsByFuncRequest $request DescribeCdnUserDomainsByFuncRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param DescribeCdnUserDomainsByFuncRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeCdnUserDomainsByFuncResponse DescribeCdnUserDomainsByFuncResponse
+     * @return DescribeCdnUserDomainsByFuncResponse
      */
     public function describeCdnUserDomainsByFuncWithOptions($request, $runtime)
     {
@@ -3094,11 +3180,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param DescribeCdnUserDomainsByFuncRequest $request DescribeCdnUserDomainsByFuncRequest
+     * @param DescribeCdnUserDomainsByFuncRequest $request
      *
-     * @return DescribeCdnUserDomainsByFuncResponse DescribeCdnUserDomainsByFuncResponse
+     * @return DescribeCdnUserDomainsByFuncResponse
      */
     public function describeCdnUserDomainsByFunc($request)
     {
@@ -3108,7 +3192,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnUserQuotaRequest $request DescribeCdnUserQuotaRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3144,7 +3228,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnUserQuotaRequest $request DescribeCdnUserQuotaRequest
      *
@@ -3211,10 +3295,12 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeCdnWafDomainRequest $request
-     * @param RuntimeOptions              $runtime
+     * > You can call this operation up to 150 times per second per account.
+     *   *
+     * @param DescribeCdnWafDomainRequest $request DescribeCdnWafDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCdnWafDomainResponse
+     * @return DescribeCdnWafDomainResponse DescribeCdnWafDomainResponse
      */
     public function describeCdnWafDomainWithOptions($request, $runtime)
     {
@@ -3248,9 +3334,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeCdnWafDomainRequest $request
+     * > You can call this operation up to 150 times per second per account.
+     *   *
+     * @param DescribeCdnWafDomainRequest $request DescribeCdnWafDomainRequest
      *
-     * @return DescribeCdnWafDomainResponse
+     * @return DescribeCdnWafDomainResponse DescribeCdnWafDomainResponse
      */
     public function describeCdnWafDomain($request)
     {
@@ -3350,10 +3438,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - You can call this operation up to 100 times per second per account.
-     *   * - You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainAverageResponseTimeRequest $request DescribeDomainAverageResponseTimeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -3407,10 +3492,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - You can call this operation up to 100 times per second per account.
-     *   * - You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainAverageResponseTimeRequest $request DescribeDomainAverageResponseTimeRequest
      *
@@ -3424,15 +3506,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 150 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The bandwidth value in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *   *
      * @param DescribeDomainBpsDataRequest $request DescribeDomainBpsDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3480,15 +3554,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 150 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The bandwidth value in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
      *   *
      * @param DescribeDomainBpsDataRequest $request DescribeDomainBpsDataRequest
      *
@@ -3645,10 +3711,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   If you do not set the StartTime or EndTime parameter, data within the last 24 hours is queried. If you set both the StartTime and EndTime parameters, data within the specified time range is queried. You must set both parameters or leave both of them empty.
-     *   * *   You can specify multiple domain names (no more than 20) and separate them with commas (,).
-     *   * *   You can query data within the last 30 days.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
+     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+     *   * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
+     *   * *   You can query data collected over the last 30 days.
+     *   * *   You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeDomainCcActivityLogRequest $request DescribeDomainCcActivityLogRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3702,10 +3768,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   If you do not set the StartTime or EndTime parameter, data within the last 24 hours is queried. If you set both the StartTime and EndTime parameters, data within the specified time range is queried. You must set both parameters or leave both of them empty.
-     *   * *   You can specify multiple domain names (no more than 20) and separate them with commas (,).
-     *   * *   You can query data within the last 30 days.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
+     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+     *   * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
+     *   * *   You can query data collected over the last 30 days.
+     *   * *   You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeDomainCcActivityLogRequest $request DescribeDomainCcActivityLogRequest
      *
@@ -3719,7 +3785,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param DescribeDomainCertificateInfoRequest $request DescribeDomainCertificateInfoRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3752,7 +3818,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param DescribeDomainCertificateInfoRequest $request DescribeDomainCertificateInfoRequest
      *
@@ -3853,15 +3919,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You can call this operation up to 20 times per second per account.
-     *   * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The following table describes the time granularity, the time period within which historical data is available, and the data delay, which vary with the maximum time range per query.
-     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-     *   * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |
-     *   * | 1 days | 366 days | 366 days | 04:00 on the next day |.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3891,15 +3949,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You can call this operation up to 20 times per second per account.
-     *   * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The following table describes the time granularity, the time period within which historical data is available, and the data delay, which vary with the maximum time range per query.
-     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-     *   * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |
-     *   * | 1 days | 366 days | 366 days | 04:00 on the next day |.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      *
@@ -3913,15 +3963,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The byte hit ratio of HTTPS requests.
      *   *
      * @param DescribeDomainHitRateDataRequest $request DescribeDomainHitRateDataRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3963,15 +4005,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The byte hit ratio of HTTPS requests.
      *   *
      * @param DescribeDomainHitRateDataRequest $request DescribeDomainHitRateDataRequest
      *
@@ -3985,15 +4019,15 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - The maximum number of times that each user can call this operation per second is 100.
-     *   * - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+     * * You can call this operation up to 100 times per second per account.
+     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
-     *   * | Time granularity | Time range to query | Historical data available | Data delay |
-     *   * | ---------------- | ------------------- | ------------------------- | ---------- |
-     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |
-     *   * | 1 day | 366 days | 366 days | 04:00 on the next day |.
+     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+     *   * |---|---|---|---|
+     *   * |5 minutes|3 days|93 days|15 minutes|
+     *   * |1 hour|31 days|186 days|4 hours|
+     *   * |1 day|366 days|366 days|04:00 on the next day|.
      *   *
      * @param DescribeDomainHttpCodeDataRequest $request DescribeDomainHttpCodeDataRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4041,15 +4075,15 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - The maximum number of times that each user can call this operation per second is 100.
-     *   * - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+     * * You can call this operation up to 100 times per second per account.
+     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
-     *   * | Time granularity | Time range to query | Historical data available | Data delay |
-     *   * | ---------------- | ------------------- | ------------------------- | ---------- |
-     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |
-     *   * | 1 day | 366 days | 366 days | 04:00 on the next day |.
+     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+     *   * |---|---|---|---|
+     *   * |5 minutes|3 days|93 days|15 minutes|
+     *   * |1 hour|31 days|186 days|4 hours|
+     *   * |1 day|366 days|366 days|04:00 on the next day|.
      *   *
      * @param DescribeDomainHttpCodeDataRequest $request DescribeDomainHttpCodeDataRequest
      *
@@ -4144,10 +4178,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - This operation queries proportions of data usage of different ISPs only for a specific accelerated domain name, or for all accelerated domain names that belong your Alibaba Cloud account.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The end of the time range that was queried.
      *   *
      * @param DescribeDomainISPDataRequest $request DescribeDomainISPDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4186,10 +4217,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - This operation queries proportions of data usage of different ISPs only for a specific accelerated domain name, or for all accelerated domain names that belong your Alibaba Cloud account.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The end of the time range that was queried.
      *   *
      * @param DescribeDomainISPDataRequest $request DescribeDomainISPDataRequest
      *
@@ -4270,11 +4298,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
-     *   * *   The maximum time range between StartTime and EndTime can be 1 hour.
-     *   * *   You can query data within the last 90 days.
-     *   * *   You can query the amount of data transfer and the number of requests for accelerated domain names that have been already removed from Alibaba Cloud CDN.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
+     * The end of the time range that was queried.
      *   *
      * @param DescribeDomainMultiUsageDataRequest $request DescribeDomainMultiUsageDataRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4313,11 +4337,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   If you do not set StartTime or EndTime, data collected within the last 10 minutes is queried.
-     *   * *   The maximum time range between StartTime and EndTime can be 1 hour.
-     *   * *   You can query data within the last 90 days.
-     *   * *   You can query the amount of data transfer and the number of requests for accelerated domain names that have been already removed from Alibaba Cloud CDN.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
+     * The end of the time range that was queried.
      *   *
      * @param DescribeDomainMultiUsageDataRequest $request DescribeDomainMultiUsageDataRequest
      *
@@ -4387,9 +4407,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, monitoring data within the last 24 hours is queried. If you set both StartTime and EndTime, monitoring data within the specified time range is queried.
-     *   * - You can call this operation up to 50 times per second per account.
+     * The end of the time range during which data was queried.
      *   *
      * @param DescribeDomainPvDataRequest $request DescribeDomainPvDataRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4428,9 +4446,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, monitoring data within the last 24 hours is queried. If you set both StartTime and EndTime, monitoring data within the specified time range is queried.
-     *   * - You can call this operation up to 50 times per second per account.
+     * The end of the time range during which data was queried.
      *   *
      * @param DescribeDomainPvDataRequest $request DescribeDomainPvDataRequest
      *
@@ -4723,8 +4739,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You can query data within the last seven days. Data is collected every minute.
-     *   * - The maximum number of times that each user can call this operation per second is 10.
+     * The beginning of the time range to query.
+     *   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
      *   *
      * @param DescribeDomainRealTimeDetailDataRequest $request DescribeDomainRealTimeDetailDataRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -4754,8 +4770,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - You can query data within the last seven days. Data is collected every minute.
-     *   * - The maximum number of times that each user can call this operation per second is 10.
+     * The beginning of the time range to query.
+     *   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
      *   *
      * @param DescribeDomainRealTimeDetailDataRequest $request DescribeDomainRealTimeDetailDataRequest
      *
@@ -4769,15 +4785,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The total number of entries.
      *   *
      * @param DescribeDomainRealTimeHttpCodeDataRequest $request DescribeDomainRealTimeHttpCodeDataRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -4822,15 +4830,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The total number of entries.
      *   *
      * @param DescribeDomainRealTimeHttpCodeDataRequest $request DescribeDomainRealTimeHttpCodeDataRequest
      *
@@ -4904,17 +4904,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - The maximum number of times that each user can call this operation per second is 10.
-     *   * - If you do not set StartTime or EndTime, data collected within the last hour is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - By default, requests in the Go programming language use the POST request method. You must manually change the request method to GET by declaring: request.Method="GET".
-     *   * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the request hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * | Time granularity | Time range to query | Historical data available | Data delay |
-     *   * | ---------------- | ------------------- | ------------------------- | ---------- |
-     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
-     *   * | 5 minutes | 3 Days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |.
+     * The ID of the request.
      *   *
      * @param DescribeDomainRealTimeReqHitRateDataRequest $request DescribeDomainRealTimeReqHitRateDataRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -4944,17 +4934,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - The maximum number of times that each user can call this operation per second is 10.
-     *   * - If you do not set StartTime or EndTime, data collected within the last hour is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - By default, requests in the Go programming language use the POST request method. You must manually change the request method to GET by declaring: request.Method="GET".
-     *   * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the request hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * | Time granularity | Time range to query | Historical data available | Data delay |
-     *   * | ---------------- | ------------------- | ------------------------- | ---------- |
-     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
-     *   * | 5 minutes | 3 Days | 93 days | 15 minutes |
-     *   * | 1 hour | 31 days | 186 days | 4 hours |.
+     * The ID of the request.
      *   *
      * @param DescribeDomainRealTimeReqHitRateDataRequest $request DescribeDomainRealTimeReqHitRateDataRequest
      *
@@ -4968,15 +4948,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainRealTimeSrcBpsDataRequest $request DescribeDomainRealTimeSrcBpsDataRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -5015,15 +4987,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainRealTimeSrcBpsDataRequest $request DescribeDomainRealTimeSrcBpsDataRequest
      *
@@ -5037,15 +5001,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The count of each HTTP status code.
      *   *
      * @param DescribeDomainRealTimeSrcHttpCodeDataRequest $request DescribeDomainRealTimeSrcHttpCodeDataRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -5090,15 +5046,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The count of each HTTP status code.
      *   *
      * @param DescribeDomainRealTimeSrcHttpCodeDataRequest $request DescribeDomainRealTimeSrcHttpCodeDataRequest
      *
@@ -5256,7 +5204,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The name of the Log Service project that is used for real-time log delivery.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -5286,7 +5234,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The name of the Log Service project that is used for real-time log delivery.
      *   *
      * @param DescribeDomainRealtimeLogDeliveryRequest $request DescribeDomainRealtimeLogDeliveryRequest
      *
@@ -5300,10 +5248,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set **StartTime** or **EndTime**, data collected within the last **24** hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
-     *   * - You may fail to query the latest data. If you need to query data collected within the last day, we recommend that you query the data on the next day.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The beginning of the time range that was queried.
      *   *
      * @param DescribeDomainRegionDataRequest $request DescribeDomainRegionDataRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5342,10 +5287,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set **StartTime** or **EndTime**, data collected within the last **24** hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
-     *   * - You may fail to query the latest data. If you need to query data collected within the last day, we recommend that you query the data on the next day.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The beginning of the time range that was queried.
      *   *
      * @param DescribeDomainRegionDataRequest $request DescribeDomainRegionDataRequest
      *
@@ -5779,10 +5721,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - Data is collected every hour.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The name of the region. Separate multiple region names with commas (,).
+     *   * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
      *   *
      * @param DescribeDomainTopClientIpVisitRequest $request DescribeDomainTopClientIpVisitRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -5830,10 +5770,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
-     *   * - Data is collected every hour.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The name of the region. Separate multiple region names with commas (,).
+     *   * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
      *   *
      * @param DescribeDomainTopClientIpVisitRequest $request DescribeDomainTopClientIpVisitRequest
      *
@@ -5847,10 +5785,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to analyze data.
-     *   * > - If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * - Data is collected at an interval of five minutes.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The sorting method. Valid values:
+     *   * *   **traf**: by network traffic.
+     *   * *   **pv**: by the number of page views. This is the default value.
      *   *
      * @param DescribeDomainTopReferVisitRequest $request DescribeDomainTopReferVisitRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5892,10 +5829,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to analyze data.
-     *   * > - If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * - Data is collected at an interval of five minutes.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The sorting method. Valid values:
+     *   * *   **traf**: by network traffic.
+     *   * *   **pv**: by the number of page views. This is the default value.
      *   *
      * @param DescribeDomainTopReferVisitRequest $request DescribeDomainTopReferVisitRequest
      *
@@ -6054,7 +5990,7 @@ class Cdn extends OpenApiClient
 
     /**
      * * You can call this operation up to 10 times per second per account.
-     *   * * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+     *   * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      *   * |---|---|---|---|
      *   * |5 minutes|3 days|93 days|15 minutes|
@@ -6114,7 +6050,7 @@ class Cdn extends OpenApiClient
 
     /**
      * * You can call this operation up to 10 times per second per account.
-     *   * * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+     *   * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      *   * |---|---|---|---|
      *   * |5 minutes|3 days|93 days|15 minutes|
@@ -6194,7 +6130,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeDomainsBySourceRequest $request DescribeDomainsBySourceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6233,7 +6169,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeDomainsBySourceRequest $request DescribeDomainsBySourceRequest
      *
@@ -6304,7 +6240,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeEsExceptionDataRequest $request DescribeEsExceptionDataRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6343,7 +6279,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeEsExceptionDataRequest $request DescribeEsExceptionDataRequest
      *
@@ -6357,7 +6293,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeEsExecuteDataRequest $request DescribeEsExecuteDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6396,7 +6332,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * *   You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeEsExecuteDataRequest $request DescribeEsExecuteDataRequest
      *
@@ -6450,8 +6386,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   Invalid URLs are exported to a CSV file.
-     *   * *   The maximum number of times that each user can call this operation per second is 1.
+     * The URL where you can download the file that contains invalid URLs. This parameter is valid only if the export task is successful.
      *   *
      * @param DescribeIllegalUrlExportTaskRequest $request DescribeIllegalUrlExportTaskRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -6484,8 +6419,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   Invalid URLs are exported to a CSV file.
-     *   * *   The maximum number of times that each user can call this operation per second is 1.
+     * The URL where you can download the file that contains invalid URLs. This parameter is valid only if the export task is successful.
      *   *
      * @param DescribeIllegalUrlExportTaskRequest $request DescribeIllegalUrlExportTaskRequest
      *
@@ -6499,7 +6433,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 50.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeIpInfoRequest $request DescribeIpInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -6532,7 +6466,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 50.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeIpInfoRequest $request DescribeIpInfoRequest
      *
@@ -6546,7 +6480,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 50.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeIpStatusRequest $request DescribeIpStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6576,7 +6510,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 50.
+     * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeIpStatusRequest $request DescribeIpStatusRequest
      *
@@ -6749,7 +6683,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeRealtimeDeliveryAccRequest $request DescribeRealtimeDeliveryAccRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6794,7 +6728,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeRealtimeDeliveryAccRequest $request DescribeRealtimeDeliveryAccRequest
      *
@@ -6808,8 +6742,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can call the RefreshObjectCaches operation to refresh content and call the PushObjectCache operation to prefetch content.
-     *   * - The maximum number of times that each user can call this operation per second is 20.
+     * *   You can call the [RefreshObjectCaches](~~448057~~) operation to refresh content and call the [PushObjectCache](~~448058~~) operation to prefetch content.
+     *   * *   You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeRefreshQuotaRequest $request DescribeRefreshQuotaRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6845,8 +6779,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can call the RefreshObjectCaches operation to refresh content and call the PushObjectCache operation to prefetch content.
-     *   * - The maximum number of times that each user can call this operation per second is 20.
+     * *   You can call the [RefreshObjectCaches](~~448057~~) operation to refresh content and call the [PushObjectCache](~~448058~~) operation to prefetch content.
+     *   * *   You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeRefreshQuotaRequest $request DescribeRefreshQuotaRequest
      *
@@ -6860,8 +6794,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can query data within the last three days.
-     *   * - You can call this operation up to 30 times per second per account.
+     * The tasks.
      *   *
      * @param DescribeRefreshTaskByIdRequest $request DescribeRefreshTaskByIdRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6894,8 +6827,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - You can query data within the last three days.
-     *   * - You can call this operation up to 30 times per second per account.
+     * The tasks.
      *   *
      * @param DescribeRefreshTaskByIdRequest $request DescribeRefreshTaskByIdRequest
      *
@@ -6909,11 +6841,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can query the status of tasks by task ID or URL.
-     *   * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
-     *   * *   You can query data collected in the last 3 days.
-     *   * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
-     *   * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
+     * The ID of the task.
      *   *
      * @param DescribeRefreshTasksRequest $request DescribeRefreshTasksRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6979,11 +6907,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can query the status of tasks by task ID or URL.
-     *   * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
-     *   * *   You can query data collected in the last 3 days.
-     *   * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
-     *   * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
+     * The ID of the task.
      *   *
      * @param DescribeRefreshTasksRequest $request DescribeRefreshTasksRequest
      *
@@ -7034,12 +6958,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 10 times per second per account.
-     *   *
-     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DescribeTagResourcesRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
+     * @return DescribeTagResourcesResponse
      */
     public function describeTagResourcesWithOptions($request, $runtime)
     {
@@ -7073,11 +6995,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 10 times per second per account.
-     *   *
-     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
+     * @param DescribeTagResourcesRequest $request
      *
-     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
+     * @return DescribeTagResourcesResponse
      */
     public function describeTagResources($request)
     {
@@ -7087,9 +7007,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to analyze data.
-     *   * > - If you do not set **StartTime** or **EndTime**, data within the current month is queried. If you set both **StartTime** and **EndTime**, data within the specified time range is queried.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
+     *   * >
+     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.********
+     *   * *   You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeTopDomainsByFlowRequest $request DescribeTopDomainsByFlowRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7128,9 +7049,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to analyze data.
-     *   * > - If you do not set **StartTime** or **EndTime**, data within the current month is queried. If you set both **StartTime** and **EndTime**, data within the specified time range is queried.
-     *   * - You can call this operation up to 100 times per second per account.
+     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
+     *   * >
+     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.********
+     *   * *   You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeTopDomainsByFlowRequest $request DescribeTopDomainsByFlowRequest
      *
@@ -7144,7 +7066,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The number of domain names whose SSL certificates are about to expire within 30 days.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -7169,7 +7091,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The number of domain names whose SSL certificates are about to expire within 30 days.
      *   *
      * @return DescribeUserCertificateExpireCountResponse DescribeUserCertificateExpireCountResponse
      */
@@ -7239,7 +7161,7 @@ class Cdn extends OpenApiClient
 
     /**
      * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
      *   *
      * @param DescribeUserDomainsRequest $request DescribeUserDomainsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7315,7 +7237,7 @@ class Cdn extends OpenApiClient
 
     /**
      * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+     *   * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
      *   *
      * @param DescribeUserDomainsRequest $request DescribeUserDomainsRequest
      *
@@ -7468,7 +7390,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The ID of the request.
      *   *
      * @param DescribeUserVipsByDomainRequest $request DescribeUserVipsByDomainRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7498,7 +7420,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The ID of the request.
      *   *
      * @param DescribeUserVipsByDomainRequest $request DescribeUserVipsByDomainRequest
      *
@@ -7512,12 +7434,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param DescribeVerifyContentRequest $request DescribeVerifyContentRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param DescribeVerifyContentRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DescribeVerifyContentResponse DescribeVerifyContentResponse
+     * @return DescribeVerifyContentResponse
      */
     public function describeVerifyContentWithOptions($request, $runtime)
     {
@@ -7545,11 +7465,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param DescribeVerifyContentRequest $request DescribeVerifyContentRequest
+     * @param DescribeVerifyContentRequest $request
      *
-     * @return DescribeVerifyContentResponse DescribeVerifyContentResponse
+     * @return DescribeVerifyContentResponse
      */
     public function describeVerifyContent($request)
     {
@@ -7647,7 +7565,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListDomainsByLogConfigIdRequest $request ListDomainsByLogConfigIdRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7677,7 +7595,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListDomainsByLogConfigIdRequest $request ListDomainsByLogConfigIdRequest
      *
@@ -7691,7 +7609,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListFCTriggerRequest $request ListFCTriggerRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7721,7 +7639,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListFCTriggerRequest $request ListFCTriggerRequest
      *
@@ -7735,7 +7653,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListRealtimeLogDeliveryDomainsRequest $request ListRealtimeLogDeliveryDomainsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -7765,7 +7683,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListRealtimeLogDeliveryDomainsRequest $request ListRealtimeLogDeliveryDomainsRequest
      *
@@ -7779,7 +7697,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -7804,7 +7722,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @return ListRealtimeLogDeliveryInfosResponse ListRealtimeLogDeliveryInfosResponse
      */
@@ -7853,7 +7771,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param ModifyCdnDomainRequest $request ModifyCdnDomainRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7901,7 +7819,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param ModifyCdnDomainRequest $request ModifyCdnDomainRequest
      *
@@ -7915,7 +7833,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param ModifyCdnDomainSchdmByPropertyRequest $request ModifyCdnDomainSchdmByPropertyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -7951,7 +7869,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param ModifyCdnDomainSchdmByPropertyRequest $request ModifyCdnDomainSchdmByPropertyRequest
      *
@@ -8009,8 +7927,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
-     *   * > - The maximum number of times that each user can call this operation per second is 5.
+     * *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
+     *   * *   You can call this operation up to five times per second per user.
      *   *
      * @param OpenCdnServiceRequest $request OpenCdnServiceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8049,8 +7967,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > - Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
-     *   * > - The maximum number of times that each user can call this operation per second is 5.
+     * *   Alibaba Cloud CDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must complete real-name verification to activate Alibaba Cloud CDN.
+     *   * *   You can call this operation up to five times per second per user.
      *   *
      * @param OpenCdnServiceRequest $request OpenCdnServiceRequest
      *
@@ -8197,9 +8115,9 @@ class Cdn extends OpenApiClient
      *   * *   You can call the [RefreshObjectCaches](~~91164~~) operation to refresh content and call the [PushObjectCache](~~91161~~) operation to prefetch content.
      *   * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
      *   * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](~~151829~~).
-     *   * ## Usage notes
+     *   * ## Precautions
      *   * *   After a refresh task is submitted and completed, specific resources are removed from POPs. When a POP receives a request for the removed resources, the POP forwards the request to the origin server to retrieve the resources. The retrieved resources are returned to the client and cached on the POP. Multiple refresh tasks may cause a large number of resources to be removed from the POPs. This increases the number of requests that are forwarded to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. If the TTL for the resources you want to refresh is less than 5 minutes, you can wait until the TTL expires instead of performing the refresh operation.
+     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
      *   * *   If you want to use RAM users to refresh or prefetch resources, you must obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~260300~~).
      *   * ### Refresh quota
      *   * *   By default, each Alibaba Cloud account can refresh content from up to 10,000 URLs and 100 directories per day. The directories include subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud CDN evaluates your application based on your workloads.
@@ -8251,9 +8169,9 @@ class Cdn extends OpenApiClient
      *   * *   You can call the [RefreshObjectCaches](~~91164~~) operation to refresh content and call the [PushObjectCache](~~91161~~) operation to prefetch content.
      *   * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
      *   * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](~~151829~~).
-     *   * ## Usage notes
+     *   * ## Precautions
      *   * *   After a refresh task is submitted and completed, specific resources are removed from POPs. When a POP receives a request for the removed resources, the POP forwards the request to the origin server to retrieve the resources. The retrieved resources are returned to the client and cached on the POP. Multiple refresh tasks may cause a large number of resources to be removed from the POPs. This increases the number of requests that are forwarded to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. If the TTL for the resources you want to refresh is less than 5 minutes, you can wait until the TTL expires instead of performing the refresh operation.
+     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
      *   * *   If you want to use RAM users to refresh or prefetch resources, you must obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~260300~~).
      *   * ### Refresh quota
      *   * *   By default, each Alibaba Cloud account can refresh content from up to 10,000 URLs and 100 directories per day. The directories include subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud CDN evaluates your application based on your workloads.
@@ -8273,7 +8191,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param RollbackStagingConfigRequest $request RollbackStagingConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8306,7 +8224,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param RollbackStagingConfigRequest $request RollbackStagingConfigRequest
      *
@@ -8370,7 +8288,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param SetCdnDomainSMCertificateRequest $request SetCdnDomainSMCertificateRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8415,7 +8333,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param SetCdnDomainSMCertificateRequest $request SetCdnDomainSMCertificateRequest
      *
@@ -8429,7 +8347,97 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * @param SetCdnDomainSSLCertificateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetCdnDomainSSLCertificateResponse
+     */
+    public function setCdnDomainSSLCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certRegion)) {
+            $query['CertRegion'] = $request->certRegion;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCdnDomainSSLCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetCdnDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetCdnDomainSSLCertificateRequest $request
+     *
+     * @return SetCdnDomainSSLCertificateResponse
+     */
+    public function setCdnDomainSSLCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setCdnDomainSSLCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * The features that you want to configure. Format:
+     *   * > - **functionName**: The name of the feature. Separate multiple values with commas (,).
+     *   * > - **argName**: The feature parameters for **functionName**.
+     *   * > - **argValue**: The parameter values set for **functionName**.
+     *   * ```
+     *   *         [
+     *   *          {
+     *   *            "functionArgs": [
+     *   *             {
+     *   *              "argName": "Parameter A",
+     *   *              "argValue": "Parameter value"
+     *   *             },
+     *   *           {
+     *   *             "argName": "Parameter B",
+     *   *             "argValue": "Parameter value"
+     *   *              }
+     *   *          ],
+     *   *          "functionName": "Feature name"
+     *   *             }
+     *   *         ]
+     *   *  ```.
      *   *
      * @param SetCdnDomainStagingConfigRequest $request SetCdnDomainStagingConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8465,7 +8473,27 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The features that you want to configure. Format:
+     *   * > - **functionName**: The name of the feature. Separate multiple values with commas (,).
+     *   * > - **argName**: The feature parameters for **functionName**.
+     *   * > - **argValue**: The parameter values set for **functionName**.
+     *   * ```
+     *   *         [
+     *   *          {
+     *   *            "functionArgs": [
+     *   *             {
+     *   *              "argName": "Parameter A",
+     *   *              "argValue": "Parameter value"
+     *   *             },
+     *   *           {
+     *   *             "argName": "Parameter B",
+     *   *             "argValue": "Parameter value"
+     *   *              }
+     *   *          ],
+     *   *          "functionName": "Feature name"
+     *   *             }
+     *   *         ]
+     *   *  ```.
      *   *
      * @param SetCdnDomainStagingConfigRequest $request SetCdnDomainStagingConfigRequest
      *
@@ -8479,8 +8507,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The maximum number of times that each user can call this operation per second is 10.
-     *   * *   Method: POST.
+     * The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
      *   *
      * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -8537,8 +8564,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > *   The maximum number of times that each user can call this operation per second is 10.
-     *   * *   Method: POST.
+     * The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
      *   *
      * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
      *
@@ -8610,7 +8636,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param SetWaitingRoomConfigRequest $request SetWaitingRoomConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8658,7 +8684,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param SetWaitingRoomConfigRequest $request SetWaitingRoomConfigRequest
      *
@@ -8672,8 +8698,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - If the domain name is in an invalid state or your have an overdue payment in your account, the domain name cannot be enabled.
-     *   * - The maximum number of times that each user can call this operation per second is 100.
+     * *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
+     *   * *   You can call this operation up to 100 times per second per account.
      *   *
      * @param StartCdnDomainRequest $request StartCdnDomainRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8712,8 +8738,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - If the domain name is in an invalid state or your have an overdue payment in your account, the domain name cannot be enabled.
-     *   * - The maximum number of times that each user can call this operation per second is 100.
+     * *   If the domain name is in an invalid state or you have an overdue payment in your account, the domain name cannot be enabled.
+     *   * *   You can call this operation up to 100 times per second per account.
      *   *
      * @param StartCdnDomainRequest $request StartCdnDomainRequest
      *
@@ -8727,8 +8753,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - After an accelerated domain is disabled, the information about the domain name is retained. Requests destined for the domain name are automatically redirected to the origin server.
-     *   * - The maximum number of times that each user can call this operation per second is 40.
+     * *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
+     *   * *   You can call this operation up to 40 times per second per account.
      *   *
      * @param StopCdnDomainRequest $request StopCdnDomainRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -8767,8 +8793,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * - After an accelerated domain is disabled, the information about the domain name is retained. Requests destined for the domain name are automatically redirected to the origin server.
-     *   * - The maximum number of times that each user can call this operation per second is 40.
+     * *   After an accelerated domain is disabled, Alibaba Cloud CDN retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
+     *   * *   You can call this operation up to 40 times per second per account.
      *   *
      * @param StopCdnDomainRequest $request StopCdnDomainRequest
      *
@@ -8782,7 +8808,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -8821,7 +8847,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The ID of the request.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -8835,7 +8861,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8877,7 +8903,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -8891,7 +8917,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to three times per second per account.
+     * > You can call this operation up to three times per second per account.
      *   *
      * @param UpdateCdnDeliverTaskRequest $request UpdateCdnDeliverTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8939,7 +8965,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to three times per second per account.
+     * > You can call this operation up to three times per second per account.
      *   *
      * @param UpdateCdnDeliverTaskRequest $request UpdateCdnDeliverTaskRequest
      *
@@ -8953,7 +8979,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this API operation up to three times per second per account.
+     * > You can call this operation up to three times per second per account.
      *   *
      * @param UpdateCdnSubTaskRequest $request UpdateCdnSubTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8995,7 +9021,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this API operation up to three times per second per account.
+     * > You can call this operation up to three times per second per account.
      *   *
      * @param UpdateCdnSubTaskRequest $request UpdateCdnSubTaskRequest
      *

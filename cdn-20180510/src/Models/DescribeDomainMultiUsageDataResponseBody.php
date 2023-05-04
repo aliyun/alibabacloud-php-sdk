@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMultiUsageDataResponseBody extends Model
 {
     /**
-     * @description The end of the time range that was queried.
+     * @description The type of data returned.
      *
+     * >  For Alibaba Cloud CDN, the valid value is Simple.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The information about the accelerated domain name.
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -29,14 +30,14 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about requests collected every 5 minutes.
+     * @description The number of requests.
      *
      * @var requestPerInterval
      */
     public $requestPerInterval;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The timestamp of the data returned.
      *
      * @example 2017-12-10T20:00:00Z
      *
@@ -45,7 +46,7 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The statistics about data transfer collected every 5 minutes.
+     * @description The name of the district.
      *
      * @var trafficPerInterval
      */

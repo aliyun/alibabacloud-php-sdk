@@ -18,7 +18,7 @@ class CreateIllegalUrlExportTaskRequest extends Model
     public $taskName;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-DDThh:mm:ssZ format. The finest granularity is one day.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The minimum time granularity is 1 day.
      *
      * @example 2019-09-30T16:00:00Z
      *

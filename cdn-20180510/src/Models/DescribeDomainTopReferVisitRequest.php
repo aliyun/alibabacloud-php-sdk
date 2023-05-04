@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopReferVisitRequest extends Model
 {
     /**
-     * @description The accelerated domain names. Separate multiple accelerated domain names with commas (,).
+     * @description The beginning of the time range that was queried.
      *
      * @example example.com
      *
@@ -18,9 +18,8 @@ class DescribeDomainTopReferVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The accelerated domain name.
      *
-     * The end time must be later than the start time.
      * @example 2019-12-22T12:00:00Z
      *
      * @var string
@@ -28,10 +27,7 @@ class DescribeDomainTopReferVisitRequest extends Model
     public $endTime;
 
     /**
-     * @description The sorting method. Valid values:
-     *
-     *   **traf**: by network traffic.
-     *   **pv**: by the number of page views. This is the default value.
+     * @description The most frequently requested web pages.
      *
      * @example pv
      *
@@ -40,7 +36,7 @@ class DescribeDomainTopReferVisitRequest extends Model
     public $sortBy;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ID of the request.
      *
      * @example 2019-12-21T12:00:00Z
      *

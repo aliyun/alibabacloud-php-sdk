@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class dataItem extends Model
 {
     /**
-     * @description The time when the task was created.
+     * @description The download URL.
      *
      * @example 2019-12-31T08:43:21Z
      *
@@ -19,7 +19,7 @@ class dataItem extends Model
     public $createTime;
 
     /**
-     * @description The download URL.
+     * @description The configurations of the task.
      *
      * @example https://cdn-polaris.xxxx
      *
@@ -28,11 +28,7 @@ class dataItem extends Model
     public $downloadUrl;
 
     /**
-     * @description The status of the task.
-     *
-     *   created: The task is being created.
-     *   success: The task has been created.
-     *   failed: The creation of the task failed.
+     * @description The time when the task was created.
      *
      * @example success
      *
@@ -41,14 +37,14 @@ class dataItem extends Model
     public $status;
 
     /**
-     * @description The configurations of the task.
+     * @description The total number of entries returned.
      *
      * @var taskConfig
      */
     public $taskConfig;
 
     /**
-     * @description The ID of the task.
+     * @description The number of the current page.
      *
      * @example A91BE91F-0B34-4CBF-8E0F-A2977
      *
@@ -57,16 +53,17 @@ class dataItem extends Model
     public $taskId;
 
     /**
-     * @description The name of the task.
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
      *
-     * @example refresh
+     * Valid values: **1** to **50**.
+     * @example The number of entries returned per page.
      *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The last time when the task was modified.
+     * @description The operation that you want to perform. Set the value to **DescribeUserUsageDataExportTask**.
      *
      * @example 2019-12-31T08:45:02Z
      *

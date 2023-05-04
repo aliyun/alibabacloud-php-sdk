@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
-     *
      * @example example.com
      *
      * @var string
@@ -18,9 +16,6 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * > The end time must be later than the start time.
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -28,8 +23,6 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs. If you leave this parameter empty, all ISPs are queried.
-     *
      * @example unicom
      *
      * @var string
@@ -37,8 +30,6 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions. If you leave this parameter empty, all regions are queried.
-     *
      * @example beijing
      *
      * @var string
@@ -46,8 +37,6 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
      * @example 2019-11-30T04:40:00Z
      *
      * @var string

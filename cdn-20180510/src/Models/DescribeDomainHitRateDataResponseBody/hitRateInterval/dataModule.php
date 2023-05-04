@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The byte hit ratio of HTTPS requests.
-     *
      * @example 50.0
      *
      * @var string
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2019-12-30T08:00:00Z
      *
      * @var string
@@ -27,8 +23,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The byte hit ratio.
-     *
      * @example 100.0
      *
      * @var string

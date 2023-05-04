@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserConfigsRequest extends Model
 {
     /**
-     * @description The configuration item that you want to query. Valid values:
+     * @description The name of the parameter.
      *
-     *   **domain\_business\_control**: Alibaba Cloud CDN configurations
-     *   **waf**: Web Application Firewall (WAF) configurations
-     *
+     * The configurations set by enterprise or government users.
      * @example domain_business_control
      *
      * @var string

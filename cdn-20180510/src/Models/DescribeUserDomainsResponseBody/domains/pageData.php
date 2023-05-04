@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @description The type of workload accelerated by Alibaba Cloud CDN. Valid values:
+     * @description The type of the workload accelerated by Alibaba Cloud CDN. Valid values:
      *
      *   **web**: images and small files
      *   **download**: large files
@@ -35,8 +35,8 @@ class pageData extends Model
      * @description The acceleration region. Valid values:
      *
      *   **domestic**: Chinese mainland
-     *   **global**
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
      *
      * @example domestic
      *
@@ -45,7 +45,7 @@ class pageData extends Model
     public $coverage;
 
     /**
-     * @description The information about the Internet Content Provider (ICP) number.
+     * @description The information about Internet Content Provider (ICP) filing.
      *
      * @example filing description
      *
@@ -63,7 +63,7 @@ class pageData extends Model
     public $domainId;
 
     /**
-     * @description The accelerated domain names.
+     * @description The accelerated domain.
      *
      * @example example.com
      *
@@ -74,14 +74,14 @@ class pageData extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: being configured
-     *   **configure_failed**: failed to be configured
-     *   **checking**: under review
-     *   **check_failed**: failed the review
-     *   **stopping**: being disabled
-     *   **deleting**: deleting
+     *   **online**
+     *   **offline**
+     *   **configuring**
+     *   **configure_failed**
+     *   **checking**
+     *   **check_failed**
+     *   **stopping**
+     *   **deleting**
      *
      * @example configure_failed
      *
@@ -90,7 +90,7 @@ class pageData extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added to Alibaba Cloud CDN.
+     * @description The time when the accelerated domain name was added.
      *
      * @example 2015-10-28T09:32:51Z
      *
@@ -99,7 +99,7 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
-     * @description The time when the accelerated domain name was last modified.
+     * @description The time when the accelerated domain name was modified.
      *
      * @example 2015-10-28T11:05:52Z
      *
@@ -135,8 +135,8 @@ class pageData extends Model
     /**
      * @description Indicates whether HTTPS is enabled. Valid values:
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **on**
+     *   **off**
      *
      * @example on
      *

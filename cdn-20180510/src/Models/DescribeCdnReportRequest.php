@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportRequest extends Model
 {
     /**
-     * @description The region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list.
+     * @description The region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
      *
-     *   If you do not specify a region, all regions are queried.
-     *   If you specify a region, data in the specified region is returned. You can specify one or more regions. Separate regions with commas (,).
+     *   If you do not specify a region, data in all regions is queried.
+     *   If you specify a region, data in the specified region is queried. You can specify one or more regions. If you specify multiple regions, separate the regions with commas (,).
      *
      * @example shanghai
      *
@@ -21,7 +21,7 @@ class DescribeCdnReportRequest extends Model
     public $area;
 
     /**
-     * @description The domain names that you want to query. Separate domain names with commas (,).
+     * @description The domain name that you want to query. Separate domain names with commas (,).
      *
      * @example www.example1.com,example2.com
      *
@@ -30,7 +30,7 @@ class DescribeCdnReportRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-09-17T01:00:00Z
      *
@@ -41,12 +41,12 @@ class DescribeCdnReportRequest extends Model
     /**
      * @description The HTTP status code. Valid values:
      *
-     *   **2xx**: HTTP 2xx status codes
-     *   **3xx**: HTTP 3xx status codes
-     *   **4xx**: HTTP 4xx status codes
-     *   **5xx**: HTTP 5xx status codes
+     *   **2xx**
+     *   **3xx**
+     *   **4xx**
+     *   **5xx**
      *
-     * If you do not specify an HTTP status code, all HTTP status codes are queried.
+     * If you do not specify this parameter, all HTTP status codes are queried.
      * @example 2xx
      *
      * @var string
@@ -54,7 +54,7 @@ class DescribeCdnReportRequest extends Model
     public $httpCode;
 
     /**
-     * @description Specify whether the region is outside the Chinese mainland. Valid values:
+     * @description Specifies whether the region is outside the Chinese mainland. Valid values:
      *
      *   **1**: outside the Chinese mainland
      *   **0**: inside the Chinese mainland
@@ -66,7 +66,7 @@ class DescribeCdnReportRequest extends Model
     public $isOverseas;
 
     /**
-     * @description The ID of the operations report that you want to query. You can enter only one ID in each call. You can call the [DescribeCdnSubList](~~271655~~) operation to query the report ID.
+     * @description The ID of the operations report that you want to query. You can specify only one ID in each request. You can call the [DescribeCdnSubList](~~271655~~) operation to query report IDs.
      *
      * @example 1
      *
@@ -75,7 +75,7 @@ class DescribeCdnReportRequest extends Model
     public $reportId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-09-17T00:00:00Z
      *

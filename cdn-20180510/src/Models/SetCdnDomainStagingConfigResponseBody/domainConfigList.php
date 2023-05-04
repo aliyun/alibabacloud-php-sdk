@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class domainConfigList extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
      * @example 1234567
      *
      * @var int
@@ -18,8 +16,6 @@ class domainConfigList extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example www.example.com
      *
      * @var string
@@ -27,8 +23,6 @@ class domainConfigList extends Model
     public $domainName;
 
     /**
-     * @description The function name.
-     *
      * @example set_resp_header
      *
      * @var string

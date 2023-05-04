@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListUserCustomLogConfigResponseBody extends Model
 {
     /**
-     * @description The list of configuration ID.
+     * @description The ID of the request.
      *
      * @var configIds
      */
     public $configIds;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the log configuration.
      *
      * @example 95D5B69F-8AEC-419B-8F3A-612B35032B0D
      *

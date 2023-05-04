@@ -32,9 +32,9 @@ class getDomainDetailModel extends Model
     public $cname;
 
     /**
-     * @description The description of the request.
+     * @description The description of the domain name.
      *
-     * @example Streaming domains
+     * @example Streaming domain
      *
      * @var string
      */
@@ -52,12 +52,14 @@ class getDomainDetailModel extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online:** enabled
-     *   **offline:** disabled
-     *   **configuring:** configuring
-     *   **configure_failed:** configuration failed
-     *   **checking:** reviewing
-     *   **check_failed:** review failed
+     *   **online**
+     *   **offline**
+     *   **configuring**
+     *   **configure_failed**
+     *   **checking**
+     *   **check_failed**
+     *   **stopping**
+     *   **deleting**
      *
      * @example online
      *
@@ -66,7 +68,7 @@ class getDomainDetailModel extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the audio or video file was created.
+     * @description The time when the domain name was created.
      *
      * @example 2015-06-25T03:30:50Z
      *
@@ -111,7 +113,7 @@ class getDomainDetailModel extends Model
     public $scope;
 
     /**
-     * @description Indicates whether the Security Socket Layer (SSL) certificate is enabled. Valid values:
+     * @description Indicates whether the SSL certificate is enabled. Valid values:
      *
      *   **on**
      *   **off**

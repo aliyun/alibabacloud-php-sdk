@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
-     * @description The ID of the configuration.
+     * @description The configuration ID.
      *
      * @example 6xx5
      *
@@ -26,7 +26,7 @@ class domainConfigs extends Model
     public $functionArgs;
 
     /**
-     * @description The name of the feature.
+     * @description The feature name.
      *
      * @example aliauth
      *
@@ -35,9 +35,8 @@ class domainConfigs extends Model
     public $functionName;
 
     /**
-     * @description The ID of the rule condition. This parameter is optional. To create a rule condition, you can configure the **condition** feature that is described in the [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](~~388994~~). You can use ConfigId as ParentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
+     * @description The rule condition ID. This parameter is optional. To create a rule condition, you can configure the **condition** feature that is described in the [Parameters for configuring features for domain names](~~388460~~) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](~~388994~~). You can reference ConfigId instead of ParentId in other features. This way, you can combine rule conditions and features for flexible configurations. For more information, see [BatchSetCdnDomainConfig](~~90915~~) or ParentId configuration example in this topic.
      *
-     * For more information, see [BatchSetCdnDomainConfig](~~90915~~) or ParentId configuration example in this topic.
      * @example 222728944812032
      *
      * @var string
@@ -45,12 +44,12 @@ class domainConfigs extends Model
     public $parentId;
 
     /**
-     * @description The status of the configuration. Valid values:
+     * @description The configuration status. Valid values:
      *
-     *   **testing**: being verified
-     *   **configuring**: being configured
-     *   **success**: configured
-     *   **failed**: failed
+     *   **testing**
+     *   **configuring**
+     *   **success**
+     *   **failed**
      *
      * @example success
      *

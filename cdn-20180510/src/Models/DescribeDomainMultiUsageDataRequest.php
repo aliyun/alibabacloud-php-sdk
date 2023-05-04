@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMultiUsageDataRequest extends Model
 {
     /**
-     * @description The accelerated domain names. You can specify multiple accelerated domain names and separate domain names with commas (,).
-     *
-     * > *   You can specify at most 30 accelerated domain names.
-     *   If you do not set this parameter, the data of all accelerated domain names that belong to your Alibaba Cloud account is queried.
+     * @description The beginning of the time range that was queried.
      *
      * @example example.com
      *
@@ -21,9 +18,8 @@ class DescribeDomainMultiUsageDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The information about requests collected every 5 minutes.
      *
-     * >  The end time must be later than the start time.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -31,7 +27,7 @@ class DescribeDomainMultiUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ID of the request.
      *
      * @example 2017-12-10T20:00:00Z
      *

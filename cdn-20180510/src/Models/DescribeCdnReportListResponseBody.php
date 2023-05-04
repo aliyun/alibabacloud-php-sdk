@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportListResponseBody extends Model
 {
     /**
-     * @description The information about the operations report.
+     * @description The information about the report that is queried.
      *
      * @example "data":[{"reportId":1,"deliver":{"report":{"title":"DomainPvUv","format":"chart","shape":"line","xAxis":"ds","yAxis":"cnt","legend":"cnt_type","header":["ds","cnt_type","cnt"]}}}
      *

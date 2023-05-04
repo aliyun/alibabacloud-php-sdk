@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipStatus extends Model
 {
     /**
-     * @description The IP address of the node.
+     * @description The IP address of the POP.
      *
      * @example 10.10.10.10
      *
@@ -18,11 +18,11 @@ class ipStatus extends Model
     public $ip;
 
     /**
-     * @description The status. Valid values:
+     * @description The status.
      *
-     *   **nonali**: The node is not an Alibaba Cloud CDN edge node.
-     *   **normal**: The node is an available Alibaba Cloud CDN edge node.
-     *   **abnormal**: The node is an unavailable Alibaba Cloud CDN edge node.
+     *   **nonali**: not an Alibaba Cloud CDN POP
+     *   **normal**: an available Alibaba Cloud CDN POP
+     *   **abnormal**: an unavailable Alibaba Cloud CDN POP
      *
      * @example abnormal
      *

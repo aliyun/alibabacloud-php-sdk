@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ListDomainsByLogConfigIdResponseBody\domains;
 use AlibabaCloud\Tea\Model;
 
-class ListDomainsByLogConfigIdResponseBody extends Model
+class SetCdnDomainSSLCertificateResponseBody extends Model
 {
     /**
-     * @description The domain names.
-     *
-     * @var domains
-     */
-    public $domains;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
+     * @example A7C69682-7F88-40DD-A198-10D0309E439D
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'domains'   => 'Domains',
         'requestId' => 'RequestId',
     ];
 
@@ -36,9 +25,6 @@ class ListDomainsByLogConfigIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domains) {
-            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,14 +35,11 @@ class ListDomainsByLogConfigIdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDomainsByLogConfigIdResponseBody
+     * @return SetCdnDomainSSLCertificateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domains'])) {
-            $model->domains = domains::fromMap($map['Domains']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

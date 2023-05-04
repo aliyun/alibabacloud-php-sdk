@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
-     * @description The information about the accelerated domain name.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class requestDataModule extends Model
     public $domain;
 
     /**
-     * @description The number of requests.
+     * @description The timestamp of the data returned.
      *
      * @example 11288111
      *
@@ -27,8 +27,13 @@ class requestDataModule extends Model
     public $request;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The type of data returned. Valid values:
      *
+     * - **StaticHttps**: the number of HTTPS requests for static content.
+     * - **DynamicHttps**: the number of HTTPS requests for dynamic content.
+     * - **DynamicHttp**: the number of HTTP requests for dynamic content.
+     * - **StaticQuic**: the number of QUIC requests for static content.
+     * - **DynamicQuic**: the number of QUIC requests for dynamic content.
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -36,9 +41,8 @@ class requestDataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The type of data returned.
+     * @description The statistics about data transfer collected every 5 minutes.
      *
-     * >  For Alibaba Cloud CDN, the valid value is Simple.
      * @example Simple
      *
      * @var string

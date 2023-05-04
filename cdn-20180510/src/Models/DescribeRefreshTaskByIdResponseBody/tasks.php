@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @description The time when the task was created. The time is displayed in UTC.
+     * @description The path of the object refreshed by the refresh task.
      *
      * @example 2020-08-03T08:54:23Z
      *
@@ -18,26 +18,13 @@ class tasks extends Model
     public $creationTime;
 
     /**
-     * @description The error returned when the refresh or prefetch task failed. Valid values:
-     *
-     *   **Internal Error**: An internal error occurred.
-     *   **Origin Timeout**: The response from the origin server timed out.
-     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
+     * @description The tasks.
      *
      * @example Internal Error
      *
      * @var string
      */
     public $description;
-
-    /**
-     * @description The path of the object refreshed by the refresh task.
-     *
-     * @example http://example.com/abc.jpg
-     *
-     * @var string
-     */
-    public $objectPath;
 
     /**
      * @description The type of the task. Valid values:
@@ -47,6 +34,15 @@ class tasks extends Model
      *   **preload**: prefetches an individual file.
      *   **regex**: refreshes content based on a regular expression.
      *
+     * @example http://example.com/abc.jpg
+     *
+     * @var string
+     */
+    public $objectPath;
+
+    /**
+     * @description The ID of the task.
+     *
      * @example file
      *
      * @var string
@@ -54,8 +50,8 @@ class tasks extends Model
     public $objectType;
 
     /**
-     * @description The progress of the task, in percentage.
-     *
+     * @description > - You can query data within the last three days.
+     * - You can call this operation up to 30 times per second per account.
      * @example 100%
      *
      * @var string
@@ -63,12 +59,11 @@ class tasks extends Model
     public $process;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The error returned when the refresh or prefetch task failed. Valid values:
      *
-     *   **Complete**: The task is complete.
-     *   **Pending**: The task is pending.
-     *   **Refreshing**: The task is running.
-     *   **Failed**: The task failed.
+     *   **Internal Error**: An internal error occurred.
+     *   **Origin Timeout**: The response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
      *
      * @example Complete
      *
@@ -77,7 +72,12 @@ class tasks extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: The task is complete.
+     *   **Pending**: The task is pending.
+     *   **Refreshing**: The task is running.
+     *   **Failed**: The task failed.
      *
      * @example 24840
      *

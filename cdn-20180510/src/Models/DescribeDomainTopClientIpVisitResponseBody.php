@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopClientIpVisitResponseBody extends Model
 {
     /**
-     * @description A list of client IP addresses.
+     * @description The client IP address returned. Only IPv4 addressed are supported.
      *
      * @var clientIpList[]
      */
     public $clientIpList;
 
     /**
-     * @description The ID of the request.
+     * @description The ranking of the client IP address returned.
      *
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *

@@ -11,9 +11,10 @@ class DescribeBlockedRegionsRequest extends Model
     /**
      * @description The language. Valid values:
      *
-     * - **zh**: simplified Chinese
-     * - **en**: English
-     * - **jp**: Japanese
+     *   **zh**: simplified Chinese
+     *   **en**: English
+     *   **jp**: Japanese
+     *
      * @example zh
      *
      * @var string

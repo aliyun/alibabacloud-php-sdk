@@ -27,7 +27,7 @@ class activityLog extends Model
     public $domainName;
 
     /**
-     * @description The name of the rule that was triggered
+     * @description The name of the rule based on which rate limiting was triggered.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class activityLog extends Model
     public $ruleName;
 
     /**
-     * @description The timestamp of the data.
+     * @description The timestamp of the data returned.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -45,7 +45,7 @@ class activityLog extends Model
     public $timeStamp;
 
     /**
-     * @description The object that triggered rate limiting.
+     * @description The trigger of rate limiting.
      *
      * @example Ip
      *
@@ -54,7 +54,7 @@ class activityLog extends Model
     public $triggerObject;
 
     /**
-     * @description The period of time that rate limiting remains effective.
+     * @description The period of time during which rate limiting remains effective.
      *
      * @example 300
      *
@@ -63,7 +63,7 @@ class activityLog extends Model
     public $ttl;
 
     /**
-     * @description The value of the object that triggered rate limiting.
+     * @description The value of the trigger for rate limiting.
      *
      * @example 1.2.3.4
      *

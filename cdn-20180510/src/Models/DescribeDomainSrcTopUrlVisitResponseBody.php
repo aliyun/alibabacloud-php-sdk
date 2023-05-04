@@ -14,8 +14,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcTopUrlVisitResponseBody extends Model
 {
     /**
-     * @description A list of frequently requested URLs.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * >  The end time must be later than the start time. The difference between the end time and the start time cannot exceed seven days.
      * @var allUrlList
      */
     public $allUrlList;
@@ -30,8 +31,9 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * >  If you do not set the StartTime parameter, the data within the previous day is queried.
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *
      * @var string
@@ -39,7 +41,7 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The proportion of visits to the URL.
      *
      * @example 2018-10-03T16:00:00Z
      *
@@ -48,29 +50,23 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $startTime;
 
     /**
-     * @description A list of URLs for which 2xx status codes were returned.
+     * @description The ID of the request.
      *
      * @var url200List
      */
     public $url200List;
 
     /**
-     * @description A list of URLs for which 3xx status codes were returned.
-     *
      * @var url300List
      */
     public $url300List;
 
     /**
-     * @description A list of URLs for which 4xx status codes were returned.
-     *
      * @var url400List
      */
     public $url400List;
 
     /**
-     * @description A list of URLs for which 5xx status codes were returned.
-     *
      * @var url500List
      */
     public $url500List;

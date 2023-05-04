@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserCertificateExpireCountResponseBody extends Model
 {
     /**
-     * @description The number of domain names whose SSL certificates are about to expire within 30 days.
+     * @description The ID of the request.
      *
      * @example 0
      *
@@ -18,8 +18,6 @@ class DescribeUserCertificateExpireCountResponseBody extends Model
     public $expireWithin30DaysCount;
 
     /**
-     * @description The number of domain names whose SSL certificates have already expired.
-     *
      * @example 6
      *
      * @var int
@@ -27,7 +25,7 @@ class DescribeUserCertificateExpireCountResponseBody extends Model
     public $expiredCount;
 
     /**
-     * @description The ID of the request.
+     * @description The number of domain names whose SSL certificates have already expired.
      *
      * @example F5E8DF64-7175-4186-9B06-F002C0BBD0C5
      *

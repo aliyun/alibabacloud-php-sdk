@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to modify the configurations of real-time log delivery. Only one domain name is supported.
+     * @description The ID of the request.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class ModifyRealtimeLogDeliveryRequest extends Model
     public $domain;
 
     /**
-     * @description The name of the Logstore.
+     * @description The accelerated domain name for which you want to modify the configurations of real-time log delivery. Only one domain name is supported.
      *
      * @example TestLog
      *
@@ -27,7 +27,7 @@ class ModifyRealtimeLogDeliveryRequest extends Model
     public $logstore;
 
     /**
-     * @description The name of the Log Service project that is used for real-time log delivery.
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
      *
      * @example testProject
      *
@@ -36,7 +36,7 @@ class ModifyRealtimeLogDeliveryRequest extends Model
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     * @description The name of the Log Service project that is used for real-time log delivery.
      *
      * @example ch-shanghai
      *

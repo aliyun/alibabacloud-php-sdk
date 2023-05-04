@@ -46,7 +46,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-22T08:00:00Z
      *

@@ -27,7 +27,7 @@ class DescribeCdnUserQuotaResponseBody extends Model
     public $blockRemain;
 
     /**
-     * @description The maximum number of accelerated domain names that can be added to Alibaba Cloud CDN.
+     * @description The maximum number of accelerated domain names.
      *
      * @example 50
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth value in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
-     *
      * @example 11286111
      *
      * @var string
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The bandwidth data for HTTPS requests in the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
-     *
      * @example 11286111
      *
      * @var string
@@ -27,8 +23,6 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The bandwidth data for HTTPS requests in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
-     *
      * @example 2000
      *
      * @var string
@@ -36,8 +30,6 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The bandwidth value for HTTPS requests. Unit: bit/s.
-     *
      * @example 11288111
      *
      * @var string
@@ -45,8 +37,6 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The bandwidth data in regions outside the Chinese mainland. When the bandwidth data is queried by ISP, this parameter is empty.
-     *
      * @example 2000
      *
      * @var string
@@ -54,8 +44,6 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -63,8 +51,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The bandwidth. Unit: bit/s.
-     *
      * @example 11288111
      *
      * @var string

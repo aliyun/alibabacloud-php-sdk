@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCcActivityLogResponseBody extends Model
 {
     /**
-     * @description The log entry of the event that triggered rate limiting.
+     * @description The list of rate limiting logs.
      *
      * @var activityLog[]
      */

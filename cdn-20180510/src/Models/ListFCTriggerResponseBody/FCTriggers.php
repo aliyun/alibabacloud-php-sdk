@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class FCTriggers extends Model
 {
     /**
-     * @description The name of the event for which the Function Compute trigger is set.
+     * @description The name of the event.
      *
      * @example LogFileCreated
      *
@@ -18,7 +18,7 @@ class FCTriggers extends Model
     public $eventMetaName;
 
     /**
-     * @description The version of the event for which the Function Compute trigger is set.
+     * @description The version of the event.
      *
      * @example 1.0.0
      *
@@ -27,9 +27,9 @@ class FCTriggers extends Model
     public $eventMetaVersion;
 
     /**
-     * @description The remarks for the event.
+     * @description The remarks.
      *
-     * @example test
+     * @example Test
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class FCTriggers extends Model
     public $sourceArn;
 
     /**
-     * @description The trigger corresponding to the Function Compute service.
+     * @description The trigger that corresponds to the Function Compute service.
      *
      * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
      *
