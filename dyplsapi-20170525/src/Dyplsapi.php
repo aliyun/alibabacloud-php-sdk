@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillRequest;
@@ -30,6 +33,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryShrink
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailRequest;
@@ -601,6 +606,66 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * @param BindBatchAxgRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BindBatchAxgResponse
+     */
+    public function bindBatchAxgWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BindBatchAxgShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->axgBindList)) {
+            $request->axgBindListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->axgBindList, 'AxgBindList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->axgBindListShrink)) {
+            $query['AxgBindList'] = $request->axgBindListShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->poolKey)) {
+            $query['PoolKey'] = $request->poolKey;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindBatchAxg',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindBatchAxgRequest $request
+     *
+     * @return BindBatchAxgResponse
+     */
+    public function bindBatchAxg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindBatchAxgWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BuySecretNoRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -943,6 +1008,61 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPickUpWaybillPreQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAxgGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAxgGroupResponse
+     */
+    public function deleteAxgGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->poolKey)) {
+            $query['PoolKey'] = $request->poolKey;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAxgGroup',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAxgGroupRequest $request
+     *
+     * @return DeleteAxgGroupResponse
+     */
+    public function deleteAxgGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAxgGroupWithOptions($request, $runtime);
     }
 
     /**

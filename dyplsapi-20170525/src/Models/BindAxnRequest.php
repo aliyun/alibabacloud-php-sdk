@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BindAxnRequest extends Model
 {
     /**
-     * @example 980abddb908f48e8b987cb2cd303****
-     *
      * @var string
      */
     public $ASRModelId;
