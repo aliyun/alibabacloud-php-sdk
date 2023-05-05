@@ -284,6 +284,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncThirdUserMappingResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TBAccountInfoQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TBAccountInfoQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TBAccountUnbindHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TBAccountUnbindResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyResponse;
@@ -6287,6 +6291,100 @@ class BtripOpen extends OpenApiClient
         $headers = new SyncThirdUserMappingHeaders([]);
 
         return $this->syncThirdUserMappingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $userId
+     * @param TBAccountInfoQueryHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TBAccountInfoQueryResponse
+     */
+    public function tBAccountInfoQueryWithOptions($userId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'TBAccountInfoQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/account/v1/tb-accounts/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TBAccountInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $userId
+     *
+     * @return TBAccountInfoQueryResponse
+     */
+    public function tBAccountInfoQuery($userId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TBAccountInfoQueryHeaders([]);
+
+        return $this->tBAccountInfoQueryWithOptions($userId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $userId
+     * @param TBAccountUnbindHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TBAccountUnbindResponse
+     */
+    public function tBAccountUnbindWithOptions($userId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'TBAccountUnbind',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/account/v1/tb-accounts/' . OpenApiUtilClient::getEncodeParam($userId) . '/action/unbind',
+            'method'      => 'PATCH',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TBAccountUnbindResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $userId
+     *
+     * @return TBAccountUnbindResponse
+     */
+    public function tBAccountUnbind($userId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TBAccountUnbindHeaders([]);
+
+        return $this->tBAccountUnbindWithOptions($userId, $headers, $runtime);
     }
 
     /**

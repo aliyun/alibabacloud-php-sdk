@@ -16,6 +16,8 @@ class dataList extends Model
     public $alipayTradeNo;
 
     /**
+     * @description 审批扩展自定义字段
+     *
      * @var string
      */
     public $applyExtendField;
