@@ -14,13 +14,13 @@ class PredictTemplateModelRequest extends Model
     public $binaryToText;
 
     /**
+     * @example data:image/png;base64,xxxxx
+     *
      * @var string
      */
     public $body;
 
     /**
-     * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/xxx/stage/upload/20230207/oss-Y96lOVVWdjui6QVGsHJk0JfNf1luQkGT.png?Expires=1675750767&OSSAccessKeyId=xxx&Signature=lzq1ZUi6j4vkXnDDMhDD4DQty5Q%3D
-     *
      * @var string
      */
     public $content;

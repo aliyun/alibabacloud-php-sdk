@@ -16,25 +16,29 @@ class PredictClassifierModelRequest extends Model
     public $autoPrediction;
 
     /**
+     * @var bool
+     */
+    public $binaryToText;
+
+    /**
+     * @example data:image/png;base64,xxxxx
+     *
      * @var string
      */
     public $body;
 
     /**
-     * @example c0d420955af6bc0761f9207480333cca
-     *
      * @var int
      */
     public $classifierId;
 
     /**
-     * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/xxx/stage/upload/20230207/oss-fCeg7ri12SCN5eECeuQdKEDVG9P06tJc.png?Expires=1675744411&OSSAccessKeyId=xxx&Signature=Kchn7sHa1W8mI8JC1D3uPBW2vds%3D
-     *
      * @var string
      */
     public $content;
     protected $_name = [
         'autoPrediction' => 'AutoPrediction',
+        'binaryToText'   => 'BinaryToText',
         'body'           => 'Body',
         'classifierId'   => 'ClassifierId',
         'content'        => 'Content',
@@ -49,6 +53,9 @@ class PredictClassifierModelRequest extends Model
         $res = [];
         if (null !== $this->autoPrediction) {
             $res['AutoPrediction'] = $this->autoPrediction;
+        }
+        if (null !== $this->binaryToText) {
+            $res['BinaryToText'] = $this->binaryToText;
         }
         if (null !== $this->body) {
             $res['Body'] = $this->body;
@@ -73,6 +80,9 @@ class PredictClassifierModelRequest extends Model
         $model = new self();
         if (isset($map['AutoPrediction'])) {
             $model->autoPrediction = $map['AutoPrediction'];
+        }
+        if (isset($map['BinaryToText'])) {
+            $model->binaryToText = $map['BinaryToText'];
         }
         if (isset($map['Body'])) {
             $model->body = $map['Body'];

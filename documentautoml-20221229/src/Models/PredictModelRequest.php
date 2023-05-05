@@ -9,20 +9,18 @@ use AlibabaCloud\Tea\Model;
 class PredictModelRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $binaryToText;
 
     /**
+     * @example data:image/png;base64,xxxxx
+     *
      * @var string
      */
     public $body;
 
     /**
-     * @example https://doc-automl-public.oss-cn-hangzhou.aliyuncs.com/3/1559855998794593/stage/upload/20230206/oss-hlfCRJ1SorSWs10MkqxK6YcL4OVAFSv4.png?Expires=1675665563&OSSAccessKeyId=XXXX&Signature=WLKghBc3zKzWJ3Td69%2B4C21jrbE%3D
-     *
      * @var string
      */
     public $content;

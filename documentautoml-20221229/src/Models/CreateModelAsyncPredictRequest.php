@@ -14,6 +14,8 @@ class CreateModelAsyncPredictRequest extends Model
     public $binaryToText;
 
     /**
+     * @example data:image/png;base64,xxxxx
+     *
      * @var string
      */
     public $body;

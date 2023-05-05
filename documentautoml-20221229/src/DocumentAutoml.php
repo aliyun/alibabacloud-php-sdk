@@ -176,6 +176,9 @@ class DocumentAutoml extends OpenApiClient
         if (!Utils::isUnset($request->autoPrediction)) {
             $query['AutoPrediction'] = $request->autoPrediction;
         }
+        if (!Utils::isUnset($request->binaryToText)) {
+            $query['BinaryToText'] = $request->binaryToText;
+        }
         if (!Utils::isUnset($request->classifierId)) {
             $query['ClassifierId'] = $request->classifierId;
         }
