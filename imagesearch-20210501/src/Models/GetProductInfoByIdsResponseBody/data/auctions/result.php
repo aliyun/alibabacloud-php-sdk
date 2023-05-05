@@ -90,6 +90,11 @@ class result extends Model
     public $deeplinkUrl;
 
     /**
+     * @var string
+     */
+    public $inputItemId;
+
+    /**
      * @example 123
      *
      * @var string
@@ -204,6 +209,7 @@ class result extends Model
         'couponTotalCount'       => 'CouponTotalCount',
         'deeplinkCouponShareUrl' => 'DeeplinkCouponShareUrl',
         'deeplinkUrl'            => 'DeeplinkUrl',
+        'inputItemId'            => 'InputItemId',
         'itemId'                 => 'ItemId',
         'levelOneCategoryName'   => 'LevelOneCategoryName',
         'maxCommission'          => 'MaxCommission',
@@ -265,6 +271,9 @@ class result extends Model
         }
         if (null !== $this->deeplinkUrl) {
             $res['DeeplinkUrl'] = $this->deeplinkUrl;
+        }
+        if (null !== $this->inputItemId) {
+            $res['InputItemId'] = $this->inputItemId;
         }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
@@ -364,6 +373,9 @@ class result extends Model
         }
         if (isset($map['DeeplinkUrl'])) {
             $model->deeplinkUrl = $map['DeeplinkUrl'];
+        }
+        if (isset($map['InputItemId'])) {
+            $model->inputItemId = $map['InputItemId'];
         }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
