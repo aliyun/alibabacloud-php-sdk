@@ -35,6 +35,13 @@ class dataList extends Model
     public $alipayTradeNo;
 
     /**
+     * @description 审批扩展自定义字段
+     *
+     * @var string
+     */
+    public $applyExtendField;
+
+    /**
      * @example 103177854
      *
      * @var string
@@ -471,6 +478,7 @@ class dataList extends Model
         'airlineCorpCode'        => 'airline_corp_code',
         'airlineCorpName'        => 'airline_corp_name',
         'alipayTradeNo'          => 'alipay_trade_no',
+        'applyExtendField'       => 'apply_extend_field',
         'applyId'                => 'apply_id',
         'arrAirportCode'         => 'arr_airport_code',
         'arrCity'                => 'arr_city',
@@ -558,6 +566,9 @@ class dataList extends Model
         }
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
+        }
+        if (null !== $this->applyExtendField) {
+            $res['apply_extend_field'] = $this->applyExtendField;
         }
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
@@ -783,6 +794,9 @@ class dataList extends Model
         }
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
+        }
+        if (isset($map['apply_extend_field'])) {
+            $model->applyExtendField = $map['apply_extend_field'];
         }
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];

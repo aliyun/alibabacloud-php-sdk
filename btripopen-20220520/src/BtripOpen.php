@@ -507,6 +507,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->subCorpId)) {
             $query['sub_corp_id'] = $request->subCorpId;
         }
+        if (!Utils::isUnset($request->taobaoCallbackUrl)) {
+            $query['taobao_callback_url'] = $request->taobaoCallbackUrl;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }

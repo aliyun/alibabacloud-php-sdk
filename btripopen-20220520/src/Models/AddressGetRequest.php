@@ -38,6 +38,11 @@ class AddressGetRequest extends Model
     public $subCorpId;
 
     /**
+     * @var string
+     */
+    public $taobaoCallbackUrl;
+
+    /**
      * @example 1
      *
      * @var int
@@ -49,13 +54,14 @@ class AddressGetRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'actionType'    => 'action_type',
-        'carScenesCode' => 'car_scenes_code',
-        'itineraryId'   => 'itinerary_id',
-        'phone'         => 'phone',
-        'subCorpId'     => 'sub_corp_id',
-        'type'          => 'type',
-        'userId'        => 'user_id',
+        'actionType'        => 'action_type',
+        'carScenesCode'     => 'car_scenes_code',
+        'itineraryId'       => 'itinerary_id',
+        'phone'             => 'phone',
+        'subCorpId'         => 'sub_corp_id',
+        'taobaoCallbackUrl' => 'taobao_callback_url',
+        'type'              => 'type',
+        'userId'            => 'user_id',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class AddressGetRequest extends Model
         }
         if (null !== $this->subCorpId) {
             $res['sub_corp_id'] = $this->subCorpId;
+        }
+        if (null !== $this->taobaoCallbackUrl) {
+            $res['taobao_callback_url'] = $this->taobaoCallbackUrl;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -112,6 +121,9 @@ class AddressGetRequest extends Model
         }
         if (isset($map['sub_corp_id'])) {
             $model->subCorpId = $map['sub_corp_id'];
+        }
+        if (isset($map['taobao_callback_url'])) {
+            $model->taobaoCallbackUrl = $map['taobao_callback_url'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

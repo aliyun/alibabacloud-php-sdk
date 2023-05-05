@@ -111,6 +111,10 @@ class ApplyModifyShrinkRequest extends Model
     public $status;
 
     /**
+     * @description 子企业Id
+     *
+     * @example btrip123
+     *
      * @var string
      */
     public $subCorpId;

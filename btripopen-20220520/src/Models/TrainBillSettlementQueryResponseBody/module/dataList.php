@@ -16,6 +16,11 @@ class dataList extends Model
     public $alipayTradeNo;
 
     /**
+     * @var string
+     */
+    public $applyExtendField;
+
+    /**
      * @example 103189557
      *
      * @var string
@@ -318,6 +323,7 @@ class dataList extends Model
     public $voucherType;
     protected $_name = [
         'alipayTradeNo'      => 'alipay_trade_no',
+        'applyExtendField'   => 'apply_extend_field',
         'applyId'            => 'apply_id',
         'arrDate'            => 'arr_date',
         'arrStation'         => 'arr_station',
@@ -377,6 +383,9 @@ class dataList extends Model
         $res = [];
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
+        }
+        if (null !== $this->applyExtendField) {
+            $res['apply_extend_field'] = $this->applyExtendField;
         }
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
@@ -536,6 +545,9 @@ class dataList extends Model
         $model = new self();
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
+        }
+        if (isset($map['apply_extend_field'])) {
+            $model->applyExtendField = $map['apply_extend_field'];
         }
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
