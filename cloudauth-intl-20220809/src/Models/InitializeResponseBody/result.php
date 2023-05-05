@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $clientCfg;
 
     /**
+     * @example 08573be80f944d95ac812e019e3655a8
+     *
      * @var string
      */
     public $transactionId;
 
     /**
+     * @example http****
+     *
      * @var string
      */
     public $transactionUrl;

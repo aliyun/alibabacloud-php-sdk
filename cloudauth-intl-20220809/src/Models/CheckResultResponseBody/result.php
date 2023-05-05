@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example **
+     *
      * @var string
      */
     public $ekycResult;
 
     /**
+     * @example **
+     *
      * @var string
      */
     public $extBasicInfo;
 
     /**
+     * @example **
+     *
      * @var string
      */
     public $extFaceInfo;
 
     /**
+     * @example **
+     *
      * @var string
      */
     public $extIdInfo;
 
     /**
+     * @example **
+     *
      * @var string
      */
     public $extRiskInfo;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $subCode;

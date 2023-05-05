@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
-use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponseBody\result;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeMaliciousAddressResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CheckResultResponseBody extends Model
+class DescribeMaliciousAddressResponseBody extends Model
 {
     /**
      * @example Success
@@ -15,6 +15,11 @@ class CheckResultResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data[]
+     */
+    public $data;
 
     /**
      * @example success
@@ -33,14 +38,17 @@ class CheckResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @var result
+     * @example true
+     *
+     * @var bool
      */
-    public $result;
+    public $success;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -53,14 +61,23 @@ class CheckResultResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -69,7 +86,7 @@ class CheckResultResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CheckResultResponseBody
+     * @return DescribeMaliciousAddressResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -77,14 +94,23 @@ class CheckResultResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class InitializeResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 4EB35****87EBA1
+     *
      * @var string
      */
     public $requestId;

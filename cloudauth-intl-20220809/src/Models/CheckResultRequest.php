@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CheckResultRequest extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $extraImageControlList;
 
     /**
+     * @example N
+     *
      * @var string
      */
     public $isReturnImage;
 
     /**
+     * @example djs20d***9-dsskc
+     *
      * @var string
      */
     public $merchantBizId;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $returnFiveCategorySpoofResult;
 
     /**
+     * @example 4ab0b***cbde97
+     *
      * @var string
      */
     public $transactionId;

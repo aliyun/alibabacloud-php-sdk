@@ -9,91 +9,129 @@ use AlibabaCloud\Tea\Model;
 class InitializeRequest extends Model
 {
     /**
+     * @example *
+     *
      * @var string
      */
     public $crop;
 
     /**
+     * @example 01000000
+     *
      * @var string
      */
     public $docType;
 
     /**
+     * @example dsjisaj***oekwodsm
+     *
      * @var string
      */
     public $facePictureBase64;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $facePictureUrl;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $flowType;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $idFaceQuality;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $idSpoof;
 
     /**
+     * @example e0c34a***353888
+     *
      * @var string
      */
     public $merchantBizId;
 
     /**
+     * @example 1221****6543
+     *
      * @var string
      */
     public $merchantUserId;
 
     /**
+     * @example {\"bioMetaInfo\":\"4.1.0:2916352,0\",\"deviceType\":\"web\",\"ua\":\"Mozilla/5.0 (Macintosh
+     *
      * @var string
      */
     public $metaInfo;
 
     /**
+     * @description OCR。
+     *
+     * @example *
+     *
      * @var string
      */
     public $ocr;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $operationMode;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pages;
 
     /**
+     * @example eKYC
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $productConfig;
 
     /**
+     * @example http*****
+     *
      * @var string
      */
     public $returnUrl;
 
     /**
+     * @example PAY**
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $serviceLevel;

@@ -8,6 +8,16 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressOverviewRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressOverviewResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeMaliciousAddressRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeMaliciousAddressResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
@@ -104,6 +114,266 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAddressLabelsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAddressLabelsResponse
+     */
+    public function describeAddressLabelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->coin)) {
+            $query['Coin'] = $request->coin;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddressLabels',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAddressLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAddressLabelsRequest $request
+     *
+     * @return DescribeAddressLabelsResponse
+     */
+    public function describeAddressLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddressLabelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAddressOverviewRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAddressOverviewResponse
+     */
+    public function describeAddressOverviewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->coin)) {
+            $query['Coin'] = $request->coin;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddressOverview',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAddressOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAddressOverviewRequest $request
+     *
+     * @return DescribeAddressOverviewResponse
+     */
+    public function describeAddressOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddressOverviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMaliciousAddressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeMaliciousAddressResponse
+     */
+    public function describeMaliciousAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->coin)) {
+            $query['Coin'] = $request->coin;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMaliciousAddress',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMaliciousAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMaliciousAddressRequest $request
+     *
+     * @return DescribeMaliciousAddressResponse
+     */
+    public function describeMaliciousAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMaliciousAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRiskScoreRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeRiskScoreResponse
+     */
+    public function describeRiskScoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->coin)) {
+            $query['Coin'] = $request->coin;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskScore',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRiskScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRiskScoreRequest $request
+     *
+     * @return DescribeRiskScoreResponse
+     */
+    public function describeRiskScore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskScoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTransactionsListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTransactionsListResponse
+     */
+    public function describeTransactionsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->coin)) {
+            $query['Coin'] = $request->coin;
+        }
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTransactionsList',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTransactionsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTransactionsListRequest $request
+     *
+     * @return DescribeTransactionsListResponse
+     */
+    public function describeTransactionsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTransactionsListWithOptions($request, $runtime);
     }
 
     /**
