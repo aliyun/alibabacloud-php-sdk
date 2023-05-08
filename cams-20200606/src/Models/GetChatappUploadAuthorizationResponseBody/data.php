@@ -45,7 +45,7 @@ class data extends Model
     public $dir;
 
     /**
-     * @description The address of the server to which a file is uploaded in OSS.
+     * @description The address of the OSS server to which a file is uploaded.
      *
      * @example https://oss.com
      *

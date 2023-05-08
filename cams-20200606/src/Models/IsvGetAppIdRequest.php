@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class IsvGetAppIdRequest extends Model
 {
     /**
-     * @description The type of the application. Set the value to WHATSAPP.
-     *
      * @example WHATSAPP
      *
      * @var string

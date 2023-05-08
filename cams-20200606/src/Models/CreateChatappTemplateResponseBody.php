@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
-     *
      * @example OK
      *
      * @var string
@@ -22,8 +17,6 @@ class CreateChatappTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
-     *
      * @example {"templateCode": "****4b5c79c9432497a075bdfca36bf5"，"templateName": "hello_whatsapp"}
      *
      * @var data
@@ -31,8 +24,6 @@ class CreateChatappTemplateResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned.
-     *
      * @example User not authorized to operate on the specified resource.
      *
      * @var string
@@ -40,8 +31,6 @@ class CreateChatappTemplateResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2D
      *
      * @var string

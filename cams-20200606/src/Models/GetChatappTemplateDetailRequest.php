@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
-     *
      * @example 28251486512358****
      *
      * @var string
@@ -18,8 +16,6 @@ class GetChatappTemplateDetailRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you register.
-     *
      * @example 65921621816****
      *
      * @deprecated
@@ -29,8 +25,6 @@ class GetChatappTemplateDetailRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
-     *
      * @example skdi3kksloslikdkkdk
      *
      * @var string
@@ -38,8 +32,6 @@ class GetChatappTemplateDetailRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
-     *
      * @example en_US
      *
      * @var string
@@ -47,7 +39,11 @@ class GetChatappTemplateDetailRequest extends Model
     public $language;
 
     /**
-     * @description The code of the message template.
+     * @description The type of the message template. Valid values:
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE (developing)
      *
      * @example ****4b5c79c9432497a075bdfca36bf5
      *
@@ -56,12 +52,6 @@ class GetChatappTemplateDetailRequest extends Model
     public $templateCode;
 
     /**
-     * @description The type of the message template.
-     *
-     *   **WHATSAPP**
-     *   **VIBER**
-     *   LINE: the LINE message template. This type of message template will be released later.
-     *
      * @example WHATSAPP
      *
      * @var string

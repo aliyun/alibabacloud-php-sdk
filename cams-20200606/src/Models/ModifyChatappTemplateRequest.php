@@ -17,15 +17,11 @@ class ModifyChatappTemplateRequest extends Model
     public $category;
 
     /**
-     * @description The components of the message template.
-     *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description The space ID of the user under the ISV account.
-     *
      * @example 28251486512358****
      *
      * @var string
@@ -33,8 +29,6 @@ class ModifyChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp Business account under the independent software vendor (ISV) account.
-     *
      * @example 659216218162179
      *
      * @deprecated
@@ -44,15 +38,11 @@ class ModifyChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The examples of variables that are used when you create the message template.
-     *
      * @var string[]
      */
     public $example;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
-     *
      * @example ksiekdki39ksks93939
      *
      * @var string
@@ -60,8 +50,6 @@ class ModifyChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
-     *
      * @example en
      *
      * @var string
@@ -69,8 +57,6 @@ class ModifyChatappTemplateRequest extends Model
     public $language;
 
     /**
-     * @description The code of the message template.
-     *
      * @example 8472929283883
      *
      * @var string

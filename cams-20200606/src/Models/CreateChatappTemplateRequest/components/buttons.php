@@ -9,8 +9,25 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
-     * @description The phone number. This parameter is valid only if the Type parameter is set to **PHONE_NUMBER**.
+     * @example autofill
      *
+     * @var string
+     */
+    public $autofillText;
+
+    /**
+     * @var bool
+     */
+    public $isOptOut;
+
+    /**
+     * @example com.aliyun
+     *
+     * @var string
+     */
+    public $packageName;
+
+    /**
      * @example +861368897****
      *
      * @var string
@@ -18,8 +35,13 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description The display name of the button.
+     * @example 293882
      *
+     * @var string
+     */
+    public $signatureHash;
+
+    /**
      * @example Call Me
      *
      * @var string
@@ -27,20 +49,6 @@ class buttons extends Model
     public $text;
 
     /**
-     * @description The type of the button. Valid values:
-     *
-     *   **PHONE_NUMBER**: a phone number button
-     *   **URL**: a URL button
-     *   **QUICK_REPLY**: a quick reply button
-     *
-     * >
-     *
-     *   When the TemplateType parameter is set to WHATSAPP, if you have created a website link or a phone number link, you cannot create an quick reply button.
-     *
-     *   When the TemplateType parameter is set to WHATSAPP, you can add a combination of two URL buttons or a combination of a URL button and a phone number button to a message template.
-     *
-     *   When the TemplateType parameter is set to VIBER, you can add only one button and the button must be of the URL type.
-     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -48,8 +56,6 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be accessed when users click the URL button.
-     *
      * @example https://example.com
      *
      * @var string
@@ -57,22 +63,21 @@ class buttons extends Model
     public $url;
 
     /**
-     * @description The type of the URL. Valid values:
-     *
-     *   **static**: a static URL
-     *   **dynamic**: a dynamic URL
-     *
      * @example static
      *
      * @var string
      */
     public $urlType;
     protected $_name = [
-        'phoneNumber' => 'PhoneNumber',
-        'text'        => 'Text',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'urlType'     => 'UrlType',
+        'autofillText'  => 'AutofillText',
+        'isOptOut'      => 'IsOptOut',
+        'packageName'   => 'PackageName',
+        'phoneNumber'   => 'PhoneNumber',
+        'signatureHash' => 'SignatureHash',
+        'text'          => 'Text',
+        'type'          => 'Type',
+        'url'           => 'Url',
+        'urlType'       => 'UrlType',
     ];
 
     public function validate()
@@ -82,8 +87,20 @@ class buttons extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autofillText) {
+            $res['AutofillText'] = $this->autofillText;
+        }
+        if (null !== $this->isOptOut) {
+            $res['IsOptOut'] = $this->isOptOut;
+        }
+        if (null !== $this->packageName) {
+            $res['PackageName'] = $this->packageName;
+        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->signatureHash) {
+            $res['SignatureHash'] = $this->signatureHash;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -109,8 +126,20 @@ class buttons extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutofillText'])) {
+            $model->autofillText = $map['AutofillText'];
+        }
+        if (isset($map['IsOptOut'])) {
+            $model->isOptOut = $map['IsOptOut'];
+        }
+        if (isset($map['PackageName'])) {
+            $model->packageName = $map['PackageName'];
+        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['SignatureHash'])) {
+            $model->signatureHash = $map['SignatureHash'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];

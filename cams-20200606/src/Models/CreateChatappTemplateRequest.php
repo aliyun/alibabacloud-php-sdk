@@ -10,37 +10,25 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateRequest extends Model
 {
     /**
+     * @description 是否允许facebook自动变更模板的目录（这样能提高模板的审核通过率）此属性只对TemplateType=WHATSAPP有效
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowCategoryChange;
 
     /**
-     * @description The category of the template when the TemplateType parameter is set to WHATSAPP. Valid values:
+     * @description The returned data.
      *
-     *   **TRANSACTIONAL**: a transactional template
-     *   **MARKETING**: a marketing template
-     *   **OTP**: a one-time password template
-     *
-     * The category of the template when the TemplateType parameter is set to VIBER. Valid values:
-     *
-     *   **text**: a text message template
-     *   **image**: an image message template
-     *   **text_image_button**: a template that contains multiple media objects, including text, image, and button
-     *   **text_button**: a template that contains the text and button media objects
-     *   **document**: a document message template
-     *   **video**: a video message template
-     *   **text_video**: a template that contains the text and video media objects
-     *   **text_video_button**: a template that contains multiple media objects, including text, video, and button
-     *   **text_image**: a template that contains the text and image media objects
-     *
-     * @example TRANSACTIONAL
+     * @example The code of the message template.
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description The list of components of the message template.
+     * @description The name of the message template.
      *
      * @var components[]
      */
@@ -54,8 +42,6 @@ class CreateChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you register.
-     *
      * @example 65921621816****
      *
      * @deprecated
@@ -65,15 +51,11 @@ class CreateChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The examples of variables that are used when you create the message template.
-     *
      * @var string[]
      */
     public $example;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
-     *
      * @example skdi3kksloslikdkkdk
      *
      * @var string
@@ -81,8 +63,6 @@ class CreateChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
-     *
      * @example en
      *
      * @var string
@@ -90,8 +70,6 @@ class CreateChatappTemplateRequest extends Model
     public $language;
 
     /**
-     * @description The name of the message template.
-     *
      * @example hello_whatsapp
      *
      * @var string
@@ -99,12 +77,6 @@ class CreateChatappTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The type of the message template.
-     *
-     *   **WHATSAPP**
-     *   **VIBER**
-     *   LINE: the LINE message template. The LINE message template is under development.
-     *
      * @example WHATSAPP
      *
      * @var string

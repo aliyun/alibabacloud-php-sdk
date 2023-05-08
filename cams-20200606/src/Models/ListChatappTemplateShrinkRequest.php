@@ -61,7 +61,7 @@ class ListChatappTemplateShrinkRequest extends Model
     public $language;
 
     /**
-     * @description The name of the image template.
+     * @description The name of the message template.
      *
      * @example hello_whatsapp
      *
@@ -83,7 +83,7 @@ class ListChatappTemplateShrinkRequest extends Model
      *
      *   **WHATSAPP**
      *   **VIBER**
-     *   LINE: the LINE message template. This type of message template will be released later.
+     *   LINE: the Line message template. This type of message template will be released later.
      *
      * @example WHATSAPP
      *

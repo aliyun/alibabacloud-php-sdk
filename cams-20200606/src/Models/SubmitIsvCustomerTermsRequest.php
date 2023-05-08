@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitIsvCustomerTermsRequest extends Model
 {
     /**
-     * @description The usage scenario.
+     * @description The use scenario.
      *
      * @example Marketing products
      *
@@ -54,7 +54,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ISV or Client agreement.
+     * @description The ISV or Client Agreement.
      *
      * > The value of this parameter is the name of the uploaded file.
      * @example isvTerms.pdf

@@ -10,21 +10,28 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The buttons. This parameter is applicable only to components of the **BUTTONS** type.
-     *
+     * @var bool
+     */
+    public $addSecretRecommendation;
+
+    /**
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description The description.
-     *
-     * > When the Type parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify a description.
-     * @example This is a video.
+     * @example 这是一个视频
      *
      * @var string
      */
     public $caption;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $codeExpirationMinutes;
 
     /**
      * @example 120
@@ -34,10 +41,7 @@ class components extends Model
     public $duration;
 
     /**
-     * @description The name of the file.
-     *
-     * > When the Type parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify a name for the file.
-     * @example Video
+     * @example 视频
      *
      * @var string
      */
@@ -51,13 +55,6 @@ class components extends Model
     public $fileType;
 
     /**
-     * @description The type of the media resources that are included in the message.
-     *
-     *   **TEXT**: text
-     *   **IMAGE**: image
-     *   **DOCUMENT**: document
-     *   **VIDEO**: video
-     *
      * @example TEXT
      *
      * @var string
@@ -65,8 +62,6 @@ class components extends Model
     public $format;
 
     /**
-     * @description The text of the message to be sent.
-     *
      * @example hello chatapp
      *
      * @var string
@@ -81,13 +76,6 @@ class components extends Model
     public $thumbUrl;
 
     /**
-     * @description The type of the component. Valid values:
-     *
-     *   **BODY**
-     *   **HEADER**
-     *   **FOOTER**
-     *   **BUTTONS**
-     *
      * @example BODY
      *
      * @var string
@@ -95,24 +83,24 @@ class components extends Model
     public $type;
 
     /**
-     * @description The URL of the material.
-     *
      * @example https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
      *
      * @var string
      */
     public $url;
     protected $_name = [
-        'buttons'  => 'Buttons',
-        'caption'  => 'Caption',
-        'duration' => 'Duration',
-        'fileName' => 'FileName',
-        'fileType' => 'FileType',
-        'format'   => 'Format',
-        'text'     => 'Text',
-        'thumbUrl' => 'ThumbUrl',
-        'type'     => 'Type',
-        'url'      => 'Url',
+        'addSecretRecommendation' => 'AddSecretRecommendation',
+        'buttons'                 => 'Buttons',
+        'caption'                 => 'Caption',
+        'codeExpirationMinutes'   => 'CodeExpirationMinutes',
+        'duration'                => 'Duration',
+        'fileName'                => 'FileName',
+        'fileType'                => 'FileType',
+        'format'                  => 'Format',
+        'text'                    => 'Text',
+        'thumbUrl'                => 'ThumbUrl',
+        'type'                    => 'Type',
+        'url'                     => 'Url',
     ];
 
     public function validate()
@@ -122,6 +110,9 @@ class components extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addSecretRecommendation) {
+            $res['AddSecretRecommendation'] = $this->addSecretRecommendation;
+        }
         if (null !== $this->buttons) {
             $res['Buttons'] = [];
             if (null !== $this->buttons && \is_array($this->buttons)) {
@@ -133,6 +124,9 @@ class components extends Model
         }
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
+        }
+        if (null !== $this->codeExpirationMinutes) {
+            $res['CodeExpirationMinutes'] = $this->codeExpirationMinutes;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -170,6 +164,9 @@ class components extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddSecretRecommendation'])) {
+            $model->addSecretRecommendation = $map['AddSecretRecommendation'];
+        }
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
@@ -181,6 +178,9 @@ class components extends Model
         }
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
+        }
+        if (isset($map['CodeExpirationMinutes'])) {
+            $model->codeExpirationMinutes = $map['CodeExpirationMinutes'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

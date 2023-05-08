@@ -30,7 +30,7 @@ class SendChatappMessageResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the message.
+     * @description The ID of the message that was sent.
      *
      * @example 61851ccb2f1365b16aee****
      *

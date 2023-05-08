@@ -10,24 +10,30 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The list of buttons, which applies only to the **BUTTONS** component.
-     *
+     * @var bool
+     */
+    public $addSecretRecommendation;
+
+    /**
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description The description of the file.
-     *
-     * @example This is a video.
+     * @example 这是一个视频
      *
      * @var string
      */
     public $caption;
 
     /**
-     * @description The duration of the video message when the TemplateType parameter is set to VIBER. Valid values: 0 to 600. Unit: seconds.
+     * @example 5
      *
+     * @var int
+     */
+    public $codeExpirationMinutes;
+
+    /**
      * @example 120
      *
      * @var int
@@ -35,17 +41,13 @@ class components extends Model
     public $duration;
 
     /**
-     * @description The name of the file.
-     *
-     * @example Express video
+     * @example 视频
      *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The type of the file when the TemplateType parameter is set to VIBER.
-     *
      * @example docx
      *
      * @var string
@@ -53,13 +55,6 @@ class components extends Model
     public $fileType;
 
     /**
-     * @description The type of the media resources that are included in the message.
-     *
-     *   **TEXT**: text
-     *   **IMAGE**: image
-     *   **DOCUMENT**: document
-     *   **VIDEO**: video
-     *
      * @example TEXT
      *
      * @var string
@@ -67,8 +62,6 @@ class components extends Model
     public $format;
 
     /**
-     * @description The text of the message that is sent.
-     *
      * @example hello whatsapp
      *
      * @var string
@@ -76,8 +69,6 @@ class components extends Model
     public $text;
 
     /**
-     * @description The thumbnail URL of the video message when the TemplateType parameter is set to VIBER.
-     *
      * @example https://cdn.multiplymall.mobiapp.cloud/yunmall/B-LM-LMALL202207130001/20220730/d712a057-a6af-4513-bbe6-7ee57ea60983.png?x-oss-process=image/resize,w_100
      *
      * @var string
@@ -85,18 +76,6 @@ class components extends Model
     public $thumbUrl;
 
     /**
-     * @description The type of the component. Valid values:
-     *
-     *   **BODY**
-     *   **HEADER**
-     *   **FOOTER**
-     *   **BUTTONS**
-     *
-     * > When the TemplateType parameter is set to WHATSAPP, the component of the **BODY** type cannot exceed 1,024 characters in length. The component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
-     *
-     * > When the TemplateType parameter is set to VIBER, the **FOOTER** parameter is invalid.
-     *
-     * > When the TemplateType parameter is set to VIBER, media objects including image, video, and text are placed in the **HEADER** component. A device displays that the image is placed below the text.
      * @example BODY
      *
      * @var string
@@ -104,24 +83,24 @@ class components extends Model
     public $type;
 
     /**
-     * @description The URL of the material.
-     *
      * @example https://image.developer.aliyundoc.com
      *
      * @var string
      */
     public $url;
     protected $_name = [
-        'buttons'  => 'Buttons',
-        'caption'  => 'Caption',
-        'duration' => 'Duration',
-        'fileName' => 'FileName',
-        'fileType' => 'FileType',
-        'format'   => 'Format',
-        'text'     => 'Text',
-        'thumbUrl' => 'ThumbUrl',
-        'type'     => 'Type',
-        'url'      => 'Url',
+        'addSecretRecommendation' => 'AddSecretRecommendation',
+        'buttons'                 => 'Buttons',
+        'caption'                 => 'Caption',
+        'codeExpirationMinutes'   => 'CodeExpirationMinutes',
+        'duration'                => 'Duration',
+        'fileName'                => 'FileName',
+        'fileType'                => 'FileType',
+        'format'                  => 'Format',
+        'text'                    => 'Text',
+        'thumbUrl'                => 'ThumbUrl',
+        'type'                    => 'Type',
+        'url'                     => 'Url',
     ];
 
     public function validate()
@@ -131,6 +110,9 @@ class components extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addSecretRecommendation) {
+            $res['AddSecretRecommendation'] = $this->addSecretRecommendation;
+        }
         if (null !== $this->buttons) {
             $res['Buttons'] = [];
             if (null !== $this->buttons && \is_array($this->buttons)) {
@@ -142,6 +124,9 @@ class components extends Model
         }
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
+        }
+        if (null !== $this->codeExpirationMinutes) {
+            $res['CodeExpirationMinutes'] = $this->codeExpirationMinutes;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -179,6 +164,9 @@ class components extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddSecretRecommendation'])) {
+            $model->addSecretRecommendation = $map['AddSecretRecommendation'];
+        }
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
@@ -190,6 +178,9 @@ class components extends Model
         }
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
+        }
+        if (isset($map['CodeExpirationMinutes'])) {
+            $model->codeExpirationMinutes = $map['CodeExpirationMinutes'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
