@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\extC
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\instanceQuotas;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\productInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\software;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -58,6 +59,13 @@ class data extends Model
      * @var extConfig
      */
     public $extConfig;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $groupCount;
 
     /**
      * @example rmq-cn-7e22ody****
@@ -136,6 +144,11 @@ class data extends Model
     public $serviceCode;
 
     /**
+     * @var software
+     */
+    public $software;
+
+    /**
      * @example 2022-08-01 00:00:00
      *
      * @var string
@@ -155,6 +168,13 @@ class data extends Model
      * @var string
      */
     public $subSeriesCode;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $topicCount;
 
     /**
      * @example 2022-08-02 00:00:00
@@ -177,6 +197,7 @@ class data extends Model
         'createTime'      => 'createTime',
         'expireTime'      => 'expireTime',
         'extConfig'       => 'extConfig',
+        'groupCount'      => 'groupCount',
         'instanceId'      => 'instanceId',
         'instanceName'    => 'instanceName',
         'instanceQuotas'  => 'instanceQuotas',
@@ -189,9 +210,11 @@ class data extends Model
         'resourceGroupId' => 'resourceGroupId',
         'seriesCode'      => 'seriesCode',
         'serviceCode'     => 'serviceCode',
+        'software'        => 'software',
         'startTime'       => 'startTime',
         'status'          => 'status',
         'subSeriesCode'   => 'subSeriesCode',
+        'topicCount'      => 'topicCount',
         'updateTime'      => 'updateTime',
         'userId'          => 'userId',
     ];
@@ -223,6 +246,9 @@ class data extends Model
         }
         if (null !== $this->extConfig) {
             $res['extConfig'] = null !== $this->extConfig ? $this->extConfig->toMap() : null;
+        }
+        if (null !== $this->groupCount) {
+            $res['groupCount'] = $this->groupCount;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -266,6 +292,9 @@ class data extends Model
         if (null !== $this->serviceCode) {
             $res['serviceCode'] = $this->serviceCode;
         }
+        if (null !== $this->software) {
+            $res['software'] = null !== $this->software ? $this->software->toMap() : null;
+        }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -274,6 +303,9 @@ class data extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
+        }
+        if (null !== $this->topicCount) {
+            $res['topicCount'] = $this->topicCount;
         }
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
@@ -313,6 +345,9 @@ class data extends Model
         }
         if (isset($map['extConfig'])) {
             $model->extConfig = extConfig::fromMap($map['extConfig']);
+        }
+        if (isset($map['groupCount'])) {
+            $model->groupCount = $map['groupCount'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
@@ -356,6 +391,9 @@ class data extends Model
         if (isset($map['serviceCode'])) {
             $model->serviceCode = $map['serviceCode'];
         }
+        if (isset($map['software'])) {
+            $model->software = software::fromMap($map['software']);
+        }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
@@ -364,6 +402,9 @@ class data extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
+        }
+        if (isset($map['topicCount'])) {
+            $model->topicCount = $map['topicCount'];
         }
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];

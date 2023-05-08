@@ -25,7 +25,7 @@ class endpoints extends Model
     /**
      * @example 192.168.x.x/24
      *
-     * @var string
+     * @var string[]
      */
     public $ipWhitelist;
     protected $_name = [
@@ -69,7 +69,9 @@ class endpoints extends Model
             $model->endpointUrl = $map['endpointUrl'];
         }
         if (isset($map['ipWhitelist'])) {
-            $model->ipWhitelist = $map['ipWhitelist'];
+            if (!empty($map['ipWhitelist'])) {
+                $model->ipWhitelist = $map['ipWhitelist'];
+            }
         }
 
         return $model;

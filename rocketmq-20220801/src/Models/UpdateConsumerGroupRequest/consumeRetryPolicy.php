@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class consumeRetryPolicy extends Model
 {
     /**
+     * @example DLQ_mqtest
+     *
      * @var string
      */
     public $deadLetterTargetTopic;
