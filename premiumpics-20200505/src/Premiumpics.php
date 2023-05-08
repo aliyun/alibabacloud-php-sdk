@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Premiumpics\V20200505\Models\AddUserCollectionRequest;
 use AlibabaCloud\SDK\Premiumpics\V20200505\Models\AddUserCollectionResponse;
+use AlibabaCloud\SDK\Premiumpics\V20200505\Models\ChangeLogoRequest;
+use AlibabaCloud\SDK\Premiumpics\V20200505\Models\ChangeLogoResponse;
 use AlibabaCloud\SDK\Premiumpics\V20200505\Models\CheckSensitiveRequest;
 use AlibabaCloud\SDK\Premiumpics\V20200505\Models\CheckSensitiveResponse;
 use AlibabaCloud\SDK\Premiumpics\V20200505\Models\ConfirmConfigurationOrderRequest;
@@ -152,6 +154,67 @@ class Premiumpics extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUserCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeLogoRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ChangeLogoResponse
+     */
+    public function changeLogoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->changeColor)) {
+            $query['ChangeColor'] = $request->changeColor;
+        }
+        if (!Utils::isUnset($request->changeFont)) {
+            $query['ChangeFont'] = $request->changeFont;
+        }
+        if (!Utils::isUnset($request->changeIcon)) {
+            $query['ChangeIcon'] = $request->changeIcon;
+        }
+        if (!Utils::isUnset($request->changeLayout)) {
+            $query['ChangeLayout'] = $request->changeLayout;
+        }
+        if (!Utils::isUnset($request->goodsId)) {
+            $query['GoodsId'] = $request->goodsId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeLogo',
+            'version'     => '2020-05-05',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeLogoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeLogoRequest $request
+     *
+     * @return ChangeLogoResponse
+     */
+    public function changeLogo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeLogoWithOptions($request, $runtime);
     }
 
     /**

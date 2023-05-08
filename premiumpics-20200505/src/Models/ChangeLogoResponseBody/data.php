@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Premiumpics\V20200505\Models\ListLogosResponseBody;
+namespace AlibabaCloud\SDK\Premiumpics\V20200505\Models\ChangeLogoResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $collect;
@@ -36,22 +34,16 @@ class data extends Model
     public $enableChangeLayout;
 
     /**
-     * @example 6c1ccb5f26794d16bb13330fa84c86c7
-     *
      * @var string
      */
     public $goodsId;
 
     /**
-     * @example 57881508017816e0
-     *
      * @var int
      */
     public $tagId;
 
     /**
-     * @example https://mcube.mpaas.accelerate.aliyuncs.com/ALIPUBA4BBF1C261233-default/3.0.0.0/ANDROID/app-debug.apk
-     *
      * @var string
      */
     public $url;

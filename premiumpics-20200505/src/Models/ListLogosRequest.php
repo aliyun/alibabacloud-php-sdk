@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogosRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $authorityType;
@@ -65,6 +67,8 @@ class ListLogosRequest extends Model
     public $slogan;
 
     /**
+     * @example 11
+     *
      * @var string
      */
     public $styleId;

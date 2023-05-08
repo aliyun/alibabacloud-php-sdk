@@ -35,8 +35,6 @@ class CreateImageOrderRequest extends Model
     public $contactName;
 
     /**
-     * @example 17603034177
-     *
      * @var string
      */
     public $contactNumber;
