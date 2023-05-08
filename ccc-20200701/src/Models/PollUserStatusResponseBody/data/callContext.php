@@ -17,6 +17,8 @@ class callContext extends Model
     public $callType;
 
     /**
+     * @example a=b;c=d
+     *
      * @var string
      */
     public $callVariables;

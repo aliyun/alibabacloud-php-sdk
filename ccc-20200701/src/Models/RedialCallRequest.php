@@ -23,8 +23,6 @@ class RedialCallRequest extends Model
     public $caller;
 
     /**
-     * @example CCC-30.82.86.44-chrome102-bsdf911812c60f61e
-     *
      * @var string
      */
     public $deviceId;

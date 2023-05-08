@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 5903871
-     *
      * @var int
      */
     public $duration;

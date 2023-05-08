@@ -77,8 +77,6 @@ class data extends Model
     public $contactId;
 
     /**
-     * @example Outbound
-     *
      * @var string
      */
     public $contactType;

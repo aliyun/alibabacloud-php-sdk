@@ -14,8 +14,6 @@ class userContext extends Model
     public $breakCode;
 
     /**
-     * @example CCC-30.82.86.44-chrome102-bsdf911812c60f61e
-     *
      * @var string
      */
     public $deviceId;

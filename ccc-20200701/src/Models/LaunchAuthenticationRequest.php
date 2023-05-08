@@ -16,8 +16,6 @@ class LaunchAuthenticationRequest extends Model
     public $contactFlowId;
 
     /**
-     * @example {"customerID":"208880281831****","operateType":"cipherCode","taskId":"1234567890","crmOhter":"123"}
-     *
      * @var string
      */
     public $contactFlowVariables;

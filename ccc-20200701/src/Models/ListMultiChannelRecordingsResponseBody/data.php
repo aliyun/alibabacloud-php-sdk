@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsResponseBody;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsResponseBody\data\holdTimeSegments;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -56,6 +57,11 @@ class data extends Model
     public $fileUrl;
 
     /**
+     * @var holdTimeSegments[]
+     */
+    public $holdTimeSegments;
+
+    /**
      * @example 22807673106369****
      *
      * @var string
@@ -76,16 +82,17 @@ class data extends Model
      */
     public $startTime;
     protected $_name = [
-        'agentChannelId' => 'AgentChannelId',
-        'agentId'        => 'AgentId',
-        'agentName'      => 'AgentName',
-        'contactId'      => 'ContactId',
-        'duration'       => 'Duration',
-        'fileName'       => 'FileName',
-        'fileUrl'        => 'FileUrl',
-        'ramId'          => 'RamId',
-        'skillGroupId'   => 'SkillGroupId',
-        'startTime'      => 'StartTime',
+        'agentChannelId'   => 'AgentChannelId',
+        'agentId'          => 'AgentId',
+        'agentName'        => 'AgentName',
+        'contactId'        => 'ContactId',
+        'duration'         => 'Duration',
+        'fileName'         => 'FileName',
+        'fileUrl'          => 'FileUrl',
+        'holdTimeSegments' => 'HoldTimeSegments',
+        'ramId'            => 'RamId',
+        'skillGroupId'     => 'SkillGroupId',
+        'startTime'        => 'StartTime',
     ];
 
     public function validate()
@@ -115,6 +122,15 @@ class data extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->holdTimeSegments) {
+            $res['HoldTimeSegments'] = [];
+            if (null !== $this->holdTimeSegments && \is_array($this->holdTimeSegments)) {
+                $n = 0;
+                foreach ($this->holdTimeSegments as $item) {
+                    $res['HoldTimeSegments'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
@@ -157,6 +173,15 @@ class data extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['HoldTimeSegments'])) {
+            if (!empty($map['HoldTimeSegments'])) {
+                $model->holdTimeSegments = [];
+                $n                       = 0;
+                foreach ($map['HoldTimeSegments'] as $item) {
+                    $model->holdTimeSegments[$n++] = null !== $item ? holdTimeSegments::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];

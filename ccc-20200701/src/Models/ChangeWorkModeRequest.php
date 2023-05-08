@@ -23,11 +23,15 @@ class ChangeWorkModeRequest extends Model
     public $instanceId;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example ["online-1@ccc-test","online-2@ccc-test","online-3@ccc-test","skg-default@ccc-test"]
+     *
      * @var string
      */
     public $signedSkillGroupIdList;
