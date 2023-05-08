@@ -25,126 +25,209 @@ use AlibabaCloud\Tea\Model;
 class meshConfig extends Model
 {
     /**
+     * @description The configurations of access log collection.
+     *
      * @var accessLog
      */
     public $accessLog;
 
     /**
+     * @description The information about mesh audit.
+     *
      * @var audit
      */
     public $audit;
 
     /**
+     * @description The configurations of control-plane log collection.
+     *
      * @var controlPlaneLogInfo
      */
     public $controlPlaneLogInfo;
 
     /**
+     * @description Indicates whether a custom Zipkin system is used. Valid values:
+     *
+     *   `true`: A custom Zipkin system is used.
+     *   `false`: No custom Zipkin system is used.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $customizedZipkin;
 
     /**
+     * @description The information about the edition.
+     *
      * @var edition
      */
     public $edition;
 
     /**
+     * @description Indicates whether the feature that routes traffic to the nearest instance is enabled. Valid values:
+     *
+     *   `true`: The feature is enabled.
+     *   `false`: The feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableLocalityLB;
 
     /**
+     * @description The IP ranges in CIDR form to be excluded from redirection to sidecar proxies in the ASM instance.
+     *
+     * @example 172.16.0.0
+     *
      * @var string
      */
     public $excludeIPRanges;
 
     /**
+     * @description The inbound ports to be excluded from redirection to sidecar proxies in the ASM instance.
+     *
+     * @example 80,81
+     *
      * @var string
      */
     public $excludeInboundPorts;
 
     /**
+     * @description The outbound ports to be excluded from redirection to sidecar proxies in the ASM instance.
+     *
+     * @example 80,81
+     *
      * @var string
      */
     public $excludeOutboundPorts;
 
     /**
+     * @description The configurations of additional features for the ASM instance.
+     *
      * @var extraConfiguration
      */
     public $extraConfiguration;
 
     /**
+     * @description The IP ranges in CIDR form to redirect to the sidecar proxies in the ASM instance.
+     *
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $includeIPRanges;
 
     /**
+     * @description The information about the Kubernetes API.
+     *
      * @var k8sNewAPIsSupport
      */
     public $k8sNewAPIsSupport;
 
     /**
+     * @description The configurations of mesh topology.
+     *
      * @var kiali
      */
     public $kiali;
 
     /**
+     * @description The configurations of cross-region load balancing.
+     *
      * @var localityLB
      */
     public $localityLB;
 
     /**
+     * @description The configurations of Microservices Engine (MSE).
+     *
      * @var MSE
      */
     public $MSE;
 
     /**
+     * @description The information about the Open Policy Agent (OPA) plug-in.
+     *
      * @var OPA
      */
     public $OPA;
 
     /**
+     * @description The outbound traffic policy. Valid values:
+     *
+     *   `ALLOW_ANY`: Outbound traffic to all external services is allowed.
+     *   `REGISTRY_ONLY`: Outbound traffic is allowed to only external services that are defined in the service registry of the ASM instance.
+     *
+     * @example ALLOW_ANY
+     *
      * @var string
      */
     public $outboundTrafficPolicy;
 
     /**
+     * @description The Pilot configurations.
+     *
      * @var pilot
      */
     public $pilot;
 
     /**
+     * @description The configurations of Prometheus monitoring.
+     *
      * @var prometheus
      */
     public $prometheus;
 
     /**
+     * @description The configurations of protocol support.
+     *
      * @var protocolSupport
      */
     public $protocolSupport;
 
     /**
+     * @description The proxy configurations.
+     *
      * @var proxy
      */
     public $proxy;
 
     /**
+     * @description The configurations of the sidecar injector.
+     *
      * @var sidecarInjector
      */
     public $sidecarInjector;
 
     /**
+     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use [Prometheus Service of Application Real-Time Monitoring Service (ARMS)](https://arms.console.aliyun.com/). Valid values:
+     *
+     *   `true`: Prometheus monitoring is enabled.
+     *   `false`: Prometheus monitoring is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $telemetry;
 
     /**
+     * @description Indicates whether tracing analysis is enabled. This feature can be enabled only after [Tracing Analysis](https://tracing-analysis.console.aliyun.com/) is activated. Valid values:
+     *
+     *   `true`: Tracing analysis is enabled.
+     *   `false`: Tracing analysis is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $tracing;
 
     /**
+     * @description The configurations of WebAssembly Filter.
+     *
      * @var webAssemblyFilterDeployment
      */
     public $webAssemblyFilterDeployment;

@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class eipList extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
+     * @example eip-2zeerraiwb7ujxscd****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @description The type of the resource that is associated with the EIP. Valid values:
+     *
+     *   `EcsInstance`: an ECS instance in a VPC
+     *   `SlbInstance`: a Server Load Balancer (SLB) instance in a VPC
+     *   `Nat`: a NAT gateway
+     *   `HaVip`: a high-availability virtual IP address (HAVIP)
+     *   `NetworkInterface`: a secondary elastic network interface (ENI)
+     *
+     * Default value: `EcsInstance`.
+     * @example SlbInstance
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IP address of the EIP.
+     *
+     * @example 120.xx.xx.112
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The status of the EIP. Valid values:
+     *
+     *   `Associating`: The EIP is being associated with a resource.
+     *   `Unassociating`: The EIP is being disassociated from a resource.
+     *   `InUse`: The EIP is associated with a resource.
+     *   `Available`: The EIP is available.
+     *
+     * @example InUse
+     *
      * @var string
      */
     public $status;

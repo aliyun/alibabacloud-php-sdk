@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterNamespacesRequest extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster that is added to the ASM instance.
+     *
+     * @example c584d805c7bd442b8bac421f9849f****
+     *
      * @var string
      */
     public $guestClusterID;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ce134b0727aa2492db69f6c3880e****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description Specifies whether to return the labels of the namespaces.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showNsLabels;

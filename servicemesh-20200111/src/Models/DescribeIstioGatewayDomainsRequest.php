@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayDomainsRequest extends Model
 {
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The maximum number of ASM gateways to query.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $limit;
 
     /**
+     * @description The namespace in which the ASM gateway resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

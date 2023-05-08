@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateASMGatewayRequest extends Model
 {
     /**
+     * @description The new YAML content of the ASM gateway.
+     *
+     * @example {"apiVersion":"istio.alibabacloud.com/v1beta1","kind":"IstioGateway","metadata":{"name":"ingressgateway","namespace":"istio-system"},"spec":{"gatewayType":"ingress","clusterIds":["xxxxx"],"ports":[{"name":"http-0","port":80,"targetPort":80,"protocol":"TCP"},{"name":"https-1","port":443,"targetPort":443,"protocol":"TCP"}],"serviceAnnotations":{"service.beta.kubernetes.io/alicloud-loadbalancer-address-type":"internet","service.beta.kubernetes.io/alibaba-cloud-loadbalancer-spec":"slb.s1.small"},"replicaCount":2,"resources":{"limits":{"cpu":"2","memory":"4G"},"requests":{"cpu":"200m","memory":"256Mi"}},"serviceType":"LoadBalancer","maxReplicas":2,"minReplicas":2}}
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;

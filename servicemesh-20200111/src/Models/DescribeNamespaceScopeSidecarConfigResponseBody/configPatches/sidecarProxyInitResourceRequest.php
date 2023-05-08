@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sidecarProxyInitResourceRequest extends Model
 {
     /**
+     * @description The minimum number of CPU cores.
+     *
+     * @example 60 m
+     *
      * @var string
      */
     public $resourceCPURequest;
 
     /**
+     * @description The minimum size of the memory.
+     *
+     * @example 30 Mi
+     *
      * @var string
      */
     public $resourceMemoryRequest;

@@ -9,76 +9,138 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c.com
+     *
      * @var string
      */
     public $clusterDomain;
 
     /**
+     * @example c80f45444b3da447da60a911390c2****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example Ask
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example 2020-05-12T15:38:16+08:00
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The domain name of the cluster.
+     *
+     * @example fail
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $forbiddenFlag;
 
     /**
+     * @example [{"cluster":"cdd55bd6e054b4c6ca18ec02614******", "object":"Pod", "cidr":"172.16.0.0/24"},{"cluster":"cfa37fdf7cb1641e1976f8293ac******", "object":"Pod", "cidr":"172.16.0.0/24"}]
+     *
      * @var string
      */
     public $forbiddenInfo;
 
     /**
+     * @example ask1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the cluster.
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The error message about the cluster.
+     *
+     * @example sg-bp197668l6iupljy****
+     *
      * @var string
      */
     public $sgId;
 
     /**
+     * @description The version number of the cluster.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example 2020-05-12T15:38:16+08:00
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description Indicates that the cluster is available or the reason why the cluster cannot be added to the ASM instance. Valid values:
+     *
+     *   `0`: The cluster can be added to the ASM instance.
+     *   `1`: The cluster cannot be added to the ASM instance because you do not have administrator permissions on the cluster.
+     *   `2`: The cluster cannot be added to the ASM instance because the cluster and the ASM instance reside in different VPCs between which no private connections are built.
+     *   `3`: The CIDR block of the cluster conflicts with that of the ASM instance.
+     *   `4`: The cluster has a namespace that is named istio system.
+     *
+     * @example v1.16.6-aliyun.1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   `running`: The cluster is running.
+     *   `starting`: The cluster is starting.
+     *   `stopping`: The cluster is being stopped.
+     *   `stopped`: The cluster is stopped.
+     *   `failed`: The cluster fails to be run.
+     *
+     * @example vpc-8vbrwmt95b4zf6wf7****
+     *
      * @var string
      */
     public $vpcId;

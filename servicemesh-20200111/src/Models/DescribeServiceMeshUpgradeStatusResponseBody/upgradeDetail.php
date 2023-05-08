@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class upgradeDetail extends Model
 {
     /**
+     * @description The status of the ASM instance. Valid values:
+     *
+     *   running: The instance is running.
+     *   `upgrading`: The instance is being upgraded.
+     *   `upgrading_failed`: The upgrade of the instance fails.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $finishedGatewaysNum;
@@ -20,11 +28,19 @@ class upgradeDetail extends Model
     public $gatewayStatusRecord;
 
     /**
+     * @description The total number of ingress gateways in the ASM instance.
+     *
+     * @example running
+     *
      * @var string
      */
     public $meshStatus;
 
     /**
+     * @description The information about the status of the ingress gateways.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalGatewaysNum;

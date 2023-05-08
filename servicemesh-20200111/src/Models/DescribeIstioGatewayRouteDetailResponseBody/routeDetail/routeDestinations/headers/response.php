@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class response extends Model
 {
     /**
+     * @example key
+     *
      * @var mixed[]
      */
     public $add;
@@ -19,6 +21,8 @@ class response extends Model
     public $remove;
 
     /**
+     * @example key
+     *
      * @var mixed[]
      */
     public $set;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersWithPermissionsRequest extends Model
 {
     /**
+     * @description Specifies whether to query the IDs of all RAM users or RAM roles to which an RBAC role is assigned. Valid values:
+     *
+     *   `SubUser`: Query the IDs of all RAM users to which an RBAC role is assigned.
+     *   `RamRole`: Query the IDs of all RAM roles to which an RBAC role is assigned.
+     *
+     * @example SubUser
+     *
      * @var string
      */
     public $userType;

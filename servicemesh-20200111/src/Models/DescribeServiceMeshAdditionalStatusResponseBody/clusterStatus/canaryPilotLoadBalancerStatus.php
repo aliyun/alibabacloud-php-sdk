@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class canaryPilotLoadBalancerStatus extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $locked;
 
     /**
+     * @example PayOnDemand
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $reused;
 
     /**
+     * @example num_exact
+     *
      * @var string
      */
     public $SLBBackEndServerNumStatus;
 
     /**
+     * @example exist
+     *
      * @var string
      */
     public $SLBExistStatus;

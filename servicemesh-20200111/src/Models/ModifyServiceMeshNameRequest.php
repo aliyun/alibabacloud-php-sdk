@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyServiceMeshNameRequest extends Model
 {
     /**
+     * @description The new name of the ASM instance.
+     *
+     * @example test-mesh
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example cdd30a90a7cea480ebcc7ff****
+     *
      * @var string
      */
     public $serviceMeshId;

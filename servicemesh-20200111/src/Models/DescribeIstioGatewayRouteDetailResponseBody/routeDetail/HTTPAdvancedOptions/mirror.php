@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class mirror extends Model
 {
     /**
+     * @example reviews.default.svc.cluster.local
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $subset;

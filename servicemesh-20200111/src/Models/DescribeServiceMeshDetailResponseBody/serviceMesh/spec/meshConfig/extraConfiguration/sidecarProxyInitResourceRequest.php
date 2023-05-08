@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sidecarProxyInitResourceRequest extends Model
 {
     /**
+     * @description The number of CPU cores that are requested by the istio-init container.
+     *
+     * @example 10m
+     *
      * @var string
      */
     public $resourceCPURequest;
 
     /**
+     * @description The size of the memory that is requested by the istio-init container.
+     *
+     * @example 10Mi
+     *
      * @var string
      */
     public $resourceMemoryRequest;

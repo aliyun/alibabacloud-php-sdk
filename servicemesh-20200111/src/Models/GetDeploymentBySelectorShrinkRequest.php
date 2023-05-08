@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentBySelectorShrinkRequest extends Model
 {
     /**
+     * @example cbe80a56d07ed45818b4d39273e23****
+     *
      * @var string
      */
     public $guestCluster;
@@ -19,21 +21,29 @@ class GetDeploymentBySelectorShrinkRequest extends Model
     public $labelSelectorShrink;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NzgxODk3MCwic3RhcnQiOiJuZ2lueDQ1N1x1MDAw****
+     *
      * @var string
      */
     public $mark;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $nameSpace;
 
     /**
+     * @example ce9fc65def2aa4c918747b9360fbd****
+     *
      * @var string
      */
     public $serviceMeshId;

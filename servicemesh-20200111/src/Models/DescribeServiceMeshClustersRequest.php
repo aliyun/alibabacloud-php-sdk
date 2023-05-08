@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshClustersRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;

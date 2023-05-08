@@ -16,6 +16,8 @@ use AlibabaCloud\Tea\Model;
 class HTTPAdvancedOptions extends Model
 {
     /**
+     * @description The header key to be used to overwrite the original header key.
+     *
      * @var delegate
      */
     public $delegate;
@@ -26,6 +28,8 @@ class HTTPAdvancedOptions extends Model
     public $fault;
 
     /**
+     * @description The port of the specified host to which the traffic is routed.
+     *
      * @var HTTPRedirect
      */
     public $HTTPRedirect;
@@ -41,16 +45,24 @@ class HTTPAdvancedOptions extends Model
     public $mirrorPercentage;
 
     /**
+     * @description The ID of the request.
+     *
      * @var retries
      */
     public $retries;
 
     /**
+     * @description The processing of the headers of the response that is to be returned.
+     *
      * @var rewrite
      */
     public $rewrite;
 
     /**
+     * @description The key to be deleted.
+     *
+     * @example 5s
+     *
      * @var string
      */
     public $timeout;

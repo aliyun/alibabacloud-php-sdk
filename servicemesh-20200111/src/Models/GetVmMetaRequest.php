@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetVmMetaRequest extends Model
 {
     /**
+     * @description The namespace. This parameter is valid only after you set the Namespace and the ServiceAccount parameters.
+     *
+     * @example hello
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The service account. This parameter is valid only after you set the Namespace and the ServiceAccount parameters.
+     *
+     * @example http-sa
+     *
      * @var string
      */
     public $serviceAccount;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ce51a7de4a5144db88a864ed91****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The trusted domain. Default value: cluster.local. This parameter is valid only after you set the Namespace and the ServiceAccount parameters.
+     *
+     * @example cluster.local
+     *
      * @var string
      */
     public $trustDomain;

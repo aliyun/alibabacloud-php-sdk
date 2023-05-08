@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 11fd0027-c27e-41bb-a565-75583054****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The version information.
+     *
      * @var version
      */
     public $version;

@@ -37,8 +37,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAhasProRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAhasProResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCCMVersionRequest;
@@ -665,9 +663,6 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->gatewayAPIEnabled)) {
             $body['GatewayAPIEnabled'] = $request->gatewayAPIEnabled;
         }
-        if (!Utils::isUnset($request->globalRateLimitEnabled)) {
-            $body['GlobalRateLimitEnabled'] = $request->globalRateLimitEnabled;
-        }
         if (!Utils::isUnset($request->includeIPRanges)) {
             $body['IncludeIPRanges'] = $request->includeIPRanges;
         }
@@ -1260,49 +1255,6 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeASMGatewayImportedServicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAhasProRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeAhasProResponse
-     */
-    public function describeAhasProWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAhasPro',
-            'version'     => '2020-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAhasProResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAhasProRequest $request
-     *
-     * @return DescribeAhasProResponse
-     */
-    public function describeAhasPro($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAhasProWithOptions($request, $runtime);
     }
 
     /**
@@ -3521,10 +3473,12 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param ReActivateAuditRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+     *   *
+     * @param ReActivateAuditRequest $request ReActivateAuditRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReActivateAuditResponse
+     * @return ReActivateAuditResponse ReActivateAuditResponse
      */
     public function reActivateAuditWithOptions($request, $runtime)
     {
@@ -3555,9 +3509,11 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param ReActivateAuditRequest $request
+     * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+     *   *
+     * @param ReActivateAuditRequest $request ReActivateAuditRequest
      *
-     * @return ReActivateAuditResponse
+     * @return ReActivateAuditResponse ReActivateAuditResponse
      */
     public function reActivateAudit($request)
     {
@@ -4163,6 +4119,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->DNSProxyingEnabled)) {
             $body['DNSProxyingEnabled'] = $request->DNSProxyingEnabled;
         }
+        if (!Utils::isUnset($request->defaultComponentsScheduleConfig)) {
+            $body['DefaultComponentsScheduleConfig'] = $request->defaultComponentsScheduleConfig;
+        }
         if (!Utils::isUnset($request->discoverySelectors)) {
             $body['DiscoverySelectors'] = $request->discoverySelectors;
         }
@@ -4174,6 +4133,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableAutoDiagnosis)) {
             $body['EnableAutoDiagnosis'] = $request->enableAutoDiagnosis;
+        }
+        if (!Utils::isUnset($request->enableBootstrapXdsAgent)) {
+            $body['EnableBootstrapXdsAgent'] = $request->enableBootstrapXdsAgent;
         }
         if (!Utils::isUnset($request->enableCRHistory)) {
             $body['EnableCRHistory'] = $request->enableCRHistory;
@@ -4199,9 +4161,6 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->gatewayAPIEnabled)) {
             $body['GatewayAPIEnabled'] = $request->gatewayAPIEnabled;
         }
-        if (!Utils::isUnset($request->globalRateLimitEnabled)) {
-            $body['GlobalRateLimitEnabled'] = $request->globalRateLimitEnabled;
-        }
         if (!Utils::isUnset($request->holdApplicationUntilProxyStarts)) {
             $body['HoldApplicationUntilProxyStarts'] = $request->holdApplicationUntilProxyStarts;
         }
@@ -4222,6 +4181,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->interceptionMode)) {
             $body['InterceptionMode'] = $request->interceptionMode;
+        }
+        if (!Utils::isUnset($request->kialiArmsAuthTokens)) {
+            $body['KialiArmsAuthTokens'] = $request->kialiArmsAuthTokens;
         }
         if (!Utils::isUnset($request->kialiEnabled)) {
             $body['KialiEnabled'] = $request->kialiEnabled;
@@ -4467,6 +4429,18 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->preStop)) {
             $body['PreStop'] = $request->preStop;
         }
+        if (!Utils::isUnset($request->proxyInitAckSloCPUResourceLimit)) {
+            $body['ProxyInitAckSloCPUResourceLimit'] = $request->proxyInitAckSloCPUResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitAckSloCPUResourceRequest)) {
+            $body['ProxyInitAckSloCPUResourceRequest'] = $request->proxyInitAckSloCPUResourceRequest;
+        }
+        if (!Utils::isUnset($request->proxyInitAckSloMemoryResourceLimit)) {
+            $body['ProxyInitAckSloMemoryResourceLimit'] = $request->proxyInitAckSloMemoryResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitAckSloMemoryResourceRequest)) {
+            $body['ProxyInitAckSloMemoryResourceRequest'] = $request->proxyInitAckSloMemoryResourceRequest;
+        }
         if (!Utils::isUnset($request->proxyInitCPUResourceLimit)) {
             $body['ProxyInitCPUResourceLimit'] = $request->proxyInitCPUResourceLimit;
         }
@@ -4479,11 +4453,26 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->proxyInitMemoryResourceRequest)) {
             $body['ProxyInitMemoryResourceRequest'] = $request->proxyInitMemoryResourceRequest;
         }
+        if (!Utils::isUnset($request->proxyMetadata)) {
+            $body['ProxyMetadata'] = $request->proxyMetadata;
+        }
         if (!Utils::isUnset($request->proxyStatsMatcher)) {
             $body['ProxyStatsMatcher'] = $request->proxyStatsMatcher;
         }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->sidecarProxyAckSloCPUResourceLimit)) {
+            $body['SidecarProxyAckSloCPUResourceLimit'] = $request->sidecarProxyAckSloCPUResourceLimit;
+        }
+        if (!Utils::isUnset($request->sidecarProxyAckSloCPUResourceRequest)) {
+            $body['SidecarProxyAckSloCPUResourceRequest'] = $request->sidecarProxyAckSloCPUResourceRequest;
+        }
+        if (!Utils::isUnset($request->sidecarProxyAckSloMemoryResourceLimit)) {
+            $body['SidecarProxyAckSloMemoryResourceLimit'] = $request->sidecarProxyAckSloMemoryResourceLimit;
+        }
+        if (!Utils::isUnset($request->sidecarProxyAckSloMemoryResourceRequest)) {
+            $body['SidecarProxyAckSloMemoryResourceRequest'] = $request->sidecarProxyAckSloMemoryResourceRequest;
         }
         if (!Utils::isUnset($request->sidecarProxyCPUResourceLimit)) {
             $body['SidecarProxyCPUResourceLimit'] = $request->sidecarProxyCPUResourceLimit;

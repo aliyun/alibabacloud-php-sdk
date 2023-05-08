@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateSwimLaneResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example yyy
+     *
      * @var string
      */
     public $requestId;

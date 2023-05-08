@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
+     * @description The title of the report.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the report.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $url;

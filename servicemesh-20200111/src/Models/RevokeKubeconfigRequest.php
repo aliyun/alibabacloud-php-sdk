@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RevokeKubeconfigRequest extends Model
 {
     /**
+     * @description Specifies whether to return the kubeconfig file for private access.
+     *
+     *   `true`: returns the kubeconfig file for private access.
+     *   `false`: returns the kubeconfig file for public access.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $privateIpAddress;
 
     /**
+     * @description The ID of the ASM instance for which you want to revoke a kubeconfig file.
+     *
+     * @example cf08a11940e8c46c48bc791fcdb3****
+     *
      * @var string
      */
     public $serviceMeshId;

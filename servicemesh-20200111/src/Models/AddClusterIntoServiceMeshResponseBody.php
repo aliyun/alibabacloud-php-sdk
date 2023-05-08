@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddClusterIntoServiceMeshResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $requestId;

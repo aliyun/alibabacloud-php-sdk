@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mirrorPercentage extends Model
 {
     /**
+     * @example 0.2
+     *
      * @var float
      */
     public $value;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class retries extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $attempts;
 
     /**
+     * @example 5s
+     *
      * @var string
      */
     public $perTryTimeout;
 
     /**
+     * @example connect-failure,refused-stream,503
+     *
      * @var string
      */
     public $retryOn;

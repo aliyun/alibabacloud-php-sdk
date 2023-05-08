@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateSwimLaneGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example ingressgateway
+     *
      * @var string
      */
     public $ingressGatewayName;
 
     /**
+     * @example ASM
+     *
      * @var string
      */
     public $ingressType;
 
     /**
+     * @description The type of the ingress. Only ingress gateways are supported. Set the value to ASM.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The name of the ingress gateway.
+     *
+     * @example [\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc\"]
+     *
      * @var string
      */
     public $servicesList;

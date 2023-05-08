@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rewrite extends Model
 {
     /**
+     * @example newratings.default.svc.cluster.local
+     *
      * @var string
      */
     public $authority;
 
     /**
+     * @example /v1/getProductRatings
+     *
      * @var string
      */
     public $uri;

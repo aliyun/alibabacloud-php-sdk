@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensRequest extends Model
 {
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ce134b0727aa2492db69f6c3880e1****
+     *
      * @var string
      */
     public $serviceMeshId;

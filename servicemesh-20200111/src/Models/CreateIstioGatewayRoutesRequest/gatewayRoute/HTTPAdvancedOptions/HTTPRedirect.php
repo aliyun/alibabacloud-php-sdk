@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class HTTPRedirect extends Model
 {
     /**
+     * @example newratings.default.svc.cluster.local
+     *
      * @var string
      */
     public $authority;
 
     /**
+     * @example 301
+     *
      * @var int
      */
     public $redirectCode;
 
     /**
+     * @example /v1/getProductRatings
+     *
      * @var string
      */
     public $uri;

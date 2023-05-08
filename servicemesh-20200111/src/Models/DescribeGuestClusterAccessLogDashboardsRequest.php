@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterAccessLogDashboardsRequest extends Model
 {
     /**
+     * @description The ID of the cluster on the data plane.
+     *
+     * @example ce3c25e247da24f3aab9b7edfae83****
+     *
      * @var string
      */
     public $k8sClusterId;

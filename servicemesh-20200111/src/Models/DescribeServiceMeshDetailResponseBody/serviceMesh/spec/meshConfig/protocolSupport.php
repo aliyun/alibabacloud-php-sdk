@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class protocolSupport extends Model
 {
     /**
+     * @description Indicates whether Dubbo Filter is enabled. Valid values:
+     *
+     *   `true`: Dubbo Filter is enabled.
+     *   `false`: Dubbo Filter is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dubboFilterEnabled;
 
     /**
+     * @description Indicates whether MySQL Filter is enabled. Valid values:
+     *
+     *   `true`: MySQL Filter is enabled.
+     *   `false`: MySQL Filter is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mysqlFilterEnabled;
 
     /**
+     * @description Indicates whether Redis Filter is enabled. Valid values:
+     *
+     *   `true`: Redis Filter is enabled.
+     *   `false`: Redis Filter is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $redisFilterEnabled;
 
     /**
+     * @description Indicates whether Thrift Filter is enabled. Valid values:
+     *
+     *   `true`: Thrift Filter is enabled.
+     *   `false`: Thrift Filter is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $thriftFilterEnabled;

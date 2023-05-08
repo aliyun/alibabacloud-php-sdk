@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class configSource extends Model
 {
     /**
+     * @description Indicates whether communication is allowed between external services and services in the mesh. Valid values:
+     *
+     *   `true`: The communication is allowed.
+     *   `false`: The communication is not allowed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The ID of the Nacos instance that provides external service information.
+     *
+     * @example mse-cn-tl326******
+     *
      * @var string
      */
     public $nacosID;

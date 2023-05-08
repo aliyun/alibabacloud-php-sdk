@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetGrafanaDashboardUrlResponseBody extends Model
 {
     /**
+     * @description The information about the dashboard.
+     *
      * @var dashboards[]
      */
     public $dashboards;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 76DBB8A0-5AA6-5A56-9A8A-****
+     *
      * @var string
      */
     public $requestId;

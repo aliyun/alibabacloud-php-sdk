@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class gatewaySecretDetails extends Model
 {
     /**
+     * @description The name of the secret that contains the Transport Layer Security (TLS) certificate and certificate authority (CA) certificate.
+     *
+     * @example bookinfo-secret
+     *
      * @var string
      */
     public $credentialName;
 
     /**
+     * @description The details of the domain name in the JSON format.
+     *
+     * @example {   "servers": [     {       "port": {         "number": 27018,         "name": "mongo",         "protocol": "MONGO"       },       "hosts": [         "*"       ]     }   ] }
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @description The domain name.
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The namespace in which the ASM gateway resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the port.
+     *
+     * @example https-demo
+     *
      * @var string
      */
     public $portName;
 
     /**
+     * @description The type of the protocol. Valid values: `HTTP`, `HTTPS`, `GRPC`, `HTTP2`, `MONGO`, `TCP`, and `TLS`.
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $protocol;

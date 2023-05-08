@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshKubeconfigRequest extends Model
 {
     /**
+     * @description Specifies whether to query the kubeconfig file that is used for Internet access or internal network access.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $privateIpAddress;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

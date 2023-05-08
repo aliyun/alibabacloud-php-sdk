@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class httpHeaders extends Model
 {
     /**
+     * @description The name of the HTTP request header.
+     *
+     * @example key
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the HTTP request header field.
+     *
+     * @example value
+     *
      * @var string
      */
     public $value;

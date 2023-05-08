@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateSwimLaneGroupRequest extends Model
 {
     /**
+     * @description The name of the lane group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description A list of services associated with the lane group.
+     *
+     * @example ["sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc"]
+     *
      * @var string
      */
     public $servicesList;

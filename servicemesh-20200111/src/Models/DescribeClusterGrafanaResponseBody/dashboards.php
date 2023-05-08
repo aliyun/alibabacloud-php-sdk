@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
+     * @description The title of the Grafana dashboard.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The endpoint of the Grafana dashboard.
+     *
+     * @example test.com
+     *
      * @var string
      */
     public $url;

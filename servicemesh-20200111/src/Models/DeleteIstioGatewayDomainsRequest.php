@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DeleteIstioGatewayDomainsRequest extends Model
 {
     /**
+     * @description The domain names of the one or more hosts that are exposed by the ASM gateway. Separate multiple domain names with commas (,).
+     *
+     * @example example.com,demo.com
+     *
      * @var string
      */
     public $hosts;
 
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The maximum number of ASM gateways to query.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $limit;
 
     /**
+     * @description The namespace in which the ASM gateway resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the port.
+     *
+     * @example https
+     *
      * @var string
      */
     public $portName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class preStop extends Model
 {
     /**
+     * @description The pre-close script.
+     *
      * @var exec
      */
     public $exec;
 
     /**
+     * @description The HTTP GET request that is sent before the instance stops.
+     *
      * @var httpGet
      */
     public $httpGet;
 
     /**
+     * @description The TCP socket request that is sent.
+     *
      * @var tcpSocket
      */
     public $tcpSocket;

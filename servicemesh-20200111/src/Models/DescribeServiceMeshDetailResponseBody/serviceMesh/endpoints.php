@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The endpoint that is used to access the API server from the internal network.
+     *
+     * @example https://192.168.**.**:6443
+     *
      * @var string
      */
     public $intranetApiServerEndpoint;
 
     /**
+     * @description The endpoint that is used to access Istio Pilot from the internal network.
+     *
+     * @example 192.168.**.**:15011
+     *
      * @var string
      */
     public $intranetPilotEndpoint;
 
     /**
+     * @description The endpoint that is used to expose the API server to the Internet.
+     *
+     * @example https://123.56.**.**:6443
+     *
      * @var string
      */
     public $publicApiServerEndpoint;
 
     /**
+     * @description The endpoint that is used to expose Istio Pilot to the Internet.
+     *
+     * @example 182.92.**.**:15011
+     *
      * @var string
      */
     public $publicPilotEndpoint;

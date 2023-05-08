@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserPermissionsRequest extends Model
 {
     /**
+     * @description The ID of the RAM user or RAM role.
+     *
+     * @example 27852573609480****
+     *
      * @var string
      */
     public $subAccountUserId;

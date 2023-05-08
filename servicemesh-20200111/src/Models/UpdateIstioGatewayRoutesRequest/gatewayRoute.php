@@ -27,6 +27,8 @@ class gatewayRoute extends Model
     public $matchRequest;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -37,11 +39,15 @@ class gatewayRoute extends Model
     public $routeDestinations;
 
     /**
+     * @example reviews-v2-routes
+     *
      * @var string
      */
     public $routeName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $routeType;

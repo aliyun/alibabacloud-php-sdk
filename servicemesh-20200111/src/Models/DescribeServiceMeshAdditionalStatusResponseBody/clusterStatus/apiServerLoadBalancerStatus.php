@@ -9,26 +9,62 @@ use AlibabaCloud\Tea\Model;
 class apiServerLoadBalancerStatus extends Model
 {
     /**
+     * @description The check result of the number of SLB instances created for exposing Istio Pilot. Valid values:
+     *
+     *   `too_much`: An excessive number of SLB instances are created.
+     *   `num_exact`: A proper number of SLB instances are created.
+     *   `too_little`: The number of SLB instances falls short.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $locked;
 
     /**
+     * @description Indicates whether the SLB instance is reused. Valid values:
+     *
+     *   `true`: The SLB instance is reused.
+     *   `false`: The SLB instance is not reused.
+     *
+     * @example PrePay
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The check result of the SLB instance. Valid values:
+     *
+     *   `exist`: The SLB instance exists.
+     *   `not_exist`: The SLB instance does not exist.
+     *   `conflict`: Conflicts are detected.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $reused;
 
     /**
+     * @description The check results of the SLB instances created for exposing Istio Pilot.
+     *
+     * @example num_exact
+     *
      * @var string
      */
     public $SLBBackEndServerNumStatus;
 
     /**
+     * @description The billing method of the SLB instance. Valid values:
+     *
+     *   `PrePay`: subscription
+     *   `PayOnDemand`: pay-as-you-go
+     *
+     * @example exist
+     *
      * @var string
      */
     public $SLBExistStatus;

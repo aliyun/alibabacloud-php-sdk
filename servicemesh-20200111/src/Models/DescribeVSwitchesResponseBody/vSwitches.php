@@ -9,35 +9,53 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-bp1g24p9no0iqir46****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vsw-test
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @example vpc-bp17gig441u0msmd6****
+     *
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @example cn-hangzhou-k
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'isDefault'   => 'IsDefault',
         'status'      => 'Status',
         'vSwitchId'   => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
         'vpcId'       => 'VpcId',
+        'zoneId'      => 'ZoneId',
     ];
 
     public function validate()
@@ -61,6 +79,9 @@ class vSwitches extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -88,6 +109,9 @@ class vSwitches extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

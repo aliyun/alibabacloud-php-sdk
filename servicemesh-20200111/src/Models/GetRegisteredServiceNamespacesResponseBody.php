@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetRegisteredServiceNamespacesResponseBody extends Model
 {
     /**
+     * @description The names of the queried namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;

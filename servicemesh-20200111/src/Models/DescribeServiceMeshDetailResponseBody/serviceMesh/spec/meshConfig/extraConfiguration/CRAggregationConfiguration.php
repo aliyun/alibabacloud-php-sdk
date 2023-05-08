@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CRAggregationConfiguration extends Model
 {
     /**
+     * @description Indicates whether Istio resources can be accessed by using the Kubernetes API on the data plane.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;

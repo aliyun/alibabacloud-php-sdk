@@ -10,31 +10,49 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The IDs of the clusters to which the service belongs.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description The labels of the service.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The namespace in which the service resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ports declared for the service.
+     *
      * @var ports[]
      */
     public $ports;
 
     /**
+     * @description The name of the service.
+     *
+     * @example productpage
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the service.
+     *
+     * @example Kuberntes
+     *
      * @var string
      */
     public $serviceType;

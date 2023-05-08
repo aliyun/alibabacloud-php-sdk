@@ -10,26 +10,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshProxyStatusResponseBody extends Model
 {
     /**
+     * @description The status code. Valid values:
+     *
+     * `200`: The status code returned because the operation is successful.
+     *
+     *   `403`: The status code returned because you are not authorized to perform this operation.
+     *   `503`: The status code returned because a backend server error occurs.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The information about the status of the proxies on the data plane.
+     *
      * @var proxyStatus[]
      */
     public $proxyStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example success
+     *
      * @var string
      */
     public $success;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class accessLogDashboards extends Model
 {
     /**
+     * @description The name of the dashboard for access logs.
+     *
+     * @example mesh-access-log_details_cn
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the dashboard for access logs.
+     *
+     * @example https://sls.console.aliyun.com/next/project/****\/dashboard/mesh-access-log_details_cn
+     *
      * @var string
      */
     public $url;

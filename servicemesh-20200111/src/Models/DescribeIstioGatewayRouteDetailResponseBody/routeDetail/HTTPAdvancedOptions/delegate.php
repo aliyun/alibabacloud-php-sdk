@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class delegate extends Model
 {
     /**
+     * @description The values to be added to the header key.
+     *
+     * @example reviews
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The key to be deleted.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class loadBalancer extends Model
 {
     /**
+     * @description The ID of the SLB instance that is used when the API server is exposed to the Internet.
+     *
+     * @example lb-2zekaak10uxds44vx****
+     *
      * @var string
      */
     public $apiServerLoadbalancerId;
 
     /**
+     * @description Indicates whether the API server is exposed to the Internet. Valid values:
+     *
+     *   `true`: The API server is exposed to the Internet.
+     *   `false`: The API server is not exposed to the Internet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $apiServerPublicEip;
 
     /**
+     * @description Indicates whether Istio Pilot is exposed to the Internet. Valid values:
+     *
+     *   `true`: Istio Pilot is exposed to the Internet.
+     *   `false`: Istio Pilot is not exposed to the Internet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $pilotPublicEip;
 
     /**
+     * @description The ID of the Server Load Balancer (SLB) instance that is used when Istio Pilot is exposed to the Internet.
+     *
+     * @example lb-2zesa8qs8kbkj9jkl****
+     *
      * @var string
      */
     public $pilotPublicLoadbalancerId;

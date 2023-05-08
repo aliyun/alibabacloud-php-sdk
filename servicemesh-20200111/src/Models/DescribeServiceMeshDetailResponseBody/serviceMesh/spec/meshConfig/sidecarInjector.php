@@ -10,46 +10,86 @@ use AlibabaCloud\Tea\Model;
 class sidecarInjector extends Model
 {
     /**
+     * @description Indicates whether automatic sidecar injection can be enabled by using pod annotations. Valid values:
+     *
+     *   `true`: Automatic sidecar injection can be enabled by using pod annotations.
+     *   `false`: Automatic sidecar injection cannot be enabled by using pod annotations.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoInjectionPolicyEnabled;
 
     /**
+     * @description Indicates whether automatic sidecar injection is enabled for all namespaces. Valid values:
+     *
+     *   `true`: Automatic sidecar injection is enabled for all namespaces.
+     *   `false`: Automatic sidecar injection is not enabled for all namespaces.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableNamespacesByDefault;
 
     /**
+     * @description The configurations of Container Network Interface (CNI).
+     *
      * @var initCNIConfiguration
      */
     public $initCNIConfiguration;
 
     /**
+     * @description The maximum number of CPU cores that are available to the sidecar injector pod.
+     *
+     * @example 4000m
+     *
      * @var string
      */
     public $limitCPU;
 
     /**
+     * @description The maximum size of the memory that is available to the sidecar injector pod.
+     *
+     * @example 2048Mi
+     *
      * @var string
      */
     public $limitMemory;
 
     /**
+     * @description The number of CPU cores that are requested by the sidecar injector pod.
+     *
+     * @example 1000m
+     *
      * @var string
      */
     public $requestCPU;
 
     /**
+     * @description The size of the memory that is requested by the sidecar injector pod.
+     *
+     * @example 512Mi
+     *
      * @var string
      */
     public $requestMemory;
 
     /**
+     * @description The number of component replicas that are used for sidecar injection. Default value: `1`.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sidecarInjectorNum;
 
     /**
+     * @description Other configurations of automatic sidecar injection, in the YAML format. For more information, see [Enable automatic sidecar injection by using multiple methods](~~186136~~).
+     *
+     * @example {"injectedAnnotations":{"test/istio-init":"runtime/default2","test/istio-proxy":"runtime/default"},"replicaCount":2,"nodeSelector":{"beta.kubernetes.io/os":"linux"}}
+     *
      * @var string
      */
     public $sidecarInjectorWebhookAsYaml;

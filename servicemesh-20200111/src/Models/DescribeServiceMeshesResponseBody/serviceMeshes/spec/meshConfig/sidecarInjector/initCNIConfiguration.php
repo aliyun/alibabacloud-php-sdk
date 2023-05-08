@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class initCNIConfiguration extends Model
 {
     /**
+     * @description Indicates whether elevated privileges are required for the istio-init container when you perform traffic redirection for the istio-proxy container. Valid values:
+     *
+     *   `true`: Elevated privileges are required for the istio-init container.
+     *   `false`: Elevated privileges are not required for the istio-init container.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The namespace for which sidecar injection is disabled.
+     *
+     * @example default,foo
+     *
      * @var string
      */
     public $excludeNamespaces;

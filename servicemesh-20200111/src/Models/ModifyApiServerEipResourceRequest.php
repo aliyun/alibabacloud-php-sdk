@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiServerEipResourceRequest extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
+     * @example eip-bp1adu9jegmxnaoq****
+     *
      * @var string
      */
     public $apiServerEipId;
 
     /**
+     * @description The type of the operation. Valid values:
+     *
+     *   `UnBindEip`: disassociates an EIP from the API server.
+     *   `BindEip`: associates an EIP with the API server.
+     *
+     * @example BindEip
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;

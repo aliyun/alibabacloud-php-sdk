@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\accessLogExtraConf;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\adaptiveXdsConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\autoDiagnosis;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\CRAggregationConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
@@ -12,7 +13,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRespo
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\multiBuffer;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\NFDConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\OPAScopeInjection;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\rateLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\sidecarProxyInitResourceLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\sidecarProxyInitResourceRequest;
 use AlibabaCloud\Tea\Model;
@@ -20,76 +20,112 @@ use AlibabaCloud\Tea\Model;
 class extraConfiguration extends Model
 {
     /**
+     * @description The configurations of additional features for access log collection
+     *
      * @var accessLogExtraConf
      */
     public $accessLogExtraConf;
 
     /**
+     * @description The configurations of adaptive xDS optimization.
+     *
+     * @var adaptiveXdsConfiguration
+     */
+    public $adaptiveXdsConfiguration;
+
+    /**
+     * @description The configurations of automatic diagnosis for the ASM instance.
+     *
      * @var autoDiagnosis
      */
     public $autoDiagnosis;
 
     /**
+     * @description Access to Istio resources by using the Kubernetes API on the data plane.
+     *
      * @var CRAggregationConfiguration
      */
     public $CRAggregationConfiguration;
 
     /**
+     * @description Indicates whether the Kubernetes API of clusters on the data plane can be used to access Istio resources. Valid values:
+     *
+     *   `true`: The Kubernetes API of clusters on the data plane can be used to access Istio resources.
+     *   `false`: The Kubernetes API of clusters on the data plane cannot be used to access Istio resources.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $CRAggregationEnabled;
 
     /**
+     * @description The label selectors used to specify namespaces on the data plane. The control plane discovers and process only application services in the specified namespaces.
+     *
      * @var mixed[][]
      */
     public $discoverySelectors;
 
     /**
+     * @description The configurations of the rollback feature for Istio resources.
+     *
      * @var istioCRHistory
      */
     public $istioCRHistory;
 
     /**
+     * @description The lifecycle of Istio Proxy.
+     *
      * @var lifecycle
      */
     public $lifecycle;
 
     /**
+     * @description The information about Transport Layer Security (TLS) acceleration based on MulitiBuffer.
+     *
      * @var multiBuffer
      */
     public $multiBuffer;
 
     /**
+     * @description The configurations of Node Feature Discovery (NFD).
+     *
      * @var NFDConfiguration
      */
     public $NFDConfiguration;
 
     /**
+     * @description The configurations of the feature of controlling the OPA injection scope.
+     *
      * @var OPAScopeInjection
      */
     public $OPAScopeInjection;
 
     /**
-     * @var rateLimit
-     */
-    public $rateLimit;
-
-    /**
+     * @description The resource limits on the istio-init container.
+     *
      * @var sidecarProxyInitResourceLimit
      */
     public $sidecarProxyInitResourceLimit;
 
     /**
+     * @description The resources that are requested by the istio-init container.
+     *
      * @var sidecarProxyInitResourceRequest
      */
     public $sidecarProxyInitResourceRequest;
 
     /**
+     * @description The maximum period of time that Istio Proxy waits for a request to end.
+     *
+     * @example 5s
+     *
      * @var string
      */
     public $terminationDrainDuration;
     protected $_name = [
         'accessLogExtraConf'              => 'AccessLogExtraConf',
+        'adaptiveXdsConfiguration'        => 'AdaptiveXdsConfiguration',
         'autoDiagnosis'                   => 'AutoDiagnosis',
         'CRAggregationConfiguration'      => 'CRAggregationConfiguration',
         'CRAggregationEnabled'            => 'CRAggregationEnabled',
@@ -99,7 +135,6 @@ class extraConfiguration extends Model
         'multiBuffer'                     => 'MultiBuffer',
         'NFDConfiguration'                => 'NFDConfiguration',
         'OPAScopeInjection'               => 'OPAScopeInjection',
-        'rateLimit'                       => 'RateLimit',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
         'sidecarProxyInitResourceRequest' => 'SidecarProxyInitResourceRequest',
         'terminationDrainDuration'        => 'TerminationDrainDuration',
@@ -114,6 +149,9 @@ class extraConfiguration extends Model
         $res = [];
         if (null !== $this->accessLogExtraConf) {
             $res['AccessLogExtraConf'] = null !== $this->accessLogExtraConf ? $this->accessLogExtraConf->toMap() : null;
+        }
+        if (null !== $this->adaptiveXdsConfiguration) {
+            $res['AdaptiveXdsConfiguration'] = null !== $this->adaptiveXdsConfiguration ? $this->adaptiveXdsConfiguration->toMap() : null;
         }
         if (null !== $this->autoDiagnosis) {
             $res['AutoDiagnosis'] = null !== $this->autoDiagnosis ? $this->autoDiagnosis->toMap() : null;
@@ -142,9 +180,6 @@ class extraConfiguration extends Model
         if (null !== $this->OPAScopeInjection) {
             $res['OPAScopeInjection'] = null !== $this->OPAScopeInjection ? $this->OPAScopeInjection->toMap() : null;
         }
-        if (null !== $this->rateLimit) {
-            $res['RateLimit'] = null !== $this->rateLimit ? $this->rateLimit->toMap() : null;
-        }
         if (null !== $this->sidecarProxyInitResourceLimit) {
             $res['SidecarProxyInitResourceLimit'] = null !== $this->sidecarProxyInitResourceLimit ? $this->sidecarProxyInitResourceLimit->toMap() : null;
         }
@@ -168,6 +203,9 @@ class extraConfiguration extends Model
         $model = new self();
         if (isset($map['AccessLogExtraConf'])) {
             $model->accessLogExtraConf = accessLogExtraConf::fromMap($map['AccessLogExtraConf']);
+        }
+        if (isset($map['AdaptiveXdsConfiguration'])) {
+            $model->adaptiveXdsConfiguration = adaptiveXdsConfiguration::fromMap($map['AdaptiveXdsConfiguration']);
         }
         if (isset($map['AutoDiagnosis'])) {
             $model->autoDiagnosis = autoDiagnosis::fromMap($map['AutoDiagnosis']);
@@ -197,9 +235,6 @@ class extraConfiguration extends Model
         }
         if (isset($map['OPAScopeInjection'])) {
             $model->OPAScopeInjection = OPAScopeInjection::fromMap($map['OPAScopeInjection']);
-        }
-        if (isset($map['RateLimit'])) {
-            $model->rateLimit = rateLimit::fromMap($map['RateLimit']);
         }
         if (isset($map['SidecarProxyInitResourceLimit'])) {
             $model->sidecarProxyInitResourceLimit = sidecarProxyInitResourceLimit::fromMap($map['SidecarProxyInitResourceLimit']);

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SecretDeleteRecordValue extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example timeout
+     *
      * @var string
      */
     public $message;

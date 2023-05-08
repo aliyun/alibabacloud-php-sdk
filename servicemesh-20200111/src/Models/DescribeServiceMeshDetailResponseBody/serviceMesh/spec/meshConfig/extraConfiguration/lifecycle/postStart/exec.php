@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class exec extends Model
 {
     /**
+     * @description The executed command.
+     *
      * @var string[]
      */
     public $command;

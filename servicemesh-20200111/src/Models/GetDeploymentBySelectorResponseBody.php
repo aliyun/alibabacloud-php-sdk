@@ -14,11 +14,15 @@ class GetDeploymentBySelectorResponseBody extends Model
     public $deploymentNameList;
 
     /**
+     * @example eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NTgyMDUzMzk5MCwic3RhcnQiOiJwbXMtYWRhcHRlci1kZGxsXHUwMDA****
+     *
      * @var string
      */
     public $mark;
 
     /**
+     * @example 946690C2-41D3-55A0-A501-E2FFAB5F****
+     *
      * @var string
      */
     public $requestId;

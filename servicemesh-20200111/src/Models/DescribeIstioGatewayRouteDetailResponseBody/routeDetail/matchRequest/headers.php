@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The percentage of requests that are mirrored to another destination except for the original destination, expressed as a decimal.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $matchingContent;
 
     /**
+     * @description The percentage of requests that are mirrored to another destination except for the original destination.
+     *
+     * @example exact
+     *
      * @var string
      */
     public $matchingMode;
 
     /**
+     * @description The name of the service subset.
+     *
+     * @example x-request-id
+     *
      * @var string
      */
     public $name;

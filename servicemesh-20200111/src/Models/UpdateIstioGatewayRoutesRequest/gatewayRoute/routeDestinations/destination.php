@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class destination extends Model
 {
     /**
+     * @example reviews
+     *
      * @var string
      */
     public $host;
@@ -20,6 +22,8 @@ class destination extends Model
     public $port;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $subset;

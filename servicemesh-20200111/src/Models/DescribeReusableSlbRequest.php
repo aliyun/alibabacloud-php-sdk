@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeReusableSlbRequest extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster on the data plane.
+     *
+     * @example ca2cfe41fefeb489d9b9dba18a7c5****
+     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @description The network type of the SLB instance. Valid values:
+     *
+     *   `intranet`
+     *   `internet`
+     *
+     * @example internet
+     *
      * @var string
      */
     public $networkType;

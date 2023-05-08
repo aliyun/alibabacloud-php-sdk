@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class multiBuffer extends Model
 {
     /**
+     * @description Indicates whether MulitiBuffer-based TLS acceleration is enabled. Valid values:
+     *
+     *   `true`: MulitiBuffer-based TLS acceleration is enabled.
+     *   `false`: MulitiBuffer-based TLS acceleration is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The pull-request latency.
+     *
+     * @example 0.02s
+     *
      * @var string
      */
     public $pollDelay;

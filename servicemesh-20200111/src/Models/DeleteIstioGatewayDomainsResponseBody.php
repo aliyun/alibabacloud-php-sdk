@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteIstioGatewayDomainsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class routeDestinations extends Model
     public $destination;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $weight;

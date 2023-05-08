@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class prometheus extends Model
 {
     /**
+     * @description The endpoint of Prometheus monitoring. If you use a custom Prometheus instance, this parameter is populated by the system.
+     *
+     * @example http://prometheus:9090
+     *
      * @var string
      */
     public $externalUrl;
 
     /**
+     * @description Indicates whether a custom Prometheus instance is used. Valid values:
+     *
+     *   `true`: A custom Prometheus instance is used.
+     *   `false`: No custom Prometheus instance is used.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $useExternal;

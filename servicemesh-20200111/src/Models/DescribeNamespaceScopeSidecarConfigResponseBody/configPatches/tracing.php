@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class tracing extends Model
 {
     /**
+     * @description The custom tags added to reported spans. The key of a tag is of the string type. The value of a tag is in the JSON format. A custom tag can belong to one of the following types:
+     *
+     *   `literal`: The tag value is a fixed value in the JSON format. This tag must contain the `value` field that specifies a literal. Example: `{"value":"test"}`.
+     *
+     * <!---->
+     *
+     *   `header`: The tag value is a request header in the JSON format. This tag must contain the `name` field and `defaultValue` field.The name field indicates the name of the request header. The defaultValue field indicates the default value that is used when no request header is available. Example: `{"name":"test","defaultValue":"test"}`.
+     *   `environment`: The tag value is an environment variable in the JSON format. This tag must contain the `name` field and `defaultValue` field. The name field indicates the name of the environment variable. The defaultValue field indicates the environment variable that is used when no environment variable is available. Example: `{"name":"test","defaultValue":"test"}`.
+     *
      * @var mixed[]
      */
     public $customTags;
 
     /**
+     * @description The maximum tag length.
+     *
      * @var int
      */
     public $maxPathTagLength;
 
     /**
+     * @description The sampling rate.
+     *
      * @var float
      */
     public $sampling;

@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class serviceMeshInfo extends Model
 {
     /**
+     * @description The time when the ASM instance was created.
+     *
+     * @example 2020-04-21T09:42:20+08:00
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The error message that is returned when the call failed.
+     *
+     * @example error
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The name of the ASM instance.
+     *
+     * @example mesh1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The edition of the ASM instance. Valid values:
+     *
+     *   `Default`: Standard Edition
+     *   `Pro`: Professional Edition
+     *
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The ID of the region in which the ASM instance resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The status of the ASM instance.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The time when the ASM instance was last modified.
+     *
+     * @example 2020-06-03T14:48:54+08:00
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The version of the ASM instance.
+     *
+     * @example v1.7.4.0-gfb34ba99-aliyun
+     *
      * @var string
      */
     public $version;

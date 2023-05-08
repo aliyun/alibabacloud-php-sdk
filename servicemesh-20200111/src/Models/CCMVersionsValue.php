@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CCMVersionsValue extends Model
 {
     /**
+     * @example time_out
+     *
      * @var string
      */
     public $queryState;
 
     /**
+     * @example v2.0.1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $SLBGracefulDrainSupport;
 
     /**
+     * @example cfbb81b9b51a44b299349xxxxxxxxxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example timeout error
+     *
      * @var string
      */
     public $message;

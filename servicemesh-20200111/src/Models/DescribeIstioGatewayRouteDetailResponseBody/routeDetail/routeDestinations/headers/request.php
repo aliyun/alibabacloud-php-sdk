@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
+     * @example key
+     *
      * @var mixed[]
      */
     public $add;

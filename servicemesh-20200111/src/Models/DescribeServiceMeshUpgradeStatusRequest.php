@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshUpgradeStatusRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example istio-system:ingressgateway1,istio-system:ingressgateway2
+     *
      * @var string
      */
     public $allIstioGatewayFullNames;
 
     /**
+     * @description The fully qualified names of ingress gateways in the ASM instance. Separate multiple names with commas (,).
+     *
+     * @example caeac85a793c94afbbb0a4bb20320****
+     *
      * @var string
      */
     public $guestClusterIds;
 
     /**
+     * @description The IDs of the clusters on the data plane of the ASM instance. Separate multiple clusters with commas (,).
+     *
+     * @example 11fd0027-c27e-41bb-a565-75583054****
+     *
      * @var string
      */
     public $serviceMeshId;

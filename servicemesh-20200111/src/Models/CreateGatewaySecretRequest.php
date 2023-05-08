@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewaySecretRequest extends Model
 {
     /**
+     * @description The content of the certificate.
+     *
+     * @example -----BEGIN CERTIFICATE----- MIIC2DCCAcACA-----END CERTIF****-----
+     *
      * @var string
      */
     public $cert;
 
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The private key of the certificate.
+     *
+     * @example MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC2ag/Bzcgm****
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example bookinfo-secret
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

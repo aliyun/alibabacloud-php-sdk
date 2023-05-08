@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceScopeSidecarConfigRequest extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c7120e75a202d4fd8acb028a86b6a****
+     *
      * @var string
      */
     public $serviceMeshId;

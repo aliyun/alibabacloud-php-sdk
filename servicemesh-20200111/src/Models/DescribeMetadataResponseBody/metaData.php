@@ -10,31 +10,45 @@ use AlibabaCloud\Tea\Model;
 class metaData extends Model
 {
     /**
+     * @description The current version.
+     *
+     * @example v1.14.3.87-g96cf7305-aliyun
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description The version information about ASM of a commercial edition.
+     *
      * @var proEdition
      */
     public $proEdition;
 
     /**
+     * @description The regions where ASM instances can be created.
+     *
      * @var string[]
      */
     public $regions;
 
     /**
+     * @description The Custom Resource Definitions (CRDs) of the versions.
+     *
      * @var mixed[][]
      */
     public $versionCrds;
 
     /**
+     * @description The ASM version and the corresponding Istio version.
+     *
      * @var mixed[][]
      */
     public $versionRegistry;
 
     /**
+     * @description The supported versions.
+     *
      * @var string[]
      */
     public $versions;

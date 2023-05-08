@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the ASM instances.
+     *
      * @var serviceMeshes[]
      */
     public $serviceMeshes;

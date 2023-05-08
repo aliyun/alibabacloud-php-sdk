@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class NFDConfiguration extends Model
 {
     /**
+     * @description Indicates whether NFD is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description Indicates whether feature labels on nodes are cleared when NFD is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $NFDLabelPruned;

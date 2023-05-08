@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class HTTPRedirect extends Model
 {
     /**
+     * @description The request headers to be matched.
+     *
+     * @example newratings.default.svc.cluster.local
+     *
      * @var string
      */
     public $authority;
 
     /**
+     * @description The request header to be matched.
+     *
+     * @example 301
+     *
      * @var int
      */
     public $redirectCode;
 
     /**
+     * @description The traffic weight. Valid values: 1 to 100.
+     *
+     * @example /v1/getProductRatings
+     *
      * @var string
      */
     public $uri;

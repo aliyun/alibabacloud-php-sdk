@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class URI extends Model
 {
     /**
+     * @description The configurations for mirroring HTTP traffic to another destination in addition to forwarding requests to the specified destination.
+     *
+     * @example /ratings/v2/
+     *
      * @var string
      */
     public $matchingContent;
 
     /**
+     * @description The percentage of requests that are aborted with the specified error code, expressed as a decimal.
+     *
+     * @example prefix
+     *
      * @var string
      */
     public $matchingMode;

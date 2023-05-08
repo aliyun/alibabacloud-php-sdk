@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class endPointSlice extends Model
 {
     /**
+     * @description The name of the pod.
+     *
      * @var endpointsDetails[]
      */
     public $endpointsDetails;
 
     /**
+     * @description The details of the endpoint of the registered service.
+     *
+     * @example MESH_INTERNAL
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The location of the registered service. Valid values:
+     *
+     *   `MESH_INTERNAL`: The service is deployed inside the ASM instance.
+     *   `MESH_EXTERNAL`: The service is deployed outside the ASM instance.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example reviews
+     *
      * @var string
      */
     public $serviceName;

@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class swimLaneGroupList extends Model
 {
     /**
+     * @description The name of the ingress gateway.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example ingressgateway
+     *
      * @var string
      */
     public $ingressGatewayName;
 
     /**
+     * @example ASM
+     *
      * @var string
      */
     public $ingressType;
 
     /**
+     * @example ["sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc"]
+     *
      * @var string
      */
     public $serviceList;

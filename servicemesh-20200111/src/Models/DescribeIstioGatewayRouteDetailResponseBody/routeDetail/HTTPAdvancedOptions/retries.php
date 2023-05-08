@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class retries extends Model
 {
     /**
+     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $attempts;
 
     /**
+     * @description The status of the routing rule. Valid values:
+     *
+     * - `2`: An error occurs during the creation or update of the routing rule.
+     * @example 2s
+     *
      * @var string
      */
     public $perTryTimeout;
 
     /**
+     * @description The description of the routing rule.
+     *
+     * @example connect-failure,refused-stream,503
+     *
      * @var string
      */
     public $retryOn;

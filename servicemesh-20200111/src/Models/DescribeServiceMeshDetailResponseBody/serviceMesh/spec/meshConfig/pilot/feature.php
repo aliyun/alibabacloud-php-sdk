@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class feature extends Model
 {
     /**
+     * @description Indicates whether Secret Discovery Service (SDS) is enabled. Valid values:
+     *
+     *   `true`: SDS is enabled.
+     *   `false`: SDS is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableSDSServer;
 
     /**
+     * @description Indicates whether gateway configuration filtering is enabled. Valid values:
+     *
+     *   `true`: Gateway configuration filtering is enabled.
+     *   `false`: Gateway configuration filtering is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $filterGatewayClusterConfig;

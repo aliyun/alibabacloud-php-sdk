@@ -14,6 +14,8 @@ class TLSMatchAttributes extends Model
     public $SNIHosts;
 
     /**
+     * @example 443
+     *
      * @var int
      */
     public $TLSPort;

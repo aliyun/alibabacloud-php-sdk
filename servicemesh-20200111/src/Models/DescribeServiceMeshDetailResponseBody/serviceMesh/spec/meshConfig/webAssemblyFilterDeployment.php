@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class webAssemblyFilterDeployment extends Model
 {
     /**
+     * @description Indicates whether WebAssembly Filter is enabled. Valid values:
+     *
+     *   `true`:WebAssembly Filter is enabled.
+     *   `false`: WebAssembly Filter is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;

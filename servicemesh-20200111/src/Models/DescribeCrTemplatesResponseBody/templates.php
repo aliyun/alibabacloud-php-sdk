@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @description The Chinese name of the YAML template.
+     *
      * @var string
      */
     public $chineseName;
 
     /**
+     * @description The English name of the YAML template.
+     *
+     * @example HTTP basic routing
+     *
      * @var string
      */
     public $englishName;
 
     /**
+     * @description The content in the YAML template.
+     *
+     * @example apiVersion: networking.istio.io/v1beta1\nkind: VirtualService\nmetadata:\n  name: reviews-route # Name for this VirtualService.\nspec:\n  hosts:\n  - reviews.prod.svc.cluster.local # Service that this VirtualSerivce belongs to. \n  http:\n  - name: \"reviews-route\" # Name for the route.\n    route:\n    - destination: # Uniquely identifies the instances of a service to which all traffic should be forwarded to.\n        host: reviews.prod.svc.cluster.local # The name of a service from the service registry or ServiceEntry.\n        port:\n          number: 8080"
+     *
      * @var string
      */
     public $yaml;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIstioGatewayRoutesShrinkRequest extends Model
 {
     /**
+     * @example demo route
+     *
      * @var string
      */
     public $description;
@@ -19,21 +21,29 @@ class CreateIstioGatewayRoutesShrinkRequest extends Model
     public $gatewayRouteShrink;
 
     /**
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

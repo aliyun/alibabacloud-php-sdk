@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class delay extends Model
 {
     /**
+     * @example 5s
+     *
      * @var string
      */
     public $fixedDelay;

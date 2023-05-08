@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
+     * @description The name of the dashboard.
+     *
+     * @example Cloud ASM Istio Http Gateway
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the dashboard.
+     *
+     * @example https://g.console.aliyun.com/d/181863583797****-14651340-200-2/alibaba-cloud-mesh-service?orgId=32****&refresh=60s
+     *
      * @var string
      */
     public $url;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetSwimLaneGroupListRequest extends Model
 {
     /**
+     * @description A list of services associated with the lane group.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $serviceMeshId;

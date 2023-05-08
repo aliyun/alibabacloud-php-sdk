@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddClusterIntoServiceMeshRequest extends Model
 {
     /**
+     * @example ce3c25e247da24f3aab9b7edfae83****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 添加集群时不检查目标集群是否存在istio-system namespace，一般用于自建istio 迁移ASM 场景
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ignoreNamespaceCheck;
 
     /**
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;

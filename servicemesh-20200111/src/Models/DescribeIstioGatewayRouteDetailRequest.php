@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayRouteDetailRequest extends Model
 {
     /**
+     * @description The fixed duration for request delay.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The duration for request delay is expressed as 2 raised to the power of x. You must specify the value of x.
+     *
+     * @example demo-route
+     *
      * @var string
      */
     public $routeName;
 
     /**
+     * @description The duration to delay a request.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

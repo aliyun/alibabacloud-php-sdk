@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SecretCreateRecordValue extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example c08ba3fd1e6484b0f8cc1ad8xe10d****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example timeout
+     *
      * @var string
      */
     public $message;

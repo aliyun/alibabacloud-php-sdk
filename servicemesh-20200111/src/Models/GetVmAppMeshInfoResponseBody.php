@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetVmAppMeshInfoResponseBody extends Model
 {
     /**
+     * @description The returned information.
+     *
+     * @example ...
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9522f7c9-63a1-4603-b850-37d12a****
+     *
      * @var string
      */
     public $requestId;

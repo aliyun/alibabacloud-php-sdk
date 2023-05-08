@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class autoDiagnosis extends Model
 {
     /**
+     * @description Indicates whether automatic diagnosis is enabled for the ASM instance. If you enable this feature, the ASM instance is automatically diagnosed five minutes after you modify an Istio resource.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoDiagnosisEnabled;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeIngressGatewaysResponseBody extends Model
 {
     /**
+     * @description The information about the ingress gateways of the ASM instance.
+     *
      * @var mixed[][]
      */
     public $ingressGateways;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveVMFromServiceMeshRequest extends Model
 {
     /**
+     * @description The ID of the VM.
+     *
+     * @example i-2ze90ts4edj3650****
+     *
      * @var string
      */
     public $ecsId;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ccb37ff104caf419fbf48fb38e6f3****
+     *
      * @var string
      */
     public $serviceMeshId;

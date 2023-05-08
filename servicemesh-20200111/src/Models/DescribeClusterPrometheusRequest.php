@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterPrometheusRequest extends Model
 {
     /**
+     * @description The ID of the cluster on the data plane.
+     *
+     * @example ce3c25e247da24f3aab9b7edfae83****
+     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @description The ID of the region where the cluster on the data plane resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $k8sClusterRegionId;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;

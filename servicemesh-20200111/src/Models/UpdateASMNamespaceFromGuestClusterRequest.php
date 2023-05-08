@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateASMNamespaceFromGuestClusterRequest extends Model
 {
     /**
+     * @example c6f6d46583def494ba1f2e2937c8*****
+     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @example cbf9ca9e6d5dc4c87a3ecd0ebf1e*****
+     *
      * @var string
      */
     public $serviceMeshId;

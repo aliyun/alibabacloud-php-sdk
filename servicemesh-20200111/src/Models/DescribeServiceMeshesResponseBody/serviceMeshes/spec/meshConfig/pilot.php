@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class pilot extends Model
 {
     /**
+     * @description Indicates whether the support for HTTP 1.0 is enabled. Valid values:
+     *
+     *   `true`: The support for HTTP 1.0 is enabled.
+     *   `false`: The support for HTTP 1.0 is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $http10Enabled;
 
     /**
+     * @description The sampling percentage of tracing.
+     *
+     * @example 0.2
+     *
      * @var float
      */
     public $traceSampling;

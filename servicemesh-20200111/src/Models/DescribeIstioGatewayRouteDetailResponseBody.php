@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayRouteDetailResponseBody extends Model
 {
     /**
+     * @example demo route
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The percentage of requests to which the delay fault is injected.
+     *
      * @var routeDetail
      */
     public $routeDetail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

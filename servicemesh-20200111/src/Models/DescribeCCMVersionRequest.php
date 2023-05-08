@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCCMVersionRequest extends Model
 {
     /**
+     * @description The versions of the CCM component in all clusters on the data plane.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

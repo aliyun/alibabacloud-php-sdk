@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetCaCertResponseBody extends Model
 {
     /**
+     * @description The Base64-encoded content of the CA certificate.
+     *
+     * @example -----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIDM/1OMA0GCSqGSIb3DQEBCwUAME427zhT4HDLcCEW****-----END CERTIFICATE-----\n
+     *
      * @var string
      */
     public $caCert;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E0496204-7586-5B4C-B364-2361CC0ED****
+     *
      * @var string
      */
     public $requestId;

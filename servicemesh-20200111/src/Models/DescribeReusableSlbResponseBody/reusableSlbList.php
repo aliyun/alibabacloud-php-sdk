@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class reusableSlbList extends Model
 {
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp17xygzsxth0bwlz****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The name of the SLB instance.
+     *
+     * @example ad6044b015ac54484a20c47241175bb3
+     *
      * @var string
      */
     public $loadBalancerName;

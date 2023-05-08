@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sidecarProxyInitResourceLimit extends Model
 {
     /**
+     * @description The maximum number of CPU cores that are available to the istio-init container.
+     *
+     * @example 2000m
+     *
      * @var string
      */
     public $resourceCPULimit;
 
     /**
+     * @description The maximum size of the memory that is available to the istio-init container.
+     *
+     * @example 1024Mi
+     *
      * @var string
      */
     public $resourceMemoryLimit;

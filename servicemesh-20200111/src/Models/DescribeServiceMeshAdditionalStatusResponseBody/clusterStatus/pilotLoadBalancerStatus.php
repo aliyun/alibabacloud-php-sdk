@@ -9,26 +9,62 @@ use AlibabaCloud\Tea\Model;
 class pilotLoadBalancerStatus extends Model
 {
     /**
+     * @description The check result of control plane logs. Valid values:
+     *
+     *   `exist`: Control plane logs exist.
+     *   `not_exist`: Control plane logs do not exist.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $locked;
 
     /**
+     * @description Indicates whether the security group is reused. Valid values:
+     *
+     *   `reused`: The security group is reused.
+     *   `not_reused`: The security group is not reused.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
+     * @example PayOnDemand
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The check results of the Logtail installation for clusters on the data plane.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $reused;
 
     /**
+     * @description The check result of audit logs. Valid values:
+     *
+     *   `exist`: Audit logs exist.
+     *   `not exist`: Audit logs do not exist.
+     *
+     * @example num_exact
+     *
      * @var string
      */
     public $SLBBackEndServerNumStatus;
 
     /**
+     * @description The billing method of the SLB instance. Valid values:
+     *
+     *   `PrePay`: subscription
+     *   `PayOnDemand`: pay-as-you-go
+     *
+     * @example exist
+     *
      * @var string
      */
     public $SLBExistStatus;

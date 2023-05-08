@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVMsInServiceMeshResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4b2c0fe0-6705-4614-8521-6b9d289163c8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The VMs that are added to the ASM instance.
+     *
      * @var VMs[]
      */
     public $VMs;

@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class sidecarInjector extends Model
 {
     /**
+     * @description Indicates whether automatic sidecar injection is enabled by using annotations.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoInjectionPolicyEnabled;
 
     /**
+     * @description Indicates whether automatic sidecar injection is enabled for all namespaces. Valid values:
+     *
+     *   `true`: Automatic sidecar injection is enabled for all namespaces.
+     *   `false`: Automatic sidecar injection is disabled for all namespaces.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableNamespacesByDefault;
 
     /**
+     * @description The initial configurations of Container Network Interface (CNI).
+     *
      * @var initCNIConfiguration
      */
     public $initCNIConfiguration;

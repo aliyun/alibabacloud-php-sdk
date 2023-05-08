@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class port extends Model
 {
     /**
+     * @example 80
+     *
      * @var int
      */
     public $number;

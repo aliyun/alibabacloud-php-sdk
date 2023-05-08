@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @example v1
+     *
      * @var string
      */
     public $matchingContent;
 
     /**
+     * @example exact
+     *
      * @var string
      */
     public $matchingMode;
 
     /**
+     * @example x-request-id
+     *
      * @var string
      */
     public $name;

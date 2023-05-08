@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class vmMetaInfo extends Model
 {
     /**
+     * @description The content of the EnvoyEnv file.
+     *
+     * @example ....
+     *
      * @var string
      */
     public $envoyEnvContent;
 
     /**
+     * @description The content of the hosts file.
+     *
+     * @example ....
+     *
      * @var string
      */
     public $hostsContent;
 
     /**
+     * @description The content of the Token file.
+     *
+     * @example ....
+     *
      * @var string
      */
     public $tokenContent;

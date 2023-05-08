@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned on a single page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that marks the end of the current returned page. If this parameter is empty, it indicates that you have retrieved all the data.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned. By default, this parameter is not returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The list of VPCs that are available in the specified region.
+     *
      * @var vpcs[]
      */
     public $vpcs;

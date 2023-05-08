@@ -9,11 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrTemplatesRequest extends Model
 {
     /**
+     * @description The Istio version used in ASM.
+     *
+     * @example v1.9.7.31-g24cdcb43-aliyun
+     *
      * @var string
      */
     public $istioVersion;
 
     /**
+     * @description The type of Istio resource whose common YAML templates you want to query. Valid values:
+     *
+     *   AuthorizationPolicy
+     *   RequestAuthentication
+     *   PeerAuthentication
+     *   WorkloadGroup
+     *   WorkloadEntry
+     *   Sidecar
+     *   EnvoyFilter
+     *   ServiceEntry
+     *   Gateway
+     *   DestinationRule
+     *   VirtualService
+     *
+     * @example VirtualService
+     *
      * @var string
      */
     public $kind;

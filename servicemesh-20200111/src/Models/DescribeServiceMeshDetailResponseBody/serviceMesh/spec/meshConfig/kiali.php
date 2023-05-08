@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class kiali extends Model
 {
     /**
+     * @description Indicates whether mesh topology is enabled. Mesh topology can be enabled only when Prometheus monitoring is enabled. If Prometheus monitoring is disabled, you must set this parameter to `false`. Valid values:
+     *
+     *   `true`: Mesh topology is enabled.
+     *   `false`: Mesh topology is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The endpoint of the mesh topology service.
+     *
+     * @example http://1.2.**.**:20001
+     *
      * @var string
      */
     public $url;

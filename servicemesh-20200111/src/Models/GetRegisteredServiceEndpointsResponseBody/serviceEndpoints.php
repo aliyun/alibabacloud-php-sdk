@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class serviceEndpoints extends Model
 {
     /**
+     * @description The ID of the cluster on the data plane.
+     *
+     * @example 192.168.25.153
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The details of the endpoints of the registered service.
+     *
+     * @example c80f45444b3da447da60a911390c2****
+     *
      * @var string
      */
     public $clusterId;

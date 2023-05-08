@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyServiceMeshNameResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EDDC0D86-2FC3-56FB-9213-96EB0A3523F1
+     *
      * @var string
      */
     public $requestId;

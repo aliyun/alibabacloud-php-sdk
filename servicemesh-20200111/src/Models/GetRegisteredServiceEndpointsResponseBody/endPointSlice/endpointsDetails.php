@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class endpointsDetails extends Model
 {
     /**
+     * @description The port of the registered service.
+     *
+     * @example 127.2.**.**
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The ID of the region in which the registered service resides.
+     *
+     * @example www.demo.com
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @description The IP address of the registered service.
+     *
+     * @example provider-v1-8c86b6898-h***
+     *
      * @var string
      */
     public $podName;
 
     /**
+     * @description The host name of the registered service.
+     *
      * @var int[]
      */
     public $ports;
 
     /**
+     * @description Indicates whether sidecar proxies are injected. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sidecarInjected;

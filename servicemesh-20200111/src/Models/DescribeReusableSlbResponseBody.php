@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeReusableSlbResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EDDC0D86-2FC3-56FB-9213-96EB0A3523F1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of SLB instances that can be reused.
+     *
      * @var reusableSlbList[]
      */
     public $reusableSlbList;

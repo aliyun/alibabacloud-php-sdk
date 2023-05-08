@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSwimLaneGroupResponseBody extends Model
 {
     /**
+     * @example yyyy
+     *
      * @var string
      */
     public $requestId;

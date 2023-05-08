@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class initCNIConfiguration extends Model
 {
     /**
+     * @description Indicates whether the CNI plug-in is enabled. Valid values:
+     *
+     *   `true`: The CNI plug-in is enabled.
+     *   `false`: The CNI plug-in is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The namespaces to exclude. The CNI plug-in ignores pods in the excluded namespaces.
+     *
+     * @example kube-system,istio-system
+     *
      * @var string
      */
     public $excludeNamespaces;

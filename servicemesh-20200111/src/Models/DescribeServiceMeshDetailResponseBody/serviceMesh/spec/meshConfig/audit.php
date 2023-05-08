@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class audit extends Model
 {
     /**
+     * @description Indicates whether an audit project exists in the ASM instance. Valid values:
+     *
+     *   `audit_project_exist`: An audit project exists.
+     *   `audit_project_not_exist`: No audit project exists.
+     *
+     * @example audit_project_not_exist
+     *
      * @var string
      */
     public $auditProjectStatus;
 
     /**
+     * @description Indicates whether mesh audit is enabled. Valid values:
+     *
+     *   `true`: Mesh audit is enabled.
+     *   `false`: Mesh audit is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The name of the Log Service project that is used for mesh audit.
+     *
+     * @example audit-project
+     *
      * @var string
      */
     public $project;

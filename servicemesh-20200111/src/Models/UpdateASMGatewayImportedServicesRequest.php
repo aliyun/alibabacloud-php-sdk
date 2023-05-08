@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateASMGatewayImportedServicesRequest extends Model
 {
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $ASMGatewayName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The names of the services. Separate multiple service names with commas (,). Example: reviews,sleep.
+     *
+     * @example reviews,sleep
+     *
      * @var string
      */
     public $serviceNames;
 
     /**
+     * @description The namespace in which the service resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $serviceNamespace;

@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class matchRequest extends Model
 {
     /**
+     * @description The name of the service defined in the service registry.
+     *
      * @var headers[]
      */
     public $headers;
 
     /**
+     * @description The name of the service subset.
+     *
      * @var int[]
      */
     public $ports;
 
     /**
+     * @description The endpoints of service instances for Layer 4 weighted routing.
+     *
      * @var TLSMatchAttributes[]
      */
     public $TLSMatchAttributes;
 
     /**
+     * @description The percentage of requests that are aborted with the specified error code.
+     *
      * @var URI
      */
     public $URI;

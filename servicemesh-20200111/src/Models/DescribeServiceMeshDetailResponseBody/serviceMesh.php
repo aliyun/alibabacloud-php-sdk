@@ -12,36 +12,58 @@ use AlibabaCloud\Tea\Model;
 class serviceMesh extends Model
 {
     /**
+     * @description The specification of the ASM instance. Valid values:
+     *
+     * - `ultimate`: Ultimate Edition
+     * @example standard
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @description The list of clusters.
+     *
      * @var string[]
      */
     public $clusters;
 
     /**
+     * @description The endpoints of the ASM instance.
+     *
      * @var endpoints
      */
     public $endpoints;
 
     /**
+     * @description The ID of the Alibaba Cloud service instance for which the ASM instance is created.
+     *
+     * @example cc3e96f249d124eb38b72718ec5*****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The Alibaba Cloud service for which the ASM instance is created. Valid values:
+     *
+     * - An empty value indicates that the ASM instance is created by the user.
+     * @example ackone
+     *
      * @var string
      */
     public $ownerType;
 
     /**
+     * @description The basic information about the ASM instance.
+     *
      * @var serviceMeshInfo
      */
     public $serviceMeshInfo;
 
     /**
+     * @description The specifications of the ASM instance.
+     *
      * @var spec
      */
     public $spec;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateSwimLaneRequest extends Model
 {
     /**
+     * @description The name of the lane group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The label key of the associated service workload. Set the value to `ASM_TRAFFIC_TAG`.
+     *
+     * @example ASM_TRAFFIC_TAG
+     *
      * @var string
      */
     public $labelSelectorKey;
 
     /**
+     * @description The label value of the associated service workload.``
+     *
+     * @example v1
+     *
      * @var string
      */
     public $labelSelectorValue;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description A list of services associated with the lane.
+     *
+     * @example ["sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc"]
+     *
      * @var string
      */
     public $servicesList;
 
     /**
+     * @description The name of the lane.
+     *
+     * @example s1
+     *
      * @var string
      */
     public $swimLaneName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sidecarProxyInitResourceLimit extends Model
 {
     /**
+     * @description The maximum number of CPU cores.
+     *
+     * @example 2000 m
+     *
      * @var string
      */
     public $resourceCPULimit;
 
     /**
+     * @description The maximum size of the memory.
+     *
+     * @example 50 Mi
+     *
      * @var string
      */
     public $resourceMemoryLimit;

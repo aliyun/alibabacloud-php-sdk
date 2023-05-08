@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipResourcesResponseBody extends Model
 {
     /**
+     * @description The EIPs.
+     *
      * @var eipList[]
      */
     public $eipList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageResult
      */
     public $pageResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $requestId;

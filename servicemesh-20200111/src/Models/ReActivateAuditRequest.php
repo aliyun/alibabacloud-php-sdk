@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReActivateAuditRequest extends Model
 {
     /**
+     * @description Specifies whether to recreate a project that is used to store audit logs. Valid values:
+     *
+     *   true: recreates a project.
+     *   false: does not recreate a project.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAudit;
 
     /**
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     *
+     * @example c5bf9eb05c4424b89985d6536a809****
+     *
      * @var string
      */
     public $serviceMeshId;

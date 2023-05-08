@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class GetRegisteredServiceEndpointsRequest extends Model
 {
     /**
+     * @description The name of the registered service.
+     *
+     * @example c8b054ee8c3914d079b5ce9733328****,c58faedb8a78640d3aeb0372e4c02****
+     *
      * @var string
      */
     public $clusterIds;
 
     /**
+     * @description The type of the registered service. Valid values:
+     *
+     *   `ServiceEntry`: indicates that the service is registered by creating a service entry.
+     *   `Kubernetes`: indicates that the service is registered on a Kubernetes cluster on the data plane.
+     *
+     * @example reviews
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The IDs of clusters in the ASM instance. Separate multiple cluster IDs with commas (,).
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The endpoints of the registered service.
+     *
+     * @example Kubernetes
+     *
      * @var string
      */
     public $serviceType;

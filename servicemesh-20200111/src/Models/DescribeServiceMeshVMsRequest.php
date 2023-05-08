@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshVMsRequest extends Model
 {
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ccb37ff104caf419fbf48fb38e6f****
+     *
      * @var string
      */
     public $serviceMeshId;

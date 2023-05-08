@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class proEdition extends Model
 {
     /**
+     * @description The current version.
+     *
+     * @example v1.14.3.87-g96cf7305-aliyun
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description The CRDs of the versions.
+     *
      * @var mixed[][]
      */
     public $versionCrds;
 
     /**
+     * @description The ASM version and the corresponding Istio version.
+     *
      * @var mixed[][]
      */
     public $versionRegistry;
 
     /**
+     * @description The supported versions.
+     *
      * @var string[]
      */
     public $versions;

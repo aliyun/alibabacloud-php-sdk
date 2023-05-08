@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class version extends Model
 {
     /**
+     * @description The version of the ASM instance.
+     *
+     * @example v1.10.5.34-g7689a219-aliyun
+     *
      * @var string
      */
     public $istioOperatorVersion;
 
     /**
+     * @description The Istio version.
+     *
+     * @example 1.10.5.34
+     *
      * @var string
      */
     public $istioVersion;
 
     /**
+     * @description The Kubernetes version.
+     *
+     * @example 1.20
+     *
      * @var string
      */
     public $kubernetesVersion;

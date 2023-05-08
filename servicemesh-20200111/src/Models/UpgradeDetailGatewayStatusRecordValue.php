@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDetailGatewayStatusRecordValue extends Model
 {
     /**
+     * @example upgrading
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1.9.7
+     *
      * @var string
      */
     public $version;

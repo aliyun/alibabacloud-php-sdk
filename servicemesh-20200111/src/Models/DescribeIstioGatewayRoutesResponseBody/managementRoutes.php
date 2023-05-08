@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class managementRoutes extends Model
 {
     /**
+     * @description The path that is used to match request URLs.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $ASMGatewayName;
 
     /**
+     * @example demo route
+     *
      * @var string
      */
     public $description;
@@ -29,26 +35,48 @@ class managementRoutes extends Model
     public $destinationSubSet;
 
     /**
+     * @example istio-demo
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The status of the routing rule. Valid values:
+     *
+     *   `0`: The routing rule is valid.
+     *   `1`: The routing rule is invalid.
+     *   `2`: An error occurs during the creation or update of the routing rule.
+     *
+     * @example http-route
+     *
      * @var string
      */
     public $routeName;
 
     /**
+     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     *
+     * @example /reviews/v1
+     *
      * @var string
      */
     public $routePath;
 
     /**
+     * @description The description of the routing rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

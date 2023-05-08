@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserPermissionsResponseBody extends Model
 {
     /**
+     * @description The permissions that are granted to an entity.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5A7C9E37-C171-584F-9A99-869B48C4196D
+     *
      * @var string
      */
     public $requestId;

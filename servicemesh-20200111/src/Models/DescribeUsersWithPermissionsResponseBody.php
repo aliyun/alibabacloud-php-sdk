@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersWithPermissionsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 12B94024-C241-13CD-BA44-6106DF1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The IDs of the RAM users or RAM roles to which an RBAC role is assigned.
+     *
      * @var string[]
      */
     public $UIDs;

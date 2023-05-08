@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetGrafanaDashboardUrlRequest extends Model
 {
     /**
+     * @description The ID of the Container Service for Kubernetes (ACK) or serverless Kubernetes (ASK) cluster.
+     *
+     * @example c94ca2d27f7aa47ab84ed73e6f084****
+     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     *
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @description The name of the dashboard.
+     *
+     * @example Cloud ASM Istio Http Gateway
+     *
      * @var string
      */
     public $title;

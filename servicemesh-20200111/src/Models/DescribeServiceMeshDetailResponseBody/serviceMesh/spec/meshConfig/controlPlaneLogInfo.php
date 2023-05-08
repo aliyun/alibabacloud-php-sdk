@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class controlPlaneLogInfo extends Model
 {
     /**
+     * @description Indicates whether the collection of control-plane logs is enabled. Valid values:
+     *
+     *   `true`: The collection of control-plane logs is enabled.
+     *   `false`: The collection of control-plane logs is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The name of the Log Service project that stores control-plane logs.
+     *
+     * @example mesh-log-cbeb85a09161b4a26ab73e0ac****
+     *
      * @var string
      */
     public $project;

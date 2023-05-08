@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioInjectionConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 98B268E6-9381-5A98-8012-6E7E82******
+     *
      * @var string
      */
     public $requestId;

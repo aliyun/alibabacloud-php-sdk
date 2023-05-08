@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetSwimLaneListRequest extends Model
 {
     /**
+     * @description The name of the lane group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $serviceMeshId;

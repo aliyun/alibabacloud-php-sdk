@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class versionInfo extends Model
 {
     /**
+     * @description The edition of the ASM instance. Valid values:
+     *
+     *   `Default`: Standard Edition
+     *   `Pro`: Professional Edition that is commercially released
+     *
+     * @example Default
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @description The ASM versions available for the ASM instance of the current edition.
+     *
      * @var string[]
      */
     public $versions;

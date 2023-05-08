@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class RemoveClusterFromServiceMeshRequest extends Model
 {
     /**
+     * @example cb8963379255149cb98c8686f274x****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 移除集群时，保留istio-system 命名空间
+     *
+     * @example false
+     *
      * @var bool
      */
     public $reserveNamespace;
 
     /**
+     * @example ce3c25e247da24f3aab9b7edfae83****
+     *
      * @var string
      */
     public $serviceMeshId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class edition extends Model
 {
     /**
+     * @description The version of the Istiod image.
+     *
+     * @example v1.9.7.1-3-gb3f1ab3c9c-pro-aliyun
+     *
      * @var string
      */
     public $istiodImageTag;
 
     /**
+     * @description The name of the edition.
+     *
+     * @example Pro
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version of the Istio Proxy image.
+     *
+     * @example v1.9.7.1-3-gb3f1ab3c9c-pro-aliyun
+     *
      * @var string
      */
     public $proxyImageTag;

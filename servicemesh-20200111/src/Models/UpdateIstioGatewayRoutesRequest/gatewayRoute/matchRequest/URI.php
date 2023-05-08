@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class URI extends Model
 {
     /**
+     * @example /ratings/v2/
+     *
      * @var string
      */
     public $matchingContent;
 
     /**
+     * @example prefix
+     *
      * @var string
      */
     public $matchingMode;

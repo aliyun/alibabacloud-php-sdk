@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class importedServices extends Model
 {
     /**
+     * @description The name of the service.
+     *
+     * @example productpage
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The namespace in which the service resides.
+     *
+     * @example default
+     *
      * @var string
      */
     public $serviceNamespace;

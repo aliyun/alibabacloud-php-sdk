@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMeshEditionPartiallyRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ASMGatewayContinue;
 
     /**
+     * @example v1.15.3.118-g4712daf0-aliyun
+     *
      * @var string
      */
     public $expectedVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ca04bc38979214bf2882be79d39b4****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $switchToPro;
 
     /**
+     * @example ingressgateway1,ingressgateway2
+     *
      * @var string
      */
     public $upgradeGatewayRecords;

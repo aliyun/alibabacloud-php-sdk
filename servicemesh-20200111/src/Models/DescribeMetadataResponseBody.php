@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetadataResponseBody extends Model
 {
     /**
+     * @description The metadata of ASM, which contains basic information about ASM.
+     *
      * @var metaData
      */
     public $metaData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F93DDAD7-6E04-5AC3-86F4-852708******
+     *
      * @var string
      */
     public $requestId;

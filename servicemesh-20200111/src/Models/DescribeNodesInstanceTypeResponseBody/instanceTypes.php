@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class instanceTypes extends Model
 {
     /**
+     * @example feature.node.kubernetes.io/mb-feature-enable
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $multiBufferEnabled;
 
     /**
+     * @example ecs.g7.xlarge
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $value;

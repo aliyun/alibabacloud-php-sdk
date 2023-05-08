@@ -11,36 +11,72 @@ use AlibabaCloud\Tea\Model;
 class meshConfig extends Model
 {
     /**
+     * @description Indicates whether the feature of routing traffic to the nearest instance is enabled. Valid values:
+     *
+     *   `true`: The feature is enabled.
+     *   `false`: The feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $mtls;
 
     /**
+     * @description The outbound traffic policy. Valid values:
+     *
+     *   `ALLOW_ANY`: Outbound traffic to an external service is allowed.
+     *   `REGISTRY_ONLY`: Outbound traffic is allowed to only external services that are defined in the service registry of the ASM instance.
+     *
+     * @example ALLOW_ANY
+     *
      * @var string
      */
     public $outboundTrafficPolicy;
 
     /**
+     * @description The configurations of the control plane.
+     *
      * @var pilot
      */
     public $pilot;
 
     /**
+     * @description The configurations of sidecar injection.
+     *
      * @var sidecarInjector
      */
     public $sidecarInjector;
 
     /**
+     * @description Indicates whether mutual Transport Layer Security (mTLS) is strictly enforced.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $strictMtls;
 
     /**
+     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use Prometheus Service of Application Real-Time Monitoring Service (ARMS). Valid values:
+     *
+     *   `true`: Prometheus monitoring is enabled.
+     *   `false`: Prometheus monitoring is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $telemetry;
 
     /**
+     * @description Indicates whether the tracing feature is enabled. This feature can be enabled only after Tracing Analysis is activated. Valid values:
+     *
+     *   `true`: The tracing feature is enabled.
+     *   `false`: The tracing feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $tracing;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioGatewayRoutesRequest extends Model
 {
     /**
+     * @example demo route
+     *
      * @var string
      */
     public $description;
@@ -20,21 +22,29 @@ class UpdateIstioGatewayRoutesRequest extends Model
     public $gatewayRoute;
 
     /**
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

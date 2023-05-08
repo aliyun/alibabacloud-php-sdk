@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewaySecretRequest extends Model
 {
     /**
+     * @description The name of the ASM gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
+     * @description The name of the secret.
+     *
+     * @example bookinfo-secret
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
+     *
      * @var string
      */
     public $serviceMeshId;

@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @description The entity to which the permissions are granted. A value of `true` indicates that the permissions are granted to a RAM user. A value of `false` indicates that the permissions are granted to a RAM role.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isRamRole;
 
     /**
+     * @description This parameter is required by the system. The return value is fixed to `0`.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c57b848115458460583a4260cb713****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description This parameter is required by the system. The return value is fixed to `cluster`.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The name of the permissions. Valid values:
+     *
+     *   `istio-admin`: the permissions of Alibaba Cloud Service Mesh (ASM) administrators.
+     *   `istio-ops`: the permissions of ASM restricted users.
+     *   `istio-readonly`: the read-only permissions.
+     *
+     * @example istio-admin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @description This parameter is required by the system. The return value is fixed to `custom`.
+     *
+     * @example custom
+     *
      * @var string
      */
     public $roleType;

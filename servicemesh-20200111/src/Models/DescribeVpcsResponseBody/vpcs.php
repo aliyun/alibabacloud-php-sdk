@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class vpcs extends Model
 {
     /**
+     * @description Indicates whether the VPC is the default VPC in the specified region. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @description The status of the VPC. Valid values:
+     *
+     *   `Pending`: The VPC is being configured.
+     *   `Available`: The VPC is available for use.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1qkf2o3xmqc2519****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $vpcName;

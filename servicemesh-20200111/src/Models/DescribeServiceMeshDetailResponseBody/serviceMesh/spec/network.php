@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-2ze384sxttxbctnj****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-2zew0rajjkmxy2369****
+     *
      * @var string
      */
     public $vpcId;

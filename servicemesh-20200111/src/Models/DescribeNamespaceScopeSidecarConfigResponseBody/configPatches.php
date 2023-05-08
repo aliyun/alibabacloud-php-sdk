@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\proxyStatsMatcher;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyAckSloResource;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitAckSloResource;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitResourceLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyResourceLimit;
@@ -15,96 +17,182 @@ use AlibabaCloud\Tea\Model;
 class configPatches extends Model
 {
     /**
+     * @description The number of worker threads running in the sidecar proxy.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $concurrency;
 
     /**
+     * @description The port that the inbound traffic of the sidecar proxy does not pass through.
+     *
+     * @example 82
+     *
      * @var string
      */
     public $excludeInboundPorts;
 
     /**
+     * @description The IP address from which the outbound traffic does not pass through the sidecar proxy.
+     *
+     * @example 192.168.1.3/31
+     *
      * @var string
      */
     public $excludeOutboundIPRanges;
 
     /**
+     * @description The port that the outbound traffic of the sidecar proxy does not pass through.
+     *
+     * @example 81
+     *
      * @var string
      */
     public $excludeOutboundPorts;
 
     /**
+     * @description Indicates whether applications can be started only after Istio Proxy starts. Valid values:
+     *
+     *   `true`: Applications can be started only after Istio Proxy starts.
+     *   false: Applications can be started before Istio Proxy starts.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $holdApplicationUntilProxyStarts;
 
     /**
+     * @description The port that the inbound traffic of the sidecar proxy passes through.
+     *
+     * @example 83
+     *
      * @var string
      */
     public $includeInboundPorts;
 
     /**
+     * @description The IP address from which the outbound traffic passes through the sidecar proxy.
+     *
+     * @example 192.168.1.4/31
+     *
      * @var string
      */
     public $includeOutboundIPRanges;
 
     /**
+     * @description The port that the outbound traffic of the sidecar proxy passes through.
+     *
+     * @example 84
+     *
      * @var string
      */
     public $includeOutboundPorts;
 
     /**
+     * @description The mode in which the sidecar proxy intercepts inbound traffic. Valid values:
+     *
+     *   `REDIRECT`: The sidecar proxy intercepts inbound traffic in the REDIRECT mode.
+     *   `TPROXY`: The sidecar proxy intercepts inbound traffic in the TPROXY mode.
+     *
      * @var string
      */
     public $interceptionMode;
 
     /**
+     * @description Indicates whether the Domain Name System (DNS) proxy feature is enabled. Valid values:
+     *
+     *   `true`: The DNS proxy feature is enabled.
+     *   `false`: The DNS proxy feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $istioDNSProxyEnabled;
 
     /**
+     * @description The JSON string that describes the lifecycle of the sidecar proxy.
+     *
+     * @example {"postStart":{"exec":{"command":["pilot-agent","wait"]}},"preStop":{"exec":{"command":["/bin/sh","-c","sleep 15"]}}}
+     *
      * @var string
      */
     public $lifecycleStr;
 
     /**
+     * @description The log level. Valid values: `info`, `debug`, `trace`, and `error`.
+     *
+     * @example info
+     *
      * @var string
      */
     public $logLevel;
 
     /**
+     * @var string[]
+     */
+    public $proxyMetadata;
+
+    /**
+     * @description The monitoring metrics for data collected by Envoy proxies.
+     *
      * @var proxyStatsMatcher
      */
     public $proxyStatsMatcher;
 
     /**
+     * @var sidecarProxyAckSloResource
+     */
+    public $sidecarProxyAckSloResource;
+
+    /**
+     * @var sidecarProxyInitAckSloResource
+     */
+    public $sidecarProxyInitAckSloResource;
+
+    /**
+     * @description The maximum size of resources that are available to the sidecar proxy init container.
+     *
      * @var sidecarProxyInitResourceLimit
      */
     public $sidecarProxyInitResourceLimit;
 
     /**
+     * @description The minimum size of resources that are requested by the sidecar proxy init container.
+     *
      * @var sidecarProxyInitResourceRequest
      */
     public $sidecarProxyInitResourceRequest;
 
     /**
+     * @description The maximum size of resources that are available to the sidecar proxy container.
+     *
      * @var sidecarProxyResourceLimit
      */
     public $sidecarProxyResourceLimit;
 
     /**
+     * @description The minimum size of resources that are requested by the sidecar proxy container.
+     *
      * @var sidecarProxyResourceRequest
      */
     public $sidecarProxyResourceRequest;
 
     /**
+     * @description The maximum period of time that the sidecar proxy waits for a request to end.
+     *
+     * @example 6s
+     *
      * @var string
      */
     public $terminationDrainDuration;
 
     /**
+     * @description The custom configurations of Tracing Analysis.
+     *
      * @var tracing
      */
     public $tracing;
@@ -121,7 +209,10 @@ class configPatches extends Model
         'istioDNSProxyEnabled'            => 'IstioDNSProxyEnabled',
         'lifecycleStr'                    => 'LifecycleStr',
         'logLevel'                        => 'LogLevel',
+        'proxyMetadata'                   => 'ProxyMetadata',
         'proxyStatsMatcher'               => 'ProxyStatsMatcher',
+        'sidecarProxyAckSloResource'      => 'SidecarProxyAckSloResource',
+        'sidecarProxyInitAckSloResource'  => 'SidecarProxyInitAckSloResource',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
         'sidecarProxyInitResourceRequest' => 'SidecarProxyInitResourceRequest',
         'sidecarProxyResourceLimit'       => 'SidecarProxyResourceLimit',
@@ -173,8 +264,17 @@ class configPatches extends Model
         if (null !== $this->logLevel) {
             $res['LogLevel'] = $this->logLevel;
         }
+        if (null !== $this->proxyMetadata) {
+            $res['ProxyMetadata'] = $this->proxyMetadata;
+        }
         if (null !== $this->proxyStatsMatcher) {
             $res['ProxyStatsMatcher'] = null !== $this->proxyStatsMatcher ? $this->proxyStatsMatcher->toMap() : null;
+        }
+        if (null !== $this->sidecarProxyAckSloResource) {
+            $res['SidecarProxyAckSloResource'] = null !== $this->sidecarProxyAckSloResource ? $this->sidecarProxyAckSloResource->toMap() : null;
+        }
+        if (null !== $this->sidecarProxyInitAckSloResource) {
+            $res['SidecarProxyInitAckSloResource'] = null !== $this->sidecarProxyInitAckSloResource ? $this->sidecarProxyInitAckSloResource->toMap() : null;
         }
         if (null !== $this->sidecarProxyInitResourceLimit) {
             $res['SidecarProxyInitResourceLimit'] = null !== $this->sidecarProxyInitResourceLimit ? $this->sidecarProxyInitResourceLimit->toMap() : null;
@@ -242,8 +342,17 @@ class configPatches extends Model
         if (isset($map['LogLevel'])) {
             $model->logLevel = $map['LogLevel'];
         }
+        if (isset($map['ProxyMetadata'])) {
+            $model->proxyMetadata = $map['ProxyMetadata'];
+        }
         if (isset($map['ProxyStatsMatcher'])) {
             $model->proxyStatsMatcher = proxyStatsMatcher::fromMap($map['ProxyStatsMatcher']);
+        }
+        if (isset($map['SidecarProxyAckSloResource'])) {
+            $model->sidecarProxyAckSloResource = sidecarProxyAckSloResource::fromMap($map['SidecarProxyAckSloResource']);
+        }
+        if (isset($map['SidecarProxyInitAckSloResource'])) {
+            $model->sidecarProxyInitAckSloResource = sidecarProxyInitAckSloResource::fromMap($map['SidecarProxyInitAckSloResource']);
         }
         if (isset($map['SidecarProxyInitResourceLimit'])) {
             $model->sidecarProxyInitResourceLimit = sidecarProxyInitResourceLimit::fromMap($map['SidecarProxyInitResourceLimit']);

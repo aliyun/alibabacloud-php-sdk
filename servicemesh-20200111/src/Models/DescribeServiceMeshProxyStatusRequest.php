@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshProxyStatusRequest extends Model
 {
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ca04bc38979214bf2882be79d39b4****
+     *
      * @var string
      */
     public $serviceMeshId;

@@ -51,6 +51,8 @@ class HTTPAdvancedOptions extends Model
     public $rewrite;
 
     /**
+     * @example 5s
+     *
      * @var string
      */
     public $timeout;

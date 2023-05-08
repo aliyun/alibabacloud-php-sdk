@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class httpGet extends Model
 {
     /**
+     * @description The URL of the request.
+     *
+     * @example 127.xx.xx.1
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The HTTP request headers.
+     *
      * @var httpHeaders[]
      */
     public $httpHeaders;
 
     /**
+     * @description The port number of the request.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The request method. Valid values: `http` and `https`.
+     *
+     * @example http
+     *
      * @var string
      */
     public $scheme;

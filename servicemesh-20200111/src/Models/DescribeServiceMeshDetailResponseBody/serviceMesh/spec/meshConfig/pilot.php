@@ -11,21 +11,36 @@ use AlibabaCloud\Tea\Model;
 class pilot extends Model
 {
     /**
+     * @description The configurations of communication between external services and services in the mesh.
+     *
      * @var configSource
      */
     public $configSource;
 
     /**
+     * @description The configurations of Pilot features.
+     *
      * @var feature
      */
     public $feature;
 
     /**
+     * @description Indicates whether HTTP/1.0 is supported. Valid values:
+     *
+     *   `true`: HTTP/1.0 is supported.
+     *   `false`: HTTP/1.0 is not supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $http10Enabled;
 
     /**
+     * @description The sampling percentage of tracing analysis.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $traceSampling;

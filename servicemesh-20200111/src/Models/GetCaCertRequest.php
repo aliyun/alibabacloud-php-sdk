@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetCaCertRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     *
+     * @example c7894c929677643a5bfe1a732d778a****
+     *
      * @var string
      */
     public $serviceMeshId;

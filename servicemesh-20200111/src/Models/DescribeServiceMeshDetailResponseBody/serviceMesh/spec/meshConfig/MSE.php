@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MSE extends Model
 {
     /**
+     * @description Indicates whether MSE is enabled. Valid values:
+     *
+     * - `false`: MSE is disabled.
+     * @example false
+     *
      * @var bool
      */
     public $enabled;

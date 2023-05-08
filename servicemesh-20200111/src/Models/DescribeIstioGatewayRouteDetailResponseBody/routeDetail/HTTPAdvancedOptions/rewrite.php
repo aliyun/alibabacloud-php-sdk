@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class rewrite extends Model
 {
     /**
+     * @description The values to be added to the header key.
+     *
+     * @example newratings.default.svc.cluster.local
+     *
      * @var string
      */
     public $authority;
 
     /**
+     * @description The header key to be used to overwrite the original header key.
+     *
+     * @example /v1/getProductRatings
+     *
      * @var string
      */
     public $uri;

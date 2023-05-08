@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrTemplatesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 74E97AE2-2900-55C1-A069-C3C1EA*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The common YAML templates for the specified type of Istio resource.
+     *
      * @var templates[]
      */
     public $templates;

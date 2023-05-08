@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class percentage extends Model
 {
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $value;

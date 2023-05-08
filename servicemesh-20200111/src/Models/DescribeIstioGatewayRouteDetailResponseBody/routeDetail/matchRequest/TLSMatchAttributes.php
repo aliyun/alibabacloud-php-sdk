@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class TLSMatchAttributes extends Model
 {
     /**
+     * @description The name of the service defined in the service registry.
+     *
      * @var string[]
      */
     public $SNIHosts;
 
     /**
+     * @description The unique endpoint of the service instance to which the specified requests are sent.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $TLSPort;

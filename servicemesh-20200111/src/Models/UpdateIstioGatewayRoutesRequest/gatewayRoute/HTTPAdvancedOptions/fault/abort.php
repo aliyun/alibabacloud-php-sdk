@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class abort extends Model
 {
     /**
+     * @example 400
+     *
      * @var int
      */
     public $httpStatus;

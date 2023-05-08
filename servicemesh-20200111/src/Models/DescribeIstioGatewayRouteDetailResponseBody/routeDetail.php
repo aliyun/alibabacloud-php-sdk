@@ -17,11 +17,15 @@ class routeDetail extends Model
     public $domains;
 
     /**
+     * @description The ports of the specified hosts from which the traffic is routed.
+     *
      * @var HTTPAdvancedOptions
      */
     public $HTTPAdvancedOptions;
 
     /**
+     * @description The specified HTTP error code.
+     *
      * @var matchRequest
      */
     public $matchRequest;
@@ -32,11 +36,19 @@ class routeDetail extends Model
     public $routeDestinations;
 
     /**
+     * @description The percentage of requests that are aborted with specified error codes, expressed as a decimal.
+     *
+     * @example demo-route
+     *
      * @var string
      */
     public $routeName;
 
     /**
+     * @description The configurations for aborting requests with specified error codes.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $routeType;

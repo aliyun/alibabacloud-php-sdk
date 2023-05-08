@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetVmMetaResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9522f7c9-63a1-4603-b850-37d12a****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata that is required to add a non-containerized application to the ASM instance.
+     *
      * @var vmMetaInfo
      */
     public $vmMetaInfo;

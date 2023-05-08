@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeImportedServicesDetailResponseBody extends Model
 {
     /**
+     * @description The details of the services.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E0496204-7586-5B4C-B364-2361CC0EDxxxx
+     *
      * @var string
      */
     public $requestId;

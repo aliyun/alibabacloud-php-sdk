@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterPodsRequest extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster that is added to the ASM instance.
+     *
+     * @example c49ad2169d5a04f2d89dfc4b6bcu****
+     *
      * @var string
      */
     public $guestClusterID;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example c78d60f98fa43403ab6e0701b2678****
+     *
      * @var string
      */
     public $serviceMeshId;

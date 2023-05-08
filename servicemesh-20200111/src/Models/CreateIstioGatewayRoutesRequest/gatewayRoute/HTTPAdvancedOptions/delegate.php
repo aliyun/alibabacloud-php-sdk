@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class delegate extends Model
 {
     /**
+     * @example reviews
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;

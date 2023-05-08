@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioInjectionConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable Istio automatic sidecar injection.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableIstioInjection;
 
     /**
+     * @description Specifies whether to enable automatic sidecar injection by using SidecarSet.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableSidecarSetInjection;
 
     /**
+     * @description The namespace for which you want to modify the sidecar injection setting.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The ID of the ASM instance.
+     *
+     * @example ce2cdbb9d013f447180cf5ca8bb******
+     *
      * @var string
      */
     public $serviceMeshId;

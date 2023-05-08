@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @description The information about load balancing.
+     *
      * @var loadBalancer
      */
     public $loadBalancer;
 
     /**
+     * @description The configurations of the ASM instance.
+     *
      * @var meshConfig
      */
     public $meshConfig;
 
     /**
+     * @description The network configurations of the ASM instance.
+     *
      * @var network
      */
     public $network;

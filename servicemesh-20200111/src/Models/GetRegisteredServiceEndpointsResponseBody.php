@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetRegisteredServiceEndpointsResponseBody extends Model
 {
     /**
+     * @description The name of the registered service.
+     *
      * @var endPointSlice
      */
     public $endPointSlice;
 
     /**
+     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The IP address of the registered service.
+     *
      * @var serviceEndpoints[]
      */
     public $serviceEndpoints;

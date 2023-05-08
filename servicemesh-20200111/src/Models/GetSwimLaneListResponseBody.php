@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetSwimLaneListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example yyyy
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A list of all the lanes in the lane group.
+     *
      * @var swimLaneList[]
      */
     public $swimLaneList;

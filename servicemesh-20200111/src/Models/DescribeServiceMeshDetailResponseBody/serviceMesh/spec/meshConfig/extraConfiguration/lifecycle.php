@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class lifecycle extends Model
 {
     /**
+     * @description The post-start parameters.
+     *
      * @var postStart
      */
     public $postStart;
 
     /**
+     * @description The pre-close parameters.
+     *
      * @var preStop
      */
     public $preStop;

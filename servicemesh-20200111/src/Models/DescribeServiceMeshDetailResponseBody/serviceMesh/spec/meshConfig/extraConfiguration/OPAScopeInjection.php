@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class OPAScopeInjection extends Model
 {
     /**
+     * @description Indicates whether the feature of controlling the OPA injection scope is enabled. Valid values:
+     *
+     *   `true`: The feature is enabled.
+     *   `false`: The feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $OPAScopeInjected;

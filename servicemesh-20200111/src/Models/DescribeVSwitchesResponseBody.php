@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The status of the vSwitch. Valid values:
+     *
+     *   `Pending`: The vSwitch is being configured.
+     *   `Available`: The vSwitch is available for use.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the VPC in which the vSwitch is deployed.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @var vSwitches[]
      */
     public $vSwitches;
