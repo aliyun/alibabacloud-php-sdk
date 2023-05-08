@@ -17,13 +17,6 @@ class GroupUserSaveRequest extends Model
     public $jobNo;
 
     /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $leaveStatus;
-
-    /**
      * @example 18000000000
      *
      * @var string
@@ -55,7 +48,6 @@ class GroupUserSaveRequest extends Model
     public $userName;
     protected $_name = [
         'jobNo'         => 'job_no',
-        'leaveStatus'   => 'leave_status',
         'phone'         => 'phone',
         'realNameEn'    => 'real_name_en',
         'subCorpIdList' => 'sub_corp_id_list',
@@ -72,9 +64,6 @@ class GroupUserSaveRequest extends Model
         $res = [];
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
-        }
-        if (null !== $this->leaveStatus) {
-            $res['leave_status'] = $this->leaveStatus;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
@@ -111,9 +100,6 @@ class GroupUserSaveRequest extends Model
         $model = new self();
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
-        }
-        if (isset($map['leave_status'])) {
-            $model->leaveStatus = $map['leave_status'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];

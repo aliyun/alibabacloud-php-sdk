@@ -4011,9 +4011,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->jobNo)) {
             $body['job_no'] = $request->jobNo;
         }
-        if (!Utils::isUnset($request->leaveStatus)) {
-            $body['leave_status'] = $request->leaveStatus;
-        }
         if (!Utils::isUnset($request->phone)) {
             $body['phone'] = $request->phone;
         }

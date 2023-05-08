@@ -14,11 +14,21 @@ class subCorpIdList extends Model
     public $departIds;
 
     /**
+     * @var int
+     */
+    public $leaveStatus;
+
+    /**
      * @example 123
      *
      * @var string
      */
     public $managerUserId;
+
+    /**
+     * @var string
+     */
+    public $positionLevel;
 
     /**
      * @example btrip123
@@ -28,7 +38,9 @@ class subCorpIdList extends Model
     public $subCorpId;
     protected $_name = [
         'departIds'     => 'depart_ids',
+        'leaveStatus'   => 'leave_status',
         'managerUserId' => 'manager_user_id',
+        'positionLevel' => 'position_level',
         'subCorpId'     => 'sub_corp_id',
     ];
 
@@ -42,8 +54,14 @@ class subCorpIdList extends Model
         if (null !== $this->departIds) {
             $res['depart_ids'] = $this->departIds;
         }
+        if (null !== $this->leaveStatus) {
+            $res['leave_status'] = $this->leaveStatus;
+        }
         if (null !== $this->managerUserId) {
             $res['manager_user_id'] = $this->managerUserId;
+        }
+        if (null !== $this->positionLevel) {
+            $res['position_level'] = $this->positionLevel;
         }
         if (null !== $this->subCorpId) {
             $res['sub_corp_id'] = $this->subCorpId;
@@ -65,8 +83,14 @@ class subCorpIdList extends Model
                 $model->departIds = $map['depart_ids'];
             }
         }
+        if (isset($map['leave_status'])) {
+            $model->leaveStatus = $map['leave_status'];
+        }
         if (isset($map['manager_user_id'])) {
             $model->managerUserId = $map['manager_user_id'];
+        }
+        if (isset($map['position_level'])) {
+            $model->positionLevel = $map['position_level'];
         }
         if (isset($map['sub_corp_id'])) {
             $model->subCorpId = $map['sub_corp_id'];
