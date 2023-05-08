@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @example mv: cannot move \"CentOS-Base.repo\" to \"CentOS-Base.repo.backup\": Permission denied
+     *
      * @var string
      */
     public $text;

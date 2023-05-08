@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudMonitorResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example IllegalParam
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 400
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
+     * @example There was an error with your request.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F92AFB96-FACC-57E7-928E-678D04B94CAE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;

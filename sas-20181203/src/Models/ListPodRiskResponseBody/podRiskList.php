@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class podRiskList extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $alarmCount;
 
     /**
+     * @example c1d903a628af043659a043af59d89****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test66
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 1644283112720
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hcCount;
 
     /**
+     * @example i-7yvdq597****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example kube-system
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example expoit-xxx-b****
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @example 172.0.XXX.XXX
+     *
      * @var string
      */
     public $podIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $vulCount;

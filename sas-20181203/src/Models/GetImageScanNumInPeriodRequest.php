@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageScanNumInPeriodRequest extends Model
 {
     /**
+     * @example 7
+     *
      * @var string
      */
     public $pastDay;

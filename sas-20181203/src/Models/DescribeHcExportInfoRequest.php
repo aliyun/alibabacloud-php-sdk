@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHcExportInfoRequest extends Model
 {
     /**
+     * @example 443285
+     *
      * @var int
      */
     public $exportId;

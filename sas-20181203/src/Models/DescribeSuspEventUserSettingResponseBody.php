@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventUserSettingResponseBody extends Model
 {
     /**
+     * @description An array that consists of the risk levels of alert notifications. Valid values:
+     *
+     *   **remind**
+     *   **suspicious**
+     *   **serious**
+     *
      * @var string[]
      */
     public $levelsOn;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 028CF634-5268-5660-9575-48C9ED6XXXXX
+     *
      * @var string
      */
     public $requestId;

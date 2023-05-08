@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageFixTaskResponseBody extends Model
 {
     /**
+     * @description The tasks returned.
+     *
      * @var buildTasks[]
      */
     public $buildTasks;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example 8AC52BBA-85D3-5F64-9B48-D08437CAF916
+     *
      * @var string
      */
     public $requestId;

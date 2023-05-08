@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterCnnfStatusDetailRequest extends Model
 {
     /**
+     * @description An array that consists of the protection status of the container firewall.
+     *
      * @var string[]
      */
     public $clusterIds;

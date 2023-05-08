@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCheckDetailRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

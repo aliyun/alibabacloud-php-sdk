@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerTagsRequest extends Model
 {
     /**
+     * @example node-exporter
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example c22143730ab6e40b09ec7c1c51d4d****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example namespace
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example demo4
+     *
      * @var string
      */
     public $fieldValue;
 
     /**
+     * @example test-name-01
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $pageSize;

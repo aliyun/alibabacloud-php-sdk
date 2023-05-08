@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetDetailResponseBody extends Model
 {
     /**
+     * @description The number of instances in the list of cloud assets returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description An array that consists of the details of the cloud assets.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CB45CAED-31C3-517A-8619-10F632D3****
+     *
      * @var string
      */
     public $requestId;

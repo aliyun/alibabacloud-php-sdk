@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class OperateSuspiciousOverallConfigRequest extends Model
 {
     /**
+     * @example off
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $noTargetAsOn;
 
     /**
+     * @description OperateSuspiciousOverallConfig
+     *
+     * @example 222.178.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example k8s_log_analysis
+     *
      * @var string
      */
     public $type;

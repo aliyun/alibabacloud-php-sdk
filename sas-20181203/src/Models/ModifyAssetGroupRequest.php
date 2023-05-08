@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetGroupRequest extends Model
 {
     /**
+     * @example 9586199
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
+     *
      * @var string
      */
     public $uuids;

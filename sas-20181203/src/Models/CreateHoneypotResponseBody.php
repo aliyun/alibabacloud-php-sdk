@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code **200** indicates that the request was is successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
      *
      * @example 200
      *

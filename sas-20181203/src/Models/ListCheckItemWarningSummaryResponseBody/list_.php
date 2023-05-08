@@ -9,51 +9,104 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The type of the check item.
+     *
+     * @example In the Administrative Tools window, double-click Local Security Policy. In the Local Security Policy window that appears, choose Security Settings\\Local Policies\\Audit Policy, configure all audit policies as: `Success, Failure`.
+     *
      * @var string
      */
     public $advice;
 
     /**
+     * @description The type of the baseline.
+     *
+     * @example week_pa****
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The alias of the baseline type.
+     *
+     * @example 696
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The ID of the check item.
+     *
+     * @example Config the Event Audit policys
+     *
      * @var string
      */
     public $checkItem;
 
     /**
+     * @description The description of the check item.
+     *
+     * @example high
+     *
      * @var string
      */
     public $checkLevel;
 
     /**
+     * @description The risk level of the check item.Valid values:
+     *   **high**
+     *  **medium**
+     *   **low**
+     *
+     * @example Security audit
+     *
      * @var string
      */
     public $checkType;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $containerCheckItem;
+
+    /**
+     * @description The suggestion on the check item.
+     *
+     * @example Config the Event Audit policys
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The risk statistics of the check item.
+     *
+     * @example weak_password
+     *
      * @var string
      */
     public $riskType;
 
     /**
+     * @description The description of the check item.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The risk status of the check item.Valid values:
+     *  **1**: failed
+     *
+     *  **3**: passed
+     *
+     * @example 20
+     *
      * @var int
      */
     public $warningMachineCount;
@@ -64,6 +117,7 @@ class list_ extends Model
         'checkItem'           => 'CheckItem',
         'checkLevel'          => 'CheckLevel',
         'checkType'           => 'CheckType',
+        'containerCheckItem'  => 'ContainerCheckItem',
         'description'         => 'Description',
         'riskType'            => 'RiskType',
         'status'              => 'Status',
@@ -94,6 +148,9 @@ class list_ extends Model
         }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
+        }
+        if (null !== $this->containerCheckItem) {
+            $res['ContainerCheckItem'] = $this->containerCheckItem;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -136,6 +193,9 @@ class list_ extends Model
         }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
+        }
+        if (isset($map['ContainerCheckItem'])) {
+            $model->containerCheckItem = $map['ContainerCheckItem'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

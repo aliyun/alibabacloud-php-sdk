@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @example 65767
+     *
      * @var int
      */
     public $newRuleId;
@@ -19,11 +21,15 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 7cc91747-2845-40d4-bb69-c077597f****
+     *
      * @var string
      */
     public $uuid;

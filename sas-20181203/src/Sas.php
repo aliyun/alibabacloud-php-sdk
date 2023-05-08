@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Sas\V20181203;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddAssetSelectionCriteriaRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddAssetSelectionCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckInstanceResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckInstanceResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckResultWhiteListRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetSelectionConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetSelectionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
@@ -581,6 +585,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetSelectionConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetSelectionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyItemRequest;
@@ -658,6 +664,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
@@ -709,6 +719,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListRuleTargetAllRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListRuleTargetAllResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemAggregationRulesRequest;
@@ -788,6 +800,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRefreshProcessInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRefreshProcessInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskCheckStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskCheckStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskSingleResultStatusRequest;
@@ -1031,6 +1045,58 @@ class Sas extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddAssetSelectionCriteriaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddAssetSelectionCriteriaResponse
+     */
+    public function addAssetSelectionCriteriaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->criteriaOperation)) {
+            $query['CriteriaOperation'] = $request->criteriaOperation;
+        }
+        if (!Utils::isUnset($request->selectionKey)) {
+            $query['SelectionKey'] = $request->selectionKey;
+        }
+        if (!Utils::isUnset($request->targetOperationList)) {
+            $query['TargetOperationList'] = $request->targetOperationList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAssetSelectionCriteria',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddAssetSelectionCriteriaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddAssetSelectionCriteriaRequest $request
+     *
+     * @return AddAssetSelectionCriteriaResponse
+     */
+    public function addAssetSelectionCriteria($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAssetSelectionCriteriaWithOptions($request, $runtime);
     }
 
     /**
@@ -2044,6 +2110,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateAssetSelectionConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAssetSelectionConfigResponse
+     */
+    public function createAssetSelectionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAssetSelectionConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAssetSelectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAssetSelectionConfigRequest $request
+     *
+     * @return CreateAssetSelectionConfigResponse
+     */
+    public function createAssetSelectionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAssetSelectionConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBackupPolicyRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
@@ -2278,8 +2390,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     * The identifier of the file. Only MD5 hash values are supported.
      *   *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2321,8 +2432,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     * The identifier of the file. Only MD5 hash values are supported.
      *   *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      *
@@ -2857,10 +2967,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateAssetGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateAssetGroupResponse
+     * @return CreateOrUpdateAssetGroupResponse CreateOrUpdateAssetGroupResponse
      */
     public function createOrUpdateAssetGroupWithOptions($request, $runtime)
     {
@@ -2894,9 +3006,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateAssetGroupRequest $request
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
      *
-     * @return CreateOrUpdateAssetGroupResponse
+     * @return CreateOrUpdateAssetGroupResponse CreateOrUpdateAssetGroupResponse
      */
     public function createOrUpdateAssetGroup($request)
     {
@@ -2970,12 +3084,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-     *   *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -3003,11 +3115,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-     *   *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param CreateServiceLinkedRoleRequest $request
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -3582,7 +3692,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+     * 200.
      *   *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3618,7 +3728,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+     * 200.
      *   *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      *
@@ -4178,10 +4288,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagWithUuidRequest $request
-     * @param RuntimeOptions           $runtime
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagWithUuidResponse
+     * @return DeleteTagWithUuidResponse DeleteTagWithUuidResponse
      */
     public function deleteTagWithUuidWithOptions($request, $runtime)
     {
@@ -4212,9 +4324,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagWithUuidRequest $request
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
      *
-     * @return DeleteTagWithUuidResponse
+     * @return DeleteTagWithUuidResponse DeleteTagWithUuidResponse
      */
     public function deleteTagWithUuid($request)
     {
@@ -4896,6 +5010,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -5301,7 +5418,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+     * The data returned.
      *   *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5334,7 +5451,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+     * The data returned.
      *   *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      *
@@ -5550,9 +5667,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The number of the restoration tasks that are in the **being restored** state.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupRestoreCountResponse
+     * @return DescribeBackupRestoreCountResponse DescribeBackupRestoreCountResponse
      */
     public function describeBackupRestoreCountWithOptions($runtime)
     {
@@ -5573,7 +5692,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeBackupRestoreCountResponse
+     * The number of the restoration tasks that are in the **being restored** state.
+     *   *
+     * @return DescribeBackupRestoreCountResponse DescribeBackupRestoreCountResponse
      */
     public function describeBackupRestoreCount()
     {
@@ -5977,6 +6098,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->checkType)) {
             $query['CheckType'] = $request->checkType;
         }
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -6121,10 +6245,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudCenterInstancesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     *   *
+     * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudCenterInstancesResponse
+     * @return DescribeCloudCenterInstancesResponse DescribeCloudCenterInstancesResponse
      */
     public function describeCloudCenterInstancesWithOptions($request, $runtime)
     {
@@ -6176,9 +6302,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudCenterInstancesRequest $request
+     * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     *   *
+     * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
      *
-     * @return DescribeCloudCenterInstancesResponse
+     * @return DescribeCloudCenterInstancesResponse DescribeCloudCenterInstancesResponse
      */
     public function describeCloudCenterInstances($request)
     {
@@ -6733,7 +6861,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
+     * The number of nodes on which alerts are generated in the current container cluster.
      *   *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6766,7 +6894,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
+     * The number of nodes on which alerts are generated in the current container cluster.
      *   *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      *
@@ -8061,6 +8189,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->saleVersionCheckCode)) {
+            $query['SaleVersionCheckCode'] = $request->saleVersionCheckCode;
         }
         if (!Utils::isUnset($request->vendor)) {
             $query['Vendor'] = $request->vendor;
@@ -9663,9 +9794,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * Queries the risk statistics of container images.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageStatisticsResponse
+     * @return DescribeImageStatisticsResponse DescribeImageStatisticsResponse
      */
     public function describeImageStatisticsWithOptions($runtime)
     {
@@ -9686,7 +9819,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeImageStatisticsResponse
+     * Queries the risk statistics of container images.
+     *   *
+     * @return DescribeImageStatisticsResponse DescribeImageStatisticsResponse
      */
     public function describeImageStatistics()
     {
@@ -9696,10 +9831,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageVulListRequest $request
-     * @param RuntimeOptions              $runtime
+     * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+     *   *
+     * @param DescribeImageVulListRequest $request DescribeImageVulListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageVulListResponse
+     * @return DescribeImageVulListResponse DescribeImageVulListResponse
      */
     public function describeImageVulListWithOptions($request, $runtime)
     {
@@ -9808,9 +9945,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageVulListRequest $request
+     * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+     *   *
+     * @param DescribeImageVulListRequest $request DescribeImageVulListRequest
      *
-     * @return DescribeImageVulListResponse
+     * @return DescribeImageVulListResponse DescribeImageVulListResponse
      */
     public function describeImageVulList($request)
     {
@@ -9902,9 +10041,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The ID of the server group to which the server belongs.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstallCodesResponse
+     * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
      */
     public function describeInstallCodesWithOptions($runtime)
     {
@@ -9925,7 +10066,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstallCodesResponse
+     * The ID of the server group to which the server belongs.
+     *   *
+     * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
      */
     public function describeInstallCodes()
     {
@@ -11745,10 +11888,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreJobsRequest $request
-     * @param RuntimeOptions             $runtime
+     * The name of the CSV file. The CSV file contains the files that fail to be restored.
+     *   *
+     * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreJobsResponse
+     * @return DescribeRestoreJobsResponse DescribeRestoreJobsResponse
      */
     public function describeRestoreJobsWithOptions($request, $runtime)
     {
@@ -11785,9 +11930,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreJobsRequest $request
+     * The name of the CSV file. The CSV file contains the files that fail to be restored.
+     *   *
+     * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
      *
-     * @return DescribeRestoreJobsResponse
+     * @return DescribeRestoreJobsResponse DescribeRestoreJobsResponse
      */
     public function describeRestoreJobs($request)
     {
@@ -11850,6 +11997,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckInstanceResult operation.
      *   *
      * Deprecated
      *
@@ -11900,6 +12048,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckInstanceResult operation.
      *   *
      * Deprecated
      *
@@ -11916,6 +12065,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckResult operation.
      *   *
      * Deprecated
      *
@@ -11984,6 +12134,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckResult operation.
      *   *
      * Deprecated
      *
@@ -12000,6 +12151,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The number of detected risk items.
      *   *
      * Deprecated
      *
@@ -12044,6 +12196,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The number of detected risk items.
      *   *
      * Deprecated
      *
@@ -12060,6 +12213,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckStandard operation instead.
      *   *
      * Deprecated
      *
@@ -12101,6 +12255,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the ListCheckStandard operation instead.
      *   *
      * Deprecated
      *
@@ -12117,6 +12272,8 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
+     *   * > If you do not specify this parameter, an empty list is returned.
      *   *
      * Deprecated
      *
@@ -12167,6 +12324,8 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
+     *   * > If you do not specify this parameter, an empty list is returned.
      *   *
      * Deprecated
      *
@@ -12508,6 +12667,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the GetCheckConfig operation.
      *   *
      * Deprecated
      *
@@ -12549,6 +12709,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the GetCheckConfig operation.
      *   *
      * Deprecated
      *
@@ -14483,10 +14644,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcHoneyPotListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+     *   *
+     * @param DescribeVpcHoneyPotListRequest $request DescribeVpcHoneyPotListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcHoneyPotListResponse
+     * @return DescribeVpcHoneyPotListResponse DescribeVpcHoneyPotListResponse
      */
     public function describeVpcHoneyPotListWithOptions($request, $runtime)
     {
@@ -14529,9 +14692,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcHoneyPotListRequest $request
+     * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+     *   *
+     * @param DescribeVpcHoneyPotListRequest $request DescribeVpcHoneyPotListRequest
      *
-     * @return DescribeVpcHoneyPotListResponse
+     * @return DescribeVpcHoneyPotListResponse DescribeVpcHoneyPotListResponse
      */
     public function describeVpcHoneyPotList($request)
     {
@@ -14721,10 +14886,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulExportInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+     *   *
+     * @param DescribeVulExportInfoRequest $request DescribeVulExportInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulExportInfoResponse
+     * @return DescribeVulExportInfoResponse DescribeVulExportInfoResponse
      */
     public function describeVulExportInfoWithOptions($request, $runtime)
     {
@@ -14752,9 +14919,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulExportInfoRequest $request
+     * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+     *   *
+     * @param DescribeVulExportInfoRequest $request DescribeVulExportInfoRequest
      *
-     * @return DescribeVulExportInfoResponse
+     * @return DescribeVulExportInfoResponse DescribeVulExportInfoResponse
      */
     public function describeVulExportInfo($request)
     {
@@ -16033,10 +16202,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportRecordRequest $request
-     * @param RuntimeOptions      $runtime
+     * The ID of the exported file.
+     *   *
+     * @param ExportRecordRequest $request ExportRecordRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportRecordResponse
+     * @return ExportRecordResponse ExportRecordResponse
      */
     public function exportRecordWithOptions($request, $runtime)
     {
@@ -16070,9 +16241,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportRecordRequest $request
+     * The ID of the exported file.
+     *   *
+     * @param ExportRecordRequest $request ExportRecordRequest
      *
-     * @return ExportRecordResponse
+     * @return ExportRecordResponse ExportRecordResponse
      */
     public function exportRecord($request)
     {
@@ -16176,10 +16349,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportVulRequest $request
-     * @param RuntimeOptions   $runtime
+     * The ID of the exported file.
+     *   *
+     * @param ExportVulRequest $request ExportVulRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportVulResponse
+     * @return ExportVulResponse ExportVulResponse
      */
     public function exportVulWithOptions($request, $runtime)
     {
@@ -16234,9 +16409,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportVulRequest $request
+     * The ID of the exported file.
+     *   *
+     * @param ExportVulRequest $request ExportVulRequest
      *
-     * @return ExportVulResponse
+     * @return ExportVulResponse ExportVulResponse
      */
     public function exportVul($request)
     {
@@ -16587,6 +16764,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAssetSelectionConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAssetSelectionConfigResponse
+     */
+    public function getAssetSelectionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAssetSelectionConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAssetSelectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAssetSelectionConfigRequest $request
+     *
+     * @return GetAssetSelectionConfigResponse
+     */
+    public function getAssetSelectionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetSelectionConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -17307,10 +17527,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileDetectResultRequest $request
-     * @param RuntimeOptions             $runtime
+     * The extended information about the file detection result.
+     *   *
+     * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileDetectResultResponse
+     * @return GetFileDetectResultResponse GetFileDetectResultResponse
      */
     public function getFileDetectResultWithOptions($request, $runtime)
     {
@@ -17344,9 +17566,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileDetectResultRequest $request
+     * The extended information about the file detection result.
+     *   *
+     * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
      *
-     * @return GetFileDetectResultResponse
+     * @return GetFileDetectResultResponse GetFileDetectResultResponse
      */
     public function getFileDetectResult($request)
     {
@@ -18308,10 +18532,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudMonitorRequest $request
-     * @param RuntimeOptions             $runtime
+     * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+     *   *
+     * @param InstallCloudMonitorRequest $request InstallCloudMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallCloudMonitorResponse
+     * @return InstallCloudMonitorResponse InstallCloudMonitorResponse
      */
     public function installCloudMonitorWithOptions($request, $runtime)
     {
@@ -18351,9 +18577,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudMonitorRequest $request
+     * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+     *   *
+     * @param InstallCloudMonitorRequest $request InstallCloudMonitorRequest
      *
-     * @return InstallCloudMonitorResponse
+     * @return InstallCloudMonitorResponse InstallCloudMonitorResponse
      */
     public function installCloudMonitor($request)
     {
@@ -18501,6 +18729,101 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->joinWebLockProcessWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAssetSelectionSelectedTargetRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListAssetSelectionSelectedTargetResponse
+     */
+    public function listAssetSelectionSelectedTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->selectionKey)) {
+            $query['SelectionKey'] = $request->selectionKey;
+        }
+        if (!Utils::isUnset($request->targetList)) {
+            $query['TargetList'] = $request->targetList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAssetSelectionSelectedTarget',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssetSelectionSelectedTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAssetSelectionSelectedTargetRequest $request
+     *
+     * @return ListAssetSelectionSelectedTargetResponse
+     */
+    public function listAssetSelectionSelectedTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetSelectionSelectedTargetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAssetSelectionTargetRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAssetSelectionTargetResponse
+     */
+    public function listAssetSelectionTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->selectionKey)) {
+            $query['SelectionKey'] = $request->selectionKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAssetSelectionTarget',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssetSelectionTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAssetSelectionTargetRequest $request
+     *
+     * @return ListAssetSelectionTargetResponse
+     */
+    public function listAssetSelectionTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetSelectionTargetWithOptions($request, $runtime);
     }
 
     /**
@@ -19931,6 +20254,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ListQueryRaspAppInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListQueryRaspAppInfoResponse
+     */
+    public function listQueryRaspAppInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQueryRaspAppInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListQueryRaspAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListQueryRaspAppInfoRequest $request
+     *
+     * @return ListQueryRaspAppInfoResponse
+     */
+    public function listQueryRaspAppInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQueryRaspAppInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListRuleTargetAllRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -20481,10 +20850,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetGroupRequest $request
-     * @param RuntimeOptions          $runtime
+     * The ID of the new server group to which the servers belong.
+     *   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *   *
+     * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAssetGroupResponse
+     * @return ModifyAssetGroupResponse ModifyAssetGroupResponse
      */
     public function modifyAssetGroupWithOptions($request, $runtime)
     {
@@ -20518,9 +20890,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetGroupRequest $request
+     * The ID of the new server group to which the servers belong.
+     *   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *   *
+     * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
      *
-     * @return ModifyAssetGroupResponse
+     * @return ModifyAssetGroupResponse ModifyAssetGroupResponse
      */
     public function modifyAssetGroup($request)
     {
@@ -21766,10 +22141,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyOpenLogShipperRequest $request
-     * @param RuntimeOptions              $runtime
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyOpenLogShipperResponse
+     * @return ModifyOpenLogShipperResponse ModifyOpenLogShipperResponse
      */
     public function modifyOpenLogShipperWithOptions($request, $runtime)
     {
@@ -21797,9 +22174,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyOpenLogShipperRequest $request
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
      *
-     * @return ModifyOpenLogShipperResponse
+     * @return ModifyOpenLogShipperResponse ModifyOpenLogShipperResponse
      */
     public function modifyOpenLogShipper($request)
     {
@@ -21956,7 +22335,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ModifyRefreshProcessInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyRefreshProcessInfoResponse
+     */
+    public function modifyRefreshProcessInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRefreshProcessInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRefreshProcessInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyRefreshProcessInfoRequest $request
+     *
+     * @return ModifyRefreshProcessInfoResponse
+     */
+    public function modifyRefreshProcessInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRefreshProcessInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated
+     *   * This operation is phased out. You can use the following operations:
+     *   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+     *   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
      *   *
      * Deprecated
      *
@@ -22007,6 +22432,9 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the following operations:
+     *   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+     *   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
      *   *
      * Deprecated
      *
@@ -22023,6 +22451,9 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the following operations:
+     *   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+     *   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
      *   *
      * Deprecated
      *
@@ -22073,6 +22504,9 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * This operation is phased out. You can use the following operations:
+     *   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+     *   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
      *   *
      * Deprecated
      *
@@ -22089,6 +22523,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The ID of the request, which is used to locate and troubleshoot issues.
      *   *
      * Deprecated
      *
@@ -22139,6 +22574,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
+     *   * The ID of the request, which is used to locate and troubleshoot issues.
      *   *
      * Deprecated
      *
@@ -22827,10 +23263,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockDeleteConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+     *   *
+     * @param ModifyWebLockDeleteConfigRequest $request ModifyWebLockDeleteConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockDeleteConfigResponse
+     * @return ModifyWebLockDeleteConfigResponse ModifyWebLockDeleteConfigResponse
      */
     public function modifyWebLockDeleteConfigWithOptions($request, $runtime)
     {
@@ -22867,9 +23305,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockDeleteConfigRequest $request
+     * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+     *   *
+     * @param ModifyWebLockDeleteConfigRequest $request ModifyWebLockDeleteConfigRequest
      *
-     * @return ModifyWebLockDeleteConfigResponse
+     * @return ModifyWebLockDeleteConfigResponse ModifyWebLockDeleteConfigResponse
      */
     public function modifyWebLockDeleteConfig($request)
     {
@@ -23994,10 +24434,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicCreateImageScanTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The result of the image scan task. Valid values:
+     *   * *   **SUCCESS**: The task is successful.
+     *   * *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+     *   * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+     *   *
+     * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublicCreateImageScanTaskResponse
+     * @return PublicCreateImageScanTaskResponse PublicCreateImageScanTaskResponse
      */
     public function publicCreateImageScanTaskWithOptions($request, $runtime)
     {
@@ -24049,9 +24494,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicCreateImageScanTaskRequest $request
+     * The result of the image scan task. Valid values:
+     *   * *   **SUCCESS**: The task is successful.
+     *   * *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+     *   * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+     *   *
+     * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
      *
-     * @return PublicCreateImageScanTaskResponse
+     * @return PublicCreateImageScanTaskResponse PublicCreateImageScanTaskResponse
      */
     public function publicCreateImageScanTask($request)
     {
@@ -25154,10 +25604,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UnbindAegisRequest $request
-     * @param RuntimeOptions     $runtime
+     * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+     *   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+     *   * **Prerequisites**
+     *   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+     *   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+     *   *
+     * @param UnbindAegisRequest $request UnbindAegisRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindAegisResponse
+     * @return UnbindAegisResponse UnbindAegisResponse
      */
     public function unbindAegisWithOptions($request, $runtime)
     {
@@ -25185,9 +25641,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UnbindAegisRequest $request
+     * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+     *   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+     *   * **Prerequisites**
+     *   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+     *   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+     *   *
+     * @param UnbindAegisRequest $request UnbindAegisRequest
      *
-     * @return UnbindAegisResponse
+     * @return UnbindAegisResponse UnbindAegisResponse
      */
     public function unbindAegis($request)
     {
@@ -25660,11 +26122,11 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->checkIds)) {
+            $query['CheckIds'] = $request->checkIds;
+        }
         if (!Utils::isUnset($request->riskIds)) {
             $query['RiskIds'] = $request->riskIds;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;

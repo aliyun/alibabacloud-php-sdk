@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAntiBruteForceRulesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -24,6 +28,8 @@ class DescribeInstanceAntiBruteForceRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 115.238.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

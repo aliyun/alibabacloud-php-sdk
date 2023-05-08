@@ -15,26 +15,36 @@ class columns extends Model
     public $grids;
 
     /**
+     * @example RegionIdShow
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $search;
 
     /**
+     * @example InstanceIdKey
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @example Region
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;

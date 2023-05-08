@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckItemResultRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the check item.
+     *
+     * > For more information about the IDs and details of the check items that can be used in configuration assessment, see [DescribeRiskCheckResult](~~DescribeRiskCheckResult~~).
+     * @example 2
+     *
      * @var int
      */
     public $itemId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +55,10 @@ class DescribeRiskCheckItemResultRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 173.128.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

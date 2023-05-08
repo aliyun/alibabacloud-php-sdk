@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCodesResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @var installCodes[]
      */
     public $installCodes;
 
     /**
+     * @description The installation verification code for you to manually install the Security Center agent.
+     *
+     * @example C0D6119F-92EE-1276-B8B6-C81A7F9D57F5
+     *
      * @var string
      */
     public $requestId;

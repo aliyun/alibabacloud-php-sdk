@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The name of the management node.
+     *
+     * @example 0804-pre
+     *
      * @var string
      */
     public $controlNodeName;
 
     /**
+     * @description The ID of the honeypot.
+     *
+     * @example 76c2a1c72ef259777d96d55a7834e5f5d98f85666c49f76ad9caa447d8b7****
+     *
      * @var string
      */
     public $honeypotId;
 
     /**
+     * @description The display name of the honeypot image.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $honeypotImageDisplayName;
 
     /**
+     * @description The ID of the honeypot image.
+     *
+     * @example sha256:eca5ced3757e46c24701e9ced4e652f2d730262d5685a4e001da22c4fb418fd4
+     *
      * @var string
      */
     public $honeypotImageId;
 
     /**
+     * @description The name of the honeypot image.
+     *
+     * @example tcp_proxy
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @description The name of the honeypot.
+     *
+     * @example mx-rouyi
+     *
      * @var string
      */
     public $honeypotName;
 
     /**
+     * @description The ID of the management node.
+     *
+     * @example c94eff5b-ea48-4805-8b7f-e04d3509b117
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the custom configuration for the honeypot.
+     *
+     * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
+     *
      * @var string
      */
     public $presetId;
 
     /**
+     * @description An array that consists of the status information about the honeypot.
+     *
      * @var string[]
      */
     public $state;

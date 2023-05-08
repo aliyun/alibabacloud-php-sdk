@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageScanData extends Model
 {
     /**
+     * @example 150
+     *
      * @var int
      */
     public $imageScanCount;

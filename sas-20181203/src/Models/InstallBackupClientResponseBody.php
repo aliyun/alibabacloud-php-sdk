@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallBackupClientResponseBody extends Model
 {
     /**
+     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA04B21
+     *
      * @var string
      */
     public $requestId;

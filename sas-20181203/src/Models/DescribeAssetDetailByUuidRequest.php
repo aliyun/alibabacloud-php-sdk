@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidRequest extends Model
 {
     /**
+     * @description The operating system version of the server.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The details of the CPU.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
+     *
      * @var string
      */
     public $uuid;

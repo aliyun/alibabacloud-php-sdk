@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAlarmEventsResponseBody extends Model
 {
     /**
+     * @description The information about the array object.
+     *
      * @var honeypotAlarmEvents[]
      */
     public $honeypotAlarmEvents;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @example 513C9554-55A4-5504-B7C4-6E17EB4FC7A3
+     *
      * @var string
      */
     public $requestId;

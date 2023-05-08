@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcListResponseBody extends Model
 {
     /**
+     * @description Queries the information about virtual private clouds (VPCs).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description DescribeVpcList
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;

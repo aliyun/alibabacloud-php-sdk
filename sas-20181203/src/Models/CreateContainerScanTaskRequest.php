@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerScanTaskRequest extends Model
 {
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of clusters.
+     * @example c22143730ab6e40b09ec7c1c51d4d****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example c927cf190e886696db53cda0efb57145394ccf0bf9f525353fa5c22a26e4****
+     *
      * @var string
      */
     public $containerIds;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

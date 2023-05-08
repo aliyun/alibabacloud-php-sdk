@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class imageRiskList extends Model
 {
     /**
+     * @example 3f8efc2184cf1d24936b49c27286a284714b77be34c80c9ee38ca6bf322445****
+     *
      * @var string
      */
     public $digest;
@@ -20,83 +22,113 @@ class imageRiskList extends Model
     public $endPointList;
 
     /**
+     * @example https://172.20.XXX.XXX/test
+     *
      * @var string
      */
     public $endpoints;
 
     /**
+     * @example .aliyuncs.com/sas_test/baseline:exploit
+     *
      * @var string
      */
     public $image;
 
     /**
-     * @example IN_SAS/NOT_IN_SAS/K8S_SYSTEM
+     * @example IN_SAS
      *
      * @var string
      */
     public $imageAccessType;
 
     /**
+     * @example f922bfeb6960436fe3f0e7b62fc6b9a0b47980986669c367c22433269404****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ****registry-registry.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
+     *
      * @var string
      */
     public $internetURLs;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @example crr-bk2l746eyxca1****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example scan_test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example vultar***
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @example PRIVATE
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $statistics;
 
     /**
+     * @example 0.1.0
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tagImmutable;
 
     /**
+     * @example 624778f3-5bf2-423c-ac0c-47a62c05****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example ****-registry-registry-vpc.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
+     *
      * @var string
      */
     public $vpcURLs;

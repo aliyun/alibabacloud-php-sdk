@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class edge extends Model
 {
     /**
+     * @description The ID of the destination node.
+     *
+     * @example cfb41a869c71e4678a97021582dd8****
+     *
      * @var string
      */
     public $dstNodeId;
 
     /**
+     * @description The type of the destination node. Valid values:
+     *
+     *   **cluster**: a cluster
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $dstNodeType;
 
     /**
+     * @description The ID of the topology edge.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The port number of the topology edge.
+     *
+     * @example 6164
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the source node.
+     *
+     * @example cfb41a869c71e4678a97021582dd8****
+     *
      * @var string
      */
     public $srcNodeId;
 
     /**
+     * @description The type of the source node. Valid values:
+     *
+     *   **cluster**: a cluster
+     *   **internet**: a network node in another cluster
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $srcNodeType;

@@ -9,76 +9,146 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryRequest extends Model
 {
     /**
+     * @description The value of the container field.
+     *
+     * @example c80dae73bd1be442699766b14ffd0****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The level-1 type of check items.
+     *
+     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+     * @example namespace
+     *
      * @var string
      */
     public $containerFieldName;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * @example c819391d2d520485fa3e81e2dc2ea****
+     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The statistics of check items.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The UUID of the asset.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The level-2 type of the risk item.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description The type of the query condition. Valid values:
+     *
+     *   **uuid**: the ID of an asset
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskStatus;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 219.133.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The number of high-risk items.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The number of assets on which risk items are detected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $strategyId;
 
     /**
+     * @description The number of check items.
+     *
+     * @example uuid
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The page number of the current page.
+     *
+     * @example database
+     *
      * @var string
      */
     public $typeName;
 
     /**
+     * @description The name of the container field. Valid values:
+     *
+     *   **clusterId**: the ID of the cluster
+     *   **image**: the name of the image
+     *   **imageId**: the ID of the image
+     *   **namespace**: the namespace
+     *
+     * @example f03259d8-1e81-4fae-bcbb-275fb5****
+     *
      * @var string
      */
     public $uuids;

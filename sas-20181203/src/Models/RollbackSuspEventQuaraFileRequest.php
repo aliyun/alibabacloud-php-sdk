@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RollbackSuspEventQuaraFileRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example 3921797
+     *
      * @var int
      */
     public $quaraFileId;

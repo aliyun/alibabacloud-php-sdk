@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleSwitchRequest extends Model
 {
     /**
+     * @example ce5c29aba99694ade9ba85dc620b4****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 403287
+     *
      * @var string
      */
     public $ruleIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleSwitch;

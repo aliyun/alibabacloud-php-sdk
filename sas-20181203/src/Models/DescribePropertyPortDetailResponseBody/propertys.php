@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
+     * @description The pagination information.
+     *
+     * @example 0.0.X.X
+     *
      * @var string
      */
     public $bindIp;
 
     /**
+     * @description Queries the fingerprints of ports on a specified server.
+     *
+     * @example 1649149566000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The IP address of the network interface controller (NIC) that is bound to the listening port.
+     *
+     * @example i-hp35tftuh52wbp1g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example hc-host-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 100.104.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description 10
+     *
+     * @example 522
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The name of the server.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description sshd
+     *
+     * @example sshd
+     *
      * @var string
      */
     public $procName;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $proto;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**.
+     *
+     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
+     *
      * @var string
      */
     public $uuid;

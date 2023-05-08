@@ -9,31 +9,52 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyShrinkRequest extends Model
 {
     /**
+     * @description The region ID of the server to which the anti-ransomware policy is applied.
+     *
+     * You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions in which the anti-ransomware feature is supported.
+     * @example 11
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Modifies an anti-ransomware policy.
+     *
+     * @example policy_name_A
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description ModifyBackupPolicy
+     *
+     * @example {"Source":["home","admin"]}
+     *
      * @var string
      */
     public $policyShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $policyRegionId;
 
     /**
+     * @description WB01014029
+     *
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
 
     /**
+     * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
+     *
      * @var string[]
      */
     public $uuidList;

@@ -9,111 +9,191 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
+     * @description Indicates whether the account is an interactive logon account. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example never
+     *
      * @var string
      */
     public $accountsExpirationDate;
 
     /**
+     * @description The last logon time of the account.
+     *
+     * @example 1649149566000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description Queries the asset fingerprints for an account to which a server belongs.
+     *
      * @var string[]
      */
     public $groupNames;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example i-hp35tftuh52wbp1g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example hc-host-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**.
+     *
+     * @example 100.104.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The timestamp of the last logon to the account. Unit: milliseconds.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isCouldLogin;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isPasswdExpired;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isPasswdLocked;
 
     /**
+     * @description The IP addresses of the server.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $isRoot;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isSudoer;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isUserExpired;
 
     /**
+     * @description The pagination information.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $lastLoginIp;
 
     /**
+     * @description Specifies whether the fuzzy search by account name is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     *
+     * @example 2022-04-04 18:07:06
+     *
      * @var string
      */
     public $lastLoginTime;
 
     /**
+     * @example 1649066826000
+     *
      * @var int
      */
     public $lastLoginTimeDt;
 
     /**
+     * @description The source IP address of the last logon to the account.
+     *
+     * @example 1649066826000
+     *
      * @var int
      */
     public $lastLoginTimestamp;
 
     /**
+     * @description Indicates whether the account expires. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
+     * @example never
+     *
      * @var string
      */
     public $passwordExpirationDate;
 
     /**
+     * @description This parameter is deprecated. You can ignore it.
+     *
+     * @example **
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the server.
+     *
+     * @example bin
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
+     *
      * @var string
      */
     public $uuid;

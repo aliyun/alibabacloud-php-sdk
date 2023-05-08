@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspiciousOverallConfigRequest extends Model
 {
     /**
+     * @example 39.161.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example auto_breaking
+     *
      * @var string
      */
     public $type;

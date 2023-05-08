@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulListPageRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+     *
+     * @example CVE-2022-44702
+     *
      * @var string
      */
     public $cveId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example RCE vulnerability
+     *
      * @var string
      */
     public $vulNameLike;

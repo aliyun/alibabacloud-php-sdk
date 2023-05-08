@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class machineList extends Model
 {
     /**
-     * @description The timestamp when the block action on the IP address becomes invalid.
-     *
+     * @var bool
+     */
+    public $aliNetOnline;
+
+    /**
      * @example 1671506882063
      *
      * @var int
@@ -18,8 +21,6 @@ class machineList extends Model
     public $blockExpireDate;
 
     /**
-     * @description The blocked IP address.
-     *
      * @example 10.12.XX.XX
      *
      * @var string
@@ -27,8 +28,11 @@ class machineList extends Model
     public $blockIp;
 
     /**
-     * @description The error code returned when the defense rule fails to block the IP address.
-     *
+     * @var string
+     */
+    public $blockType;
+
+    /**
      * @example InstanceSecurityGroupLimitExceeded
      *
      * @var string
@@ -36,8 +40,6 @@ class machineList extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the primary key in the table of records on the blocked IP address.
-     *
      * @example 112XX
      *
      * @var int
@@ -45,8 +47,6 @@ class machineList extends Model
     public $id;
 
     /**
-     * @description The name of the server.
-     *
      * @example record-test-***
      *
      * @var string
@@ -54,8 +54,6 @@ class machineList extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address.
-     *
      * @example 120.79.XX.XX
      *
      * @var string
@@ -63,8 +61,6 @@ class machineList extends Model
     public $internetIp;
 
     /**
-     * @description The private IP address.
-     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -72,8 +68,6 @@ class machineList extends Model
     public $intranetIp;
 
     /**
-     * @description The port that is attacked.
-     *
      * @example 22/22
      *
      * @var string
@@ -81,8 +75,6 @@ class machineList extends Model
     public $port;
 
     /**
-     * @description The name of the defense rule.
-     *
      * @example AntiRuleName
      *
      * @var string
@@ -90,11 +82,6 @@ class machineList extends Model
     public $ruleName;
 
     /**
-     * @description The type of the defense rule. Valid values:
-     *
-     *   **userRule**: custom rule
-     *   **blinkRule**: system rule
-     *
      * @example userRule
      *
      * @var string
@@ -102,12 +89,6 @@ class machineList extends Model
     public $source;
 
     /**
-     * @description The status of the defense rule. Valid values:
-     *
-     *   **0**: invalid
-     *   **1**: enabled
-     *   **2**: failed
-     *
      * @example 2
      *
      * @var int
@@ -115,16 +96,16 @@ class machineList extends Model
     public $status;
 
     /**
-     * @description The UUID of the server on which access from the IP address is blocked.
-     *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
+        'aliNetOnline'    => 'AliNetOnline',
         'blockExpireDate' => 'BlockExpireDate',
         'blockIp'         => 'BlockIp',
+        'blockType'       => 'BlockType',
         'errorCode'       => 'ErrorCode',
         'id'              => 'Id',
         'instanceName'    => 'InstanceName',
@@ -144,11 +125,17 @@ class machineList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliNetOnline) {
+            $res['AliNetOnline'] = $this->aliNetOnline;
+        }
         if (null !== $this->blockExpireDate) {
             $res['BlockExpireDate'] = $this->blockExpireDate;
         }
         if (null !== $this->blockIp) {
             $res['BlockIp'] = $this->blockIp;
+        }
+        if (null !== $this->blockType) {
+            $res['BlockType'] = $this->blockType;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -192,11 +179,17 @@ class machineList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliNetOnline'])) {
+            $model->aliNetOnline = $map['AliNetOnline'];
+        }
         if (isset($map['BlockExpireDate'])) {
             $model->blockExpireDate = $map['BlockExpireDate'];
         }
         if (isset($map['BlockIp'])) {
             $model->blockIp = $map['BlockIp'];
+        }
+        if (isset($map['BlockType'])) {
+            $model->blockType = $map['BlockType'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

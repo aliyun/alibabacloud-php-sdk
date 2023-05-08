@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotNodeRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $availableProbeNum;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 67ab3f4c-3db5-4fc3-b51f-00f8bfabfa08
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example HoneypotNodeTest
+     *
      * @var string
      */
     public $nodeName;

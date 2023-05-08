@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesRequest extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
+     * @example 10541428
+     *
      * @deprecated
      *
      * @var string
@@ -26,26 +38,46 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $groupId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 11472451
+     *
      * @var int
      */
     public $groupingId;
 
     /**
+     * @description The unique ID of the quarantined file.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the server group to which the server belongs. The quarantined file is located on the server.
+     *
+     * @example a31337789f64d39b2219733ec99f9af7
+     *
      * @var string
      */
     public $quaraTag;
 
     /**
+     * @description The ID of the asset group.
+     *
+     * @example 59.82.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example quaraDone
+     *
      * @var string
      */
     public $status;

@@ -21,6 +21,8 @@ class ListImageRiskResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 050ACC7A-D4FD-55C6-B861-BA9569C1****
+     *
      * @var string
      */
     public $requestId;

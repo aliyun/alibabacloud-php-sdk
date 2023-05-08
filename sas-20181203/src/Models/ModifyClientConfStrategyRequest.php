@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfStrategyRequest extends Model
 {
     /**
+     * @description The key of the tag that is added to the agent configuration policy.
+     *
+     * @example machineResource
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The extended tag of the agent configuration policy.
+     *
+     * @example auto
+     *
      * @var string
      */
     public $tagExt;
 
     /**
+     * @description The value of the tag that is added to the agent configuration policy.
+     *
+     *   major
+     *   advanced
+     *   basic
+     *
+     * @example advanced
+     *
      * @var string
      */
     public $tagValue;
 
     /**
+     * @description The UUID of the server that you want to query.
+     *
+     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @description The UUID of the asset. You can specify a maximum of 500 UUIDs at a time.
+     *
      * @var string[]
      */
     public $uuids;

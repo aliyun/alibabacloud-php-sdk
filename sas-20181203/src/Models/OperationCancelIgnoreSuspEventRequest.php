@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventRequest extends Model
 {
     /**
+     * @description OperationCancelIgnoreSuspEvent
+     *
      * @var int[]
      */
     public $securityEventIds;

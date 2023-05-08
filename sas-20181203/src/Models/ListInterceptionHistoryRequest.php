@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionHistoryRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * @example c7c190a82d9a048be9038d352840f****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp.
+     *
+     * @example 1635575219000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The name of the alert.
+     *
+     * @example Abnormal access
+     *
      * @var string
      */
     public $historyName;
 
     /**
+     * @description The types of exceptions.
+     *
      * @var int[]
      */
     public $interceptionTypes;
 
     /**
+     * @description 设置请求和接收消息的语言类型。默认值**zh**。取值：
+     *
+     *
+     * - **zh**：中文
+     * - **en**：英文
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start of the time range to query. The value is a UNIX timestamp.
+     *
+     * @example 1651290987000
+     *
      * @var int
      */
     public $startTime;

@@ -9,56 +9,82 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
+     * @example RHSA-2017:0184-Important: mysql security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asapCount;
 
     /**
+     * @example 1639371446000
+     *
      * @var int
      */
     public $gmtLast;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $handledCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $laterCount;
 
     /**
+     * @example oval:com.redhat.rhsa:def:20170184
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 59
+     *
      * @var int
      */
     public $nntfCount;
 
     /**
+     * @description 支持RASP实时防护，取值：
+     * - **0**：不支持
+     * - **1**：支持
+     * > 无该属性也表示不支持。
+     * @example 1
+     *
      * @var int
      */
     public $raspDefend;
 
     /**
+     * @example Code Execution
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalFixCount;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $type;

@@ -15,6 +15,8 @@ class DescribeVpcHoneyPotCriteriaResponseBody extends Model
     public $criteriaList;
 
     /**
+     * @example FCE38ADB-7361-4212-AD87-A4514E4DF925
+     *
      * @var string
      */
     public $requestId;

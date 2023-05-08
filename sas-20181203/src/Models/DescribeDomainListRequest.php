@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListRequest extends Model
 {
     /**
+     * @description Queries the information about the domain assets within your Alibaba Cloud account.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**.
+     *
+     * @example root
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @description The name of the domain or website.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $fuzzyDomain;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 192.122.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

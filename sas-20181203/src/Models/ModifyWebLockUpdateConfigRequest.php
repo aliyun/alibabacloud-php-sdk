@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockUpdateConfigRequest extends Model
 {
     /**
+     * @example block
+     *
      * @var string
      */
     public $defenceMode;
 
     /**
+     * @example /home/admin/tomcat
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @example /home/admin/test
+     *
      * @var string
      */
     public $exclusiveDir;
 
     /**
+     * @example /home/admin/apache.log
+     *
      * @var string
      */
     public $exclusiveFile;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $exclusiveFileType;
 
     /**
+     * @example 312077
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example /home/admin/test.log
+     *
      * @var string
      */
     public $inclusiveFile;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $inclusiveFileType;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example /usr/local/backup
+     *
      * @var string
      */
     public $localBackupDir;
 
     /**
+     * @example blacklist
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 36.112.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
+     *
      * @var string
      */
     public $uuid;

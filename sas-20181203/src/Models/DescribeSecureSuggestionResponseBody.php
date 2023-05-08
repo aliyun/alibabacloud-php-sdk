@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecureSuggestionResponseBody extends Model
 {
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example 676F80E3-4B3F-43DA-9CBB-5FF79F202AA2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Queries suggestions on how to handle the security risks that affect the security score.
+     *
      * @var suggestions[]
      */
     public $suggestions;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

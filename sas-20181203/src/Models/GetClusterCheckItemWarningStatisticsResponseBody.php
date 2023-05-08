@@ -15,6 +15,8 @@ class GetClusterCheckItemWarningStatisticsResponseBody extends Model
     public $data;
 
     /**
+     * @example C2B285A3-3493-5C5F-A224-4CCE4BFC****
+     *
      * @var string
      */
     public $requestId;

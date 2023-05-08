@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupIdByGroupNameResponseBody extends Model
 {
     /**
+     * @example 9935302
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
+     *
      * @var string
      */
     public $requestId;

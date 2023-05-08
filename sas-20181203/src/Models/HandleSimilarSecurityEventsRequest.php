@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class HandleSimilarSecurityEventsRequest extends Model
 {
     /**
+     * @example {"field":"md5","operate":"contains","fieldValue":"aa"}
+     *
      * @var string
      */
     public $markMissParam;
 
     /**
+     * @example offline_handled
+     *
      * @var string
      */
     public $operationCode;
 
     /**
+     * @example {"expireTime":1646208726195}
+     *
      * @var string
      */
     public $operationParams;
@@ -29,11 +35,17 @@ class HandleSimilarSecurityEventsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description HandleSimilarSecurityEvents
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 666038
+     *
      * @var int
      */
     public $taskId;

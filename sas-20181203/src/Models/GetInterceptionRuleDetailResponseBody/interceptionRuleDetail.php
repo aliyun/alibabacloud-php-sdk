@@ -16,31 +16,43 @@ class interceptionRuleDetail extends Model
     public $dstTarget;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $interceptType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderIndex;
 
     /**
+     * @example 467
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example dmz-frontend-accept
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleSwitch;
 
     /**
+     * @example customize
+     *
      * @var string
      */
     public $ruleType;

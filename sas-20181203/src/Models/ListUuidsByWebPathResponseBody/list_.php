@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example test****
+     *
      * @var string
      */
     public $machineName;
 
     /**
+     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
+     *
      * @var string
      */
     public $uuid;

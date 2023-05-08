@@ -15,6 +15,8 @@ class DescribeInstanceStatisticsResponseBody extends Model
     public $data;
 
     /**
+     * @example 8F035A9D-D19F-5430-8CA5-1497991B7C61
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DeleteStrategyRequest extends Model
 {
     /**
+     * @example 1404656
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Deletes a baseline check policy.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

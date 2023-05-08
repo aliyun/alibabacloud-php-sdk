@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotCriteriaRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;

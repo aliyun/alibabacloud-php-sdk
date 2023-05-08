@@ -15,6 +15,8 @@ class DescribeBruteForceSummaryResponseBody extends Model
     public $bruteForceSummary;
 
     /**
+     * @example AE60EAE3-ABD0-897C-B0F16CAC6C7D
+     *
      * @var string
      */
     public $requestId;

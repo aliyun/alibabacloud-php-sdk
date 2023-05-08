@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class fixList extends Model
 {
     /**
+     * @example 72
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @example Alibaba Cloud Linux/Aliyun Linux 2 Baseline for China classified protection of cybersecurity-Level II
+     *
      * @var string
      */
     public $riskName;

@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedAssetsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the affected servers.
+     *
      * @var assetList[]
      */
     public $assetList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42XXXXXXXX
+     *
      * @var string
      */
     public $requestId;

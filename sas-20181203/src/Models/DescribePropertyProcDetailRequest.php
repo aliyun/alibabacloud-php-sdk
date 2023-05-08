@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcDetailRequest extends Model
 {
     /**
+     * @description The timestamp of last data collection. Unit: milliseconds.
+     *
+     * @example ./8888
+     *
      * @var string
      */
     public $cmdline;
 
     /**
+     * @description The timestamp when the process starts. Unit: milliseconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the process.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description The startup parameter of the process.
+     *
+     * @example 8888
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name or IP address of the server.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 1649587453000
+     *
      * @var int
      */
     public $procTimeEnd;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1648809853000
+     *
      * @var int
      */
     public $procTimeStart;
 
     /**
+     * @description 1648809853000
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The permission that is required to run the process.
+     *
+     * @example root
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
      * @var string
      */
     public $uuid;

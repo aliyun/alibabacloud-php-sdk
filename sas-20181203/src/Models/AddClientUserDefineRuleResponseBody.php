@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class AddClientUserDefineRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 379a9b8f-107b-4630-9e95-2299a1ea****
      *
      * @var string
@@ -19,8 +17,6 @@ class AddClientUserDefineRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The identifier of the custom defense rule.
-     *
      * @var userDefineRuleAddResult
      */
     public $userDefineRuleAddResult;

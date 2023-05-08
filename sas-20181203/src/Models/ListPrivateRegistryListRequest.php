@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateRegistryListRequest extends Model
 {
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **acr**: Container Registry
+     *   **harbor**: Harbor
+     *   **quay**: Quay
+     *   **CI/CD**: Jenkins
+     *
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;

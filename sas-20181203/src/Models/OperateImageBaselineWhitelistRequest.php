@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class OperateImageBaselineWhitelistRequest extends Model
 {
     /**
+     * @example hc.image.checklist.identify.hc_exploit_es_linux.item
+     *
      * @var string
      */
     public $baselineItemKeyList;
 
     /**
+     * @example a5250ebca765dc9eb1a84b790b0e****
+     *
      * @var string
      */
     public $imageUuid;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example add
+     *
      * @var string
      */
     public $operation;

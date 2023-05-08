@@ -10,81 +10,154 @@ use AlibabaCloud\Tea\Model;
 class onceTasks extends Model
 {
     /**
+     * @description The time when the sub-task ends.
+     *
+     * @example 1670307567000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description Indicates whether the sub-task is complete.
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $finish;
 
     /**
+     * @description The number of assets that are scanned.
+     *
+     * @example 67
+     *
      * @var string
      */
     public $finishCount;
 
     /**
+     * @description The progress percentage of the sub-task.
+     *
+     * @example 75
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The execution duration of the sub-task.
+     *
+     * @example 1670307567000
+     *
      * @var int
      */
     public $realRunTime;
 
     /**
+     * @description The execution result of the task.
+     *
+     * @example TASK_NOT_SUPPORT_REGION
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @description The time when the sub-task starts.
+     *
+     * @example 1640102400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status information.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The status of the sub-task. Valid values:
+     *
+     *   **INIT**: The sub-task is not started.
+     *   **START**: The sub-task is started.
+     *   **SUCCESS**: The sub-task is complete.
+     *   **TIMEOUT**: The sub-task timed out.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $statusText;
 
     /**
+     * @description The objective of the sub-task.
+     *
+     * @example 238cf050a7270dd6940602e70f1e5a11eeaf4e02035f445b7f613ff5e064****
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The type of the asset on which the sub-task is performed.
+     *
+     *   **IMAGE_REPO**: image repository
+     *   **IMAGE**: image
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The sub-task ID.
+     *
+     * @example 9fb50f2af8bb67c9fdb684194c83****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The information about the image scan.
+     *
      * @var taskImageInfo
      */
     public $taskImageInfo;
 
     /**
+     * @description The name of the sub-task.
+     *
+     * @example IMAGE_SCAN
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the sub-task.
+     *
+     * @example IMAGE_SCAN
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $totalCount;

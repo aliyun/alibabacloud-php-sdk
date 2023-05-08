@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description An array that consists of the fingerprints of the processes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description ./8888
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

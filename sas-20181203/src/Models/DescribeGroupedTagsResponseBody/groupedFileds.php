@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class groupedFileds extends Model
 {
     /**
+     * @example 152
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example InternetIp
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 3252366
+     *
      * @var int
      */
     public $tagId;

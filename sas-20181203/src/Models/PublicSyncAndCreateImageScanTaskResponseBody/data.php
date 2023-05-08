@@ -9,46 +9,70 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canCreate;
 
     /**
+     * @example 1644286364150
+     *
      * @var int
      */
     public $collectTime;
 
     /**
+     * @example 1644286364150
+     *
      * @var int
      */
     public $execTime;
 
     /**
+     * @description PublicSyncAndCreateImageScanTask
+     *
+     * @example 5
+     *
      * @var int
      */
     public $finishCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example a410bb3e68c217a3368bc0238c66886d
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description Adds images to Security Center and creates an image scan task to scan the images.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

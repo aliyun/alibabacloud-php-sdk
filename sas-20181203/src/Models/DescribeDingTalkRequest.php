@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkRequest extends Model
 {
     /**
+     * @description The UID of the user.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The pagination information.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The group IDs.
+     *
+     * @example The language of the content within notifications. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @var string
      */
     public $ruleActionName;

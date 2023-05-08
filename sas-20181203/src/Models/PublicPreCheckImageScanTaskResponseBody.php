@@ -15,6 +15,8 @@ class PublicPreCheckImageScanTaskResponseBody extends Model
     public $data;
 
     /**
+     * @example F9353221-40F4-5F98-B73C-2803DC804033
+     *
      * @var string
      */
     public $requestId;

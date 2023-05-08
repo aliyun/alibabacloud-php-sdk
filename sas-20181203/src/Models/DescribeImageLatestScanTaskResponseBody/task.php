@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @example 2022-12-20 11:59:05
+     *
      * @var string
      */
     public $create;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $finish;
 
     /**
+     * @example 1669693430977
+     *
      * @var int
      */
     public $finishTime;
 
     /**
+     * @example 9755662
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2022-12-20 12:00:05
+     *
      * @var string
      */
     public $modified;
 
     /**
+     * @example IMAGE_SCAN
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example console_batch
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 1668614400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 0a960b9a48b788a8689154b032bf****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example IMAGE_SCAN
+     *
      * @var string
      */
     public $taskType;

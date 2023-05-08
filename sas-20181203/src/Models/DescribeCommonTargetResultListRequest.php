@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonTargetResultListRequest extends Model
 {
     /**
+     * @example 113.57.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example webshell_timescan
+     *
      * @var string
      */
     public $type;

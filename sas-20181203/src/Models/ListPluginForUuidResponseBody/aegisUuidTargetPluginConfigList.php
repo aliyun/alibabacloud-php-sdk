@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class aegisUuidTargetPluginConfigList extends Model
 {
     /**
+     * @description The information about the plug-in.
+     *
      * @var aegisSuspiciousConfigList[]
      */
     public $aegisSuspiciousConfigList;
 
     /**
+     * @description The installation code of the plug-in.
+     *
+     * @example k5O5nd
+     *
      * @var string
      */
     public $pluginInstallCode;
 
     /**
+     * @description The UUID of the server.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * @example alisecguard
+     *
      * @var string
      */
     public $pluginName;
 
     /**
+     * @description The version of the plug-in.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $pluginOnlineInstalled;
 
     /**
+     * @description An array that consists of the configurations of plug-ins.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $pluginOnlineStatus;
 
     /**
+     * @description Indicates whether the plug-in is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 00_10
+     *
      * @var string
      */
     public $pluginVersion;

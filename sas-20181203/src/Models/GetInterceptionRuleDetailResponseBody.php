@@ -15,6 +15,8 @@ class GetInterceptionRuleDetailResponseBody extends Model
     public $interceptionRuleDetail;
 
     /**
+     * @example 9FBC6E47-7508-xxx
+     *
      * @var string
      */
     public $requestId;

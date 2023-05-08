@@ -9,86 +9,178 @@ use AlibabaCloud\Tea\Model;
 class uniBackupPolicies extends Model
 {
     /**
+     * @description The error message for the anti-ransomware agent.
+     *
+     * @example INSTALL_TIMEOUT
+     *
      * @var string
      */
     public $agentErrorMessage;
 
     /**
+     * @description The status of the agent. Valid values:
+     *
+     *   **UNKNOWN**: unknown
+     *   **INSTALLED**: installed
+     *   **INSTALL_FAILED**: installation failed
+     *   **UNINSTALL_FAILED**: uninstallation failed
+     *
+     * @example INSTALLED
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @description The name of the database.
+     *
+     * @example abc123
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MYSQL**
+     *   **MSSQL**
+     *   **Oracle**
+     *
+     * @example MYSQL
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @description The error code returned when the backup task fails.
+     *
+     * @example EXPIRED
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message for the anti-ransomware policy.
+     *
+     * @example AttachRamRoleError
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-9dp7mubt5wit6g0h****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The status of the Elastic Compute Service (ECS) instance. Valid values:
+     *
+     *   **Stopped**
+     *   **Running**
+     *
+     * @example Running
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The UUID of the agent that is used to back up the data of the database.
+     *
+     * @example cf1bcad4063f11ed800000163e0e****
+     *
      * @var string
      */
     public $instanceUuid;
 
     /**
+     * @description The execution result of the last backup task.
+     *
+     * @example completed
+     *
      * @var string
      */
     public $latestBackResult;
 
     /**
+     * @description The time when the last backup task was executed.
+     *
+     * @example 2022-01-01 00:00:11
+     *
      * @var string
      */
     public $latestBackupTime;
 
     /**
+     * @description The status of the backup task. Valid values:
+     *
+     *   **init**: initializing
+     *   **running**: running
+     *   **completed**: complete
+     *   **restoring**: restoring
+     *   **creating**: creating
+     *   **created**: created
+     *
+     * @example creating
+     *
      * @var string
      */
     public $planStatus;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @description The name of the anti-ransomware policy.
+     *
+     * @example auto_oracle_37f
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The status of the anti-ransomware policy. Valid values:
+     *
+     *   **initiating**: initializing
+     *   **opening**: enabled
+     *   **closing**: disabled
+     *   **deleting**: deleting
+     *
+     * @example opening
+     *
      * @var string
      */
     public $policyStatus;
 
     /**
+     * @description The region ID of the server that hosts the database.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $uniRegionId;

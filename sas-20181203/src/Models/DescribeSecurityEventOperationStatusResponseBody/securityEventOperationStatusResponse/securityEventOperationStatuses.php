@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationStatuses extends Model
 {
     /**
+     * @example ignore.Success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 12321
+     *
      * @var string
      */
     public $securityEventId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;

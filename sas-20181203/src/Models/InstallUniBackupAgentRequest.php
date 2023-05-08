@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InstallUniBackupAgentRequest extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     * @example 123
+     *
      * @var int
      */
     public $policyId;

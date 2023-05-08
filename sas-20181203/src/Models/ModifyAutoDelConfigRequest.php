@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoDelConfigRequest extends Model
 {
     /**
+     * @description The number of days after which a detected vulnerability is automatically deleted. Unit: days. Valid values:
+     *
+     *   7
+     *   30
+     *   90
+     *
+     * @example 30
+     *
      * @var int
      */
     public $days;

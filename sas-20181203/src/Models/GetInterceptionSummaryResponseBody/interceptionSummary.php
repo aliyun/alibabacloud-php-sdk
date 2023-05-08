@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class interceptionSummary extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $closeClusterCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $closeRuleCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $clusterCount;
@@ -29,31 +35,43 @@ class interceptionSummary extends Model
     public $interceptionCountInDays;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $openClusterCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $openRuleCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $riskCount180Day;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $riskCount30Day;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $riskCountToday;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ruleCount;

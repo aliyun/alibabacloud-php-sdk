@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationStatusResponse extends Model
 {
     /**
+     * @description DescribeSecurityEventOperationStatus
+     *
      * @var securityEventOperationStatuses[]
      */
     public $securityEventOperationStatuses;
 
     /**
+     * @description Queries the alert events that are triggered by the same IP address rule or of the same alert type as a specific alert event if you want to handle the specific alert event in batch operation mode.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $taskStatus;

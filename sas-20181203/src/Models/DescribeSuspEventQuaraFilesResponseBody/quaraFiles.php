@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class quaraFiles extends Model
 {
     /**
+     * @description The unique ID of the event.
+     *
+     * @example WEBSHELL
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The MD5 hash value of the quarantined file.
+     *
+     * @example WebshellQuaraEventType
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description 172.16.XX.XX
+     *
+     * @example 26918
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the server on which the quarantined file is located.
+     *
+     * @example i-2ze9t1qp36n1436m****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the quarantined file.
+     *
+     * @example iZwz98dkiw3vbrtqrt5v****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example 47.XX.XX.131
+     *
      * @var string
      */
     public $internetIp;
@@ -44,41 +68,71 @@ class quaraFiles extends Model
     public $intranetIp;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 47.XX.XX.131
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The public IP address of the server on which the quarantined file is located.
+     *
+     * @example https://xxx.xxx/xxx
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The private IP address of the server on which the quarantined file is located.
+     *
+     * @example 5ddebe926acc7ed39a664409bfd0ec10
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @example 2020-06-11 20:37:08
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The time when the quarantined file was last modified.
+     *
+     * @example /var/www/html/webshell-sample-master/others/defc3e21bab59e2a2ab49f7eda99f65f83d4d349.jpg
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The public IP address of the server on which the quarantined file is located.
+     *
+     * @example rollbackDone
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the event.
+     *
+     * @example 228f890e56eae9eec6a42c7ea801b538
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The path to the quarantined file on the server.
+     *
+     * @example 04a0e735-ad32-4835-b635-0458d77b****
+     *
      * @var string
      */
     public $uuid;

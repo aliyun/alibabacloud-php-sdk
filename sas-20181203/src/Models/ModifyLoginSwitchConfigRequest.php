@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoginSwitchConfigRequest extends Model
 {
     /**
+     * @description The type of the logon security settings that you want to enable or disable. Valid values:
+     *
+     *   **login\_common_ip**: unapproved logon IP addresses
+     *   **login\_common_time**: unapproved logon time ranges
+     *   **login\_common_account**: unapproved logon accounts
+     *
+     * @example login_common_account
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @description Specifies whether to enable the logon security settings. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;

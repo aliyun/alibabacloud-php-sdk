@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeAttackAnalysisDataRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $base64;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example {"crack_type":"9"}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 1649040221
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1644027670
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example DETAILS
+     *
      * @var string
      */
     public $type;

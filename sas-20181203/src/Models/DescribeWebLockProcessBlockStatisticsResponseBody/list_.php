@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of processes on the current page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The process.
+     *
+     * @example cron
+     *
      * @var string
      */
     public $process;

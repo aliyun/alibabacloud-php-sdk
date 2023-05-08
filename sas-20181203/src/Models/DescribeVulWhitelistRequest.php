@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulWhitelistRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

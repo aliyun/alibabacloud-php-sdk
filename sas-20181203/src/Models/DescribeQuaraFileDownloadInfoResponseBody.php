@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeQuaraFileDownloadInfoResponseBody extends Model
 {
     /**
+     * @description The URL that is used to download the file. The URL is valid for five minutes.
+     *
+     * @example https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @description The MD5 hash value of the quarantined file.
+     *
+     * @example bb62ef1311bc564377a0378d3axxxxxx
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The file path.
+     *
+     * @example /etc/test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The ID of the quarantined file.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $quaraFileId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 29874225-EAAC-5415-8501-32DD20FXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tag that is added to the related alert.
+     *
+     * @example 6d4ff40a22b15c86adecf2aa48xxxxx
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
+     *
      * @var string
      */
     public $uuid;

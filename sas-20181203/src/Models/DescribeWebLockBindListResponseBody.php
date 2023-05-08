@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListResponseBody extends Model
 {
     /**
+     * @description 116.30.XX.XX
+     *
      * @var bindList[]
      */
     public $bindList;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of protected directories.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The operating system that the server runs.
+     *
+     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the servers that have web tamper proofing enabled.
+     *
+     * @example 11409
+     *
      * @var int
      */
     public $totalCount;

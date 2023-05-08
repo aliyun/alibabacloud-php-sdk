@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PageImageRegistryRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example asa
+     *
      * @var string
      */
     public $registryNameLike;
@@ -34,6 +40,8 @@ class PageImageRegistryRequest extends Model
     public $registryTypeNotInList;
 
     /**
+     * @example 140.207.XXX.XXX
+     *
      * @var string
      */
     public $sourceIp;

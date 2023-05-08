@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class basicData extends Model
 {
     /**
+     * @example 300054
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example rm-m5es7ch1s62i4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sg-t4nbk2aodzio52xv****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example NOT_PASS
+     *
      * @var string
      */
     public $status;

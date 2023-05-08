@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCaptchaRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2020-10-11 16:26:22
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @description The validity period of the installation verification code. If this parameter is not specified, the validity period is 1 hour.
+     *
+     * >  The installation verification code is valid only within the validity period. An expired installation verification code cannot be used to install the agent.
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description zh
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

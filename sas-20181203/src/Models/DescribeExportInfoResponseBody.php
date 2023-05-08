@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportInfoResponseBody extends Model
 {
     /**
+     * @description The number of exported entries.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $currentCount;
 
     /**
+     * @description The status of the export task.
+     *
+     * Valid values:
+     *
+     *   **init**: The task is being initialized.
+     *   **exporting**: The task is in progress.
+     *   **success**: The task is complete.
+     *
+     * @example success
+     *
      * @var string
      */
     public $exportStatus;
 
     /**
+     * @description The name of the exported Excel file.
+     *
+     * @example health_check_export_20171123
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The ID of the export task.
+     *
+     * @example 131231
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The URL at which you can download the exported Excel file.
+     *
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The message that shows the task result. The value is fixed as **success**, which indicates that the task is complete.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The progress percentage of the export task.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries in the exported Excel file.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

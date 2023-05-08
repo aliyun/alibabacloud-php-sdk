@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example /data
+     *
      * @var string
      */
     public $source;

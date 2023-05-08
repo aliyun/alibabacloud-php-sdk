@@ -9,71 +9,105 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulRequest extends Model
 {
     /**
+     * @example RHSA-2019:0230-Important: polkit security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example ECS,CONTAINER
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $attachTypes;
 
     /**
+     * @example appName
+     *
      * @var string
      */
     public $containerFieldName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @example 235454
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example asap,later,nntf
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Code Execution
+     *
      * @var string
      */
     public $searchTags;
 
     /**
+     * @example containerId
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The total number of fixed vulnerabilities.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The number of vulnerabilities that have the **high** priority.
+     *
+     * @example d42f938c-d962-48a0-90f9-05e4ea****
+     *
      * @var string
      */
     public $uuids;

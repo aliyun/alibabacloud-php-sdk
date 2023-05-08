@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetLastOnceTaskInfoRequest extends Model
 {
     /**
+     * @description The number of tasks that have been completed.
+     *
+     * @example console_batch
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The ID of the latest scan task.
+     *
+     * @example ASSETS_COLLECTION
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example ASSETS_COLLECTION
+     *
      * @var string
      */
     public $taskType;

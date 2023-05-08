@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class riskCheckSummary extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $affectedAssetCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $disabledRiskCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $enabledRiskCount;
@@ -31,21 +37,29 @@ class riskCheckSummary extends Model
     public $groups;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $itemCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $previousCount;
 
     /**
+     * @example 1545012926000
+     *
      * @var int
      */
     public $previousTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskCount;
@@ -56,6 +70,8 @@ class riskCheckSummary extends Model
     public $riskLevelCount;
 
     /**
+     * @example 0.25
+     *
      * @var float
      */
     public $riskRate;

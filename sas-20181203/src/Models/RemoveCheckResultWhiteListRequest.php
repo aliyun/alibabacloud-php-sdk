@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class RemoveCheckResultWhiteListRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example Deprecated
+     *
      * @var string
      */
     public $checkGroupId;
 
     /**
+     * @description The IDs of check items.
+     *
      * @var int[]
      */
     public $checkIds;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example Deprecated
+     *
      * @var string
      */
     public $type;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedTagsRequest extends Model
 {
     /**
+     * @description ecs
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;

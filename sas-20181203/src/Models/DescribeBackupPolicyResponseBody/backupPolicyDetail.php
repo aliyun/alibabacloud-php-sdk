@@ -9,36 +9,61 @@ use AlibabaCloud\Tea\Model;
 class backupPolicyDetail extends Model
 {
     /**
+     * @example running
+     *
      * @var string
      */
     public $clientStatus;
 
     /**
+     * @example 51880
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example testBuckUp
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description DescribeBackupPolicy
+     *
+     * @example {
+     * "System Volume Information\\",
+     * "Users\\Administrator\\NTUSER.DAT*",
+     * "pagefile.sys",
+     * "Users\\Default\\NTUSER.DAT*",
+     * "Users\\Administrator\\ntuser.*"
+     * }
      * @var string
      */
     public $policy;
 
     /**
+     * @description Queries the details of an anti-ransomware policy for servers.
+     *
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * @example closed
+     *
      * @var string
      */
     public $status;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceLinkedRoleResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example B94243D2-9342-4D82-87B9-DF9A038A87E1
      *
      * @var string

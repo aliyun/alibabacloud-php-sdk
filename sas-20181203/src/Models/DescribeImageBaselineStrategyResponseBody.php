@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F85AC10-A1FE-54D7-935A-F28D5256****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the information about the baseline check policy.
+     *
      * @var strategy
      */
     public $strategy;

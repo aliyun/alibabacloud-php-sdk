@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserLayoutAuthorizationResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $authorized;
 
     /**
+     * @example 4A80EE8F-2175-49DA-B8BF-FAE1B3D52E4C
+     *
      * @var string
      */
     public $requestId;

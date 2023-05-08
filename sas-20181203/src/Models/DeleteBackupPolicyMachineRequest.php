@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupPolicyMachineRequest extends Model
 {
     /**
-     * @description The ID of the anti-ransomware policy.
-     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the **Id** of anti-ransomware policies.
      * @example 11
      *
      * @var int
@@ -18,12 +16,6 @@ class DeleteBackupPolicyMachineRequest extends Model
     public $policyId;
 
     /**
-     * @description The version of the anti-ransomware policy. Valid values:
-     *
-     *   **1.0.0**
-     *   **2.0.0**
-     *
-     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies.
      * @example 2.0.0
      *
      * @var string
@@ -31,9 +23,6 @@ class DeleteBackupPolicyMachineRequest extends Model
     public $policyVersion;
 
     /**
-     * @description The UUID of the server to which the anti-ransomware policy is applied.
-     *
-     * >  You must specify at least one of the `UuidList` and `Uuid` parameters.
      * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
      *
      * @var string
@@ -41,9 +30,6 @@ class DeleteBackupPolicyMachineRequest extends Model
     public $uuid;
 
     /**
-     * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
-     *
-     * >  You must specify at least one of the `UuidList` and `Uuid` parameters.
      * @var string[]
      */
     public $uuidList;

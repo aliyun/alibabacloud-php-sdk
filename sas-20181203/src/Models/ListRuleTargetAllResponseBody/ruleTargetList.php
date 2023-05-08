@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ruleTargetList extends Model
 {
     /**
+     * @example 301944
+     *
      * @var int
      */
     public $targetId;
 
     /**
+     * @example source-test-obj-xFKcx
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyTargetRequest extends Model
 {
     /**
+     * @description WB01014029
+     *
+     * @example {"strategyId":8167126}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description Queries the information about the assets to which a baseline check policy is applied.
+     *
+     * @example 1.2.X.X
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description DescribeStrategyTarget
+     *
+     * @example hc_strategy
+     *
      * @var string
      */
     public $type;

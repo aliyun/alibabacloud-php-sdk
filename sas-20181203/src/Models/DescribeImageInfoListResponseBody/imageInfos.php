@@ -9,111 +9,155 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $alarmCount;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $alarmStatus;
 
     /**
+     * @example a3521b04dfdd1361a24be6263f2983cf12ba910989f4d9f7324da7e1e89f****
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @example cn-hangzhou-x7
+     *
      * @var string
      */
     public $endpoints;
 
     /**
+     * @example 1636962328000
+     *
      * @var int
      */
     public $imageCreate;
 
     /**
+     * @example bb0175afea16138815a8900adeeb0315d88a83a2376eeffa14db1d693a15****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example 157408623
+     *
      * @var int
      */
     public $imageSize;
 
     /**
+     * @example 1636974116000
+     *
      * @var int
      */
     public $imageUpdate;
 
     /**
+     * @example i-wz95abw6pa7y79ve****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @example crr-5qk9v2rdt0s****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example opa-test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example libssh2
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tagImmutable;
 
     /**
+     * @example ff9ca084-7faa-4ab2-8728-69024755****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $vulCount;
 
     /**
+     * @example YES
+     *
      * @var string
      */
     public $vulStatus;

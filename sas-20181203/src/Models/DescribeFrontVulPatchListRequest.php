@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFrontVulPatchListRequest extends Model
 {
     /**
+     * @example [{"name":"5000803","uuid":"026c9296-1234-5678-b937-a7d81f05****","tag":"system"}]
+     *
      * @var string
      */
     public $info;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example vul_fix
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @example sys
+     *
      * @var string
      */
     public $type;

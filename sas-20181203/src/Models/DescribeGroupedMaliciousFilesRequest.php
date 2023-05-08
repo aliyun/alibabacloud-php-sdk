@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesRequest extends Model
 {
     /**
+     * @example c556c8133b5ad4378b7fc533ddbda****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example Mining
+     *
      * @var string
      */
     public $fuzzyMaliciousName;
 
     /**
+     * @example 6a5e103187b31a94592a47a5858617f7****
+     *
      * @var string
      */
     public $imageDigest;
 
     /**
+     * @example 27213ad375b53628dd152a5ca****
+     *
      * @var string
      */
     public $imageLayer;
 
     /**
+     * @example 0.2
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example serious
+     *
      * @var string
      */
     public $levels;
 
     /**
+     * @example d836968041f7683b5459****
+     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example crr-vridcl4****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example cri-datvailb****
+     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
+     * @example centos
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example hanghai-namespace
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $repoRegionId;

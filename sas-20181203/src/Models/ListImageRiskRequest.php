@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListImageRiskRequest extends Model
 {
     /**
+     * @example e****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example c80f79959fd724a888e1187779b13****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example container-***:****
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example kube-sy****
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

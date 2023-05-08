@@ -9,36 +9,82 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The micro-segmentation switch. Valid values:
+     *
+     *   **0**: The switch is turned off.
+     *   **1**: The switch is turned on.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cnnfSwitch;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example cfeb7a9f99ce740e98c5595d0fe37****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **0**: classic network
+     *   **1**: virtual private cloud (VPC)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $interceptionType;
 
     /**
+     * @description The name of the node.
+     *
+     * @example testwww
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The network topology switch. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example ON
+     *
      * @var string
      */
     public $netTopoSwitch;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **3**: high
+     *   **2**: medium
+     *   **1**: low
+     *   **0**: warning
+     *   **-1**: unknown
+     *
+     * @example 3
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **cluster**: a cluster
+     *   **internet**: a node in another cluster
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $type;

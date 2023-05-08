@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckRiskStatisticsResponseBody extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
@@ -20,6 +22,8 @@ class GetCheckRiskStatisticsResponseBody extends Model
     public $data;
 
     /**
+     * @example 2C455672-2490-5211-84EC-420C7818****
+     *
      * @var string
      */
     public $requestId;

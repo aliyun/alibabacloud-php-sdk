@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class OpenSensitiveFileScanResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class OpenSensitiveFileScanResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B4A4C081-7F06-5481-9323-02A5419B9423
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

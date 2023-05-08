@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronDetailRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The details of the scheduled tasks.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description Specifies whether fuzzy search by path to the scheduled task is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     *
+     * @example /etc/cron.d/root
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The path to the scheduled task.
+     *
+     * @example root
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
+     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
      * @var string
      */
     public $uuid;

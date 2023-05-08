@@ -10,56 +10,93 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @example common
+     *
      * @var string
      */
     public $customType;
 
     /**
+     * @description The alias of the sub-check item.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $cycleDays;
 
     /**
+     * @description The details of the rule.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cycleStartTime;
 
     /**
+     * @example 03:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The time period during which the check starts. Valid values:
+     *
+     *   **0**: 00:00 to 06:00
+     *   **6**: 06:00 to 12:00
+     *   **12**: 12:00 to 18:00
+     *   **18**: 18:00 to 24:00
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example TestStrategy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
+     *
      * @var string
      */
     public $riskSubTypeName;
 
     /**
+     * @description The check item.
+     *
      * @var riskTypeWhiteListQueryResultList[]
      */
     public $riskTypeWhiteListQueryResultList;
 
     /**
+     * @example 02:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The name of the rule parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $type;

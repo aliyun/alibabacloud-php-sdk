@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfflineMachinesRequest extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionIdStr;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 180.113.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vendor;

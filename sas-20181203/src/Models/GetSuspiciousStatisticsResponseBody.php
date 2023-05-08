@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetSuspiciousStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of alerts whose Emergency level is Reminder.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remindCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 84092B42-1A59-4F34-8DF8-1D93520990A5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of alerts whose Emergency level is Urgent.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $seriousCount;
 
     /**
+     * @description The number of alerts whose Emergency level is Suspicious.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $suspiciousCount;
 
     /**
+     * @description The total number of alerts.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $totalCount;

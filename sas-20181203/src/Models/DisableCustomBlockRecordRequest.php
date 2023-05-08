@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DisableCustomBlockRecordRequest extends Model
 {
     /**
+     * @example 62.233.XX.XX
+     *
      * @var string
      */
     public $blockIp;
 
     /**
+     * @example in
+     *
      * @var string
      */
     public $bound;

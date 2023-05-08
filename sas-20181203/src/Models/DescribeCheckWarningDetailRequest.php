@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningDetailRequest extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 98675301
+     *
      * @var int
      */
     public $checkWarningId;
 
     /**
+     * @description The ID of the check item.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The additional information about the risk item.
+     *
+     * @example 103.25.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

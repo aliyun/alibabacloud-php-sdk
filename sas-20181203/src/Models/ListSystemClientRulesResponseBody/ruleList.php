@@ -20,6 +20,8 @@ class ruleList extends Model
     public $description;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $platform;
@@ -30,6 +32,8 @@ class ruleList extends Model
     public $policies;
 
     /**
+     * @example 30****
+     *
      * @var int
      */
     public $ruleId;
@@ -40,16 +44,22 @@ class ruleList extends Model
     public $ruleName;
 
     /**
+     * @example alihips
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example online
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example USER-ENABLE-SWITCH-TYPE_****
+     *
      * @var string
      */
     public $switchId;

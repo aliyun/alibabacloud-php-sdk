@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningMachinesResponseBody extends Model
 {
     /**
+     * @description The number of the servers on which the same risk item is detected.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description An array consisting of the servers on which the same risk item is detected.
+     *
      * @var machines[]
      */
     public $machines;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example B3D989EB-2E59-584C-8438-5DFAA34A****
+     *
      * @var string
      */
     public $requestId;

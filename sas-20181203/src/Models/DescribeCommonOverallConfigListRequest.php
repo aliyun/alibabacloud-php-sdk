@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonOverallConfigListRequest extends Model
 {
     /**
+     * @example 119.136.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

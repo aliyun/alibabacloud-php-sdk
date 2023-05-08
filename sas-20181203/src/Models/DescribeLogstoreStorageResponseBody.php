@@ -9,31 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstoreStorageResponseBody extends Model
 {
     /**
+     * @description WB01014029
+     *
+     * @example sas-log
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @example 12240
+     *
      * @var int
      */
     public $preserve;
 
     /**
+     * @description 谈佳伟
+     *
+     * @example 25EC270F-5783-4416-AD7C-1EDF063A039C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description DescribeLogstoreStorage
+     *
+     * @example 180
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description Queries the purchased log storage capacity.
+     *
+     * @example 335
+     *
      * @var int
      */
     public $used;
 
     /**
+     * @example sas-log-XXXX-cn-hangzhou
+     *
      * @var string
      */
     public $userProject;

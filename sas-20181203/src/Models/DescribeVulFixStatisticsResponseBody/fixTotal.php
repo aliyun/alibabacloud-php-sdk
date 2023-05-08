@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class fixTotal extends Model
 {
     /**
+     * @example 15
+     *
      * @var int
      */
     public $fixedTodayNum;
 
     /**
+     * @example 47
+     *
      * @var int
      */
     public $fixedTotalNum;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $fixingNum;
 
     /**
+     * @example 62
+     *
      * @var int
      */
     public $needFixNum;

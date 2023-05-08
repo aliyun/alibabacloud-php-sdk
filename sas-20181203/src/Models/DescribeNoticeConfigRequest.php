@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNoticeConfigRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 60.191.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

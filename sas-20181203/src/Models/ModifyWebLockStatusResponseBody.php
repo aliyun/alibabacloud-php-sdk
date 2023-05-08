@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     *
      * @var string
      */
     public $requestId;

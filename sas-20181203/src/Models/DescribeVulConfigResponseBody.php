@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the configurations of vulnerability management.
+     *
      * @var targetConfigs[]
      */
     public $targetConfigs;
 
     /**
+     * @description The total number of configurations.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

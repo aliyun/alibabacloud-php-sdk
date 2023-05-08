@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9089D0AB-835F-5663-AB5E-4FF646BB****
+     *
      * @var string
      */
     public $requestId;

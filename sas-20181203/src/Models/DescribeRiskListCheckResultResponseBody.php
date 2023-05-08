@@ -15,6 +15,8 @@ class DescribeRiskListCheckResultResponseBody extends Model
     public $list;
 
     /**
+     * @example 3BFB4989-A108-46A4-954E-FF7EF02D1078
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedTagsResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $count;
@@ -20,16 +22,28 @@ class DescribeGroupedTagsResponseBody extends Model
     public $groupedFileds;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description Queries the statistics of asset tags.
+     *
+     * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description DescribeGroupedTags
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

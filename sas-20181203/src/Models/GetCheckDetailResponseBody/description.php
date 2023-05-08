@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class description extends Model
 {
     /**
+     * @example https://www.alibabacloud.com/help/en/object-storage-service/latest/tutorial-implement-data-sharing-across-departments-based-on-bucket-policies
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example The MSE instance does not enable authentication by default. If public network access is enabled at the same time, the data in the configuration center may be dragged and there is a security risk.
+     *
      * @var string
      */
     public $value;

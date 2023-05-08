@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class clients extends Model
 {
     /**
-     * @description The ID of the anti-ransomware agent.
-     *
      * @example c-000az2f537r73dyh****
      *
      * @var string
@@ -18,17 +16,6 @@ class clients extends Model
     public $clientId;
 
     /**
-     * @description The status of the anti-ransomware agent.
-     *
-     * Valid values:
-     *
-     *   **INSTALLING**: The agent is being installed.
-     *   **ONLINE**: The agent is online.
-     *   **UNINSTALLING**: The agent is being uninstalled.
-     *   **NOT_INSTALLED**: The agent is not installed.
-     *   **ACTIVATED**: The agent is enabled.
-     *   **CLIENT\_CONNECTION_ERROR**: A connection error occurs on the agent.
-     *
      * @example ONLINE
      *
      * @var string
@@ -36,8 +23,6 @@ class clients extends Model
     public $clientStatus;
 
     /**
-     * @description The version of the anti-ransomware agent.
-     *
      * @example 2.0.0
      *
      * @var string
@@ -45,8 +30,6 @@ class clients extends Model
     public $clientVersion;
 
     /**
-     * @description The ID of the ECS instance on which the anti-ransomware agent is installed.
-     *
      * @example i-bp15hyph4aci99dv****
      *
      * @var string
@@ -54,8 +37,6 @@ class clients extends Model
     public $instanceId;
 
     /**
-     * @description The UUID of the Elastic Compute Service (ECS) instance on which the anti-ransomware agent is installed.
-     *
      * @example 22f6550d-f294-449b-b6e6-90638fd1****
      *
      * @var string

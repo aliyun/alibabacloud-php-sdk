@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyClearLogstoreStorageRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example sas_sls_storage
+     *
      * @var string
      */
     public $userLogStore;
 
     /**
+     * @example sas-log-1234(uid)-cn-hangzhou
+     *
      * @var string
      */
     public $userProject;

@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotPresetRequest extends Model
 {
     /**
+     * @example 84104b7b-a2bc-41df-a190-12298f99xxxx
+     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
+     * @description 设置请求和接收消息的语言类型，默认为**zh**。取值：
+     * - **zh**：中文
+     * - **en**：英文
+     * @example zh
+     *
      * @var string
      */
     public $lang;

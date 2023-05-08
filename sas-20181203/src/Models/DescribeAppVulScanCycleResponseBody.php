@@ -9,12 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppVulScanCycleResponseBody extends Model
 {
     /**
-     * @description The scan cycle for application vulnerabilities.
-     *
-     *   1week
-     *   2weeks
-     *   3days
-     *
      * @example 1week
      *
      * @var string
@@ -22,8 +16,6 @@ class DescribeAppVulScanCycleResponseBody extends Model
     public $cycle;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 934E6D2A-0123-5A99-88BA-80DC27634E22
      *
      * @var string

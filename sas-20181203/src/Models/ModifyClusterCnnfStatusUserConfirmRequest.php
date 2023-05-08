@@ -14,6 +14,8 @@ class ModifyClusterCnnfStatusUserConfirmRequest extends Model
     public $clusterIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $userConfirm;

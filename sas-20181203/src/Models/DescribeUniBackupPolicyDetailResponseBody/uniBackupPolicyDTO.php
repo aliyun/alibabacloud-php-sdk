@@ -11,61 +11,127 @@ use AlibabaCloud\Tea\Model;
 class uniBackupPolicyDTO extends Model
 {
     /**
+     * @description The status of the database client. Valid values:
+     *
+     *   **UNKNOWN**: unknown
+     *   **INSTALLED**: installed
+     *   **INSTALL_FAILED**: installation failed
+     *   **UNINSTALL_FAILED**: uninstallation failed
+     *
+     * @example admin
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * @example INSTALLED
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @description The status of the anti-ransomware policy. Valid values:
+     *
+     *   **initiating**: initializing
+     *   **opening**: enabled
+     *   **closing**: disabled
+     *   **deleting**: deleting
+     *
+     * @example ORACLE
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @description The name of the database account.
+     *
      * @var fullPlan
      */
     public $fullPlan;
 
     /**
+     * @description The day of a week on which the backup is performed. Valid values:
+     *
+     *   **0**: Sunday
+     *   **1**: Monday
+     *   **2**: Tuesday
+     *   **3**: Wednesday
+     *   **4**: Thursday
+     *   **5**: Friday
+     *   **6**: Saturday
+     *
      * @var incPlan
      */
     public $incPlan;
 
     /**
+     * @description The name of the anti-ransomware policy.
+     *
+     * @example i-2zefcy2id5d60m9t****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MYSQL**
+     *   **MSSQL**
+     *   **Oracle**
+     *
+     * @example sql-test-01
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @description The maximum network bandwidth that is allowed during data backup. Unit: bytes.
+     *
+     * @example auto_test_sql
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The details of the anti-ransomware policy.
+     *
+     * @example opening
+     *
      * @var string
      */
     public $policyStatus;
 
     /**
+     * @description The name of the server.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $retention;
 
     /**
+     * @description The retention period of the backup snapshot.
+     *
+     * @example 5242880
+     *
      * @var int
      */
     public $speedLimiter;

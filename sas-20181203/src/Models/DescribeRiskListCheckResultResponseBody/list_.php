@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example rm-bp1e8t4q15sr3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $riskCount;

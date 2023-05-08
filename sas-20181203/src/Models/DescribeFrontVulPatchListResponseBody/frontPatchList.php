@@ -15,6 +15,8 @@ class frontPatchList extends Model
     public $patchList;
 
     /**
+     * @example 1587bedb-fdb4-48c4-9330-4545****
+     *
      * @var string
      */
     public $uuid;

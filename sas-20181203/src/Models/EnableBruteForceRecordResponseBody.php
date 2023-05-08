@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableBruteForceRecordResponseBody extends Model
 {
     /**
+     * @example DFAECA37-4660-5EB6-9A18-8FDF56B3****
+     *
      * @var string
      */
     public $requestId;

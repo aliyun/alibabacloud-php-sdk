@@ -9,36 +9,68 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileEventsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Specifies whether the event on web tamper proofing is handled. Valid values:
+     *
+     *   **n**: The event on web tamper proofing is handled.
+     *   **y**: The event on web tamper proofing is not handled.
+     *
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the process.
+     *
+     * @example sys_create
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @description The name of the asset.
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the names of assets.
+     * @example test-ecs
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp.
+     *
+     * @example 1660649981419
+     *
      * @var int
      */
     public $tsBegin;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp.
+     *
+     * @example 1660649981419
+     *
      * @var int
      */
     public $tsEnd;

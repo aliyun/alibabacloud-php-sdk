@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotPresetRequest extends Model
 {
     /**
+     * @description The ID of the honeypot template.
+     *
+     * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
+     * @example 207ca117-44b9-495d-84e7-50289b4cxxxx
+     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;

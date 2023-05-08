@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientUserDefineRuleRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $actionType;
 
     /**
+     * @example /usr/sbin/s****
+     *
      * @var string
      */
     public $cmdline;
 
     /**
+     * @example /etc/pam.d/su****
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example 210****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example aa5ee3ed4363c9d195a591a70281****,3e522d6f3bf5cf88bb77e9ff3d13****
+     *
      * @var string
      */
     public $md5List;
@@ -44,51 +56,71 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $name;
 
     /**
+     * @example /etc/pam****
+     *
      * @var string
      */
     public $newFilePath;
 
     /**
+     * @example /usr/sbin/s****
+     *
      * @var string
      */
     public $parentCmdline;
 
     /**
+     * @example C:/Windows/System32/cmd****
+     *
      * @var string
      */
     public $parentProcPath;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $portStr;
 
     /**
+     * @example /root/1111/****
+     *
      * @var string
      */
     public $procPath;
 
     /**
+     * @example SECOH-QAD****
+     *
      * @var string
      */
     public $registryContent;
 
     /**
+     * @example HKEY_DYN_****
+     *
      * @var string
      */
     public $registryKey;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;

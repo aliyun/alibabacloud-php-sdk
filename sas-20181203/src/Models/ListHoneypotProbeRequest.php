@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotProbeRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example probe-test
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $probeStatus;
 
     /**
+     * @example host_probe
+     *
      * @var string
      */
     public $probeType;

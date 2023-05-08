@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @description An array that contains the baselines.
+     *
      * @var baselineItemList[]
      */
     public $baselineItemList;
 
     /**
+     * @description The number of selected baseline check items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $selectedItemCount;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * @example 8257
+     *
      * @var int
      */
     public $strategyId;
 
     /**
+     * @description The name of the baseline check policy.
+     *
+     * @example default
+     *
      * @var string
      */
     public $strategyName;
 
     /**
+     * @description The total number of baseline check items.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalItemCount;
 
     /**
+     * @description The type of the baseline check policy. Valid values:
+     *
+     *   **default**: the default policy
+     *   **full**: a policy that uses all baselines
+     *   **normal**: a policy that uses general baselines
+     *
+     * @example default
+     *
      * @var string
      */
     public $type;

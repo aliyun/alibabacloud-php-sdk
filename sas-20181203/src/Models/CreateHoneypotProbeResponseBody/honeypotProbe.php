@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class honeypotProbe extends Model
 {
     /**
+     * @example b69e9aa8-2ea8-4c5a-836a-c1fbacff****
+     *
      * @var string
      */
     public $probeId;

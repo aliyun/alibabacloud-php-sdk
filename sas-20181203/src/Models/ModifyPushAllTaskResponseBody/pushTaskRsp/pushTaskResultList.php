@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class pushTaskResultList extends Model
 {
     /**
+     * @description The region in which the server resides.
+     *
+     * @example 226
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example i-wz9f7wlklxqnvdk****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example TestInstance
+     *
      * @var string
      */
     public $instanceName;
@@ -29,31 +39,57 @@ class pushTaskResultList extends Model
     public $ip;
 
     /**
+     * @description ModifyPushAllTask
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Performs security check tasks on servers with a few clicks.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $osVersion;
 
     /**
+     * @description 1.2.XX.XX
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates whether the Security Center agent is online. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
+     * @example 5493fe42-61f5-4627-9aa2-8c449bbe****
+     *
      * @var string
      */
     public $uuid;

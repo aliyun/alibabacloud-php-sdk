@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNetworkResponseBody extends Model
 {
     /**
+     * @description Information about the network topology edge in the cluster.
+     *
      * @var clusterNetwork
      */
     public $clusterNetwork;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example C286491D-4A2F-589A-B63B-D2AD3DA9BD71
+     *
      * @var string
      */
     public $requestId;

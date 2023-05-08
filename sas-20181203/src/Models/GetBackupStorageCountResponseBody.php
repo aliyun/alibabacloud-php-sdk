@@ -15,6 +15,8 @@ class GetBackupStorageCountResponseBody extends Model
     public $backupStorageCount;
 
     /**
+     * @example 33C2CCFF-4BF8-5F88-9B5C-22F932F80E5A
+     *
      * @var string
      */
     public $requestId;

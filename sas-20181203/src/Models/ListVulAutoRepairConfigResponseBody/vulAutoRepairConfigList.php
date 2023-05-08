@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class vulAutoRepairConfigList extends Model
 {
     /**
+     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example 37338
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example anolisos:8.4:ANSA-2022:0001
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example The vulnerability fix is risk-free and can be configured to automate the fix.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $type;

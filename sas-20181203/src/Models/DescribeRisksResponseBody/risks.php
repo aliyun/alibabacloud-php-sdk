@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class risks extends Model
 {
     /**
+     * @description The description of the baseline.
+     *
+     * @example Ubuntu 14,Ubuntu 16 ,Ubuntu 18,Ubuntu 20 baseline based on Alibaba Cloud best security practices
+     *
      * @var string
      */
     public $riskDetail;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * @example 54
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description The name of the baseline.
+     *
+     * @example Alibaba Cloud Standard - Ubuntu Security Baseline
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description The name of the baseline type.
+     *
+     * @example cis
+     *
      * @var string
      */
     public $riskType;
 
     /**
+     * @description The name of the baseline subtype.
+     *
+     * @example hc_ubuntu
+     *
      * @var string
      */
     public $subRiskType;
 
     /**
+     * @description The display name of the baseline subtype.
+     *
+     * @example Alibaba Cloud Standard - Ubuntu Security Baseline
+     *
      * @var string
      */
     public $subTypeAlias;
 
     /**
+     * @description The display name of the baseline type.
+     *
+     * @example Best security practices
+     *
      * @var string
      */
     public $typeAlias;

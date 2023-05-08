@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 8EFA2BD9-00CD-5D69-B6B0-4EE83EAF072E
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class ModifyStrategyResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

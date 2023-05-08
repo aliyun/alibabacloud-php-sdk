@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The pagination information.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The type of the search condition. Valid values:
+     *
+     *   **BaselineNameAlias**: baseline name
+     *   **BaselineClassAlias**: baseline category
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

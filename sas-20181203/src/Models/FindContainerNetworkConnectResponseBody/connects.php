@@ -16,11 +16,15 @@ class connects extends Model
     public $dstContainer;
 
     /**
+     * @example 172.20.62.176
+     *
      * @var string
      */
     public $dstIp;
 
     /**
+     * @example 443
+     *
      * @var string
      */
     public $dstPort;
@@ -31,6 +35,8 @@ class connects extends Model
     public $firstTime;
 
     /**
+     * @example 1458
+     *
      * @var int
      */
     public $id;
@@ -46,11 +52,15 @@ class connects extends Model
     public $srcContainer;
 
     /**
+     * @example 35.233.62.116
+     *
      * @var string
      */
     public $srcIp;
 
     /**
+     * @example 10240
+     *
      * @var string
      */
     public $srcPort;

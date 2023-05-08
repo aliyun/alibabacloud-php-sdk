@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 000
+     *
      * @var string
      */
     public $resourceDirectoryAccountId;

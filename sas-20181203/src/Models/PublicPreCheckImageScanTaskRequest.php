@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class PublicPreCheckImageScanTaskRequest extends Model
 {
     /**
+     * @example 6a5e103187b31a94592a47a5858617f7****
+     *
      * @var string
      */
     public $digests;
 
     /**
+     * @example i-uf6j8vq9l4r5ntht****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionIds;
 
     /**
+     * @example acr
+     *
      * @var string
      */
     public $registryTypes;
 
     /**
+     * @example crr-vridcl4****
+     *
      * @var string
      */
     public $repoIds;
 
     /**
+     * @example centos
+     *
      * @var string
      */
     public $repoNames;
 
     /**
+     * @example hanghai-namespace
+     *
      * @var string
      */
     public $repoNamespaces;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 0.2
+     *
      * @var string
      */
     public $tags;

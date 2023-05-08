@@ -15,6 +15,8 @@ class DescribeSearchConditionResponseBody extends Model
     public $conditionList;
 
     /**
+     * @example 3AEC47AF-8CFA-485E-AC9A-3A8ABC06EA7F
+     *
      * @var string
      */
     public $requestId;

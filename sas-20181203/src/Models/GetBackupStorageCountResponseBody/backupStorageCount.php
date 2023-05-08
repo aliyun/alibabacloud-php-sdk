@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class backupStorageCount extends Model
 {
     /**
+     * @example 2276332666880
+     *
      * @var int
      */
     public $buyStorageByte;
 
     /**
+     * @example 817262417803
+     *
      * @var int
      */
     public $ecsUsageStorageByte;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $overflow;
 
     /**
+     * @example 7453049350
+     *
      * @var int
      */
     public $uniUsageStorageByte;
 
     /**
+     * @example 839621565853
+     *
      * @var int
      */
     public $usageStorageByte;

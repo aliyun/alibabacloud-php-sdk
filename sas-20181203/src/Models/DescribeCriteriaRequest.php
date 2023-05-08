@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCriteriaRequest extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
 
     /**
+     * @description Queries the filter conditions that are used to search for assets in fuzzy match mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportAutoTag;
 
     /**
+     * @description The attribute values of the assets that match the keyword.
+     *
+     * @example 47.96
+     *
      * @var string
      */
     public $value;

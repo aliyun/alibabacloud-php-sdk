@@ -9,127 +9,222 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $aliYunInstanceCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $awsInstanceCount;
 
     /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $azureInstanceCount;
+
+    /**
+     * @description The data returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exposedInstanceCount;
 
     /**
+     * @description The number of server groups.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $generalAssetCount;
 
     /**
+     * @description The type of the asset to query. If no asset types are specified, all types of assets are returned. Valid values:
+     *
+     *   **ecs**: server
+     *   **cloud_product**: Alibaba Cloud service
+     *
+     * @example 20
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $huaweiInstanceCount;
 
     /**
+     * @description DescribeFieldStatistics
+     *
+     * @example 100
+     *
      * @var int
      */
     public $idcInstanceCount;
 
     /**
+     * @description The number of assets that are at risk.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $importantAssetCount;
 
     /**
+     * @description The number of assets that are deployed on Alibaba Cloud.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The number of assets whose importance is common.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $instanceSyncTaskCount;
 
     /**
+     * @description The number of assets whose statuses are unknown.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $newInstanceCount;
 
     /**
+     * @description The number of servers that are shut down.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $noRiskInstanceCount;
 
     /**
+     * @description WB01224678
+     *
+     * @example 10
+     *
      * @var int
      */
     public $notRunningStatusCount;
 
     /**
+     * @description The number of unprotected assets.
+     *
+     * @example 21
+     *
      * @var int
      */
     public $offlineInstanceCount;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $outMachineInstanceCount;
 
     /**
+     * @description Queries the statistics of assets that belong to your account.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pauseInstanceCount;
 
     /**
+     * @description The number of virtual private clouds (VPCs).
+     *
+     * @example 11
+     *
      * @var int
      */
     public $regionCount;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $riskInstanceCount;
 
     /**
+     * @description The number of servers.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $tencentInstanceCount;
 
     /**
+     * @description The number of servers outside the cloud.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $testAssetCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $tripartiteInstanceCount;
 
     /**
+     * @description The number of newly added servers.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $unKnowStatusInstanceCount;
 
     /**
+     * @description The number of servers whose Security Center agent status is Offline.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unprotectedInstanceCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $vpcCount;
     protected $_name = [
         'aliYunInstanceCount'       => 'AliYunInstanceCount',
         'awsInstanceCount'          => 'AwsInstanceCount',
+        'azureInstanceCount'        => 'AzureInstanceCount',
         'exposedInstanceCount'      => 'ExposedInstanceCount',
         'generalAssetCount'         => 'GeneralAssetCount',
         'groupCount'                => 'GroupCount',
@@ -166,6 +261,9 @@ class groupedFields extends Model
         }
         if (null !== $this->awsInstanceCount) {
             $res['AwsInstanceCount'] = $this->awsInstanceCount;
+        }
+        if (null !== $this->azureInstanceCount) {
+            $res['AzureInstanceCount'] = $this->azureInstanceCount;
         }
         if (null !== $this->exposedInstanceCount) {
             $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
@@ -250,6 +348,9 @@ class groupedFields extends Model
         }
         if (isset($map['AwsInstanceCount'])) {
             $model->awsInstanceCount = $map['AwsInstanceCount'];
+        }
+        if (isset($map['AzureInstanceCount'])) {
+            $model->azureInstanceCount = $map['AzureInstanceCount'];
         }
         if (isset($map['ExposedInstanceCount'])) {
             $model->exposedInstanceCount = $map['ExposedInstanceCount'];

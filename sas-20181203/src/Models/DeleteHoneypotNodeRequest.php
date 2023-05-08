@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotNodeRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Deletes a specified management node.
+     *
+     * @example 670baeee-86c4-46b9-8200-a2c38141a453
+     *
      * @var string
      */
     public $nodeId;

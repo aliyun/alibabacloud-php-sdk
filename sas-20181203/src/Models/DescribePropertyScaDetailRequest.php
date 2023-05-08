@@ -9,101 +9,215 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaDetailRequest extends Model
 {
     /**
+     * @description The IP address that the process monitors.
+     *
+     * @example sca
+     *
      * @var string
      */
     public $biz;
 
     /**
+     * @description The type of the asset fingerprint that you want to query. Default value: **sca**. Valid values:
+     *
+     *   **sca**: middleware
+     *   **sca_database**: database
+     *   **sca_web**: web service
+     *
+     * >  If you do not specify this parameter, the default value **sca** is used, which indicates that middleware fingerprints are queried.
+     * @example system_service
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description 10
+     *
+     * @example 1
+     *
      * @var int
      */
     public $name;
 
     /**
+     * @description The type of the middleware, database, or web service. Valid values:
+     *
+     *   **system_service**: system service
+     *   **software_library**: software library
+     *   **docker_component**: container component
+     *   **database**: database
+     *   **web_container**: web container
+     *   **jar**: JAR package
+     *   **web_framework**: web framework
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search keyword. You must specify this parameter based on the value of the **SearchItem** parameter.
+     *
+     *   If the **SearchItem** parameter is set to **name**, you must enter the name of an asset fingerprint.
+     *
+     *   If the **SearchItem** parameter is set to **type**, you must enter the type of an asset fingerprint. Valid values:
+     *
+     *   **system_service**: system service
+     *   **software_library**: software library
+     *   **docker_component**: container component
+     *   **database**: database
+     *   **web_container**: web container
+     *   **jar**: JAR package
+     *   **web_framework**: web framework
+     *
+     * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     * @example 756
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The type of the search condition. Valid values:
+     *
+     *   **name**: the name of a database, middleware, or web service
+     *   **type**: the type of a database, middleware, or web service
+     *
+     * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     * @example 68
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description system_service
+     *
+     * @example 1641110965
+     *
      * @var int
      */
     public $processStartedEnd;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 1641024565
+     *
      * @var int
      */
     public $processStartedStart;
 
     /**
+     * @description The port of the middleware, database, or web service.
+     *
+     * @example 192.168
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The name of the middleware, database, or web service.
+     *
+     * @example openssl
+     *
      * @var string
      */
     public $scaName;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example open
+     *
      * @var string
      */
     public $scaNamePattern;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * >  We recommend that you do not leave this parameter empty.
+     * @example 1.0.2k
+     *
      * @var string
      */
     public $scaVersion;
 
     /**
+     * @description The public IP address of the server on which the middleware, database, or web service is run.
+     *
+     * @example openssl
+     *
      * @var string
      */
     public $searchInfo;
 
     /**
+     * @description 1641110965
+     *
+     * @example 1.0.2k
+     *
      * @var string
      */
     public $searchInfoSub;
 
     /**
+     * @description The name of the process.
+     *
+     * @example name
+     *
      * @var string
      */
     public $searchItem;
 
     /**
+     * @description root
+     *
+     * @example version
+     *
      * @var string
      */
     public $searchItemSub;
 
     /**
+     * @description The version of the middleware, database, or web service.
+     *
+     * @example root
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description The details about the asset fingerprints returned.
+     *
+     * @example uuid-02ebabe7-1c19-ab****
+     *
      * @var string
      */
     public $uuid;

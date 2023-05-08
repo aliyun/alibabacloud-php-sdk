@@ -19,6 +19,8 @@ class DescribeVulCheckTaskStatusDetailRequest extends Model
     public $types;
 
     /**
+     * @example 5d55af3c-35f3-4d4d-8ccc-8c5443b0****
+     *
      * @var string
      */
     public $uuid;

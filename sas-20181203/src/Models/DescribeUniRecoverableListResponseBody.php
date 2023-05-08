@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniRecoverableListResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the database.
+     *
+     * @example msdb
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description An array that consists of the backup snapshots.
+     *
      * @var recoverableInfoList[]
      */
     public $recoverableInfoList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 23
+     *
      * @var int
      */
     public $totalCount;

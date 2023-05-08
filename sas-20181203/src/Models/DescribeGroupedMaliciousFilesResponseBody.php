@@ -21,6 +21,8 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 8045E03E-6D91-4C53-9F22-5A1B84BB29D9
+     *
      * @var string
      */
     public $requestId;

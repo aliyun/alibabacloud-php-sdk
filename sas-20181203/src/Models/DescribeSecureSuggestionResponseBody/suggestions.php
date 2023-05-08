@@ -15,11 +15,17 @@ class suggestions extends Model
     public $detail;
 
     /**
+     * @description DescribeSecureSuggestion
+     *
+     * @example 40
+     *
      * @var int
      */
     public $points;
 
     /**
+     * @example SS_ALARM
+     *
      * @var string
      */
     public $suggestType;

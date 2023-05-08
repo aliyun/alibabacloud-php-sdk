@@ -14,6 +14,8 @@ class endPointList extends Model
     public $domains;
 
     /**
+     * @example internet
+     *
      * @var string
      */
     public $type;

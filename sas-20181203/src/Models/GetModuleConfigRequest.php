@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceCatalogRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

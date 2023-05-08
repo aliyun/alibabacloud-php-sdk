@@ -11,36 +11,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSensitiveFileListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @example 8D19A089-E6BC-5244-800C-7E590D50487F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @var sensitiveFileList[]
      */
     public $sensitiveFileList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

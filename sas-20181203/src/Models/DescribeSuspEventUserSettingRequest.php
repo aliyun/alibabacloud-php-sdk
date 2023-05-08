@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventUserSettingRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The ID. You do not need to specify this parameter.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The IP address of the request. You do not need to specify this parameter.
+     *
+     * @example 127.0.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

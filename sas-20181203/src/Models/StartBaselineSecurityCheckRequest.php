@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class StartBaselineSecurityCheckRequest extends Model
 {
     /**
+     * @description The IDs of the check items.
+     *
+     * > To perform a check task on cloud service configurations, you must specify the ID of the check item. You can call the [DescribeRiskItemType](~~DescribeRiskItemType~~) operation to query the IDs of check items.
      * @var int[]
      */
     public $itemIds;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -24,11 +34,22 @@ class StartBaselineSecurityCheckRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 106.11.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The type of the check task. Valid values:
+     *
+     *   **check**
+     *   **verify**
+     *
+     * @example verify
+     *
      * @var string
      */
     public $type;

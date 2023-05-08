@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
+     * @description The name of the baseline check policy.
+     *
+     * @example Set password expiration time, force regular modification of password, reduce password leakage and guess risk.Use non-password login (e.g. key pair) please ignore this item.
+     *
      * @var string
      */
     public $checkDesc;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example 206
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The maximum value of the rule parameter.
+     *
+     * @example Ensure password expiration period is set.
+     *
      * @var string
      */
     public $checkItem;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
      * @var rules[]
      */
     public $rules;

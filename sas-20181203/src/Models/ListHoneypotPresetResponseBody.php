@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotPresetResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -26,6 +30,8 @@ class ListHoneypotPresetResponseBody extends Model
     public $list;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -36,11 +42,15 @@ class ListHoneypotPresetResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 0C656B33-0D6B-5953-A26A-D766BD75B44A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

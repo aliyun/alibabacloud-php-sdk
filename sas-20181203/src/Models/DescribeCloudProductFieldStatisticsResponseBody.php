@@ -15,6 +15,8 @@ class DescribeCloudProductFieldStatisticsResponseBody extends Model
     public $groupedFields;
 
     /**
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;

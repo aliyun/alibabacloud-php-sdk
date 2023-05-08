@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetVulStatisticsResponseBody extends Model
 {
     /**
+     * @example 3FE272FA-7263-4554-A90F-A7857945A6D5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $vulAsapSum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vulLaterSum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vulNntfSum;

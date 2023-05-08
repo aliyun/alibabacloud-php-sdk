@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $persistenceDay;
 
     /**
+     * @example 25363
+     *
      * @var int
      */
     public $registryId;
 
     /**
+     * @example 106.11.XXX.XXX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockTotalFileChangeCountResponseBody extends Model
 {
     /**
+     * @example E70074C8-DFB4-44C5-96C7-909DD231D68A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

@@ -9,46 +9,91 @@ use AlibabaCloud\Tea\Model;
 class ModifyUniBackupPolicyRequest extends Model
 {
     /**
+     * @description The status of the anti-ransomware policy. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
+     * @example sa
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The data returned.
+     *
+     * @example Sa@****
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
+     *
      * @var mixed[]
      */
     public $fullPlan;
 
     /**
+     * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
+     *
      * @var mixed[]
      */
     public $incPlan;
 
     /**
+     * @description The name of the database account.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @description The password of the database account.
+     *
+     * @example databak
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $policyStatus;
 
     /**
+     * @description The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
+     *
+     *   **start**: the start time of a backup task
+     *   **interval**: the interval of backup tasks
+     *   **type**: the unit of the interval
+     *   **days**: the days of a week on which a backup task is performed
+     *
+     * @example 7
+     *
      * @var int
      */
     public $retention;
 
     /**
+     * @description The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
+     *
+     *   **start**: the start time of a backup task
+     *   **interval**: the interval of backup tasks
+     *   **type**: the unit of the interval
+     *   **days**: the days of a week on which a backup task is performed
+     *
+     * @example 1048576
+     *
      * @var int
      */
     public $speedLimiter;

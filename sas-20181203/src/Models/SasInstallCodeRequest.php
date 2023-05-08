@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SasInstallCodeRequest extends Model
 {
     /**
+     * @example 120.41.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

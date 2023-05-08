@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfflineMachinesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -20,16 +22,22 @@ class DescribeOfflineMachinesResponseBody extends Model
     public $machineList;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 44
+     *
      * @var int
      */
     public $totalCount;

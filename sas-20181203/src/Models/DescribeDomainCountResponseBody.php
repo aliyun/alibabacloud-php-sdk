@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCountResponseBody extends Model
 {
     /**
+     * @example C286491D-4A2F-589A-B63B-D2AD3DA9BD71
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $rootDomainsCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $subDomainsCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalDomainsCount;

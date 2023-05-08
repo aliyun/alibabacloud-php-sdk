@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class cloudAssetInstances extends Model
 {
     /**
+     * @description The instance ID of the cloud asset.
+     *
+     * @example sg-wz9hf86vbzbrrde7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region where the cloud asset resides.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

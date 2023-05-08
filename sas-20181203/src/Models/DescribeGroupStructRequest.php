@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupStructRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;

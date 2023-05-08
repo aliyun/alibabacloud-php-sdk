@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HandleSimilarSecurityEventsResponseBody extends Model
 {
     /**
+     * @example A3653911-33A6-5268-8B91-7690471F7AA1
+     *
      * @var string
      */
     public $requestId;

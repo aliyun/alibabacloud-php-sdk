@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsRequest extends Model
 {
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $apiVersion;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isAliYunEcs;
 
     /**
+     * @example us-east-1
+     *
      * @var string
      */
     public $machineRegion;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $machineRemark;
 
     /**
+     * @example CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAB4SwmEAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM0NzY3YTZjNjI3NjZmNmU3MjcxNjk3NDY5MzY3MjY4****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example ["COMPLETE"]
+     *
      * @var string
      */
     public $statusList;
 
     /**
+     * @example 061d8042-59ff-416e-bc33-294a1cf5****
+     *
      * @var string
      */
     public $uuid;

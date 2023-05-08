@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupStructResponseBody extends Model
 {
     /**
+     * @example 958****
+     *
      * @var int
      */
     public $groupFather;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $groupFlag;
 
     /**
+     * @example 958****
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $groupIndex;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $groupLevel;
 
     /**
+     * @example TestGroupName
+     *
      * @var string
      */
     public $groupName;
@@ -44,11 +56,15 @@ class DescribeGroupStructResponseBody extends Model
     public $groups;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $machineNum;
 
     /**
+     * @example 9FBC6E47-7508-58C9-9E76-528E118C****
+     *
      * @var string
      */
     public $requestId;

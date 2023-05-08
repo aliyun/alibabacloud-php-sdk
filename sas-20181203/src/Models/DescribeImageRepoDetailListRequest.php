@@ -9,18 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoDetailListRequest extends Model
 {
     /**
-     * @description The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
+     * @description The number of the page to return. Default value: **1**.
      *
-     *   **name**: the search condition.
-     *
-     *   **name**: the value of the search condition.
-     *
-     *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
-     *
-     *   **OR**: The search conditions use a logical **OR**.
-     *   **AND**: The search conditions use a logical **AND**.
-     *
-     * > You can call the [DescribeImageRepoCriteria](~~DescribeImageRepoCriteria~~) operation to query the supported search conditions.
      * @example [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
      *
      * @var string
@@ -28,7 +18,7 @@ class DescribeImageRepoDetailListRequest extends Model
     public $criteria;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The pagination information.
      *
      * @example 1
      *
@@ -37,10 +27,7 @@ class DescribeImageRepoDetailListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The logical relationship that you want to use to evaluate multiple search conditions. Valid values:
-     *
-     *   **OR**: Search conditions are evaluated by using a logical **OR**.
-     *   **AND**: Search conditions are evaluated by using a logical **AND**.
+     * @description The data returned.
      *
      * @example OR
      *
@@ -49,9 +36,8 @@ class DescribeImageRepoDetailListRequest extends Model
     public $logicalExp;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int

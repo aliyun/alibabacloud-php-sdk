@@ -11,36 +11,58 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotNodeResponseBody extends Model
 {
     /**
+     * @description Queries the information about management nodes.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @var honeypotNodeList[]
      */
     public $honeypotNodeList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description ListHoneypotNode
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description An array that consists of the allowed CIDR blocks.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description WB01224678
+     *
+     * @example 337BEA70-B03D-5370-8420-436F3FCD9924
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

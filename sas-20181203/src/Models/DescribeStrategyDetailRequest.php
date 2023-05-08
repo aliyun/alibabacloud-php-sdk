@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyDetailRequest extends Model
 {
     /**
+     * @description The alias of the check item.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The default value of the rule.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The minimum value of the rule parameter.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

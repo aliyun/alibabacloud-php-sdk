@@ -15,6 +15,8 @@ class DescribeExposedInstanceCriteriaResponseBody extends Model
     public $criteriaList;
 
     /**
+     * @example 6D9CDB47-6191-4415-BE63-7E8B12CD4FBE
+     *
      * @var string
      */
     public $requestId;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetSummaryResponseBody extends Model
 {
     /**
-     * @description The statistical information about the assets.
-     *
      * @var assetsSummary
      */
     public $assetsSummary;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 0FA7F1F4-488D-52CA-9BFC-3E47793B49D1
      *
      * @var string

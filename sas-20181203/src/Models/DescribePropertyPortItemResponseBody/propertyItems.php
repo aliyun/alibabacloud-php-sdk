@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @description The network protocol of the port.
+     *
+     * @example 495
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The number of servers that use the port.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description Queries information about all ports.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $proto;

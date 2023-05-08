@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $optional;
 
     /**
+     * @description The description of the baseline.
+     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
+     * @description An array that consists of the information about baseline subtypes.
+     *
+     * @example Please customize the password expiration time detection standard as
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @description The maximum value of the parameter.
+     *
+     * @example audit.audit_policy.auditpolicychange.cus
+     *
      * @var string
      */
     public $ruleId;

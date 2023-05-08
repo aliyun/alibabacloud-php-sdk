@@ -10,166 +10,314 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example CVE-2018-25010:libwebp up to 1.0.0 ApplyFilter out-of-bounds read
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description Indicates whether the vulnerability can be fixed in the Security Center console. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example yes
+     *
      * @var string
      */
     public $canFix;
 
     /**
+     * @description Indicates whether the packages of the software that has the vulnerability can be upgraded by using Security Center. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canUpdate;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c08d5fc1a329a4b88950a253d082f1****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example docker-law
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The extended information about the vulnerability.
+     *
      * @var extendContentJson
      */
     public $extendContentJson;
 
     /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
+     * @example 1620752053000
+     *
      * @var int
      */
     public $firstTs;
 
     /**
+     * @description The name of the image.
+     *
+     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description The digest of the image.
+     *
+     * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d507012
+     *
      * @var string
      */
     public $imageDigest;
 
     /**
+     * @description The name of the asset.
+     *
+     * @example testInstance
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 172.19.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1631779996000
+     *
      * @var int
      */
     public $lastTs;
 
     /**
+     * @description The image layers.
+     *
      * @var string[]
      */
     public $layers;
 
     /**
+     * @description The source of the malicious file. Valid values:
+     *
+     *   **agentless**: agentless detection
+     *   **image**: image
+     *   **container**: container
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $maliciousSource;
 
     /**
+     * @description The timestamp when the information about the vulnerability was updated. Unit: milliseconds.
+     *
+     * @example 1580808765000
+     *
      * @var int
      */
     public $modifyTs;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example debian:10:CVE-2019-9893
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example test-002
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The priority to fix the vulnerability. Valid values:
+     *
+     *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
+     *   **later**: medium. You can fix the vulnerability based on your business requirements.
+     *   **nntf**: low. You can ignore the vulnerability.
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @description The pod.
+     *
+     * @example 22222-7xsqq
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @description The ID of the vulnerability.
+     *
+     * @example 782661
+     *
      * @var int
      */
     public $primaryId;
 
     /**
+     * @description The Common Vulnerabilities and Exposures (CVE) ID of the associated vulnerability.
+     *
+     * @example CVE-2019-9893
+     *
      * @var string
      */
     public $related;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example varnish
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * @example default
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The time at which the scan was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1649814050000
+     *
      * @var int
      */
     public $scanTime;
 
     /**
+     * @description The status of the vulnerability. Valid values:
+     *
+     *   **1**: unfixed
+     *   **7**: fixed
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The tag that is added to the vulnerability.
+     *
+     * @example oval
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The ID of the asset on which the vulnerability is detected.
+     *
+     * @example m-bp17m0pc0xprzbwo****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the asset on which the vulnerability is detected.
+     *
+     * @example source-test-obj-XM0Ma
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The type of the asset on which the vulnerability is detected. Valid values:
+     *
+     *   **ECS_IMAGE**: image
+     *   **ECS_SNAPSHOT**: snapshot
+     *
+     * @example ECS_IMAGE
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The type of the vulnerability. The value is fixed as cve, which indicates image vulnerabilities.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 0004a32a0305a7f6ab5ff9600d47****
+     *
      * @var string
      */
     public $uuid;

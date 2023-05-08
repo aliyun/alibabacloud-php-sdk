@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 125.71.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description Specifies whether to enable or disable web tamper proofing for the specified server. Valid values:
+     *
+     *   **on**: enables web tamper proofing
+     *   **off**: disables web tamper proofing
+     *
+     * > After you disable web tamper proofing for the specified server, one quota is released.
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The UUID of the server for which you want to enable or disable web tamper proofing. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
+     * @example inet-1234567****
+     *
      * @var string
      */
     public $uuid;

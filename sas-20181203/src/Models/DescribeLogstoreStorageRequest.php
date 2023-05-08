@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstoreStorageRequest extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The purchased log storage capacity, in GB.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

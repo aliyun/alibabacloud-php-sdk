@@ -15,6 +15,8 @@ class GetPropertyScheduleConfigResponseBody extends Model
     public $propertyScheduleConfig;
 
     /**
+     * @example B37C9052-A73E-4707-A024-92477028****
+     *
      * @var string
      */
     public $requestId;

@@ -9,76 +9,136 @@ use AlibabaCloud\Tea\Model;
 class taskImageInfo extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example ack-jenkins-****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example a765ba1435e7f9446065370e9a41****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example ACK-test-****
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The digest of the image.
+     *
+     * @example 9e0dc29d872d2e386cc5c0c92b529a84e3acfade16f5cb1d054a2ee3c99****
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The image of the container.
+     *
+     * @example ***s.com/sas_test/baseli***
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-0xi5mxvtmfw9****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example 172.18.XXX.XXX
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The name of the node.
+     *
+     * @example pztest****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The pod of the image.
+     *
+     * @example expoit-law-****
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @description The region of the server image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-r88w2vryp8m****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example testyyy
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the image repository belongs.
+     *
+     * @example bitn***
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The region ID of the image repository.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $repoRegionId;
 
     /**
+     * @description The tag that is added to the image.
+     *
+     * @example v1.20-002-a2*****
+     *
      * @var string
      */
     public $tag;

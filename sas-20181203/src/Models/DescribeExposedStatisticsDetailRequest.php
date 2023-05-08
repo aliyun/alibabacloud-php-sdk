@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedStatisticsDetailRequest extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
+     * @example exposureType
+     *
      * @var string
      */
     public $statisticsType;
 
     /**
+     * @description The system component that is exposed on the Internet.
+     *
+     * @example SLB
+     *
      * @var string
      */
     public $statisticsTypeGatewayType;
 
     /**
+     * @description The pagination information.
+     *
+     * @example lb-2ze4rso39h4nczcqs****
+     *
      * @var string
      */
     public $statisticsTypeInstanceValue;

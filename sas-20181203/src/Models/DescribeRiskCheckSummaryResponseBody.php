@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckSummaryResponseBody extends Model
 {
     /**
+     * @example 291B49F9-1685-4005-9D34-606B6F78740F
+     *
      * @var string
      */
     public $requestId;

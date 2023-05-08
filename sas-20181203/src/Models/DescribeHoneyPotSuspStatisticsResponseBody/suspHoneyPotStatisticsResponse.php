@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class suspHoneyPotStatisticsResponse extends Model
 {
     /**
+     * @example 8793
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example i-p0whhoba24wd28p8****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example abc-launch-advisor
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example vpcInstanceId
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vpc-p0wwdsuutdyu1ygkt****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example abc01
+     *
      * @var string
      */
     public $vpcName;

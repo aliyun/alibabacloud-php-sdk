@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description An array that consists of the account information returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 114
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessKeyLeakDealResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example DD4617B4-133A-53C8-ADAE-7B30FF89****
+     *
      * @var string
      */
     public $requestId;

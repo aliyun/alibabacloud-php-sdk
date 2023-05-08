@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RefreshAssetsRequest extends Model
 {
     /**
+     * @example cloud_product
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cloudAssetSubType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cloudAssetType;

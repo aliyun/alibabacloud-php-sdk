@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class backupFiles extends Model
 {
     /**
+     * @example Group 1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example Python27\
+     *
      * @var string
      */
     public $subtree;
 
     /**
+     * @example dir
+     *
      * @var string
      */
     public $type;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateWebLockFileEventsResponseBody extends Model
 {
     /**
+     * @example 2884C186-E8C0-5611-8207-3FF15EE7D9B4
+     *
      * @var string
      */
     public $requestId;

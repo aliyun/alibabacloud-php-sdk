@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetOnceTaskResultInfoRequest extends Model
 {
     /**
+     * @description The number of tasks that were completed.
+     *
+     * @example 9dfa3a7eb9547781632785b49003****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The ID of the scan task.
+     *
+     * @example ASSETS_COLLECTION
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example ASSETS_COLLECTION
+     *
      * @var string
      */
     public $taskType;

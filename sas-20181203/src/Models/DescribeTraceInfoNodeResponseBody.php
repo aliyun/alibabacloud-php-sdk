@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoNodeResponseBody extends Model
 {
     /**
+     * @description The details about the node.
+     *
      * @var node
      */
     public $node;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62DXXXXXXXX
+     *
      * @var string
      */
     public $requestId;

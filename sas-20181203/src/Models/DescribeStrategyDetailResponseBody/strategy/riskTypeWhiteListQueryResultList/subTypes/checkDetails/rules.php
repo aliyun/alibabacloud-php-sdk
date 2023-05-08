@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The description of the check item.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $defaultValue;
 
     /**
+     * @description Indicates whether the sub-risk item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $optional;
 
     /**
+     * @description The specified value of the rule parameter.
+     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
+     * @description The check item.
+     *
+     * @example Please customize the password expiration time detection standard as
+     *
      * @var string
      */
     public $ruleDesc;
 
     /**
+     * @description Indicates whether the risk item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example login_unlock_deny_pam_faillock.must.cus
+     *
      * @var string
      */
     public $ruleId;

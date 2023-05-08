@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRisksResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example EA54FE21-B006-5DFF-8D64-C4FFECDA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of baselines.
+     *
      * @var risks[]
      */
     public $risks;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 23
+     *
      * @var int
      */
     public $totalCount;

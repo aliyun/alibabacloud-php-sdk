@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortItemRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The port number.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceFlush;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;

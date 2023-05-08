@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
+     * @description The timestamp at which the software is installed. Unit: milliseconds.
+     *
+     * @example 1649149566000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example 2022-04-07 10:54:49
+     *
      * @var string
      */
     public $installTime;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 1649066826000
+     *
      * @var int
      */
     public $installTimeDt;
 
     /**
+     * @description 1
+     *
+     * @example i-hp35tftuh52wbp1g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description /etc/test
+     *
+     * @example hc-host-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The timestamp at which the software update starts. Unit: milliseconds.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The pagination information.
+     *
+     * @example 100.104.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The name of the server.
+     *
+     * @example aaa_base
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The IP addresses of the server.
+     *
+     * @example /etc/test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description 1650012695000
+     *
+     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @description Specifies whether fuzzy search by software name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     *
+     * @example 3.10.0
+     *
      * @var string
      */
     public $version;

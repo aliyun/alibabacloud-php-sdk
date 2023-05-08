@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryPreCheckDatabaseRequest extends Model
 {
     /**
+     * @example ebc895506c6911ed800000163e0e****
+     *
      * @var string
      */
     public $instanceUuid;
 
     /**
+     * @example t-000bc9nqwxsbyvod****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $uniRegionId;

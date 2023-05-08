@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskListCheckResultRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -19,11 +21,15 @@ class DescribeRiskListCheckResultRequest extends Model
     public $instanceIds;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +40,8 @@ class DescribeRiskListCheckResultRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 59.57.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

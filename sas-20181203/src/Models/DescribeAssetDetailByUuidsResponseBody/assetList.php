@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $clientStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @example i-rj9gda4wolo0zixi****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example TestInstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 10.10.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example 10.10.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example Linux
+     *
      * @var string
      */
     public $os;
@@ -59,26 +77,36 @@ class assetList extends Model
     public $osName;
 
     /**
+     * @example cn-guangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @example 2a98f149-0256-414c-a29a-a69f8a75****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example 13231-331331
+     *
      * @var string
      */
     public $vpcInstanceId;

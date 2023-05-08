@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspiciousUUIDConfigRequest extends Model
 {
     /**
+     * @example alinet
+     *
      * @var string
      */
     public $type;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageStatisticsResponseBody extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $riskInstanceCount;

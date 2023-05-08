@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCountRequest extends Model
 {
     /**
+     * @description The UUIDs of the assets. Separate multiple UUIDs with commas (,).
+     *
+     * @example port,process
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The number of scheduled tasks.
+     *
+     * @example 9658314a-7609-4426-afc4-2c924072****,
+     * 9658314a-7609-4426-afc4-2c924072****
      * @var string
      */
     public $uuidList;

@@ -9,101 +9,205 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesRequest extends Model
 {
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example c60b77fe62093480db6164a3c2fa5****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example minikube
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The total number of images that have malicious image samples.
+     *
+     * @example cc20a1024011c44b6a8710d6f8b****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array consisting of the images that have malicious image samples.
+     *
+     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description The severity of the malicious image sample. Separate multiple severities with commas (,). Valid values: serious suspicious remind
+     *
+     * @example 6a5e103187b31a94592a47a5858617f7a179ead61df7606****
+     *
      * @var string
      */
     public $imageDigest;
 
     /**
+     * @description The text that is highlighted.
+     *
+     * @example 27213ad375b53628dd152a5ca****
+     *
      * @var string
      */
     public $imageLayer;
 
     /**
+     * @description The timestamp of the last scan.
+     *
+     * @example 0.2
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The region ID of the image repository. Valid values:
+     *
+     *   **cn-beijing**: China (Beijing)
+     *   **cn-zhangjiakou**: China (Zhangjiakou)
+     *   **cn-hangzhou**: China (Hangzhou)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **cn-hongkong**: China (Hong Kong)
+     *   **ap-southeast-1**: Singapore
+     *   **ap-southeast-5**: Indonesia (Jakarta)
+     *   **us-east-1**: US (Virginia)
+     *   **us-west-1**: US (Silicon Valley)
+     *   **eu-central-1**: Germany (Frankfurt)
+     *   **eu-west-1**: UK (London)
+     *   **ap-south-1**: India (Mumbai)
+     *
+     * @example serious,suspicious
+     *
      * @var string
      */
     public $levels;
 
     /**
+     * @description The timestamp of the first scan.
+     *
+     * @example d836968041f7683b5459****
+     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * @example test-002
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the image.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The image layer.
+     *
+     * @example 22222-7xsqq
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @description The type of the asset that you want to scan. Valid values:
+     *
+     *   **container**
+     *   **image**
+     *
+     * @example crr-vridcl4****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example cri-datvailb****
+     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
+     * @description The number of images that have malicious image samples returned on the current page.
+     *
+     * @example centos
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The image digest.
+     *
+     * @example hanghai-namespace
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $repoRegionId;
 
     /**
+     * @description The handling status of the malicious image sample. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: verifying
+     *   **3**: added to the whitelist
+     *
      * @var string[]
      */
     public $scanRange;

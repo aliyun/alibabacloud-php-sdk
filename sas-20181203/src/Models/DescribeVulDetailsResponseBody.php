@@ -15,6 +15,8 @@ class DescribeVulDetailsResponseBody extends Model
     public $cves;
 
     /**
+     * @example EDA40EA3-6265-5900-AD99-C83E4F109CA8
+     *
      * @var string
      */
     public $requestId;

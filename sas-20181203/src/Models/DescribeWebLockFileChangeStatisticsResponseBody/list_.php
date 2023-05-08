@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 33
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example /tmp
+     *
      * @var string
      */
     public $file;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddClientUserDefineRuleRequest extends Model
 {
     /**
-     * @description The action of the custom defense rule. Valid values:
-     *
-     *   **0**: allow
-     *   **1**: block
-     *
      * @example 1
      *
      * @var int
@@ -21,8 +16,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $actionType;
 
     /**
-     * @description The command line.
-     *
      * @example /usr/sbin/s****
      *
      * @var string
@@ -30,8 +23,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $cmdline;
 
     /**
-     * @description The file path.
-     *
      * @example /etc/pam****
      *
      * @var string
@@ -39,8 +30,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $filePath;
 
     /**
-     * @description The IP address.
-     *
      * @example 10.240.XX.XX
      *
      * @var string
@@ -48,8 +37,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $IP;
 
     /**
-     * @description The hash values of processes.
-     *
      * @example 0c9045b5bec90f9825f1f3f64dd4****
      *
      * @var string
@@ -57,17 +44,11 @@ class AddClientUserDefineRuleRequest extends Model
     public $md5List;
 
     /**
-     * @description The name of the custom defense rule.
-     *
-     * @example Rule 1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The new file path after the file is renamed.
-     *
      * @example /etc/pam****
      *
      * @var string
@@ -75,8 +56,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $newFilePath;
 
     /**
-     * @description The parent command line.
-     *
      * @example /usr/sbin/s****
      *
      * @var string
@@ -84,8 +63,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $parentCmdline;
 
     /**
-     * @description The path to the parent process.
-     *
      * @example c:/windows/system32/i****
      *
      * @var string
@@ -93,12 +70,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $parentProcPath;
 
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   **windows**: Windows
-     *   **linux**: Linux
-     *   **all**: all types
-     *
      * @example linux
      *
      * @var string
@@ -106,8 +77,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $platform;
 
     /**
-     * @description The port number. This parameter is deprecated.
-     *
      * @example 22
      *
      * @var int
@@ -115,8 +84,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $port;
 
     /**
-     * @description The port number. Valid values: **1 to 65535**.
-     *
      * @example 80
      *
      * @var string
@@ -124,8 +91,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $portStr;
 
     /**
-     * @description The path to the process.
-     *
      * @example c:/windows/system32/i****
      *
      * @var string
@@ -133,8 +98,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $procPath;
 
     /**
-     * @description The registry value.
-     *
      * @example *SECOH-QAD.exe*
      *
      * @var string
@@ -142,8 +105,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $registryContent;
 
     /**
-     * @description The registry key.
-     *
      * @example HKEY_DYN_****
      *
      * @var string
@@ -151,16 +112,6 @@ class AddClientUserDefineRuleRequest extends Model
     public $registryKey;
 
     /**
-     * @description The type of the custom defense rule. Valid values:
-     *
-     *   **1**: Process hash
-     *   **2**: Command line
-     *   **3**: Process Network
-     *   **4**: File Read and Write
-     *   **5**: Operation on Registry
-     *   **6**: Dynamic-link Library Loading
-     *   **7**: File Renaming
-     *
      * @example 1
      *
      * @var int

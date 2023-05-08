@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class summarys extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $passCount;
@@ -25,6 +29,8 @@ class summarys extends Model
     public $standards;
 
     /**
+     * @example IDENTITY_PERMISSION
+     *
      * @var string
      */
     public $type;

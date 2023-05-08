@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class registryTypeInfos extends Model
 {
     /**
+     * @description The number of image repositories.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The name of the image repository type. Valid values:
+     *
+     *   **acr**: Container Registry
+     *   **harbor**: Harbor
+     *   **quay**: Quay
+     *   **CI/CD**: Jenkins
+     *
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;

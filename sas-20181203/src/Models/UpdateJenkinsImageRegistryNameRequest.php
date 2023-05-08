@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryNameRequest extends Model
 {
     /**
+     * @example 25090
+     *
      * @var int
      */
     public $registryId;
 
     /**
+     * @example a0603tk1
+     *
      * @var string
      */
     public $registryName;
 
     /**
+     * @example 121.33.XXX.XXX
+     *
      * @var string
      */
     public $sourceIp;

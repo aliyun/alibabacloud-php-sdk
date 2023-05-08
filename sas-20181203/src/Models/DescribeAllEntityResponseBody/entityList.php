@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class entityList extends Model
 {
     /**
+     * @example 281801
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 172.19.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 100.104.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example 101.132.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example windows
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description DescribeAllEntity
+     *
+     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
+     *
      * @var string
      */
     public $uuid;

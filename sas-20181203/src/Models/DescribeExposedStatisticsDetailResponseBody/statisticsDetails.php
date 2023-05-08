@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class statisticsDetails extends Model
 {
     /**
+     * @description The total number of system vulnerabilities that are detected on your server and are exposed on the Internet.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exposedCount;
 
     /**
+     * @description Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+     *
+     * @example tomcat
+     *
      * @var string
      */
     public $exposureComponent;
 
     /**
+     * @description The type of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**. Valid values:
+     *
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *
+     * @example 123.57.XX.XX
+     *
      * @var string
      */
     public $exposureIp;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $exposurePort;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example SLB
+     *
      * @var string
      */
     public $exposureType;
 
     /**
+     * @description DescribeExposedStatisticsDetail
+     *
+     * @example lb-2ze4rso39h4nczcqs****
+     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
+     * @description The name of the gateway asset that is exposed on the Internet.
+     *
+     * @example ngw-bp1vkbju8f3w87c9v****
+     *
      * @var string
      */
     public $exposureTypeInstanceName;
 
     /**
+     * @description 20
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

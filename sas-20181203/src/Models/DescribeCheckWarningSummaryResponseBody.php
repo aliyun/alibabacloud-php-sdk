@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryResponseBody extends Model
 {
     /**
+     * @description The level-1 type of the check item. Examples: database, system, weak password, and middleware.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description Indicates whether the risk item can be exploited. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 00BD7CE2-284A-4534-BD09-FB69836DD750
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the risk item.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The number of medium-risk items.
+     *
      * @var warningSummarys[]
      */
     public $warningSummarys;

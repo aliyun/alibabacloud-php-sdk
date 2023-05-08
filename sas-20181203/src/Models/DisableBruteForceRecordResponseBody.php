@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DisableBruteForceRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5EFF53F7-9B2A-58B5-AD06-6B07ACE17133
+     *
      * @var string
      */
     public $requestId;

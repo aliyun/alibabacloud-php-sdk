@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultRule;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $forbiddenTime;
 
     /**
+     * @example TestAntiBruteForceRule
+     *
      * @var string
      */
     public $name;
@@ -34,11 +42,15 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $span;

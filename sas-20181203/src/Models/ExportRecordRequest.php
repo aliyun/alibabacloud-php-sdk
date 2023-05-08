@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ExportRecordRequest extends Model
 {
     /**
+     * @example database
+     *
      * @var string
      */
     public $exportType;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example {"extend":"1","currentPage":1,"pageSize":10}
+     *
      * @var string
      */
     public $params;

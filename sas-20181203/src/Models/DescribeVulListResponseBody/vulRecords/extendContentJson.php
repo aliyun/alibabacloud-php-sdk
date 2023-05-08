@@ -11,66 +11,126 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
+     * @description The package path of the software that has the vulnerability.
+     *
+     * @example /roo/www/web
+     *
      * @var string
      */
     public $absolutePath;
 
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2019:0230-Important: polkit security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The description of the vulnerability.
+     *
+     * @example kernel version:5.10.84-10.2.al8.x86_64
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The public IP address of the asset that is associated with the vulnerability.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     *
+     * @example 1620404763000
+     *
      * @var int
      */
     public $lastTs;
 
     /**
+     * @description Indicates whether the vulnerability needs to be fixed.
+     *
      * @var necessity
      */
     public $necessity;
 
     /**
+     * @description The name of the operating system.
+     *
+     * @example centos
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The release of the operating system.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $osRelease;
 
     /**
+     * @description The ID of the vulnerability.
+     *
+     * @example 111
+     *
      * @var int
      */
     public $primaryId;
 
     /**
+     * @description The RPM Package Manager (RPM) packages.
+     *
      * @var rpmEntityList[]
      */
     public $rpmEntityList;
 
     /**
+     * @description The status of the vulnerability. Valid values:
+     *
+     *   **1**: unfixed
+     *   **2**: fix failed
+     *   3: rollback failed
+     *   **4**: fixing
+     *   **5**: being rolled back
+     *   **6**: being verified
+     *   **7**: fixed
+     *   **8**: fixed and to be restarted
+     *   **9**: rolled back
+     *   **10**: ignored
+     *   **11**: rolled back and to be restarted
+     *   **12**: not found
+     *   **20**: expired
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tag that is added to the vulnerability.
+     *
+     * @example oval
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The CVE list.
+     *
      * @var string[]
      */
     public $cveList;

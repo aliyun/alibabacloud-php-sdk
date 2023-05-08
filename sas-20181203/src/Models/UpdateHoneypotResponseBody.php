@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class UpdateHoneypotResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 3B323ADD-6CF8-51F6-9047-2F0A4E3F5EFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

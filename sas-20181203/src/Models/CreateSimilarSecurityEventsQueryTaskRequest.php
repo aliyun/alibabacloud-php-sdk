@@ -14,16 +14,24 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 14323
+     *
      * @var int
      */
     public $securityEventId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $similarEventScenarioCode;
 
     /**
+     * @description CreateSimilarSecurityEventsQueryTask
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

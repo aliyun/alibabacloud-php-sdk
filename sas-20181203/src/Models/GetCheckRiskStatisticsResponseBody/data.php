@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 43
+     *
      * @var int
      */
     public $highWarningCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
+     * @example 29
+     *
      * @var int
      */
     public $mediumWarningCount;
 
     /**
+     * @example 143
+     *
      * @var int
      */
     public $passCount;
 
     /**
+     * @example SECURITY
+     *
      * @var string
      */
     public $sceneName;
@@ -40,6 +50,8 @@ class data extends Model
     public $subStatistics;
 
     /**
+     * @example 219
+     *
      * @var int
      */
     public $totalCount;

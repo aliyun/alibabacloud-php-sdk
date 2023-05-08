@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetRegistryScanDayNumRequest extends Model
 {
     /**
+     * @description The cycle at which you want to scan your images. Unit: days.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $scanDayNum;

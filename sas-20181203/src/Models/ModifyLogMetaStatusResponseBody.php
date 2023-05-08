@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogMetaStatusResponseBody extends Model
 {
     /**
+     * @example 861445A7-B6D6-5825-B015-CD46ED90613A
+     *
      * @var string
      */
     public $requestId;

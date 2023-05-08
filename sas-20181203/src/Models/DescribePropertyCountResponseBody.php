@@ -9,61 +9,103 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCountResponseBody extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $autorun;
 
     /**
+     * @description The number of middleware assets.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $cron;
 
     /**
+     * @description DescribePropertyCount
+     *
+     * @example 2
+     *
      * @var int
      */
     public $database;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $lkm;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The number of accounts.
+     *
+     * @example 367
+     *
      * @var int
      */
     public $process;
 
     /**
+     * @description The number of processes.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description port,process
+     *
+     * @example 112
+     *
      * @var int
      */
     public $sca;
 
     /**
+     * @description The number of web services.
+     *
+     * @example 111
+     *
      * @var int
      */
     public $software;
 
     /**
+     * @description The number of websites.
+     *
+     * @example 214
+     *
      * @var int
      */
     public $user;
 
     /**
+     * @description Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+     *
+     * @example 65
+     *
      * @var int
      */
     public $web;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $webserver;

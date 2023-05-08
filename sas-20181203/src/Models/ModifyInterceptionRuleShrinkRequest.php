@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleShrinkRequest extends Model
 {
     /**
+     * @example c17ef568f81884cdab402decd5fcd****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example {"targetId":600069,"ports":["80/8088"]}
+     *
      * @var string
      */
     public $dstTargetShrink;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $interceptType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $orderIndex;
 
     /**
+     * @example 500018
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example tetsRule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleSwitch;
 
     /**
+     * @example {"targetId":400989}
+     *
      * @var string
      */
     public $srcTargetShrink;

@@ -9,72 +9,120 @@ use AlibabaCloud\Tea\Model;
 class warningSummarys extends Model
 {
     /**
+     * @description The statistics of check items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $checkCount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $checkExploit;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $containerRisk;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $databaseRisk;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $highWarningCount;
 
     /**
+     * @description The number of low-risk items.
+     *
+     * @example 2019-01-01 12:23:00
+     *
      * @var string
      */
     public $lastFoundTime;
 
     /**
+     * @example high
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $mediumWarningCount;
 
     /**
+     * @description The number of check items returned on the current page.
+     *
+     * @example 118
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @example Redis
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @description Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $subTypeAlias;
 
     /**
+     * @example databases
+     *
      * @var string
      */
     public $typeAlias;
 
     /**
+     * @description DescribeCheckWarningSummary
+     *
+     * @example 11
+     *
      * @var int
      */
     public $warningMachineCount;
     protected $_name = [
         'checkCount'          => 'CheckCount',
         'checkExploit'        => 'CheckExploit',
+        'containerRisk'       => 'ContainerRisk',
         'databaseRisk'        => 'DatabaseRisk',
         'highWarningCount'    => 'HighWarningCount',
         'lastFoundTime'       => 'LastFoundTime',
@@ -100,6 +148,9 @@ class warningSummarys extends Model
         }
         if (null !== $this->checkExploit) {
             $res['CheckExploit'] = $this->checkExploit;
+        }
+        if (null !== $this->containerRisk) {
+            $res['ContainerRisk'] = $this->containerRisk;
         }
         if (null !== $this->databaseRisk) {
             $res['DatabaseRisk'] = $this->databaseRisk;
@@ -151,6 +202,9 @@ class warningSummarys extends Model
         }
         if (isset($map['CheckExploit'])) {
             $model->checkExploit = $map['CheckExploit'];
+        }
+        if (isset($map['ContainerRisk'])) {
+            $model->containerRisk = $map['ContainerRisk'];
         }
         if (isset($map['DatabaseRisk'])) {
             $model->databaseRisk = $map['DatabaseRisk'];

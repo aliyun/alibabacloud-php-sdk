@@ -9,126 +9,176 @@ use AlibabaCloud\Tea\Model;
 class groupedContainerInstanceList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alarmCount;
 
     /**
+     * @example oss-liveness-probe
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example cf3824769c85441b4bf3****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example ManagedKubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 1600076893000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $custerState;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $hcCount;
 
     /**
+     * @example 172.114.XX.XX
+     *
      * @var string
      */
     public $hostIp;
 
     /**
+     * @example registry-vpc.ap-southeast-5.aliyuncs.com/log-service-release/sls-connector:1.1.77
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example 58e58c013f70bbfde140c8a55c1078074b3483479428d4069aa946827fd566cf
+     *
      * @var string
      */
     public $imageDigest;
 
     /**
+     * @example test-003
+     *
      * @var string
      */
     public $imageRepoName;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $imageRepoNamespace;
 
     /**
+     * @example dev-20220512-2
+     *
      * @var string
      */
     public $imageRepoTag;
 
     /**
+     * @example e4bdec1d9ba7e0967111a7ea467c****
+     *
      * @var string
      */
     public $imageUuid;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example i-8vb9ul5xec4tua4q****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example kube-system
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example csi-plugin-2n****
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @example 172.114.XX.XX
+     *
      * @var string
      */
     public $podIp;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskInstanceCount;
 
     /**
+     * @example low
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @example NO
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $vulCount;

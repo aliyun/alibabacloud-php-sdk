@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class InstallPmAgentRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 58.35.xx.xx
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example aliyun_assist
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example inet-a6444920-d303-4ccf-ab87-a1d3cd49****
+     *
      * @var string
      */
     public $uuids;

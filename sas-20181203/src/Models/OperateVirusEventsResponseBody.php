@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OperateVirusEventsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B72BEC03-001C-5C77-A4BB-1E6XXXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task to handle multiple alert events at a time.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskId;

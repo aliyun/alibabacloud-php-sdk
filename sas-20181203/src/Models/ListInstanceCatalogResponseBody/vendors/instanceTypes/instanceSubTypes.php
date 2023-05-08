@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSubTypes extends Model
 {
     /**
+     * @example SECURITY_GROUP
+     *
      * @var string
      */
     public $name;

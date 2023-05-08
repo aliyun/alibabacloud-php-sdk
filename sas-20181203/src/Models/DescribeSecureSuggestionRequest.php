@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecureSuggestionRequest extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description An array that consists of the unhandled security risks.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

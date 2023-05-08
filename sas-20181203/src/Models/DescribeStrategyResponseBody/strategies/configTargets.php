@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class configTargets extends Model
 {
     /**
+     * @example add
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @example 10099713
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;

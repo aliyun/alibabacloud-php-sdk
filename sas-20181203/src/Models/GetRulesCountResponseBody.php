@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetRulesCountResponseBody extends Model
 {
     /**
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalSystemClientRuleCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalUserDefineRuleCount;

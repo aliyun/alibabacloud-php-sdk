@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteCycleTaskRequest extends Model
 {
     /**
-     * @description The ID of the task configuration.
-     *
-     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
      * @example 435f626256ebf564cf5ba966a539****
      *
      * @var string

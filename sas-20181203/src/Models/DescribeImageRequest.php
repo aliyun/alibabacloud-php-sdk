@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRequest extends Model
 {
     /**
+     * @description The instance ID of the image.
+     *
+     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of instances.
+     * @example cri-hfs6gaawhyu6****
+     *
      * @var string
      */
     public $imageInstanceId;
 
     /**
+     * @description The region ID of the image.
+     *
+     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $imageRegionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of image repositories.
+     * @example crr-7i88t7lx3fmf****
+     *
      * @var string
      */
     public $imageRepoId;
 
     /**
+     * @description The tag that is added to the image.
+     *
+     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query tags.
+     * @example 1.8.0.15
+     *
      * @var string
      */
     public $imageTag;

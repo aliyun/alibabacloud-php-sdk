@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulCheckTaskStatusDetailResponseBody extends Model
 {
     /**
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeVulCheckTaskStatusDetailResponseBody extends Model
     public $taskStatuses;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

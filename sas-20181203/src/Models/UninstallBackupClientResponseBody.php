@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallBackupClientResponseBody extends Model
 {
     /**
+     * @example 8eec3b63-18af-454b-8c17-aabcf7190b70
+     *
      * @var string
      */
     public $requestId;

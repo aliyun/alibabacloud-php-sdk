@@ -17,6 +17,10 @@ class ListCheckInstanceResultResponseBody extends Model
     public $basicData;
 
     /**
+     * @example [{
+     * "link": "https://ecs.console.aliyun.com/#/securityGroupDetail/region/ap-southeast-1/groupId/sg-t4nbk2aodzio52xvj00s/rule/intranetIngress",
+     * "value": "sg-t4nbk2aodzio52xv****"
+     * }]
      * @var mixed[][]
      */
     public $checks;
@@ -32,6 +36,8 @@ class ListCheckInstanceResultResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 3AB18264-8A1B-52A6-A9AF-A886556E0F2E
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebPathResponseBody extends Model
 {
     /**
+     * @example 20623245-7E5E-52CA-9640-7502F119****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

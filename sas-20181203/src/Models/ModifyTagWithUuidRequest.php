@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyTagWithUuidRequest extends Model
 {
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
 
     /**
+     * @example 3897941
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @example ac,ad
+     *
      * @var string
      */
     public $tagList;
 
     /**
+     * @example e2737dc3-78f4-4653-a986-dc5fad4b****,c189f0e3-df22-42d5-a73d-02c05667****
+     *
      * @var string
      */
     public $uuidList;

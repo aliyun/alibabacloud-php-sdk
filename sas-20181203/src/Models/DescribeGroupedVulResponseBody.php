@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -20,16 +22,22 @@ class DescribeGroupedVulResponseBody extends Model
     public $groupedVulItems;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9BFA6D78-07EA-5C0A-9358-E4434573507B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

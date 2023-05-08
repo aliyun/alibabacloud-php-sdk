@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UninstallBackupClientRequest extends Model
 {
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
 
     /**
+     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example ["D0D6E6E4-CB8C-4897-B852-46AEFDA0****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
+     *
      * @var string[]
      */
     public $uuidList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyGroupPropertyRequest extends Model
 {
     /**
+     * @example [{"groupFlag":1,"groupId":8436682,"groupIndex":,"groupName":"example"}]
+     *
      * @var string
      */
     public $data;

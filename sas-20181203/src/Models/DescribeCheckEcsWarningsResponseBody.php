@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckEcsWarningsResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $canTry;
 
     /**
+     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $sasVersion;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $weakPasswordCount;

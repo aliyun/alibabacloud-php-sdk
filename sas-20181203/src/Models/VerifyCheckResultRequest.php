@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyCheckResultRequest extends Model
 {
     /**
+     * @description An array that consists of the IDs of risk items.
+     *
      * @var int[]
      */
     public $checkIds;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class domainListResponseList extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1.2.XX.XX,1.0.XX.XX
+     *
      * @var string
      */
     public $ipList;

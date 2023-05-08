@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckFixDetailsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the parameters.
+     * @description The specified value of the rule parameter.
      *
      * @var checkFixDetails[]
      */
     public $checkFixDetails;
 
     /**
-     * @description The number of risk items that can be fixed.
-     *
      * @example 20
      *
      * @var int
@@ -26,8 +24,6 @@ class DescribeCheckFixDetailsResponseBody extends Model
     public $count;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 0DBF1E27-98D8-5EC2-9CF3-4A2E26F6****
      *
      * @var string

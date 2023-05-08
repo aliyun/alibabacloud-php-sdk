@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EnableCustomBlockRecordRequest extends Model
 {
     /**
+     * @description The IP address that is specified in the policy.
+     *
+     * @example 43.248.XX.XX
+     *
      * @var string
      */
     public $blockIp;
 
     /**
+     * @description The traffic direction that is specified in the policy. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
+     * @example in
+     *
      * @var string
      */
     public $bound;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockProcessBlockStatisticsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array consisting of the statistics on processes.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of processes.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

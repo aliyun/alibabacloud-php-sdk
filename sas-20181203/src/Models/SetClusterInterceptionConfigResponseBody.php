@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetClusterInterceptionConfigResponseBody extends Model
 {
     /**
+     * @example 74AB990C-539B-579B-9239-B8A2036B7337
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @example clusterId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example input
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example ManagedKubernetes,NotManagedKubernetes,PrivateKubernetes
+     *
      * @var string
      */
     public $values;

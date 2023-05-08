@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateImageVulResponseBody extends Model
 {
     /**
+     * @example 486F2228-438A-544A-A533-433F943C15CD
+     *
      * @var string
      */
     public $requestId;

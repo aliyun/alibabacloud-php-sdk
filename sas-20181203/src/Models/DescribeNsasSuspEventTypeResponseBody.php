@@ -15,6 +15,8 @@ class DescribeNsasSuspEventTypeResponseBody extends Model
     public $eventTypes;
 
     /**
+     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
+     *
      * @var string
      */
     public $requestId;

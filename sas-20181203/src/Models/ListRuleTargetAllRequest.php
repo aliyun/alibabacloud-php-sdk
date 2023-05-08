@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRuleTargetAllRequest extends Model
 {
     /**
+     * @example cfa7e2fb8c221483ba59e098c34c6****
+     *
      * @var string
      */
     public $clusterId;

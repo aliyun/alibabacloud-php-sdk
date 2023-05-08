@@ -15,6 +15,8 @@ class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
     public $createSimilarSecurityEventsQueryTaskResponse;
 
     /**
+     * @example 5861EE3E-F0B3-48B8-A5DC-A5080BFBE052
+     *
      * @var string
      */
     public $requestId;

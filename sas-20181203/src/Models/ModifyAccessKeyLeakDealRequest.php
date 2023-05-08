@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessKeyLeakDealRequest extends Model
 {
     /**
+     * @description The ID of the AccessKey pair leak.
+     *
+     * > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to query the ID. You must specify at least one of the Id and **IdList** parameters.
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The IDs of AccessKey pair leaks.
+     *
      * @var int[]
      */
     public $idList;
 
     /**
+     * @description The remarks that are added.
+     *
+     * @example disabled.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The method to handle the AccessKey pair leak. Valid values:
+     *
+     *   **manual**: manually handle
+     *   **disable**: disable
+     *   **add-whitelist**: add to the whitelist
+     *
+     * @example disable
+     *
      * @var string
      */
     public $type;

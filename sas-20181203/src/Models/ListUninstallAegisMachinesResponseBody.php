@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUninstallAegisMachinesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -20,16 +22,22 @@ class ListUninstallAegisMachinesResponseBody extends Model
     public $machineList;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 44
+     *
      * @var int
      */
     public $totalCount;

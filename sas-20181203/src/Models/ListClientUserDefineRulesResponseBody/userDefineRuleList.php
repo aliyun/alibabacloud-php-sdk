@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class userDefineRuleList extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $actionType;
 
     /**
+     * @example 200****
+     *
      * @var int
      */
     public $id;
@@ -24,16 +28,22 @@ class userDefineRuleList extends Model
     public $name;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example USER-DEFINE-RULE-SWITCH-TYPE_200****
+     *
      * @var string
      */
     public $switchId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

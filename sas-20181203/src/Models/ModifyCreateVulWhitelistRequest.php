@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyCreateVulWhitelistRequest extends Model
 {
     /**
+     * @example This vulnerability is not harmful
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example {"type":"GroupId","uuids":[],"groupIds":[10782678]}
+     *
      * @var string
      */
     public $targetInfo;
 
     /**
+     * @example [{"Status":0,"GmtLast":1662281929000,"LaterCount":0,"AsapCount":1,"Name":"oval:com.redhat.rhsa:def:20172836","Type":"cve","Related":"CVE-2017-14491,CVE-2017-14492,CVE-2017-14493,CVE-2017-14494,CVE-2017-14495,CVE-2017-14496","HandledCount":1,"AliasName":"RHSA-2017:2836-Critical: dnsmasq security update","RuleModifyTime":1535542395000,"NntfCount":0,"TotalFixCount":196668,"Tags":"Exploit Exists,Code Execution"},{"Status":0,"GmtLast":1662281933000,"LaterCount":0,"AsapCount":1,"Name":"oval:com.redhat.rhsa:def:20173075","Type":"cve","Related":"CVE-2017-13089,CVE-2017-13090","HandledCount":1,"AliasName":"RHSA-2017:3075-Important: wget security update","RuleModifyTime":1551432867000,"NntfCount":0,"TotalFixCount":369136,"Tags":"Code Execution"}]
+     *
      * @var string
      */
     public $whitelist;

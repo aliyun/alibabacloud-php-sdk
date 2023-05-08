@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockUpdateConfigResponseBody extends Model
 {
     /**
+     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     *
      * @var string
      */
     public $requestId;

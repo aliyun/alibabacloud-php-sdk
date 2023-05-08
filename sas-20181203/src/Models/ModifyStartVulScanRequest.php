@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyStartVulScanRequest extends Model
 {
     /**
+     * @example "cve,sys,cms,app,emg"
+     *
      * @var string
      */
     public $types;
 
     /**
+     * @example {"i-sdada-xxxxx","i-ifaedada-sfsasdxxx"}
+     *
      * @var string
      */
     public $uuids;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTagWithUuidRequest extends Model
 {
     /**
+     * @example abc
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @example 111-xx,aa-bb
+     *
      * @var string
      */
     public $uuidList;

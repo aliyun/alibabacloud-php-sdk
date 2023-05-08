@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessKeyLeakDetailResponseBody extends Model
 {
     /**
-     * @description The ID of the AccessKey pair that is leaked.
-     *
      * @example LTAI4G4VjkC9wenfEvgX****
      *
      * @var string
@@ -18,17 +16,11 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $accesskeyId;
 
     /**
-     * @description The platform to which the asset belongs. The value is fixed as **Cloud platform**.
-     *
-     * @example Cloud platform
-     *
      * @var string
      */
     public $asset;
 
     /**
-     * @description The code snippet that is leaked.
-     *
      * @example \n1231 \nak=LTAI4G4VjkC9wenfEvgX**** \n12311123 \nsk1999 \nsk1999sk1999 \nsk1999sk1999 \n\n\ntest001 ak hht \nak=LTAI4G4VjkC9wenfEvgX**** \nsk=AjEhS9XmnIzllpAx2LxMTMdrTG****
      *
      * @var string
@@ -36,8 +28,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The time when the AccessKey pair leak was handled.
-     *
      * @example 2022-01-17 15:47:08
      *
      * @var string
@@ -45,13 +35,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $dealTime;
 
     /**
-     * @description The solution to the AccessKey pair leak. Valid values:
-     *
-     *   **manual**: manually deleted
-     *   **disable**: manually disabled
-     *   **add-whitelist**: added to the whitelist
-     *   **pending**: unhandled
-     *
      * @example add-whitelist
      *
      * @var string
@@ -59,8 +42,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $dealType;
 
     /**
-     * @description The name of the GitHub file.
-     *
      * @example testAkLeak
      *
      * @var string
@@ -68,16 +49,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubFileName;
 
     /**
-     * @description The type of the GitHub file. Valid values:
-     *
-     *   Python
-     *   XML
-     *   GO
-     *   Javascript
-     *   INI
-     *   JSON
-     *   C++
-     *
      * @example Python
      *
      * @var string
@@ -85,8 +56,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubFileType;
 
     /**
-     * @description The time when the GitHub file was updated.
-     *
      * @example 2021-07-06T09:49:33
      *
      * @var string
@@ -94,8 +63,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubFileUpdateTime;
 
     /**
-     * @description The URL of the GitHub file.
-     *
      * @example https://github.com/Blue00Blue/ExamOnline/blob/6c932c10fc3f217783f3937e2b230f79656c18a7/testAk****
      *
      * @var string
@@ -103,8 +70,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubFileUrl;
 
     /**
-     * @description The name of the GitHub repository.
-     *
      * @example ExamOnline
      *
      * @var string
@@ -112,8 +77,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubRepoName;
 
     /**
-     * @description The URL of the GitHub repository.
-     *
      * @example https://github.com/Blue00Blue/ExamOn****
      *
      * @var string
@@ -121,8 +84,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubRepoUrl;
 
     /**
-     * @description The username of the GitHub user.
-     *
      * @example Blue00Blue
      *
      * @var string
@@ -130,8 +91,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubUser;
 
     /**
-     * @description The URL of the profile picture for the GitHub user.
-     *
      * @example https://avatars.githubusercontent.com/u/26296896?s=48&v=****
      *
      * @var string
@@ -139,8 +98,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $githubUserPicUrl;
 
     /**
-     * @description The first time when the AccessKey pair leak was detected.
-     *
      * @example 2021-07-06 17:49:41
      *
      * @var string
@@ -148,8 +105,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $gmtCreate;
 
     /**
-     * @description The last time when the AccessKey pair leak was detected.
-     *
      * @example 2021-07-06 17:49:39
      *
      * @var string
@@ -157,8 +112,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $gmtModified;
 
     /**
-     * @description The remarks of the AccessKey pair leak.
-     *
      * @example 12
      *
      * @var string
@@ -166,8 +119,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $remark;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
      *
      * @var string
@@ -175,8 +126,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The platform on which the AccessKey pair leak is detected.
-     *
      * @example GitHub
      *
      * @var string
@@ -184,8 +133,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $source;
 
     /**
-     * @description The type of the leak. The value is fixed as **AccessKey**.
-     *
      * @example AccessKey
      *
      * @var string
@@ -193,11 +140,6 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $type;
 
     /**
-     * @description Indicates whether the AccessKey pair leak is added to the whitelist. Valid values:
-     *
-     *   **no**: The AccessKey pair leak is not added to the whitelist.
-     *   **yes**: The AccessKey pair leak is added to the whitelist.
-     *
      * @example no
      *
      * @var string

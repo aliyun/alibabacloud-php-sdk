@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class honeypotPreset extends Model
 {
     /**
-     * @description The ID of the honeypot template.
-     *
      * @example d6ece172-34d9-4942-99a4-b309cb55xxxx
      *
      * @var string

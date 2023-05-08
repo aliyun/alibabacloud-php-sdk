@@ -15,66 +15,92 @@ class strategies extends Model
     public $configTargets;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $customType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cycleDays;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cycleStartTime;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $ecsCount;
 
     /**
+     * @example 03:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $execStatus;
 
     /**
+     * @example 8164248
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example text2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $passRate;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $processRate;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $riskCount;
 
     /**
+     * @example 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $type;

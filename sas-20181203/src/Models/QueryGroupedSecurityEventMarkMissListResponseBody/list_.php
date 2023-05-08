@@ -9,56 +9,114 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The handling method. Valid values:
+     *
+     *   **1**: Automatically Added to Whitelist
+     *   **2**: Defense Without Notification
+     *
+     * @example 31412647
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The alias of the field.
+     *
+     * @example auto_add_white
+     *
      * @var string
      */
     public $disposalWay;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example Login with unusual location
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The handling method. Valid values:
+     *
+     *   **auto_add_white**: Automatically Added to Whitelist
+     *   **defense_not_notification**: Defense Without Notification
+     *
+     * @example login_common_location
+     *
      * @var string
      */
     public $eventNameOriginal;
 
     /**
+     * @description The condition that is used to query alert events by asset. You can specify a value of the following types:
+     *
+     *   The IP address of the asset.
+     *   The public IP address of the asset.
+     *   The private IP address of the asset.
+     *   The name of the asset.
+     *
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example The source IP address of the request.
+     *
      * @var string
      */
     public $eventTypeOriginal;
 
     /**
+     * @description Unusual logon
+     *
+     * @example type
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description The name of the alert event. The value indicates a subtype.
+     *
+     * @example root
+     *
      * @var string
      */
     public $fieldValue;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example Logon Time
+     *
      * @var string
      */
     public $filedAliasName;
 
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example contains
+     *
      * @var string
      */
     public $operate;
 
     /**
+     * @description The pagination information.
+     *
+     * @example 6985b88c-eb19-4d27-98ad-e4a42312****,5721d503-9b04-4243-89ca-1fb8ca5e****,db2678c3-10e3-4a20-92f1-265f6****
+     *
      * @var string
      */
     public $uuids;

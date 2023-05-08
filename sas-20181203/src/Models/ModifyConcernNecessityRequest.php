@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyConcernNecessityRequest extends Model
 {
     /**
+     * @description The priorities to fix the vulnerabilities. Valid values:
+     *
+     *   asap: high
+     *   later: medium
+     *   nntf: low
+     *
+     * @example asap,nntf
+     *
      * @var string
      */
     public $concernNecessity;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfSetupRequest extends Model
 {
     /**
+     * @example {
+     * }
      * @var string
      */
     public $strategyConfig;
 
     /**
+     * @example machineResource
+     *
      * @var string
      */
     public $strategyTag;
 
     /**
+     * @example major
+     *
      * @var string
      */
     public $strategyTagValue;

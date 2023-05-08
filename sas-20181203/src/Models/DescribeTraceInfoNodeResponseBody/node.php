@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The name of the node.
+     *
+     * @example login
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array that consists of the properties of the node.
+     *
      * @var propertyList[]
      */
     public $propertyList;
 
     /**
+     * @description The type of the node.
+     *
+     * @example Alert
+     *
      * @var string
      */
     public $type;

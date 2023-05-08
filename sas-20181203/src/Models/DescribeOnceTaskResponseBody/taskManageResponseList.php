@@ -9,61 +9,101 @@ use AlibabaCloud\Tea\Model;
 class taskManageResponseList extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * @example [
+     * "problemType": "offline",
+     * "uuid": "inet-eae04867-002f-423d-af00-c72cd629****"
+     * ]
      * @var string
      */
     public $detailData;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @description The timestamp when the task starts. Unit: milliseconds.
+     *
+     * @example 10%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @example 1650267989000
+     *
      * @var int
      */
     public $taskEndTime;
 
     /**
+     * @example e900f528f5a6229bb640ca27cb44c98e
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The number of tasks that failed.
+     *
+     * @example CLIENT_PROBLEM_CHECK
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The execution result of the task.
+     *
+     * @example 1649732012000
+     *
      * @var int
      */
     public $taskStartTime;
 
     /**
+     * @description The timestamp when the task ends. Unit: milliseconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskStatus;
 
     /**
+     * @description The number of tasks that succeeded.
+     *
+     * @example INIT
+     *
      * @var string
      */
     public $taskStatusText;
 
     /**
+     * @description The name of the task.
+     *
+     * @example CLIENT_PROBLEM_CHECK
+     *
      * @var string
      */
     public $taskType;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class customConfigs extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example SessionTimeMax
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Maximum session time
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @example {\"type\":\"NUMBER\",\"range\":[1,24]}
+     *
      * @var string
      */
     public $typeDefine;
 
     /**
+     * @example 11
+     *
      * @var string
      */
     public $value;

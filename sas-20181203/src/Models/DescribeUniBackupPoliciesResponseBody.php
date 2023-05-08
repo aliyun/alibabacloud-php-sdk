@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPoliciesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example ACF97412-FD09-4D1F-994F-34DF12BR****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the anti-ransomware policies.
+     *
      * @var uniBackupPolicies[]
      */
     public $uniBackupPolicies;

@@ -15,6 +15,8 @@ class HandleSecurityEventsResponseBody extends Model
     public $handleSecurityEventsResponse;
 
     /**
+     * @example FF0020B9-999F-5DE2-985F-DB282BDA5311
+     *
      * @var string
      */
     public $requestId;

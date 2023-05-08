@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class FixCheckWarningsResponseBody extends Model
 {
     /**
+     * @description FixCheckWarnings
+     *
+     * @example 52370
+     *
      * @var int
      */
     public $batchId;
 
     /**
+     * @example 76C1D7FD-DB1E-45EA-B804-3FBD9A1DD9C0
+     *
      * @var string
      */
     public $requestId;

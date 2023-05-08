@@ -11,36 +11,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSensitiveFileByKeyResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The risk level of the sensitive file. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the sensitive files.
+     *
      * @var sensitiveFileList[]
      */
     public $sensitiveFileList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

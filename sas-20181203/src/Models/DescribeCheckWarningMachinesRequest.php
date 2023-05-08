@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningMachinesRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of check items.
+     * @example 58
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of baselines.
+     * @example 43
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description Specifies whether the check item passed the baseline check. Valid values:
+     *   **1**: no
+     *   **3**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

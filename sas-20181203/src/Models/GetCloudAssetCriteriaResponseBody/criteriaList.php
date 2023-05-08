@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @example [{"vendor":0,"regionIds":{"default":["ap-southeast-1","ap-northeast-2","ap-southeast-3","ap-southeast-5","ap-southeast-7","me-central-1"]}},{"vendor":1,"regionIds":{"default":["outside-of-aliyun"]}}]
+     *
      * @var string
      */
     public $multiValues;
 
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description GetCloudAssetCriteria
+     *
+     * @example select
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example fvt*
+     *
      * @var string
      */
     public $values;

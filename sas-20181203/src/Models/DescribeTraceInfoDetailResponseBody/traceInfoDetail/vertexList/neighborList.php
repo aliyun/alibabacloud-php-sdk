@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class neighborList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @example alert
+     *
      * @var string
      */
     public $type;

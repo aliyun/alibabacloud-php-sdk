@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
+     * @example [{"MachineType":1,"Count":11}]
+     *
      * @var string
      */
     public $categoryCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $riskInstanceCount;

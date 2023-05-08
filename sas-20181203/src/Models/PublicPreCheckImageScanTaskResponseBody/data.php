@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 6
+     *
      * @var int
      */
     public $needAuthCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $scanImageCount;

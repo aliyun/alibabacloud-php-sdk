@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcTarget extends Model
 {
     /**
+     * @example ack-jenkins-lawr****
+     *
      * @var string
      */
     public $appName;
@@ -19,11 +21,15 @@ class srcTarget extends Model
     public $imageList;
 
     /**
+     * @example jenkins
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example customize
+     *
      * @var string
      */
     public $ruleType;
@@ -34,16 +40,22 @@ class srcTarget extends Model
     public $tagList;
 
     /**
+     * @example 40****
+     *
      * @var int
      */
     public $targetId;
 
     /**
+     * @example mhh-te****
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example containerId
+     *
      * @var string
      */
     public $targetType;

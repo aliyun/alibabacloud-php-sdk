@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class riskLevelCount extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example medium
+     *
      * @var string
      */
     public $key;

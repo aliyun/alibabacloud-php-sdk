@@ -14,6 +14,8 @@ class GetHoneypotNodeRequest extends Model
     public $lang;
 
     /**
+     * @example d3dd3864-4e02-4abd-8b6a-8f5f6fec4715
+     *
      * @var string
      */
     public $nodeId;

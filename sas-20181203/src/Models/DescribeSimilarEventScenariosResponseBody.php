@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimilarEventScenariosResponseBody extends Model
 {
     /**
+     * @example FDF7B8D9-8493-4B90-8D13-E0C1FFCE5F97
+     *
      * @var string
      */
     public $requestId;

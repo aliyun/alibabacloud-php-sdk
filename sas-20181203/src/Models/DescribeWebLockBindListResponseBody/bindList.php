@@ -9,66 +9,124 @@ use AlibabaCloud\Tea\Model;
 class bindList extends Model
 {
     /**
+     * @description The starting progress percentage of web tamper proofing. Valid values: 0 to 100.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $auditCount;
 
     /**
+     * @description Queries the information about the servers that have web tamper proofing enabled.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $blockCount;
 
     /**
+     * @description The information about the servers that have web tamper proofing enabled.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $dirCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The number of alerts.
+     *
+     * @example 54.169.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of blocked tampering events.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description 20
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The protection status of the server. Valid values:
+     *
+     *   **on**: protected
+     *   **off**: unprotected
+     *
+     * @example 99
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The number of entries returned per page. Default value: 20.
+     *
+     * @example 2001
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @description The protection status of the server that you want to query. Valid values:
+     *
+     *   **on**: protected
+     *   **off**: unprotected
+     *
+     * @example client offline
+     *
      * @var string
      */
     public $serviceDetail;
 
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example stop
+     *
      * @var string
      */
     public $serviceStatus;
 
     /**
+     * @description The string that allows you to search for servers in fuzzy match mode. You can enter a server name or IP address.
+     *
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example inet-12345****
+     *
      * @var string
      */
     public $uuid;

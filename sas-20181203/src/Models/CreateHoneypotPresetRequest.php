@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotPresetRequest extends Model
 {
     /**
-     * @description The name of the honeypot image.
-     *
      * @example webmin
      *
      * @var string
@@ -18,17 +16,13 @@ class CreateHoneypotPresetRequest extends Model
     public $honeypotImageName;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The custom configurations of the honeypot template. The value is a JSON string that contains the following fields:
-     *
-     *   **portrait_option**: Social Source Tracing
-     *   **burp**: Burp-specific Defense
-     *   **trojan_git**: Git-specific Defense
-     *
      * @example {"burp":"close","trojan_git":"close","portrait_option":"true"}
      *
      * @var string
@@ -36,9 +30,6 @@ class CreateHoneypotPresetRequest extends Model
     public $meta;
 
     /**
-     * @description The ID of the management node to which you want to deploy honeypots.
-     *
-     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes.
      * @example 9373fe59-74d5-4505-bb24-c85352fb****
      *
      * @var string
@@ -46,8 +37,6 @@ class CreateHoneypotPresetRequest extends Model
     public $nodeId;
 
     /**
-     * @description The custom name of the honeypot template.
-     *
      * @example WebMin-online
      *
      * @var string

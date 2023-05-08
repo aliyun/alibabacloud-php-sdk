@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUuidsByVulNamesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the statistics about the assets.
+     *
      * @var machineInfoStatistics[]
      */
     public $machineInfoStatistics;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 97286A-4A6B-4A4-95FA-EC7E3E2451
+     *
      * @var string
      */
     public $requestId;

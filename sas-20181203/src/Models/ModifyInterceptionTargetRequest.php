@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionTargetRequest extends Model
 {
     /**
+     * @example yasintt-daemonst
+     *
      * @var string
      */
     public $appName;
@@ -19,6 +21,8 @@ class ModifyInterceptionTargetRequest extends Model
     public $imageList;
 
     /**
+     * @example demo4
+     *
      * @var string
      */
     public $namespace;
@@ -29,16 +33,22 @@ class ModifyInterceptionTargetRequest extends Model
     public $tagList;
 
     /**
+     * @example 400913
+     *
      * @var int
      */
     public $targetId;
 
     /**
+     * @example test001
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;

@@ -9,59 +9,125 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningsRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 2546
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The type of the check item. Valid values:
+     *
+     *   **hc.check.type.identity_auth**: identity authentication
+     *   **hc.check.type.access_control**: access control
+     *   **hc.check.type.network_service**: network and service
+     *   **hc.check.type.service_conf**: service configuration
+     *   **hc.check.type.file_rights**: file permission
+     *   **hc.check.type.security_audit**: security audit
+     *   **hc.check.type.attack_defense**: intrusion prevention
+     *   **hc.check.type.others**: others
+     *
+     * @example hc.check.type.attack_defense
+     *
      * @var string
      */
     public $checkType;
 
     /**
+     * @description The name of container.
+     *
+     * @example /redis
+     *
+     * @var string
+     */
+    public $containerName;
+
+    /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the baseline risk item.
+     *
+     * > To query specified baseline risk items and the check items of a specified server, you must provide the IDs of the baseline risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
+     * @example 10354
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   **1**: failed
+     *   **2**: verifying
+     *   **3**: passed
+     *   **5**: expired
+     *   **6**: ignored
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskStatus;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The UUID of the server on which the baseline check is performed.
+     *
+     * > To query specified risk items and the check items of a specified server, you must provide the ID of the server on which the baseline check is performed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the IDs of servers.
+     * @example d42f938c-d962-48a0-90f9-05****
+     *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'checkId'     => 'CheckId',
-        'checkType'   => 'CheckType',
-        'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'riskId'      => 'RiskId',
-        'riskStatus'  => 'RiskStatus',
-        'sourceIp'    => 'SourceIp',
-        'uuid'        => 'Uuid',
+        'checkId'       => 'CheckId',
+        'checkType'     => 'CheckType',
+        'containerName' => 'ContainerName',
+        'currentPage'   => 'CurrentPage',
+        'lang'          => 'Lang',
+        'pageSize'      => 'PageSize',
+        'riskId'        => 'RiskId',
+        'riskStatus'    => 'RiskStatus',
+        'sourceIp'      => 'SourceIp',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -76,6 +142,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -115,6 +184,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];

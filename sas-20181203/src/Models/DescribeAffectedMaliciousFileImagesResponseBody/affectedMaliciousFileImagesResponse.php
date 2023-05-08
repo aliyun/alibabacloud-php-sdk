@@ -9,151 +9,244 @@ use AlibabaCloud\Tea\Model;
 class affectedMaliciousFileImagesResponse extends Model
 {
     /**
+     * @example c08d5fc1a329a4b88950a253d082f1****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example docker-law
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example 6a5e1031a5858617f7d8a179ead6****
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @example https://aegis-metadata-file.oss-cn-shanghai.aliyuncs.com/
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example /d836968041f7683b5605a****
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example 1594907349000
+     *
      * @var int
      */
     public $firstScanTimestamp;
 
     /**
+     * @example {"ruleVersion":"highlight_20210908","ruleId":600106,"events":[[2,54]]}
+     *
      * @var string
      */
     public $highLight;
 
     /**
+     * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * >  Fuzzy match is supported.
+     * @example e05c0de798217637868ef4****
+     *
      * @var string
      */
     public $imageUuid;
 
     /**
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 47.101.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 172.22.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description Queries the details of malicious image samples.
+     *
+     * @example 1596522785000
+     *
      * @var int
      */
     public $latestScanTimestamp;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * >  You can call the [ListRepository](~~145293~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+     * @example 1596522711000
+     *
      * @var int
      */
     public $latestVerifyTimestamp;
 
     /**
+     * @description The pod.
+     *
+     * @example 27213ad3447f0209dd152a5cadea****
+     *
      * @var string
      */
     public $layer;
 
     /**
+     * @example serious
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The pod.
+     *
+     * @example d836968041f768300d9605a****
+     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
+     * @description The namespace.
+     *
+     * @example hanghai-namespace
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 22222-7xsqq
+     *
      * @var string
      */
     public $pod;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example crr-vridcl4****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The timestamp of the last verification.
+     *
+     * @example cri-datvail3m****
+     *
      * @var string
      */
     public $repoInstanceId;
 
     /**
+     * @description DescribeAffectedMaliciousFileImages
+     *
+     * @example centos
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The pagination information.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $repoRegionId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * >  Fuzzy match is supported.
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The UUID of the image.
+     *
+     * @example 0.2
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example m-bp17m0pc0xprzbwo****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @example source-test-obj-9LaLJ
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example ECS_IMAGE
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 48a473c4-1650-4931-a822-7e6c2c28****
+     *
      * @var string
      */
     public $uuid;

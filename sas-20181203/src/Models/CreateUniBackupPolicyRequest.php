@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateUniBackupPolicyRequest extends Model
 {
     /**
-     * @description The name of the database account.
-     *
      * @example admin
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $accountName;
 
     /**
-     * @description The password of the database account.
-     *
      * @example Pass****
      *
      * @var string
@@ -27,11 +23,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $accountPassword;
 
     /**
-     * @description Specifies whether the database is manually added. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
      * @example true
      *
      * @var string
@@ -39,12 +30,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $databaseAddByUser;
 
     /**
-     * @description The type of the database. Valid values:
-     *
-     *   **MYSQL**
-     *   **ORACLE**
-     *   **MSSQL**
-     *
      * @example MYSQL
      *
      * @var string
@@ -52,33 +37,20 @@ class CreateUniBackupPolicyRequest extends Model
     public $databaseType;
 
     /**
-     * @description The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
-     *
-     *   **start**: the start time of a backup task
-     *   **interval**: the interval of backup tasks
-     *   **type**: the unit of the interval
-     *   **days**: the days of a week on which a backup task is performed
+     * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
      *
      * @var mixed[]
      */
     public $fullPlan;
 
     /**
-     * @description The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
-     *
-     *   **start**: the start time of a backup task
-     *   **interval**: the interval of backup tasks
-     *   **type**: the unit of the interval
-     *   **days**: the days of a week on which a backup task is performed
+     * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
      *
      * @var mixed[]
      */
     public $incPlan;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
-     *
-     * >  You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the IDs of ECS instances.
      * @example i-bp1fu4aqltf1huhc****
      *
      * @var string
@@ -86,8 +58,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the anti-ransomware policy.
-     *
      * @example mysql-policy
      *
      * @var string
@@ -95,8 +65,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $policyName;
 
     /**
-     * @description The retention period of backup data.
-     *
      * @example 7
      *
      * @var int
@@ -104,8 +72,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $retention;
 
     /**
-     * @description The maximum network bandwidth that is allowed during data backup. Unit: bytes.
-     *
      * @example 5242880
      *
      * @var int
@@ -113,8 +79,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $speedLimiter;
 
     /**
-     * @description The region in which the server resides.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -122,9 +86,6 @@ class CreateUniBackupPolicyRequest extends Model
     public $uniRegionId;
 
     /**
-     * @description The UUID of the server whose data is backed up based on the anti-ransomware policy.
-     *
-     * >  You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
      * @example 045cad48-eb08-4047-a70c-713aec7b****
      *
      * @var string

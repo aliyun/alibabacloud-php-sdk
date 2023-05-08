@@ -15,21 +15,29 @@ class groups extends Model
     public $countByStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $remainingTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sort;
 
     /**
+     * @example finish
+     *
      * @var string
      */
     public $status;

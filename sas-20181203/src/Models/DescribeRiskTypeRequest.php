@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskTypeRequest extends Model
 {
     /**
+     * @description The name of the baseline type.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.168.X.X
+     *
      * @var string
      */
     public $sourceIp;

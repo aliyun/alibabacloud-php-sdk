@@ -15,11 +15,17 @@ class DescribeInstanceRebootStatusResponseBody extends Model
     public $rebootStatuses;
 
     /**
+     * @example 5BD95679-D63A-4151-97D0-188432F4A57
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description DescribeInstanceRebootStatus
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

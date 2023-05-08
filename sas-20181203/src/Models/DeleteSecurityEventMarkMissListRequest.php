@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityEventMarkMissListRequest extends Model
 {
     /**
+     * @description The IDs of custom defense rule.
+     *
      * @var int[]
      */
     public $ids;

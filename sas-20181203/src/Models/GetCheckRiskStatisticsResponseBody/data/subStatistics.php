@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class subStatistics extends Model
 {
     /**
+     * @example weak_password
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $highWarningCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mediumWarningCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $passCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example weak_password
+     *
      * @var string
      */
     public $typeName;

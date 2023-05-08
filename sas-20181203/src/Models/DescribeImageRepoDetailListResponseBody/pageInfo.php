@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
+     * @description The address of the image repository.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned on the current page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
+     * @description An array that consists of the information about image repositories.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The total number of image repositories.
+     * @description The information about the image repository.
      *
      * @example 19
      *

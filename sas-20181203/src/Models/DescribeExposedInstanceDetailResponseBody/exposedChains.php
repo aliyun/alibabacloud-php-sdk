@@ -16,66 +16,133 @@ class exposedChains extends Model
     public $allVulList;
 
     /**
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
+     *
+     *   If the value of the ExposureType parameter is **INTERNET_IP**, the value of this parameter is an empty string.
+     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
+     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
+     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     *
+     * @example openssl,openssh
+     *
      * @var string
      */
     public $exposureComponent;
 
     /**
+     * @description The name of the server.
+     *
+     * @example 47.99.XX.XX
+     *
      * @var string
      */
     public $exposureIp;
 
     /**
+     * @description The information about the vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $exposurePort;
 
     /**
+     * @description The priority to fix the vulnerability. Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     * @example INTERNET_IP
+     *
      * @var string
      */
     public $exposureType;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example eip-bp1bkgowzam49rld3****
+     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
+     * @description The port that is exposed on the Internet.
+     *
+     * @example sg-bp1iw5enua6gf5i2xr7z
+     *
      * @var string
      */
     public $groupNo;
 
     /**
+     * @description The public IP address.
+     *
+     * @example i-bp116qem8npvchqc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerabilities
+     *   **sys**: Windows system vulnerabilities
+     *   **cms**: Web-CMS vulnerabilities
+     *   **app**: application vulnerabilities
+     *   **emg**: urgent vulnerabilities
+     *   **sca**: middleware vulnerabilities
+     *
+     * @example worker-k8s-for-cs-c929ee2a145214f89a8b248005be5****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example 47.99.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The information about all vulnerabilities on the server.
+     *
      * @var realVulList[]
      */
     public $realVulList;
 
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
+     *
      * @var string
      */
     public $uuid;

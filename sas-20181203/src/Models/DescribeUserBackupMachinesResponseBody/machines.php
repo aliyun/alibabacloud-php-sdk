@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example policy_name_A
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
+     *
      * @var string
      */
     public $uuid;

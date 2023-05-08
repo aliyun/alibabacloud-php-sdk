@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionTargetPageRequest extends Model
 {
     /**
+     * @example frontend
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,11 +28,15 @@ class ListInterceptionTargetPageRequest extends Model
     public $imageList;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -39,11 +47,15 @@ class ListInterceptionTargetPageRequest extends Model
     public $tagList;
 
     /**
+     * @example source-test-obj-0****
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;

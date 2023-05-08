@@ -11,21 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoDetailListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about image repositories.
+     * @description Indicates whether the image repository is at risk. Valid values:
+     *
+     *   **YES**
+     *   **NO**
      *
      * @var imageRepoResponses[]
      */
     public $imageRepoResponses;
 
     /**
-     * @description The pagination information.
+     * @description The total number of image repositories.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of entries returned per page.
      *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
      *

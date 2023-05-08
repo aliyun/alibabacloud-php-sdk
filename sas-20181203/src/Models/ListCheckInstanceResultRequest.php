@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListCheckInstanceResultRequest extends Model
 {
     /**
+     * @example 23
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example i-uf64w4q6p9jti5gl****
+     *
      * @var string
      */
     public $instanceIdKey;
@@ -29,21 +35,29 @@ class ListCheckInstanceResultRequest extends Model
     public $instanceIds;
 
     /**
+     * @example i-uf64w4q6p9jti5gl****
+     *
      * @var string
      */
     public $instanceNameKey;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionIdKey;

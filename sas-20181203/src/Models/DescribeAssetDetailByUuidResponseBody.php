@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidResponseBody extends Model
 {
     /**
+     * @description The kernel version of the operating system.
+     *
      * @var assetDetail
      */
     public $assetDetail;
 
     /**
+     * @description The timestamp when Security Center records the details of the server. Unit: milliseconds.
+     *
+     * @example 39031E31-6BBA-5C99-A870-D807E78918CD
+     *
      * @var string
      */
     public $requestId;

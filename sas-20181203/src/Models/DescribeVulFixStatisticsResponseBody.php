@@ -21,6 +21,8 @@ class DescribeVulFixStatisticsResponseBody extends Model
     public $fixTotal;
 
     /**
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;

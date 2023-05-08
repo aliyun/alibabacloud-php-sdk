@@ -11,26 +11,56 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationsResponse extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
      * @var markField[]
      */
     public $markField;
 
     /**
+     * @description 192.168.XX.XX
+     *
      * @var markFieldsSource[]
      */
     public $markFieldsSource;
 
     /**
+     * @description The operation that you can perform to handle the alert. Valid values:
+     *
+     *   **block_ip**: blocks the source IP address.
+     *   **advance_mark_mis_info**: adds the alert to the whitelist.
+     *   **ignore**: ignores the alert.
+     *   **manual_handled**: marks the alert as manually handled.
+     *   **kill_process**: terminates the malicious process.
+     *   **cleanup**: performs in-depth virus detection and removal.
+     *   **kill_and_quara**: terminates the malicious process and quarantines the source file.
+     *   **disable_malicious_defense**: stops the container on which the alerting files or processes exist.
+     *   **client_problem_check**: performs troubleshooting.
+     *   **quara**: quarantines the source file of the malicious process.
+     *
+     * @example advance_mark_mis_info
+     *
      * @var string
      */
     public $operationCode;
 
     /**
+     * @description Indicates whether you can handle the alert event in the current edition of Security Center. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example {"expireTime":1641566807783}
+     *
      * @var string
      */
     public $operationParams;
 
     /**
+     * @description The UUID of the server on which the alert event is detected.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $userCanOperate;

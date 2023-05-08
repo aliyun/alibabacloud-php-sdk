@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @example 69
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

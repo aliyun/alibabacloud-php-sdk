@@ -16,6 +16,8 @@ class ListInterceptionTargetPageResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 028CF634-5268-5660-9575-48C9ED6B****
+     *
      * @var string
      */
     public $requestId;

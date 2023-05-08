@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
+     * @description The UUID of the Security Center agent.
+     *
+     * @example 2b1753a6-04d9-448e-ad17-7abdf19f****
+     *
      * @var string
      */
     public $uuid;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetClusterInterceptionConfigRequest extends Model
 {
     /**
+     * @example c60b77fe62093480db6164a3c2fa****
+     *
      * @var string
      */
     public $clusterIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $switchOn;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $switchType;

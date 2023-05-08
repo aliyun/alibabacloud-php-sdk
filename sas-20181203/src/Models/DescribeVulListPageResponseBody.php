@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulListPageResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4347E985-6E64-467B-96EC-30D4EA9E32FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

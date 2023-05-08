@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pushTaskRsp extends Model
 {
     /**
+     * @description The UUID of the server.
+     *
      * @var pushTaskResultList[]
      */
     public $pushTaskResultList;

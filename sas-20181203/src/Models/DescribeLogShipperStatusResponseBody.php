@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogShipperStatusResponseBody extends Model
 {
     /**
+     * @description The status information.
+     *
      * @var logShipperStatus
      */
     public $logShipperStatus;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 24A20733-10A0-4AF6-BE6B-E3322413****
+     *
      * @var string
      */
     public $requestId;

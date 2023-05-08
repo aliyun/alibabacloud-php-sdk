@@ -15,6 +15,8 @@ class instanceTypes extends Model
     public $instanceSubTypes;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $name;

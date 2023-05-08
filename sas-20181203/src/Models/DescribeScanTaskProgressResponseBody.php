@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressResponseBody extends Model
 {
     /**
+     * @example EA15BA8A-D631-4375-8D40-CB7C769B0279
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $scanTaskProgress;
 
     /**
+     * @example [{"type":"uuid","name":"host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
+     *
      * @var string
      */
     public $targetInfo;

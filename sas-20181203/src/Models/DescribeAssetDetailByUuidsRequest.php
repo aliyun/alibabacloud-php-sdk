@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidsRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****
+     *
      * @var string
      */
     public $uuids;

@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class IgnoreCheckItemsRequest extends Model
 {
     /**
+     * @description The risk items.
+     *
      * @var checkAndRiskTypeList[]
      */
     public $checkAndRiskTypeList;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The reason why you add the risk item to the whitelist.
+     *
+     * @example already config in another way
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The operation that you want to perform on the risk item.Valid values:
+     *  **1**: adds the risk item to the whitelist
+     *  **2**: removes the risk item from the whitelist
+     *
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @description The UUIDs of the servers.
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @var string[]
      */
     public $uuidList;

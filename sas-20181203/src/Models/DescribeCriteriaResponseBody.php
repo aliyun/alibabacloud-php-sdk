@@ -15,6 +15,10 @@ class DescribeCriteriaResponseBody extends Model
     public $criteriaList;
 
     /**
+     * @description DescribeCriteria
+     *
+     * @example 8E6DDACF-99AF-5939-AFFD-FCCD3B01E724
+     *
      * @var string
      */
     public $requestId;

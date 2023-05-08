@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateInterceptionRuleShrinkRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c35xxxa416
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -23,11 +28,24 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $clusterName;
 
     /**
+     * @description The information about the destination network object. The value of this parameter contains the following fields:
+     *
+     *   targetId: the ID of the destination network object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
+     *   ports: the destination port ranges.
+     *
+     * @example [
+     * ]
      * @var string
      */
     public $dstTargetListShrink;
 
     /**
+     * @description The action on traffic. Valid values:
+     *
+     *   **1**: blocks traffic.
+     *   **2**: allows traffic and generates alerts.
+     *   **3**: allows traffic and does not generate alerts.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +53,8 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $interceptType;
 
     /**
+     * @description The priority of the defense rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +62,8 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $orderIndex;
 
     /**
+     * @description The name of the defense rule.
+     *
      * @example test-rule-1
      *
      * @var string
@@ -49,6 +71,11 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $ruleName;
 
     /**
+     * @description Specifies the status of the defense rule. Valid values:
+     *
+     *   **0**: disables the rule.
+     *   **1**: enables the rule.
+     *
      * @example 0
      *
      * @var int
@@ -56,6 +83,10 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the defense rule. Valid values:
+     *
+     *   customize: custom rule
+     *
      * @example customize
      *
      * @var string
@@ -63,6 +94,12 @@ class CreateInterceptionRuleShrinkRequest extends Model
     public $ruleType;
 
     /**
+     * @description The source network object. The value of this parameter contains the following field:
+     *
+     *   targetId: the ID of the source network object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
+     *
+     * @example {"targetId":301940}
+     *
      * @var string
      */
     public $srcTargetShrink;

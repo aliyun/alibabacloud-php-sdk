@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallPmAgentResponseBody extends Model
 {
     /**
+     * @example D49B5134-9511-5736-B447-BEE0AC66****
+     *
      * @var string
      */
     public $requestId;

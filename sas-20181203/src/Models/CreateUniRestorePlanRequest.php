@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateUniRestorePlanRequest extends Model
 {
     /**
+     * @example qtc
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example ac457b30598d11ed800000163e02****
+     *
      * @var string
      */
     public $instanceUuid;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example 925702.0
+     *
      * @var string
      */
     public $resetScn;
 
     /**
+     * @example 2022-10-29 01:06:24
+     *
      * @var string
      */
     public $resetTime;
 
     /**
+     * @example {"files": {"qtc":"F:\\database\\qtc.mdf","qtc_log":"F:\\database\\qtc_0.ldf"},
+     * "name":"qtc"}
      * @var string
      */
     public $restoreInfo;
 
     /**
+     * @example 1656957664000
+     *
      * @var int
      */
     public $timePoint;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPoliciesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The number of entries returned per page. Default value: 10.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeBackupPoliciesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The information that you want to use to identify the servers protected by the anti-ransomware policy. You can enter the IP address or ID of a server.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 1.1.XX.XX
      *
@@ -27,7 +27,7 @@ class DescribeBackupPoliciesRequest extends Model
     public $machineRemark;
 
     /**
-     * @description The name of the anti-ransomware policy that you want to query.
+     * @description The number of the page to return. Default value: 1.
      *
      * @example SecurityStrategy-20200303
      *
@@ -36,7 +36,7 @@ class DescribeBackupPoliciesRequest extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The page number of the returned page.
      *
      * @example 10
      *
@@ -45,11 +45,7 @@ class DescribeBackupPoliciesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**: The anti-ransomware policy is manually enabled.
-     *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-     *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+     * @description The pagination information.
      *
      * @example enabled
      *

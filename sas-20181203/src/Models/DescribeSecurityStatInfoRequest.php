@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityStatInfoRequest extends Model
 {
     /**
+     * @description The numbers of low-risk unfixed vulnerabilities at all points in time.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of **high-risk** unfixed vulnerabilities at each point in time.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $resourceDirectoryAccountId;
 
     /**
+     * @description The total number of baseline risk items on the current day.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
+     * @example 9
+     *
      * @var int
      */
     public $ecsCount;
 
     /**
+     * @example TestVpcNote
+     *
      * @var string
      */
     public $instanceDesc;
 
     /**
+     * @example ins_1321_asedb_ada
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

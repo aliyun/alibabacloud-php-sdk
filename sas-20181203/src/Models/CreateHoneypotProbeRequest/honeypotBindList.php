@@ -10,16 +10,11 @@ use AlibabaCloud\Tea\Model;
 class honeypotBindList extends Model
 {
     /**
-     * @description The listener ports.
-     *
      * @var bindPortList[]
      */
     public $bindPortList;
 
     /**
-     * @description The ID of the honeypot.
-     *
-     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
      * @example 1a5eda2d40f92ac87d6b63e1a5ad4b76fe0d4110c4a3e2fa85438a29ae55****
      *
      * @var string

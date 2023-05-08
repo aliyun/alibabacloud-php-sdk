@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class imageRepoList extends Model
 {
     /**
+     * @example add
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @example zeus
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example sas-script
+     *
      * @var string
      */
     public $repoNamespace;

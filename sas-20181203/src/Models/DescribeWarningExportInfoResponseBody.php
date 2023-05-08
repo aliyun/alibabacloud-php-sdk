@@ -9,46 +9,68 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningExportInfoResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentCount;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $exportStatus;
 
     /**
+     * @example app_20210917
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 131231
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Queries the progress of a export task for a baseline check result.
+     *
+     * @example https://eds.aliyun.com/notification/entitle/64b5c3e2-e52b-4d29-9617-e7e6d74XXXX
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description DescribeWarningExportInfo
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

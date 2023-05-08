@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class fixStat extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $fixedTodayNum;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $fixedTotalNum;
 
     /**
+     * @example 17
+     *
      * @var int
      */
     public $fixingNum;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $needFixNum;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $type;

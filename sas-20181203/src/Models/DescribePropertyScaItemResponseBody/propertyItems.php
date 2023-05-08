@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @description The type of the middleware, database, or web service. Valid values:
+     *
+     *   **system_service**: system service
+     *   **software_library**: software library
+     *   **docker_component**: container component
+     *   **database**: database
+     *   **web_container**: web container
+     *   **jar**: JAR package
+     *   **web_framework**: web framework
+     *
+     * @example docker_component
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The number of servers on which the middleware is run.
+     *
+     * @example 23
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The name of the middleware.
+     *
+     * @example kubelet
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The display name of the middleware type.
+     *
+     * @example Docker Component
+     *
      * @var string
      */
     public $typeDisplay;

@@ -9,56 +9,86 @@ use AlibabaCloud\Tea\Model;
 class logMetaList extends Model
 {
     /**
+     * @example host
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $hotTtl;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example Login
+     *
      * @var string
      */
     public $logDesc;
 
     /**
+     * @description Queries the configurations of the log analysis feature provided by Security Center.
+     *
+     * @example aegis-log-login
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example aegis-log
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The configurations of the log analysis feature.
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example aegis-log-login
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @example aegis-log-network
+     *
      * @var string
      */
     public $userLogStore;
 
     /**
+     * @description DescribeLogMeta
+     *
+     * @example sasnew-log-XXXX-cn-hangzhou
+     *
      * @var string
      */
     public $userProject;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $userRegion;

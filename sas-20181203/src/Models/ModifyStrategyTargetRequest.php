@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyTargetRequest extends Model
 {
     /**
+     * @example {"strategyId":8070645}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example [{"Target":"9273980","BindUuidCount":5320,"TargetType":"groupId","Flag":"del"},{"Target":"9677606","TargetType":"groupId","Flag":"del"},{"Target":"10121607","BindUuidCount":7,"TargetType":"groupId","Flag":"add"},{"Target":"10670708","BindUuidCount":2,"TargetType":"groupId","Flag":"del"},{"Target":"11246338","BindUuidCount":6,"TargetType":"groupId","Flag":"del"},{"Target":"11291161","BindUuidCount":13,"TargetType":"groupId","Flag":"del"}]
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example hc_strategy
+     *
      * @var string
      */
     public $type;

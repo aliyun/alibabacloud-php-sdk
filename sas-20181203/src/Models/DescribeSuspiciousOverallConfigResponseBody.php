@@ -15,6 +15,8 @@ class DescribeSuspiciousOverallConfigResponseBody extends Model
     public $overallConfig;
 
     /**
+     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
+     *
      * @var string
      */
     public $requestId;

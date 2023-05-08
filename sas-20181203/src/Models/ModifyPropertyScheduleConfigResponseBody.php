@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyPropertyScheduleConfigResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $modifyResult;
 
     /**
+     * @example C0D1DF51-D879-55A8-B6C7-7D3B913EF34D
+     *
      * @var string
      */
     public $requestId;

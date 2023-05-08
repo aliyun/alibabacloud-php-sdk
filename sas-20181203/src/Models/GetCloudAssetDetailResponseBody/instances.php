@@ -9,71 +9,166 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description Indicates whether alerts are generated for the current cloud asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example NO
+     *
      * @var string
      */
     public $alarmStatus;
 
     /**
+     * @description The subtype of the cloud asset.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetSubType;
 
     /**
+     * @description The subtype name of the cloud asset.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $assetSubTypeName;
 
     /**
+     * @description The type of the cloud asset. Valid values:
+     *
+     *   **0**: ECS
+     *   **1**: SLB
+     *   **3**: ApsaraDB RDS
+     *   **4**: MongoDB
+     *   **5**: Redis
+     *   **6**: Container Registry
+     *   **8**: ACK
+     *   **9**: VPC
+     *   **11**: ActionTrail
+     *   **12**: CDN
+     *   **13**: Certificate Management Service (formerly SSL Certificates Service)
+     *   **14**: Apsara Devops
+     *   **15**: RAM
+     *   **16**: Anti-DDoS
+     *   **17**: WAF
+     *   **18**: OSS
+     *   **19**: PolarDB
+     *   **20**: ApsaraDB RDS for PostgreSQL
+     *   **21**: MSE
+     *   **22**: NAS
+     *   **23**: DSC
+     *   **24**: EIP
+     *   **25**: IDaaS EIAM
+     *   **26**: PolarDB-X
+     *   **27**: Elasticsearch
+     *
+     * @example 3
+     *
      * @var int
      */
     public $assetType;
 
     /**
+     * @description The type name of the cloud asset.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $assetTypeName;
 
     /**
+     * @description The time when the instance was created. The value is a timestamp.
+     *
+     * @example 1607365213000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @description The detailed address of the cloud asset.
+     *
+     * @example https://rdsnext.console.aliyun.com/detail/rm-uf6t6u05n6g48****\/basicInfo?region=cn-shanghai
+     *
      * @var string
      */
     public $detailLink;
 
     /**
+     * @description The instance ID of the cloud asset.
+     *
+     * @example rm-uf6t6u05n6g48****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The instance name of the cloud asset.
+     *
+     * @example yztest-l***
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the instance.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The region where the cloud asset resides.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hanghzou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates whether risks are detected on the current cloud asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example NO
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @description The security information about the cloud asset.
+     *
+     * @example {\"seriousNum\":0,\"appNum\":0,\"baselineMedium\":0,\"remindNum\":0,\"imageVulNntf\":0,\"cveNum\":0,\"vul\":0,\"uuid\":\"rm-uf6t6u05n6g485o70\",\"emgNum\":0,\"weakPWNum\":0,\"imageMaliciousFileRemind\":0,\"imageBaselineMedium\":0,\"laterVulCount\":0,\"cmsNum\":0,\"imageMaliciousFileSerious\":0,\"agentlessMalicious\":0,\"suspNum\":0,\"imageBaselineHigh\":0,\"asapVulCount\":0,\"imageVulLater\":0,\"agentlessAll\":0,\"sysNum\":0,\"containerLater\":0,\"containerSuspicious\":0,\"imageBaselineNum\":0,\"newSuspicious\":0,\"nntfVulCount\":0,\"scaNum\":0,\"containerNntf\":0,\"health\":0,\"trojan\":0,\"suspicious\":0,\"imageMaliciousFileSuspicious\":0,\"containerRemind\":0,\"baselineLow\":0,\"imageVulAsap\":0,\"imageBaselineLow\":0,\"containerAsap\":0,\"agentlessBaseline\":0,\"agentlessVulSca\":0,\"agentlessVulCve\":0,\"containerSerious\":0,\"baselineHigh\":0,\"account\":0,\"baselineNum\":6}
+     *
      * @var string
      */
     public $securityInfo;
 
     /**
+     * @description The service provider of the cloud asset. Valid values:
+     *
+     *   **0**: The asset is provided by Alibaba Cloud.
+     *   **1**: The asset is not provided by Alibaba Cloud.
+     *   **2**: The asset resides in a data center.
+     *   **3**, **4**, **5**, and **7**: other cloud asset.
+     *   **8**: The asset is a simple application server.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $vendor;

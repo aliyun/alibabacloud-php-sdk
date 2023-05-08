@@ -11,16 +11,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedStatisticsDetailResponseBody extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The resource from which the asset is exposed. Valid values:
+     *
+     *   **INTERNET_IP**: the IP address of the Elastic Compute Service (ECS) instance
+     *   **SLB**: the public IP address of the SLB instance
+     *   **EIP**: the elastic IP address (EIP)
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *
+     * @example 7CBAFB3F-1ED7-4A23-986A-6F67F0466BD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The region ID of the asset.
+     *
      * @var statisticsDetails[]
      */
     public $statisticsDetails;

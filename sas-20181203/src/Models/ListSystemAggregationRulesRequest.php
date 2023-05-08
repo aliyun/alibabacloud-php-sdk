@@ -14,16 +14,22 @@ class ListSystemAggregationRulesRequest extends Model
     public $aggregationIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +45,8 @@ class ListSystemAggregationRulesRequest extends Model
     public $ruleTypes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $systemType;

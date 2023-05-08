@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveCheckInstanceResultWhiteListResponseBody extends Model
 {
     /**
+     * @example F156EA41-8EEF-54B2-908B-EAE071XXXXXX
+     *
      * @var string
      */
     public $requestId;

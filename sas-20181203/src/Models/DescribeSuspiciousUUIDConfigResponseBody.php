@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspiciousUUIDConfigResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 6044DC07-86F1-5DDA-A611-EC578EA4EEE6
+     *
      * @var string
      */
     public $requestId;

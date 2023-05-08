@@ -15,6 +15,8 @@ class DescribeImageScanAuthCountResponseBody extends Model
     public $imageScan;
 
     /**
+     * @example 892NYH839-0EDC-4CD0-A2EF-5BD294656C99
+     *
      * @var string
      */
     public $requestId;

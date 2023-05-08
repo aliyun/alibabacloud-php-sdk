@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class SaveImageBaselineStrategyRequest extends Model
 {
     /**
+     * @description The baseline check items.
+     *
+     * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query baseline check items.
+     * @example ak_leak
+     *
      * @var string
      */
     public $baselineItemList;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query the IDs of baseline check policies.
+     * @example 8639
+     *
      * @var int
      */
     public $strategyId;
 
     /**
+     * @description The name of the baseline check policy.
+     *
+     * @example default
+     *
      * @var string
      */
     public $strategyName;

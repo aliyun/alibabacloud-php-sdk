@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnbindAegisResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 825F5526-2A17-4279-857F-F790E9590171
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcHoneyPotResponseBody extends Model
 {
     /**
+     * @example 8158FE9E-19BE-42D6-9F7A-9BE34A2DE1D5
+     *
      * @var string
      */
     public $requestId;

@@ -15,11 +15,15 @@ class configList extends Model
     public $targetList;
 
     /**
+     * @example /root/www****
+     *
      * @var string
      */
     public $webPath;
 
     /**
+     * @example def
+     *
      * @var string
      */
     public $webPathType;

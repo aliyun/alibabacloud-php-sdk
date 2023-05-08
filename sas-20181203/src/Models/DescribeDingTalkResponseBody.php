@@ -11,16 +11,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkResponseBody extends Model
 {
     /**
+     * @description An array that consists of details of notifications.
+     *
      * @var actionList[]
      */
     public $actionList;
 
     /**
+     * @description The status of the notification. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description [{\"type\":\"vul\",\"configItemList\":[{\"key\":\"key\", \"valueList\":\"123\"}]}]
+     *
+     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @example 0,1,2,3
+     *
      * @var string
      */
     public $enumValue;
 
     /**
+     * @example 999
+     *
      * @var int
      */
     public $maxValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minValue;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $paramDefaultValue;
 
     /**
+     * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
+     *
      * @var string
      */
     public $paramDesc;
 
     /**
+     * @description Queries baseline types.
+     *
+     * @example range_val
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $paramType;

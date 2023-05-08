@@ -15,11 +15,15 @@ class DescribeWebLockConfigListResponseBody extends Model
     public $configList;
 
     /**
+     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

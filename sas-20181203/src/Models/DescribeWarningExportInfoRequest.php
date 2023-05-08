@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningExportInfoRequest extends Model
 {
     /**
+     * @description The name of the exported Excel file.
+     *
+     * @example 14356
+     *
      * @var int
      */
     public $exportId;

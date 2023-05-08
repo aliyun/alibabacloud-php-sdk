@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scenarios extends Model
 {
     /**
+     * @example same_url
+     *
      * @var string
      */
     public $code;

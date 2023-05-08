@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoginSwitchConfigsResponseBody extends Model
 {
     /**
+     * @description The configuration item returned.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The number of returned configuration items.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0B48AB3C-84FC-424D-A01D-B9270EF4****
+     *
      * @var string
      */
     public $requestId;

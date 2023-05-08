@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckProcessRequest extends Model
 {
     /**
+     * @example 5347c7b6-c85c-4070-846a-3029e08e****
+     *
      * @var string
      */
     public $taskId;

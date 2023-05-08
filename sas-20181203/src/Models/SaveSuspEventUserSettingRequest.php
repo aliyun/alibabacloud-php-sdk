@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SaveSuspEventUserSettingRequest extends Model
 {
     /**
+     * @description The data source of the exception. Set the value to sas.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The severities of alert notifications. Valid values:
+     *
+     *   **remind**
+     *   **suspicious**
+     *   **serious**
+     *
+     * @example suspicious,serious,remind
+     *
      * @var string
      */
     public $levelsOn;

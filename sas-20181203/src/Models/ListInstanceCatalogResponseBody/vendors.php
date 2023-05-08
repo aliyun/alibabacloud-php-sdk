@@ -15,6 +15,8 @@ class vendors extends Model
     public $instanceTypes;
 
     /**
+     * @example ALIYUN
+     *
      * @var string
      */
     public $name;

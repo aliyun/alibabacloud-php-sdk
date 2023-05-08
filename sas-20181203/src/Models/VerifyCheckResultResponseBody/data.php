@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The operation code of the cloud service configuration task. Valid values:
+     *
+     *   **Throttling**: frequency limit
+     *   **ActionTrialUnauthorized**: an error that is related to unauthorized operations
+     *
+     * @example Throttling
+     *
      * @var string
      */
     public $operateCode;

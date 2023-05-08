@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeTotalStatisticsRequest extends Model
 {
     /**
+     * @description The source of data. Default value: **aqs**. Valid values:
+     *
+     *   **sas**: Security Center
+     *   **aqs**: Server Guard
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The ID of the asset group.
+     *
+     * > You can call the [DescribeAllGroups](~~130972~~) operation to query the IDs of asset groups.
+     * @example 8076980
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The name or public IP address of the asset.
+     *
+     * @example 222.185.XX.XX
+     *
      * @var string
      */
     public $remark;

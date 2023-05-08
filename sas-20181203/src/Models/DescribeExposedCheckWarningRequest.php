@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedCheckWarningRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example weak_password
+     *
      * @var string
      */
     public $typeName;
 
     /**
+     * @example 6541631a-7d47-41fd-9fef-9518113f****
+     *
      * @var string
      */
     public $uuids;

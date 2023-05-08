@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class allVulList extends Model
 {
     /**
+     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example SCA:ACSV-2020-052801
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
+     *
      * @var string
      */
     public $uuid;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class clusterList extends Model
 {
     /**
-     * @description The ID of the container cluster.
-     *
      * @example cfeb7a9f99ce740e98c5595d0fe37****
      *
      * @var string
@@ -18,8 +16,6 @@ class clusterList extends Model
     public $clusterId;
 
     /**
-     * @description The name of the container cluster.
-     *
      * @example test111
      *
      * @var string
@@ -27,14 +23,6 @@ class clusterList extends Model
     public $clusterName;
 
     /**
-     * @description The type of the cluster. Valid values:
-     *
-     *   **ManagedKubernetes**: managed Kubernetes cluster
-     *   **NotManagedKubernetes**: non-managed Kubernetes cluster
-     *   **PrivateKubernetes**: private cluster
-     *   **kubernetes**: dedicated Kubernetes cluster
-     *   **ask**: dedicated ASK cluster
-     *
      * @example ManagedKubernetes
      *
      * @var string
@@ -42,8 +30,6 @@ class clusterList extends Model
     public $clusterType;
 
     /**
-     * @description The region of the container cluster.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,13 +37,6 @@ class clusterList extends Model
     public $regionId;
 
     /**
-     * @description The status of the cluster. Valid values:
-     *
-     *   **unavailable**
-     *   **Available**
-     *   **Creating**
-     *   **CreateFailed**
-     *
      * @example Available
      *
      * @var string
@@ -65,11 +44,6 @@ class clusterList extends Model
     public $state;
 
     /**
-     * @description Indicates whether the cluster is enabled. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
      * @example true
      *
      * @var bool

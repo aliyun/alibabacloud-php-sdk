@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotProbeRequest extends Model
 {
     /**
+     * @description 设置请求和接收消息的语言类型，默认为**zh**。取值：
+     *
+     * - **zh**：中文
+     * - **en**：英文
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example d6c1ebc9-a90d-4c9e-9490-328814d1ca00
+     *
      * @var string
      */
     public $probeId;

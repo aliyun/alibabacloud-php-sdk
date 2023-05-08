@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class targetConfig extends Model
 {
     /**
+     * @example del
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @example add
+     *
      * @var string
      */
     public $targetDefault;
@@ -24,16 +28,22 @@ class targetConfig extends Model
     public $targetList;
 
     /**
+     * @example uuid
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example 22
+     *
      * @var string
      */
     public $totalCount;
 
     /**
+     * @example webshell_timescan
+     *
      * @var string
      */
     public $type;

@@ -9,91 +9,159 @@ use AlibabaCloud\Tea\Model;
 class exposedInstances extends Model
 {
     /**
+     * @description An array that consists of the details about the exposed asset.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $asapVulCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exploitHealthCount;
 
     /**
+     * @example openssl,openssh
+     *
      * @var string
      */
     public $exposureComponent;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 116.12.XX.XX
+     *
      * @var string
      */
     public $exposureIp;
 
     /**
+     * @description Queries the information about the servers that are exposed on the Internet.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $exposurePort;
 
     /**
+     * @description Specifies whether the server has vulnerabilities. Valid values:
+     *
+     *   **true**: The server has vulnerabilities.
+     *   **false**: The server does not have vulnerabilities.
+     *
+     * @example INTERNET_IP
+     *
      * @var string
      */
     public $exposureType;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example i-ew11313a****
+     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
+     * @example 9469268
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example testGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-bp1g6wxdwps7s9dz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example abc_centos7.2_005
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The pagination information.
+     *
+     * @example 116.12.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $laterVulCount;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nntfVulCount;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the ExposureType parameter.
+     *
+     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
+     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
+     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
+     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalVulCount;
 
     /**
+     * @description DescribeExposedInstanceList
+     *
+     * @example dd803d9e-a337-4add-9c5b-7d503e08****
+     *
      * @var string
      */
     public $uuid;

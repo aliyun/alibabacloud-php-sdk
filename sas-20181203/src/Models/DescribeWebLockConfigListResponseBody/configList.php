@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @example audit
+     *
      * @var string
      */
     public $defenceMode;
 
     /**
+     * @example /www/tmp/
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @example /home/admin/tomcat
+     *
      * @var string
      */
     public $exclusiveDir;
 
     /**
+     * @example /home/admin/tomcat/localhost.log
+     *
      * @var string
      */
     public $exclusiveFile;
 
     /**
+     * @example *.jpg
+     *
      * @var string
      */
     public $exclusiveFileType;
 
     /**
+     * @example 11
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example /home/admin/tomcat/aaa.log
+     *
      * @var string
      */
     public $inclusiveFile;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $inclusiveFileType;
 
     /**
+     * @example /usr/local/backup
+     *
      * @var string
      */
     public $localBackupDir;
 
     /**
+     * @example blacklist
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 80d2f7d6-31a9-4d7f-8ff4-7ecc42f8****
+     *
      * @var string
      */
     public $uuid;

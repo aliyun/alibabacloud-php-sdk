@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckUserHasEcsRequest extends Model
 {
     /**
+     * @description CheckUserHasEcs
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

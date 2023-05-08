@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DisableBruteForceRecordRequest extends Model
 {
     /**
+     * @description The IP address that you want to specify in the policy.
+     *
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $blockIp;
 
     /**
+     * @description The traffic direction that you want to specify in the policy. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
+     * @example in
+     *
      * @var string
      */
     public $bound;
 
     /**
+     * @description The ID of the IP address blocking policy.
+     *
+     * > You can call the [DescribeBruteForceRecords](~~DescribeBruteForceRecords~~) operation to query the policy ID.
+     * @example 114166XX
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The port number.
+     *
+     * @example *\/*
+     *
      * @var string
      */
     public $port;
@@ -34,6 +54,10 @@ class DisableBruteForceRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example cbb9aa80-a8d1-443c-9ff0-2c36cd39****
+     *
      * @var string
      */
     public $uuid;

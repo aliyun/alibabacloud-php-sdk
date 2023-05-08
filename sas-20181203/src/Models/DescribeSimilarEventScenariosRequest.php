@@ -14,11 +14,15 @@ class DescribeSimilarEventScenariosRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 12321
+     *
      * @var int
      */
     public $securityEventId;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

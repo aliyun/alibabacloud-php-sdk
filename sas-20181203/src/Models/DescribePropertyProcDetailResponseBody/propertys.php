@@ -9,91 +9,163 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
+     * @description The startup parameter of the process.
+     *
+     * @example ./8888
+     *
      * @var string
      */
     public $cmdline;
 
     /**
+     * @description root
+     *
+     * @example 1565686951000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The time when the process starts.
+     *
+     * @example root
+     *
      * @var string
      */
     public $euidName;
 
     /**
+     * @description The user who runs the process.
+     *
+     * @example i-hp35tftuh52wbp1g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The pagination information.
+     *
+     * @example hc-host-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The ID of the process.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The timestamp when the process starts. Unit: milliseconds.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The name of the server that is associated with the process.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isPackage;
 
     /**
+     * @description 1649587453000
+     *
+     * @example 842644ea3d88bd7f7e14c1c089ef****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description Specifies whether fuzzy search by process name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     *
+     * @example agetty
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the server that is associated with the process.
+     *
+     * @example /root/Oracle/Middleware/***\/8888
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The timestamp when the process ends. Unit: milliseconds.
+     *
+     * @example 12826
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description 1
+     *
+     * @example start***.s
+     *
      * @var string
      */
     public $pname;
 
     /**
+     * @description The name of the parent process to which the process belongs.
+     *
+     * @example 2019-08-07 10:09:05
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The MD5 hash value of the process file.
+     *
+     * @example 1648783107000
+     *
      * @var int
      */
     public $startTimeDt;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example sleeping
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The user who runs the process.
+     *
+     * @example root
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
+     *
      * @var string
      */
     public $uuid;

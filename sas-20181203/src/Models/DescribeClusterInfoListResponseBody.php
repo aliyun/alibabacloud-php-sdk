@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterInfoListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about clusters.
-     *
      * @var clusterList[]
      */
     public $clusterList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string

@@ -10,21 +10,37 @@ use AlibabaCloud\Tea\Model;
 class baseConfigs extends Model
 {
     /**
+     * @description The common logon account.
+     *
+     * @example 1582318****
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The end time of the common logon time range.
+     *
+     * @example 07:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The common logon IP address.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The common logon location.
+     *
+     * @example Montenegro
+     *
      * @var string
      */
     public $location;
@@ -32,19 +48,38 @@ class baseConfigs extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @description The start time of the common logon time range.
+     *
+     * @example 08:00
+     *
+     * @var string
+     */
     public $startTime;
 
     /**
+     * @description The details of the servers to which the configuration is applied.
+     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
+     * @description The total number of servers.
+     *
+     * @example 172
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The number of servers to which the configuration is applied.
+     *
+     * @example 13
+     *
      * @var int
      */
     public $uuidCount;
@@ -53,6 +88,7 @@ class baseConfigs extends Model
         'endTime'    => 'EndTime',
         'ip'         => 'Ip',
         'location'   => 'Location',
+        'remark'     => 'Remark',
         'startTime'  => 'StartTime',
         'targetList' => 'TargetList',
         'totalCount' => 'TotalCount',
@@ -77,6 +113,9 @@ class baseConfigs extends Model
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -119,6 +158,9 @@ class baseConfigs extends Model
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

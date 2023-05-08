@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeSummaryInfoResponseBody extends Model
 {
     /**
+     * @description WB01014029
+     *
+     * @example 12
+     *
      * @var int
      */
     public $aegisClientOfflineCount;
 
     /**
+     * @example 127
+     *
      * @var int
      */
     public $aegisClientOnlineCount;
 
     /**
+     * @description Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+     *
+     * @example D40198E1-6EA8-482E-B3C7-D9573D75C0CA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 44
+     *
      * @var int
      */
     public $securityScore;
 
     /**
+     * @description DescribeSummaryInfo
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

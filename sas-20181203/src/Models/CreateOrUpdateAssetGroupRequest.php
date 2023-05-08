@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateAssetGroupRequest extends Model
 {
     /**
+     * @example 55426
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description CreateOrUpdateAssetGroup
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Modifies the mapping between an asset and an asset group. For example, you can call this operation to modify the server group to which the asset belongs or the asset list of the asset group.
+     *
+     * @example aq12-***,s23***
+     *
      * @var string
      */
     public $uuids;

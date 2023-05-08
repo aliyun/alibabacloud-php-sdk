@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class classifys extends Model
 {
     /**
+     * @example remote_code_execution
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @example https://example.com
+     *
      * @var string
      */
     public $demoVideoUrl;

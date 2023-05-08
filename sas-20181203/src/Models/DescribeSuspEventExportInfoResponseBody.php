@@ -9,56 +9,105 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventExportInfoResponseBody extends Model
 {
     /**
+     * @description The handling status for the exception. Valid values:
+     *
+     *   **processing**: in progress
+     *   **success**: successful
+     *   **failed**: failed
+     *   **pending**: pending
+     *
+     * @example success
+     *
      * @var string
      */
     public $exportStatus;
 
     /**
+     * @description The name of the exported file.
+     *
+     * @example suspicious_event_20221221_1671590521234.zip
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The time when the export task was created.
+     *
+     * @example 2022-12-20T15:18Z
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the export task was modified.
+     *
+     * @example 2022-12-20T15:18Z
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the export task.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The URL at which you can download the exported Excel file.
+     *
+     * @example http://suspicious-xxxxxxx.oss-cn-shanghai.aliyuncs.com/xxxxxxxxxxx/suspicious_event_20221221_1671590525269.zip?Expires=1671594125&OSSAccessKeyId=LTAIxxxxxxxxxxxxxx&Signature=xxxxxxxxxxxxxxxxxx
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The progress percentage of the export task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The exported parameters of exceptions.
+     *
+     * @example id,eventSubType,eventDetail,level,status,ip,instanceName,desc,lastTime,operateTime,note
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578AXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of exceptions exported.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The type of the export task. The value is fixed as suspiciousEvent.
+     *
+     * @example suspiciousEvent
+     *
      * @var string
      */
     public $type;

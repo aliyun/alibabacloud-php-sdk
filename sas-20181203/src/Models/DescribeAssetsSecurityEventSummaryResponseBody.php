@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetsSecurityEventSummaryResponseBody extends Model
 {
     /**
-     * @description An array that consists of risk information about containers.
-     *
      * @var assets[]
      */
     public $assets;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example D03DD0FD-6041-5107-AC00-383E28F1****
      *
      * @var string

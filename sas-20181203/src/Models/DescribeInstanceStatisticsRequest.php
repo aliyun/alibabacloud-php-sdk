@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 6690a46c-0edb-4663-a641-3629d1a9****
+     *
      * @var string
      */
     public $uuid;

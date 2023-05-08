@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class overallConfig extends Model
 {
     /**
+     * @example on
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example auto_breaking
+     *
      * @var string
      */
     public $type;

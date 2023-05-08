@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyEmgVulSubmitRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example scan:ASCV-2019-032401
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example yes
+     *
      * @var string
      */
     public $userAgreement;

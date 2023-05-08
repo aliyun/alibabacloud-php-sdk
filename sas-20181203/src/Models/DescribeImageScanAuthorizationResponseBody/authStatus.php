@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class authStatus extends Model
 {
     /**
+     * @description Indicates whether Security Center is authorized to scan images. Valid values:
+     * **true**: yes
+     * **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $status;

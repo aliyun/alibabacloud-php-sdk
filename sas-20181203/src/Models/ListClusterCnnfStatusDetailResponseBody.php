@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListClusterCnnfStatusDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the server.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 64329F40-5C94-51D3-A400-37AA7BAC****
+     *
      * @var string
      */
     public $requestId;

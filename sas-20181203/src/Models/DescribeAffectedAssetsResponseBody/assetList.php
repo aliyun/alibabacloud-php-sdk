@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
+     * @description The ID of the server.
+     *
+     * @example 11
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example 11
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 10.10.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 172.0.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The number of viruses detected on the server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskNum;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 947d7514-258a-4b47-9dde-9dxxxxxxxxxx
+     *
      * @var string
      */
     public $uuid;

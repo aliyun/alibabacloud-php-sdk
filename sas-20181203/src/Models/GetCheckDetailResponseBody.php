@@ -28,6 +28,8 @@ class GetCheckDetailResponseBody extends Model
     public $description;
 
     /**
+     * @example 15A6ED6A-DBFE-5255-A248-289907809BEC
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetVulStatisticsRequest extends Model
 {
     /**
+     * @example 9997897
+     *
      * @var string
      */
     public $groupIdList;
 
     /**
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $typeList;

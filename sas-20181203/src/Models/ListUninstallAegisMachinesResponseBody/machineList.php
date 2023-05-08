@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class machineList extends Model
 {
     /**
+     * @example sas-bdrvxb4b****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 120.79.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $machineRegion;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 6d5b361f-958d-48a8-a9d2-d6e82c1****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vendor;
 
     /**
+     * @example ALIYUN
+     *
      * @var string
      */
     public $vendorName;

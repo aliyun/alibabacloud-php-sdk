@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyRequest extends Model
 {
     /**
+     * @example common
+     *
      * @var string
      */
     public $customType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $cycleDays;
 
     /**
+     * @example 18
+     *
      * @var string
      */
     public $cycleStartTime;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 245
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example testStrategy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example [{"typeName":"hc_centos_6_custom","checkDetails":[{"checkId":4,"rules":[{"ruleId":"pass_min_days_login_defs.must.cus","paramList":[{"paramName":"range_val","value":"7"}]}]}]}]
+     *
      * @var string
      */
     public $riskCustomParams;
 
     /**
+     * @example hc_exploit_redis
+     *
      * @var string
      */
     public $riskSubTypeName;
 
     /**
+     * @example 192.168.X.X
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 00:01:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetVulWhitelistRequest extends Model
 {
     /**
+     * @description The ID of the whitelist.
+     *
+     * @example 1275
+     *
      * @var int
      */
     public $vulWhitelistId;

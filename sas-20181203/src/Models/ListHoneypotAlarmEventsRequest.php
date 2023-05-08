@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAlarmEventsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Default value: **100**
+     *
+     * @example 10
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The source IP address.
+     *
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @description The risk levels of the alert events.
+     *
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $dstIp;
 
     /**
+     * @description The data returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
+     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
+     * @description The destination IP address.
+     *
+     * @example 101.132.XX.XX
+     *
      * @var string
      */
     public $srcIp;

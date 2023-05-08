@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class controlNode extends Model
 {
     /**
+     * @example i-uf6eq0rlvu1mkh0p****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @example 8ec9da17-c0e7-4642-aad6-defc9722****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example HoneypotNode1
+     *
      * @var string
      */
     public $nodeName;

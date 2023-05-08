@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class grids extends Model
 {
     /**
+     * @example RegionIdShow
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example Region
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;

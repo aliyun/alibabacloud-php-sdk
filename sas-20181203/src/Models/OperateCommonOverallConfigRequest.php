@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class OperateCommonOverallConfigRequest extends Model
 {
     /**
+     * @example on
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 223.79.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example kdump_switch
+     *
      * @var string
      */
     public $type;

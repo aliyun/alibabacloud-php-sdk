@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAgentInstallStatusRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
+     * @description The language of the content within the request and response. Valid value:
      *
      *   **zh**: Chinese
      *   **en**: English

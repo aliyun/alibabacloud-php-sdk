@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class propertyList extends Model
 {
     /**
+     * @description The name of the property.
+     *
+     * @example Incident
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the property.
+     *
+     * @example Alert
+     *
      * @var string
      */
     public $value;

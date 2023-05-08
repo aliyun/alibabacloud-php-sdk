@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class honeypotNode extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowHoneypotAccessInternet;
 
     /**
+     * @example 2022-12-02 17:13:43
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example i-2vccskxjunf1ag6w****
+     *
      * @var string
      */
     public $ecsInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $honeypotTotalCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $honeypotUsedCount;
 
     /**
+     * @example a7409a58-bc60-41af-9d36-080d58ae****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 101.37.XX.XX
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @example gmmc
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $probeTotalCount;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $probeUsedCount;
@@ -64,11 +84,15 @@ class honeypotNode extends Model
     public $securityGroupProbeIpList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $upgradeAvailable;

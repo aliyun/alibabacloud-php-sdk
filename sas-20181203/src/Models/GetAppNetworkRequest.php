@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetAppNetworkRequest extends Model
 {
     /**
+     * @example cf77xxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1650470399999
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1649260800000
+     *
      * @var int
      */
     public $startTime;

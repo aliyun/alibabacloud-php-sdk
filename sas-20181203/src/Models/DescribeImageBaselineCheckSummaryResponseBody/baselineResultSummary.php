@@ -9,56 +9,88 @@ use AlibabaCloud\Tea\Model;
 class baselineResultSummary extends Model
 {
     /**
+     * @example Unauthorized access
+     *
      * @var string
      */
     public $baselineClassAlias;
 
     /**
+     * @example hc_image_exploit
+     *
      * @var string
      */
     public $baselineClassKey;
 
     /**
+     * @example Unauthorized access
+     *
      * @var string
      */
     public $baselineNameAlias;
 
     /**
+     * @example hc_image_exploit
+     *
      * @var string
      */
     public $baselineNameKey;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example high
+     *
      * @var string
      */
     public $baselineNameLevel;
 
     /**
+     * @example 1626628760000
+     *
      * @var int
      */
     public $firstScanTime;
 
     /**
+     * @description DescribeImageBaselineCheckSummary
+     *
+     * @example 15
+     *
      * @var int
      */
     public $highRiskImage;
 
     /**
+     * @description Queries the check results of image baselines that are included in an image scan task.
+     *
+     * @example 1626628760000
+     *
      * @var int
      */
     public $lastScanTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lowRiskImage;
 
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $middleRiskImage;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;

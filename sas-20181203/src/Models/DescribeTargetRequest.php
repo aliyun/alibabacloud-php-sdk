@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTargetRequest extends Model
 {
     /**
+     * @example {"vulType":"cms"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example vul
+     *
      * @var string
      */
     public $type;

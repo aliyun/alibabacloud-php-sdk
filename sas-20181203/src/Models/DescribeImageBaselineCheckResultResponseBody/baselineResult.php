@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class baselineResult extends Model
 {
     /**
+     * @example identification
+     *
      * @var string
      */
     public $baselineClassAlias;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $baselineItemCount;
@@ -24,41 +28,57 @@ class baselineResult extends Model
     public $baselineNameAlias;
 
     /**
+     * @example identification
+     *
      * @var string
      */
     public $baselineNameKey;
 
     /**
+     * @example high
+     *
      * @var string
      */
     public $baselineNameLevel;
 
     /**
+     * @example 1610304058366
+     *
      * @var int
      */
     public $firstScanTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $highRiskItemCount;
 
     /**
+     * @example 1610304058301
+     *
      * @var int
      */
     public $lastScanTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $lowRiskItemCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $middleRiskItemCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -9,41 +9,70 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @example 0,1,2,3
+     *
      * @var string
      */
     public $enumValue;
 
     /**
+     * @description Queries the details of a baseline check policy.
+     *
+     * @example 999
+     *
      * @var int
      */
     public $maxValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minValue;
 
     /**
+     * @description Indicates whether the rule is included in the policy. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 7
+     *
      * @var string
      */
     public $paramDefaultValue;
 
     /**
+     * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
+     *
      * @var string
      */
     public $paramDesc;
 
     /**
+     * @description The time when the baseline check based on the baseline check policy ends.
+     *
+     * @example range_val
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description WB01224678
+     *
+     * @example 1
+     *
      * @var int
      */
     public $paramType;
 
     /**
+     * @description An array that consists of sub-risk items.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $value;

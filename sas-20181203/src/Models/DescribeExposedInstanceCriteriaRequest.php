@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceCriteriaRequest extends Model
 {
     /**
+     * @description DescribeExposedInstanceCriteria
+     *
+     * @example id
+     *
      * @var string
      */
     public $value;

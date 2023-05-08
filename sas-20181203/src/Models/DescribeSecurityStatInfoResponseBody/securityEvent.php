@@ -9,56 +9,89 @@ use AlibabaCloud\Tea\Model;
 class securityEvent extends Model
 {
     /**
+     * @description The numbers of high-risk unfixed vulnerabilities at all points in time.
+     *
      * @var string[]
      */
     public $dateArray;
 
     /**
+     * @description The point in time when the number of attacks is collected in the trend chart.
+     *
      * @var string[]
      */
     public $levelsOn;
 
     /**
+     * @description The points in time when data of unhandled alerts is collected in the trend chart.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remindCount;
 
     /**
+     * @description The numbers of unhandled alerts at all points in time.
+     *
      * @var string[]
      */
     public $remindList;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example 404
+     *
      * @var int
      */
     public $seriousCount;
 
     /**
+     * @description The number of **low-risk** unfixed vulnerabilities on the current day.
+     *
      * @var string[]
      */
     public $seriousList;
 
     /**
+     * @description The number of baseline risk items that have the high-risk level at each point in time.
+     *
+     * @example 148
+     *
      * @var int
      */
     public $suspiciousCount;
 
     /**
+     * @description The number of **remind** alerts on the current day.
+     *
      * @var string[]
      */
     public $suspiciousList;
 
     /**
+     * @description The numbers of medium-risk unfixed vulnerabilities at all points in time.
+     *
      * @var string[]
      */
     public $timeArray;
 
     /**
+     * @description The number of baseline risk items that have the low-risk level on the current day.
+     *
+     * @example 552
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The total number of unfixed vulnerabilities on the current day.
+     *
      * @var string[]
      */
     public $valueArray;

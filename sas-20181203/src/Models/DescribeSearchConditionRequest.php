@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSearchConditionRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 117.220.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $type;

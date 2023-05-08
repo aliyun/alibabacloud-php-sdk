@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventDetailRequest extends Model
 {
     /**
+     * @description The data source of the exception. Set the value to sas.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 121.33.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The ID of the exception.
+     *
+     * @example 32750999
+     *
      * @var int
      */
     public $suspiciousEventId;

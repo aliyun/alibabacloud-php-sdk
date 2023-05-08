@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class honeypotProbeBindList extends Model
 {
     /**
+     * @example 45378f64-d7b4-4a53-9c48-4303eb4b****
+     *
      * @var string
      */
     public $bindId;
@@ -20,6 +22,8 @@ class honeypotProbeBindList extends Model
     public $bindPortList;
 
     /**
+     * @example 913347774a3b3c378c6a50f66de23dfa097765214ec3f0526b01c67bf59c****
+     *
      * @var string
      */
     public $honeypotId;
@@ -30,6 +34,8 @@ class honeypotProbeBindList extends Model
     public $serviceIpList;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $status;

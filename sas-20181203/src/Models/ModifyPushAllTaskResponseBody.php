@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyPushAllTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the server group to which the server belongs.
+     *
      * @var pushTaskRsp
      */
     public $pushTaskRsp;
 
     /**
+     * @description HEALTH_CHECK,OVAL_ENTITY
+     *
+     * @example 91EB4AC7-7FEF-4C72-BE49-4414E459AEC2
+     *
      * @var string
      */
     public $requestId;

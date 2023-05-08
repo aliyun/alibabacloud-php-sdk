@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class cloudAssetTypes extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetSubType;
 
     /**
+     * @description The subtype of the cloud asset.
+     *
+     * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtypes of cloud assets from the AssetSubType response parameter.
+     * @example 18
+     *
      * @var int
      */
     public $assetType;

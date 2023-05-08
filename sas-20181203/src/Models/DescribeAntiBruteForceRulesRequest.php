@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntiBruteForceRulesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 1141****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
@@ -29,12 +40,15 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 121.69.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'currentPage'     => 'CurrentPage',
         'id'              => 'Id',
+        'name'            => 'Name',
         'pageSize'        => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceIp'        => 'SourceIp',
@@ -52,6 +66,9 @@ class DescribeAntiBruteForceRulesRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -79,6 +96,9 @@ class DescribeAntiBruteForceRulesRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

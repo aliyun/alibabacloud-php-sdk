@@ -24,10 +24,7 @@ class BindAuthToMachineRequest extends Model
     public $authVersion;
 
     /**
-     * @description Specifies whether to automatically bind servers to Security Center. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
+     * @description The shortage in the quota for cores of servers that can be protected.
      *
      * @example 1
      *
@@ -36,19 +33,16 @@ class BindAuthToMachineRequest extends Model
     public $autoBind;
 
     /**
-     * @description The UUIDs of the servers that you want to bind to Security Center.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * >  You must specify at least one of the **Bind** and **UnBind** parameters.
      * @var string[]
      */
     public $bind;
 
     /**
-     * @description Specifies whether to bind all servers to Security Center. Default value: **false**. Valid values:
+     * @description The UUID of the server that you want to bind to Security Center.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example true
      *
      * @var bool
@@ -56,9 +50,13 @@ class BindAuthToMachineRequest extends Model
     public $bindAll;
 
     /**
-     * @description The search conditions that are used to filter servers. The value of this parameter is in the JSON format and is case-sensitive.
+     * @description The status code that indicates the result. Valid values:
      *
-     * >  A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+     *   **0**: The servers are bound to or unbound from Security Center.
+     *   **1**: The values that you specified for the parameters are invalid.
+     *   **2**: The quota for servers that can be protected is insufficient.
+     *   **3**: The quota for cores of servers that can be protected is insufficient.
+     *
      * @example [{"name":"riskStatus","value":"YES"},{"name":"internetIp","value":"1.2.XX.XX"}]
      *
      * @var string
@@ -66,11 +64,9 @@ class BindAuthToMachineRequest extends Model
     public $criteria;
 
     /**
-     * @description The logical relationship among multiple search conditions. Valid values:
+     * @description The search conditions that are used to filter servers. The value of this parameter is in the JSON format and is case-sensitive.
      *
-     *   **OR**: Search conditions are evaluated by using a logical **OR**.
-     *   **AND**: Search conditions are evaluated by using a logical **AND**.
-     *
+     * >  A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
      * @example OR
      *
      * @var string
@@ -78,9 +74,8 @@ class BindAuthToMachineRequest extends Model
     public $logicalExp;
 
     /**
-     * @description The UUIDs of the servers that you want to unbind from Security Center.
+     * @description Binds servers to Security Center or unbinds servers from Security Center.
      *
-     * >  You must specify at least one of the **Bind** and **UnBind** parameters.
      * @var string[]
      */
     public $unBind;

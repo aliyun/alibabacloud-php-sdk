@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class groupedMaliciousFileResponse extends Model
 {
     /**
+     * @example 1594907349000
+     *
      * @var int
      */
     public $firstScanTimestamp;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $imageCount;
 
     /**
+     * @example 1596533942000
+     *
      * @var int
      */
     public $latestScanTimestamp;
 
     /**
+     * @example serious
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example d836968041f7683b5459****
+     *
      * @var string
      */
     public $maliciousMd5;
 
     /**
+     * @example testFile
+     *
      * @var string
      */
     public $maliciousName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

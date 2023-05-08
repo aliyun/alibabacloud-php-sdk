@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example 215779601
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example TestRule
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
+     *
      * @var string
      */
     public $uuid;

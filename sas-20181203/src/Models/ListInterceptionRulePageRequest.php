@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionRulePageRequest extends Model
 {
     /**
+     * @example cc41de13ab5474210bc0ce772a009****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @example DST_PORT
+     *
      * @var string
      */
     public $criteriaType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;

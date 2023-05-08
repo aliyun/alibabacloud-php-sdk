@@ -21,6 +21,8 @@ class ListUuidsByWebPathResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example A3C1240F-9DAC-5EE8-ADF5-2F930A95****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class honeypotNode extends Model
 {
     /**
+     * @description The ID of the management node.
+     *
+     * @example 37a15ff1-3475-4897-aa6c-f7fd9122****
+     *
      * @var string
      */
     public $nodeId;

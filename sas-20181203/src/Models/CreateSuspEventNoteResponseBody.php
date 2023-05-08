@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateSuspEventNoteResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
-     *
      * @example 200
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateSuspEventNoteResponseBody extends Model
     public $code;
 
     /**
-     * @description The HTTP status code returned.
-     *
      * @example 200
      *
      * @var int
@@ -27,8 +23,6 @@ class CreateSuspEventNoteResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example There was an error with your request.
      *
      * @var string
@@ -36,8 +30,6 @@ class CreateSuspEventNoteResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string
@@ -45,11 +37,6 @@ class CreateSuspEventNoteResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether exceptions are handled. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
      * @example true
      *
      * @var bool

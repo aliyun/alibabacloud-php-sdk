@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUsageNewestResponseBody extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $itemCount;
@@ -25,6 +27,8 @@ class DescribePropertyUsageNewestResponseBody extends Model
     public $requestId;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $type;

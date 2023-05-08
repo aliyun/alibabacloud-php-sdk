@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class rebootStatuses extends Model
 {
     /**
+     * @example 10001
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example push failed
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $rebootStatus;
 
     /**
+     * @example 9b59c2d6-0967-46e3-ad7b-152227c****
+     *
      * @var string
      */
     public $uuid;

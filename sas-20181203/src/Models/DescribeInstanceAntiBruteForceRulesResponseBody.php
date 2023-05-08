@@ -16,6 +16,8 @@ class DescribeInstanceAntiBruteForceRulesResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 97286A-4A6B-4A4-95FA-EC7E3E2451
+     *
      * @var string
      */
     public $requestId;

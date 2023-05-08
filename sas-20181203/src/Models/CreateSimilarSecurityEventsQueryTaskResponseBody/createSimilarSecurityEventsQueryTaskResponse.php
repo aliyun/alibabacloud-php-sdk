@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class createSimilarSecurityEventsQueryTaskResponse extends Model
 {
     /**
+     * @example New
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 2915
+     *
      * @var int
      */
     public $taskId;

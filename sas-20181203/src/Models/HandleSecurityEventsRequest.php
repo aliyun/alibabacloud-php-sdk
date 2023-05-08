@@ -9,31 +9,54 @@ use AlibabaCloud\Tea\Model;
 class HandleSecurityEventsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $markBatch;
 
     /**
+     * @description HandleSecurityEvents
+     *
+     * @example [{"uuid":"part","field":"gmtModified","operate":"contains","fieldValue":"asd"},{"uuid":"part","field":"loginUser","operate":"contains","fieldValue":"vff"}]
+     *
      * @var string
      */
     public $markMissParam;
 
     /**
+     * @description Specifies whether to add multiple alert events to the whitelist at a time. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example block_ip
+     *
      * @var string
      */
     public $operationCode;
 
     /**
+     * @description Handles alert events.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $operationParams;
 
     /**
+     * @example ["909361"]
+     *
      * @var string[]
      */
     public $securityEventIds;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

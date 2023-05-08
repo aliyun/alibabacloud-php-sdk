@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterSuspEventStatisticsResponseBody extends Model
 {
     /**
+     * @example ACF97412-FD09-4D1F-994F-34DF12BR****
+     *
      * @var string
      */
     public $requestId;

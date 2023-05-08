@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestorePlansRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;

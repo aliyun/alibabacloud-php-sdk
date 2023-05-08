@@ -16,11 +16,17 @@ class DescribeGroupedInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @description The number of assets that are not protected by Security Center.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The name of the server group.
+     *
+     * @example 52A3AEE6-114A-499D-8990-4BA9B27FE0AA
+     *
      * @var string
      */
     public $requestId;

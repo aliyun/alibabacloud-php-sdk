@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeBruteForceRecordsRequest extends Model
 {
     /**
-     * @description The IP address that is blocked.
-     *
      * @example 175.106.XX.XX
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeBruteForceRecordsRequest extends Model
     public $blockIp;
 
     /**
-     * @description The number of the page to return.
-     *
      * @example 1
      *
      * @var int
@@ -27,8 +23,6 @@ class DescribeBruteForceRecordsRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page. We recommend that you do not leave this parameter empty.
-     *
      * @example 20
      *
      * @var int
@@ -41,12 +35,6 @@ class DescribeBruteForceRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the defense rule. Valid values:
-     *
-     *   **0**: invalid
-     *   **1**: enabled
-     *   **2**: failed
-     *
      * @example 1
      *
      * @var int

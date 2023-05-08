@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $account;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $agentlessAll;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $agentlessBaseline;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $agentlessMalicious;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $agentlessVulCve;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $agentlessVulSca;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $appNum;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $cmsNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cspmNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cveNum;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $emgNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $health;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scaNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $suspicious;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $sysNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $trojan;
 
     /**
+     * @example 6690a46c-0edb-4663-a641-3629d1a9****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example 17
+     *
      * @var int
      */
     public $vul;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $weakPWNum;

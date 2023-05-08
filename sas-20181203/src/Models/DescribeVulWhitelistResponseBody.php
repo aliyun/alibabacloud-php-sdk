@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulWhitelistResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 74F97EF7-B543-43FD-A4E9-18456731F9C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description An array that consists of information about the whitelist of vulnerabilities.
+     *
      * @var vulWhitelists[]
      */
     public $vulWhitelists;

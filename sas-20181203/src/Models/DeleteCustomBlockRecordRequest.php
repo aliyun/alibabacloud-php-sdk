@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomBlockRecordRequest extends Model
 {
     /**
+     * @example 381**
+     *
      * @var int
      */
     public $id;

@@ -15,6 +15,8 @@ class DescribeBackupRestoreCountResponseBody extends Model
     public $backupRestoreCount;
 
     /**
+     * @example ECC6B3E3-D496-512D-B46D-E6996A6B63EE
+     *
      * @var string
      */
     public $requestId;

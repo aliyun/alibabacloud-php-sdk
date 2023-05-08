@@ -9,51 +9,75 @@ use AlibabaCloud\Tea\Model;
 class CreateCycleTaskRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @example 1650556800000
+     *
      * @var int
      */
     public $firstDateStr;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $intervalPeriod;
 
     /**
+     * @example {
+     * "name": "TI HOST",
+     * "target": 10597***
+     * "name": "expense HOST",
+     * "target": 10597***
+     * }
      * @var string
      */
     public $param;
 
     /**
+     * @example day
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example console_batch
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $targetEndTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $targetStartTime;
 
     /**
+     * @example EMG_VUL_SCHEDULE_SCAN
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example VIRUS_VUL_SCHEDULE_SCAN
+     *
      * @var string
      */
     public $taskType;

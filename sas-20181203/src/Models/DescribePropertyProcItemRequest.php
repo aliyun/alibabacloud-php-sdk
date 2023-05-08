@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcItemRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the process.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceFlush;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

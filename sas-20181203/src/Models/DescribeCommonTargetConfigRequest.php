@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonTargetConfigRequest extends Model
 {
     /**
+     * @example kdump_switch
+     *
      * @var string
      */
     public $type;

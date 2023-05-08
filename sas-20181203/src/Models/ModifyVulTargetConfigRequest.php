@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulTargetConfigRequest extends Model
 {
     /**
+     * @example off
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description 1.2.XX.XX
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description Configures vulnerability detection for a server.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example inet-7c676676-06fa-442e-90fb-b802e5d6****
+     *
      * @var string
      */
     public $uuid;

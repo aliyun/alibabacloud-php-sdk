@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClearLogstoreStorageResponseBody extends Model
 {
     /**
+     * @example DC84C453-8561-5EC4-B0E9-44E67ACCB5B5
+     *
      * @var string
      */
     public $requestId;

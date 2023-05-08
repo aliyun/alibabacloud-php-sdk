@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotSuspStatisticsRequest extends Model
 {
     /**
+     * @example honeypot
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $statisticsDays;
 
     /**
+     * @example vpcInstanceId
+     *
      * @var string
      */
     public $statisticsKeyType;

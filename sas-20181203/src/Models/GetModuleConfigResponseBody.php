@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description An array that consists of the configurations of the module.
+     *
      * @var moduleConfigList[]
      */
     public $moduleConfigList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 291B49F9-1685-4005-9D34-606B6F78****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class pageContentResource extends Model
 {
     /**
+     * @description The data of the affected assets on each page in a dynamic table.
+     *
      * @var mixed[]
      */
     public $contentResource;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

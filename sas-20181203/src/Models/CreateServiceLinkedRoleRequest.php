@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceLinkedRoleRequest extends Model
 {
     /**
-     * @description The service-linked role. Default value: **AliyunServiceRoleForSas**. Valid values:
-     *
-     *   **AliyunServiceRoleForSas**: the service-linked role of Security Center. Security Center assumes this role to access the resources of other cloud services within your account.
-     *   **AliyunServiceRoleForSasCspm**: the service-linked role of Security Center-CSPM. Security Center-CSPM assumes this role to access the resources of other cloud services within your account.
-     *
      * @example AliyunServiceRoleForSas
      *
      * @var string

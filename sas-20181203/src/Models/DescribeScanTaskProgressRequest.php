@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressRequest extends Model
 {
     /**
+     * @example 282832
+     *
      * @var int
      */
     public $taskId;

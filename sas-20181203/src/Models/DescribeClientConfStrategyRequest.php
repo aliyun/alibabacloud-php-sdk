@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientConfStrategyRequest extends Model
 {
     /**
+     * @description The tag that is added to the server.
+     *
+     * @example machineResource
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The value of the tag. Valid values:
+     *
+     *   major
+     *   advanced
+     *   basic
+     *
+     * @example major
+     *
      * @var string
      */
     public $tagValue;

@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 129.211.XXX.XXX
+     *
      * @var string
      */
     public $blackList;
 
     /**
+     * @example sinochem.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2022-08-30 10:23:30
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-09-30 10:23:30
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 1078312
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $imageCount;
 
     /**
+     * @example projectInfo
+     *
      * @var string
      */
     public $jenkinsEnv;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netType;
 
     /**
+     * @example Harbor******
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $persistenceDay;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $protocolType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 39.104.XXX.XXX
+     *
      * @var string
      */
     public $registryHostIp;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $registryName;
 
     /**
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @example c7b90d29-632f-4e58-88b8-00ad77f6****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $transPerHour;
 
     /**
+     * @example RegistryUser
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @example vpc-5gu8iu68w9b472jbb****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example 192.168.XXX.XXX
+     *
      * @var string
      */
     public $whiteList;

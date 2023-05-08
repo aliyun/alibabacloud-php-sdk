@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class backupRestoreCount extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $recovering;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $total;

@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class FindContainerNetworkConnectRequest extends Model
 {
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example EDGE
+     *
      * @var string
      */
     public $criteriaType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -26,11 +32,15 @@ class FindContainerNetworkConnectRequest extends Model
     public $dstNode;
 
     /**
+     * @example 1649260799999
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -41,6 +51,10 @@ class FindContainerNetworkConnectRequest extends Model
     public $srcNode;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1666886400000
+     *
      * @var int
      */
     public $startTime;

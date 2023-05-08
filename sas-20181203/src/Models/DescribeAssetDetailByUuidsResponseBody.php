@@ -15,6 +15,8 @@ class DescribeAssetDetailByUuidsResponseBody extends Model
     public $assetList;
 
     /**
+     * @example 92016EC8-D52D-49D8-9FF7-9EA340A950B9
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyStartVulScanResponseBody extends Model
 {
     /**
+     * @example 4066CAC3-F83A-4729-9995-A5558A61B546
+     *
      * @var string
      */
     public $requestId;

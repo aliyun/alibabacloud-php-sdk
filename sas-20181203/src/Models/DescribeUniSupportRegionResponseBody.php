@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniSupportRegionResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the region that is supported by anti-ransomware for databases.
+     *
      * @var string[]
      */
     public $uniSupportRegion;

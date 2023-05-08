@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntiBruteForceRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example FBBEB173-1F43-505F-A876-C03ECDF6CE4C
      *
      * @var string

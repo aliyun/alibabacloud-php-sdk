@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningSummaryResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The number of servers that are affected by the check item.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example DC97C9EC-4B7D-5EFF-8A5E-A5CCC9ED****
+     *
      * @var string
      */
     public $requestId;

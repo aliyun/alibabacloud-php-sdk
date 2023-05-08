@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class InstallBackupClientRequest extends Model
 {
     /**
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
 
     /**
+     * @example inet-617eddab-7df4-4a51-b217-a3f59194****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
+     *
      * @var string[]
      */
     public $uuidList;

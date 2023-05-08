@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCreateVulWhitelistResponseBody extends Model
 {
     /**
+     * @example 6B23A612-D997-5176-8C3B-D640DFD65772
+     *
      * @var string
      */
     public $requestId;

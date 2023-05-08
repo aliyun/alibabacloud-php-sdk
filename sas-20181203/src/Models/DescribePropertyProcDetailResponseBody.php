@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcDetailResponseBody extends Model
 {
     /**
+     * @description The name of the process.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description 1
+     *
      * @var propertys[]
      */
     public $propertys;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example AA47D46F-10DE-138C-BBB4-8A0003F75CD7
+     *
      * @var string
      */
     public $requestId;

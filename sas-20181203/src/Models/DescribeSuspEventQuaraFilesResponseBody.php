@@ -10,31 +10,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesResponseBody extends Model
 {
     /**
+     * @description The download link of the quarantined file.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The status of the quarantined file. Valid values:
+     *
+     *   **quaraFailed**: The file fails to be quarantined.
+     *   **quaraDone**: The file is quarantined.
+     *   **quaraing**: The file is being quarantined.
+     *   **rollbackFailed**: The system fails to cancel quarantining the file.
+     *   **rollbackDone**: The system cancelled quarantining the file.
+     *   **rollbacking**: The system is cancelling quarantining the file.
+     *
      * @var quaraFiles[]
      */
     public $quaraFiles;
 
     /**
+     * @description An array that consists of the quarantined files.
+     *
+     * @example 32A73759-4C0F-4801-BE98-901223ACEE9A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The quarantined file.
+     *
+     * @example 38
+     *
      * @var int
      */
     public $totalCount;

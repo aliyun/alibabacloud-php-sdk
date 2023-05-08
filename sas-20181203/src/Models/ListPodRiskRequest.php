@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListPodRiskRequest extends Model
 {
     /**
+     * @example nginx1
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example c314aa5b2f208461dad821cdfed82****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example taas
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example abcd-84898334227-p****
+     *
      * @var string
      */
     public $podName;

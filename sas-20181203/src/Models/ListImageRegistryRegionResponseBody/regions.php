@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The region ID of the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionName;

@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskLeafRecordPageResponseBody extends Model
 {
     /**
+     * @description The sub-tasks returned.
+     *
      * @var onceTasks[]
      */
     public $onceTasks;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
+     *
      * @var string
      */
     public $requestId;

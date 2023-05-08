@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckStandardResponseBody extends Model
 {
     /**
+     * @example FA91FBDA-***
+     *
      * @var string
      */
     public $requestId;

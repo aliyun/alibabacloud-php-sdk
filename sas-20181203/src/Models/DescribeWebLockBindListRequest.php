@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListRequest extends Model
 {
     /**
+     * @description on
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The error code for web tamper proofing. Valid values:
+     *
+     *   **2001**: The Security Center agent is offline.
+     *   **9999**: The connection timed out.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The error message for web tamper proofing. Valid values:
+     *
+     *   **client offline**: The Security Center agent is offline.
+     *   **timeout**: The connection timed out.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example 116.30.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The name of the server.
+     *
+     * @example on
+     *
      * @var string
      */
     public $status;

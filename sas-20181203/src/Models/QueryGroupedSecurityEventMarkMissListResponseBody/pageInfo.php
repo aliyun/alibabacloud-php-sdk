@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @example 9
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description Queries whitelist rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description QueryGroupedSecurityEventMarkMissList
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 69
+     *
      * @var int
      */
     public $totalCount;

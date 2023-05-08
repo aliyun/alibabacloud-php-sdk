@@ -9,61 +9,125 @@ use AlibabaCloud\Tea\Model;
 class AddPrivateRegistryRequest extends Model
 {
     /**
+     * @description The domain name of the image repository.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The additional parameter of the image repository. This parameter is required when you set the RegistryType parameter to **quay**. Valid values:
+     *
+     *   **namespace**
+     *   **authToken**
+     *
+     * @example [{"namespace":"aa","authToken":"aa"}]
+     *
      * @var string
      */
     public $extraParam;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet
+     *   **2**: virtual private cloud (VPC)
+     *
+     * @example 2
+     *
      * @var int
      */
     public $netType;
 
     /**
+     * @description The password that is used to log on to the image repository.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **1**: HTTP
+     *   **2**: HTTPS
+     *
+     * @example 2
+     *
      * @var int
      */
     public $protocolType;
 
     /**
+     * @description The IP address of the image repository.
+     *
+     * @example 114.55.**.**
+     *
      * @var string
      */
     public $registryHostIp;
 
     /**
+     * @description The ID of the region.
+     *
+     * > You can call the [ListImageRegistryRegions](~~ListImageRegistryRegions~~) operation to query the IDs of supported regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $registryRegionId;
 
     /**
+     * @description The type of the private image repository. Valid values:
+     *
+     *   **harbor**
+     *   **quay**
+     *
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @description The version of the image repository. Valid values:
+     *
+     *   **V1**
+     *   **V2**
+     *
+     * @example V2
+     *
      * @var string
      */
     public $registryVersion;
 
     /**
+     * @description The number of images that are scanned per hour.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $transPerHour;
 
     /**
+     * @description The username that is used to log on to the image repository.
+     *
+     * @example xxxxx
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-wz9hs3e5*******908kd
+     *
      * @var string
      */
     public $vpcId;

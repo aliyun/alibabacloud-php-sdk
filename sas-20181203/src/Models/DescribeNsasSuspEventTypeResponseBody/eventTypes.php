@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class eventTypes extends Model
 {
     /**
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $suspEventCount;
 
     /**
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $type;

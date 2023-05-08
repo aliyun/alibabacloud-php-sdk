@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the check item.
+     *
+     * @example Cloud service configuration management
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   **ON**: enabled
+     *   **OFF**: disabled
+     *
+     * @example ON
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the check item. Valid values:
+     *
+     *   **RISK**: cloud service configuration management
+     *   **IDENTITY_PERMISSION**: identity and permission management
+     *   **COMPLIANCE**: compliance
+     *
+     * @example RISK
+     *
      * @var string
      */
     public $type;

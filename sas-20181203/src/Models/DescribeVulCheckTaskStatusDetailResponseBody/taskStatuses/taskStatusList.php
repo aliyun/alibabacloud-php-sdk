@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class taskStatusList extends Model
 {
     /**
+     * @example push_command_failed
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $type;

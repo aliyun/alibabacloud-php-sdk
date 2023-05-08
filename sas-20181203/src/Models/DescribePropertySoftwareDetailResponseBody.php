@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailResponseBody extends Model
 {
     /**
+     * @description The details of the software asset.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The version of the software.
+     *
      * @var propertys[]
      */
     public $propertys;
 
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example 6AEE7412-0065-1135-B790-AE2C38BA68FB
+     *
      * @var string
      */
     public $requestId;

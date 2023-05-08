@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class strategyTargets extends Model
 {
     /**
+     * @example 85
+     *
      * @var int
      */
     public $bindUuidCount;
 
     /**
+     * @example add
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @example 9165712
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;

@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class QueryPreCheckDatabaseResponseBody extends Model
 {
     /**
+     * @example 1657524396
+     *
      * @var int
      */
     public $completedTime;
 
     /**
+     * @example 1660448660
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @example completed
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example CE500770-42D3-442E-9DDD-156E0F9F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example [
+     * {
+     * "instanceId": "i-wz91if83t97xgtn2****",
+     * ]
      * @var string
      */
     public $result;
 
     /**
+     * @example 1671084106
+     *
      * @var int
      */
     public $updatedTime;

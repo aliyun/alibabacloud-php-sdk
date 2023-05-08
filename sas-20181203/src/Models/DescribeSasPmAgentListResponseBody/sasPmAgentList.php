@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class sasPmAgentList extends Model
 {
     /**
+     * @example mi-hz034jn***yxhc0
+     *
      * @var string
      */
     public $aliyunAssistId;
 
     /**
+     * @example 5d5ef6be-54ff-11ed-82cf-8f01475e****
+     *
      * @var string
      */
     public $aliyunMonitorId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $assistInstallResult;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $assistInstallStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $monitorInstallResult;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $monitorInstallStatus;
 
     /**
+     * @example 87f1724d-075e-48d3-95fd-78c2dd36****
+     *
      * @var string
      */
     public $uuid;

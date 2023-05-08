@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $passCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskLevelHighCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskLevelLowCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskLevelMediumCount;

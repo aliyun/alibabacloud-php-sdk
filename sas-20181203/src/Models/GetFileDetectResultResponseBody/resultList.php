@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {"HighLight":[[23245,23212]]}
+     *
      * @var string
      */
     public $ext;
 
     /**
+     * @example 0a212417e65c26ff133cfff28f6c****
+     *
      * @var string
      */
     public $hashKey;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $result;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example WEBSHELL
+     *
      * @var string
      */
     public $virusType;

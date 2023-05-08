@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyRiskSingleResultStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 3B3F3A90-46A5-4023-A2D8-D68B14262F96
+     *
      * @var string
      */
     public $requestId;

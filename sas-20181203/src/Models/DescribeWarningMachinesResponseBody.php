@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningMachinesResponseBody extends Model
 {
     /**
+     * @description The verification status of the risk item after the risk item is fixed. Valid values:
+     *
+     *   **1**: complete
+     *   **2**: verifying
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The name of the server on which the baseline check is performed.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description An array that consists of the servers.
+     *
+     * @example 6E4CBE87-E887-5AF1-86D2-78EB4AA3E771
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The value of the field that is used to search for the container.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @var warningMachines[]
      */
     public $warningMachines;

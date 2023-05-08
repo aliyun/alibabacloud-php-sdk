@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The ID of the notification.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the notification.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Alert notification
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -24,6 +24,8 @@ class ListCheckStandardRequest extends Model
     public $instanceTypes;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;

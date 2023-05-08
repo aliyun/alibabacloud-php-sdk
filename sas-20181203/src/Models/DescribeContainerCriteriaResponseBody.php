@@ -15,6 +15,8 @@ class DescribeContainerCriteriaResponseBody extends Model
     public $criteriaList;
 
     /**
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
+     *
      * @var string
      */
     public $requestId;

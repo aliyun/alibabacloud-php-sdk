@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description The number of the servers on which the anti-ransomware agent is in an abnormal state.
+     * @description The upgrade status of the anti-ransomware policy. Valid values:
+     *
+     *   **NotUpgraded**
+     *   **Upgrading**
+     *   **UpgradeFailed**
+     *   **UpgradeSuccess**
      *
      * @example 2
      *
@@ -18,17 +23,14 @@ class policies extends Model
     public $clientErrorCount;
 
     /**
-     * @description The UUIDs of the servers on which the anti-ransomware agent is in an **abnormal** state.
+     * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
      *
      * @var string[]
      */
     public $clientErrorUuidList;
 
     /**
-     * @description The status of the anti-ransomware agent. Valid values:
-     *
-     *   **running**: normal
-     *   **exception**: abnormal
+     * @description The UUIDs of the servers on which the anti-ransomware agent is in an **abnormal** state.
      *
      * @example running
      *
@@ -37,7 +39,7 @@ class policies extends Model
     public $clientStatus;
 
     /**
-     * @description The number of the servers on which the anti-ransomware agent is in a normal state.
+     * @description The UUIDs that are returned based on the value of the MachineRemark request parameter.
      *
      * @example 2
      *
@@ -46,14 +48,14 @@ class policies extends Model
     public $healthClientCount;
 
     /**
-     * @description The UUIDs of the servers on which the anti-ransomware agent is in a **normal** state.
+     * @description The total number of anti-ransomware policies returned.
      *
      * @var string[]
      */
     public $healthClientUuidList;
 
     /**
-     * @description The ID of the anti-ransomware policy.
+     * @description The UUIDs that are returned based on the value of the MachineRemark request parameter.
      *
      * @example 11
      *
@@ -62,7 +64,7 @@ class policies extends Model
     public $id;
 
     /**
-     * @description The name of the anti-ransomware policy.
+     * @description The UUIDs of the servers on which the anti-ransomware agent is in an **abnormal** state.
      *
      * @example SecurityStrategy-20200303
      *
@@ -71,36 +73,11 @@ class policies extends Model
     public $name;
 
     /**
-     * @description The configurations of the anti-ransomware policy. The value of this parameter is in the JSON format and contains the following fields:
+     * @description The status of the anti-ransomware agent. Valid values:
      *
-     *   **IsDefault**: the type of the anti-ransomware policy. Valid values:
+     *   **running**: normal
+     *   **exception**: abnormal
      *
-     *   **1**: recommended policy
-     *   **0**: custom policy
-     *
-     *   **Include**: the format of the files that are protected. If the value of this field is \[], all formats of files are protected.
-     *
-     *   **Source**: the directory that is protected. If the value of this field is \[], all directories are protected.
-     *
-     *   **ExcludeSystemPath**: indicates whether a specified directory is excluded from the anti-ransomware policy. If the value of this field is **true**, the directory is excluded. If this field is left empty, no directories are excluded.
-     *
-     *   **Exclude**: the directory that is excluded from the anti-ransomware policy. If no directory is specified, the value of this field is \[].
-     *
-     *   **Schedule**: the start time and interval of a data backup task. A start time that begins during off-peak hours but does not start on the hour is recommended. Examples:
-     *
-     *   If the value of this field is I|1583216092|P21D, the data backup task starts from 2020-03-03 14:14:52, and the task is run at an interval of three weeks.
-     *   If the value of this field is I|1583216092|PT24H, the data backup task starts from 2020-03-03 14:14:52, and the task is run at an interval of 24 hours.
-     *
-     *   **Retention**: the period during which backup data is retained. Unit: days. If the value of this field is 7, backup data is retained for a week. If the value of this field is 365, backup data is retained for a year. If the value of this field is -1, backup data is permanently retained.
-     *
-     *   **SpeedLimiter**: the limit on the network bandwidth for data backup tasks. If the value of this field is 0:24:30720, the maximum bandwidth for a data backup task is 30 MB/s from 00:00 to 24:00.
-     *
-     *   **UseVss**: indicates whether the VSS feature is enabled. The feature is available only for Windows servers. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
      * @example {"Exclude":["/bin/","/usr/bin/","/sbin/","/boot/","/proc/","/sys/","/srv/","/lib/","/selinux/","/usr/sbin/","/run/","/lib32/","/lib64/","/lost+found/","/var/lib/kubelet/","/var/lib/ntp/proc","/var/lib/container","Windows\\","Python27\\","Program Files (x86)\\","Program Files\\","Boot\\","$RECYCLE.BIN","System Volume Information\\","Users\\Administrator\\NTUSER.DAT*","ProgramData\\","pagefile.sys","Users\\Default\\NTUSER.DAT*","Users\\Administrator\\ntuser.*"],"ExcludeSystemPath":true,"Include":[],"IsDefault":1,"Retention":7,"Schedule":"I|1630689360|PT24H","Source":[],"SpeedLimiter":"","UseVss":true}
      *
      * @var string
@@ -108,7 +85,7 @@ class policies extends Model
     public $policy;
 
     /**
-     * @description The ID of the region that you specified for data backup when you installed the anti-ransomware agent for the server not deployed on Alibaba Cloud.
+     * @description The ID of the anti-ransomware policy.
      *
      * @example ch-hangzhou
      *
@@ -117,10 +94,7 @@ class policies extends Model
     public $policyRegionId;
 
     /**
-     * @description The version of the anti-ransomware policy. Valid values:
-     *
-     *   1.0.0
-     *   2.0.0
+     * @description The ID of the region that you specified for data backup when you installed the anti-ransomware agent for the server not deployed on Alibaba Cloud.
      *
      * @example 2.0.0
      *
@@ -129,18 +103,14 @@ class policies extends Model
     public $policyVersion;
 
     /**
-     * @description The UUIDs that are returned based on the value of the MachineRemark request parameter.
+     * @description The UUIDs of the servers on which data backup is exceptional.
      *
      * @var string[]
      */
     public $remarkedUuidList;
 
     /**
-     * @description The type of the server. Valid values:
-     *
-     *   **OUT_CLOUD**: server not deployed on Alibaba Cloud
-     *   **ALIYUN**: Elastic Compute Service (ECS) instance
-     *   **TRIPARTITE**: simple application server
+     * @description The UUIDs of the servers on which the anti-ransomware agent is in a **normal** state.
      *
      * @example OUT_CLOUD
      *
@@ -149,7 +119,7 @@ class policies extends Model
     public $serverType;
 
     /**
-     * @description The number of servers on which data backup is exceptional.
+     * @description The number of the servers on which the anti-ransomware agent is in a normal state.
      *
      * @example 2
      *
@@ -158,18 +128,18 @@ class policies extends Model
     public $serviceErrorCount;
 
     /**
-     * @description The UUIDs of the servers on which data backup is exceptional.
+     * @description The type of the server. Valid values:
+     *
+     *   **OUT_CLOUD**: server not deployed on Alibaba Cloud
+     *   **ALIYUN**: Elastic Compute Service (ECS) instance
+     *   **TRIPARTITE**: simple application server
      *
      * @var string[]
      */
     public $serviceErrorUuidList;
 
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**: The anti-ransomware policy is manually enabled.
-     *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-     *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+     * @description The number of servers on which data backup is exceptional.
      *
      * @example enabled
      *
@@ -178,12 +148,7 @@ class policies extends Model
     public $status;
 
     /**
-     * @description The upgrade status of the anti-ransomware policy. Valid values:
-     *
-     *   **NotUpgraded**
-     *   **Upgrading**
-     *   **UpgradeFailed**
-     *   **UpgradeSuccess**
+     * @description The name of the anti-ransomware policy.
      *
      * @example Upgrading
      *
@@ -192,7 +157,7 @@ class policies extends Model
     public $upgradeStatus;
 
     /**
-     * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
+     * @description The UUIDs of the servers on which the anti-ransomware agent is in a **normal** state.
      *
      * @var string[]
      */

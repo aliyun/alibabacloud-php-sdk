@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcHoneyPotRequest extends Model
 {
     /**
+     * @example disable
+     *
      * @var string
      */
     public $honeyPotAction;
 
     /**
+     * @example vpc-d7o009q63fqy21r8u****
+     *
      * @var string
      */
     public $vpcId;

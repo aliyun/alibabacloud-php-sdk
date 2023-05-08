@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartVirusScanTaskRequest extends Model
 {
     /**
+     * @example [{"type":"uuid","name":"Host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
+     *
      * @var string
      */
     public $targetInfo;

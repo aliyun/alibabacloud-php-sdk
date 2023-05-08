@@ -21,6 +21,8 @@ class ListClusterInterceptionConfigResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 49FDE92F-A0B8-56CC-B7A8-23B17646****
+     *
      * @var string
      */
     public $requestId;

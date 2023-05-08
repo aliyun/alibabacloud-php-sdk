@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryDiscoverDatabaseResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The progress of the database scan task in percentage.
+     *
+     * @example 90
+     *
      * @var int
      */
     public $taskProgress;

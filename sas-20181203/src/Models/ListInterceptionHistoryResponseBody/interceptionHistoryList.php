@@ -9,141 +9,274 @@ use AlibabaCloud\Tea\Model;
 class interceptionHistoryList extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * @example c556c8133b5ad4378b7fc533ddbda****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example opa-terway-nonet****
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The name of the destination application.
+     *
+     * @example sas-web****
+     *
      * @var string
      */
     public $dstAppName;
 
     /**
+     * @description The destination namespace.
+     *
+     * @example service****
+     *
      * @var string
      */
     public $dstNamespace;
 
     /**
+     * @description The destination port range configured for the defense rule.
+     *
+     * @example 33
+     *
      * @var int
      */
     public $dstPort;
 
     /**
+     * @description The name of the destination network object.
+     *
+     * @example sas-web****
+     *
      * @var string
      */
     public $dstRuleTargetName;
 
     /**
+     * @description The timestamp when the alert was first generated on the current day.
+     *
+     * @example 1639718858000
+     *
      * @var int
      */
     public $firstTime;
 
     /**
+     * @description The ID of the alert.
+     *
+     * @example 1126
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the alert.
+     *
+     * @example Abnormal access
+     *
      * @var int
      */
     public $interceptionName;
 
     /**
+     * @description The handling type. Valid values:
+     *
+     *   **0**: monitor
+     *   **1**: intercept
+     *   **2**: generate alert
+     *   **3**: allow
+     *
+     * @example 0
+     *
      * @var int
      */
     public $interceptionType;
 
     /**
+     * @description The timestamp when the alert was last generated on the current day.
+     *
+     * @example 1639731078000
+     *
      * @var int
      */
     public $lastTime;
 
     /**
+     * @description The name of the destination application.
+     *
+     * @example sas-service****
+     *
      * @var string
      */
     public $realDstAppName;
 
     /**
+     * @description The name of the destination image.
+     *
+     * @example sas-servi****
+     *
      * @var string
      */
     public $realDstImageName;
 
     /**
+     * @description The destination namespace.
+     *
+     * @example service****
+     *
      * @var string
      */
     public $realDstNamespace;
 
     /**
+     * @description The destination pod.
+     *
+     * @example sas-web-84cc7dd9****
+     *
      * @var string
      */
     public $realDstPodName;
 
     /**
+     * @description The handling type of actual hits. Valid values:
+     *
+     *   **0**: monitor
+     *   **1**: intercept
+     *   **2**: generate alert
+     *   **3**: allow
+     *
+     * @example 0
+     *
      * @var int
      */
     public $realInterceptionType;
 
     /**
+     * @description The name of the source application.
+     *
+     * @example sas-service****
+     *
      * @var string
      */
     public $realSrcAppName;
 
     /**
+     * @description The name of the source image.
+     *
+     * @example sas-servi****
+     *
      * @var string
      */
     public $realSrcImageName;
 
     /**
+     * @description The source namespace.
+     *
+     * @example service****
+     *
      * @var string
      */
     public $realSrcNamespace;
 
     /**
+     * @description The source pod.
+     *
+     * @example sas-service-757b9d****
+     *
      * @var string
      */
     public $realSrcPodName;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **-1**: unknown
+     *   **0**: none
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The ID of the defense rule based on which the alert was generated.
+     *
+     * @example 136
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The name of the defense rule.
+     *
+     * @example all****
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The name of the source application.
+     *
+     * @example sas-web****
+     *
      * @var string
      */
     public $srcAppName;
 
     /**
+     * @description The source namespace.
+     *
+     * @example service****
+     *
      * @var string
      */
     public $srcNamespace;
 
     /**
+     * @description The name of the source network object.
+     *
+     * @example sas-web****
+     *
      * @var string
      */
     public $srcRuleTargetName;
 
     /**
+     * @description The handling status. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: manually handled
+     *   **3**: ignored
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The number of attempts.
+     *
+     * @example 34
+     *
      * @var int
      */
     public $tryCount;

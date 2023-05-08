@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class installCodes extends Model
 {
     /**
+     * @description DescribeInstallCodes
+     *
+     * @example 15v02r
+     *
      * @var string
      */
     public $captchaCode;
 
     /**
+     * @example 1637810007000
+     *
      * @var int
      */
     public $expiredDate;
 
     /**
+     * @example 9165712
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Queries the commands that are used to manually install the Security Center Agent.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyImage;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @example ALIYUN
+     *
      * @var string
      */
     public $vendorName;

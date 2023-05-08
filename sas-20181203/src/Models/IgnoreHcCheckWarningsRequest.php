@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class IgnoreHcCheckWarningsRequest extends Model
 {
     /**
+     * @example 21313
+     *
      * @var string
      */
     public $checkIds;
 
     /**
+     * @example 98146905,98146907
+     *
      * @var string
      */
     public $checkWarningIds;
 
     /**
+     * @example ignore
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example 51
+     *
      * @var string
      */
     public $riskId;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

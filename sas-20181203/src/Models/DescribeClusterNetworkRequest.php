@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNetworkRequest extends Model
 {
     /**
+     * @description The end timestamp of the query. Unit: milliseconds.
+     *
+     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+     * @example 1656038940435
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The start timestamp of the query. Unit: milliseconds.
+     *
+     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+     * @example 1656038740435
+     *
      * @var int
      */
     public $startTime;

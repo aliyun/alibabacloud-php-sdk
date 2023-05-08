@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAlarmMachineCountRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;

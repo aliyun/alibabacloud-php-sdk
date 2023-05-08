@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenSensitiveFileScanRequest extends Model
 {
     /**
+     * @example on
+     *
      * @var string
      */
     public $switchOn;

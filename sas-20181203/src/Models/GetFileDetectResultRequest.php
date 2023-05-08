@@ -14,11 +14,15 @@ class GetFileDetectResultRequest extends Model
     public $hashKeyList;
 
     /**
+     * @example 183.46.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;

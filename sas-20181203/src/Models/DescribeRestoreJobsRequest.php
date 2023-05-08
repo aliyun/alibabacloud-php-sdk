@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreJobsRequest extends Model
 {
     /**
+     * @description The timestamp when the in-progress restoration task is expected to be complete. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The return value of the restoration task.
+     *
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $machineRemark;
 
     /**
+     * @description The timestamp when the restoration task was last updated. Unit: milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of the file that is restored. Valid values:
+     *
+     *   **ECS_FILE**: files on Elastic Compute Service (ECS) instances
+     *   **FILE**: files on servers in data centers
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

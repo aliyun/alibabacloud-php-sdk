@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreJobsResponseBody extends Model
 {
     /**
+     * @description The folder to which the backup data is restored. After you create the restoration task, the backup data is restored to the specified folder.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The directory excluded from the anti-ransomware policy. The value is the directory that you specify to skip protection when you create the anti-ransomware policy.
+     *
+     * @example 0ED92280-4363-57D3-A4D3-4D3FBC99B29F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The timestamp when the restoration task is created. Unit: milliseconds.
+     *
      * @var restoreJobs[]
      */
     public $restoreJobs;

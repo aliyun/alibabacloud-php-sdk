@@ -11,22 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeBruteForceRecordsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the IP addresses.
-     *
      * @var machineList[]
      */
     public $machineList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string

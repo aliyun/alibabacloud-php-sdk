@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationsRequest extends Model
 {
     /**
+     * @description The value of the field that can be used in the whitelist rule.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -19,11 +23,25 @@ class DescribeSecurityEventOperationsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The field that can be used in the whitelist rule.
+     *
+     * @example 61352054
+     *
      * @var int
      */
     public $securityEventId;
 
     /**
+     * @description The operation that is supported in the whitelist rule. Valid values:
+     *
+     *   **contains**: contains
+     *   **notContains**: does not contain
+     *   **regex**: regular expression
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityCheckScheduleConfigRequest extends Model
 {
     /**
+     * @example 4,5,6
+     *
      * @var string
      */
     public $daysOfWeek;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -29,11 +35,15 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $startTime;

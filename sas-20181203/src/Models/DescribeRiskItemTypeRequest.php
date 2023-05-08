@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskItemTypeRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -19,6 +26,10 @@ class DescribeRiskItemTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 183.237.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

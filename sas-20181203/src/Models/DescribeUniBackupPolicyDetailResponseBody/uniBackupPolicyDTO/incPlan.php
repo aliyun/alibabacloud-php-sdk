@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class incPlan extends Model
 {
     /**
+     * @description The interval of backup tasks.
+     *
      * @var string[]
      */
     public $days;
 
     /**
+     * @description The unit of the interval. Valid values:
+     *
+     *   **hourly**: hour
+     *   **daily**: day
+     *   **weekly**: week
+     *
+     * @example 2
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The time when the incremental backup started. The time is in the HH:mm:ss format.
+     *
+     * @example daily
+     *
      * @var string
      */
     public $planType;
 
     /**
+     * @description The details of the policy for incremental backup.
+     *
+     * @example 00:10:00
+     *
      * @var string
      */
     public $startTime;

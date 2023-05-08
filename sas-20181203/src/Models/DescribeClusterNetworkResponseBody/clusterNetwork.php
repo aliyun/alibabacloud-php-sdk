@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class clusterNetwork extends Model
 {
     /**
+     * @description An array that consists of information about the topology edge.
+     *
      * @var edge[]
      */
     public $edge;
 
     /**
+     * @description An array that consists of information about the node.
+     *
      * @var node[]
      */
     public $node;

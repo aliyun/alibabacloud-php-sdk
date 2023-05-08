@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailRequest extends Model
 {
     /**
+     * @description The domain name or the name of website that you want to query.
+     *
+     * >  Fuzzy match is not supported. You must enter a complete domain name or a website.
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The type of the domain asset. Valid values:
+     *
+     *   **0**: an Elastic Compute Service (ECS) instance
+     *   **1**: a Server Load Balancer (SLB) instance
+     *   **2**: a Network Address Translation (NAT) gateway
+     *   **3**: an ApsaraDB RDS instance
+     *   **4**: an ApsaraDB for MongoDB instance
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

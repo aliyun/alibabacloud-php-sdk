@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class newestStatisticItems extends Model
 {
     /**
+     * @example 1566178646000
+     *
      * @var int
      */
     public $create;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $name;

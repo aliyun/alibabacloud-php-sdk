@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityEventMarkMissListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 23AD0BD2-8771-5647-819E-6BA51E2XXXXX
+     *
      * @var string
      */
     public $requestId;

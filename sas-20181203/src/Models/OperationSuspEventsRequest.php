@@ -9,31 +9,49 @@ use AlibabaCloud\Tea\Model;
 class OperationSuspEventsRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description WB01014029
+     *
+     * @example deal
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @description Handles multiple exceptions at a time.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example killAndQuaraFileByPidAndMd5andPath
+     *
      * @var string
      */
     public $subOperation;
 
     /**
+     * @description OperationSuspEvents
+     *
+     * @example 290852
+     *
      * @var string
      */
     public $suspiciousEventIds;
 
     /**
+     * @example alarm
+     *
      * @var string
      */
     public $warnType;

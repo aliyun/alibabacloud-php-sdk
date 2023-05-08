@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class bindPortList extends Model
 {
     /**
-     * @description Specifies whether to bind a port. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
      * @example true
      *
      * @var bool
@@ -21,8 +16,6 @@ class bindPortList extends Model
     public $bindPort;
 
     /**
-     * @description The end of the port range.
-     *
      * @example 90
      *
      * @var int
@@ -30,11 +23,6 @@ class bindPortList extends Model
     public $endPort;
 
     /**
-     * @description Specifies whether the port is fixed. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
-     *
      * @example 0
      *
      * @var bool
@@ -42,8 +30,6 @@ class bindPortList extends Model
     public $fixed;
 
     /**
-     * @description The start of the port range.
-     *
      * @example 80
      *
      * @var int
@@ -51,9 +37,6 @@ class bindPortList extends Model
     public $startPort;
 
     /**
-     * @description The destination port.
-     *
-     * >  If **HoneypotId** is specified, this parameter is required.
      * @example 80
      *
      * @var int

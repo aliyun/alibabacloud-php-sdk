@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class countByStatus extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example pass
+     *
      * @var string
      */
     public $status;

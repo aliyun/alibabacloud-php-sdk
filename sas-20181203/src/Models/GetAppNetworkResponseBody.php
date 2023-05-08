@@ -15,6 +15,8 @@ class GetAppNetworkResponseBody extends Model
     public $appNetwork;
 
     /**
+     * @example 7D46EDB0-xxx
+     *
      * @var string
      */
     public $requestId;

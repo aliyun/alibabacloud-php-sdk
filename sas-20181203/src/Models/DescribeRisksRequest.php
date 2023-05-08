@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeRisksRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The maximum number of entries to return. Default value: 20.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of baselines.
+     * @example 75
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @description The name of the baseline.
+     *
+     * @example docker
+     *
      * @var string
      */
     public $riskName;

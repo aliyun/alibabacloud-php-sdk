@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSasPmAgentListRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example inet-cb7ae5ee-b2bc-4581-b616-62495f5d****,inet-37cf0e4f-55cc-4b84-8073-b348b4b4****
+     *
      * @var string
      */
     public $uuids;

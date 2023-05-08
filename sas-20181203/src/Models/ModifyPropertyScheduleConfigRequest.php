@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyPropertyScheduleConfigRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var string
      */
     public $scheduleTime;
 
     /**
+     * @example scheduler_port_period
+     *
      * @var string
      */
     public $type;

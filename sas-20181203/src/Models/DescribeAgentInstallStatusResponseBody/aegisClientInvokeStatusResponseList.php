@@ -49,7 +49,7 @@ class aegisClientInvokeStatusResponseList extends Model
     public $resuleCode;
 
     /**
-     * @description The installation result. Valid values:
+     * @description The installation result. Valid value:
      *
      *   **-1**: not installed
      *   **0**: being installed

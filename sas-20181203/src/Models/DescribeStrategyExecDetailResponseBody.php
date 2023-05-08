@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyExecDetailResponseBody extends Model
 {
     /**
+     * @example 2021-12-05 00:12:46
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 94
+     *
      * @var int
      */
     public $failCount;
@@ -25,31 +29,43 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $failedEcsList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $inProcessCount;
 
     /**
+     * @example 100%
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @example 01611D72-1E33-53F5-A9A5-C81B5561970F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Manual
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 2021-12-05 00:12:16
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 81
+     *
      * @var int
      */
     public $successCount;

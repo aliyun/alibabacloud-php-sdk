@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientConfSetupResponseBody extends Model
 {
     /**
+     * @description The configurations of the Security Center agent.
+     *
      * @var clientConf
      */
     public $clientConf;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 151F6EB6-D5F3-417A-AF7B-4D84975D****
+     *
      * @var string
      */
     public $requestId;

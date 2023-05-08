@@ -15,6 +15,8 @@ class GetClusterRuleSummaryResponseBody extends Model
     public $clusterRuleSummary;
 
     /**
+     * @example 291B49F9-xxx
+     *
      * @var string
      */
     public $requestId;

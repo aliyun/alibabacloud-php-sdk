@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 33
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The name of the server.
+     *
+     * @example test_ecs
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The name of the process.
+     *
+     * @example cron
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @description The path to the process.
+     *
+     * @example /usr/sbin/cron
+     *
      * @var string
      */
     public $processPath;
 
     /**
+     * @description Indicates whether the process is added to the process whitelist. Valid values:
+     *
+     *   **1**: The process is added to the process whitelist.
+     *   **0**: The process is not added to the process whitelist.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
+     *
      * @var string
      */
     public $uuid;

@@ -14,6 +14,10 @@ class DescribeBruteForceSummaryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description DescribeBruteForceSummary
+     *
+     * @example 203.119.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ExportVulRequest extends Model
 {
     /**
+     * @example RHSA-2019:3197-Important: sudo security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $attachTypes;
 
     /**
+     * @example n
+     *
      * @var string
      */
     public $dealed;
 
     /**
+     * @example 8834224
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example asap
+     *
      * @var string
      */
     public $necessity;
 
     /**
+     * @example Restart required
+     *
      * @var string
      */
     public $searchTags;
 
     /**
+     * @example app
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1587bedb-fdb4-48c4-9330-****
+     *
      * @var string
      */
     public $uuids;
 
     /**
+     * @example ins-133****,ins-5414****
+     *
      * @var string
      */
     public $vpcInstanceIds;

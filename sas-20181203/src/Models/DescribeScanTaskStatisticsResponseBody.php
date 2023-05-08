@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskStatisticsResponseBody extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $dealedRiskNum;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $personalTaskNum;
 
     /**
+     * @example 765EDBDE-1686-5DBA-B76F-2E0XXXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $totalTaskNum;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $userNum;

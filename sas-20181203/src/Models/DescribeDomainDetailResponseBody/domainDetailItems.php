@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class domainDetailItems extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @example i-m5e6w7dzsktt6mz4***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iZm5e6w7dzsktt6mz4yimeZ-6****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example lb-bp1g9dohoyin9cjhn6****
+     *
      * @var string
      */
     public $uuid;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The ID of the risk item.
+     * @description The information about the rule parameter.
      *
      * @example 58
      *
@@ -19,7 +19,10 @@ class rules extends Model
     public $checkId;
 
     /**
-     * @description The default value of the rule.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example 1
      *
@@ -28,10 +31,7 @@ class rules extends Model
     public $defaultValue;
 
     /**
-     * @description Indicates whether the rule is optional. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
+     * @description The rule that is supported by the risk item.
      *
      * @example 1
      *
@@ -47,8 +47,9 @@ class rules extends Model
     public $paramList;
 
     /**
-     * @description The description of the rule.
+     * @description The ID of the risk item.
      *
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of risk items.
      * @example (/etc/system-auth)Force users not to reuse the number of recently used passwords between 5 and 24
      *
      * @var string
@@ -56,7 +57,7 @@ class rules extends Model
     public $ruleDesc;
 
     /**
-     * @description The ID of the rule.
+     * @description The data returned.
      *
      * @example pwd_reuse.system_auth
      *
@@ -65,7 +66,7 @@ class rules extends Model
     public $ruleId;
 
     /**
-     * @description The specified value of the rule parameter.
+     * @description The ID of the rule.
      *
      * @example 5
      *
@@ -74,7 +75,7 @@ class rules extends Model
     public $value;
 
     /**
-     * @description The name of the variable.
+     * @description The specified value of the rule parameter.
      *
      * @example open
      *

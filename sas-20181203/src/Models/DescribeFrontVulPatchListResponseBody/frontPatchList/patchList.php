@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class patchList extends Model
 {
     /**
+     * @example RHBA-2019:2599: krb5 bug fix update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example 4523204
+     *
      * @var string
      */
     public $name;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstallCodeRequest extends Model
 {
     /**
+     * @example 1q****
+     *
      * @var string
      */
     public $captchaCode;

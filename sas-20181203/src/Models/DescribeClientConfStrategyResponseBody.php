@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientConfStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5BD95679-D63A-4151-97D0-188432F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the configurations.
+     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

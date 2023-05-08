@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @example system_auto_****
+     *
      * @var string
      */
     public $policyKey;

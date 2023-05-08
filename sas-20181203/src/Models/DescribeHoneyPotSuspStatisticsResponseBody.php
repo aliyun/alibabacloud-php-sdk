@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotSuspStatisticsResponseBody extends Model
 {
     /**
+     * @example 9E3969FA-5ACC-4256-9FDE-BB6918CD0410
+     *
      * @var string
      */
     public $requestId;

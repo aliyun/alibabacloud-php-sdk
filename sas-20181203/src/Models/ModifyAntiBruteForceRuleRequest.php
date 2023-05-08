@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ModifyAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultRule;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $failCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $forbiddenTime;
 
     /**
+     * @description The threshold of logon failures that you specify. Valid values:
+     *
+     *   **2**
+     *   **3**
+     *   **4**
+     *   **5**
+     *   **10**
+     *   **50**
+     *   **80**
+     *   **100**
+     *
+     * @example 65778
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Modifies a defense rule against brute-force attacks.
+     *
+     * @example TestRule
+     *
      * @var string
      */
     public $name;
@@ -39,16 +62,26 @@ class ModifyAntiBruteForceRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description ModifyAntiBruteForceRule
+     *
+     * @example 1
+     *
      * @var int
      */
     public $span;
 
     /**
+     * @example uuid-13213-dasda
+     *
      * @var string[]
      */
     public $uuidList;

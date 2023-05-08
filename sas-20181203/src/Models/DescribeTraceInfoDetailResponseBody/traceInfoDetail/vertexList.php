@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class vertexList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example a1d1fa39e5345dcef3f9712172xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example /usr/local/tomcat
+     *
      * @var string
      */
     public $name;
@@ -30,11 +36,15 @@ class vertexList extends Model
     public $neighborList;
 
     /**
+     * @example 2022-12-21 10:24:42
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @example file_path
+     *
      * @var string
      */
     public $type;

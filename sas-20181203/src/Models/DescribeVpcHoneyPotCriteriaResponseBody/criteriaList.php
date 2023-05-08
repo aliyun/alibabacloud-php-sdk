@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @example vpcRegionId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example select
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example ap-southeast-2,eu-west-1
+     *
      * @var string
      */
     public $values;

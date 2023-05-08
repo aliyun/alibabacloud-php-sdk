@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The version of the software.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The timestamp at which the software update ends. Unit: milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The installation path of the software.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogMetaStatusRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example aegis-log-login
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example aegis-log
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @example disabled
+     *
      * @var string
      */
     public $status;

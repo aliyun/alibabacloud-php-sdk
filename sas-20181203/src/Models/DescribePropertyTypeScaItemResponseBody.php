@@ -21,6 +21,8 @@ class DescribePropertyTypeScaItemResponseBody extends Model
     public $propertyTypeItems;
 
     /**
+     * @example B7A839E8-70AE-591D-8D9E-C5419A22****
+     *
      * @var string
      */
     public $requestId;

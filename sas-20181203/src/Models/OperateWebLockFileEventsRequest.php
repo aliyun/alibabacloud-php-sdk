@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateWebLockFileEventsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dealAll;
@@ -19,6 +21,8 @@ class OperateWebLockFileEventsRequest extends Model
     public $eventIds;
 
     /**
+     * @example whitelist
+     *
      * @var string
      */
     public $operationCode;

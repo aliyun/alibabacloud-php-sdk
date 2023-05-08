@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description An array consisting of the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet and are returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description exposureType
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The port that is exposed on the Internet.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description lb-2ze4rso39h4nczcqs****
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

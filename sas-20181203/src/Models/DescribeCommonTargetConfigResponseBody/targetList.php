@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
+     * @example add
+     *
      * @var string
      */
     public $flag;
 
     /**
+     * @example c23551de6149343e8a54e69fbefe6****
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example image_repo
+     *
      * @var string
      */
     public $targetType;

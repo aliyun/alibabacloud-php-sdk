@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class searchCriteriaList extends Model
 {
     /**
+     * @description The name of the condition. Valid values:
+     *
+     *   **remarkItemName**: the aggregation item of the asset fingerprints. Fuzzy match is supported.
+     *
+     * >
+     *
+     *   If **Biz** is set to **web_server**, **remarkItemName** specifies a domain name.
+     *
+     *   If **Biz** is set to **lkm**, **remarkItemName** specifies a module name.
+     *
+     *   If **Biz** is set to **autorun**, **remarkItemName** specifies the path to a startup item.
+     *
+     * @example remarkItemName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the condition.
+     *
+     * @example virtio
+     *
      * @var string
      */
     public $value;

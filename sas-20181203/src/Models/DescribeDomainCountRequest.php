@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCountRequest extends Model
 {
     /**
+     * @example 192.172.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

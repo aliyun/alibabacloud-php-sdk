@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetStatisticsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the configurations of the vulnerability scan feature.
+     *
      * @var targetStats[]
      */
     public $targetStats;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

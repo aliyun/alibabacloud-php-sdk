@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @example instanceId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example select
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example i-bp19r0fdd39idxhf****
+     *
      * @var string
      */
     public $values;

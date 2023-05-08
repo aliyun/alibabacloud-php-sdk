@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotPresetRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example ruoyi
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example d892b4fe-af0d-4486-ab2a-8a518045****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example Node1
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example mx-rouyi
+     *
      * @var string
      */
     public $presetName;

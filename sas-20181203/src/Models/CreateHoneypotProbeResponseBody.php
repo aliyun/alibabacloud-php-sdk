@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotProbeResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
-     *
      * @example 200
      *
      * @var string
@@ -24,8 +22,6 @@ class CreateHoneypotProbeResponseBody extends Model
     public $honeypotProbe;
 
     /**
-     * @description The HTTP status code returned.
-     *
      * @example 200
      *
      * @var int
@@ -33,8 +29,6 @@ class CreateHoneypotProbeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example successful
      *
      * @var string
@@ -42,8 +36,6 @@ class CreateHoneypotProbeResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example B7A839E8-70AE-591D-8D9E-C5419A2240DB
      *
      * @var string
@@ -51,11 +43,6 @@ class CreateHoneypotProbeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool

@@ -9,36 +9,85 @@ use AlibabaCloud\Tea\Model;
 class logShipperStatus extends Model
 {
     /**
+     * @description Indicates whether Security Center is authorized to access Log Service. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example yes
+     *
      * @var string
      */
     public $authStatus;
 
     /**
+     * @description Indicates whether the log analysis feature is purchased. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example yes
+     *
      * @var string
      */
     public $buyStatus;
 
     /**
+     * @description The status of the log analysis feature. Valid values:
+     *
+     *   **yes**: enabled
+     *   **no**: disabled
+     *
+     * @example yes
+     *
      * @var string
      */
     public $openStatus;
 
     /**
+     * @description Indicates whether the pay-as-you-go billing method is used. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example no
+     *
      * @var string
      */
     public $postPaidOpenStatus;
 
     /**
+     * @description Indicates whether the log analysis feature supports the pay-as-you-go billing method. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example yes
+     *
      * @var string
      */
     public $postPaidSupportStatus;
 
     /**
+     * @description The status of the dedicated Log Service project. Valid values:
+     *
+     *   **Normal**: normal
+     *   **Disable**: disabled
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $slsProjectStatus;
 
     /**
+     * @description Indicates whether Log Service is activated. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example yes
+     *
      * @var string
      */
     public $slsServiceStatus;

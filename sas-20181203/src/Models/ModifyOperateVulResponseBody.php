@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyOperateVulResponseBody extends Model
 {
     /**
+     * @example DFE4F166-1AC9-4FAC-A4E4-F0608AD705A6
+     *
      * @var string
      */
     public $requestId;

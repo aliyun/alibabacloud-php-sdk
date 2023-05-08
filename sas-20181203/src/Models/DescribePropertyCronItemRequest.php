@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronItemRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forceFlush;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example /data
+     *
      * @var string
      */
     public $source;

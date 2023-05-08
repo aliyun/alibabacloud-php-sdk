@@ -11,14 +11,28 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $authVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $bind;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
 
     /**
      * @var fixList[]
@@ -26,46 +40,64 @@ class list_ extends Model
     public $fixList;
 
     /**
+     * @example i-bp1a69mvjujbakxu****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example sql-test-0****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $portOpen;
 
     /**
+     * @example There is a weak password (username/password): root/he*****34
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
+     *
      * @var string
      */
     public $uuid;
@@ -77,6 +109,8 @@ class list_ extends Model
     protected $_name = [
         'authVersion'     => 'AuthVersion',
         'bind'            => 'Bind',
+        'containerId'     => 'ContainerId',
+        'containerName'   => 'ContainerName',
         'fixList'         => 'FixList',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
@@ -102,6 +136,12 @@ class list_ extends Model
         }
         if (null !== $this->bind) {
             $res['Bind'] = $this->bind;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->fixList) {
             $res['FixList'] = [];
@@ -165,6 +205,12 @@ class list_ extends Model
         }
         if (isset($map['Bind'])) {
             $model->bind = $map['Bind'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['FixList'])) {
             if (!empty($map['FixList'])) {

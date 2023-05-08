@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventExportInfoRequest extends Model
 {
     /**
+     * @description The ID of the export task.
+     *
+     * > You can call the [ExportSuspEvents](~~ExportSuspEvents~~) operation to query the ID.
+     * @example 123
+     *
      * @var int
      */
     public $exportId;

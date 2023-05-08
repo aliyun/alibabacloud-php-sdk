@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailRequest extends Model
 {
     /**
+     * @description The name of the software.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description 10
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description 3.10.0
+     *
+     * @example 1650012695000
+     *
      * @var int
      */
     public $installTimeEnd;
 
     /**
+     * @description The name of the software.
+     *
+     * @example 1649321495000
+     *
      * @var int
      */
     public $installTimeStart;
 
     /**
+     * @description The details of the software asset.
+     *
+     * @example kernel
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name or IP address of the server.
+     *
+     * @example /etc/test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 3.10.0
+     *
      * @var string
      */
     public $softwareVersion;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 50d213b4-3a35-427a-b8a5-****
+     *
      * @var string
      */
     public $uuid;

@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class GenerateOnceTaskResponseBody extends Model
 {
     /**
+     * @description The number of scan tasks that are complete.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canCreate;
 
     /**
+     * @example 1670307567000
+     *
      * @var int
      */
     public $collectTime;
 
     /**
+     * @example 61
+     *
      * @var int
      */
     public $finishCount;
 
     /**
+     * @example 38730bb078f4a1461d4ed283994c****
+     *
      * @var string
      */
     public $lastTask;
 
     /**
+     * @description The ID of the scan task.
+     *
+     * @example 8BB6B8FA-39E8-5654-A309-8EED13B1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 38730bb078f4a1461d4ed283994c****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

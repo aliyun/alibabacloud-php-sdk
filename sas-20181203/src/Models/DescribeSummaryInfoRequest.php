@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSummaryInfoRequest extends Model
 {
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -9,56 +9,111 @@ use AlibabaCloud\Tea\Model;
 class accessKeyLeakList extends Model
 {
     /**
+     * @description The ID of the AccessKey pair that is leaked.
+     *
+     * @example LTAI4Fytv7ALKzkNVBV6****
+     *
      * @var string
      */
     public $accesskeyId;
 
     /**
+     * @description The name of the Alibaba Cloud account that is affected.
+     *
+     * @example testAccountName
+     *
      * @var string
      */
     public $aliUserName;
 
     /**
+     * @description The platform to which the asset belongs. The value is fixed as **Cloud platform**.
+     *
+     * @example Cloud platform
+     *
      * @var string
      */
     public $asset;
 
     /**
+     * @description The time when the AccessKey pair leak is handled.
+     *
+     * @example 2020-12-03 21:23:38
+     *
      * @var string
      */
     public $dealTime;
 
     /**
+     * @description The method to handle the AccessKey pair leak. Valid values:
+     *
+     *   **pending**: The AccessKey pair leak is unhandled.
+     *   **manual**: The AccessKey pair leak is manually handled.
+     *   **disable**: The AccessKey pair leak is disabled.
+     *   **add-whitelist**: The AccessKey pair leak is added to the whitelist.
+     *
+     * @example pending
+     *
      * @var string
      */
     public $dealType;
 
     /**
+     * @description The time when the AccessKey pair leak is first detected. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1612357897000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The primary key ID of the database.
+     *
+     * @example 389357
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the AccessKey pair leak is handled. Valid values:
+     *
+     *   **pending**: unhandled
+     *   **dealed**: handled
+     *
+     * @example pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the leak. The value is fixed as **AccessKey**.
+     *
+     * @example AccessKey
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The URL of the platform on which the AccessKey pair leak is detected.
+     *
+     * @example https://github.com/hht312/test-ak/blob/0e466d2ecce55b4c924d773a058e5dc602d8****\/1001
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The type of the account to which the leaked AccessKey pair belongs. Valid values:
+     *
+     *   **master**: Alibaba Cloud account
+     *   **ram**: RAM user
+     *
+     * @example master
+     *
      * @var string
      */
     public $userType;

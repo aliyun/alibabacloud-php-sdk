@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserItemRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The information about the account.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceFlush;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example adm
+     *
      * @var string
      */
     public $user;

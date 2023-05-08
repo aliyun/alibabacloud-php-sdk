@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class conditionList extends Model
 {
     /**
+     * @example system
+     *
      * @var string
      */
     public $conditionType;
 
     /**
+     * @example {\"filterParams\":[{\"labelKey\":\"a|b\",\"value\":\"{\\\"name\\\":\\\"sadsasd\\\",\\\"value\\\":\\\"dasdsdas\\\"}\"}],\"LogicalExp\":\"OR\"}
+     *
      * @var string
      */
     public $filterConditions;
 
     /**
+     * @example StopMachine
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example stop_machine
+     *
      * @var string
      */
     public $nameKey;

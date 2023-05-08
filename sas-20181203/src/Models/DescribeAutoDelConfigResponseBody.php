@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoDelConfigResponseBody extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $days;
 
     /**
+     * @example C56F66FD-C4EE-4813-ABDC-4FF94B6C384E
+     *
      * @var string
      */
     public $requestId;

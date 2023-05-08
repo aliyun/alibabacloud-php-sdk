@@ -9,236 +9,536 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description Indicates whether alerts are generated on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example NO
+     *
      * @var string
      */
     public $alarmStatus;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **0**: an ECS instance
+     *   **1**: a Server Load Balancer (SLB) instance
+     *   **2**: a NAT gateway
+     *   **3**: an ApsaraDB RDS instance
+     *   **4**: an ApsaraDB for MongoDB instance
+     *   **5**: an ApsaraDB for Redis instance
+     *   **6**: a container image
+     *   **7**: a container
+     *
+     * @example 0
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @description The timestamp when Security Center is authorized to scan the asset. Unit: milliseconds.
+     *
+     * @example 1627974044000
+     *
      * @var int
      */
     public $authModifyTime;
 
     /**
+     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     *
+     *   **1**: Basic edition
+     *   **6**: Anti-virus edition
+     *   **5**: Advanced edition
+     *   **3**: Enterprise edition
+     *   **7**: Ultimate edition
+     *
+     * @example 1
+     *
      * @var int
      */
     public $authVersion;
 
     /**
+     * @description The name of the Security Center edition that is authorized to scan the asset. Valid values:
+     *
+     *   Basic edition
+     *   Anti-virus edition
+     *   Advanced edition
+     *   Enterprise edition
+     *   Ultimate edition
+     *   Value-added Plan edition
+     *
+     * @example Ultimate Edition
+     *
      * @var string
      */
     public $authVersionName;
 
     /**
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $bind;
 
     /**
+     * @description The status of the Security Center agent installed on the asset. Valid values:
+     *
+     *   **online**: The Security Center agent is **enabled**.
+     *   **offline**: The Security Center agent is **disabled**.
+     *   **pause**: The Security Center agent is **suspended**.
+     *
+     * @example online
+     *
      * @var string
      */
     public $clientStatus;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c690a0789419f4284a4e0a29e12fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example cluster1
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The number of the CPU cores for the asset.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $cores;
 
     /**
+     * @description The CPU information about the asset.
+     *
+     * @example Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz
+     *
      * @var string
      */
     public $cpuInfo;
 
     /**
+     * @description The timestamp when the cluster was created. Unit: milliseconds.
+     *
+     * @example 1607365213000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @description Indicates whether the asset is exposed. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $exposedStatus;
 
     /**
+     * @description Indicates whether the asset is an Alibaba Cloud asset. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @description The ID of the asset group to which the asset belongs.
+     *
+     * @example 4120080
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The name of the group to which the asset belongs.
+     *
+     * @example default
+     *
      * @var string
      */
     public $groupTrace;
 
     /**
+     * @description Indicates whether baseline risk items are detected on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example YES
+     *
      * @var string
      */
     public $hcStatus;
 
     /**
+     * @description The number of baseline risks that are detected on the asset.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $healthCheckCount;
 
     /**
+     * @description The importance level of the asset. Valid values:
+     *
+     *   **2**: an important asset
+     *   **1**: a common asset
+     *   **0**: a test asset
+     *
+     * @example 2
+     *
      * @var int
      */
     public $importance;
 
     /**
+     * @description The ID of the asset.
+     *
+     * @example i-m5***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the asset.
+     *
+     * @example yztest-l***
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The public IP address of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The IP addresses of the system.
+     *
+     * @example 172.31.XX.XX,172.171.XX.XX
+     *
      * @var string
      */
     public $ipListString;
 
     /**
+     * @description The version of the kernel.
+     *
+     * @example 3.10.0-1127.19.1.el7.x86_64
+     *
      * @var string
      */
     public $kernel;
 
     /**
+     * @description The timestamp when the Security Center agent was last online. Unit: milliseconds.
+     *
+     * @example 1637592907000
+     *
      * @var int
      */
     public $lastLoginTimestamp;
 
     /**
+     * @description The MAC address of the system.
+     *
+     * @example 00:13:3e:31:13:39,02:12:67:b8:**:**
+     *
      * @var string
      */
     public $macListString;
 
     /**
+     * @description The memory size. Unit: MB.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The operating system of the asset.
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The version of the operating system that the asset runs.
+     *
+     * @example -
+     *
      * @var string
      */
     public $osName;
 
     /**
+     * @description The number of pods.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $podCount;
 
     /**
+     * @description The region ID of the asset.
+     *
+     * @example cn-hangzhou-cm***-***
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the region in which the asset resides.
+     *
+     * @example cn-hanghzou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region in which the asset resides.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The statistics about baseline risks that are detected on the asset. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **account**: the number of accounts that are used to log on from unapproved logon locations and whose passwords are cracked
+     *   **appNum**: the number of scanners
+     *   **asapVulCount**: the total number of high-risk vulnerabilities
+     *   **baselineHigh**: the number of high-risk baseline risks
+     *   **baselineLow**: the number of low-risk baseline risks
+     *   **baselineMedium**: the number of medium-risk baseline risks
+     *   **baselineNum**: the total number of baseline risks
+     *   **cmsNum**: the number of Web-CMS vulnerabilities
+     *   **containerAsap**: the number of high-risk vulnerabilities that are detected on containers
+     *   **containerLater**: the number of medium-risk vulnerabilities that are detected on containers
+     *   **containerNntf**: the number of low-risk vulnerabilities that are detected on containers
+     *   **containerRemind**: the number of alerts whose Emergency level is Reminder on containers
+     *   **containerSerious**: the number of alerts whose Emergency level is Urgent on containers
+     *   **containerSuspicious**: the number of alerts whose Emergency level is Suspicious on containers
+     *   **cveNum**: the number of Linux software vulnerabilities
+     *   **emgNum**: the number of urgent vulnerabilities
+     *   **health**: the number of baseline risks that are unhandled
+     *   **imageBaselineHigh**: the number of high-risk baseline risks that are detected on images
+     *   **imageBaselineLow**: the number of low-risk baseline risks that are detected on images
+     *   **imageBaselineMedium**: the number of medium-risk baseline risks that are detected on images
+     *   **imageBaselineNum**: the total number of baseline risks that are detected on images
+     *   **imageMaliciousFileRemind**: the number of malicious files that are detected on images and have the Emergency level of Reminder
+     *   **imageMaliciousFileSerious**: the number of malicious files that are detected on images and have the Emergency level of Urgent
+     *   **imageMaliciousFileSuspicious**: the number of malicious files that are detected on images and have the Emergency level of Suspicious
+     *   **imageVulAsap**: the number of high-risk vulnerabilities that are detected on images
+     *   **imageVulLater**: the number of medium-risk vulnerabilities that are detected on an image
+     *   **imageVulNntf**: the number of low-risk vulnerabilities that are detected on an image
+     *   **laterVulCount**: the number of medium-risk vulnerabilities
+     *   **newSuspicious**: the number of alerts
+     *   **nntfVulCount**: the number of low-risk vulnerabilities
+     *   **remindNum**: the number of alerts whose Emergency level is Reminder
+     *   **scaNum**: the number of vulnerabilities that are detected based on software component analysis
+     *   **seriousNum**: the number of alerts whose Emergency level is Urgent
+     *   **suspNum**: the number of alerts whose Emergency level is Suspicious
+     *   **suspicious**: the total number of alerts
+     *   **sysNum**: the number of Windows system vulnerabilities
+     *   **trojan**: the number of trojans
+     *   **uuid**: the UUID of the asset
+     *   **vul**: the number of vulnerabilities
+     *   **weakPWNum**: the number of weak passwords
+     *
+     * @example {"account":0,"appNum":0,"asapVulCount":0,"baselineHigh":0,"baselineLow":0,"baselineMedium":0,"baselineNum":0,"cmsNum":0,"containerAsap":0,"containerLater":0,"containerNntf":0,"containerRemind":0,"containerSerious":0,"containerSuspicious":0,"cveNum":0,"emgNum":0,"health":0,"imageBaselineHigh":0,"imageBaselineLow":0,"imageBaselineMedium":0,"imageBaselineNum":0,"imageMaliciousFileRemind":0,"imageMaliciousFileSerious":0,"imageMaliciousFileSuspicious":0,"imageVulAsap":0,"imageVulLater":0,"imageVulNntf":0,"laterVulCount":0,"newSuspicious":0,"nntfVulCount":0,"remindNum":0,"scaNum":0,"seriousNum":0,"suspNum":0,"suspicious":0,"sysNum":0,"trojan":0,"uuid":"inet-37316411-37fe-4b72-b245-346a2721d4b6","vul":0,"weakPWNum":0}
+     *
      * @var string
      */
     public $riskCount;
 
     /**
+     * @description Indicates whether risks are detected on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example NO
+     *
      * @var string
      */
     public $riskStatus;
 
     /**
+     * @description The number of alerts that are generated on the asset.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $safeEventCount;
 
     /**
+     * @description The status of the asset. Valid values:
+     *
+     *   **Running**: running
+     *   **notRunning**: stopped
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the asset tag.
+     *
+     * @example InternetIp,test
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The ID of the asset tag.
+     *
+     * @example 121313,41412
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @description The UUID of the asset.
+     *
+     * @example c9107c04-942f-40c1-981a-f1c1***
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @description The category of the service provider (SP) for the asset. Valid values:
+     *
+     *   **0**: The asset is provided by Alibaba Cloud.
+     *   **1**: The asset is not provided by Alibaba Cloud.
+     *   **2**: The asset resides in a data center.
+     *   **3**, **4**, **5**, and **7**: other cloud asset.
+     *   **8**: a light-weight asset.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $vendor;
 
     /**
+     * @description The name of the SP for the asset.
+     *
+     * Valid values:
+     *
+     *   **ALIYUN**: Alibaba Cloud
+     *   **OUT**: a third-party service provider
+     *   **IDC**: a data center
+     *   **TENCENT**: Tencent Cloud
+     *   **HUAWEICLOUD**: HUAWEI CLOUD
+     *   **Microsoft**: Microsoft Azure
+     *   **AWS**: Amazon Web Services (AWS)
+     *   **TRIPARTITE**: a lightweight server
+     *
+     * @example IDC
+     *
      * @var string
      */
     public $vendorName;
 
     /**
+     * @description The ID of the VPC to which the asset belongs.
+     *
+     * @example vpc-uf60agqq65bs98zoo****
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @description The number of vulnerabilities that are detected on the asset.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $vulCount;
 
     /**
+     * @description Indicates whether vulnerabilities are detected on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example YES
+     *
      * @var string
      */
     public $vulStatus;

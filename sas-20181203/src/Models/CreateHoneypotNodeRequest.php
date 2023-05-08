@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotNodeRequest extends Model
 {
     /**
-     * @description Specifies whether to allow the honeypots to access the Internet. Valid values:
+     * @description Specifies whether to allow honeypots to access the Internet. Valid values:
      *
-     *   **true**: allows the honeypots to access the Internet.
-     *   **false**: does not allow the honeypots to access the Internet.
+     *   **true**: allows honeypots to access the Internet.
+     *   **false**: does not allow honeypots to access the Internet.
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class CreateHoneypotNodeRequest extends Model
     public $allowHoneypotAccessInternet;
 
     /**
-     * @description The number of probes that you want to allocate for the management node.
+     * @description The number of available probes.
      *
      * @example 20
      *

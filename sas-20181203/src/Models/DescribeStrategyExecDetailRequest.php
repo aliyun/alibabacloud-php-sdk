@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyExecDetailRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example 8437592
+     *
      * @var int
      */
     public $strategyId;

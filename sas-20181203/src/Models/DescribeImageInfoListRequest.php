@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInfoListRequest extends Model
 {
     /**
+     * @example 391abd09184cbd3743d7f5ec125d****,
+     * e6aeb2a5b6004479398b0bcd1160****
      * @var string
      */
     public $uuids;

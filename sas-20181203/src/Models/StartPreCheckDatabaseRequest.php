@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartPreCheckDatabaseRequest extends Model
 {
     /**
+     * @example MYSQL
+     *
      * @var string
      */
     public $databaseType;
 
     /**
+     * @example ec1c0ba21d2911ed800000163e0e****
+     *
      * @var string
      */
     public $instanceUuid;
 
     /**
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $uniRegionId;

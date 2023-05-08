@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class assistInfo extends Model
 {
     /**
+     * @example https://www.alibabacloud.com/help/en/resource-access-management/latest/faq-about-ram-users
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example Configure an IP address whitelist
+     *
      * @var string
      */
     public $value;

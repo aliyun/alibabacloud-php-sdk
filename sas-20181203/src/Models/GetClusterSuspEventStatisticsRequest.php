@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetClusterSuspEventStatisticsRequest extends Model
 {
     /**
+     * @example c6094b964bfc145fe9e418c869e7e****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;

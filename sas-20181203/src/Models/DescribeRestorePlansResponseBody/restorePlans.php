@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class restorePlans extends Model
 {
     /**
+     * @example 1655174753****
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @example Bankup****
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example sql-test-001
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $policyId;
 
     /**
+     * @example KtDataBase
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example 165875100****
+     *
      * @var int
      */
     public $restorePoint;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example OABak
+     *
      * @var string
      */
     public $targetDatabaseName;
 
     /**
+     * @example i-2zehqflgbl9ep2he****
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example hbr-detection-hh
+     *
      * @var string
      */
     public $targetInstanceName;
 
     /**
+     * @example 166849080****
+     *
      * @var int
      */
     public $updatedTime;

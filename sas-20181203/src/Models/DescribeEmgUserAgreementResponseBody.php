@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgUserAgreementResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $auth;
 
     /**
+     * @example 768BB9F5-8AF3-557F-A489-9BDD64CB3E4C
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class GetAlarmMachineCountResponseBody extends Model
     public $data;
 
     /**
+     * @example 6D3A2E7D-1238-5DD4-B3C3-BF06FCAD****
+     *
      * @var string
      */
     public $requestId;

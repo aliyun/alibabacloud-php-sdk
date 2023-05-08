@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulListResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 2F26AB2A-1075-488F-8472-40E5DB486ACC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of vulnerabilities returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description An array that consists of the details about the vulnerability.
+     *
      * @var vulRecords[]
      */
     public $vulRecords;

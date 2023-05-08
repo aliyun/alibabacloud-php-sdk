@@ -15,6 +15,8 @@ class DescribeTaskErrorLogResponseBody extends Model
     public $logs;
 
     /**
+     * @example F929E952-EBFC-56C3-BD35-BF8B59024C69
+     *
      * @var string
      */
     public $requestId;

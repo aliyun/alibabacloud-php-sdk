@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccesskeyLeakListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.\
+     * > We recommend that you do not leave this parameter empty.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The AccessKey ID that you want to query. Only exact match is supported.
+     *
+     * @example LTAI4Fytv7ALKzkNVBV6****
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @description The beginning of the time range to query. You can query all AccessKey pair leaks that are detected later than this time point. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1614155361489
+     *
      * @var int
      */
     public $startTs;
 
     /**
+     * @description Specifies whether an AccessKey pair leak is handled. Valid values:
+     *
+     *   **pending**: unhandled
+     *   **dealed**: handled
+     *
+     * @example pending
+     *
      * @var string
      */
     public $status;

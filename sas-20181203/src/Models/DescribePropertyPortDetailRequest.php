@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailRequest extends Model
 {
     /**
+     * @description The network protocol that is used by the listening port.
+     *
+     * @example 0.0.XX.XX
+     *
      * @var string
      */
     public $bindIp;
 
     /**
+     * @description The name of the server process.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The listening port.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The IP address that is bound to the listening port.
+     *
+     * @example sshd
+     *
      * @var string
      */
     public $procName;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The listening port of the server.
+     *
+     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
      * @var string
      */
     public $uuid;

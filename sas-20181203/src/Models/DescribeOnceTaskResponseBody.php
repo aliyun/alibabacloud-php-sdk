@@ -11,16 +11,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskResponseBody extends Model
 {
     /**
+     * @description An array that consists of the tasks.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The execution details of the task. The value of this parameter is in the JSON format.
+     *
+     *   **causeCode**: the returned code for the cause
+     *   **causeMsg**: the returned information for the cause
+     *   **resCode**: the returned code of troubleshooting
+     *   **resMsg**: the returned information about troubleshooting
+     *   **problemType**: the type of the issue
+     *   **dispatchType**: the task delivery method
+     *   **uuid**: the UUID of the server
+     *   **instanceId**: the instance ID of the server
+     *   **internetIp**: the public IP address of the server
+     *   **intranetIp**: the private IP address of the server
+     *   **instanceName**: the instance name of the server
+     *   **url**: the download link of the troubleshooting log
+     *
      * @var taskManageResponseList[]
      */
     public $taskManageResponseList;

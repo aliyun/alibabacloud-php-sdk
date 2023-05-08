@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeFieldStatisticsRequest extends Model
 {
     /**
+     * @description The total number of cloud services that are protected by Security Center.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
 
     /**
+     * @description The number of regions to which the servers belong.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

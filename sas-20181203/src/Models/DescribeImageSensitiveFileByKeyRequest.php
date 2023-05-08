@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSensitiveFileByKeyRequest extends Model
 {
     /**
+     * @description The key of the last data entry.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The error message returned.
+     *
+     * @example 0083a31ccf7c10367a6e783e8601****
+     *
      * @var string
      */
     public $imageUuid;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @var string[]
      */
     public $scanRange;
 
     /**
+     * @description The digest of the image layer.
+     *
+     * @example google_oauth_key
+     *
      * @var string
      */
     public $sensitiveFileKey;

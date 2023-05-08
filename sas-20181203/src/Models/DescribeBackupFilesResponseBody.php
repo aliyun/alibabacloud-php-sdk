@@ -16,11 +16,17 @@ class DescribeBackupFilesResponseBody extends Model
     public $backupFiles;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 00A60A6D-33E0-5D5A-9B7C-E5D4DCA88148
+     *
      * @var string
      */
     public $requestId;

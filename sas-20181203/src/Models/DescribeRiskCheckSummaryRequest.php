@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckSummaryRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1232428423234****
+     *
      * @var string
      */
     public $resourceDirectoryAccountId;
@@ -24,6 +28,8 @@ class DescribeRiskCheckSummaryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

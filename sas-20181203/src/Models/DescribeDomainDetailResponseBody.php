@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
+     * @description 1.2.XX.XX
+     *
+     * @example 2
+     *
      * @var int
      */
     public $alarmCount;
 
     /**
+     * @description The total number of alerts in your website assets.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description DescribeDomainDetail
+     *
      * @var domainDetailItems[]
      */
     public $domainDetailItems;
 
     /**
+     * @description The instance UUID of the domain asset.
+     *
+     * @example 3A85CFCF-05C8-451A-9E41-C0D5E96BA407
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Queries the details of domain assets within your Alibaba Cloud account.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $rootDomain;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $vulCount;

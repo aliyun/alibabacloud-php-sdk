@@ -11,20 +11,28 @@ class ValidateHcWarningsRequest extends Model
     /**
      * @var string
      */
+    public $checkIds;
+
+    /**
+     * @description The UUIDs of servers on which you want to verify risk items.
+     *
+     * @example 43
+     *
+     * @var string
+     */
     public $riskIds;
 
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description The ID of the request.
+     *
+     * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
+     *
      * @var string
      */
     public $uuids;
     protected $_name = [
+        'checkIds' => 'CheckIds',
         'riskIds'  => 'RiskIds',
-        'sourceIp' => 'SourceIp',
         'uuids'    => 'Uuids',
     ];
 
@@ -35,11 +43,11 @@ class ValidateHcWarningsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkIds) {
+            $res['CheckIds'] = $this->checkIds;
+        }
         if (null !== $this->riskIds) {
             $res['RiskIds'] = $this->riskIds;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -56,11 +64,11 @@ class ValidateHcWarningsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckIds'])) {
+            $model->checkIds = $map['CheckIds'];
+        }
         if (isset($map['RiskIds'])) {
             $model->riskIds = $map['RiskIds'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

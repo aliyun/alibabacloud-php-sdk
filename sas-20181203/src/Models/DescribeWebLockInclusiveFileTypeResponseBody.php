@@ -14,11 +14,15 @@ class DescribeWebLockInclusiveFileTypeResponseBody extends Model
     public $inclusiveFileType;
 
     /**
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

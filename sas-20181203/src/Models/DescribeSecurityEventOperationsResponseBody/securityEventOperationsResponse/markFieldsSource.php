@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class markFieldsSource extends Model
 {
     /**
+     * @description DescribeSecurityEventOperations
+     *
+     * @example file path
+     *
      * @var string
      */
     public $filedAliasName;
 
     /**
+     * @description Queries the operations that you can perform to handle an alert event.
+     *
+     * @example gmtModified
+     *
      * @var string
      */
     public $filedName;
 
     /**
+     * @example contains
+     *
      * @var string
      */
     public $markMisValue;

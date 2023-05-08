@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotRequest extends Model
 {
     /**
-     * @description The ID of the image that is used for the honeypot.
+     * @description The ID of the honeypot image.
      *
-     * >  You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to obtain the IDs of images from the **HoneypotImageId** response parameter.
+     * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the IDs of images from the **HoneypotImageId** response parameter.
      * @example sha256:ebc4c102ac407d53733c2373e8888a733ddce86f163ccbe7492ae1cbf26****
      *
      * @var string
@@ -19,9 +19,9 @@ class CreateHoneypotRequest extends Model
     public $honeypotImageId;
 
     /**
-     * @description The name of the image that is used for the honeypot.
+     * @description The name of the honeypot image.
      *
-     * >  You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to obtain the names of images from the **HoneypotImageName** response parameter.
+     * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the names of images from the **HoneypotImageName** response parameter.
      * @example HoneyPotImageName
      *
      * @var string
@@ -46,14 +46,14 @@ class CreateHoneypotRequest extends Model
      *   **web**: Git Directory Leak
      *   **close**: Disabled
      *
-     *   **trojan\_git_addr**: Git Trojan Address.
+     *   **trojan_git_addr**: Git Trojan Address.
      *
      *   **trojan_git.zip**: Git Trojan.
      *
      *   **burp**: Burp-specific Defense. Valid values:
      *
-     *   **open**: Enabled
-     *   **close**: Disabled
+     *   **open**: Enable
+     *   **close**: Disable
      *
      *   **portrait_option**: Source Tracing Configuration. Valid values:
      *
@@ -67,9 +67,9 @@ class CreateHoneypotRequest extends Model
     public $meta;
 
     /**
-     * @description The ID of the management node to which you want to deploy the honeypot.
+     * @description The ID of the management node.
      *
-     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes.
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string

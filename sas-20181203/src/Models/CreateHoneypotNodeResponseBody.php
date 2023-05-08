@@ -19,6 +19,8 @@ class CreateHoneypotNodeResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var honeypotNode
      */
     public $honeypotNode;

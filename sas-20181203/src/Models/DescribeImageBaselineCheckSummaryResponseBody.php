@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckSummaryResponseBody extends Model
 {
     /**
+     * @description The name of the baseline.
+     *
      * @var baselineResultSummary[]
      */
     public $baselineResultSummary;
 
     /**
+     * @description The search condition for the image baseline.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The types of the assets that you want to scan.
+     *
+     * @example 5BD95679-D63A-4151-97D0-188432F4A57
+     *
      * @var string
      */
     public $requestId;

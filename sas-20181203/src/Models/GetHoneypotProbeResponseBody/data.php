@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $arp;
@@ -32,16 +34,22 @@ class data extends Model
     public $controlNode;
 
     /**
+     * @example 0.51
+     *
      * @var float
      */
     public $cpuLoad;
 
     /**
+     * @example 1669363825000
+     *
      * @var int
      */
     public $deployTime;
 
     /**
+     * @example test-probe
+     *
      * @var string
      */
     public $displayName;
@@ -57,6 +65,8 @@ class data extends Model
     public $honeypotProbeBindList;
 
     /**
+     * @example 33.53.XX.XX
+     *
      * @var string
      */
     public $hostIp;
@@ -67,51 +77,71 @@ class data extends Model
     public $listenIpList;
 
     /**
+     * @example 1.94
+     *
      * @var float
      */
     public $memoryLoad;
 
     /**
+     * @example windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ping;
 
     /**
+     * @example 40f6501d-45ec-4bf0-b813-0072ceb4****
+     *
      * @var string
      */
     public $probeId;
 
     /**
+     * @example host_probe
+     *
      * @var string
      */
     public $probeType;
 
     /**
+     * @example 18060096
+     *
      * @var string
      */
     public $probeVersion;
 
     /**
+     * @example 47.108.XX.XX
+     *
      * @var string
      */
     public $proxyIp;
 
     /**
+     * @example online
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 6690a46c-0edb-4663-a641-3629d1a9****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example vpc-2vchkxmf2j9yjt3x2****
+     *
      * @var string
      */
     public $vpcId;

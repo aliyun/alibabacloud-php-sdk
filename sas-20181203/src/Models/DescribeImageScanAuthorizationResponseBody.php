@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageScanAuthorizationResponseBody extends Model
 {
     /**
+     * @description The authorization status of image scans.
+     *
      * @var authStatus
      */
     public $authStatus;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 340D7FC4-D575-1661-8ACD-CFA7BE57****
+     *
      * @var string
      */
     public $requestId;

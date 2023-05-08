@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the management node to which the honeypot is deployed.
+     * @description The name of the management node.
      *
      * @example managerNodename
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $honeypotId;
 
     /**
-     * @description The display name of the image that is used for the honeypot.
+     * @description The display name of the honeypot image.
      *
      * @example HoneyDisplayName
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $honeypotImageDisplayName;
 
     /**
-     * @description The name of the image that is used for the honeypot.
+     * @description The name of the honeypot image.
      *
      * @example tcp_proxy
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $presetId;
 
     /**
-     * @description The status of the honeypot.
+     * @description An array that consists of the status information about the honeypot.
      *
      * @var string[]
      */

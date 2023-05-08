@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskErrorLogRequest extends Model
 {
     /**
+     * @example ivf-6e520160-205d-4801-b8e9-9e7e****
+     *
      * @var string
      */
     public $buildTaskId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OperateVulsRequest extends Model
 {
     /**
+     * @example vul_fix
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @example cve
+     *
      * @var string
      */
     public $type;

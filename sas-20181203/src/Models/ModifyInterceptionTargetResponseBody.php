@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionTargetResponseBody extends Model
 {
     /**
+     * @example 16CB4467-56AE-546C-BF19-AD4584C0DD03
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

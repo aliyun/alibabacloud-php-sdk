@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ExecStrategyRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 215421
+     *
      * @var int
      */
     public $strategyId;

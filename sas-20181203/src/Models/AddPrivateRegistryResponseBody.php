@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddPrivateRegistryResponseBody extends Model
 {
     /**
+     * @description The handling result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
+     *
      * @var string
      */
     public $requestId;

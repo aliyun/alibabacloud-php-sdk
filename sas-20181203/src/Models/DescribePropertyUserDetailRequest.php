@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserDetailRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The details of asset fingerprints for the account.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description The details of the user groups to which the account belongs.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $isRoot;
 
     /**
+     * @description The details of the user groups to which the account belongs.
+     *
+     * @example Indicates whether the account has root permissions. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @var int
      */
     public $lastLoginTimeEnd;
 
     /**
+     * @description The date on which the account expires.
+     *
+     * @example 164922523600
+     *
      * @var int
      */
     public $lastLoginTimeStart;
 
     /**
+     * @description The name or IP address of the server.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Indicates whether the password expires. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example bin
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     *
      * @var string
      */
     public $uuid;

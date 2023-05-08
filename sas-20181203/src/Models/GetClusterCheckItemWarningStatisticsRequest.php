@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterCheckItemWarningStatisticsRequest extends Model
 {
     /**
+     * @example cd49575861a3044d49c954e4b3911****
+     *
      * @var string
      */
     public $clusterId;

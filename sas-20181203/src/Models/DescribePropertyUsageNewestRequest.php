@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUsageNewestRequest extends Model
 {
     /**
+     * @example user
+     *
      * @var string
      */
     public $type;

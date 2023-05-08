@@ -10,31 +10,66 @@ use AlibabaCloud\Tea\Model;
 class ListCloudAssetInstancesRequest extends Model
 {
     /**
+     * @description The cloud service asset.
+     *
      * @var cloudAssetTypes[]
      */
     public $cloudAssetTypes;
 
     /**
+     * @description The logical relation for multiple search conditions. Valid values:
+     *
+     *   **OR**: The search conditions use a logical **OR**.
+     *   **AND**: The search conditions use a logical **AND**.
+     *
+     * @example [{\"name\":\"internetIp\",\"value\":\"192.168\",\"logicalExp\":\"OR\"}]
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @description The cloud service assets.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
+     *
+     * @example OR
+     *
      * @var string
      */
     public $logicalExp;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **name**: the name of the search condition.
+     *
+     *   **value**: the value of the search condition.
+     *
+     *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
+     *
+     *   **OR**: The search conditions use a logical **OR**.
+     *   **AND**: The search conditions use a logical **AND**.
+     *
+     * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

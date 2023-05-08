@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeLatestScanTaskResponseBody extends Model
 {
     /**
+     * @example 1671610264000
+     *
      * @var int
      */
     public $lastCheckTime;
 
     /**
+     * @example 7E0618A9-D5EF-4220-9471-C42XXXXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $riskNum;
 
     /**
+     * @example [{"type":"uuid","name":"Host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
+     *
      * @var string
      */
     public $targetInfo;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListVulAutoRepairConfigResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -31,11 +37,15 @@ class ListVulAutoRepairConfigResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 3B3F3A90-46A5-4023-A2D8-D68B14262F96
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

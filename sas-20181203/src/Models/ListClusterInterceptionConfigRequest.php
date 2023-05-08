@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListClusterInterceptionConfigRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $clusterCNNFStatus;
 
     /**
+     * @example c22143730ab6e40b09ec7c1c51d4d****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sas
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

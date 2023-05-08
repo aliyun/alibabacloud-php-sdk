@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description An array that consists of the details of the cloud assets.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The total number of cloud assets.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 69
+     *
      * @var int
      */
     public $totalCount;

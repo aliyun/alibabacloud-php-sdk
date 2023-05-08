@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class excludePaths extends Model
 {
     /**
-     * @description The operating system of the server. Valid values:
-     *
-     *   **linux**: Linux
-     *   **windows**: Windows
-     *
      * @example linux
      *
      * @var string
@@ -21,8 +16,6 @@ class excludePaths extends Model
     public $os;
 
     /**
-     * @description The absolute path to the directory.
-     *
      * @example /bin/
      *
      * @var string

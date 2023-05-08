@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeNsasSuspEventTypeRequest extends Model
 {
     /**
+     * @example clusterId
+     *
      * @var string
      */
     public $containerFieldName;
 
     /**
+     * @example ca3108551c83c4d949106e1ab9e1e****
+     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example testECS
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 180.212.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example f56406cb-916d-42db-b6f7-2ff79e34****
+     *
      * @var string
      */
     public $uuids;

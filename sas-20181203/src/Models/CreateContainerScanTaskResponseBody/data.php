@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether you can create more scan tasks.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canCreate;
 
     /**
+     * @description The collection time.
+     *
+     * @example 1644286364150
+     *
      * @var int
      */
     public $collectTime;
 
     /**
+     * @description The execution time of the task.
+     *
+     * @example 1644286364150
+     *
      * @var int
      */
     public $execTime;
 
     /**
+     * @description The number of scan tasks that are complete.
+     *
+     * @example 33
+     *
      * @var int
      */
     public $finishCount;
 
     /**
+     * @description The progress of the task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The execution result of the task.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description The status of the task.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example fc98d58eb56f699d49bf7ebbd6d7****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The total number of scan tasks.
+     *
+     * @example 62
+     *
      * @var int
      */
     public $totalCount;

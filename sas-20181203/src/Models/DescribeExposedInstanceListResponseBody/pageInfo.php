@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The ID of the server group.
+     *
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of low-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of medium-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The name of the server on which the middleware, database, or web service is run.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description name
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The public IP address of the server on which the middleware, database, or web service is run.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The version of the runtime environment.
+     *
+     * >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

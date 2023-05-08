@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dstTarget extends Model
 {
     /**
+     * @example console
+     *
      * @var string
      */
     public $appName;
@@ -19,6 +21,8 @@ class dstTarget extends Model
     public $imageList;
 
     /**
+     * @example kube-system
+     *
      * @var string
      */
     public $namespace;
@@ -29,6 +33,8 @@ class dstTarget extends Model
     public $ports;
 
     /**
+     * @example customize
+     *
      * @var string
      */
     public $ruleType;
@@ -39,16 +45,22 @@ class dstTarget extends Model
     public $tagList;
 
     /**
+     * @example 200014
+     *
      * @var int
      */
     public $targetId;
 
     /**
+     * @example demo4-be1
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;

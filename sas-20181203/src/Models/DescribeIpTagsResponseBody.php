@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpTagsResponseBody extends Model
 {
     /**
+     * @example E70074C8-DFB4-44C5-96C7-909DXXXXXXX
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example latest
+     *
      * @var string
      */
     public $tags;

@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckSummaryRequest extends Model
 {
     /**
+     * @description The number of images on which **low** baseline risks are detected.
+     *
+     * @example c60b77fe62093480db6164a3c2fa5****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example Unauthorized access
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @description The severity of the image baseline that you want to query. Separate multiple severities with commas (,). Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
+     * @example BaselineNameAlias
+     *
      * @var string
      */
     public $criteriaType;
 
     /**
+     * @description The number of images on which **medium** baseline risks are detected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of the check results of image baselines.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The keyword of the baseline category.
+     *
      * @var string[]
      */
     public $scanRange;

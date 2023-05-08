@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The subtype of the alert event.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @example There was an error with your request.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @example 965F9282-D403-4FA2-B1B9-10F62DC719BF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

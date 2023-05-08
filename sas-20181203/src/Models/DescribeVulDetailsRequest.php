@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsRequest extends Model
 {
     /**
+     * @example RHSA-2019:3197-Important: sudo security update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example SCA:ACSV-2020-052801
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $type;

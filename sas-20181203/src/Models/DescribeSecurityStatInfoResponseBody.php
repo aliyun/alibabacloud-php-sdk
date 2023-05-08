@@ -13,31 +13,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityStatInfoResponseBody extends Model
 {
     /**
+     * @description The numbers of baseline risk items that have the high-risk level at all points in time.
+     *
      * @var attackEvent
      */
     public $attackEvent;
 
     /**
+     * @description The number of **serious** alerts at each point in time.
+     *
      * @var healthCheck
      */
     public $healthCheck;
 
     /**
+     * @description The points in time when data of unfixed vulnerabilities is collected in the trend chart.
+     *
+     * @example A3E61730-85E2-4789-8017-B9B1B70F0568
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The risk levels of baseline risk items.
+     *
      * @var securityEvent
      */
     public $securityEvent;
 
     /**
+     * @description The number of baseline risk items that have the medium-risk level at each point in time.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of baseline risk items that have the low-risk level at each point in time.
+     *
      * @var vulnerability
      */
     public $vulnerability;

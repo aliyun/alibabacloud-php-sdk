@@ -10,51 +10,97 @@ use AlibabaCloud\Tea\Model;
 class honeypotAlarmEvents extends Model
 {
     /**
+     * @description The type of the alert event.
+     *
+     * @example 940272
+     *
      * @var int
      */
     public $alarmEventId;
 
     /**
+     * @description The unique identifier of the alert event.
+     *
+     * @example Attack Honeypot
+     *
      * @var string
      */
     public $alarmEventName;
 
     /**
+     * @description The name of the alert event.
+     *
+     * @example Initial Access
+     *
      * @var string
      */
     public $alarmEventType;
 
     /**
+     * @description The timestamp when the alert event was first generated. Unit: milliseconds.
+     *
+     * @example 167e6fc0d931917d2059efcd1d00f6ab
+     *
      * @var string
      */
     public $alarmUniqueInfo;
 
     /**
+     * @description The handling status of the alert event. Valid values:
+     *
+     *   **1**: pending
+     *   **2**: ignored
+     *   **4**: confirmed
+     *
+     * @example 11
+     *
      * @var int
      */
     public $eventCount;
 
     /**
+     * @description The timestamp when the alert event was last generated. Unit: milliseconds.
+     *
+     * @example 1658193602000
+     *
      * @var int
      */
     public $firstTime;
 
     /**
+     * @description The risk level of the alert event. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
+     *
+     * @example 1660610772000
+     *
      * @var int
      */
     public $lastTime;
 
     /**
+     * @description The information about the array object.
+     *
      * @var mergeFieldList[]
      */
     public $mergeFieldList;
 
     /**
+     * @description The risk information.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $operateStatus;
 
     /**
+     * @description The total number of times that the alert event was generated.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $riskLevel;

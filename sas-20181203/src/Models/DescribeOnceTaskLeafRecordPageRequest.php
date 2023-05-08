@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskLeafRecordPageRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The end timestamp of the sub-task.
+     *
+     * @example 1668064495000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Specifies whether extension information is associated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $relateInfo;
 
     /**
+     * @description The source of the request.
+     *
+     * @example console_batch
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The start timestamp of the sub-task.
+     *
+     * @example 1648438617000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status information.
+     *
      * @var string[]
      */
     public $statusList;
 
     /**
+     * @description The ID of the sub-task.
+     *
+     * @example 1471d8ebb96795b41ede090b9758****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The type of the sub-task. Valid values:
+     *
+     *   **IMAGE_SCAN**: image scan task
+     *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
+     *
+     * @example CLIENT_PROBLEM_CHECK
+     *
      * @var string
      */
     public $taskType;

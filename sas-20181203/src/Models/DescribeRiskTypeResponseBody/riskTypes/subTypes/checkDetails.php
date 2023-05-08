@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
+     * @description The alias of the baseline subtype.
+     *
+     * @example Set password expiration time, force regular modification of password, reduce password leakage and guess risk.Use non-password login (e.g. key pair) please ignore this item.
+     *
      * @var string
      */
     public $checkDesc;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * @example 1299
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The name of the baseline subtype.
+     *
+     * @example Ensure password expiration period is set.
+     *
      * @var string
      */
     public $checkItem;
 
     /**
+     * @description The minimum value of the parameter.
+     *
      * @var rules[]
      */
     public $rules;

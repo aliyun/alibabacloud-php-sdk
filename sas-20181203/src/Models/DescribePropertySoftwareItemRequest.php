@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareItemRequest extends Model
 {
     /**
+     * @description The name of the software that you want to query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of servers on which the software is installed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceFlush;
 
     /**
+     * @description The pagination information.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 1
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

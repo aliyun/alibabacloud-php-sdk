@@ -9,36 +9,56 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $asapVulInstanceCount;
 
     /**
+     * @example 205
+     *
+     * @var int
+     */
+    public $authVersionCheckCount;
+
+    /**
+     * @example testA
+     *
      * @var string
      */
     public $fieldAliasName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $groupFlag;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $instanceCount;
 
     /**
+     * @example 172
+     *
      * @var string
      */
     public $riskInstanceCount;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $unProtectedInstanceCount;
     protected $_name = [
         'asapVulInstanceCount'     => 'AsapVulInstanceCount',
+        'authVersionCheckCount'    => 'AuthVersionCheckCount',
         'fieldAliasName'           => 'FieldAliasName',
         'groupFlag'                => 'GroupFlag',
         'instanceCount'            => 'InstanceCount',
@@ -55,6 +75,9 @@ class instances extends Model
         $res = [];
         if (null !== $this->asapVulInstanceCount) {
             $res['AsapVulInstanceCount'] = $this->asapVulInstanceCount;
+        }
+        if (null !== $this->authVersionCheckCount) {
+            $res['AuthVersionCheckCount'] = $this->authVersionCheckCount;
         }
         if (null !== $this->fieldAliasName) {
             $res['FieldAliasName'] = $this->fieldAliasName;
@@ -85,6 +108,9 @@ class instances extends Model
         $model = new self();
         if (isset($map['AsapVulInstanceCount'])) {
             $model->asapVulInstanceCount = $map['AsapVulInstanceCount'];
+        }
+        if (isset($map['AuthVersionCheckCount'])) {
+            $model->authVersionCheckCount = $map['AuthVersionCheckCount'];
         }
         if (isset($map['FieldAliasName'])) {
             $model->fieldAliasName = $map['FieldAliasName'];

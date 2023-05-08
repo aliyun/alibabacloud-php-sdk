@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example inet-1234567****
+     *
      * @var string
      */
     public $uuid;

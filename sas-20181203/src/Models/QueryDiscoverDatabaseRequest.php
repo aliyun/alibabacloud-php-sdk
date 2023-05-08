@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDiscoverDatabaseRequest extends Model
 {
     /**
+     * @description The ID of the scan task.
+     *
+     * > You can call the [StartDiscoverDatabaseTask](~~StartDiscoverDatabaseTask~~) operation to query the ID of the task.
+     * @example 7f7b051f-7d1c-46da-b253-a03f3a27****
+     *
      * @var string
      */
     public $createMark;

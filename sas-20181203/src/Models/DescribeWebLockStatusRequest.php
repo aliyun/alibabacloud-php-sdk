@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockStatusRequest extends Model
 {
     /**
+     * @example sas
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 221.214.XXX.XX
+     *
      * @var string
      */
     public $sourceIp;

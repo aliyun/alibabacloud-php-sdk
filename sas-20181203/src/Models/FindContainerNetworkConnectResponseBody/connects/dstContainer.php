@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dstContainer extends Model
 {
     /**
+     * @example 48a6dxxx9d5a5866
+     *
      * @var string
      */
     public $containerId;

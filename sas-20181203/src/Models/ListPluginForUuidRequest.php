@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListPluginForUuidRequest extends Model
 {
     /**
+     * @description An array that consists of the information about the plug-ins.
+     *
      * @var string[]
      */
     public $types;
 
     /**
+     * @description The configurations of the plug-in.
+     *
+     * @example bdb7071f-129d-4ceb-af80-4cf70c4571c6
+     *
      * @var string
      */
     public $uuid;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class warningList extends Model
 {
     /**
+     * @example 107
+     *
      * @var int
      */
     public $riskId;
 
     /**
+     * @example Weak password-Redis DB login weak password baseline
+     *
      * @var string
      */
     public $riskName;
 
     /**
+     * @example Redis DB login weak password baseline
+     *
      * @var string
      */
     public $subTypeAlias;
 
     /**
+     * @example Weak password
+     *
      * @var string
      */
     public $typeAlias;
 
     /**
+     * @example 1d35b031-ee4e-4e53-8b53-465ab712****
+     *
      * @var string
      */
     public $uuid;

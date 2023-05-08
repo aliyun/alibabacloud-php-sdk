@@ -9,71 +9,140 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the user.
+     *
+     * @example 1766185894104***
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The domain name of the image repository.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example 273698***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet
+     *   **2**: VPC
+     *
+     * @example 2
+     *
      * @var int
      */
     public $netType;
 
     /**
+     * @description The password.
+     *
+     * @example ***********
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **1**: HTTP
+     *   **2**: HTTPS
+     *
+     * @example 2
+     *
      * @var int
      */
     public $protocolType;
 
     /**
+     * @description The region ID of the image repository.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IP address of the image repository.
+     *
+     * @example 114.55.**.**
+     *
      * @var string
      */
     public $registryHostIp;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **harbor**
+     *   **quay**
+     *
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @description The version of the image repository. Default value: -. Valid values:
+     *
+     *   **-**: the default version
+     *   **V1**
+     *   **V2**
+     *
+     * @example V2
+     *
      * @var string
      */
     public $registryVersion;
 
     /**
+     * @description The value of the token.
+     *
+     * @example 3c3c602c-fa1f-4bc0-992f-b4b2cac7****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @description The number of scan tasks that are performed per hour.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $transPerHour;
 
     /**
+     * @description The username.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-2vchkxmf2j9yjt3x2****
+     *
      * @var string
      */
     public $vpcId;

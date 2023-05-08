@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityCheckScheduleConfigResponseBody extends Model
 {
     /**
+     * @example 02287C0D-8DA9-5766-B51A-A63192BD3E80
+     *
      * @var string
      */
     public $requestId;

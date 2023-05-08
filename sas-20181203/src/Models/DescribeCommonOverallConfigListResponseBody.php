@@ -15,6 +15,8 @@ class DescribeCommonOverallConfigListResponseBody extends Model
     public $overallList;
 
     /**
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshContainerAssetsRequest extends Model
 {
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $assetType;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCaptchaResponseBody extends Model
 {
     /**
+     * @description Queries the verification code for you to manually install the Security Center agent.
+     *
+     * @example M1HH**
+     *
      * @var string
      */
     public $captchaCode;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 2020-10-10 16:06:38
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @description 192.168.XX.XX
+     *
+     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
+     *
      * @var string
      */
     public $requestId;

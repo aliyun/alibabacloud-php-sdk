@@ -11,31 +11,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about image repositories.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $addTargetCount;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $allTargetCount;
 
     /**
+     * @description The condition by which the feature is applied. Valid values:
+     *
+     *   **image_repo**: the ID of the image repository
+     *
+     * @example 5
+     *
      * @var int
      */
     public $delTargetCount;
 
     /**
+     * @description DescribeImageRepoList
+     *
      * @var imageRepoList[]
      */
     public $imageRepoList;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The number of image repositories that are added to Security Center.
+     *
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
+     *
      * @var string
      */
     public $requestId;

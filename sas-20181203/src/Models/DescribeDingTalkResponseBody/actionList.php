@@ -9,56 +9,86 @@ use AlibabaCloud\Tea\Model;
 class actionList extends Model
 {
     /**
+     * @description DescribeDingTalk
+     *
      * @var string
      */
     public $actionName;
 
     /**
+     * @example 12312412341
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The modification time.
+     *
+     * @example The ID of the request.
+     *
      * @var string
      */
     public $configList;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $dingTalkLang;
 
     /**
+     * @description Obtains DingTalk notifications.
+     *
+     * @example 1550828400000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1550828400000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example "123,456"
+     *
      * @var string
      */
     public $groupIdList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $intervalTime;
 
     /**
+     * @description The list of notification settings.
+     *
+     * @example The number of entries returned per page.
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description ```
+     * ```
+     * @example https://oapi.dingtalk.com/robot/send
+     *
      * @var string
      */
     public $url;

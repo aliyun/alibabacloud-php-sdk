@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class FindContainerNetworkConnectShrinkRequest extends Model
 {
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example EDGE
+     *
      * @var string
      */
     public $criteriaType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,11 +30,15 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $dstNodeShrink;
 
     /**
+     * @example 1649260799999
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +49,10 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $srcNodeShrink;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1666886400000
+     *
      * @var int
      */
     public $startTime;

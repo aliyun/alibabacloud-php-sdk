@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotPresetRequest extends Model
 {
     /**
+     * @example metabase
+     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
+     * @example f75eddce-e9d3-4a88-af95-b10b6f65xxxx
+     *
      * @var string
      */
     public $honeypotPresetId;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example {"portrait_option":true,"burp":"open"}
+     *
      * @var string
      */
     public $meta;
 
     /**
+     * @example apc_web_python
+     *
      * @var string
      */
     public $presetName;

@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $bind;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-bp1dp42hgn1xcq8l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
+     * @example win-oracl****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 8.210.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 172.25.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
+     *
      * @var string
      */
     public $uuid;

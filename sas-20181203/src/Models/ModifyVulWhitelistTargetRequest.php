@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulWhitelistTargetRequest extends Model
 {
     /**
+     * @example 2533681
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1221
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example 42.120.75.150
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $targetInfo;

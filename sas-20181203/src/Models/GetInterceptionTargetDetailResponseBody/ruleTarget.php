@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ruleTarget extends Model
 {
     /**
+     * @example netperf-client
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example ca6e6594def8d4be8b2795fd12c32****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sas-test-cnnf
+     *
      * @var string
      */
     public $clusterName;
@@ -29,6 +35,8 @@ class ruleTarget extends Model
     public $imageList;
 
     /**
+     * @example secondary
+     *
      * @var string
      */
     public $namespace;
@@ -39,16 +47,22 @@ class ruleTarget extends Model
     public $tagList;
 
     /**
+     * @example 400723
+     *
      * @var int
      */
     public $targetId;
 
     /**
+     * @example destination-test-obj-Na3cF
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;

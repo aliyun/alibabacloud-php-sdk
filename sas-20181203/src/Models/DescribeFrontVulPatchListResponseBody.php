@@ -15,6 +15,8 @@ class DescribeFrontVulPatchListResponseBody extends Model
     public $frontPatchList;
 
     /**
+     * @example F929E952-EBFC-56C3-BD35-BF8B59024C68
+     *
      * @var string
      */
     public $requestId;

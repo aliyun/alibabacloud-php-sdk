@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyTargetResponseBody extends Model
 {
     /**
+     * @example 001BAB34-D70A-54B0-B1D7-91B76DCDD8E8
+     *
      * @var string
      */
     public $requestId;

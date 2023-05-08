@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class fileInfoList extends Model
 {
     /**
+     * @description The ID of the uploaded file.
+     *
+     * @example HONEYPOT_FILE/1765_167040128****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The name of the uploaded file.
+     *
+     * @example HONEYPOT_FILE****
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The download URL.
+     *
+     * @example http://aegis****
+     *
      * @var string
      */
     public $ossUrl;

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class imageBaselines extends Model
 {
     /**
-     * @description An array that consists of baseline types.
-     *
      * @var baselineClassList[]
      */
     public $baselineClassList;

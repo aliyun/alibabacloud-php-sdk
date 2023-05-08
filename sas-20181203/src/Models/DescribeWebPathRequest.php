@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebPathRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example web_path
+     *
      * @var string
      */
     public $type;

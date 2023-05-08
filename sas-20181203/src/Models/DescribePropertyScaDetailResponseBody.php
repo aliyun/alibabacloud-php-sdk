@@ -11,16 +11,27 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaDetailResponseBody extends Model
 {
     /**
+     * @description 192.168
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The listening status of the process. Valid values:
+     *
+     *   **NONE**: not listening
+     *   **LISTEN**: listening
+     *
      * @var propertys[]
      */
     public $propertys;
 
     /**
+     * @description 1641024565
+     *
+     * @example F9146867-16C8-4AAB-BB4FB8C2A4
+     *
      * @var string
      */
     public $requestId;

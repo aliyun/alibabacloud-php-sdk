@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class assetDetail extends Model
 {
     /**
+     * @description The name of the region in which the server resides.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @description The operating system information about the server.
+     *
+     * @example 1627974044000
+     *
      * @var int
      */
     public $authModifyTime;
 
     /**
+     * @description The name of the host.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $authVersion;
 
     /**
+     * @description The memory size of the server. Unit: MB.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $bind;
 
     /**
+     * @description The name of the server.
+     *
+     * @example online
+     *
      * @var string
      */
     public $clientStatus;
 
     /**
+     * @description An array that consists of the information about the disk.
+     *
+     * @example 2.0.0
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @description The IP addresses of the server.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
+     *
      * @var string
      */
     public $cpuInfo;
 
     /**
+     * @description The status of the Security Center agent. Valid values:
+     *
+     *   **pause**: The Security Center agent suspends protection for your server.
+     *   **online**: The Security Center agent is protecting your server.
+     *   **offline**: The Security Center agent does not protect your server.
+     *
+     * @example 1603863599000
+     *
      * @var int
      */
     public $createTime;
@@ -59,51 +102,104 @@ class assetDetail extends Model
     public $diskInfoList;
 
     /**
+     * @description The MAC addresses of the server.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example default
+     *
      * @var string
      */
     public $groupTrace;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **0**: ECS instance
+     *   **1**: Server Load Balancer (SLB) instance
+     *   **2**: NAT gateway
+     *   **3**: ApsaraDB RDS database
+     *   **4**: ApsaraDB for MongoDB database
+     *   **5**: ApsaraDB for Redis database
+     *   **6**: image
+     *   **7**: container
+     *
+     * @example qewrqwerqs****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example i-uf6h7p2fgk6rkk0g****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operating system type of the server.
+     *
+     * @example i-fasdfasdfadfafa****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The name of the operating system.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of CPU cores.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The information about the disk. This parameter contains the following fields:
+     *
+     *   **diskName**: the name of the disk.
+     *   **totalSize**: the total amount of the disk space. Unit: GB.
+     *   **useSize**: the amount of the used disk space. Unit: GB.
+     *   **useSizeByte**: the amount of the used disk space. Unit: bytes.
+     *   **totalSizeByte**: the total amount of the disk space. Unit: bytes.
+     *
      * @var string[]
      */
     public $ipList;
 
     /**
+     * @description The memory size of the server. Unit: GB.
+     *
+     * @example 4.18.0-80.11.2.el8_0.x86_64
+     *
      * @var string
      */
     public $kernel;
@@ -114,61 +210,119 @@ class assetDetail extends Model
     public $macList;
 
     /**
+     * @description The region in which the server resides.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The group to which the server belongs. By default, the servers that are not grouped belong to the **Default** group.
+     *
+     * @example 512
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The ID of the region in which the asset resides.
+     *
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The tag that is added to the server.
+     *
+     * @example Linux 64bit
+     *
      * @var string
      */
     public $osDetail;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) in which the server resides.
+     *
+     * @example -
+     *
      * @var string
      */
     public $osName;
 
     /**
+     * @description The timestamp when Security Center is authorized to protect the asset. Unit: milliseconds.
+     *
+     * @example cn-hangzhou-dg-a01
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Indicates whether the asset is provided by Alibaba Cloud. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
+     * @example cn-hanghzou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The media access control (MAC) addresses of the server.
+     *
+     * @example China (Hohhot)
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The version of the Security Center agent.
+     *
+     * @example CentOS Linux 8.0.1905
+     *
      * @var string
      */
     public $sysInfo;
 
     /**
+     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     *
+     *   **1**: Basic edition (Unauthorized)
+     *   **6**: Anti-virus edition
+     *   **5**: Advanced edition
+     *   **3**: Enterprise edition
+     *   **7**: Ultimate edition
+     *   **10**: Value-added Plan edition
+     *
+     * @example InternetIp
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The IP addresses of the server.
+     *
+     * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @description The IP address that is assigned to the Elastic Compute Service (ECS) instance.
+     *
+     * @example vpc-bp1fs3bwonlfq503w****
+     *
      * @var string
      */
     public $vpcInstanceId;

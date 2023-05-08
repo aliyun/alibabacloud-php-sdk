@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronDetailResponseBody extends Model
 {
     /**
+     * @description The username of the account that runs the scheduled task.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description 10
+     *
      * @var propertys[]
      */
     public $propertys;
 
     /**
+     * @description The username of the account that runs the scheduled task.
+     *
+     * @example B0C4E12E-CCE1-109D-9E62-7B95CBBAEF8C
+     *
      * @var string
      */
     public $requestId;

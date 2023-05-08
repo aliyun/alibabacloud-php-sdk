@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedContainerInstancesRequest extends Model
 {
     /**
+     * @example [{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]
+     *
      * @var string
      */
     public $criteria;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example cas-adad-qeqwe
+     *
      * @var string
      */
     public $fieldValue;
 
     /**
+     * @example pod
+     *
      * @var string
      */
     public $groupField;
 
     /**
+     * @example OR
+     *
      * @var string
      */
     public $logicalExp;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
