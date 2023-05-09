@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponseBody;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponseBody\appInstanceModels\bindInfo;
 use AlibabaCloud\Tea\Model;
 
 class appInstanceModels extends Model
@@ -21,6 +22,11 @@ class appInstanceModels extends Model
      * @var string
      */
     public $appInstanceId;
+
+    /**
+     * @var bindInfo
+     */
+    public $bindInfo;
 
     /**
      * @example 2023-03-07T20:29:19.000+08:00
@@ -59,6 +65,7 @@ class appInstanceModels extends Model
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId'      => 'AppInstanceId',
+        'bindInfo'           => 'BindInfo',
         'gmtCreate'          => 'GmtCreate',
         'gmtModified'        => 'GmtModified',
         'mainEthPublicIp'    => 'MainEthPublicIp',
@@ -78,6 +85,9 @@ class appInstanceModels extends Model
         }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+        if (null !== $this->bindInfo) {
+            $res['BindInfo'] = null !== $this->bindInfo ? $this->bindInfo->toMap() : null;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -111,6 +121,9 @@ class appInstanceModels extends Model
         }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+        if (isset($map['BindInfo'])) {
+            $model->bindInfo = bindInfo::fromMap($map['BindInfo']);
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];

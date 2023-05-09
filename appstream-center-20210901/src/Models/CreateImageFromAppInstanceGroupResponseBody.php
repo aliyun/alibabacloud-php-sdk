@@ -4,23 +4,26 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponseBody\appInstanceGroupModel;
 use AlibabaCloud\Tea\Model;
 
-class CreateAppInstanceGroupResponseBody extends Model
+class CreateImageFromAppInstanceGroupResponseBody extends Model
 {
     /**
-     * @var appInstanceGroupModel
+     * @example img-bp13mu****
+     *
+     * @var string
      */
-    public $appInstanceGroupModel;
+    public $imageId;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'appInstanceGroupModel' => 'AppInstanceGroupModel',
-        'requestId'             => 'RequestId',
+        'imageId'   => 'ImageId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,8 +33,8 @@ class CreateAppInstanceGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appInstanceGroupModel) {
-            $res['AppInstanceGroupModel'] = null !== $this->appInstanceGroupModel ? $this->appInstanceGroupModel->toMap() : null;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -43,13 +46,13 @@ class CreateAppInstanceGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAppInstanceGroupResponseBody
+     * @return CreateImageFromAppInstanceGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppInstanceGroupModel'])) {
-            $model->appInstanceGroupModel = appInstanceGroupModel::fromMap($map['AppInstanceGroupModel']);
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

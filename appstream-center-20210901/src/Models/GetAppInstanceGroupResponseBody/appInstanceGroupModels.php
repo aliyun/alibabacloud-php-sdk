@@ -128,6 +128,11 @@ class appInstanceGroupModels extends Model
     public $sessionTimeout;
 
     /**
+     * @var bool
+     */
+    public $skipUserAuthCheck;
+
+    /**
      * @example spec-8o18t8uc31qib0****
      *
      * @var string
@@ -159,6 +164,7 @@ class appInstanceGroupModels extends Model
         'regionId'             => 'RegionId',
         'resourceStatus'       => 'ResourceStatus',
         'sessionTimeout'       => 'SessionTimeout',
+        'skipUserAuthCheck'    => 'SkipUserAuthCheck',
         'specId'               => 'SpecId',
         'status'               => 'Status',
     ];
@@ -235,6 +241,9 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->skipUserAuthCheck) {
+            $res['SkipUserAuthCheck'] = $this->skipUserAuthCheck;
         }
         if (null !== $this->specId) {
             $res['SpecId'] = $this->specId;
@@ -319,6 +328,9 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['SkipUserAuthCheck'])) {
+            $model->skipUserAuthCheck = $map['SkipUserAuthCheck'];
         }
         if (isset($map['SpecId'])) {
             $model->specId = $map['SpecId'];

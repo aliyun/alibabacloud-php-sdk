@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class timerPeriods extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example 11:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 09:30
+     *
      * @var string
      */
     public $startTime;

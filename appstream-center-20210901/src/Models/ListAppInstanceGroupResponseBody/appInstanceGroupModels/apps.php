@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
+     * @description 应用图标。
+     *
+     * @example https://app-center-icon-****.png
+     *
      * @var string
      */
     public $appIcon;
@@ -26,11 +30,19 @@ class apps extends Model
     public $appName;
 
     /**
+     * @description 应用版本。
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @description 应用版本名称。
+     *
+     * @example 初始版本
+     *
      * @var string
      */
     public $appVersionName;

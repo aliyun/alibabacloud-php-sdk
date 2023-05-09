@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ListNodeInstanceTypeRequest extends Model
 {
     /**
+     * @description 资源所属的地域ID。关于支持的地域详情，请参见[使用限制](~~426036~~)。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
+     * @description 语言类型。
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example appstreaming.vgpu.4c8g.2g
+     *
      * @var string
      */
     public $nodeInstanceType;
 
     /**
+     * @description 支持的操作系统类型。
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;

@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CancelOtaTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
@@ -269,6 +273,12 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($tmpReq->runtimePolicy)) {
             $request->runtimePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimePolicy, 'RuntimePolicy', 'json');
         }
+        if (!Utils::isUnset($tmpReq->securityPolicy)) {
+            $request->securityPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storagePolicy)) {
+            $request->storagePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        }
         if (!Utils::isUnset($tmpReq->userInfo)) {
             $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
@@ -318,8 +328,14 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->runtimePolicyShrink)) {
             $body['RuntimePolicy'] = $request->runtimePolicyShrink;
         }
+        if (!Utils::isUnset($request->securityPolicyShrink)) {
+            $body['SecurityPolicy'] = $request->securityPolicyShrink;
+        }
         if (!Utils::isUnset($request->sessionTimeout)) {
             $body['SessionTimeout'] = $request->sessionTimeout;
+        }
+        if (!Utils::isUnset($request->storagePolicyShrink)) {
+            $body['StoragePolicy'] = $request->storagePolicyShrink;
         }
         if (!Utils::isUnset($request->userInfoShrink)) {
             $body['UserInfo'] = $request->userInfoShrink;
@@ -355,6 +371,55 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateImageFromAppInstanceGroupRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateImageFromAppInstanceGroupResponse
+     */
+    public function createImageFromAppInstanceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appCenterImageName)) {
+            $body['AppCenterImageName'] = $request->appCenterImageName;
+        }
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageFromAppInstanceGroup',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateImageFromAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateImageFromAppInstanceGroupRequest $request
+     *
+     * @return CreateImageFromAppInstanceGroupResponse
+     */
+    public function createImageFromAppInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageFromAppInstanceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -563,6 +628,52 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConnectionTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDebugAppInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDebugAppInstanceResponse
+     */
+    public function getDebugAppInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDebugAppInstance',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDebugAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDebugAppInstanceRequest $request
+     *
+     * @return GetDebugAppInstanceResponse
+     */
+    public function getDebugAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDebugAppInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -806,6 +917,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->appInstanceId)) {
             $query['AppInstanceId'] = $request->appInstanceId;
         }
+        if (!Utils::isUnset($request->includeDeleted)) {
+            $query['IncludeDeleted'] = $request->includeDeleted;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -813,6 +927,9 @@ class Appstreamcenter extends OpenApiClient
             $query['PageSize'] = $request->pageSize;
         }
         $body = [];
+        if (!Utils::isUnset($request->appInstanceIdList)) {
+            $body['AppInstanceIdList'] = $request->appInstanceIdList;
+        }
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
@@ -1086,6 +1203,12 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($tmpReq->nodePool)) {
             $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
+        if (!Utils::isUnset($tmpReq->securityPolicy)) {
+            $request->securityPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storagePolicy)) {
+            $request->storagePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appInstanceGroupId)) {
             $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
@@ -1102,8 +1225,16 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->sessionTimeout)) {
             $query['SessionTimeout'] = $request->sessionTimeout;
         }
+        $body = [];
+        if (!Utils::isUnset($request->securityPolicyShrink)) {
+            $body['SecurityPolicy'] = $request->securityPolicyShrink;
+        }
+        if (!Utils::isUnset($request->storagePolicyShrink)) {
+            $body['StoragePolicy'] = $request->storagePolicyShrink;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyAppInstanceGroupAttribute',

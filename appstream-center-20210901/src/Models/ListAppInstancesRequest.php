@@ -23,6 +23,16 @@ class ListAppInstancesRequest extends Model
     public $appInstanceId;
 
     /**
+     * @var string[]
+     */
+    public $appInstanceIdList;
+
+    /**
+     * @var bool
+     */
+    public $includeDeleted;
+
+    /**
      * @example 1
      *
      * @var int
@@ -43,6 +53,8 @@ class ListAppInstancesRequest extends Model
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId'      => 'AppInstanceId',
+        'appInstanceIdList'  => 'AppInstanceIdList',
+        'includeDeleted'     => 'IncludeDeleted',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'status'             => 'Status',
@@ -60,6 +72,12 @@ class ListAppInstancesRequest extends Model
         }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+        if (null !== $this->appInstanceIdList) {
+            $res['AppInstanceIdList'] = $this->appInstanceIdList;
+        }
+        if (null !== $this->includeDeleted) {
+            $res['IncludeDeleted'] = $this->includeDeleted;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -87,6 +105,14 @@ class ListAppInstancesRequest extends Model
         }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+        if (isset($map['AppInstanceIdList'])) {
+            if (!empty($map['AppInstanceIdList'])) {
+                $model->appInstanceIdList = $map['AppInstanceIdList'];
+            }
+        }
+        if (isset($map['IncludeDeleted'])) {
+            $model->includeDeleted = $map['IncludeDeleted'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

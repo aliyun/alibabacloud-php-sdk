@@ -35,6 +35,10 @@ class ModifyNodePoolAttributeShrinkRequest extends Model
     public $poolId;
 
     /**
+     * @description 产品类型。
+     *
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;

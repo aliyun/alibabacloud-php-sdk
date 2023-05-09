@@ -10,17 +10,27 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @example 60
+     *
+     * @var int
+     */
+    public $ipExpireMinutes;
+
+    /**
      * @var routes[]
      */
     public $routes;
 
     /**
+     * @example Shared
+     *
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'routes'       => 'Routes',
-        'strategyType' => 'StrategyType',
+        'ipExpireMinutes' => 'IpExpireMinutes',
+        'routes'          => 'Routes',
+        'strategyType'    => 'StrategyType',
     ];
 
     public function validate()
@@ -30,6 +40,9 @@ class network extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipExpireMinutes) {
+            $res['IpExpireMinutes'] = $this->ipExpireMinutes;
+        }
         if (null !== $this->routes) {
             $res['Routes'] = [];
             if (null !== $this->routes && \is_array($this->routes)) {
@@ -54,6 +67,9 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpExpireMinutes'])) {
+            $model->ipExpireMinutes = $map['IpExpireMinutes'];
+        }
         if (isset($map['Routes'])) {
             if (!empty($map['Routes'])) {
                 $model->routes = [];

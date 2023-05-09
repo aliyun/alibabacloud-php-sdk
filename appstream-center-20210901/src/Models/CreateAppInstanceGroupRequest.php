@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\runtimePolicy;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\securityPolicy;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\storagePolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\userInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -77,13 +79,13 @@ class CreateAppInstanceGroupRequest extends Model
     public $period;
 
     /**
-     * @example Day
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cag-b2ron*******
+     *
      * @var string
      */
     public $preOpenAppId;
@@ -108,11 +110,21 @@ class CreateAppInstanceGroupRequest extends Model
     public $runtimePolicy;
 
     /**
+     * @var securityPolicy
+     */
+    public $securityPolicy;
+
+    /**
      * @example 15
      *
      * @var int
      */
     public $sessionTimeout;
+
+    /**
+     * @var storagePolicy
+     */
+    public $storagePolicy;
 
     /**
      * @var userInfo
@@ -139,7 +151,9 @@ class CreateAppInstanceGroupRequest extends Model
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
         'runtimePolicy'        => 'RuntimePolicy',
+        'securityPolicy'       => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
+        'storagePolicy'        => 'StoragePolicy',
         'userInfo'             => 'UserInfo',
         'users'                => 'Users',
     ];
@@ -196,8 +210,14 @@ class CreateAppInstanceGroupRequest extends Model
         if (null !== $this->runtimePolicy) {
             $res['RuntimePolicy'] = null !== $this->runtimePolicy ? $this->runtimePolicy->toMap() : null;
         }
+        if (null !== $this->securityPolicy) {
+            $res['SecurityPolicy'] = null !== $this->securityPolicy ? $this->securityPolicy->toMap() : null;
+        }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->storagePolicy) {
+            $res['StoragePolicy'] = null !== $this->storagePolicy ? $this->storagePolicy->toMap() : null;
         }
         if (null !== $this->userInfo) {
             $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
@@ -262,8 +282,14 @@ class CreateAppInstanceGroupRequest extends Model
         if (isset($map['RuntimePolicy'])) {
             $model->runtimePolicy = runtimePolicy::fromMap($map['RuntimePolicy']);
         }
+        if (isset($map['SecurityPolicy'])) {
+            $model->securityPolicy = securityPolicy::fromMap($map['SecurityPolicy']);
+        }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['StoragePolicy'])) {
+            $model->storagePolicy = storagePolicy::fromMap($map['StoragePolicy']);
         }
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);

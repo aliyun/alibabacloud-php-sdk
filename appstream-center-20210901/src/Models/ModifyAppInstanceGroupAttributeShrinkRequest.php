@@ -33,17 +33,29 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     public $productType;
 
     /**
+     * @var string
+     */
+    public $securityPolicyShrink;
+
+    /**
      * @example 15
      *
      * @var int
      */
     public $sessionTimeout;
+
+    /**
+     * @var string
+     */
+    public $storagePolicyShrink;
     protected $_name = [
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'nodePoolShrink'       => 'NodePool',
         'productType'          => 'ProductType',
+        'securityPolicyShrink' => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
+        'storagePolicyShrink'  => 'StoragePolicy',
     ];
 
     public function validate()
@@ -65,8 +77,14 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+        if (null !== $this->securityPolicyShrink) {
+            $res['SecurityPolicy'] = $this->securityPolicyShrink;
+        }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->storagePolicyShrink) {
+            $res['StoragePolicy'] = $this->storagePolicyShrink;
         }
 
         return $res;
@@ -92,8 +110,14 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+        if (isset($map['SecurityPolicy'])) {
+            $model->securityPolicyShrink = $map['SecurityPolicy'];
+        }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['StoragePolicy'])) {
+            $model->storagePolicyShrink = $map['StoragePolicy'];
         }
 
         return $model;

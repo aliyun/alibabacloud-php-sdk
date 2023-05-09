@@ -29,8 +29,6 @@ class ListNodeInstanceTypeResponseBody extends Model
     public $pageSize;
 
     /**
-     * @example B6D88508-51D4-5105-8B3F-201EEE374B30
-     *
      * @var string
      */
     public $requestId;

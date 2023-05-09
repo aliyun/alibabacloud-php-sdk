@@ -12,8 +12,6 @@ use AlibabaCloud\Tea\Model;
 class appInstanceGroupModels extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $amount;
@@ -45,6 +43,10 @@ class appInstanceGroupModels extends Model
     public $appInstanceType;
 
     /**
+     * @description 策略ID。
+     *
+     * @example pg-g3k5wa2ms2****
+     *
      * @var string
      */
     public $appPolicyId;
@@ -55,6 +57,10 @@ class appInstanceGroupModels extends Model
     public $apps;
 
     /**
+     * @description 售卖模式。
+     *
+     * @example Node
+     *
      * @var string
      */
     public $chargeResourceMode;
@@ -112,6 +118,8 @@ class appInstanceGroupModels extends Model
     public $regionId;
 
     /**
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $resourceStatus;
@@ -122,6 +130,11 @@ class appInstanceGroupModels extends Model
      * @var string
      */
     public $sessionTimeout;
+
+    /**
+     * @var bool
+     */
+    public $skipUserAuthCheck;
 
     /**
      * @example spec-8o18t8uc31qib0****
@@ -155,6 +168,7 @@ class appInstanceGroupModels extends Model
         'regionId'             => 'RegionId',
         'resourceStatus'       => 'ResourceStatus',
         'sessionTimeout'       => 'SessionTimeout',
+        'skipUserAuthCheck'    => 'SkipUserAuthCheck',
         'specId'               => 'SpecId',
         'status'               => 'Status',
     ];
@@ -231,6 +245,9 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->skipUserAuthCheck) {
+            $res['SkipUserAuthCheck'] = $this->skipUserAuthCheck;
         }
         if (null !== $this->specId) {
             $res['SpecId'] = $this->specId;
@@ -315,6 +332,9 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['SkipUserAuthCheck'])) {
+            $model->skipUserAuthCheck = $map['SkipUserAuthCheck'];
         }
         if (isset($map['SpecId'])) {
             $model->specId = $map['SpecId'];

@@ -44,8 +44,6 @@ class GetResourcePriceRequest extends Model
     public $period;
 
     /**
-     * @example Day
-     *
      * @var string
      */
     public $periodUnit;

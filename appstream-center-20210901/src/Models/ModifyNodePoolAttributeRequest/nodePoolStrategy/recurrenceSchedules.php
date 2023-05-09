@@ -10,16 +10,25 @@ use AlibabaCloud\Tea\Model;
 class recurrenceSchedules extends Model
 {
     /**
+     * @description 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
+     *
+     * @example weekly
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @description 策略执行周期的数值列表。
+     *
      * @var int[]
      */
     public $recurrenceValues;
 
     /**
+     * @description 策略执行周期的时间段列表。时间段设置要求：
+     *
+     * - 所有时间段累计不跨天。
      * @var timerPeriods[]
      */
     public $timerPeriods;

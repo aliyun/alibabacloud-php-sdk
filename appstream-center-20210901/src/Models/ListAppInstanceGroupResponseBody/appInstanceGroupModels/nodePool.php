@@ -104,11 +104,15 @@ class nodePool extends Model
     public $scalingUsageThreshold;
 
     /**
+     * @example 2022-09-08
+     *
      * @var string
      */
     public $strategyDisableDate;
 
     /**
+     * @example 2022-08-01
+     *
      * @var string
      */
     public $strategyEnableDate;
@@ -121,6 +125,8 @@ class nodePool extends Model
     public $strategyType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $warmUp;

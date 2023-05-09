@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class routes extends Model
 {
     /**
+     * @example 139.196.XX.XX/32
+     *
      * @var string
      */
     public $destination;
 
     /**
+     * @example Shared
+     *
      * @var string
      */
     public $mode;

@@ -11,8 +11,18 @@ class runtimePolicy extends Model
     /**
      * @var string
      */
+    public $debugMode;
+
+    /**
+     * @description 会话类型。
+     *
+     * @example NORMAL
+     *
+     * @var string
+     */
     public $sessionType;
     protected $_name = [
+        'debugMode'   => 'DebugMode',
         'sessionType' => 'SessionType',
     ];
 
@@ -23,6 +33,9 @@ class runtimePolicy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->debugMode) {
+            $res['DebugMode'] = $this->debugMode;
+        }
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
         }
@@ -38,6 +51,9 @@ class runtimePolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DebugMode'])) {
+            $model->debugMode = $map['DebugMode'];
+        }
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
         }

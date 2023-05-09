@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAppInstanceGroupRequest extends Model
 {
     /**
+     * @example img-8z4nztpaqvay4****
+     *
      * @var string
      */
     public $appCenterImageId;
@@ -26,6 +28,8 @@ class ListAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @example appstreaming.vgpu.4c8g.2g
+     *
      * @var string
      */
     public $nodeInstanceType;
@@ -52,6 +56,8 @@ class ListAppInstanceGroupRequest extends Model
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

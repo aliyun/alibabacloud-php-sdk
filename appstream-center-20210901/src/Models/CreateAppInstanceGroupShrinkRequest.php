@@ -73,13 +73,13 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $period;
 
     /**
-     * @example Day
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cag-b2ron*******
+     *
      * @var string
      */
     public $preOpenAppId;
@@ -104,11 +104,21 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $runtimePolicyShrink;
 
     /**
+     * @var string
+     */
+    public $securityPolicyShrink;
+
+    /**
      * @example 15
      *
      * @var int
      */
     public $sessionTimeout;
+
+    /**
+     * @var string
+     */
+    public $storagePolicyShrink;
 
     /**
      * @var string
@@ -135,7 +145,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         'productType'          => 'ProductType',
         'promotionId'          => 'PromotionId',
         'runtimePolicyShrink'  => 'RuntimePolicy',
+        'securityPolicyShrink' => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
+        'storagePolicyShrink'  => 'StoragePolicy',
         'userInfoShrink'       => 'UserInfo',
         'users'                => 'Users',
     ];
@@ -192,8 +204,14 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (null !== $this->runtimePolicyShrink) {
             $res['RuntimePolicy'] = $this->runtimePolicyShrink;
         }
+        if (null !== $this->securityPolicyShrink) {
+            $res['SecurityPolicy'] = $this->securityPolicyShrink;
+        }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->storagePolicyShrink) {
+            $res['StoragePolicy'] = $this->storagePolicyShrink;
         }
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
@@ -258,8 +276,14 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (isset($map['RuntimePolicy'])) {
             $model->runtimePolicyShrink = $map['RuntimePolicy'];
         }
+        if (isset($map['SecurityPolicy'])) {
+            $model->securityPolicyShrink = $map['SecurityPolicy'];
+        }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['StoragePolicy'])) {
+            $model->storagePolicyShrink = $map['StoragePolicy'];
         }
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];

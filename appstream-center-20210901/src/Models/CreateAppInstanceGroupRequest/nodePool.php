@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodePool extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxScalingAmount;
@@ -29,8 +31,6 @@ class nodePool extends Model
     public $nodeCapacity;
 
     /**
-     * @example appstreaming.vgpu.4c8g.2g
-     *
      * @var string
      */
     public $nodeInstanceType;
@@ -41,36 +41,50 @@ class nodePool extends Model
     public $recurrenceSchedules;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $scalingDownAfterIdleMinutes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $scalingStep;
 
     /**
+     * @example 85
+     *
      * @var string
      */
     public $scalingUsageThreshold;
 
     /**
+     * @example 2022-09-08
+     *
      * @var string
      */
     public $strategyDisableDate;
 
     /**
+     * @example 2022-08-01
+     *
      * @var string
      */
     public $strategyEnableDate;
 
     /**
+     * @example NODE_FIXED
+     *
      * @var string
      */
     public $strategyType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $warmUp;

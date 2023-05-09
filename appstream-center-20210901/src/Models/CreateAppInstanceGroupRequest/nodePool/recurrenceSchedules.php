@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class recurrenceSchedules extends Model
 {
     /**
+     * @example weekly
+     *
      * @var string
      */
     public $recurrenceType;
