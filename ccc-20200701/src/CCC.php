@@ -135,6 +135,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetUploadAudioDataParamsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUploadAudioDataParamsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVideoRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVideoResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
@@ -3568,6 +3570,46 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVideoRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetVideoResponse
+     */
+    public function getVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideo',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVideoRequest $request
+     *
+     * @return GetVideoResponse
+     */
+    public function getVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoWithOptions($request, $runtime);
     }
 
     /**
