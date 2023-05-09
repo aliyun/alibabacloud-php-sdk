@@ -178,6 +178,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponse;
@@ -4125,6 +4128,59 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelBillSettlementQueryHeaders([]);
 
         return $this->hotelBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelCityCodeListRequest $request
+     * @param HotelCityCodeListHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return HotelCityCodeListResponse
+     */
+    public function hotelCityCodeListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['country_code'] = $request->countryCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelCityCodeList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/city-codes/action/search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelCityCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelCityCodeListRequest $request
+     *
+     * @return HotelCityCodeListResponse
+     */
+    public function hotelCityCodeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelCityCodeListHeaders([]);
+
+        return $this->hotelCityCodeListWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -38,6 +38,8 @@ class AddressGetRequest extends Model
     public $subCorpId;
 
     /**
+     * @example https://alibtrip.open.com
+     *
      * @var string
      */
     public $taobaoCallbackUrl;

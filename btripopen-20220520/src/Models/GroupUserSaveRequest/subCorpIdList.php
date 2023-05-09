@@ -14,6 +14,8 @@ class subCorpIdList extends Model
     public $departIds;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $leaveStatus;
@@ -26,6 +28,8 @@ class subCorpIdList extends Model
     public $managerUserId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $positionLevel;
