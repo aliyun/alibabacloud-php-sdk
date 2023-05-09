@@ -1961,6 +1961,9 @@ class Imm extends OpenApiClient
             $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->alignmentIndex)) {
+            $query['AlignmentIndex'] = $request->alignmentIndex;
+        }
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
         }
@@ -5059,9 +5062,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceURI)) {
             $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

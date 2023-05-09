@@ -22,16 +22,10 @@ class LiveTranscodingShrinkRequest extends Model
      * @var string
      */
     public $sourceURI;
-
-    /**
-     * @var string
-     */
-    public $token;
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
         'projectName'            => 'ProjectName',
         'sourceURI'              => 'SourceURI',
-        'token'                  => 'Token',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class LiveTranscodingShrinkRequest extends Model
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
-        }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class LiveTranscodingShrinkRequest extends Model
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
-        }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
         }
 
         return $model;

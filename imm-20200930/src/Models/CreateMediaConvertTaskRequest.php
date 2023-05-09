@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateMediaConvertTaskRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $alignmentIndex;
+
+    /**
      * @var CredentialConfig
      */
     public $credentialConfig;
@@ -53,6 +58,7 @@ class CreateMediaConvertTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'alignmentIndex'   => 'AlignmentIndex',
         'credentialConfig' => 'CredentialConfig',
         'notification'     => 'Notification',
         'projectName'      => 'ProjectName',
@@ -69,6 +75,9 @@ class CreateMediaConvertTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alignmentIndex) {
+            $res['AlignmentIndex'] = $this->alignmentIndex;
+        }
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
@@ -114,6 +123,9 @@ class CreateMediaConvertTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlignmentIndex'])) {
+            $model->alignmentIndex = $map['AlignmentIndex'];
+        }
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }

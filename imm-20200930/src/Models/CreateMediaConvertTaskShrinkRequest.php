@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateMediaConvertTaskShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $alignmentIndex;
+
+    /**
      * @var string
      */
     public $credentialConfigShrink;
@@ -51,6 +56,7 @@ class CreateMediaConvertTaskShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'alignmentIndex'         => 'AlignmentIndex',
         'credentialConfigShrink' => 'CredentialConfig',
         'notificationShrink'     => 'Notification',
         'projectName'            => 'ProjectName',
@@ -67,6 +73,9 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alignmentIndex) {
+            $res['AlignmentIndex'] = $this->alignmentIndex;
+        }
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
@@ -100,6 +109,9 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlignmentIndex'])) {
+            $model->alignmentIndex = $map['AlignmentIndex'];
+        }
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
         }

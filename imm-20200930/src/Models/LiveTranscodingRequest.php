@@ -22,16 +22,10 @@ class LiveTranscodingRequest extends Model
      * @var string
      */
     public $sourceURI;
-
-    /**
-     * @var string
-     */
-    public $token;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
         'projectName'      => 'ProjectName',
         'sourceURI'        => 'SourceURI',
-        'token'            => 'Token',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class LiveTranscodingRequest extends Model
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
-        }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class LiveTranscodingRequest extends Model
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
-        }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
         }
 
         return $model;
