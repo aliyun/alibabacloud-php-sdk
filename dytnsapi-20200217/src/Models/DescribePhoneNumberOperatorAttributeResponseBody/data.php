@@ -31,8 +31,6 @@ class data extends Model
     public $isNumberPortability;
 
     /**
-     * @example 1892605
-     *
      * @var int
      */
     public $numberSegment;

@@ -277,6 +277,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->extendFunction)) {
+            $query['ExtendFunction'] = $request->extendFunction;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }

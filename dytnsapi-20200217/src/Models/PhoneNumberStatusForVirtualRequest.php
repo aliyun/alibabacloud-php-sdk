@@ -21,8 +21,6 @@ class PhoneNumberStatusForVirtualRequest extends Model
     public $extendFunction;
 
     /**
-     * @example 189****8999
-     *
      * @var string
      */
     public $inputNumber;
