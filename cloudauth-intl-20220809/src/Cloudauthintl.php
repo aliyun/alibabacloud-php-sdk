@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListRequ
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -429,6 +431,70 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->faceCompareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceLivenessRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return FaceLivenessResponse
+     */
+    public function faceLivenessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $query['FacePictureBase64'] = $request->facePictureBase64;
+        }
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+        if (!Utils::isUnset($request->faceQuality)) {
+            $query['FaceQuality'] = $request->faceQuality;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->occlusion)) {
+            $query['Occlusion'] = $request->occlusion;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceLiveness',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceLivenessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceLivenessRequest $request
+     *
+     * @return FaceLivenessResponse
+     */
+    public function faceLiveness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceLivenessWithOptions($request, $runtime);
     }
 
     /**
