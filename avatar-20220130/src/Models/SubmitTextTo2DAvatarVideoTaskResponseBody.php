@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitTextTo2DAvatarVideoTaskResponseBody extends Model
 {
     /**
-     * @example 502
-     *
      * @var string
      */
     public $code;
@@ -34,8 +32,6 @@ class SubmitTextTo2DAvatarVideoTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;

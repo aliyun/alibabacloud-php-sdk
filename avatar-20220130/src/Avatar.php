@@ -472,6 +472,9 @@ class Avatar extends OpenApiClient
             $request->VAMLRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->VAMLRequest, 'VAMLRequest', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
         }

@@ -29,8 +29,6 @@ class StartTimedResetOperateResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @example 13E0445E-CA7F-5DD3-9B0F-D4B39E0180F7
      *
      * @var string

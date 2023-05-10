@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class avatarInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $angle;
 
     /**
+     * @example CH_xxxxxxx
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $locate;

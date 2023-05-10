@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example avatar_operation_public_cn-7pp2****802
-     *
      * @var string
      */
     public $instanceId;

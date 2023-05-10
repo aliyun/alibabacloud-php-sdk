@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class avatarInfo extends Model
 {
     /**
+     * @example CH_xxxxx
+     *
      * @var string
      */
     public $code;

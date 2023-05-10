@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class audioInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pitchRate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example guijie
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;

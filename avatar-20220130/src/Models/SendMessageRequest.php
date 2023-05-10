@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class SendMessageRequest extends Model
 {
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $feedback;
+
+    /**
      * @example 76898bd3b90b4a65b1c078d8824a2e9c
      *
      * @var string
@@ -34,6 +41,7 @@ class SendMessageRequest extends Model
      */
     public $VAMLRequest;
     protected $_name = [
+        'feedback'    => 'Feedback',
         'sessionId'   => 'SessionId',
         'tenantId'    => 'TenantId',
         'textRequest' => 'TextRequest',
@@ -47,6 +55,9 @@ class SendMessageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->feedback) {
+            $res['Feedback'] = $this->feedback;
+        }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -71,6 +82,9 @@ class SendMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Feedback'])) {
+            $model->feedback = $map['Feedback'];
+        }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

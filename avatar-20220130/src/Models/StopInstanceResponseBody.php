@@ -10,10 +10,6 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
@@ -24,8 +20,6 @@ class StopInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @example The specified parameter PageSize should be lower or equal to 300.
-     *
      * @var string
      */
     public $message;

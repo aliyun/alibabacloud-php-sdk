@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskResult extends Model
 {
     /**
+     * @example 20002
+     *
      * @var string
      */
     public $failCode;
