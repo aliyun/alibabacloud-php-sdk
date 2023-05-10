@@ -11,53 +11,16 @@ use AlibabaCloud\Tea\Model;
 class stackGroups extends Model
 {
     /**
-     * @description The information about automatic deployment settings.
+     * @description Indicates whether automatic deployment is enabled.
+     *
+     * Valid values:
+     *
+     *   true: Automatic deployment is enabled. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the specified region of the member. If you delete the member from the folder, ROS automatically deletes the stacks in the stack group from the specified region of the member.
+     *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you change the member in the folder.
      *
      * @var autoDeployment
      */
     public $autoDeployment;
-
-    /**
-     * @description The description of the stack group.
-     *
-     * @example My Stack Group
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description The time when the last successful drift detection was performed on the stack group.
-     *
-     * @example 2020-02-27T07:47:47
-     *
-     * @var string
-     */
-    public $driftDetectionTime;
-
-    /**
-     * @description The permission model.
-     *
-     * Valid values:
-     *
-     *   SELF_MANAGED: self-managed permission model
-     *   SERVICE_MANAGED: service-managed permission model
-     *
-     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
-     * @example SELF_MANAGED
-     *
-     * @var string
-     */
-    public $permissionModel;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmzawhxxcj****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @description The state of the stack group on which the last successful drift detection was performed.
@@ -68,29 +31,53 @@ class stackGroups extends Model
      *   NOT_CHECKED: No drift detection is performed on the stack group.
      *   IN_SYNC: No drifts are detected on the stack group.
      *
+     * @example My Stack Group
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The description of the stack group.
+     *
+     * @example 2020-02-27T07:47:47
+     *
+     * @var string
+     */
+    public $driftDetectionTime;
+
+    /**
+     * @description The information about automatic deployment settings.
+     *
+     * @example SELF_MANAGED
+     *
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @description The permission model.
+     *
+     * Valid values:
+     *
+     *   SELF_MANAGED: self-managed permission model
+     *   SERVICE_MANAGED: service-managed permission model
+     *
+     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
+     * @example rg-acfmzawhxxcj****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The name of the stack group.
+     *
      * @example IN_SYNC
      *
      * @var string
      */
     public $stackGroupDriftStatus;
-
-    /**
-     * @description The ID of the stack group.
-     *
-     * @example fd0ddef9-9540-4b42-a464-94f77835****
-     *
-     * @var string
-     */
-    public $stackGroupId;
-
-    /**
-     * @description The name of the stack group.
-     *
-     * @example MyStackGroup
-     *
-     * @var string
-     */
-    public $stackGroupName;
 
     /**
      * @description The state of the stack group.
@@ -100,6 +87,24 @@ class stackGroups extends Model
      *   ACTIVE
      *   DELETED
      *
+     * @example fd0ddef9-9540-4b42-a464-94f77835****
+     *
+     * @var string
+     */
+    public $stackGroupId;
+
+    /**
+     * @description The tags that are added to the stack group.
+     *
+     * @example MyStackGroup
+     *
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @description The time when the last successful drift detection was performed on the stack group.
+     *
      * @example ACTIVE
      *
      * @var string
@@ -107,7 +112,7 @@ class stackGroups extends Model
     public $status;
 
     /**
-     * @description The tags that are added to the stack group.
+     * @description The key of the tag that is added to the stack group.
      *
      * @var tags[]
      */

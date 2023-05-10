@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
-     * @description Indicates whether automatic deployment is enabled.
+     * @description The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
      *
-     * Valid values:
-     *
-     *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
-     *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
-     *
+     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
      * @example true
      *
      * @var bool
@@ -23,14 +19,9 @@ class autoDeployment extends Model
     public $enabled;
 
     /**
-     * @description Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
+     * @description The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
      *
-     * Valid values:
-     *
-     *   true: The stacks are retained.
-     *   false: The stacks are deleted.
-     *
-     * >  This parameter is returned only when the Enabled parameter is set to true.
+     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
      * @example true
      *
      * @var bool

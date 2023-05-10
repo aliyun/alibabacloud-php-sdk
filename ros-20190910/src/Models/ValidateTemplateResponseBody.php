@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateResponseBody extends Model
 {
     /**
-     * @description The description of the template.
+     * @description The DataSource resource types.
      *
      * @example No description
      *
@@ -22,35 +22,11 @@ class ValidateTemplateResponseBody extends Model
     public $description;
 
     /**
-     * @description The output items of the template.
+     * @description The path of the regular resource. In most cases, the path of a regular resource is the same as the resource name.
      *
      * @var outputs[]
      */
     public $outputs;
-
-    /**
-     * @description The parameters in the Parameters section of the template.
-     *
-     * The Parameters section contains the parameters that you must specify when you use the template to create a stack. You can use the parameters to specify the stack details, such as the username, the password, and the Elastic Compute Service (ECS) instance type in the specified region.
-     * @var mixed[][]
-     */
-    public $parameters;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The resource types that are used in the template.
-     *
-     * @var resourceTypes
-     */
-    public $resourceTypes;
 
     /**
      * @description The regular resources that are defined in the template.
@@ -59,12 +35,39 @@ class ValidateTemplateResponseBody extends Model
      *   For a Resource Orchestration Service (ROS) template, the resource whose definition contains the `Count` parameter is not displayed as a list.
      *   For a Terraform template, the resource whose definition contains the `count` or `for_each` parameter is not displayed as a list.
      *
+     * @var mixed[][]
+     */
+    public $parameters;
+
+    /**
+     * @description The regular resource type.
+     *
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
+     *
+     * @var resourceTypes
+     */
+    public $resourceTypes;
+
+    /**
+     * @description The parameters whose changes cause service interruptions under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values and the update type determine whether service interruptions are caused.
+     *
+     * >
+     *   This parameter is supported only for a small number of resource types.
+     *   This parameter is valid only for changes that are made on ROS stacks.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
-     * @description The update information about the stack.
+     * @description The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
      *
      * @var updateInfo
      */

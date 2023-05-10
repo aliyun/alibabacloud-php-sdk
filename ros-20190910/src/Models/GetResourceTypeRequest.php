@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeRequest extends Model
 {
     /**
-     * @description The type of the resource.
+     * @description The attributes of the resource.
      *
-     * For more information about resource types supported by Resource Orchestration Service (ROS), see [List of resource types by service](~~127039~~).
      * @example ALIYUN::ROS::WaitConditionHandle
      *
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @example v1
+     *
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
         'resourceType' => 'ResourceType',
+        'versionId'    => 'VersionId',
     ];
 
     public function validate()
@@ -30,6 +37,9 @@ class GetResourceTypeRequest extends Model
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -45,6 +55,9 @@ class GetResourceTypeRequest extends Model
         $model = new self();
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

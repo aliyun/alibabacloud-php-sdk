@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The key of parameter N. If you do not specify the key and value of the parameter, ROS uses the default key and value in the template.
+     * @description The folders in which you want to use service-managed permissions to update stacks.
      *
-     * >  The Parameters parameter is optional. If you set the Parameters parameter, you must set the Parameters.N.ParameterKey parameter.
      * @example Amount
      *
      * @var string
@@ -19,9 +18,15 @@ class parameters extends Model
     public $parameterKey;
 
     /**
-     * @description The value of parameter N.
+     * @description The folder IDs in the resource directory. You can specify a maximum of five folder IDs.
      *
-     * >  The Parameters parameter is optional. If you set the Parameters parameter, you must set the Parameters.N.ParameterValue parameter.
+     * You must set at least one of the RdFolderIds and AccountIds parameters. The parameters are subject to the following items:
+     *
+     *   If you set only the RdFolderIds parameter, stacks are deployed within all the members in the specified folders. If you specify the Root folder, ROS deploys the stacks within all the members in the resource directory.
+     *   If you set only the AccountIds parameter, stacks are deployed within the specified members.
+     *   If you set both parameters, the accounts specified by AccountIds must be contained in the folders specified by RdFolderIds.
+     *
+     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
      * @example 1
      *
      * @var string

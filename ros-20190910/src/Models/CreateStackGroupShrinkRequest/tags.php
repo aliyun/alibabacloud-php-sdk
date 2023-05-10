@@ -9,9 +9,13 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of tag N that you want to add to the stack group.
+     * @description Specifies whether to enable automatic deployment.
      *
-     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
+     * Valid values:
+     *
+     *   true: enables automatic deployment. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member. If you remove a member from the folder, ROS automatically deletes the stacks from the member.
+     *   false: disables automatic deployment. After you disable automatic deployment, the stacks remain unchanged when you change the members in the folder.
+     *
      * @example usage
      *
      * @var string
@@ -19,8 +23,14 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of tag N that you want to add to the stack group.
+     * @description Specifies whether to retain stacks within a member when you remove the member from the folder.
      *
+     * Valid values:
+     *
+     *   true: retains the stacks.
+     *   false: deletes the stacks.
+     *
+     * >  This parameter is required if the Enabled parameter is set to true.
      * @example test
      *
      * @var string

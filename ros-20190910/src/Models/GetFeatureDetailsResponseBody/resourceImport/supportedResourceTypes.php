@@ -14,6 +14,8 @@ class supportedResourceTypes extends Model
     public $resourceIdentifiers;
 
     /**
+     * @example ALIYUN::ECS::Disk
+     *
      * @var string
      */
     public $resourceType;

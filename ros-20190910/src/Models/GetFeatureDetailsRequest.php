@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFeatureDetailsRequest extends Model
 {
     /**
-     * @description The one or more features that you want to query. Valid values:
-     *
-     *   Terraform: the Terraform hosting feature.
-     *   ResourceCleaner: the resource cleaner feature. You can use ALIYUN::ROS::ResourceCleaner to create a resource cleaner.
-     *   TemplateScratch: the scenario feature.
-     *   All: all features that are supported by ROS.
+     * @description The resource types that support the scenario feature.
      *
      * @example Terraform
      *
@@ -23,7 +18,7 @@ class GetFeatureDetailsRequest extends Model
     public $feature;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The resource types that support the system tag `acs:ros:stackId`.
      *
      * @example cn-hangzhou
      *

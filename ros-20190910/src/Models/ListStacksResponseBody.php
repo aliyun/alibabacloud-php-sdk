@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListStacksResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The tag key of the stack.
      *
      * @example 1
      *
@@ -19,9 +19,11 @@ class ListStacksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description Indicates whether rollback is disabled when the stack fails to be created. Default value: false. Valid values:
      *
-     * Default value: 10.
+     *   true
+     *   false
+     *
      * @example 10
      *
      * @var int
@@ -29,7 +31,7 @@ class ListStacksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The tags of the stack.
      *
      * @example FBAC80B4-9C27-529D-BC9C-4155FA5CD7A7
      *
@@ -38,14 +40,14 @@ class ListStacksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of stacks.
+     * @description The tag value of the stack.
      *
      * @var stacks[]
      */
     public $stacks;
 
     /**
-     * @description The total number of stacks.
+     * @description The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2
      *

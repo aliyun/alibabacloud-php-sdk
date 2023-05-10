@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
-     * @description The resource type.
+     * @description Details of the template parameter constraint feature.
      *
      * @example ALIYUN::ECS::Disk
      *
@@ -18,9 +18,8 @@ class supportedResourceTypes extends Model
     public $resourceType;
 
     /**
-     * @description Indicates whether the resource scope can be specified by resource group. Valid values:
+     * @description The resource type.
      *
-     * - false
      * @example true
      *
      * @var bool
@@ -28,9 +27,8 @@ class supportedResourceTypes extends Model
     public $sourceResourceGroupSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by tag, resource group, or resource. Valid values:
+     * @description The resource types that support the template parameter constraint feature.
      *
-     * - false
      * @example true
      *
      * @var bool
@@ -38,9 +36,8 @@ class supportedResourceTypes extends Model
     public $sourceResourcesSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by resource. Valid values:
+     * @description The names of properties that are supported by the resource type.
      *
-     * - false
      * @example true
      *
      * @var bool
@@ -48,9 +45,8 @@ class supportedResourceTypes extends Model
     public $sourceSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by tag. Valid values:
+     * @description The resource types that support the template parameter constraint feature.
      *
-     * - false
      * @example true
      *
      * @var bool

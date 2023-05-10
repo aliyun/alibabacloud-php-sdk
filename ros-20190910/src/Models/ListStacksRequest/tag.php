@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N of the stack.
+     * @description The ID of the request.
      *
-     * Valid values of N: 1 to 20.
      * @example usage
      *
      * @var string
@@ -19,9 +18,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N of the stack.
+     * @description The page number of the returned page.
      *
-     * Valid values of N: 1 to 20.
      * @example test
      *
      * @var string

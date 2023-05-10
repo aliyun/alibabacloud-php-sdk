@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateStackGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateStackGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the stack group.
-     *
      * @example 2c036e78-9e82-428e-afd6-177f5d04****
      *
      * @var string

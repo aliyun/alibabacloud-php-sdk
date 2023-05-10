@@ -4,14 +4,13 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListStackResourceDriftsResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackResourceDriftsResponseBody\resourceDrifts\moduleInfo;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackResourceDriftsResponseBody\resourceDrifts\propertyDifferences;
 use AlibabaCloud\Tea\Model;
 
 class resourceDrifts extends Model
 {
     /**
-     * @description The actual resource properties in JSON format.
-     *
      * @example {"ScalingRuleName": "test1"}
      *
      * @var string
@@ -19,7 +18,7 @@ class resourceDrifts extends Model
     public $actualProperties;
 
     /**
-     * @description The time when the resource drift detection operation was initiated.
+     * @description The actual resource properties in JSON format.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -28,7 +27,7 @@ class resourceDrifts extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The resource properties as defined in the template, in JSON format.
+     * @description The ID of the request.
      *
      * @example {"ScalingRuleName": "test2"}
      *
@@ -37,7 +36,11 @@ class resourceDrifts extends Model
     public $expectedProperties;
 
     /**
-     * @description The logical ID of the resource as defined in the template.
+     * @description The drift type of the resource property. Valid values:
+     *
+     *   ADD: The value has been added to a resource property whose data type was Array or List.
+     *   REMOVE: The property has been deleted from the current resource configuration.
+     *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
      *
      * @example ScalingRule
      *
@@ -46,7 +49,12 @@ class resourceDrifts extends Model
     public $logicalResourceId;
 
     /**
-     * @description The physical ID of the resource.
+     * @var moduleInfo
+     */
+    public $moduleInfo;
+
+    /**
+     * @description The expected value of the resource property as defined in the template.
      *
      * @example asr-2ze4zzc3kf9yz1kd****
      *
@@ -55,19 +63,14 @@ class resourceDrifts extends Model
     public $physicalResourceId;
 
     /**
-     * @description The property differences of the resource.
+     * @description __null__
      *
      * @var propertyDifferences[]
      */
     public $propertyDifferences;
 
     /**
-     * @description The drift status of the resource. Valid values:
-     *
-     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource had been deleted.
-     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-     *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
-     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     * @description http://ros.aliyun-inc.com:8080/V2/ListStackResourceDrifts
      *
      * @example MODIFIED
      *
@@ -76,7 +79,7 @@ class resourceDrifts extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The type of the resource.
+     * @description The query token value returned in this call.
      *
      * @example ALIYUN::ESS::ScalingRule
      *
@@ -85,7 +88,7 @@ class resourceDrifts extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the stack.
+     * @description The path of the resource property.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -97,6 +100,7 @@ class resourceDrifts extends Model
         'driftDetectionTime'  => 'DriftDetectionTime',
         'expectedProperties'  => 'ExpectedProperties',
         'logicalResourceId'   => 'LogicalResourceId',
+        'moduleInfo'          => 'ModuleInfo',
         'physicalResourceId'  => 'PhysicalResourceId',
         'propertyDifferences' => 'PropertyDifferences',
         'resourceDriftStatus' => 'ResourceDriftStatus',
@@ -122,6 +126,9 @@ class resourceDrifts extends Model
         }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
+        }
+        if (null !== $this->moduleInfo) {
+            $res['ModuleInfo'] = null !== $this->moduleInfo ? $this->moduleInfo->toMap() : null;
         }
         if (null !== $this->physicalResourceId) {
             $res['PhysicalResourceId'] = $this->physicalResourceId;
@@ -167,6 +174,9 @@ class resourceDrifts extends Model
         }
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
+        }
+        if (isset($map['ModuleInfo'])) {
+            $model->moduleInfo = moduleInfo::fromMap($map['ModuleInfo']);
         }
         if (isset($map['PhysicalResourceId'])) {
             $model->physicalResourceId = $map['PhysicalResourceId'];

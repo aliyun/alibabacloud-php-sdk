@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of the tag that is added to the stack group.
+     * @description The value of the tag that is added to the stack group.
      *
      * @example usage1
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of the tag that is added to the stack group.
+     * @description The ID of the resource group.
      *
      * @example test1
      *

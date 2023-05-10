@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key of the stack.
+     * @description The ID of the resource group.
      *
      * @example acs:rm:rgId
      *
@@ -18,7 +18,10 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value of the stack.
+     * @description Indicates whether the stack is a managed stack. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example rg-aek2frunvw7****
      *

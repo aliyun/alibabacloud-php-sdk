@@ -9,16 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateRequest extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * You can call the [ListResourceTypes](~~133957~~) operation to query the resource type.
      * @example ALIYUN::ECS::VPC
      *
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @example v1
+     *
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
         'resourceType' => 'ResourceType',
+        'versionId'    => 'VersionId',
     ];
 
     public function validate()
@@ -30,6 +35,9 @@ class GetResourceTypeTemplateRequest extends Model
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -45,6 +53,9 @@ class GetResourceTypeTemplateRequest extends Model
         $model = new self();
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateScratchRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateScratchResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeregisterResourceTypeRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeregisterResourceTypeResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackDriftRequest;
@@ -94,8 +96,12 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeRegistrationsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeRegistrationsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypesResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeVersionsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeVersionsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackEventsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackEventsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupOperationResultsRequest;
@@ -130,8 +136,12 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\RegisterResourceTypeRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\RegisterResourceTypeResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\SetResourceTypeRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\SetResourceTypeResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetStackPolicyRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetStackPolicyResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetTemplatePermissionRequest;
@@ -514,11 +524,22 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack is a collection of Resource Orchestration Service (ROS) resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).
-     *   * When you call this operation, you must take note of the following limits:
-     *   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-     *   * *   You can create up to 200 resources in a stack.
-     *   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region. The template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     * | Error code | Error message | HTTPS status code | Description |
+     *   * | ---------- | ------------- | ----------------- | ----------- |
+     *   * | CircularDependency | Circular Dependency Found: {reason}. | 400 | The error message returned because the template contains circular dependencies. reason indicates the cause of the error. |
+     *   * | InvalidSchema | {reason}. | 400 | The error message returned because the format of the template is invalid. reason indicates the cause of the error. |
+     *   * | InvalidTemplateAttribute | The Referenced Attribute ({resource} {name}) is incorrect. | 400 | The error message returned because the resource property that is referenced in the Outputs section of the template is invalid. resource indicates the resource name. name indicates the property name. |
+     *   * | InvalidTemplatePropertyType | The specified value type of ({resource} {section}) is incorrect. | 400 | The error message returned because the type of the resource property that is defined in a section of the template is invalid. resource indicates the resource name. section indicates the section name. |
+     *   * | InvalidTemplateReference | The specified reference "{name}" (in {referencer}) is incorrect. | 400 | The error message returned because the template contains an invalid reference. name indicates the reference name. referencer indicates the referencer name. |
+     *   * | InvalidTemplateSection | The template section is invalid: {section}. | 400 | The error message returned because the template contains an invalid section. section indicates the section name. |
+     *   * | InvalidTemplateVersion | The template version is invalid: {reason}. | 400 | The error message returned because the template version is invalid. reason indicates the cause of the error. |
+     *   * | StackValidationFailed | {reason}. | 400 | The error message returned because the stack failed to be validated. reason indicates the cause of the error. |
+     *   * | UnknownUserParameter | The Parameter ({name}) was not defined in template. | 400 | The error message returned because the specified parameter is not defined in the template. name indicates the parameter name. |
+     *   * | UserParameterMissing | The Parameter {name} was not provided. | 400 | The error message returned because no value is specified for the specified parameter that is defined in the template. name indicates the parameter name. |
+     *   * | ActionInProgress | Stack {name} already has an action ({action}) in progress. | 409 | The error message returned because the stack is being changed. name indicates the name or ID of the stack. action indicates the change operation. |
+     *   * | StackExists | The Stack ({name}) already exists. | 409 | The error message returned because a stack that has the same name already exists. name indicates the stack name. |
+     *   * | TemplateNotFound | The Template ({ ID }) could not be found. | 404 | The error message returned because the specified template does not exist. ID indicates the template ID. |
+     *   * | TemplateNotFound | The Template { ID } with version { version } could not be found. | 404 | The error message returned because the specified template or template version does not exist. ID indicates the template ID. version indicates the template version. |.
      *   *
      * @param CreateStackRequest $request CreateStackRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -614,11 +635,22 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack is a collection of Resource Orchestration Service (ROS) resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).
-     *   * When you call this operation, you must take note of the following limits:
-     *   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-     *   * *   You can create up to 200 resources in a stack.
-     *   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region. The template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     * | Error code | Error message | HTTPS status code | Description |
+     *   * | ---------- | ------------- | ----------------- | ----------- |
+     *   * | CircularDependency | Circular Dependency Found: {reason}. | 400 | The error message returned because the template contains circular dependencies. reason indicates the cause of the error. |
+     *   * | InvalidSchema | {reason}. | 400 | The error message returned because the format of the template is invalid. reason indicates the cause of the error. |
+     *   * | InvalidTemplateAttribute | The Referenced Attribute ({resource} {name}) is incorrect. | 400 | The error message returned because the resource property that is referenced in the Outputs section of the template is invalid. resource indicates the resource name. name indicates the property name. |
+     *   * | InvalidTemplatePropertyType | The specified value type of ({resource} {section}) is incorrect. | 400 | The error message returned because the type of the resource property that is defined in a section of the template is invalid. resource indicates the resource name. section indicates the section name. |
+     *   * | InvalidTemplateReference | The specified reference "{name}" (in {referencer}) is incorrect. | 400 | The error message returned because the template contains an invalid reference. name indicates the reference name. referencer indicates the referencer name. |
+     *   * | InvalidTemplateSection | The template section is invalid: {section}. | 400 | The error message returned because the template contains an invalid section. section indicates the section name. |
+     *   * | InvalidTemplateVersion | The template version is invalid: {reason}. | 400 | The error message returned because the template version is invalid. reason indicates the cause of the error. |
+     *   * | StackValidationFailed | {reason}. | 400 | The error message returned because the stack failed to be validated. reason indicates the cause of the error. |
+     *   * | UnknownUserParameter | The Parameter ({name}) was not defined in template. | 400 | The error message returned because the specified parameter is not defined in the template. name indicates the parameter name. |
+     *   * | UserParameterMissing | The Parameter {name} was not provided. | 400 | The error message returned because no value is specified for the specified parameter that is defined in the template. name indicates the parameter name. |
+     *   * | ActionInProgress | Stack {name} already has an action ({action}) in progress. | 409 | The error message returned because the stack is being changed. name indicates the name or ID of the stack. action indicates the change operation. |
+     *   * | StackExists | The Stack ({name}) already exists. | 409 | The error message returned because a stack that has the same name already exists. name indicates the stack name. |
+     *   * | TemplateNotFound | The Template ({ ID }) could not be found. | 404 | The error message returned because the specified template does not exist. ID indicates the template ID. |
+     *   * | TemplateNotFound | The Template { ID } with version { version } could not be found. | 404 | The error message returned because the specified template or template version does not exist. ID indicates the template ID. version indicates the template version. |.
      *   *
      * @param CreateStackRequest $request CreateStackRequest
      *
@@ -632,12 +664,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group is a collection of Resource Orchestration Service (ROS) stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts in multiple regions.
-     *   * You can create a stack group that is granted self-managed or service-managed permissions:
-     *   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-     *   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member of the resource directory.
-     *   * For more information about stack groups, see [Overview](~~154578~~).
-     *   * This topic provides an example on how to create a self-managed stack group named `MyStackGroup` by using a template. In this example, the template ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`. The region ID of the stack group is `cn-hangzhou`.
+     * The operation that you want to perform. Set the value to CreateStackGroup.
      *   *
      * @param CreateStackGroupRequest $tmpReq  CreateStackGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -658,6 +685,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->autoDeploymentShrink)) {
             $query['AutoDeployment'] = $request->autoDeploymentShrink;
+        }
+        if (!Utils::isUnset($request->capabilities)) {
+            $query['Capabilities'] = $request->capabilities;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -717,12 +747,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group is a collection of Resource Orchestration Service (ROS) stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts in multiple regions.
-     *   * You can create a stack group that is granted self-managed or service-managed permissions:
-     *   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-     *   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member of the resource directory.
-     *   * For more information about stack groups, see [Overview](~~154578~~).
-     *   * This topic provides an example on how to create a self-managed stack group named `MyStackGroup` by using a template. In this example, the template ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`. The region ID of the stack group is `cn-hangzhou`.
+     * The operation that you want to perform. Set the value to CreateStackGroup.
      *   *
      * @param CreateStackGroupRequest $request CreateStackGroupRequest
      *
@@ -1340,6 +1365,52 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param DeregisterResourceTypeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeregisterResourceTypeResponse
+     */
+    public function deregisterResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeregisterResourceType',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeregisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeregisterResourceTypeRequest $request
+     *
+     * @return DeregisterResourceTypeResponse
+     */
+    public function deregisterResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deregisterResourceTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1764,9 +1835,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
-     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-     *   * >  In the Examples section, only part of the sample code is provided.
+     * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
      *   *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1802,9 +1871,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
-     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-     *   * >  In the Examples section, only part of the sample code is provided.
+     * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
      *   *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      *
@@ -1818,7 +1885,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     * | HttpCode | Error codes | Error message | Description |
+     *   * | -------- | ----------- | ------------- | ----------- |
+     *   * | 404 | ResourceTypeNotFound | The Resource Type ({name}) could not be found. | The error message returned because the specified resource type does not exist. name indicates the name of the resource type. |.
      *   *
      * @param GetResourceTypeRequest $request GetResourceTypeRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1831,6 +1900,9 @@ class ROS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1851,7 +1923,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     * | HttpCode | Error codes | Error message | Description |
+     *   * | -------- | ----------- | ------------- | ----------- |
+     *   * | 404 | ResourceTypeNotFound | The Resource Type ({name}) could not be found. | The error message returned because the specified resource type does not exist. name indicates the name of the resource type. |.
      *   *
      * @param GetResourceTypeRequest $request GetResourceTypeRequest
      *
@@ -1876,6 +1950,9 @@ class ROS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2087,7 +2164,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     * | Error code | Error message | HTTP status code | Description |
+     *   * | ---------- | ------------- | ---------------- | ----------- |
+     *   * | StackGroupNotFound | The StackGroup ({name}) could not be found. | 404 | The error message returned because the specified stack group does not exist. name indicates the name of the stack group. |.
      *   *
      * @param GetStackGroupRequest $request GetStackGroupRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2126,7 +2205,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     * | Error code | Error message | HTTP status code | Description |
+     *   * | ---------- | ------------- | ---------------- | ----------- |
+     *   * | StackGroupNotFound | The StackGroup ({name}) could not be found. | 404 | The error message returned because the specified stack group does not exist. name indicates the name of the stack group. |.
      *   *
      * @param GetStackGroupRequest $request GetStackGroupRequest
      *
@@ -2296,7 +2377,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     * The operation that you want to perform. Set the value to GetStackResource.
      *   *
      * @param GetStackResourceRequest $request GetStackResourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2344,7 +2425,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     * The operation that you want to perform. Set the value to GetStackResource.
      *   *
      * @param GetStackResourceRequest $request GetStackResourceRequest
      *
@@ -2429,9 +2510,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the **Resource types that support price inquiry** section of the [Estimate resource prices](~~203165~~) topic.
-     *   * *   For more information about the resources that support price inquiry in Terraform templates, see the "ROS resources supported by Terraform" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.****
-     *   * This topic provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create by using a template. In this example, the template body is `{"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month", "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": { "Ref": "Netmode"},"Bandwidth": 5}}}}`.
+     * The operation that you want to perform. Set the value to GetTemplateEstimateCost.
      *   *
      * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2488,9 +2567,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the **Resource types that support price inquiry** section of the [Estimate resource prices](~~203165~~) topic.
-     *   * *   For more information about the resources that support price inquiry in Terraform templates, see the "ROS resources supported by Terraform" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.****
-     *   * This topic provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create by using a template. In this example, the template body is `{"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month", "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": { "Ref": "Netmode"},"Bandwidth": 5}}}}`.
+     * The operation that you want to perform. Set the value to GetTemplateEstimateCost.
      *   *
      * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
      *
@@ -2836,7 +2913,108 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+     * @param ListResourceTypeRegistrationsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourceTypeRegistrationsResponse
+     */
+    public function listResourceTypeRegistrationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->registrationId)) {
+            $query['RegistrationId'] = $request->registrationId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceTypeRegistrations',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceTypeRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceTypeRegistrationsRequest $request
+     *
+     * @return ListResourceTypeRegistrationsResponse
+     */
+    public function listResourceTypeRegistrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceTypeRegistrationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListResourceTypeVersionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListResourceTypeVersionsResponse
+     */
+    public function listResourceTypeVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceTypeVersions',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceTypeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceTypeVersionsRequest $request
+     *
+     * @return ListResourceTypeVersionsResponse
+     */
+    public function listResourceTypeVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceTypeVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
      *   *
      * @param ListResourceTypesRequest $request ListResourceTypesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2849,6 +3027,12 @@ class ROS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->entityType)) {
             $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2869,7 +3053,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
      *   *
      * @param ListResourceTypesRequest $request ListResourceTypesRequest
      *
@@ -3052,7 +3236,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of stack groups. In this example, the stack groups that are in the active state and deployed in the China (Hangzhou) region are queried.
+     * For more information about common request parameters, see [Common parameters](~~131957~~).
      *   *
      * @param ListStackGroupsRequest $request ListStackGroupsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3100,7 +3284,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of stack groups. In this example, the stack groups that are in the active state and deployed in the China (Hangzhou) region are queried.
+     * For more information about common request parameters, see [Common parameters](~~131957~~).
      *   *
      * @param ListStackGroupsRequest $request ListStackGroupsRequest
      *
@@ -3176,9 +3360,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ListStackOperationRisks operation is suitable for the following scenarios:
-     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the reason for each risk in a resource.
-     *   * *   You want to detect risks of creation failure that may arise when you create a stack. In this case, Resource Orchestration Service (ROS) allows you to detect only the required permissions that are not granted to the Alibaba Cloud account of the caller.
+     * The ID of the stack.
      *   *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3241,9 +3423,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ListStackOperationRisks operation is suitable for the following scenarios:
-     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the reason for each risk in a resource.
-     *   * *   You want to detect risks of creation failure that may arise when you create a stack. In this case, Resource Orchestration Service (ROS) allows you to detect only the required permissions that are not granted to the Alibaba Cloud account of the caller.
+     * The ID of the stack.
      *   *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      *
@@ -3312,7 +3492,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     * | Error code | Error message | HTTP status code | Description |
+     *   * | ---------- | ------------- | ---------------- | ----------- |
+     *   * | StackNotFound | The Stack ({name}) could not be found. | 404 | The error message returned because the specified stack does not exist. name indicates the name or ID of the stack. |.
      *   *
      * @param ListStackResourcesRequest $request ListStackResourcesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3348,7 +3530,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     * | Error code | Error message | HTTP status code | Description |
+     *   * | ---------- | ------------- | ---------------- | ----------- |
+     *   * | StackNotFound | The Stack ({name}) could not be found. | 404 | The error message returned because the specified stack does not exist. name indicates the name or ID of the stack. |.
      *   *
      * @param ListStackResourcesRequest $request ListStackResourcesRequest
      *
@@ -3362,7 +3546,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     * Specifies whether to return nested stacks. Default value: false. Valid values:
+     *   * *   true
+     *   * *   false
+     *   * > If the ParentStackId parameter is specified, you must set the ShowNestedStack parameter to true.
      *   *
      * @param ListStacksRequest $request ListStacksRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3431,7 +3618,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     * Specifies whether to return nested stacks. Default value: false. Valid values:
+     *   * *   true
+     *   * *   false
+     *   * > If the ParentStackId parameter is specified, you must set the ShowNestedStack parameter to true.
      *   *
      * @param ListStacksRequest $request ListStacksRequest
      *
@@ -3943,6 +4133,66 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param RegisterResourceTypeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RegisterResourceTypeResponse
+     */
+    public function registerResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterResourceType',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterResourceTypeRequest $request
+     *
+     * @return RegisterResourceTypeResponse
+     */
+    public function registerResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerResourceTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDeletionProtectionRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3989,6 +4239,58 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDeletionProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetResourceTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetResourceTypeResponse
+     */
+    public function setResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultVersionId)) {
+            $query['DefaultVersionId'] = $request->defaultVersionId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetResourceType',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetResourceTypeRequest $request
+     *
+     * @return SetResourceTypeResponse
+     */
+    public function setResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setResourceTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -4445,7 +4747,8 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the template content `{"ROSTemplateFormatVersion": "2015-09-01"}` is specified to update a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     * The description of the stack group.
+     *   * The description must be 1 to 256 characters in length.
      *   *
      * @param UpdateStackGroupRequest $tmpReq  UpdateStackGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4481,6 +4784,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->autoDeploymentShrink)) {
             $query['AutoDeployment'] = $request->autoDeploymentShrink;
+        }
+        if (!Utils::isUnset($request->capabilities)) {
+            $query['Capabilities'] = $request->capabilities;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -4546,7 +4852,8 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the template content `{"ROSTemplateFormatVersion": "2015-09-01"}` is specified to update a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     * The description of the stack group.
+     *   * The description must be 1 to 256 characters in length.
      *   *
      * @param UpdateStackGroupRequest $request UpdateStackGroupRequest
      *
@@ -4865,7 +5172,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to validate a template that you want to use to create a stack. In this example, the `TemplateURL` parameter is set to `oss://ros/template/demo`.
+     * The description of the template.
      *   *
      * @param ValidateTemplateRequest $request ValidateTemplateRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4912,7 +5219,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to validate a template that you want to use to create a stack. In this example, the `TemplateURL` parameter is set to `oss://ros/template/demo`.
+     * The description of the template.
      *   *
      * @param ValidateTemplateRequest $request ValidateTemplateRequest
      *

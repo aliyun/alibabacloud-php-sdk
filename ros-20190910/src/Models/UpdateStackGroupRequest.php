@@ -12,8 +12,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackGroupRequest extends Model
 {
     /**
-     * @description The IDs of the accounts within which you want to use self-managed permissions to deploy stacks. You can specify a maximum of 20 account IDs.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests.
      *
+     * For more information, see [Ensure idempotence](~~134212~~).
      * @example ["12****"]
      *
      * @var string[]
@@ -21,9 +22,9 @@ class UpdateStackGroupRequest extends Model
     public $accountIds;
 
     /**
-     * @description The name of the RAM role to be assumed by the administrator account in ROS. This parameter is required if you want to grant self-managed permissions to the stack group. If you do not specify a value for this parameter, the default value AliyunROSStackGroupAdministrationRole is used. You can use the administrator role in ROS to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks that correspond to stack instances in the stack group.
+     * @description The value of parameter N.
      *
-     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+     * >  The Parameters parameter is optional. If you set the Parameters parameter, you must set the Parameters.N.ParameterValue parameter.
      * @example AliyunROSStackGroupAdministrationRole
      *
      * @var string
@@ -31,9 +32,9 @@ class UpdateStackGroupRequest extends Model
     public $administrationRoleName;
 
     /**
-     * @description The information about automatic deployment settings.
+     * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
      *
-     * >  This parameter is required only if the PermissionModel parameter is set to SERVICE_MANAGED.
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
      * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
      *
      * @var autoDeployment
@@ -41,9 +42,14 @@ class UpdateStackGroupRequest extends Model
     public $autoDeployment;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests.
+     * @var string[]
+     */
+    public $capabilities;
+
+    /**
+     * @description The version of the template. If you do not specify a version, the latest version is used.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * >  This parameter takes effect only if the TemplateId parameter is set.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -51,7 +57,7 @@ class UpdateStackGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The folders in which you want to use service-managed permissions to update stacks.
+     * @description The ID of the operation.
      *
      * @example {"RdFolderIds": ["fd-4PvlVLOL8v"]}
      *
@@ -60,9 +66,9 @@ class UpdateStackGroupRequest extends Model
     public $deploymentTargets;
 
     /**
-     * @description The description of the stack group.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
      *
-     * The description must be 1 to 256 characters in length.
+     * >  You must specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
      * @example My Stack Group
      *
      * @var string
@@ -70,9 +76,17 @@ class UpdateStackGroupRequest extends Model
     public $description;
 
     /**
-     * @description The name of the RAM role to be assumed by the administrator role AliyunROSStackGroupAdministrationRole. This parameter is required if you want to grant self-managed permissions to the stack group. If you do not specify a value for this parameter, the default value AliyunROSStackGroupExecutionRole is used. You can use this role in ROS to perform operations on the stacks that correspond to stack instances in the stack group.
+     * @description The permission model.
      *
-     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+     * Valid values:
+     *
+     *   SELF_MANAGED: the self-managed permission model. This is the default value. If you use the self-managed model for the stack group, you must create RAM roles for the administrator and execution accounts, and establish a trust relationship between the accounts to deploy stacks within the execution account.
+     *   SERVICE_MANAGED: the service-managed permission model. If you use the service-managed model for the stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
+     *
+     * >
+     *   If stack instances have been created in the stack group, you cannot switch the permission mode of the stack group.
+     *   If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Step 1: (Optional) Create a delegated administrator account](~~308253~~) and [Step 2: Enable trusted access](~~298229~~).
+     *
      * @example AliyunROSStackGroupExecutionRole
      *
      * @var string
@@ -80,13 +94,57 @@ class UpdateStackGroupRequest extends Model
     public $executionRoleName;
 
     /**
-     * @description The description of the operation to update the stack group.
+     * @description The list of parameters.
      *
      * @example Update stack instances in hangzhou
      *
      * @var string
      */
     public $operationDescription;
+
+    /**
+     * @description The key of parameter N. If you do not specify the key and value of the parameter, ROS uses the default key and value in the template.
+     *
+     * >  The Parameters parameter is optional. If you set the Parameters parameter, you must set the Parameters.N.ParameterKey parameter.
+     * @example {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
+     *
+     * @var mixed[]
+     */
+    public $operationPreferences;
+
+    /**
+     * @description Specifies whether to retain stacks in a member when you remove the member from the folder.
+     *
+     * Valid values:
+     *
+     *   true: retains the stacks.
+     *   false: deletes the stacks.
+     *
+     * >  This parameter is required if the Enabled parameter is set to true.
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
+     * @description The IDs of the folders in the resource directory. You can specify up to five folder IDs.
+     *
+     * You can create stacks within all members in the specified folders. If you create stacks in the Root folder, the stacks are created within all members in the resource directory.
+     *
+     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
+     * @example SELF_MANAGED
+     *
+     * @var string
+     */
+    public $permissionModel;
+
+    /**
+     * @description The region IDs of stack instances. You can specify a maximum of 20 region IDs.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @description The preferences of the operation to update the stack group.
@@ -120,49 +178,6 @@ class UpdateStackGroupRequest extends Model
      *   You can specify only one of the MaxConcurrentCount and MaxConcurrentPercentage parameters.
      *   You can specify only one of the FailureToleranceCount and FailureTolerancePercentage parameters.
      *
-     * @example {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
-     *
-     * @var mixed[]
-     */
-    public $operationPreferences;
-
-    /**
-     * @description The list of parameters.
-     *
-     * @var parameters[]
-     */
-    public $parameters;
-
-    /**
-     * @description The permission model.
-     *
-     * Valid values:
-     *
-     *   SELF_MANAGED: the self-managed permission model. This is the default value. If you use the self-managed model for the stack group, you must create RAM roles for the administrator and execution accounts, and establish a trust relationship between the accounts to deploy stacks within the execution account.
-     *   SERVICE_MANAGED: the service-managed permission model. If you use the service-managed model for the stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
-     *
-     * >
-     *   If stack instances have been created in the stack group, you cannot switch the permission mode of the stack group.
-     *   If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Step 1: (Optional) Create a delegated administrator account](~~308253~~) and [Step 2: Enable trusted access](~~298229~~).
-     *
-     * @example SELF_MANAGED
-     *
-     * @var string
-     */
-    public $permissionModel;
-
-    /**
-     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the latest list of Alibaba Cloud regions.
-     *
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The region IDs of stack instances. You can specify a maximum of 20 region IDs.
-     *
      * @example ["cn-hangzhou", "cn-beijing"]
      *
      * @var string[]
@@ -170,9 +185,9 @@ class UpdateStackGroupRequest extends Model
     public $regionIds;
 
     /**
-     * @description The name of the stack group. The name must be unique within a region.
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or a letter.
+     * >  You must specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
      * @example MyStackGroup
      *
      * @var string
@@ -180,9 +195,9 @@ class UpdateStackGroupRequest extends Model
     public $stackGroupName;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     * @description The name of the RAM role to be assumed by the administrator role AliyunROSStackGroupAdministrationRole. This parameter is required if you want to grant self-managed permissions to the stack group. If you do not specify a value for this parameter, the default value AliyunROSStackGroupExecutionRole is used. You can use this role in ROS to perform operations on the stacks that correspond to stack instances in the stack group.
      *
-     * >  You must specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
+     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -190,9 +205,9 @@ class UpdateStackGroupRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The information about automatic deployment settings.
      *
-     * >  You must specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
+     * >  This parameter is required only if the PermissionModel parameter is set to SERVICE_MANAGED.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -200,7 +215,7 @@ class UpdateStackGroupRequest extends Model
     public $templateId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
      * >  You must specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
      * @example oss://ros-template/demo
@@ -210,9 +225,13 @@ class UpdateStackGroupRequest extends Model
     public $templateURL;
 
     /**
-     * @description The version of the template. If you do not specify a version, the latest version is used.
+     * @description Specifies whether to enable automatic deployment.
      *
-     * >  This parameter takes effect only if the TemplateId parameter is set.
+     * Valid values:
+     *
+     *   true: enables automatic deployment. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, the stack group deploys its stack instances within the member. If you remove a member from the folder, the stack group deletes stack instances that are deployed within the member.
+     *   false: disables automatic deployment. After you disable automatic deployment, the stack instances remain unchanged even if members in the folder change.
+     *
      * @example v1
      *
      * @var string
@@ -222,6 +241,7 @@ class UpdateStackGroupRequest extends Model
         'accountIds'             => 'AccountIds',
         'administrationRoleName' => 'AdministrationRoleName',
         'autoDeployment'         => 'AutoDeployment',
+        'capabilities'           => 'Capabilities',
         'clientToken'            => 'ClientToken',
         'deploymentTargets'      => 'DeploymentTargets',
         'description'            => 'Description',
@@ -254,6 +274,9 @@ class UpdateStackGroupRequest extends Model
         }
         if (null !== $this->autoDeployment) {
             $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        }
+        if (null !== $this->capabilities) {
+            $res['Capabilities'] = $this->capabilities;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -328,6 +351,11 @@ class UpdateStackGroupRequest extends Model
         }
         if (isset($map['AutoDeployment'])) {
             $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        }
+        if (isset($map['Capabilities'])) {
+            if (!empty($map['Capabilities'])) {
+                $model->capabilities = $map['Capabilities'];
+            }
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListStacksRequest extends Model
 {
     /**
+     * @description The reason why the stack is in its current state.
+     *
+     * @example 2023-04-01T15:16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The number of the page to return.
+     * @description The tags.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -25,9 +28,39 @@ class ListStacksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The state N of the stack. Valid values:
      *
-     * Default value: 10.
+     *   CREATE_IN_PROGRESS: The stack is being created.
+     *   CREATE_FAILED: The stack fails to be created.
+     *   CREATE_COMPLETE: The stack is created.
+     *   UPDATE_IN_PROGRESS: The stack is being updated.
+     *   UPDATE_FAILED: The stack fails to be updated.
+     *   UPDATE_COMPLETE: The stack is updated.
+     *   DELETE_IN_PROGRESS: The stack is being deleted.
+     *   DELETE_FAILED: The stack fails to be deleted.
+     *   CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack fails to be created.
+     *   CREATE_ROLLBACK_FAILED: The resources fail to be rolled back after the stack fails to be created.
+     *   CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack fails to be created.
+     *   ROLLBACK_IN_PROGRESS: The resources of the stack are being rolled back.
+     *   ROLLBACK_FAILED: The resources of the stack fail to be rolled back.
+     *   ROLLBACK_COMPLETE: The resources of the stack are rolled back.
+     *   CHECK_IN_PROGRESS: The stack is being validated.
+     *   CHECK_FAILED: The stack fails to be validated.
+     *   CHECK_COMPLETE: The stack is validated.
+     *   REVIEW_IN_PROGRESS: The stack is being reviewed.
+     *   IMPORT_CREATE_IN_PROGRESS: The stack is being created by using imported resources.
+     *   IMPORT_CREATE_FAILED: The stack fails to be created by using imported resources.
+     *   IMPORT_CREATE_COMPLETE: The stack is created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack fails to be created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_FAILED: The resources fail to be rolled back after the stack fails to be created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack fails to be created by using imported resources.
+     *   IMPORT_UPDATE_IN_PROGRESS: The stack is being updated by using imported resources.
+     *   IMPORT_UPDATE_FAILED: The stack fails to be updated by using imported resources.
+     *   IMPORT_UPDATE_COMPLETE: The stack is updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack fails to be updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_FAILED: The resources fail to be rolled back after the stack fails to be updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack fails to be updated by using imported resources.
+     *
      * @example 10
      *
      * @var int
@@ -35,7 +68,7 @@ class ListStacksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the parent stack.
+     * @description The name of stack N.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -44,8 +77,9 @@ class ListStacksRequest extends Model
     public $parentStackId;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The name of stack N.
      *
+     * Valid values of N: 1 to 5.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,9 +87,8 @@ class ListStacksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The list of stacks.
      *
-     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -63,13 +96,9 @@ class ListStacksRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Specifies whether to return nested stacks. Default value: false. Valid values:
+     * @description The key of tag N of the stack.
      *
-     *   true
-     *
-     *   false
-     *
-     * > If the ParentStackId parameter is specified, you must set the ShowNestedStack parameter to true.
+     * Valid values of N: 1 to 20.
      * @example true
      *
      * @var bool
@@ -77,8 +106,9 @@ class ListStacksRequest extends Model
     public $showNestedStack;
 
     /**
-     * @description The ID of the stack. If you want to query the basic information about the stack, you can use this parameter and do not need to call the GetStack operation.
+     * @description The value of tag N of the stack.
      *
+     * Valid values of N: 1 to 20.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -86,15 +116,16 @@ class ListStacksRequest extends Model
     public $stackId;
 
     /**
-     * @description The ID of stack N.
+     * @description The state of the stack.
      *
      * @var string[]
      */
     public $stackIds;
 
     /**
-     * @description The name of stack N.
+     * @description The ID of stack N.
      *
+     * Valid values of N: 1 to 10.
      * @example MyStack
      *
      * @var string[]
@@ -102,13 +133,18 @@ class ListStacksRequest extends Model
     public $stackName;
 
     /**
+     * @description The time when the last successful drift detection was performed on the stack.
+     *
+     * @example 2023-04-01T15:10:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The state N of the stack.
+     * @description The ID of the resource group.
      *
+     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
      * @example CREATE_COMPLETE
      *
      * @var string[]
@@ -116,8 +152,9 @@ class ListStacksRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The number of entries returned per page.
      *
+     * Default value: 10.
      * @var tag[]
      */
     public $tag;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string

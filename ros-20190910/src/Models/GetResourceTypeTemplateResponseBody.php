@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 87F54B2B-AEF0-4C33-A72A-3F8856A575E9
      *
      * @var string
@@ -18,17 +16,22 @@ class GetResourceTypeTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The structure that contains the template body.
-     *
-     * For more information, see [Template syntax](~~28857~~).
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var mixed[]
      */
     public $templateBody;
+
+    /**
+     * @example {
+     * }
+     * @var string
+     */
+    public $templateContent;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'templateBody' => 'TemplateBody',
+        'requestId'       => 'RequestId',
+        'templateBody'    => 'TemplateBody',
+        'templateContent' => 'TemplateContent',
     ];
 
     public function validate()
@@ -43,6 +46,9 @@ class GetResourceTypeTemplateResponseBody extends Model
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
 
         return $res;
@@ -61,6 +67,9 @@ class GetResourceTypeTemplateResponseBody extends Model
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
 
         return $model;

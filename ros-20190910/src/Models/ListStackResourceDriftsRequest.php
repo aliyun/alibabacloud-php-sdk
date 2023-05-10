@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsRequest extends Model
 {
     /**
-     * @description The maximum number of results to be returned with a single call when the NextToken parameter is used for the query.
+     * @description The type of the resource.
      *
-     * Default value: 50.
      * @example 50
      *
      * @var int
@@ -19,7 +18,7 @@ class ListStackResourceDriftsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The query token. Set this parameter to the NextToken value returned in the last API call.
+     * @description The resource properties as defined in the template, in JSON format.
      *
      * @example AAAAAdDWBF2****w==
      *
@@ -28,7 +27,7 @@ class ListStackResourceDriftsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The time when the resource drift detection operation was initiated.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +36,12 @@ class ListStackResourceDriftsRequest extends Model
     public $regionId;
 
     /**
-     * @description The drift status of the resource.
+     * @description The drift status of the resource. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource had been deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
      *
      * @example MODIFIED
      *
@@ -46,7 +50,7 @@ class ListStackResourceDriftsRequest extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The ID of the stack.
+     * @description The physical ID of the resource.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

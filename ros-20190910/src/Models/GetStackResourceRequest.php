@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStackResourceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     * @description The logical ID of the resource defined in the template.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -19,7 +18,22 @@ class GetStackResourceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The logical ID of the resource defined in the template.
+     * @description The status of the resource. Valid values:
+     *
+     *   CREATE_COMPLETE
+     *   CREATE_FAILED
+     *   CREATE_IN_PROGRESS
+     *   UPDATE_IN_PROGRESS
+     *   UPDATE_FAILED
+     *   UPDATE_COMPLETE
+     *   DELETE_IN_PROGRESS
+     *   DELETE_FAILED
+     *   CHECK_IN_PROGRESS
+     *   CHECK_FAILED
+     *   CHECK_COMPLETE
+     *   IMPORT_IN_PROGRESS
+     *   IMPORT_FAILED
+     *   IMPORT_COMPLETE
      *
      * @example WebServer
      *
@@ -28,7 +42,7 @@ class GetStackResourceRequest extends Model
     public $logicalResourceId;
 
     /**
-     * @description The ID of the region to which the stack belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The name of resource property N that you want to query.
      *
      * @example cn-hangzhou
      *
@@ -37,18 +51,16 @@ class GetStackResourceRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of resource property N that you want to query.
+     * @description The description of the resource.
      *
      * @var string[]
      */
     public $resourceAttributes;
 
     /**
-     * @description Specifies whether to query the resource properties. Valid values:
+     * @description The name of resource property N that you want to query.
      *
-     *   true
-     *   false
-     *
+     * >  Maximum value of N: 20.
      * @example true
      *
      * @var bool
@@ -56,7 +68,10 @@ class GetStackResourceRequest extends Model
     public $showResourceAttributes;
 
     /**
-     * @description The ID of the stack.
+     * @description Specifies whether to query the resource properties. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

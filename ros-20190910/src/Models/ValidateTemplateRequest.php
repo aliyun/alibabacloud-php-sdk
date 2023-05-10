@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     * @description The regular resource types.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -19,7 +18,7 @@ class ValidateTemplateRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the region where the template resides. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The description of the output item.
      *
      * @example cn-hangzhou
      *
@@ -33,9 +32,8 @@ class ValidateTemplateRequest extends Model
     public $templateBody;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
+     * @description The name of the output item.
      *
-     * The URL can be up to 1,024 bytes in length.
      * @example oss://ros/template/demo
      *
      * @var string
@@ -43,17 +41,7 @@ class ValidateTemplateRequest extends Model
     public $templateURL;
 
     /**
-     * @description Specifies whether to enable additional validation for the template. Default value: None. Valid values:
-     *
-     *   None: does not enable additional validation.
-     *
-     *   EnableTerraformValidation: runs the `terraform validate` command in the Terraform CLI to enable additional validation for a Terraform template.
-     *
-     *   EnableFastTerraformValidation: runs a command that is similar to the `terraform validate` command in the Terraform CLI to enable additional validation for a Terraform template.
-     *
-     **
-     *
-     **Note** Compared with the EnableTerraformValidation method, the EnableFastTerraformValidation method validates a template at a faster speed, but lower integrity level.
+     * @description The DataSource resource types.
      *
      * @example None
      *

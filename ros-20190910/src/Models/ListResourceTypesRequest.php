@@ -9,19 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesRequest extends Model
 {
     /**
-     * @description The entity type. Valid values:
-     *
-     *   All: all resource types.
-     *   Resource: resources other than DataSource resources. For more information, see [Resources](~~28863~~).
-     *   DataSource: DataSource resources.
+     * @description The array of resource types.
      *
      * @example Resource
      *
      * @var string
      */
     public $entityType;
+
+    /**
+     * @example ROS
+     *
+     * @var string
+     */
+    public $provider;
+
+    /**
+     * @example MODULE::MyOrganization::MyService::MyUsecase
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'entityType' => 'EntityType',
+        'entityType'   => 'EntityType',
+        'provider'     => 'Provider',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -33,6 +45,12 @@ class ListResourceTypesRequest extends Model
         $res = [];
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -48,6 +66,12 @@ class ListResourceTypesRequest extends Model
         $model = new self();
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

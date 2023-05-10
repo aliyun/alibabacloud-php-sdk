@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class stackGroup extends Model
 {
     /**
-     * @description The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+     * @description The key of the parameter.
      *
      * @example AliyunROSStackGroupAdministrationRole
      *
@@ -21,15 +21,20 @@ class stackGroup extends Model
     public $administrationRoleName;
 
     /**
-     * @description The information about automatic deployment settings.
+     * @description Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
      *
-     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+     * Valid values:
+     *
+     *   true: The stacks are retained.
+     *   false: The stacks are deleted.
+     *
+     * >  This parameter is returned only when the Enabled parameter is set to true.
      * @var autoDeployment
      */
     public $autoDeployment;
 
     /**
-     * @description The description of the stack group.
+     * @description The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
      *
      * @example StackGroup Description
      *
@@ -38,7 +43,7 @@ class stackGroup extends Model
     public $description;
 
     /**
-     * @description The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+     * @description The details of the last drift detection that was performed on the stack group.
      *
      * @example AliyunROSStackGroupExecutionRole
      *
@@ -47,21 +52,20 @@ class stackGroup extends Model
     public $executionRoleName;
 
     /**
-     * @description The parameters of the stack group.
+     * @description The value of the parameter.
      *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The permission model.
+     * @description Indicates whether automatic deployment is enabled.
      *
      * Valid values:
      *
-     *   SELF_MANAGED: the self-managed permission model
-     *   SERVICE_MANAGED: the service-managed permission model
+     *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
+     *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
      *
-     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
      * @example SELF_MANAGED
      *
      * @var string
@@ -69,16 +73,14 @@ class stackGroup extends Model
     public $permissionModel;
 
     /**
-     * @description The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
-     *
-     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
      * @var string[]
      */
     public $rdFolderIds;
 
     /**
-     * @description The ID of the resource group. This parameter is specified when you create the stack group.
+     * @description The information about automatic deployment settings.
      *
+     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -86,14 +88,14 @@ class stackGroup extends Model
     public $resourceGroupId;
 
     /**
-     * @description The details of the last drift detection that was performed on the stack group.
+     * @description The number of stack instances.
      *
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
 
     /**
-     * @description The ID of the stack group.
+     * @description The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
      *
      * @example fd0ddef9-9540-4b42-a464-94f77835****
      *
@@ -102,7 +104,7 @@ class stackGroup extends Model
     public $stackGroupId;
 
     /**
-     * @description The name of the stack group.
+     * @description The template body.
      *
      * @example MyStackGroup
      *
@@ -111,12 +113,7 @@ class stackGroup extends Model
     public $stackGroupName;
 
     /**
-     * @description The status of the stack group.
-     *
-     * Valid values:
-     *
-     *   ACTIVE
-     *   DELETED
+     * @description The parameters of the stack group.
      *
      * @example ACTIVE
      *
@@ -125,13 +122,20 @@ class stackGroup extends Model
     public $status;
 
     /**
-     * @description The template body.
+     * @description The time when drift detection was performed on the stack group.
      *
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
      */
     public $templateBody;
+
+    /**
+     * @example {
+     * }
+     * @var string
+     */
+    public $templateContent;
     protected $_name = [
         'administrationRoleName'         => 'AdministrationRoleName',
         'autoDeployment'                 => 'AutoDeployment',
@@ -146,6 +150,7 @@ class stackGroup extends Model
         'stackGroupName'                 => 'StackGroupName',
         'status'                         => 'Status',
         'templateBody'                   => 'TemplateBody',
+        'templateContent'                => 'TemplateContent',
     ];
 
     public function validate()
@@ -199,6 +204,9 @@ class stackGroup extends Model
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
 
         return $res;
@@ -258,6 +266,9 @@ class stackGroup extends Model
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
 
         return $model;

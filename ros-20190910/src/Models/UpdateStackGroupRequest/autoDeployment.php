@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
-     * @description Specifies whether to enable automatic deployment.
+     * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
      *
-     * Valid values:
-     *
-     *   true: enables automatic deployment. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, the stack group deploys its stack instances within the member. If you remove a member from the folder, the stack group deletes stack instances that are deployed within the member.
-     *   false: disables automatic deployment. After you disable automatic deployment, the stack instances remain unchanged even if members in the folder change.
-     *
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
      * @example true
      *
      * @var bool
@@ -23,14 +19,8 @@ class autoDeployment extends Model
     public $enabled;
 
     /**
-     * @description Specifies whether to retain stacks in a member when you remove the member from the folder.
+     * @description The ID of the request.
      *
-     * Valid values:
-     *
-     *   true: retains the stacks.
-     *   false: deletes the stacks.
-     *
-     * >  This parameter is required if the Enabled parameter is set to true.
      * @example true
      *
      * @var bool

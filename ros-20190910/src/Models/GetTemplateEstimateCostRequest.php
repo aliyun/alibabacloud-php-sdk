@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateEstimateCostRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * Examples:
+     *
+     *   Parameters.1.ParameterKey: `Name`
+     *   Parameters.2.ParameterKey: `Netmode`
+     *
+     * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -20,15 +25,17 @@ class GetTemplateEstimateCostRequest extends Model
     public $clientToken;
 
     /**
-     * @description The parameters.
+     * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
      *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,19 +43,23 @@ class GetTemplateEstimateCostRequest extends Model
     public $regionId;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-     * @example {"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month",   "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": {   "Ref": "Netmode"},"Bandwidth": 5}}}}
+     * @example The parameters.
      *
      * @var string
      */
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The value of parameter N.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * Examples:
+     *
+     *   Parameters.1.ParameterValue: `DemoEip`
+     *   Parameters.2.ParameterValue: `public`
+     *
+     * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -56,9 +67,6 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the scenario.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example ts-aa9c62feab844a6b****
      *
      * @var string
@@ -66,9 +74,6 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateScratchId;
 
     /**
-     * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
-     *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -76,9 +81,9 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateScratchRegionId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * For more information, see [Ensure idempotence](~~134212~~).
      * @example oss://ros-template/demo
      *
      * @var string
@@ -86,8 +91,9 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateURL;
 
     /**
-     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
+     * @description The ID of the scenario.
      *
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example v1
      *
      * @var string

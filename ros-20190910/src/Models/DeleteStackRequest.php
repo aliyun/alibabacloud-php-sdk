@@ -14,9 +14,8 @@ class DeleteStackRequest extends Model
     public $deleteOptions;
 
     /**
-     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
+     * @description The name of resource N that you want to retain.
      *
-     * The name of the RAM role can be up to 64 bytes in length.
      * @example test-role
      *
      * @var string
@@ -24,7 +23,7 @@ class DeleteStackRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The name of resource N that you want to retain.
      *
      * @example cn-hangzhou
      *
@@ -33,13 +32,9 @@ class DeleteStackRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to retain all resources in the stack.
+     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
      *
-     * Default value: false. Valid values:
-     *
-     *   true
-     *   false
-     *
+     * The name of the RAM role can be up to 64 bytes in length.
      * @example false
      *
      * @var bool
@@ -47,7 +42,7 @@ class DeleteStackRequest extends Model
     public $retainAllResources;
 
     /**
-     * @description The name of resource N that you want to retain.
+     * @description The ID of the request.
      *
      * @example WebServer
      *
@@ -56,7 +51,7 @@ class DeleteStackRequest extends Model
     public $retainResources;
 
     /**
-     * @description The ID of the stack.
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
