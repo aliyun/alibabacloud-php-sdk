@@ -30,6 +30,8 @@ class SpeechByCombinationRequest extends Model
     public $deviceName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enforceFlag;

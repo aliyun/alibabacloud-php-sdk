@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListThingTemplatesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class ListThingTemplatesResponseBody extends Model
     public $code;
 
     /**
+     * @description The list of standard categories returned if the call is successful.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +42,11 @@ class ListThingTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

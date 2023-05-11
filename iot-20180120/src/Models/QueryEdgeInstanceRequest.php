@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceRequest extends Model
 {
     /**
+     * @description The name of the edge instance.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryEdgeInstanceRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 30. Default value: 10. If you specify a value smaller than 1, the system uses 10.
+     *
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -23,11 +27,15 @@ class QueryEdgeInstanceRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The error code. Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page from which the results are displayed. The minimum value is 1. If you specify a value smaller than 1, the system uses 1.
+     *
      * @example 15
      *
      * @var int

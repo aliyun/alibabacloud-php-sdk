@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of property information. The information about each property is indicated by the **PropertyStatusInfo** parameter.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The identifier of the next page.
+     *
      * @example Bo***x44Qx
      *
      * @var string
@@ -22,6 +26,12 @@ class data extends Model
     public $nextPageToken;
 
     /**
+     * @description Indicates whether the next page exists.
+     *
+     *   **true**: The next page exists.
+     *   **false**: The next page does not exist.
+     *
+     * If the value ******true** is returned, you can add the value of the **NextPageToken** parameter**** to the next query. This allows you to query the data that is not returned by the current query.
      * @example true
      *
      * @var bool

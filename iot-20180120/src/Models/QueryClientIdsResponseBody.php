@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryClientIdsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryClientIdsResponseBody extends Model
     public $code;
 
     /**
+     * @description The ClientIDs returned if the call is successful. For more information, see **DynamicRegClientIds**.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example request parameter error
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryClientIdsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 89F22330-BAEE-****-****-41BA46D6E267
      *
      * @var string
@@ -36,6 +44,11 @@ class QueryClientIdsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

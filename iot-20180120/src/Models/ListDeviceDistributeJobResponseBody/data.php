@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the task.
+     *
      * @var jobInfo
      */
     public $jobInfo;
 
     /**
+     * @description The token that is used to retrieve the subsequent pages of the query results. The value of this parameter can be used in the next query to obtain the subsequent pages of results.
+     *
+     * If the return value is empty, no subsequent page exists.
      * @example TGlzdFJlc291***
      *
      * @var string
@@ -22,6 +27,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The total number of device distribution tasks.
+     *
      * @example 10
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryVehicleDeviceRequest extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -16,6 +18,12 @@ class QueryVehicleDeviceRequest extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the instance. You can view the **ID** of the instance on the **Instance Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.****
+     * >*   If no **Overview** page or **ID** is generated for your instance, you do not need to configure this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-2w****
      *
      * @var string
@@ -23,6 +31,8 @@ class QueryVehicleDeviceRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the gateway product to which the device belongs.
+     *
      * @example a1Bw****
      *
      * @var string

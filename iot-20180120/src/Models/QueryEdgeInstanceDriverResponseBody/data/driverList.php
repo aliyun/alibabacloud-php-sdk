@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class driverList extends Model
 {
     /**
+     * @description The ID of the driver.
+     *
      * @example 9c1ae7bd59f1469abbdccc959228****
      *
      * @var string
@@ -16,6 +18,8 @@ class driverList extends Model
     public $driverId;
 
     /**
+     * @description The version number of the driver.
+     *
      * @example 1.0.0
      *
      * @var string
@@ -23,6 +27,8 @@ class driverList extends Model
     public $driverVersion;
 
     /**
+     * @description The time when the driver was created.
+     *
      * @example 2019-06-26 17:22:25
      *
      * @var string
@@ -30,6 +36,8 @@ class driverList extends Model
     public $gmtCreate;
 
     /**
+     * @description The last time when the driver was updated.
+     *
      * @example 2019-06-26 17:22:25
      *
      * @var string
@@ -37,6 +45,8 @@ class driverList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 11123458765423
      *
      * @var string

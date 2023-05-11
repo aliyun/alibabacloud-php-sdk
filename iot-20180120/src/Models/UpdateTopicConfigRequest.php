@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateTopicConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $codec;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @example true
      *
      * @var bool
@@ -16,11 +26,21 @@ class UpdateTopicConfigRequest extends Model
     public $enableBroadcast;
 
     /**
+     * @var bool
+     */
+    public $enableProxySubscribe;
+
+    /**
      * @example iot-0pp1n8t****
      *
      * @var string
      */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $operation;
 
     /**
      * @example a1Q5XoY****
@@ -36,10 +56,14 @@ class UpdateTopicConfigRequest extends Model
      */
     public $topicFullName;
     protected $_name = [
-        'enableBroadcast' => 'EnableBroadcast',
-        'iotInstanceId'   => 'IotInstanceId',
-        'productKey'      => 'ProductKey',
-        'topicFullName'   => 'TopicFullName',
+        'codec'                => 'Codec',
+        'description'          => 'Description',
+        'enableBroadcast'      => 'EnableBroadcast',
+        'enableProxySubscribe' => 'EnableProxySubscribe',
+        'iotInstanceId'        => 'IotInstanceId',
+        'operation'            => 'Operation',
+        'productKey'           => 'ProductKey',
+        'topicFullName'        => 'TopicFullName',
     ];
 
     public function validate()
@@ -49,11 +73,23 @@ class UpdateTopicConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->codec) {
+            $res['Codec'] = $this->codec;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->enableBroadcast) {
             $res['EnableBroadcast'] = $this->enableBroadcast;
         }
+        if (null !== $this->enableProxySubscribe) {
+            $res['EnableProxySubscribe'] = $this->enableProxySubscribe;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -73,11 +109,23 @@ class UpdateTopicConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Codec'])) {
+            $model->codec = $map['Codec'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['EnableBroadcast'])) {
             $model->enableBroadcast = $map['EnableBroadcast'];
         }
+        if (isset($map['EnableProxySubscribe'])) {
+            $model->enableProxySubscribe = $map['EnableProxySubscribe'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];

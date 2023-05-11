@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateThingScriptRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -16,6 +22,9 @@ class UpdateThingScriptRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the product.
+     *
+     * You can view the **ProductKey** on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
      * @example a1Q5XoY****
      *
      * @var string
@@ -23,6 +32,9 @@ class UpdateThingScriptRequest extends Model
     public $productKey;
 
     /**
+     * @description The content of the script. You must specify this parameter.
+     *
+     * For more information about script examples, see [What is data parsing](~~68702~~).
      * @example "function protocolToRawData(jsonObj) {return rawdata; }function rawDataToProtocol(rawData) {return jsonObj; }"
      *
      * @var string
@@ -30,6 +42,12 @@ class UpdateThingScriptRequest extends Model
     public $scriptContent;
 
     /**
+     * @description The type of the script. Valid values:
+     *
+     *   JavaScript
+     *   Python\_27: Python 2.7
+     *   PHP\_72: PHP 7.2
+     *
      * @example JavaScript
      *
      * @var string

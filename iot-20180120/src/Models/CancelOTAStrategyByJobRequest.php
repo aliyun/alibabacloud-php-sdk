@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CancelOTAStrategyByJobRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -16,6 +22,9 @@ class CancelOTAStrategyByJobRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ID of the update batch.
+     *
+     * After you call the [CreateOTADynamicUpgradeJob](~~147887~~) operation to create an update batch, the **JobId** parameter is returned. You can also view the batch ID on the **Firmware Details** page of the IoT Platform console.
      * @example HvKuBpuk3rdk6E92CP****0200
      *
      * @var string

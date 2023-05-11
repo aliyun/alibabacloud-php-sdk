@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTAFirmwareResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class ListOTAFirmwareResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,22 @@ class ListOTAFirmwareResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The OTA update packages returned if the call is successful. For more information, see SimpleFirmwareInfo.
+     *
      * @var firmwareInfo
      */
     public $firmwareInfo;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +51,8 @@ class ListOTAFirmwareResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +60,8 @@ class ListOTAFirmwareResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A01829CE-75A1-4920-B775-921146A1AB79
      *
      * @var string
@@ -55,6 +69,11 @@ class ListOTAFirmwareResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class ListOTAFirmwareResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of OTA update packages.
+     *
      * @example 1
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class deviceConfigList extends Model
 {
     /**
+     * @description The configuration information of the device.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The ID of the device.
+     *
      * @example sjI0Sd124XFYyjBY****000101
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deploymentList extends Model
 {
     /**
+     * @description The ID of the deployment task.
+     *
      * @example e4803e566b424fa68e7f4b1c747c****
      *
      * @var string
@@ -16,6 +18,8 @@ class deploymentList extends Model
     public $deploymentId;
 
     /**
+     * @description The description of the deployment task.
+     *
      * @example deploy_1561694817061
      *
      * @var string
@@ -23,6 +27,8 @@ class deploymentList extends Model
     public $description;
 
     /**
+     * @description The time when the deployment task was complete.
+     *
      * @example 2019-06-28 12:07:16
      *
      * @var string
@@ -30,6 +36,8 @@ class deploymentList extends Model
     public $gmtCompleted;
 
     /**
+     * @description The UNIX timestamp when the deployment task was complete.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -37,6 +45,8 @@ class deploymentList extends Model
     public $gmtCompletedTimestamp;
 
     /**
+     * @description The time when the deployment task was created.
+     *
      * @example 2019-06-26 18:12:29
      *
      * @var string
@@ -44,6 +54,8 @@ class deploymentList extends Model
     public $gmtCreate;
 
     /**
+     * @description The UNIX timestamp when the deployment task was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -51,6 +63,8 @@ class deploymentList extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last time when the deployment task was modified.
+     *
      * @example 2019-06-28 12:07:16
      *
      * @var string
@@ -58,6 +72,8 @@ class deploymentList extends Model
     public $gmtModified;
 
     /**
+     * @description The last UNIX timestamp when the deployment task was modified.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -65,6 +81,13 @@ class deploymentList extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The status of the deployment task.
+     *
+     *   0: The task was not started.
+     *   1: The task was being processed.
+     *   2: The task was successful.
+     *   3: The task failed.
+     *
      * @example 2
      *
      * @var int
@@ -72,6 +95,11 @@ class deploymentList extends Model
     public $status;
 
     /**
+     * @description The type of the deployment task.
+     *
+     *   deploy: deploys the edge instance.
+     *   reset: resets the edge instance.
+     *
      * @example deploy
      *
      * @var string

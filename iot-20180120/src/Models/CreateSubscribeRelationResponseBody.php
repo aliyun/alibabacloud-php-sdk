@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscribeRelationResponseBody extends Model
 {
     /**
+     * @description The error code that is returned if the call fails. For more information about error codes, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateSubscribeRelationResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 21D327AF-A7DE-4E59-B5D1-ACAC8C024555
      *
      * @var string
@@ -28,6 +34,11 @@ class CreateSubscribeRelationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachDestinationRequest extends Model
 {
     /**
+     * @description The ID of the data destination. You can call the [ListDestination](~~433025~~) operation to query data destinations and obtain the ID of the **data destination**.
+     *
      * @example 1002
      *
      * @var int
@@ -16,6 +18,12 @@ class DetachDestinationRequest extends Model
     public $destinationId;
 
     /**
+     * @description The ID of the instance. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.
+     * >*   If no **Overview** page or ID is generated for your instance, you do not need to configure this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-2w****
      *
      * @var string
@@ -23,6 +31,8 @@ class DetachDestinationRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ID of the parser. You can call the [ListParser](~~444814~~) operation to query parsers and obtain the ID of the **parser**.
+     *
      * @example 1000
      *
      * @var int

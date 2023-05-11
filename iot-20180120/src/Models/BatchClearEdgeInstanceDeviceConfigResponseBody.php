@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchClearEdgeInstanceDeviceConfigResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchClearEdgeInstanceDeviceConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class BatchClearEdgeInstanceDeviceConfigResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0BC2AA1C-E4D0-4E78-A70F-08C9A90686B0
      *
      * @var string
@@ -30,6 +36,8 @@ class BatchClearEdgeInstanceDeviceConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

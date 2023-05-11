@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OTAModules extends Model
 {
     /**
+     * @description The version number of each OTA module.
+     *
      * @example a1-dads2-dad2
      *
      * @var string
@@ -16,6 +18,8 @@ class OTAModules extends Model
     public $firmwareVersion;
 
     /**
+     * @description The name of the OTA module.
+     *
      * @example SomeSampleModule
      *
      * @var string

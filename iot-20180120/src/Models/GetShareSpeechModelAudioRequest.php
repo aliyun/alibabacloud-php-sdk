@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetShareSpeechModelAudioRequest extends Model
 {
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $shareTaskId;
 
     /**
+     * @example WSD****
+     *
      * @var string[]
      */
     public $speechModelCodeList;

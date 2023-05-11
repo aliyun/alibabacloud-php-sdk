@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTAModuleByProductResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class ListOTAModuleByProductResponseBody extends Model
     public $code;
 
     /**
+     * @description The OTA modules returned if the call is successful.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 74C2BB8D-1D6F-41F5-AE68-6B2310883F63
      *
      * @var string
@@ -34,6 +42,11 @@ class ListOTAModuleByProductResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

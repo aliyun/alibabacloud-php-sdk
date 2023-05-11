@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryThingModelPublishedResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class QueryThingModelPublishedResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ProductKey of the product.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -34,6 +42,8 @@ class QueryThingModelPublishedResponseBody extends Model
     public $productKey;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E4C0FF92-2A86-41DB-92D3-73B60310D25E
      *
      * @var string
@@ -41,6 +51,11 @@ class QueryThingModelPublishedResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

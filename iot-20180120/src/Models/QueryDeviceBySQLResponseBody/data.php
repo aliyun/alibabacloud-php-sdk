@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the device was activated. The time is in the GMT format.
+     *
      * @example 2020-04-04 16:38:18.607
      *
      * @var string
@@ -19,6 +21,8 @@ class data extends Model
     public $activeTime;
 
     /**
+     * @description The name of the device.
+     *
      * @example light
      *
      * @var string
@@ -26,6 +30,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The time when the device was created. The time is in the GMT format.
+     *
      * @example 2020-04-04 16:38:17.000
      *
      * @var string
@@ -33,6 +39,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the device information was last updated. The time is in the GMT format.
+     *
      * @example 2020-04-04 16:38:19.000
      *
      * @var string
@@ -40,11 +48,15 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The information about the groups to which the device belongs.
+     *
      * @var groups[]
      */
     public $groups;
 
     /**
+     * @description The ID of the device. The ID is a unique identifier that is issued by IoT Platform to the device.
+     *
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -52,16 +64,22 @@ class data extends Model
     public $iotId;
 
     /**
+     * @description The alias of the device.
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The information about the firmware of each device module.
+     *
      * @var OTAModules[]
      */
     public $OTAModules;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -69,6 +87,13 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The status of the device. Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example ONLINE
      *
      * @var string
@@ -76,6 +101,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The information about device tags.
+     *
      * @var tags[]
      */
     public $tags;

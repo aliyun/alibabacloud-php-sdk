@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the verification task.
+     *
      * @example wahVIzGkCMuAUE2gDERM02****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $jobId;
 
     /**
+     * @description The time when the verification task was created. The time is displayed in UTC.
+     *
      * @example 2019-11-04T06:22:19.566Z
      *
      * @var string

@@ -16,6 +16,8 @@ class BatchGetEdgeDriverRequest extends Model
     public $driverIds;
 
     /**
+     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for public instances. However, this parameter is required for the instances that you have purchased.
+     *
      * @example ot_instc_pu****_c*-v64********
      *
      * @var string

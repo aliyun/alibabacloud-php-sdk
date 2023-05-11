@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetThingTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,19 @@ class GetThingTemplateResponseBody extends Model
     public $code;
 
     /**
+     * @description The TSL features returned if the call is successful. Format:
+     *
+     * For more information, see [TSL formats](~~73727~~).
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOTAJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class QueryOTAJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The update batch information returned if the call is successful. For more information, see the following parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 30F1BB8D-EDBF-44FD-BBC0-BE97DEA73991
      *
      * @var string
@@ -34,6 +42,11 @@ class QueryOTAJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

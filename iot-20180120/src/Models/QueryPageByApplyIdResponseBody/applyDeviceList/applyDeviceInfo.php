@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class applyDeviceInfo extends Model
 {
     /**
+     * @description The ID of the device (expired).
+     *
+     * >  This parameter is no longer used. Do not use this parameter to identify a device. You can use the **IotId** parameter or a combination of the **ProductKey** and **DeviceName** parameters to identify a device.
      * @example gQG2GJ2y10m6hIk8****
      *
      * @var string
@@ -16,6 +19,8 @@ class applyDeviceInfo extends Model
     public $deviceId;
 
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -23,6 +28,8 @@ class applyDeviceInfo extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
      * @example SkfeXXKrTgp1DbDxYr74mfJ5cnui****
      *
      * @var string
@@ -30,6 +37,8 @@ class applyDeviceInfo extends Model
     public $deviceSecret;
 
     /**
+     * @description The ID of the device. The ID is the unique identifier that is issued by IoT Platform to the device.
+     *
      * @example vWxNur6BUApsqjv9****000100
      *
      * @var string

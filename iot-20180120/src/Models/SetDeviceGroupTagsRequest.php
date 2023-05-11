@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDeviceGroupTagsRequest extends Model
 {
     /**
+     * @description The ID of the group. The ID is the globally unique identifier (GUID) for the group.
+     *
      * @example W16X8Tvdosec****
      *
      * @var string
@@ -16,6 +18,9 @@ class SetDeviceGroupTagsRequest extends Model
     public $groupId;
 
     /**
+     * @description The type of the group.
+     *
+     * You do not need to configure this parameter.
      * @example LINK_PLATFORM_DYNAMIC
      *
      * @var string
@@ -23,6 +28,13 @@ class SetDeviceGroupTagsRequest extends Model
     public $groupType;
 
     /**
+     * @description The ID of the instance. On the **Overview** page in the IoT Platform console, you can view the **ID** of the instance.
+     *
+     *
+     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.
+     * >*   If the **Overview** page or instance ID is not displayed in the IoT Platform console, you do not need to configure this parameter.
+     *
+     * For more information about the instance, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -30,6 +42,15 @@ class SetDeviceGroupTagsRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The tag data in the JSON format. The TagString parameter specifies multiple tags in the format of key-value pairs. You must specify **tagKey** and **tagValue** for each tag.
+     *
+     *   **tagKey**: the tag key. The key must be 2 to 30 characters in length, and can contain letters, digits, and periods (.).
+     *   **tagValue**: the tag value. Each value can contain letters, digits, underscores (\_), and hyphens (-). The value must be 1 to 128 characters in length.
+     *
+     **
+     *
+     **Important** `abc` is a key that is reserved by IoT Platform. You cannot set **tagKey** to abc. If you set `tagKey` to abc, the abc tag is automatically filtered when you query tags.
+     *
      * @example [{"tagKey":"h1","tagValue":"rr"},{"tagKey":"7h","tagValue":"rr"}]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class DeleteRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A8F48485-44B9-40D8-A56D-F716F384F387
      *
      * @var string
@@ -28,6 +34,11 @@ class DeleteRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

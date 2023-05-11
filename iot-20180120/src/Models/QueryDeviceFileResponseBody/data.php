@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The download URL of the file.
+     *
      * @example http://iotx-file-store.oss-cn-shanghai.aliyuncs.com/device_file/A849E4E5CFF64804A18D9384AC9D****\/aGEKIpp5NAGxdP2oo90000****\/testFile3.txt?Expires=1553162075&OSSAccessKeyId=LTAIYLScbHiV****&Signature=%2F88xdEFPukJ****%2F8****%2Bdv3io%3D
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $downloadUrl;
 
     /**
+     * @description The ID of the file.
+     *
      * @example 6UCo1SqbqnQEoh9aKqDQ01****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
      * @example testFile3.txt
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The size of the file. Unit: KB.
+     *
      * @example 102400
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $size;
 
     /**
+     * @description The time when the file was created.
+     *
      * @example 2019-03-21T08:45:42.000Z
      *
      * @var string

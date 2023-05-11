@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The configuration content or the Object Storage Service (OSS) path of the configuration file.
+     *
      * @example {\"test\": \"device_config_demo\"}
      *
      * @var string
@@ -16,6 +18,8 @@ class config extends Model
     public $content;
 
     /**
+     * @description The format of the configuration. Valid values: KV (key-value pair), JSON (JSON string), and FILE (configuration file).
+     *
      * @example JSON
      *
      * @var string

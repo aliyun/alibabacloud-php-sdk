@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloseEdgeInstanceDeploymentResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class CloseEdgeInstanceDeploymentResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class CloseEdgeInstanceDeploymentResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3C969586-3DD1-41A7-9B8E-E8B134CA6600
      *
      * @var string
@@ -30,6 +36,8 @@ class CloseEdgeInstanceDeploymentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

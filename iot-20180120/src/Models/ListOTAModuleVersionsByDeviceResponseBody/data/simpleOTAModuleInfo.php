@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class simpleOTAModuleInfo extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example newDevice
      *
      * @var string
@@ -16,6 +18,8 @@ class simpleOTAModuleInfo extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the device.
+     *
      * @example QjIFT***000101
      *
      * @var string
@@ -23,6 +27,8 @@ class simpleOTAModuleInfo extends Model
     public $iotId;
 
     /**
+     * @description The name of the OTA module.
+     *
      * @example barcodeScanner
      *
      * @var string
@@ -30,6 +36,8 @@ class simpleOTAModuleInfo extends Model
     public $moduleName;
 
     /**
+     * @description The module version that was submitted by the device.
+     *
      * @example 1.0
      *
      * @var string
@@ -37,6 +45,8 @@ class simpleOTAModuleInfo extends Model
     public $moduleVersion;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example aluctKe****
      *
      * @var string

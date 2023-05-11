@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSoundCodeScheduleRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;

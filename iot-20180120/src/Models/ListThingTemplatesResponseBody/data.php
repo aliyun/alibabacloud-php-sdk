@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The identifier of the category.
+     *
      * @example lighting
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $categoryKey;
 
     /**
+     * @description The name of the category.
+     *
      * @var string
      */
     public $categoryName;

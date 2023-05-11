@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleActionRequest extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example 100001
      *
      * @var int
@@ -16,6 +18,13 @@ class GetRuleActionRequest extends Model
     public $actionId;
 
     /**
+     * @description The rule action ID that you want to query.
+     *
+     * You can query the rule action ID by using the following methods:
+     *
+     *   Call the [CreateRuleAction](~~69586~~) operation and view the **ActionId** parameter in the response.
+     *   Call the [ListRuleActions](~~69517~~) operation and view the **Id** parameter in the response.
+     *
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string

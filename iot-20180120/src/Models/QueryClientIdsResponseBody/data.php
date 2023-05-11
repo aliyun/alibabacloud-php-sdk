@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of ClientIDs.
+     *
      * @var dynamicRegClientIds[]
      */
     public $dynamicRegClientIds;
 
     /**
+     * @description The ID of the device.
+     *
      * @example y4u2weAI********HMle1234
      *
      * @var string

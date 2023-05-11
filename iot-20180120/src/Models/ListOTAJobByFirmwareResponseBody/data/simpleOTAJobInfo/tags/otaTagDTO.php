@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class otaTagDTO extends Model
 {
     /**
+     * @description The key of each tag.
+     *
      * @example key1
      *
      * @var string
@@ -16,6 +18,8 @@ class otaTagDTO extends Model
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
      * @example value1
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDeviceGroupRelationsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $alreadyRelatedGroupDeviceCount;
 
     /**
+     * @description The number of valid devices that you specified.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -23,11 +30,15 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The number of devices that exist in the group.
+     *
      * @example 0
      *
      * @var int
@@ -35,6 +46,8 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $exceedTenGroupDeviceCount;
 
     /**
+     * @description The number of the specified devices that are added to 10 or more groups. You can add a device to a maximum of 10 groups.
+     *
      * @example 671D0F8F-FDC7-4B12-93FA-336C079C965A
      *
      * @var string
@@ -42,6 +55,8 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example true
      *
      * @var bool
@@ -56,6 +71,8 @@ class BatchAddDeviceGroupRelationsResponseBody extends Model
     public $successAddedDeviceCount;
 
     /**
+     * @description The number of devices that are added to the group.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class productTag extends Model
 {
     /**
+     * @description The keys of the product tags.
+     *
      * @example room
      *
      * @var string
@@ -16,6 +18,8 @@ class productTag extends Model
     public $tagKey;
 
     /**
+     * @description The values of the product tags.
+     *
      * @example 102
      *
      * @var string

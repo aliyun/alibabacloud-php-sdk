@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of events. Each element represents an event.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The start time of the event records on the next page. The value is a timestamp in milliseconds.
+     *
+     * - If the **Asc** parameter is set to 0, you can specify this value for the **EndTime** parameter when you call this operation again to query the next page of event records.
+     * - If the **Asc** parameter is set to 1, you can specify this value for the **StartTime** parameter when you call this operation again to query the next page of event records.
      * @example 1579163099000
      *
      * @var int
@@ -22,6 +28,11 @@ class data extends Model
     public $nextTime;
 
     /**
+     * @description Indicates whether the next page exists.
+     *
+     *   **true**: The next page exists. The value of the **NextTime** parameter is returned. For more information, see the description of the **NextTime** parameter in this topic.
+     *   **false**: The next page does not exist.
+     *
      * @example true
      *
      * @var bool

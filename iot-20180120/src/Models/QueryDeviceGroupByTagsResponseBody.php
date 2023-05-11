@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupByTagsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $code;
 
     /**
+     * @description The group information returned if the call succeeds.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +42,8 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $page;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +51,8 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +60,8 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9599EE98-1642-4FCD-BFC4-039E458A4693
      *
      * @var string
@@ -55,6 +69,11 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class QueryDeviceGroupByTagsResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of records.
+     *
      * @example 1
      *
      * @var int

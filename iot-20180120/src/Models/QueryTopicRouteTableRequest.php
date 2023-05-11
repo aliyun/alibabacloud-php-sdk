@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicRouteTableRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -16,6 +22,8 @@ class QueryTopicRouteTableRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The source topic that publishes messages.
+     *
      * @example /x7aWKW94bb8/testDataToDataHub/user/update
      *
      * @var string

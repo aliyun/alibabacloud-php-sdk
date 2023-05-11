@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class modelVersions extends Model
 {
     /**
+     * @description The description of the TSL model version.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp when the TSL model version was published. The time is displayed in UTC. Unit: milliseconds.
+     *
      * @example 1579235657535
      *
      * @var int
@@ -21,6 +25,8 @@ class modelVersions extends Model
     public $gmtCreate;
 
     /**
+     * @description The version number of the TSL model.
+     *
      * @example V1.0.0
      *
      * @var string

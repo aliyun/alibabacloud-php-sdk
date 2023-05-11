@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProductTagsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class CreateProductTagsResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The invalid product tags returned if the call fails.
+     *
      * @var invalidProductTags
      */
     public $invalidProductTags;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +42,11 @@ class CreateProductTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful. The tags were attached to the product.
+     *   **false**: The call failed. This value indicates that the tags failed to be attached to the product.
+     *
      * @example true
      *
      * @var bool

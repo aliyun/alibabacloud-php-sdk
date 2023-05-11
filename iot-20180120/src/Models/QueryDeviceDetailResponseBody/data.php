@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
      * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
      *
      * @var string
@@ -23,6 +27,9 @@ class data extends Model
     public $deviceSecret;
 
     /**
+     * @description The version number of the default OTA module of the device.
+     *
+     * If you want to query the version information about other OTA modules, call the [ListOTAModuleVersionsByDevice](~~190622~~) operation. The version information is submitted by the device.
      * @example V1.0.0.0
      *
      * @var string
@@ -30,6 +37,8 @@ class data extends Model
     public $firmwareVersion;
 
     /**
+     * @description The time when the device was activated. The time is in the GMT format.
+     *
      * @example 2018-08-06 10:48:41
      *
      * @var string
@@ -37,6 +46,8 @@ class data extends Model
     public $gmtActive;
 
     /**
+     * @description The time when the device was created. The time is in the GMT format.
+     *
      * @example 2018-08-06 10:47:50
      *
      * @var string
@@ -44,6 +55,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The most recent time when the device was online. The time is in the GMT format.
+     *
      * @example 2018-08-06 13:43:12
      *
      * @var string
@@ -51,6 +64,8 @@ class data extends Model
     public $gmtOnline;
 
     /**
+     * @description The ID of the device. The ID is the unique identifier that is issued by IoT Platform to the device.
+     *
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -58,6 +73,8 @@ class data extends Model
     public $iotId;
 
     /**
+     * @description The IP address of the device.
+     *
      * @example 10.0.0.1
      *
      * @var string
@@ -65,6 +82,8 @@ class data extends Model
     public $ipAddress;
 
     /**
+     * @description The alias of the device.
+     *
      * @example detectors_in_beijing
      *
      * @var string
@@ -72,6 +91,11 @@ class data extends Model
     public $nickname;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **0**: device. Sub-devices cannot be attached to a device. A device can connect to IoT Platform directly or as a sub-device of a gateway.
+     *   **1**: gateway. Sub-devices can be attached to a gateway. A gateway can manage sub-devices, maintain the topological relationships with sub-devices, and synchronize the topological relationships to IoT Platform.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +103,8 @@ class data extends Model
     public $nodeType;
 
     /**
+     * @description Indicates whether the operation is called by the owner of the device.
+     *
      * @example true
      *
      * @var bool
@@ -86,6 +112,8 @@ class data extends Model
     public $owner;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1rYuVF****
      *
      * @var string
@@ -93,6 +121,8 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the device belongs.
+     *
      * @example test
      *
      * @var string
@@ -100,6 +130,8 @@ class data extends Model
     public $productName;
 
     /**
+     * @description The ID of the region where the device resides. The region is the same as the region where IoT Platform resides. You can view the region in the IoT Platform console.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -107,6 +139,13 @@ class data extends Model
     public $region;
 
     /**
+     * @description The device status. Valid values: Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example ONLINE
      *
      * @var string
@@ -114,6 +153,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The time when the device was activated. The time is in the UTC format.
+     *
      * @example 2018-08-06T02:48:41.000Z
      *
      * @var string
@@ -121,6 +162,8 @@ class data extends Model
     public $utcActive;
 
     /**
+     * @description The time when the device was created. The time is in the UTC format.
+     *
      * @example 2018-08-06T02:47:50.000Z
      *
      * @var string
@@ -128,6 +171,8 @@ class data extends Model
     public $utcCreate;
 
     /**
+     * @description The most recent time when the device was online. The time is in the UTC format.
+     *
      * @example 2018-08-06T05:43:12.000Z
      *
      * @var string

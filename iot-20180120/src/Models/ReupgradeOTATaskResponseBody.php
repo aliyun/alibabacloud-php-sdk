@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReupgradeOTATaskResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class ReupgradeOTATaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 291438BA-6E10-4C4C-B761-243B9A0D324F
      *
      * @var string
@@ -28,6 +34,11 @@ class ReupgradeOTATaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class propertyStatusInfo extends Model
 {
     /**
+     * @description The data type of the property. Valid values:
+     *
+     *   **int**: integer
+     *   **float**: single-precision floating-point number
+     *   **double**: double-precision floating-point number
+     *   **enum**: enumeration
+     *   **bool**: Boolean
+     *   **text**: character
+     *   **date**: time (string-type UTC timestamp in milliseconds)
+     *   **array**: array
+     *   **struct**: structure
+     *
      * @example int
      *
      * @var string
@@ -16,13 +28,17 @@ class propertyStatusInfo extends Model
     public $dataType;
 
     /**
-     * @example Temperture
+     * @description The identifier of the property.
+     *
+     * @example Temperature
      *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The name of the property.
+     *
      * @example temperature
      *
      * @var string
@@ -30,6 +46,8 @@ class propertyStatusInfo extends Model
     public $name;
 
     /**
+     * @description The time when the property was modified, in milliseconds.
+     *
      * @example 1517553572362
      *
      * @var string
@@ -37,6 +55,8 @@ class propertyStatusInfo extends Model
     public $time;
 
     /**
+     * @description The unit of the property value.
+     *
      * @example °C
      *
      * @var string
@@ -44,6 +64,8 @@ class propertyStatusInfo extends Model
     public $unit;
 
     /**
+     * @description The value of the property.
+     *
      * @example 25
      *
      * @var string

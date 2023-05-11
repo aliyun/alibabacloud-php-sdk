@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class simpleDeviceInfo extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -16,6 +18,8 @@ class simpleDeviceInfo extends Model
     public $deviceName;
 
     /**
+     * @description The secret of the device.
+     *
      * @example sLefbFmN9SYfnWLJTePG893XNuRV****
      *
      * @var string
@@ -23,6 +27,8 @@ class simpleDeviceInfo extends Model
     public $deviceSecret;
 
     /**
+     * @description The time when the device was created. The time is displayed in UTC.
+     *
      * @example 2021-02-18 10:46:32
      *
      * @var string
@@ -30,6 +36,8 @@ class simpleDeviceInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the device information was last modified. The time is displayed in UTC.
+     *
      * @example 2021-02-18 10:46:32
      *
      * @var string
@@ -37,6 +45,8 @@ class simpleDeviceInfo extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the device.
+     *
      * @example Av8NGHGtwPrH9BYGLMBi00****
      *
      * @var string
@@ -44,6 +54,8 @@ class simpleDeviceInfo extends Model
     public $iotId;
 
     /**
+     * @description The alias of the device.
+     *
      * @example SensorInShanghai
      *
      * @var string
@@ -51,6 +63,8 @@ class simpleDeviceInfo extends Model
     public $nickname;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -58,6 +72,13 @@ class simpleDeviceInfo extends Model
     public $productKey;
 
     /**
+     * @description The status of the device. Valid values:
+     *
+     *   **UNACTIVE**: The device is not activated.
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example ONLINE
      *
      * @var string
@@ -65,6 +86,8 @@ class simpleDeviceInfo extends Model
     public $status;
 
     /**
+     * @description The time when the device was created. The time is displayed in UTC.
+     *
      * @example 2021-02-18T02:46:32.000Z
      *
      * @var string
@@ -72,6 +95,8 @@ class simpleDeviceInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the device information was last modified. The time is displayed in UTC.
+     *
      * @example 2021-02-18T02:46:32.000Z
      *
      * @var string

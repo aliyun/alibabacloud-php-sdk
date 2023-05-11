@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class PublishThingModelRequest extends Model
 {
     /**
+     * @description The description of the TSL model version.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -21,6 +29,9 @@ class PublishThingModelRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The version number of the TSL model.
+     *
+     * The version number must be 1 to 16 characters in length and can contain letters, digits, and periods (.).
      * @example v1.0.0
      *
      * @var string
@@ -28,6 +39,9 @@ class PublishThingModelRequest extends Model
     public $modelVersion;
 
     /**
+     * @description The ProductKey of the product.
+     *
+     * You can view the ProductKey on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
      * @example a1BwAGV****
      *
      * @var string
@@ -35,6 +49,9 @@ class PublishThingModelRequest extends Model
     public $productKey;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * >  You cannot specify this parameter.
      * @example rg-acfm4l5tcwd****
      *
      * @var string

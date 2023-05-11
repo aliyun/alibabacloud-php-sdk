@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTAJobByFirmwareRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class ListOTAJobByFirmwareRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the update package.
+     *
+     * You can call the [ListOTAFirmware](~~147450~~) operation and view the update package ID in the response.
      * @example FJFx8JzpnhpIsKftRjjm03****
      *
      * @var string
@@ -23,6 +28,12 @@ class ListOTAJobByFirmwareRequest extends Model
     public $firmwareId;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -30,6 +41,8 @@ class ListOTAJobByFirmwareRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 200.
+     *
      * @example 10
      *
      * @var int

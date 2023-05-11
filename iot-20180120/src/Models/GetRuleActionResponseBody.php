@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleActionResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,11 +19,18 @@ class GetRuleActionResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example F2D0755D-F350-40FE-9A6D-491859DB5E5F
      *
      * @var string
@@ -29,11 +38,18 @@ class GetRuleActionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the rule action forwarded error operation data that failed to be forwarded to the destination cloud service. A data forwarding failure indicates that forwarding retries also failed.
+     *
+     *   **true**: forwards error operation data.
+     *   **false**: forwards normal data instead of error operation data.
+     *
      * @var ruleActionInfo
      */
     public $ruleActionInfo;
 
     /**
+     * @description The rule action information returned if the call was successful. For more information, see the following parameters.
+     *
      * @example true
      *
      * @var bool

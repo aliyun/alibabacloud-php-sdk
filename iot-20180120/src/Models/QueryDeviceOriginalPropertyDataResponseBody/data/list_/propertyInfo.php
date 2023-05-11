@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyInfo extends Model
 {
     /**
+     * @description The time when the property was modified.
+     *
      * @example 1516541885630
      *
      * @var string
@@ -16,6 +18,8 @@ class propertyInfo extends Model
     public $time;
 
     /**
+     * @description The value of the property.
+     *
      * @example 2
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class desiredPropertyInfo extends Model
 {
     /**
+     * @description The data type of the property.
+     *
      * @example int
      *
      * @var string
@@ -16,6 +18,8 @@ class desiredPropertyInfo extends Model
     public $dataType;
 
     /**
+     * @description The identifier of the property.
+     *
      * @example Temperature
      *
      * @var string
@@ -23,6 +27,8 @@ class desiredPropertyInfo extends Model
     public $identifier;
 
     /**
+     * @description The name of the property.
+     *
      * @example airconditioning
      *
      * @var string
@@ -30,6 +36,8 @@ class desiredPropertyInfo extends Model
     public $name;
 
     /**
+     * @description The time when the desired value of the property was last modified. Unit: milliseconds.
+     *
      * @example 1579335899000
      *
      * @var string
@@ -37,6 +45,8 @@ class desiredPropertyInfo extends Model
     public $time;
 
     /**
+     * @description The unit of the property.
+     *
      * @example ℃
      *
      * @var string
@@ -44,6 +54,9 @@ class desiredPropertyInfo extends Model
     public $unit;
 
     /**
+     * @description The desired value of the property.
+     *
+     * >  If you call the [ClearDeviceDesiredProperty](~~477431~~) operation to delete the desired value of the property, the **Value** parameter is not returned.
      * @example 34
      *
      * @var string
@@ -51,6 +64,8 @@ class desiredPropertyInfo extends Model
     public $value;
 
     /**
+     * @description The version of the desired value.
+     *
      * @example 1
      *
      * @var int

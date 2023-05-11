@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeDriverResponseBody extends Model
 {
     /**
+     * @description The error code. Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class BatchGetEdgeDriverResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about each driver.
+     *
      * @var driverList[]
      */
     public $driverList;
 
     /**
+     * @description The error message returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -29,6 +35,8 @@ class BatchGetEdgeDriverResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A42CAB88-6E26-4DC7-9A35-584D17E82DE0
      *
      * @var string
@@ -36,6 +44,8 @@ class BatchGetEdgeDriverResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. true indicates that the call was successful. false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

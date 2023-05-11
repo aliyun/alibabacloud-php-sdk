@@ -15,6 +15,8 @@ class BatchCheckVehicleDeviceRequest extends Model
     public $deviceList;
 
     /**
+     * @description BatchCheckVehicleDevice
+     *
      * @example iot-1n8t****
      *
      * @var string

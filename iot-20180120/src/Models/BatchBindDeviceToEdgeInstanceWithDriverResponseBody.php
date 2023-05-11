@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchBindDeviceToEdgeInstanceWithDriverResponseBody extends Model
 {
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchBindDeviceToEdgeInstanceWithDriverResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class BatchBindDeviceToEdgeInstanceWithDriverResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example BFFA9519-6AF1-4D15-AFAF-FD412714C1BE
      *
      * @var string

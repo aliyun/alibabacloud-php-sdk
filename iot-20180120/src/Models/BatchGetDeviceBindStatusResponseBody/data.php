@@ -16,6 +16,10 @@ class data extends Model
     public $bindStatus;
 
     /**
+     * @description 实例ID。
+     *
+     * @example iot-v64********
+     *
      * @var string
      */
     public $instanceId;

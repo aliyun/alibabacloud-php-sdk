@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceDistributeJobRequest extends Model
 {
     /**
+     * @description The ID of the distribution task. The ID globally identifies the task.
+     *
      * @example UbmsMHmkqv0PiAG****010001
      *
      * @var string

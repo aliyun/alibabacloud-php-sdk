@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.prod.NullProductKey
      *
      * @var string
@@ -16,11 +18,15 @@ class DeleteDeviceResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 57b144cf-09fc-4916-a272-a62902d5b207
      *
      * @var string
@@ -28,6 +34,11 @@ class DeleteDeviceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example false
      *
      * @var bool

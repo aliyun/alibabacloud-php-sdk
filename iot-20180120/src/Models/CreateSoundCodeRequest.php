@@ -23,11 +23,15 @@ class CreateSoundCodeRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @example TEST123
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example OPEN
+     *
      * @var string
      */
     public $openType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,13 @@ class QueryDeviceRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the instance. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     *
+     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.
+     * >*   If no **Overview** page or **ID** is generated for your instance, you do not need to configure this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -23,6 +32,12 @@ class QueryDeviceRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The token that is used to retrieve the next page of the query results. The first time you perform a query operation, you do not need to configure this parameter. You must specify the token that is obtained from the previous query for the **NextToken** parameter.
+     *
+     * If the product of the value of the **PageSize** parameter and the value of the **CurrentPage** parameter is greater than 10,000, you must configure the **NextToken** parameter. Otherwise, data cannot be returned.
+     *
+     *
+     * >If you configure the **NextToken** parameter, the product of the value of the **PageSize** parameter and the value of the **CurrentPage** parameter must be less than 1,000,000. Otherwise, data cannot be returned.
      * @example TGlzdFJlc291cm***
      *
      * @var string
@@ -30,6 +45,8 @@ class QueryDeviceRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +54,8 @@ class QueryDeviceRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateThingModelRequest extends Model
 {
     /**
+     * @description The identifier of the custom TSL module. Each identifier is unique in a product. The identifier must be 1 to 30 characters in length, and can contain letters, digits, and underscores (\_).
+     *
+     * This parameter must be used in combination with the **FunctionBlockName** parameter. If you do not specify this parameter, the system imports the default module.
      * @example BatteryModule
      *
      * @var string
@@ -16,11 +19,20 @@ class CreateThingModelRequest extends Model
     public $functionBlockId;
 
     /**
+     * @description The name of the custom module. The name must be 4 to 30 characters in length, and can contain letters, digits, and underscores (\_).
+     *
+     * This parameter must be used in combination with the **FunctionBlockId** parameter. If you do not specify this parameter, the system imports the default module.
      * @var string
      */
     public $functionBlockName;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -28,6 +40,9 @@ class CreateThingModelRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the product.
+     *
+     * You can view the ProductKey on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
      * @example a1BwAGV****
      *
      * @var string
@@ -35,6 +50,15 @@ class CreateThingModelRequest extends Model
     public $productKey;
 
     /**
+     * @description The details of the new features.
+     *
+     * "name": "Device information",
+     * "productKey": "a1T***",
+     * "name": "Dehumidifier humidity",
+     * "productKey": "a1T***",
+     * ```
+     *
+     * In the **properties** structure of the **ThingModelJson** parameter, you can use the **extendConfig** parameter to define the extended information of the TSL model. For more information, see [Data structure of ThingModelJson](~~150457~~).
      * @var string
      */
     public $thingModelJson;

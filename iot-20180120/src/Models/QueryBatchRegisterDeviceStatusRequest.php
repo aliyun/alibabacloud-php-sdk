@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBatchRegisterDeviceStatusRequest extends Model
 {
     /**
+     * @description The application ID. If the call of the [BatchRegisterDeviceWithApplyId](~~69514~~) or [BatchRegisterDevice](~~69473~~) operation is successful, the application ID is returned.
+     *
      * @example 1295006
      *
      * @var int
@@ -16,6 +18,15 @@ class QueryBatchRegisterDeviceStatusRequest extends Model
     public $applyId;
 
     /**
+     * @description The ID of the instance. You can view the ID of the instance on the **Overview** page in the IoT Platform console.
+     *
+     *
+     **Important**
+     *
+     *   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.
+     *   If no **Overview** page or ID is generated for your instance, you do not need configure this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -23,6 +34,8 @@ class QueryBatchRegisterDeviceStatusRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string

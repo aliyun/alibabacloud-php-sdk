@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of activated devices.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $activeCount;
 
     /**
+     * @description The total number of devices.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $deviceCount;
 
     /**
+     * @description The number of online devices.
+     *
      * @example 10
      *
      * @var int

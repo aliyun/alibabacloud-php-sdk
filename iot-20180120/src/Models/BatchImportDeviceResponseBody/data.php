@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody\data\invalidDetailList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody\data\invalidDeviceNameList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody\data\invalidDeviceSecretList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody\data\invalidSnList;
@@ -18,6 +19,11 @@ class data extends Model
      * @var int
      */
     public $applyId;
+
+    /**
+     * @var invalidDetailList
+     */
+    public $invalidDetailList;
 
     /**
      * @var invalidDeviceNameList
@@ -40,6 +46,7 @@ class data extends Model
     public $repeatedDeviceNameList;
     protected $_name = [
         'applyId'                 => 'ApplyId',
+        'invalidDetailList'       => 'InvalidDetailList',
         'invalidDeviceNameList'   => 'InvalidDeviceNameList',
         'invalidDeviceSecretList' => 'InvalidDeviceSecretList',
         'invalidSnList'           => 'InvalidSnList',
@@ -55,6 +62,9 @@ class data extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['ApplyId'] = $this->applyId;
+        }
+        if (null !== $this->invalidDetailList) {
+            $res['InvalidDetailList'] = null !== $this->invalidDetailList ? $this->invalidDetailList->toMap() : null;
         }
         if (null !== $this->invalidDeviceNameList) {
             $res['InvalidDeviceNameList'] = null !== $this->invalidDeviceNameList ? $this->invalidDeviceNameList->toMap() : null;
@@ -82,6 +92,9 @@ class data extends Model
         $model = new self();
         if (isset($map['ApplyId'])) {
             $model->applyId = $map['ApplyId'];
+        }
+        if (isset($map['InvalidDetailList'])) {
+            $model->invalidDetailList = invalidDetailList::fromMap($map['InvalidDetailList']);
         }
         if (isset($map['InvalidDeviceNameList'])) {
             $model->invalidDeviceNameList = invalidDeviceNameList::fromMap($map['InvalidDeviceNameList']);

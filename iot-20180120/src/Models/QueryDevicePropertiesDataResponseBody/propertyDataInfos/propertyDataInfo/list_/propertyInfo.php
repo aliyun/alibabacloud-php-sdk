@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyInfo extends Model
 {
     /**
+     * @description The time when the property was submitted. The value is a timestamp in milliseconds, such as 1579249499000.
+     *
      * @example 1579249499000
      *
      * @var int
@@ -16,6 +18,8 @@ class propertyInfo extends Model
     public $time;
 
     /**
+     * @description The value of the property.
+     *
      * @example 21.3
      *
      * @var string

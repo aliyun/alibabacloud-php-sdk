@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceDistributeDetailResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class QueryDeviceDistributeDetailResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The URL of the file that contains the distribution result. The URL indicates a storage location of the file in Object Storage Service (OSS). The URL is valid for 10 minutes.
+     *
      * @example https://iotx-***.oss-cn-shanghai.aliyuncs.com/job***\/7u***
      *
      * @var string
@@ -28,6 +34,8 @@ class QueryDeviceDistributeDetailResponseBody extends Model
     public $file;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -35,6 +43,11 @@ class QueryDeviceDistributeDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

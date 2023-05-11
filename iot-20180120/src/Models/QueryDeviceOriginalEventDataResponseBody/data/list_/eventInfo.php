@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class eventInfo extends Model
 {
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   info: information.
+     *   alert: alert.
+     *   error: error.
+     *
      * @example info
      *
      * @var string
@@ -16,6 +22,8 @@ class eventInfo extends Model
     public $eventType;
 
     /**
+     * @description The identifier of the event.
+     *
      * @example PowerOff
      *
      * @var string
@@ -23,11 +31,15 @@ class eventInfo extends Model
     public $identifier;
 
     /**
+     * @description The name of the event.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The output parameter of the event. The value is a string in the MAP format.
+     *
      * @example {"structArgs":{"structchildFLOATf71c20e":1.23}}
      *
      * @var string
@@ -35,6 +47,8 @@ class eventInfo extends Model
     public $outputData;
 
     /**
+     * @description The time when the event occurred. The value is a 13-digit timestamp in milliseconds.
+     *
      * @example 1579163099000
      *
      * @var string

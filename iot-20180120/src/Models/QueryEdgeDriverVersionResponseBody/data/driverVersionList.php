@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class driverVersionList extends Model
 {
     /**
+     * @description The Java Virtual Machine (JVM) startup parameter.
+     *
      * @example -XX:+PrintGCDetails
      *
      * @var string
@@ -16,6 +18,13 @@ class driverVersionList extends Model
     public $argument;
 
     /**
+     * @description The rule for verifying configurations. The value is a JSON string in the following format:
+     *
+     * The JSON string contains the following parameters:
+     *
+     *   driverConfig: the rule for verifying the configuration of the driver when the driver is to be deployed in an edge instance.
+     *   deviceConfig: the rule for verifying the configurations of devices that use the driver when the driver is to be deployed in an edge instance.
+     *
      * @example {\"deviceConfig\":{\"required\":false},\"driverConfig\":{\"required\":false}}
      *
      * @var string
@@ -23,6 +32,8 @@ class driverVersionList extends Model
     public $configCheckRule;
 
     /**
+     * @description The configuration of the container where the driver runs. The value is a JSON string. For more information about parameters in the JSON string, see the following parameter description of ContainerConfig.
+     *
      * @example {\"devMappings\":[],\"hostNetworkMode\":0,\"portMappings\":[],\"privileged\":1,\"volumeMappings\":[]}
      *
      * @var string
@@ -30,11 +41,20 @@ class driverVersionList extends Model
     public $containerConfig;
 
     /**
+     * @description The description of the driver.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The configuration of the driver. The value is a JSON string in the following format:
+     *
+     * The JSON string contains the following parameters:
+     *
+     *   format: the format of the driver configuration. Valid values: KV (key-value pair), JSON (JSON string), and FILE (configuration file).
+     *   content: the content of the driver configuration. If the format parameter is set to KV or JSON, the value of this parameter is the configuration content. If the format parameter is set to FILE, the value of this parameter is the URL of the configuration file stored in Object Storage Service (OSS).
+     *
      * @example [{\"content\":\"{\\\"defaultConfig\\\":\\\"this is default driver config demo\\\"}\",\"format\":\"JSON\"}]
      *
      * @var string
@@ -42,6 +62,8 @@ class driverVersionList extends Model
     public $driverConfig;
 
     /**
+     * @description The ID of the driver.
+     *
      * @example fec565038d7544978d9aed5c1a******
      *
      * @var string
@@ -49,6 +71,8 @@ class driverVersionList extends Model
     public $driverId;
 
     /**
+     * @description The version number of the driver.
+     *
      * @example 1.2.0
      *
      * @var string
@@ -56,6 +80,8 @@ class driverVersionList extends Model
     public $driverVersion;
 
     /**
+     * @description The earliest version of Link IoT Edge that is supported by the driver.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -63,6 +89,8 @@ class driverVersionList extends Model
     public $edgeVersion;
 
     /**
+     * @description The UNIX timestamp when the driver was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -70,6 +98,8 @@ class driverVersionList extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last UNIX timestamp when the driver was updated.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -84,6 +114,11 @@ class driverVersionList extends Model
     public $sourceConfig;
 
     /**
+     * @description The status of the driver version. Valid values:
+     *
+     *   0: The driver version was not published.
+     *   1: The driver version was published.
+     *
      * @example 0
      *
      * @var string

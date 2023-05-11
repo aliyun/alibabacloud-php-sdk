@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListOTAModuleByProductRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -16,6 +22,8 @@ class ListOTAModuleByProductRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product.
+     *
      * @example a1uctKe****
      *
      * @var string

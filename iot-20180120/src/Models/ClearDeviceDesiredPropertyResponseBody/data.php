@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The latest version of the desired values of the properties after you call this operation to delete the specified desired property values.
+     *
      * @example {\"temperature\":0}
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAStaticUpgradeJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example MissingFirmwareId
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateOTAStaticUpgradeJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The update batch information returned if the call is successful. For more information, see Data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example FirmwareId is mandatory for this action.
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateOTAStaticUpgradeJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 29EC7245-0FA4-4BB6-B4F5-5F04818FDFB1
      *
      * @var string
@@ -36,6 +44,11 @@ class CreateOTAStaticUpgradeJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

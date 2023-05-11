@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceFileListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class QueryDeviceFileListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The DeviceName of the device.
+     *
+     * >  If you specify this parameter, you must also specify the **ProductKey** parameter.
      * @example light
      *
      * @var string
@@ -23,6 +28,9 @@ class QueryDeviceFileListRequest extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the device. The device ID is issued by IoT Platform.
+     *
+     * >  If you specify this parameter, you do not need to specify **ProductKey** or **DeviceName**. The **IotId** parameter specifies a globally unique identifier (GUID) of the device, which corresponds to a combination of **ProductKey** and **DeviceName**. If you specify both **IotId** and the combination of **ProductKey** and **DeviceName**, **IotId** takes precedence.
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -30,6 +38,12 @@ class QueryDeviceFileListRequest extends Model
     public $iotId;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -37,6 +51,8 @@ class QueryDeviceFileListRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 200. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +60,9 @@ class QueryDeviceFileListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
+     * >  If you specify this parameter, you must also specify the **DeviceName** parameter.
      * @example a1BwAGV****
      *
      * @var string

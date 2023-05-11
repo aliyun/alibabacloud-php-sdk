@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @description The DeviceName of the sub-device.
+     *
      * @example light
      *
      * @var string
@@ -16,6 +18,8 @@ class deviceInfo extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the sub-device. The ID is the unique identifier that is issued by IoT Platform to the sub-device.
+     *
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -23,6 +27,8 @@ class deviceInfo extends Model
     public $iotId;
 
     /**
+     * @description The ProductKey of the product to which the sub-device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTATaskByJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class ListOTATaskByJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,22 @@ class ListOTATaskByJobResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The update task information returned if the call is successful. For more information, see **SimpleOTATaskInfo**.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +51,8 @@ class ListOTATaskByJobResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +60,8 @@ class ListOTATaskByJobResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A59D3BE1-E9A3-43F3-9B50-B7C8DE165D9B
      *
      * @var string
@@ -55,6 +69,11 @@ class ListOTATaskByJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class ListOTATaskByJobResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of update tasks.
+     *
      * @example 2
      *
      * @var int

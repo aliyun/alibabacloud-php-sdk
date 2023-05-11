@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class propertyDataInfo extends Model
 {
     /**
+     * @description The identifier of the property.
+     *
      * @example temperature
      *
      * @var string
@@ -17,6 +19,8 @@ class propertyDataInfo extends Model
     public $identifier;
 
     /**
+     * @description The list of property records.
+     *
      * @var list_
      */
     public $list;

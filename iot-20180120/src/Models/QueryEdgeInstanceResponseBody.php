@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call failed.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryEdgeInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example request parameter error
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryEdgeInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful. true: indicates that the call was successful. false: indicates that the call failed.
+     *
      * @example 199BBC5D-FC99-46CB-88E2-FB98E92446FA
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryEdgeInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The data returned if the call was successful.
+     *
      * @example true
      *
      * @var bool

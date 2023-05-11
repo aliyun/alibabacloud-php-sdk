@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class device extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example ZHuPo6sZzv7pOzYh****
      *
      * @var string
@@ -16,6 +18,8 @@ class device extends Model
     public $deviceName;
 
     /**
+     * @description The names of the devices to be added. You can specify a maximum of 200 devices.
+     *
      * @example a1kORrK****
      *
      * @var string

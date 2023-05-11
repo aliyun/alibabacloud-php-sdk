@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The time when the edge instance was created.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class instanceList extends Model
     public $bizEnable;
 
     /**
+     * @description The name of the edge instance.
+     *
      * @example 2019-07-17 14:34:28
      *
      * @var string
@@ -30,6 +34,11 @@ class instanceList extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The type of the latest deployment task.
+     *
+     *   deploy: deploys the edge instance.
+     *   Reset: resets the edge instance.
+     *
      * @example 2019-07-17 14:51:38
      *
      * @var string
@@ -44,6 +53,8 @@ class instanceList extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The name of the RAM role.
+     *
      * @example 9iqyQAKDb2aYGVKa****
      *
      * @var string
@@ -51,6 +62,11 @@ class instanceList extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the edge instance was enabled.
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +74,13 @@ class instanceList extends Model
     public $latestDeploymentStatus;
 
     /**
+     * @description The status of the latest deployment task.
+     *
+     *   0: The task has not started.
+     *   1: The task is being processed.
+     *   2: The task was successful.
+     *   3: The task failed.
+     *
      * @example deploy
      *
      * @var string
@@ -72,6 +95,8 @@ class instanceList extends Model
     public $name;
 
     /**
+     * @description The time when the RAM role was attached to IoT Platform.
+     *
      * @example acs:ram::1473922805******:role/aliyuniotaccessingfcrole
      *
      * @var string
@@ -79,6 +104,12 @@ class instanceList extends Model
     public $roleArn;
 
     /**
+     * @description The specification of the edge instance.
+     *
+     *   10: Lite Edition.
+     *   20: Standard Edition.
+     *   30: Pro Edition.
+     *
      * @example 2020-02-19 11:25:48
      *
      * @var string
@@ -93,6 +124,8 @@ class instanceList extends Model
     public $roleAttachTimestamp;
 
     /**
+     * @description The time when the edge instance was last updated.
+     *
      * @example AliyunIOTAccessingFCRole
      *
      * @var string
@@ -100,6 +133,8 @@ class instanceList extends Model
     public $roleName;
 
     /**
+     * @description The tags of the edge instance.
+     *
      * @example 30
      *
      * @var int
@@ -107,6 +142,8 @@ class instanceList extends Model
     public $spec;
 
     /**
+     * @description The ID of the edge instance.
+     *
      * @example k1:v1,k2:v2
      *
      * @var string
@@ -114,6 +151,8 @@ class instanceList extends Model
     public $tags;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     *
      * @example 0
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @description The information about each driver.
+     *
      * @var driverList[]
      */
     public $driverList;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 15
      *
      * @var int
@@ -29,6 +35,11 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of official or custom drivers found.
+     *
+     *   If the value of Type is 0, the value of this parameter is the total number of official drivers found.
+     *   If the value of Type is 1, the value of this parameter is the total number of custom drivers found.
+     *
      * @example 1
      *
      * @var int

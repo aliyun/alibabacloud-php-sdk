@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDeviceGroupRelationsResponseBody extends Model
 {
     /**
+     * @description The number of devices that exist in the group.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $alreadyRelatedGroupDeviceCount;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -23,11 +27,15 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8739385E-143F-4389-B900-B7DF9174CE0D
      *
      * @var string
@@ -35,6 +43,11 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +55,8 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $success;
 
     /**
+     * @description The number of devices that are removed from the group.
+     *
      * @example 2
      *
      * @var int
@@ -49,6 +64,8 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $successDeviceCount;
 
     /**
+     * @description The number of valid devices that you specified.
+     *
      * @example 2
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceGatewayResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -17,6 +19,8 @@ class QueryEdgeInstanceGatewayResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -24,11 +28,15 @@ class QueryEdgeInstanceGatewayResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The data that is returned if the call was successful.
+     *
      * @var gatewayList[]
      */
     public $gatewayList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 28D159F4-980F-423D-95F0-F705E9DFC016
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryEdgeInstanceGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

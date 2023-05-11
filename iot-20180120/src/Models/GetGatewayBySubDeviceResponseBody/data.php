@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The DeviceName of the gateway.
+     *
      * @example gateway
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the gateway.
+     *
      * @example dCYdTU3gw5Z77bsHjPk6lPHPVnBT****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $deviceSecret;
 
     /**
+     * @description The firmware version number of the device.
+     *
      * @example V1.0.1
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $firmwareVersion;
 
     /**
+     * @description The activation time of the gateway. The time is displayed in GMT. The time is the local time of the region where the gateway resides.
+     *
      * @example 2019-12-18 23:25:30
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $gmtActive;
 
     /**
+     * @description The creation time of the gateway. The time is displayed in GMT. The time is the local time of the region where the gateway resides.
+     *
      * @example 2019-12-18 16:58:33
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The last online time of the gateway. The time is displayed in GMT. The time is the local time of the region where the gateway resides.
+     *
      * @example 2020-01-20 17:41:04
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $gmtOnline;
 
     /**
+     * @description The IP address of the gateway.
+     *
      * @example 106.**.1**.**
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $ipAddress;
 
     /**
+     * @description The node type. The value 1 indicates that the device is a gateway.
+     *
      * @example 1
      *
      * @var string
@@ -65,6 +81,8 @@ class data extends Model
     public $nodeType;
 
     /**
+     * @description The **ProductKey** of the product to which the gateway belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -72,6 +90,8 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the gateway belongs.
+     *
      * @example LinkIoT
      *
      * @var string
@@ -79,6 +99,13 @@ class data extends Model
     public $productName;
 
     /**
+     * @description The status of the gateway device. Valid values:
+     *
+     *   **online**: The device is online.
+     *   **offline**: The device is offline.
+     *   **unactive**: The device is not activated.
+     *   **disable**: The device is disabled.
+     *
      * @example online
      *
      * @var string
@@ -86,6 +113,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The activation time of the gateway. The time is displayed in UTC. The actual time of the region where the gateway resides is calculated based on the time zone of the region.
+     *
      * @example 2019-12-18T15:25:30.176Z
      *
      * @var string
@@ -93,6 +122,8 @@ class data extends Model
     public $utcActive;
 
     /**
+     * @description The creation time of the gateway. The time is displayed in UTC. The actual time of the region where the gateway resides is calculated based on the time zone of the region.
+     *
      * @example 2019-12-18T08:58:33.000Z
      *
      * @var string
@@ -100,6 +131,8 @@ class data extends Model
     public $utcCreate;
 
     /**
+     * @description The last online time of the gateway. The time is displayed in UTC. The actual time of the region where the gateway resides is calculated based on the time zone of the region.
+     *
      * @example 2020-01-20T09:41:04.879Z
      *
      * @var string
@@ -107,6 +140,8 @@ class data extends Model
     public $utcOnline;
 
     /**
+     * @description The ID of the gateway device. The ID is the unique identifier that is issued by IoT Platform to the device.
+     *
      * @example WuyjPSDQE1L22z1d****000100
      *
      * @var string
@@ -114,6 +149,8 @@ class data extends Model
     public $iotId;
 
     /**
+     * @description The region where the gateway resides. This region corresponds to the region that is displayed in the IoT Platform console.
+     *
      * @example cn-shanghai
      *
      * @var string

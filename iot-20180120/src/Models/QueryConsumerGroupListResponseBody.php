@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupListResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class QueryConsumerGroupListResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,22 @@ class QueryConsumerGroupListResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The details about the consumer group. This parameter is returned if the call is successful. For more information, see ConsumerGroupDTO.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 4
      *
      * @var int
@@ -41,6 +51,8 @@ class QueryConsumerGroupListResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 2
      *
      * @var int
@@ -48,6 +60,8 @@ class QueryConsumerGroupListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 73B9DF43-7780-47DE-8BED-077729D28BD2
      *
      * @var string
@@ -55,6 +69,11 @@ class QueryConsumerGroupListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class QueryConsumerGroupListResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 8
      *
      * @var int

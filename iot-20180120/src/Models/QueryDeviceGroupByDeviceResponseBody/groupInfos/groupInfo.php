@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groupInfo extends Model
 {
     /**
+     * @description The description of the group.
+     *
      * @example father desc
      *
      * @var string
@@ -16,6 +18,8 @@ class groupInfo extends Model
     public $groupDesc;
 
     /**
+     * @description The ID of the group.
+     *
      * @example 6a3FF2XE2BKa****
      *
      * @var string
@@ -23,6 +27,8 @@ class groupInfo extends Model
     public $groupId;
 
     /**
+     * @description The name of the group.
+     *
      * @example father1543152336554
      *
      * @var string
@@ -30,6 +36,8 @@ class groupInfo extends Model
     public $groupName;
 
     /**
+     * @description The type of the group.
+     *
      * @example LINK_PLATFORM_DYNAMIC
      *
      * @var string
@@ -37,6 +45,8 @@ class groupInfo extends Model
     public $groupType;
 
     /**
+     * @description The time when the group was created.
+     *
      * @example 2018-11-25T13:25:37.000Z
      *
      * @var string

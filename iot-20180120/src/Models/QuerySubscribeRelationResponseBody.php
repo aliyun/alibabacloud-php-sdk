@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySubscribeRelationResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,18 @@ class QuerySubscribeRelationResponseBody extends Model
     public $code;
 
     /**
+     * @description The IDs of the consumer groups that are created in the AMQP subscription. This parameter is returned if the **Type** parameter is set to **AMQP**.
+     *
      * @var string[]
      */
     public $consumerGroupIds;
 
     /**
+     * @description Indicates whether upstream device messages were pushed.
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +37,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $deviceDataFlag;
 
     /**
+     * @description Indicates whether messages about device lifecycle changes were pushed.
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +49,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $deviceLifeCycleFlag;
 
     /**
+     * @description Indicates whether messages about device status changes were pushed.
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +61,12 @@ class QuerySubscribeRelationResponseBody extends Model
     public $deviceStatusChangeFlag;
 
     /**
+     * @description Indicates whether messages about device tag changes were pushed. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -49,6 +74,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $deviceTagFlag;
 
     /**
+     * @description Indicates whether messages about topological relationship changes of devices were pushed.
+     *
+     *   **true**: yes. The value **true** is returned only when you query a gateway product.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -56,11 +86,18 @@ class QuerySubscribeRelationResponseBody extends Model
     public $deviceTopoLifeCycleFlag;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether messages were pushed if a gateway detected new sub-devices.
+     *
+     *   **true**: yes. The value **true** is returned only when you query a gateway product.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -68,6 +105,9 @@ class QuerySubscribeRelationResponseBody extends Model
     public $foundDeviceListFlag;
 
     /**
+     * @description The configurations of the MNS queue. This parameter is returned if the **Type** parameter is set to **MNS**.
+     *
+     * For more information, see the "Definition of the MnsConfiguration parameter" section.
      * @example {     "queueName": "mns-test-topic1",     "regionName": "cn-shanghai",     "role": {         "roleArn": "acs:ram::5645***:role/aliyuniotaccessingmnsrole",         "roleName": "AliyunIOTAccessingMNSRole"     } }
      *
      * @var string
@@ -75,6 +115,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $mnsConfiguration;
 
     /**
+     * @description Indicates whether notifications about the status of OTA update batches were pushed.
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -82,6 +127,12 @@ class QuerySubscribeRelationResponseBody extends Model
     public $otaEventFlag;
 
     /**
+     * @description Indicates whether notifications about OTA batch updates were pushed. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -89,6 +140,12 @@ class QuerySubscribeRelationResponseBody extends Model
     public $otaJobFlag;
 
     /**
+     * @description Indicates whether messages about the version numbers of OTA modules were pushed. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -96,6 +153,8 @@ class QuerySubscribeRelationResponseBody extends Model
     public $otaVersionFlag;
 
     /**
+     * @description The ProductKey of the product that is specified for the subscription.
+     *
      * @example a1fyXVF****
      *
      * @var string
@@ -103,6 +162,8 @@ class QuerySubscribeRelationResponseBody extends Model
     public $productKey;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 21D327AF-A7DE-4E59-B5D1-ACAC8C024555
      *
      * @var string
@@ -110,11 +171,18 @@ class QuerySubscribeRelationResponseBody extends Model
     public $requestId;
 
     /**
+     * @example {     "jt808DeviceDataFlag": true }
+     *
      * @var string
      */
     public $subscribeFlags;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -122,6 +190,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $success;
 
     /**
+     * @description Indicates whether upstream historical Thing Specification Language (TSL) data was pushed.
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
      * @example true
      *
      * @var bool
@@ -129,6 +202,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public $thingHistoryFlag;
 
     /**
+     * @description The type of the subscription. Valid values:
+     *
+     *   **MNS**
+     *   **AMQP**
+     *
      * @example AMQP
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The features of the TSL model. The TSL data format of the default module is different from the TSL data format of a custom module.
+     *
+     * For more information about the data format of the ThingModelJson parameter, see [Data structure of ThingModelJson](~~150457~~).
      * @var string
      */
     public $thingModelJson;

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckImportDeviceResponseBody;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckImportDeviceResponseBody\data\invalidDetailList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var invalidDetailList[]
+     */
+    public $invalidDetailList;
+
     /**
      * @var string[]
      */
@@ -28,6 +34,7 @@ class data extends Model
      */
     public $repeatedDeviceNameList;
     protected $_name = [
+        'invalidDetailList'       => 'InvalidDetailList',
         'invalidDeviceNameList'   => 'InvalidDeviceNameList',
         'invalidDeviceSecretList' => 'InvalidDeviceSecretList',
         'invalidSnList'           => 'InvalidSnList',
@@ -41,6 +48,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->invalidDetailList) {
+            $res['InvalidDetailList'] = [];
+            if (null !== $this->invalidDetailList && \is_array($this->invalidDetailList)) {
+                $n = 0;
+                foreach ($this->invalidDetailList as $item) {
+                    $res['InvalidDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->invalidDeviceNameList) {
             $res['InvalidDeviceNameList'] = $this->invalidDeviceNameList;
         }
@@ -65,6 +81,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InvalidDetailList'])) {
+            if (!empty($map['InvalidDetailList'])) {
+                $model->invalidDetailList = [];
+                $n                        = 0;
+                foreach ($map['InvalidDetailList'] as $item) {
+                    $model->invalidDetailList[$n++] = null !== $item ? invalidDetailList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['InvalidDeviceNameList'])) {
             if (!empty($map['InvalidDeviceNameList'])) {
                 $model->invalidDeviceNameList = $map['InvalidDeviceNameList'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRuleResponseBody extends Model
 {
     /**
+     * @description The error code that is returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,23 @@ class ListRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The rules returned if the call is successful. For more information, see the "**RuleInfo**" section of this topic.
+     *
+     * >  The returned rules are sorted in reverse-chronological order based on the time when the rules were created.
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +43,8 @@ class ListRuleResponseBody extends Model
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 2
      *
      * @var int
@@ -41,6 +52,8 @@ class ListRuleResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1564B626-DE97-452D-9E9B-305888AC6105
      *
      * @var string
@@ -48,6 +61,11 @@ class ListRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -55,6 +73,8 @@ class ListRuleResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 25
      *
      * @var int

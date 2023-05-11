@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetThingResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class ResetThingResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the device job.
+     *
      * @example 450407b***
      *
      * @var string
@@ -28,6 +34,8 @@ class ResetThingResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 57b144cf-09fc-4916-a272-a62902d5b207
      *
      * @var string
@@ -35,6 +43,8 @@ class ResetThingResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values: **true** indicates that the call was successful. **false** indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

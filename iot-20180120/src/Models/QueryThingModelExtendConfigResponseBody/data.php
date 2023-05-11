@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information of the extended TSL parameters. For more information about the definition of extended parameters, see [CreateThingModel](~~150323~~).
+     *
      * @example {\"profile\":{\"productKey\":\"a114x******\"},\"properties\":[{\"originalDataType\":{\"specs\":{\"registerCount\":1,\"reverseRegister\":0,\"swap16\":0},\"type\":\"bool\"},\"identifier\":\"WakeUpData\",\"registerAddress\":\"0x04\",\"scaling\":1,\"writeFunctionCode\":0,\"operateType\":\"inputStatus\",\"pollingTime\":1000,\"trigger\":1}]}
      *
      * @var string

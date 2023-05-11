@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceDistributeJobRequest extends Model
 {
     /**
+     * @description The names of the devices to be distributed. You can specify a maximum of 10,000 device names.
+     *
      * @example RepeatList
      *
      * @var string[]
@@ -17,6 +19,8 @@ class CreateDeviceDistributeJobRequest extends Model
     public $deviceName;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -24,6 +28,22 @@ class CreateDeviceDistributeJobRequest extends Model
     public $productKey;
 
     /**
+     * @description The ID of the source instance to which the device belongs.
+     *
+     *   The IDs of public instances in different regions:
+     *
+     *   China (Shanghai): iotx-oxssharez200.
+     *   Japan (Tokyo): iotx-oxssharez300.
+     *   Singapore (Singapore): iotx-oxssharez400.
+     *   US (Silicon Valley): iotx-oxssharez500.
+     *   US (Virginia): iotx-oxssharez600.
+     *   Germany (Frankfurt): iotx-oxssharez700.
+     *
+     *   The IDs of Enterprise Edition instances:
+     *
+     * 1\. Log on to the IoT Platform console. Select a region from the drop-down list in the upper-left corner of the top navigation bar.
+     *
+     * 2\. On the **Overview** page, click the instance name. On the **Instance Details** page, view the instance ID in the **Basic Information** section.
      * @example iot-060***
      *
      * @var string
@@ -31,6 +51,11 @@ class CreateDeviceDistributeJobRequest extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The distribution policy. Default value: 0.
+     *
+     *   **0**: distributes devices to instances in a specified region.
+     *   **1**: configures instance IDs in multiple regions and distributes devices to the nearest regions based on the IP addresses of the devices.
+     *
      * @example 0
      *
      * @var int
@@ -38,6 +63,9 @@ class CreateDeviceDistributeJobRequest extends Model
     public $strategy;
 
     /**
+     * @description The Alibaba Cloud account to which the device belongs. You can log on to the IoT Platform console, click the profile picture, and then view the account ID on the **Security Settings** page.
+     *
+     * The **TargetUid** and **TargetAliyunId** parameters cannot be left empty at the same time.
      * @example io****@example.com
      *
      * @var string
@@ -50,6 +78,9 @@ class CreateDeviceDistributeJobRequest extends Model
     public $targetInstanceConfig;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the device belongs. You can log on to the IoT Platform console, click the profile picture, and then view the account ID on the **Security Settings** page.
+     *
+     * The **TargetUid** and **TargetAliyunId** parameters cannot be left empty at the same time.
      * @example 198***
      *
      * @var string

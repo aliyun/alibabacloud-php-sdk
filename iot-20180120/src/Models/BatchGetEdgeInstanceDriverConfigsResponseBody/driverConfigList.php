@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class driverConfigList extends Model
 {
     /**
+     * @description The configuration information of the driver.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The ID of the driver.
+     *
      * @example 021d154d2a2f4dd7a489773d9e04****
      *
      * @var string

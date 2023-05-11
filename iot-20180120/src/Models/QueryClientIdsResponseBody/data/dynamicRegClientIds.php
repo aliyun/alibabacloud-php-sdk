@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dynamicRegClientIds extends Model
 {
     /**
+     * @description The ClientID of the device.
+     *
      * @example 9rSzYt4js92********f000112
      *
      * @var string
@@ -16,6 +18,8 @@ class dynamicRegClientIds extends Model
     public $clientId;
 
     /**
+     * @description The time when the ClientID was created.
+     *
      * @example 1636514022424
      *
      * @var int

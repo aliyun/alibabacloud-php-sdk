@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the script. Valid values:
+     *
+     *   JavaScript
+     *   Python\_27: Python 2.7
+     *   PHP\_72: PHP 7.2
+     *
      * @example JavaScript
      *
      * @var string
@@ -16,6 +22,8 @@ class data extends Model
     public $scriptType;
 
     /**
+     * @description The URL of the script payload.
+     *
      * @example http://***
      *
      * @var string

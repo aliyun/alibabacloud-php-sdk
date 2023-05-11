@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class consumerGroupClientConnectionInfo extends Model
 {
     /**
+     * @description The consumption rate of accumulated messages on a single client of the consumer group. Unit: messages/minute.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class consumerGroupClientConnectionInfo extends Model
     public $accumulatedConsumeCountPerMinute;
 
     /**
+     * @description The ID of the client.
+     *
      * @example 868575026******
      *
      * @var string
@@ -23,6 +27,8 @@ class consumerGroupClientConnectionInfo extends Model
     public $clientId;
 
     /**
+     * @description The IP address and port of the client.
+     *
      * @example 192.168.1.2:36918
      *
      * @var string
@@ -30,6 +36,8 @@ class consumerGroupClientConnectionInfo extends Model
     public $clientIpPort;
 
     /**
+     * @description The last time when the client was online. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1591240546649
      *
      * @var int
@@ -37,6 +45,8 @@ class consumerGroupClientConnectionInfo extends Model
     public $onlineTime;
 
     /**
+     * @description The consumption rate of real-time messages on a single client of the consumer group. Unit: messages/minute.
+     *
      * @example 5
      *
      * @var int

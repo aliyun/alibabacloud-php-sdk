@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class multiFiles extends Model
 {
     /**
+     * @description The MD5 value of the OTA update package file.
+     *
      * @example 3d04ab6462633508606e5f3d****
      *
      * @var string
@@ -16,6 +18,8 @@ class multiFiles extends Model
     public $fileMd5;
 
     /**
+     * @description The name of the OTA update package file.
+     *
      * @example firmware1
      *
      * @var string
@@ -23,6 +27,8 @@ class multiFiles extends Model
     public $name;
 
     /**
+     * @description The signature of the OTA update package file.
+     *
      * @example 3d04ab6462633508606e5f3d****
      *
      * @var string
@@ -30,6 +36,8 @@ class multiFiles extends Model
     public $signValue;
 
     /**
+     * @description The size of the OTA update package file. Unit: bytes.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class multiFiles extends Model
     public $size;
 
     /**
+     * @description The URL of the update package file that is stored in Object Storage Service (OSS).
+     *
      * @example https://ota-***.aliyuncs.com/ota/572ef2fd12ca4791a5b21a9eb948****\/5E962CF83DB1495E8337E9C8A4D1****.bin?Expires=1577587360&OSSAccessKeyId=cS8uRRy54Rsz****&Signature=farzC8%2FVMN4HYdEtXvdiC2OevH****
      *
      * @var string

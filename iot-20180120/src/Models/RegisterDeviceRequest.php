@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RegisterDeviceRequest extends Model
 {
     /**
+     * @description The AppKey of the LoRaWAN device.
+     *
+     * When you create a LoRaWAN device, set **LoraNodeType** to **USERDEFINED**. This parameter is required.
      * @example 674f***
      *
      * @var string
@@ -16,6 +19,9 @@ class RegisterDeviceRequest extends Model
     public $appKey;
 
     /**
+     * @description The DevEUI of the LoRaWAN device.
+     *
+     * This parameter is required when you create a LoRaWAN device.
      * @example e8SDdgeIlk3nED****
      *
      * @var string
@@ -23,6 +29,9 @@ class RegisterDeviceRequest extends Model
     public $devEui;
 
     /**
+     * @description The DeviceName of the device. The name must be 4 to 32 characters in length, and can contain letters, digits, hyphens (-), underscores (\_), at signs (@), periods (.), and colons (:).
+     *
+     * >  If you do not specify this parameter, IoT Platform randomly generates a DeviceName.
      * @example light
      *
      * @var string
@@ -30,6 +39,12 @@ class RegisterDeviceRequest extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -37,6 +52,9 @@ class RegisterDeviceRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The JoinEUI of the LoRaWAN device.
+     *
+     * When you create a LoRaWAN device, set **LoraNodeType** to **USERDEFINED**. This parameter is required.
      * @example Ede4tde8erth****
      *
      * @var string
@@ -44,6 +62,11 @@ class RegisterDeviceRequest extends Model
     public $joinEui;
 
     /**
+     * @description The type of the LoRaWAN device. Valid values:
+     *
+     *   **ALIYUNDEFINED**: The device is issued by Alibaba Cloud. You must specify **DevEui** and **PinCode**.
+     *   **USERDEFINED**: The device is user-defined. You must specify **DevEui**, **JoinEui**, and **AppKey**.
+     *
      * @example ALIYUNDEFINED
      *
      * @var string
@@ -51,11 +74,17 @@ class RegisterDeviceRequest extends Model
     public $loraNodeType;
 
     /**
+     * @description The alias of the device. The alias must be 4 to 64 characters in length, and can contain letters, digits, and underscores (\_).
+     *
+     * >  If you do not specify this parameter, IoT Platform does not generate an alias for the device.
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The PIN code of the LoRaWAN device. This parameter is used to verify the DevEUI.
+     *
+     * When you create a LoRaWAN device, set **LoraNodeType** to **ALIYUNDEFINED**. This parameter is required.
      * @example DIe80dfeg*****
      *
      * @var string
@@ -63,6 +92,9 @@ class RegisterDeviceRequest extends Model
     public $pinCode;
 
     /**
+     * @description The ProductKey of the product to which the device belongs. A ProductKey is a GUID that is issued by IoT Platform to a product.
+     *
+     * You can use the IoT Platform console or call the [QueryProductList](~~69271~~) operation to view the information about all products within the current account.
      * @example a1BwAGV****
      *
      * @var string

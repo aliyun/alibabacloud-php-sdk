@@ -16,8 +16,6 @@ class BatchGetDeviceBindStatusRequest extends Model
     public $iotIds;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;

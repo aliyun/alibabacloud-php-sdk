@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @description The ID of the gateway.
+     *
      * @example jQWf3MVgQjMzcwsY****000101
      *
      * @var string
@@ -17,6 +19,8 @@ class taskList extends Model
     public $gatewayId;
 
     /**
+     * @description The time when the deployment subtask was complete.
+     *
      * @example 2019-06-26 18:12:35
      *
      * @var string
@@ -24,6 +28,8 @@ class taskList extends Model
     public $gmtCompleted;
 
     /**
+     * @description The UNIX timestamp when the deployment subtask was complete.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -31,6 +37,8 @@ class taskList extends Model
     public $gmtCompletedTimestamp;
 
     /**
+     * @description The time when the deployment subtask was created.
+     *
      * @example 2019-06-26 18:12:29
      *
      * @var string
@@ -38,6 +46,8 @@ class taskList extends Model
     public $gmtCreate;
 
     /**
+     * @description The UNIX timestamp when the deployment subtask was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -45,6 +55,8 @@ class taskList extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last time when the deployment subtask was modified.
+     *
      * @example 2019-06-26 18:12:35
      *
      * @var string
@@ -52,6 +64,8 @@ class taskList extends Model
     public $gmtModified;
 
     /**
+     * @description The last UNIX timestamp when the deployment subtask was modified.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -59,11 +73,21 @@ class taskList extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The list of deployment task snapshots.
+     *
      * @var resourceSnapshotList[]
      */
     public $resourceSnapshotList;
 
     /**
+     * @description The stage of the deployment subtask.
+     *
+     *   0: The subtask was not started.
+     *   8: The subtask was being assembled.
+     *   16: The subtask was being packaged.
+     *   24: The subtask was being dispatched.
+     *   32: The subtask was complete.
+     *
      * @example 32
      *
      * @var int
@@ -71,6 +95,13 @@ class taskList extends Model
     public $stage;
 
     /**
+     * @description The status of the deployment subtask.
+     *
+     *   0: The subtask was in the initial state.
+     *   1: The subtask was being processed.
+     *   2: The subtask was successful.
+     *   3: The subtask failed.
+     *
      * @example 2
      *
      * @var int
@@ -78,6 +109,8 @@ class taskList extends Model
     public $status;
 
     /**
+     * @description The ID of the deployment subtask.
+     *
      * @example 49ea651529014bf8b5645d5f9062****
      *
      * @var string

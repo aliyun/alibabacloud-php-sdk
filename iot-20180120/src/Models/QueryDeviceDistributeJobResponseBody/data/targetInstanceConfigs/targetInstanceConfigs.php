@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetInstanceConfigs extends Model
 {
     /**
+     * @description The ID of the destination instance.
+     *
      * @example iot-cn-6ja***
      *
      * @var string

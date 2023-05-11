@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTAJobByDeviceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example MissingFirmwareId
      *
      * @var string
@@ -17,6 +19,8 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,15 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The update batch information returned if the call is successful. For more information, see the following **SimpleOTAJobInfo** parameter.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example FirmwareId is mandatory for this action
      *
      * @var string
@@ -36,6 +44,8 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +53,8 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -50,6 +62,8 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A01829CE-75A1-4920-B775-921146A1AB79
      *
      * @var string
@@ -57,6 +71,11 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -64,6 +83,8 @@ class ListOTAJobByDeviceResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of update packages returned.
+     *
      * @example 1
      *
      * @var int

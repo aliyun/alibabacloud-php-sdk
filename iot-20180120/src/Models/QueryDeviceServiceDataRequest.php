@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceServiceDataRequest extends Model
 {
     /**
+     * @description The sorting order of the returned service call records. Valid values:
+     *
+     *   **0**: reverse chronological order
+     *   **1**: chronological order
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,9 @@ class QueryDeviceServiceDataRequest extends Model
     public $asc;
 
     /**
+     * @description The DeviceName of the device.
+     *
+     * > If you specify a value for this parameter, you must configure the **ProductKey** parameter.
      * @example light
      *
      * @var string
@@ -23,6 +31,8 @@ class QueryDeviceServiceDataRequest extends Model
     public $deviceName;
 
     /**
+     * @description The end of the time range to query. The value is a Unix timestamp. Unit: milliseconds. Example: 1579249499000.
+     *
      * @example 1579249499000
      *
      * @var int
@@ -30,6 +40,11 @@ class QueryDeviceServiceDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The identifier of the service. The **identifier** of the service that is called. You can view the service identifier on the Define Feature tab in the IoT Platform console. You can also call the [QueryThingModel](~~150321~~) operation to view the service identifier.
+     *
+     * >  If a service named **testService** belongs to a custom module named **testFb**, you can set this parameter to **testFb:testService**. The custom module is not the default module.
+     *
+     * If you do not specify a value for this parameter, the system queries all service data of the default module and custom modules.
      * @example Set
      *
      * @var string
@@ -37,6 +52,9 @@ class QueryDeviceServiceDataRequest extends Model
     public $identifier;
 
     /**
+     * @description The ID of the device. The ID is a unique identifier that is issued by IoT Platform to the device.
+     *
+     * > The IotId parameter specifies a GUID for the device. The value of the **IotId** parameter is equivalent to a combination of the values of the **ProductKey** and **DeviceName** parameters. If you specify a value for this parameter, you do not need to configure the **ProductKey** or **DeviceName** parameter. If you specify values for the **IotId**, **ProductKey**, and **DeviceName** parameters, the value of the **IotId** parameter takes precedence.
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -44,6 +62,12 @@ class QueryDeviceServiceDataRequest extends Model
     public $iotId;
 
     /**
+     * @description The ID of the instance. You can view the ID of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.****
+     * >*   If no **Overview** page or **ID** is generated for your instance, you do not need to configure this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -51,6 +75,8 @@ class QueryDeviceServiceDataRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +84,9 @@ class QueryDeviceServiceDataRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
+     * >If you specify a value for this parameter, you must configure the **DeviceName** parameter.
      * @example a1BwAGV****
      *
      * @var string
@@ -65,6 +94,8 @@ class QueryDeviceServiceDataRequest extends Model
     public $productKey;
 
     /**
+     * @description The beginning of the time range to query. The value is a Unix timestamp. Unit: milliseconds. Example: 1579249499000.
+     *
      * @example 1579249499000
      *
      * @var int

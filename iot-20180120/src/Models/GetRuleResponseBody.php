@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,11 +19,15 @@ class GetRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 58D4CEC0-3E95-4DBE-AFC1-809D1400E52F
      *
      * @var string
@@ -29,11 +35,18 @@ class GetRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The rule information returned if the call is successful. For more information, see RuleInfo.
+     *
      * @var ruleInfo
      */
     public $ruleInfo;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

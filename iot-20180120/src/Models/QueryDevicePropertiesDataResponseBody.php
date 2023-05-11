@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropertiesDataResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,11 +19,16 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The start time to query on the next page.
+     *
+     * You can use the value of the **NextTime** parameter as the value of the **StartTime** parameter when you query the next page of results.
      * @example 1579249499000
      *
      * @var int
@@ -29,6 +36,12 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $nextTime;
 
     /**
+     * @description Indicates whether the next page exists.
+     *
+     *   **true**: The next page exists.
+     *   **false**: The next page does not exist.
+     *
+     * If the return value of the **NextValid** parameter is **true**, you can use the value of the **NextTime** parameter as the value of the **StartTime** parameter when you query the next page of results.
      * @example true
      *
      * @var bool
@@ -36,11 +49,15 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $nextValid;
 
     /**
+     * @description The list of property records returned if the call is successful. For more information, see **PropertyDataInfo**.
+     *
      * @var propertyDataInfos
      */
     public $propertyDataInfos;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -48,6 +65,10 @@ class QueryDevicePropertiesDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * - **true**: The call was successful.
+     * - **false**: The call failed.
      * @example true
      *
      * @var bool

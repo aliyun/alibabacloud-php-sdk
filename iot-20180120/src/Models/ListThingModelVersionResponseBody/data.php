@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of TSL model versions. The versions are displayed in descending order based on the release time. The first version is the current version.
+     *
      * @var modelVersions[]
      */
     public $modelVersions;

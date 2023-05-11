@@ -37,6 +37,8 @@ class destination extends Model
     public $name;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID (ApplyId) returned for the request if the call is successful.
+     *
      * @example 1295006
      *
      * @var int

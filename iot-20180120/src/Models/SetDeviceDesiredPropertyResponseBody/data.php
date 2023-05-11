@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the message that IoT Platform sends to the device to specify desired property values.
+     *
      * @example 300511751
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $messageId;
 
     /**
+     * @description The current version numbers of the desired property values.
+     *
      * @example {\"Temperature\":2}
      *
      * @var string

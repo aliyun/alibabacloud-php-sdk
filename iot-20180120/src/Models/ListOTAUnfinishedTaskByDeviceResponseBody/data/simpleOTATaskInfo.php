@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class simpleOTATaskInfo extends Model
 {
     /**
+     * @description The firmware version after the update.
+     *
      * @example 1.0.1
      *
      * @var string
@@ -16,6 +18,8 @@ class simpleOTATaskInfo extends Model
     public $destVersion;
 
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -23,6 +27,8 @@ class simpleOTATaskInfo extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the update package.
+     *
      * @example q3j9OYBjUAZMv1hlMgdo03****
      *
      * @var string
@@ -30,6 +36,8 @@ class simpleOTATaskInfo extends Model
     public $firmwareId;
 
     /**
+     * @description The ID of the device. The ID is a unique identifier that is issued by IoT Platform to the device.
+     *
      * @example nadRdeffljdEndlfadgadfse****
      *
      * @var string
@@ -37,6 +45,8 @@ class simpleOTATaskInfo extends Model
     public $iotId;
 
     /**
+     * @description The ID of the update batch.
+     *
      * @example 7glPHmaDYLAYMD1HHutT02****
      *
      * @var string
@@ -44,6 +54,8 @@ class simpleOTATaskInfo extends Model
     public $jobId;
 
     /**
+     * @description The name of the OTA module.
+     *
      * @example WifiConfigModify
      *
      * @var string
@@ -51,6 +63,8 @@ class simpleOTATaskInfo extends Model
     public $moduleName;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1GUfrM****
      *
      * @var string
@@ -58,6 +72,8 @@ class simpleOTATaskInfo extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the device belongs.
+     *
      * @example MyProduct
      *
      * @var string
@@ -65,6 +81,8 @@ class simpleOTATaskInfo extends Model
     public $productName;
 
     /**
+     * @description The firmware version before the update.
+     *
      * @example 1.0.0
      *
      * @var string
@@ -72,6 +90,8 @@ class simpleOTATaskInfo extends Model
     public $srcVersion;
 
     /**
+     * @description The ID of the update task.
+     *
      * @example y3tOmCDNgpR8F9jnVEzC01****
      *
      * @var string
@@ -79,6 +99,13 @@ class simpleOTATaskInfo extends Model
     public $taskId;
 
     /**
+     * @description The status of the update task.
+     *
+     *   **CONFIRM**: The update task is pending confirmation.
+     *   **QUEUED**: The update notification is to be pushed.
+     *   **NOTIFIED**: The update notification is pushed to the device.
+     *   **IN_PROGRESS**: The update task is in progress.
+     *
      * @example CONFIRM
      *
      * @var string
@@ -86,6 +113,8 @@ class simpleOTATaskInfo extends Model
     public $taskStatus;
 
     /**
+     * @description The time when the update task was created. The time is displayed in UTC.
+     *
      * @example 2019-11-04T03:38:22.000Z
      *
      * @var string
@@ -93,6 +122,8 @@ class simpleOTATaskInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the update task was last modified. The time is displayed in UTC.
+     *
      * @example 2021-11-04T03:38:22.000Z
      *
      * @var string

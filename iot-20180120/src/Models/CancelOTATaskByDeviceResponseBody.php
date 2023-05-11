@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOTATaskByDeviceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class CancelOTATaskByDeviceResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A01829CE-75A1-4920-B775-921146A1AB79
      *
      * @var string
@@ -28,6 +34,11 @@ class CancelOTATaskByDeviceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

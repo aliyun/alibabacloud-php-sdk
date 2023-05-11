@@ -16,6 +16,8 @@ class CreateDataSourceItemRequest extends Model
     public $dataSourceId;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
@@ -28,11 +30,15 @@ class CreateDataSourceItemRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @example gy***z
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example PRODUCT
+     *
      * @var string
      */
     public $scopeType;

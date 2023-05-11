@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
      * @example 1581595942000
      *
      * @var int
@@ -17,6 +19,8 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the task.
+     *
      * @example UbmsMHmkqv0PiAG****010001
      *
      * @var string
@@ -24,6 +28,8 @@ class items extends Model
     public $jobId;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -31,6 +37,8 @@ class items extends Model
     public $productKey;
 
     /**
+     * @description The ID of the source instance.
+     *
      * @example iot-cn-6ja***
      *
      * @var string
@@ -38,11 +46,15 @@ class items extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The name of the source instance.
+     *
      * @var string
      */
     public $sourceInstanceName;
 
     /**
+     * @description The region where the source instance resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -50,6 +62,8 @@ class items extends Model
     public $sourceRegion;
 
     /**
+     * @description The ID of the source Alibaba Cloud account.
+     *
      * @example 198***
      *
      * @var string
@@ -57,6 +71,13 @@ class items extends Model
     public $sourceUid;
 
     /**
+     * @description The status of the task.
+     *
+     *   **0**: The task is being initialized.
+     *   **1**: The task is running.
+     *   **2**: The task is completed. The status indicates that the distribution task is complete but does not indicate that all products and devices are distributed. To obtain distribution results, call the [QueryDeviceDistributeDetail](~~199533~~) operation.
+     *   **3**: The task is unexpectedly interrupted.
+     *
      * @example 1
      *
      * @var int
@@ -64,6 +85,11 @@ class items extends Model
     public $status;
 
     /**
+     * @description The distribution policy.
+     *
+     *   **0**: distributes devices to specified instances in a specified region. This is the default value.
+     *   **1**: configures instance IDs in multiple regions and distributes devices to the nearest regions based on the IP addresses of the devices.
+     *
      * @example 0
      *
      * @var int
@@ -71,11 +97,18 @@ class items extends Model
     public $strategy;
 
     /**
+     * @description The IDs of the destination instances.
+     *
+     *   If the value of the **Strategy** parameter is **1**, multiple instance IDs exist.
+     *   If the value of the **Strategy** parameter is **0**, only one instance ID exists.
+     *
      * @var targetInstanceConfigs
      */
     public $targetInstanceConfigs;
 
     /**
+     * @description The ID of the destination Alibaba Cloud account.
+     *
      * @example 198***
      *
      * @var string
@@ -83,6 +116,8 @@ class items extends Model
     public $targetUid;
 
     /**
+     * @description The total number of devices in the distribution task.
+     *
      * @example 5
      *
      * @var int

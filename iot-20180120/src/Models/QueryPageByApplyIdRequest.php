@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPageByApplyIdRequest extends Model
 {
     /**
+     * @description The ID of the application. You can view the application ID in the response of the [BatchRegisterDeviceWithApplyId](~~69514~~) or [BatchRegisterDevice](~~69473~~) operation.
+     *
      * @example 1295006
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryPageByApplyIdRequest extends Model
     public $applyId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,12 @@ class QueryPageByApplyIdRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -30,6 +40,8 @@ class QueryPageByApplyIdRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50. Default value: 10.
+     *
      * @example 10
      *
      * @var int

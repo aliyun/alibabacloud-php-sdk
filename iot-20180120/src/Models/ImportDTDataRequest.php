@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ImportDTDataRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DTInstanceId;
+
+    /**
      * @example iot-****001
      *
      * @var string
@@ -28,6 +33,7 @@ class ImportDTDataRequest extends Model
      */
     public $productKey;
     protected $_name = [
+        'DTInstanceId'  => 'DTInstanceId',
         'iotInstanceId' => 'IotInstanceId',
         'items'         => 'Items',
         'productKey'    => 'ProductKey',
@@ -40,6 +46,9 @@ class ImportDTDataRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DTInstanceId) {
+            $res['DTInstanceId'] = $this->DTInstanceId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -67,6 +76,9 @@ class ImportDTDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DTInstanceId'])) {
+            $model->DTInstanceId = $map['DTInstanceId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

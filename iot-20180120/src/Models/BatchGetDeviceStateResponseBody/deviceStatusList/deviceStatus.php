@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deviceStatus extends Model
 {
     /**
+     * @description The IP address of the device.
+     *
      * @example 192.0.2.1
      *
      * @var string
@@ -16,6 +18,9 @@ class deviceStatus extends Model
     public $asAddress;
 
     /**
+     * @description The ID of the device (expired).
+     *
+     * >  This parameter is no longer supported. Do not use this parameter to identify a device. You can use the value of the **IotId**** parameter or a combination of the values of the ****ProductKey** and DeviceName parameters to identify a device.
      * @example dwnS41bhNxjslDAI****
      *
      * @var string
@@ -23,6 +28,8 @@ class deviceStatus extends Model
     public $deviceId;
 
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -30,6 +37,8 @@ class deviceStatus extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the device. The ID is the unique identifier that is issued by IoT Platform to the device.
+     *
      * @example dwnS41bhNxjslDAI****000100
      *
      * @var string
@@ -37,6 +46,8 @@ class deviceStatus extends Model
     public $iotId;
 
     /**
+     * @description The last time when the device was online.
+     *
      * @example 2020-01-17 16:19:11
      *
      * @var string
@@ -44,6 +55,13 @@ class deviceStatus extends Model
     public $lastOnlineTime;
 
     /**
+     * @description The status of the device. Valid values: Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example OFFLINE
      *
      * @var string

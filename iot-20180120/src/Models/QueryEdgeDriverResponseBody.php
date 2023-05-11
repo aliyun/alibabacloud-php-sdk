@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverResponseBody extends Model
 {
     /**
+     * @description The error code. Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryEdgeDriverResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned if the call was successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryEdgeDriverResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E0BD540E-DCFE-4602-B6D1-D208E8594BF7
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryEdgeDriverResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. true indicates that the call was successful. false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

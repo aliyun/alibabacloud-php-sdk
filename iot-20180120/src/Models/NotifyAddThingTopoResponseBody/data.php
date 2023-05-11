@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the message that IoT Platform sends to the gateway. The message is used to notify the gateway to add a topology.
+     *
      * @example 5443123
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceShadowRequest extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example device1
      *
      * @var string
@@ -16,6 +18,12 @@ class GetDeviceShadowRequest extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the instance. You can view the ID of the instance on the **Overview** page in the IoT Platform console.****
+     *
+     * >*   If the instance has an ID, you must specify the **IotInstanceId** parameter. If you do not specify this parameter, the call fails.
+     * >*   If the instance does not have an **ID** or the **Overview** page is not displayed, you do not need to specify this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -23,6 +31,8 @@ class GetDeviceShadowRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1T27vz****
      *
      * @var string

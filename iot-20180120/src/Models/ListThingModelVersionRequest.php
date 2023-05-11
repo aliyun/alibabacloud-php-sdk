@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListThingModelVersionRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -16,6 +22,9 @@ class ListThingModelVersionRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product.
+     *
+     * You can view the ProductKey on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
      * @example a1BwAGV****
      *
      * @var string

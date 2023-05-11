@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of service call records. Each element represents a service call record.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The start time of service call records on the next page.
+     *
+     * If you call the QueryDeviceServiceData operation to query the service call records on the next page, you must set the **StartTime** parameter to the value of this parameter.
      * @example 1579335899000
      *
      * @var int
@@ -22,6 +27,12 @@ class data extends Model
     public $nextTime;
 
     /**
+     * @description Indicates whether the next page exists.
+     *
+     *   **true**
+     *   **false**
+     *
+     * If the return value of the **NextValid** parameter is **true**, you can use the value of the **NextTime** parameter as the value of the **StartTime** parameter when you query the next page of results.
      * @example true
      *
      * @var bool

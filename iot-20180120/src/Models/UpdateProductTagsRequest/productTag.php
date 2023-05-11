@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class productTag extends Model
 {
     /**
+     * @description The keys of the product tags. Each key must be 1 to 30 characters in length, and can contain letters, digits, and periods (.).
+     *
+     * >  Each tag key that you specify must already exist. Each tag value that you specify must be unique.
      * @example room
      *
      * @var string
@@ -16,6 +19,8 @@ class productTag extends Model
     public $tagKey;
 
     /**
+     * @description The new values of the product tags. Each tag value must be 1 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-).
+     *
      * @example 202
      *
      * @var string

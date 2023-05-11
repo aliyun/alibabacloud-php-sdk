@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example mydevice
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $deviceName;
 
     /**
+     * @description The time when the distribution task was created.
+     *
      * @example 1581595942000
      *
      * @var int
@@ -23,6 +27,8 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the distribution task was modified.
+     *
      * @example 1581595942222
      *
      * @var int
@@ -30,6 +36,8 @@ class items extends Model
     public $gmtModified;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1BwAGV***
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $productKey;
 
     /**
+     * @description The ID of the source instance.
+     *
      * @example iot-cn-6ja***
      *
      * @var string
@@ -44,6 +54,8 @@ class items extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The name of the source instance.
+     *
      * @example myproInstance
      *
      * @var string
@@ -51,6 +63,8 @@ class items extends Model
     public $sourceInstanceName;
 
     /**
+     * @description The source region in which the device resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -58,6 +72,9 @@ class items extends Model
     public $sourceRegion;
 
     /**
+     * @description The ID of the Alibaba Cloud account that distributes the device.
+     *
+     * You can only distribute devices across regions and instances by using the same Alibaba cloud account. The value of this parameter is the same as the value of the **TargetUid** parameter.
      * @example 198***
      *
      * @var string
@@ -65,6 +82,8 @@ class items extends Model
     public $sourceUid;
 
     /**
+     * @description The Alibaba Cloud account to which the device is distributed.
+     *
      * @example io****@example.com
      *
      * @var string
@@ -72,6 +91,8 @@ class items extends Model
     public $targetAliyunId;
 
     /**
+     * @description The ID of the destination instance.
+     *
      * @example iot-cn-09k***
      *
      * @var string
@@ -79,6 +100,8 @@ class items extends Model
     public $targetInstanceId;
 
     /**
+     * @description The name of the destination instance.
+     *
      * @example newinstance
      *
      * @var string
@@ -86,6 +109,8 @@ class items extends Model
     public $targetInstanceName;
 
     /**
+     * @description The destination region to which the device is distributed.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -93,6 +118,9 @@ class items extends Model
     public $targetRegion;
 
     /**
+     * @description The Alibaba Cloud account to which the device is distributed.
+     *
+     * You can only distribute devices across regions and instances by using the same Alibaba cloud account. The value of this parameter is the same as the value of the **TargetUid** parameter.
      * @example 198***
      *
      * @var string

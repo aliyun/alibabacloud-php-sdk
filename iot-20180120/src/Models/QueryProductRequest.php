@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class QueryProductRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * > *   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >  *   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -16,6 +22,8 @@ class QueryProductRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product that you want to query. A ProductKey is a GUID that is issued by IoT Platform to a product. You can use the IoT Platform console or call the [QueryProductList](~~69271~~) operation to view the information about all products within the current account.
+     *
      * @example a1BwAGV****
      *
      * @var string

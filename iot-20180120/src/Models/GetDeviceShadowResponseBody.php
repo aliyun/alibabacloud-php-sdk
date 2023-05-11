@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceShadowResponseBody extends Model
 {
     /**
+     * @description The error code that is returned if the call fails. For more information about error codes, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class GetDeviceShadowResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A56E345A-0978-4993-ACBA-3EF444ED187F
      *
      * @var string
@@ -28,6 +34,9 @@ class GetDeviceShadowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The shadow information that is returned if the call is successful.
+     *
+     * >  The structure of the shadow information varies based on the status of the device. For more information, see the [Overview](~~53930~~) topic of Device shadows.
      * @example {"method":"update","state":{"desired":{"color":"green"}},"version":1}
      *
      * @var string
@@ -35,6 +44,11 @@ class GetDeviceShadowResponseBody extends Model
     public $shadowMessage;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

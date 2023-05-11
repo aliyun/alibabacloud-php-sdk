@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AsyncRRpcRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AsyncRRpcResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AttachDestinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AttachDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AttachParserDataSourceRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDeviceDriverReques
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDeviceDriverResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDriverConfigsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDriverConfigsResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGrayMigrationDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGrayMigrationDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportVehicleDeviceRequest;
@@ -210,6 +214,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicConfigRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteClientIdsRequest;
@@ -286,6 +292,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicConfigRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DetachDestinationRequest;
@@ -659,6 +667,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryThingModelPublishedRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryThingModelPublishedResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryThingModelResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicConfigRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicReverseRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicReverseRouteTableResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicRouteTableRequest;
@@ -738,6 +748,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\SyncSpeechByCombinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechShrinkRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TestSwitchRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TestSwitchResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleRequest;
@@ -1002,6 +1014,66 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param AsyncRRpcRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AsyncRRpcResponse
+     */
+    public function asyncRRpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->extInfo)) {
+            $query['ExtInfo'] = $request->extInfo;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topicFullName)) {
+            $query['TopicFullName'] = $request->topicFullName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->messageContent)) {
+            $body['MessageContent'] = $request->messageContent;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AsyncRRpc',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AsyncRRpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AsyncRRpcRequest $request
+     *
+     * @return AsyncRRpcResponse
+     */
+    public function asyncRRpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncRRpcWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AttachDestinationRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1157,10 +1229,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddDeviceGroupRelationsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param BatchAddDeviceGroupRelationsRequest $request BatchAddDeviceGroupRelationsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchAddDeviceGroupRelationsResponse
+     * @return BatchAddDeviceGroupRelationsResponse BatchAddDeviceGroupRelationsResponse
      */
     public function batchAddDeviceGroupRelationsWithOptions($request, $runtime)
     {
@@ -1194,9 +1268,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddDeviceGroupRelationsRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param BatchAddDeviceGroupRelationsRequest $request BatchAddDeviceGroupRelationsRequest
      *
-     * @return BatchAddDeviceGroupRelationsResponse
+     * @return BatchAddDeviceGroupRelationsResponse BatchAddDeviceGroupRelationsResponse
      */
     public function batchAddDeviceGroupRelations($request)
     {
@@ -1206,10 +1282,19 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddThingTopoRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   You can attach up to 10 sub-devices to a gateway in a single call.
+     *   * *   The API operation caller must be the gateway owner.
+     *   * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
+     *   * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
+     *   * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per Alibaba Cloud account.
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchAddThingTopoRequest $request BatchAddThingTopoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchAddThingTopoResponse
+     * @return BatchAddThingTopoResponse BatchAddThingTopoResponse
      */
     public function batchAddThingTopoWithOptions($request, $runtime)
     {
@@ -1246,9 +1331,18 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddThingTopoRequest $request
+     * *   You can attach up to 10 sub-devices to a gateway in a single call.
+     *   * *   The API operation caller must be the gateway owner.
+     *   * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
+     *   * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
+     *   * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per Alibaba Cloud account.
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchAddThingTopoRequest $request BatchAddThingTopoRequest
      *
-     * @return BatchAddThingTopoResponse
+     * @return BatchAddThingTopoResponse BatchAddThingTopoResponse
      */
     public function batchAddThingTopo($request)
     {
@@ -1258,10 +1352,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+     *   *
+     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request BatchBindDeviceToEdgeInstanceWithDriverRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
+     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse BatchBindDeviceToEdgeInstanceWithDriverResponse
      */
     public function batchBindDeviceToEdgeInstanceWithDriverWithOptions($request, $runtime)
     {
@@ -1298,9 +1394,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+     *   *
+     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request BatchBindDeviceToEdgeInstanceWithDriverRequest
      *
-     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
+     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse BatchBindDeviceToEdgeInstanceWithDriverResponse
      */
     public function batchBindDeviceToEdgeInstanceWithDriver($request)
     {
@@ -1408,29 +1506,42 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchCheckDeviceNamesRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
+     *   * Procedure:
+     *   * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+     *   * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+     *   * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
+     *   * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
+     *   * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
+     *   * ## Limits
+     *   * - You can specify a maximum of 10,000 DeviceNames in a single call.
+     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchCheckDeviceNamesRequest $request BatchCheckDeviceNamesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchCheckDeviceNamesResponse
+     * @return BatchCheckDeviceNamesResponse BatchCheckDeviceNamesResponse
      */
     public function batchCheckDeviceNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->deviceNameList)) {
-            $query['DeviceNameList'] = $request->deviceNameList;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $body['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->deviceNameList)) {
+            $body['DeviceNameList'] = $request->deviceNameList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchCheckDeviceNames',
@@ -1448,9 +1559,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchCheckDeviceNamesRequest $request
+     * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
+     *   * Procedure:
+     *   * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+     *   * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+     *   * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
+     *   * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
+     *   * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
+     *   * ## Limits
+     *   * - You can specify a maximum of 10,000 DeviceNames in a single call.
+     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchCheckDeviceNamesRequest $request BatchCheckDeviceNamesRequest
      *
-     * @return BatchCheckDeviceNamesResponse
+     * @return BatchCheckDeviceNamesResponse BatchCheckDeviceNamesResponse
      */
     public function batchCheckDeviceNames($request)
     {
@@ -1469,17 +1591,19 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $query['DeviceList'] = $request->deviceList;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchCheckImportDevice',
@@ -1509,26 +1633,30 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchCheckVehicleDeviceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The invalid device models returned if the call fails.
+     *   *
+     * @param BatchCheckVehicleDeviceRequest $request BatchCheckVehicleDeviceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchCheckVehicleDeviceResponse
+     * @return BatchCheckVehicleDeviceResponse BatchCheckVehicleDeviceResponse
      */
     public function batchCheckVehicleDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $query['DeviceList'] = $request->deviceList;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchCheckVehicleDevice',
@@ -1546,9 +1674,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchCheckVehicleDeviceRequest $request
+     * The invalid device models returned if the call fails.
+     *   *
+     * @param BatchCheckVehicleDeviceRequest $request BatchCheckVehicleDeviceRequest
      *
-     * @return BatchCheckVehicleDeviceResponse
+     * @return BatchCheckVehicleDeviceResponse BatchCheckVehicleDeviceResponse
      */
     public function batchCheckVehicleDevice($request)
     {
@@ -1558,10 +1688,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchClearEdgeInstanceDeviceConfigRequest $request
-     * @param RuntimeOptions                            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchClearEdgeInstanceDeviceConfigRequest $request BatchClearEdgeInstanceDeviceConfigRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchClearEdgeInstanceDeviceConfigResponse
+     * @return BatchClearEdgeInstanceDeviceConfigResponse BatchClearEdgeInstanceDeviceConfigResponse
      */
     public function batchClearEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
@@ -1595,9 +1729,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchClearEdgeInstanceDeviceConfigRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchClearEdgeInstanceDeviceConfigRequest $request BatchClearEdgeInstanceDeviceConfigRequest
      *
-     * @return BatchClearEdgeInstanceDeviceConfigResponse
+     * @return BatchClearEdgeInstanceDeviceConfigResponse BatchClearEdgeInstanceDeviceConfigResponse
      */
     public function batchClearEdgeInstanceDeviceConfig($request)
     {
@@ -1711,10 +1849,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteDeviceGroupRelationsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchDeleteDeviceGroupRelationsRequest $request BatchDeleteDeviceGroupRelationsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteDeviceGroupRelationsResponse
+     * @return BatchDeleteDeviceGroupRelationsResponse BatchDeleteDeviceGroupRelationsResponse
      */
     public function batchDeleteDeviceGroupRelationsWithOptions($request, $runtime)
     {
@@ -1748,9 +1890,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteDeviceGroupRelationsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchDeleteDeviceGroupRelationsRequest $request BatchDeleteDeviceGroupRelationsRequest
      *
-     * @return BatchDeleteDeviceGroupRelationsResponse
+     * @return BatchDeleteDeviceGroupRelationsResponse BatchDeleteDeviceGroupRelationsResponse
      */
     public function batchDeleteDeviceGroupRelations($request)
     {
@@ -1858,10 +2004,18 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetDeviceStateRequest $request
-     * @param RuntimeOptions             $runtime
+     * When you call this operation, you can perform the following operations:
+     *   * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
+     *   * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
+     *   * >You can query the status of up to 50 devices in a call.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetDeviceStateRequest $request BatchGetDeviceStateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetDeviceStateResponse
+     * @return BatchGetDeviceStateResponse BatchGetDeviceStateResponse
      */
     public function batchGetDeviceStateWithOptions($request, $runtime)
     {
@@ -1898,9 +2052,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetDeviceStateRequest $request
+     * When you call this operation, you can perform the following operations:
+     *   * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
+     *   * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
+     *   * >You can query the status of up to 50 devices in a call.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetDeviceStateRequest $request BatchGetDeviceStateRequest
      *
-     * @return BatchGetDeviceStateResponse
+     * @return BatchGetDeviceStateResponse BatchGetDeviceStateResponse
      */
     public function batchGetDeviceState($request)
     {
@@ -1910,10 +2072,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeDriverRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param BatchGetEdgeDriverRequest $request BatchGetEdgeDriverRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetEdgeDriverResponse
+     * @return BatchGetEdgeDriverResponse BatchGetEdgeDriverResponse
      */
     public function batchGetEdgeDriverWithOptions($request, $runtime)
     {
@@ -1944,9 +2110,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeDriverRequest $request
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param BatchGetEdgeDriverRequest $request BatchGetEdgeDriverRequest
      *
-     * @return BatchGetEdgeDriverResponse
+     * @return BatchGetEdgeDriverResponse BatchGetEdgeDriverResponse
      */
     public function batchGetEdgeDriver($request)
     {
@@ -2060,10 +2230,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeInstanceDeviceConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetEdgeInstanceDeviceConfigRequest $request BatchGetEdgeInstanceDeviceConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetEdgeInstanceDeviceConfigResponse
+     * @return BatchGetEdgeInstanceDeviceConfigResponse BatchGetEdgeInstanceDeviceConfigResponse
      */
     public function batchGetEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
@@ -2097,9 +2271,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeInstanceDeviceConfigRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetEdgeInstanceDeviceConfigRequest $request BatchGetEdgeInstanceDeviceConfigRequest
      *
-     * @return BatchGetEdgeInstanceDeviceConfigResponse
+     * @return BatchGetEdgeInstanceDeviceConfigResponse BatchGetEdgeInstanceDeviceConfigResponse
      */
     public function batchGetEdgeInstanceDeviceConfig($request)
     {
@@ -2158,10 +2336,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeInstanceDriverConfigsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetEdgeInstanceDriverConfigsRequest $request BatchGetEdgeInstanceDriverConfigsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetEdgeInstanceDriverConfigsResponse
+     * @return BatchGetEdgeInstanceDriverConfigsResponse BatchGetEdgeInstanceDriverConfigsResponse
      */
     public function batchGetEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
@@ -2195,15 +2377,67 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchGetEdgeInstanceDriverConfigsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchGetEdgeInstanceDriverConfigsRequest $request BatchGetEdgeInstanceDriverConfigsRequest
      *
-     * @return BatchGetEdgeInstanceDriverConfigsResponse
+     * @return BatchGetEdgeInstanceDriverConfigsResponse BatchGetEdgeInstanceDriverConfigsResponse
      */
     public function batchGetEdgeInstanceDriverConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->batchGetEdgeInstanceDriverConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchGrayMigrationDeviceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchGrayMigrationDeviceResponse
+     */
+    public function batchGrayMigrationDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deviceNames)) {
+            $body['DeviceNames'] = $request->deviceNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGrayMigrationDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchGrayMigrationDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchGrayMigrationDeviceRequest $request
+     *
+     * @return BatchGrayMigrationDeviceResponse
+     */
+    public function batchGrayMigrationDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGrayMigrationDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -2216,17 +2450,19 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $query['DeviceList'] = $request->deviceList;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchImportDevice',
@@ -2256,26 +2492,32 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchImportVehicleDeviceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * - **true**: The call was successful.
+     *   * - **false**: The call failed.
+     *   *
+     * @param BatchImportVehicleDeviceRequest $request BatchImportVehicleDeviceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchImportVehicleDeviceResponse
+     * @return BatchImportVehicleDeviceResponse BatchImportVehicleDeviceResponse
      */
     public function batchImportVehicleDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $query['DeviceList'] = $request->deviceList;
-        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        $body = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchImportVehicleDevice',
@@ -2293,9 +2535,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchImportVehicleDeviceRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * - **true**: The call was successful.
+     *   * - **false**: The call failed.
+     *   *
+     * @param BatchImportVehicleDeviceRequest $request BatchImportVehicleDeviceRequest
      *
-     * @return BatchImportVehicleDeviceResponse
+     * @return BatchImportVehicleDeviceResponse BatchImportVehicleDeviceResponse
      */
     public function batchImportVehicleDevice($request)
     {
@@ -2305,10 +2551,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchPubRequest $request
-     * @param RuntimeOptions  $runtime
+     * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
+     *   * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchPubRequest $request BatchPubRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchPubResponse
+     * @return BatchPubResponse BatchPubResponse
      */
     public function batchPubWithOptions($request, $runtime)
     {
@@ -2351,9 +2602,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchPubRequest $request
+     * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
+     *   * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchPubRequest $request BatchPubRequest
      *
-     * @return BatchPubResponse
+     * @return BatchPubResponse BatchPubResponse
      */
     public function batchPub($request)
     {
@@ -2363,10 +2619,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchQueryDeviceDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * *   You can query a maximum of 100 devices in a single call.
+     *   * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
+     *   * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchQueryDeviceDetailRequest $request BatchQueryDeviceDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchQueryDeviceDetailResponse
+     * @return BatchQueryDeviceDetailResponse BatchQueryDeviceDetailResponse
      */
     public function batchQueryDeviceDetailWithOptions($request, $runtime)
     {
@@ -2400,9 +2663,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchQueryDeviceDetailRequest $request
+     * ## Limits
+     *   * *   You can query a maximum of 100 devices in a single call.
+     *   * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
+     *   * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchQueryDeviceDetailRequest $request BatchQueryDeviceDetailRequest
      *
-     * @return BatchQueryDeviceDetailResponse
+     * @return BatchQueryDeviceDetailResponse BatchQueryDeviceDetailResponse
      */
     public function batchQueryDeviceDetail($request)
     {
@@ -2412,10 +2682,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchRegisterDeviceRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can use one of the following methods to register multiple devices:
+     *   * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
+     *   *     Perform the following steps to register devices and view the result:
+     *   *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+     *   *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+     *   *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
+     *   * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+     *   * ## Limits
+     *   * - You can create a maximum of 10,000 devices in a single call.
+     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchRegisterDeviceRequest $request BatchRegisterDeviceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchRegisterDeviceResponse
+     * @return BatchRegisterDeviceResponse BatchRegisterDeviceResponse
      */
     public function batchRegisterDeviceWithOptions($request, $runtime)
     {
@@ -2449,9 +2730,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchRegisterDeviceRequest $request
+     * You can use one of the following methods to register multiple devices:
+     *   * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
+     *   *     Perform the following steps to register devices and view the result:
+     *   *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+     *   *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+     *   *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
+     *   * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+     *   * ## Limits
+     *   * - You can create a maximum of 10,000 devices in a single call.
+     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchRegisterDeviceRequest $request BatchRegisterDeviceRequest
      *
-     * @return BatchRegisterDeviceResponse
+     * @return BatchRegisterDeviceResponse BatchRegisterDeviceResponse
      */
     public function batchRegisterDevice($request)
     {
@@ -2461,10 +2753,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchRegisterDeviceWithApplyIdRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can use one of the following methods to register multiple devices at a time:
+     *   * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
+     *   * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
+     *   *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
+     *   *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+     *   *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
+     *   *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+     *   *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param BatchRegisterDeviceWithApplyIdRequest $request BatchRegisterDeviceWithApplyIdRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchRegisterDeviceWithApplyIdResponse
+     * @return BatchRegisterDeviceWithApplyIdResponse BatchRegisterDeviceWithApplyIdResponse
      */
     public function batchRegisterDeviceWithApplyIdWithOptions($request, $runtime)
     {
@@ -2498,9 +2802,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchRegisterDeviceWithApplyIdRequest $request
+     * You can use one of the following methods to register multiple devices at a time:
+     *   * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
+     *   * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
+     *   *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
+     *   *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+     *   *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
+     *   *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+     *   *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param BatchRegisterDeviceWithApplyIdRequest $request BatchRegisterDeviceWithApplyIdRequest
      *
-     * @return BatchRegisterDeviceWithApplyIdResponse
+     * @return BatchRegisterDeviceWithApplyIdResponse BatchRegisterDeviceWithApplyIdResponse
      */
     public function batchRegisterDeviceWithApplyId($request)
     {
@@ -2614,10 +2930,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request
-     * @param RuntimeOptions                           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request BatchUnbindDeviceFromEdgeInstanceRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindDeviceFromEdgeInstanceResponse
+     * @return BatchUnbindDeviceFromEdgeInstanceResponse BatchUnbindDeviceFromEdgeInstanceResponse
      */
     public function batchUnbindDeviceFromEdgeInstanceWithOptions($request, $runtime)
     {
@@ -2651,9 +2971,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request BatchUnbindDeviceFromEdgeInstanceRequest
      *
-     * @return BatchUnbindDeviceFromEdgeInstanceResponse
+     * @return BatchUnbindDeviceFromEdgeInstanceResponse BatchUnbindDeviceFromEdgeInstanceResponse
      */
     public function batchUnbindDeviceFromEdgeInstance($request)
     {
@@ -2761,10 +3085,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateDeviceNicknameRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchUpdateDeviceNicknameRequest $request BatchUpdateDeviceNicknameRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateDeviceNicknameResponse
+     * @return BatchUpdateDeviceNicknameResponse BatchUpdateDeviceNicknameResponse
      */
     public function batchUpdateDeviceNicknameWithOptions($request, $runtime)
     {
@@ -2795,9 +3123,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateDeviceNicknameRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BatchUpdateDeviceNicknameRequest $request BatchUpdateDeviceNicknameRequest
      *
-     * @return BatchUpdateDeviceNicknameResponse
+     * @return BatchUpdateDeviceNicknameResponse BatchUpdateDeviceNicknameResponse
      */
     public function batchUpdateDeviceNickname($request)
     {
@@ -2859,10 +3191,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BindDriverToEdgeInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BindDriverToEdgeInstanceRequest $request BindDriverToEdgeInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindDriverToEdgeInstanceResponse
+     * @return BindDriverToEdgeInstanceResponse BindDriverToEdgeInstanceResponse
      */
     public function bindDriverToEdgeInstanceWithOptions($request, $runtime)
     {
@@ -2902,9 +3238,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BindDriverToEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BindDriverToEdgeInstanceRequest $request BindDriverToEdgeInstanceRequest
      *
-     * @return BindDriverToEdgeInstanceResponse
+     * @return BindDriverToEdgeInstanceResponse BindDriverToEdgeInstanceResponse
      */
     public function bindDriverToEdgeInstance($request)
     {
@@ -2914,10 +3254,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BindGatewayToEdgeInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BindGatewayToEdgeInstanceRequest $request BindGatewayToEdgeInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindGatewayToEdgeInstanceResponse
+     * @return BindGatewayToEdgeInstanceResponse BindGatewayToEdgeInstanceResponse
      */
     public function bindGatewayToEdgeInstanceWithOptions($request, $runtime)
     {
@@ -2957,9 +3301,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BindGatewayToEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param BindGatewayToEdgeInstanceRequest $request BindGatewayToEdgeInstanceRequest
      *
-     * @return BindGatewayToEdgeInstanceResponse
+     * @return BindGatewayToEdgeInstanceResponse BindGatewayToEdgeInstanceResponse
      */
     public function bindGatewayToEdgeInstance($request)
     {
@@ -3222,10 +3570,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTAStrategyByJobRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
+     *   *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelOTAStrategyByJobRequest $request CancelOTAStrategyByJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOTAStrategyByJobResponse
+     * @return CancelOTAStrategyByJobResponse CancelOTAStrategyByJobResponse
      */
     public function cancelOTAStrategyByJobWithOptions($request, $runtime)
     {
@@ -3256,9 +3610,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTAStrategyByJobRequest $request
+     * ## Limits
+     *   * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
+     *   *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelOTAStrategyByJobRequest $request CancelOTAStrategyByJobRequest
      *
-     * @return CancelOTAStrategyByJobResponse
+     * @return CancelOTAStrategyByJobResponse CancelOTAStrategyByJobResponse
      */
     public function cancelOTAStrategyByJob($request)
     {
@@ -3268,10 +3628,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTATaskByDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CancelOTATaskByDeviceRequest $request CancelOTATaskByDeviceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOTATaskByDeviceResponse
+     * @return CancelOTATaskByDeviceResponse CancelOTATaskByDeviceResponse
      */
     public function cancelOTATaskByDeviceWithOptions($request, $runtime)
     {
@@ -3311,9 +3676,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTATaskByDeviceRequest $request
+     * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CancelOTATaskByDeviceRequest $request CancelOTATaskByDeviceRequest
      *
-     * @return CancelOTATaskByDeviceResponse
+     * @return CancelOTATaskByDeviceResponse CancelOTATaskByDeviceResponse
      */
     public function cancelOTATaskByDevice($request)
     {
@@ -3323,10 +3693,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTATaskByJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelOTATaskByJobRequest $request CancelOTATaskByJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOTATaskByJobResponse
+     * @return CancelOTATaskByJobResponse CancelOTATaskByJobResponse
      */
     public function cancelOTATaskByJobWithOptions($request, $runtime)
     {
@@ -3372,9 +3747,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelOTATaskByJobRequest $request
+     * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelOTATaskByJobRequest $request CancelOTATaskByJobRequest
      *
-     * @return CancelOTATaskByJobResponse
+     * @return CancelOTATaskByJobResponse CancelOTATaskByJobResponse
      */
     public function cancelOTATaskByJob($request)
     {
@@ -3384,10 +3764,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelReleaseProductRequest $request
-     * @param RuntimeOptions              $runtime
+     * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelReleaseProductRequest $request CancelReleaseProductRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelReleaseProductResponse
+     * @return CancelReleaseProductResponse CancelReleaseProductResponse
      */
     public function cancelReleaseProductWithOptions($request, $runtime)
     {
@@ -3418,9 +3801,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CancelReleaseProductRequest $request
+     * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CancelReleaseProductRequest $request CancelReleaseProductRequest
      *
-     * @return CancelReleaseProductResponse
+     * @return CancelReleaseProductResponse CancelReleaseProductResponse
      */
     public function cancelReleaseProduct($request)
     {
@@ -3482,10 +3868,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ClearDeviceDesiredPropertyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
+     *   * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
+     *   * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ClearDeviceDesiredPropertyRequest $request ClearDeviceDesiredPropertyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearDeviceDesiredPropertyResponse
+     * @return ClearDeviceDesiredPropertyResponse ClearDeviceDesiredPropertyResponse
      */
     public function clearDeviceDesiredPropertyWithOptions($request, $runtime)
     {
@@ -3527,9 +3920,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ClearDeviceDesiredPropertyRequest $request
+     * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
+     *   * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
+     *   * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ClearDeviceDesiredPropertyRequest $request ClearDeviceDesiredPropertyRequest
      *
-     * @return ClearDeviceDesiredPropertyResponse
+     * @return ClearDeviceDesiredPropertyResponse ClearDeviceDesiredPropertyResponse
      */
     public function clearDeviceDesiredProperty($request)
     {
@@ -3539,10 +3939,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ClearEdgeInstanceDriverConfigsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ClearEdgeInstanceDriverConfigsRequest $request ClearEdgeInstanceDriverConfigsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearEdgeInstanceDriverConfigsResponse
+     * @return ClearEdgeInstanceDriverConfigsResponse ClearEdgeInstanceDriverConfigsResponse
      */
     public function clearEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
@@ -3576,9 +3980,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ClearEdgeInstanceDriverConfigsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ClearEdgeInstanceDriverConfigsRequest $request ClearEdgeInstanceDriverConfigsRequest
      *
-     * @return ClearEdgeInstanceDriverConfigsResponse
+     * @return ClearEdgeInstanceDriverConfigsResponse ClearEdgeInstanceDriverConfigsResponse
      */
     public function clearEdgeInstanceDriverConfigs($request)
     {
@@ -3634,10 +4042,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CloseEdgeInstanceDeploymentRequest $request
-     * @param RuntimeOptions                     $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CloseEdgeInstanceDeploymentRequest $request CloseEdgeInstanceDeploymentRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseEdgeInstanceDeploymentResponse
+     * @return CloseEdgeInstanceDeploymentResponse CloseEdgeInstanceDeploymentResponse
      */
     public function closeEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
@@ -3668,9 +4080,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CloseEdgeInstanceDeploymentRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CloseEdgeInstanceDeploymentRequest $request CloseEdgeInstanceDeploymentRequest
      *
-     * @return CloseEdgeInstanceDeploymentResponse
+     * @return CloseEdgeInstanceDeploymentResponse CloseEdgeInstanceDeploymentResponse
      */
     public function closeEdgeInstanceDeployment($request)
     {
@@ -3680,10 +4096,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ConfirmOTATaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ConfirmOTATaskRequest $request ConfirmOTATaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmOTATaskResponse
+     * @return ConfirmOTATaskResponse ConfirmOTATaskResponse
      */
     public function confirmOTATaskWithOptions($request, $runtime)
     {
@@ -3714,9 +4135,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ConfirmOTATaskRequest $request
+     * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ConfirmOTATaskRequest $request ConfirmOTATaskRequest
      *
-     * @return ConfirmOTATaskResponse
+     * @return ConfirmOTATaskResponse ConfirmOTATaskResponse
      */
     public function confirmOTATask($request)
     {
@@ -3726,10 +4152,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CopyThingModelRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
+     *   * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
+     *   * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to five queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CopyThingModelRequest $request CopyThingModelRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyThingModelResponse
+     * @return CopyThingModelResponse CopyThingModelResponse
      */
     public function copyThingModelWithOptions($request, $runtime)
     {
@@ -3769,9 +4202,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CopyThingModelRequest $request
+     * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
+     *   * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
+     *   * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to five queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CopyThingModelRequest $request CopyThingModelRequest
      *
-     * @return CopyThingModelResponse
+     * @return CopyThingModelResponse CopyThingModelResponse
      */
     public function copyThingModel($request)
     {
@@ -3832,10 +4272,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
@@ -3846,6 +4290,12 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->subBizCode)) {
+            $query['SubBizCode'] = $request->subBizCode;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3866,9 +4316,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroup($request)
     {
@@ -3878,10 +4332,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupSubscribeRelationRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateConsumerGroupSubscribeRelationRequest $request CreateConsumerGroupSubscribeRelationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConsumerGroupSubscribeRelationResponse
+     * @return CreateConsumerGroupSubscribeRelationResponse CreateConsumerGroupSubscribeRelationResponse
      */
     public function createConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
@@ -3915,9 +4373,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupSubscribeRelationRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateConsumerGroupSubscribeRelationRequest $request CreateConsumerGroupSubscribeRelationRequest
      *
-     * @return CreateConsumerGroupSubscribeRelationResponse
+     * @return CreateConsumerGroupSubscribeRelationResponse CreateConsumerGroupSubscribeRelationResponse
      */
     public function createConsumerGroupSubscribeRelation($request)
     {
@@ -4104,10 +4566,27 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceDistributeJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * To distribute devices, perform the following steps:
+     *   * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
+     *   * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
+     *   * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
+     *   * If either of the following values is returned for the **Status** parameter, the distribution task ends:
+     *   * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
+     *   * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
+     *   * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
+     *   * >  The file URL is valid for 10 minutes.
+     *   * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
+     *   * If the distribution fails, you can perform the preceding steps to distribute devices again.
+     *   * ## Limits
+     *   * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * - You cannot call this operation to distribute devices across accounts.
+     *   * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
+     *   * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateDeviceDistributeJobRequest $request CreateDeviceDistributeJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDeviceDistributeJobResponse
+     * @return CreateDeviceDistributeJobResponse CreateDeviceDistributeJobResponse
      */
     public function createDeviceDistributeJobWithOptions($request, $runtime)
     {
@@ -4153,9 +4632,26 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceDistributeJobRequest $request
+     * To distribute devices, perform the following steps:
+     *   * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
+     *   * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
+     *   * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
+     *   * If either of the following values is returned for the **Status** parameter, the distribution task ends:
+     *   * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
+     *   * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
+     *   * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
+     *   * >  The file URL is valid for 10 minutes.
+     *   * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
+     *   * If the distribution fails, you can perform the preceding steps to distribute devices again.
+     *   * ## Limits
+     *   * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * - You cannot call this operation to distribute devices across accounts.
+     *   * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
+     *   * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateDeviceDistributeJobRequest $request CreateDeviceDistributeJobRequest
      *
-     * @return CreateDeviceDistributeJobResponse
+     * @return CreateDeviceDistributeJobResponse CreateDeviceDistributeJobResponse
      */
     public function createDeviceDistributeJob($request)
     {
@@ -4217,10 +4713,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateDeviceGroupRequest $request CreateDeviceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDeviceGroupResponse
+     * @return CreateDeviceGroupResponse CreateDeviceGroupResponse
      */
     public function createDeviceGroupWithOptions($request, $runtime)
     {
@@ -4257,9 +4757,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateDeviceGroupRequest $request CreateDeviceGroupRequest
      *
-     * @return CreateDeviceGroupResponse
+     * @return CreateDeviceGroupResponse CreateDeviceGroupResponse
      */
     public function createDeviceGroup($request)
     {
@@ -4392,10 +4896,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeDriverRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CreateEdgeDriverRequest $request CreateEdgeDriverRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeDriverResponse
+     * @return CreateEdgeDriverResponse CreateEdgeDriverResponse
      */
     public function createEdgeDriverWithOptions($request, $runtime)
     {
@@ -4438,9 +4946,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeDriverRequest $request
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CreateEdgeDriverRequest $request CreateEdgeDriverRequest
      *
-     * @return CreateEdgeDriverResponse
+     * @return CreateEdgeDriverResponse CreateEdgeDriverResponse
      */
     public function createEdgeDriver($request)
     {
@@ -4450,10 +4962,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeDriverVersionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeDriverVersionRequest $request CreateEdgeDriverVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeDriverVersionResponse
+     * @return CreateEdgeDriverVersionResponse CreateEdgeDriverVersionResponse
      */
     public function createEdgeDriverVersionWithOptions($request, $runtime)
     {
@@ -4508,9 +5024,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeDriverVersionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeDriverVersionRequest $request CreateEdgeDriverVersionRequest
      *
-     * @return CreateEdgeDriverVersionResponse
+     * @return CreateEdgeDriverVersionResponse CreateEdgeDriverVersionResponse
      */
     public function createEdgeDriverVersion($request)
     {
@@ -4520,10 +5040,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CreateEdgeInstanceRequest $request CreateEdgeInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeInstanceResponse
+     * @return CreateEdgeInstanceResponse CreateEdgeInstanceResponse
      */
     public function createEdgeInstanceWithOptions($request, $runtime)
     {
@@ -4560,9 +5084,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeInstanceRequest $request
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param CreateEdgeInstanceRequest $request CreateEdgeInstanceRequest
      *
-     * @return CreateEdgeInstanceResponse
+     * @return CreateEdgeInstanceResponse CreateEdgeInstanceResponse
      */
     public function createEdgeInstance($request)
     {
@@ -4627,10 +5155,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeInstanceDeploymentRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeInstanceDeploymentRequest $request CreateEdgeInstanceDeploymentRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeInstanceDeploymentResponse
+     * @return CreateEdgeInstanceDeploymentResponse CreateEdgeInstanceDeploymentResponse
      */
     public function createEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
@@ -4664,9 +5196,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeInstanceDeploymentRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeInstanceDeploymentRequest $request CreateEdgeInstanceDeploymentRequest
      *
-     * @return CreateEdgeInstanceDeploymentResponse
+     * @return CreateEdgeInstanceDeploymentResponse CreateEdgeInstanceDeploymentResponse
      */
     public function createEdgeInstanceDeployment($request)
     {
@@ -4743,10 +5279,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeOssPreSignedAddressRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeOssPreSignedAddressRequest $request CreateEdgeOssPreSignedAddressRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeOssPreSignedAddressResponse
+     * @return CreateEdgeOssPreSignedAddressResponse CreateEdgeOssPreSignedAddressResponse
      */
     public function createEdgeOssPreSignedAddressWithOptions($request, $runtime)
     {
@@ -4789,9 +5329,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeOssPreSignedAddressRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateEdgeOssPreSignedAddressRequest $request CreateEdgeOssPreSignedAddressRequest
      *
-     * @return CreateEdgeOssPreSignedAddressResponse
+     * @return CreateEdgeOssPreSignedAddressResponse CreateEdgeOssPreSignedAddressResponse
      */
     public function createEdgeOssPreSignedAddress($request)
     {
@@ -4934,10 +5478,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTADynamicUpgradeJobRequest $request
-     * @param RuntimeOptions                    $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
+     *   *
+     * @param CreateOTADynamicUpgradeJobRequest $request CreateOTADynamicUpgradeJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOTADynamicUpgradeJobResponse
+     * @return CreateOTADynamicUpgradeJobResponse CreateOTADynamicUpgradeJobResponse
      */
     public function createOTADynamicUpgradeJobWithOptions($request, $runtime)
     {
@@ -5013,9 +5559,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTADynamicUpgradeJobRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
+     *   *
+     * @param CreateOTADynamicUpgradeJobRequest $request CreateOTADynamicUpgradeJobRequest
      *
-     * @return CreateOTADynamicUpgradeJobResponse
+     * @return CreateOTADynamicUpgradeJobResponse CreateOTADynamicUpgradeJobResponse
      */
     public function createOTADynamicUpgradeJob($request)
     {
@@ -5025,10 +5573,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAFirmwareRequest $request
-     * @param RuntimeOptions           $runtime
+     * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can have up to 500 update packages.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAFirmwareRequest $request CreateOTAFirmwareRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOTAFirmwareResponse
+     * @return CreateOTAFirmwareResponse CreateOTAFirmwareResponse
      */
     public function createOTAFirmwareWithOptions($request, $runtime)
     {
@@ -5098,9 +5653,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAFirmwareRequest $request
+     * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can have up to 500 update packages.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAFirmwareRequest $request CreateOTAFirmwareRequest
      *
-     * @return CreateOTAFirmwareResponse
+     * @return CreateOTAFirmwareResponse CreateOTAFirmwareResponse
      */
     public function createOTAFirmware($request)
     {
@@ -5110,10 +5672,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAModuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
+     *   * *   You can create a maximum of 10 custom OTA modules for each product.
+     *   * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAModuleRequest $request CreateOTAModuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOTAModuleResponse
+     * @return CreateOTAModuleResponse CreateOTAModuleResponse
      */
     public function createOTAModuleWithOptions($request, $runtime)
     {
@@ -5153,9 +5722,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAModuleRequest $request
+     * ## Limits
+     *   * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
+     *   * *   You can create a maximum of 10 custom OTA modules for each product.
+     *   * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAModuleRequest $request CreateOTAModuleRequest
      *
-     * @return CreateOTAModuleResponse
+     * @return CreateOTAModuleResponse CreateOTAModuleResponse
      */
     public function createOTAModule($request)
     {
@@ -5165,10 +5741,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAStaticUpgradeJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
+     *   * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
+     *   * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
+     *   * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
+     *   * *   You can create multiple static update batches by using a single update package.
+     *   * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAStaticUpgradeJobRequest $request CreateOTAStaticUpgradeJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOTAStaticUpgradeJobResponse
+     * @return CreateOTAStaticUpgradeJobResponse CreateOTAStaticUpgradeJobResponse
      */
     public function createOTAStaticUpgradeJobWithOptions($request, $runtime)
     {
@@ -5259,9 +5845,19 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAStaticUpgradeJobRequest $request
+     * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
+     *   * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
+     *   * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
+     *   * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
+     *   * *   You can create multiple static update batches by using a single update package.
+     *   * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAStaticUpgradeJobRequest $request CreateOTAStaticUpgradeJobRequest
      *
-     * @return CreateOTAStaticUpgradeJobResponse
+     * @return CreateOTAStaticUpgradeJobResponse CreateOTAStaticUpgradeJobResponse
      */
     public function createOTAStaticUpgradeJob($request)
     {
@@ -5271,10 +5867,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAVerifyJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
+     *   * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
+     *   * *   You can specify a maximum of 10 devices for a verification task.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAVerifyJobRequest $request CreateOTAVerifyJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOTAVerifyJobResponse
+     * @return CreateOTAVerifyJobResponse CreateOTAVerifyJobResponse
      */
     public function createOTAVerifyJobWithOptions($request, $runtime)
     {
@@ -5326,9 +5929,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateOTAVerifyJobRequest $request
+     * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
+     *   * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
+     *   * *   You can specify a maximum of 10 devices for a verification task.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateOTAVerifyJobRequest $request CreateOTAVerifyJobRequest
      *
-     * @return CreateOTAVerifyJobResponse
+     * @return CreateOTAVerifyJobResponse CreateOTAVerifyJobResponse
      */
     public function createOTAVerifyJob($request)
     {
@@ -5436,10 +6046,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductRequest $request
-     * @param RuntimeOptions       $runtime
+     * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductRequest $request CreateProductRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProductResponse
+     * @return CreateProductResponse CreateProductResponse
      */
     public function createProductWithOptions($request, $runtime)
     {
@@ -5509,9 +6124,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductRequest $request
+     * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductRequest $request CreateProductRequest
      *
-     * @return CreateProductResponse
+     * @return CreateProductResponse CreateProductResponse
      */
     public function createProduct($request)
     {
@@ -5521,10 +6141,19 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductDistributeJobRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   You cannot call this operation to distribute a product across accounts.
+     *   * *   A product distribution task does not distribute the devices under the product.
+     *   * *   After a product is distributed, you cannot modify its TSL model and scripts.
+     *   * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   *     **
+     *   *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductDistributeJobRequest $request CreateProductDistributeJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProductDistributeJobResponse
+     * @return CreateProductDistributeJobResponse CreateProductDistributeJobResponse
      */
     public function createProductDistributeJobWithOptions($request, $runtime)
     {
@@ -5564,9 +6193,18 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductDistributeJobRequest $request
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   You cannot call this operation to distribute a product across accounts.
+     *   * *   A product distribution task does not distribute the devices under the product.
+     *   * *   After a product is distributed, you cannot modify its TSL model and scripts.
+     *   * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   *     **
+     *   *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductDistributeJobRequest $request CreateProductDistributeJobRequest
      *
-     * @return CreateProductDistributeJobResponse
+     * @return CreateProductDistributeJobResponse CreateProductDistributeJobResponse
      */
     public function createProductDistributeJob($request)
     {
@@ -5576,10 +6214,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductTagsRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   You can create a maximum of 10 tags for a product in a single call.
+     *   * *   Each product can have a maximum of 100 tags.
+     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductTagsRequest $request CreateProductTagsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProductTagsResponse
+     * @return CreateProductTagsResponse CreateProductTagsResponse
      */
     public function createProductTagsWithOptions($request, $runtime)
     {
@@ -5613,9 +6258,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductTagsRequest $request
+     * *   You can create a maximum of 10 tags for a product in a single call.
+     *   * *   Each product can have a maximum of 100 tags.
+     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductTagsRequest $request CreateProductTagsRequest
      *
-     * @return CreateProductTagsResponse
+     * @return CreateProductTagsResponse CreateProductTagsResponse
      */
     public function createProductTags($request)
     {
@@ -5625,17 +6277,27 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductTopicRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductTopicRequest $request CreateProductTopicRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProductTopicResponse
+     * @return CreateProductTopicResponse CreateProductTopicResponse
      */
     public function createProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->codec)) {
+            $query['Codec'] = $request->codec;
+        }
         if (!Utils::isUnset($request->desc)) {
             $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->enableProxySubscribe)) {
+            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -5668,9 +6330,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateProductTopicRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateProductTopicRequest $request CreateProductTopicRequest
      *
-     * @return CreateProductTopicResponse
+     * @return CreateProductTopicResponse CreateProductTopicResponse
      */
     public function createProductTopic($request)
     {
@@ -5680,10 +6346,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * When you call this operation, you must specify the **ProductKey** parameter in the request.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateRuleRequest $request CreateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
@@ -5741,9 +6412,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
+     * When you call this operation, you must specify the **ProductKey** parameter in the request.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateRuleRequest $request CreateRuleRequest
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -5753,10 +6429,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleActionRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
+     *   * *   You can create a maximum of 10 rule actions for each rule.
+     *   * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateRuleActionRequest $request CreateRuleActionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleActionResponse
+     * @return CreateRuleActionResponse CreateRuleActionResponse
      */
     public function createRuleActionWithOptions($request, $runtime)
     {
@@ -5796,9 +6479,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleActionRequest $request
+     * ## Limits
+     *   * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
+     *   * *   You can create a maximum of 10 rule actions for each rule.
+     *   * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateRuleActionRequest $request CreateRuleActionRequest
      *
-     * @return CreateRuleActionResponse
+     * @return CreateRuleActionResponse CreateRuleActionResponse
      */
     public function createRuleAction($request)
     {
@@ -6213,10 +6903,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscribeRelationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * Server-side subscriptions are categorized into the following two types:
+     *   * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
+     *   * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
+     *   *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
+     *   *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
+     *   *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
+     *   *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateSubscribeRelationRequest $request CreateSubscribeRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubscribeRelationResponse
+     * @return CreateSubscribeRelationResponse CreateSubscribeRelationResponse
      */
     public function createSubscribeRelationWithOptions($request, $runtime)
     {
@@ -6289,9 +6990,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscribeRelationRequest $request
+     * Server-side subscriptions are categorized into the following two types:
+     *   * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
+     *   * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
+     *   *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
+     *   *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
+     *   *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
+     *   *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateSubscribeRelationRequest $request CreateSubscribeRelationRequest
      *
-     * @return CreateSubscribeRelationResponse
+     * @return CreateSubscribeRelationResponse CreateSubscribeRelationResponse
      */
     public function createSubscribeRelation($request)
     {
@@ -6301,10 +7013,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateThingModelRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+     *   * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateThingModelRequest $request CreateThingModelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateThingModelResponse
+     * @return CreateThingModelResponse CreateThingModelResponse
      */
     public function createThingModelWithOptions($request, $runtime)
     {
@@ -6344,9 +7063,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateThingModelRequest $request
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+     *   * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateThingModelRequest $request CreateThingModelRequest
      *
-     * @return CreateThingModelResponse
+     * @return CreateThingModelResponse CreateThingModelResponse
      */
     public function createThingModel($request)
     {
@@ -6356,10 +7082,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateThingScriptRequest $request
-     * @param RuntimeOptions           $runtime
+     * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateThingScriptRequest $request CreateThingScriptRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateThingScriptResponse
+     * @return CreateThingScriptResponse CreateThingScriptResponse
      */
     public function createThingScriptWithOptions($request, $runtime)
     {
@@ -6396,9 +7128,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateThingScriptRequest $request
+     * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateThingScriptRequest $request CreateThingScriptRequest
      *
-     * @return CreateThingScriptResponse
+     * @return CreateThingScriptResponse CreateThingScriptResponse
      */
     public function createThingScript($request)
     {
@@ -6408,10 +7146,81 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRouteTableRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateTopicConfigRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateTopicRouteTableResponse
+     * @return CreateTopicConfigResponse
+     */
+    public function createTopicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->codec)) {
+            $query['Codec'] = $request->codec;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableBroadcast)) {
+            $query['EnableBroadcast'] = $request->enableBroadcast;
+        }
+        if (!Utils::isUnset($request->enableProxySubscribe)) {
+            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topicFullName)) {
+            $query['TopicFullName'] = $request->topicFullName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTopicConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTopicConfigRequest $request
+     *
+     * @return CreateTopicConfigResponse
+     */
+    public function createTopicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTopicConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * ## Limits
+     *   * *   You can specify a maximum of 100 destination topics for a source topic.
+     *   * *   The device to which the source topic belongs must be activated.
+     *   * *   The source and destination topics support only custom topics.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateTopicRouteTableRequest $request CreateTopicRouteTableRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTopicRouteTableResponse CreateTopicRouteTableResponse
      */
     public function createTopicRouteTableWithOptions($request, $runtime)
     {
@@ -6445,9 +7254,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRouteTableRequest $request
+     * ## Limits
+     *   * *   You can specify a maximum of 100 destination topics for a source topic.
+     *   * *   The device to which the source topic belongs must be activated.
+     *   * *   The source and destination topics support only custom topics.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param CreateTopicRouteTableRequest $request CreateTopicRouteTableRequest
      *
-     * @return CreateTopicRouteTableResponse
+     * @return CreateTopicRouteTableResponse CreateTopicRouteTableResponse
      */
     public function createTopicRouteTable($request)
     {
@@ -6457,10 +7273,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientIdsRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
+     *   * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteClientIdsRequest $request DeleteClientIdsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClientIdsResponse
+     * @return DeleteClientIdsResponse DeleteClientIdsResponse
      */
     public function deleteClientIdsWithOptions($request, $runtime)
     {
@@ -6491,9 +7313,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientIdsRequest $request
+     * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
+     *   * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteClientIdsRequest $request DeleteClientIdsRequest
      *
-     * @return DeleteClientIdsResponse
+     * @return DeleteClientIdsResponse DeleteClientIdsResponse
      */
     public function deleteClientIds($request)
     {
@@ -6503,10 +7331,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * *   You cannot delete the default consumer group provided by IoT Platform.
+     *   * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
@@ -6537,9 +7371,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupRequest $request
+     * ## Limits
+     *   * *   You cannot delete the default consumer group provided by IoT Platform.
+     *   * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($request)
     {
@@ -6549,10 +7389,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupSubscribeRelationRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ## Limits
+     *   * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteConsumerGroupSubscribeRelationRequest $request DeleteConsumerGroupSubscribeRelationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConsumerGroupSubscribeRelationResponse
+     * @return DeleteConsumerGroupSubscribeRelationResponse DeleteConsumerGroupSubscribeRelationResponse
      */
     public function deleteConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
@@ -6586,9 +7431,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupSubscribeRelationRequest $request
+     * ## Limits
+     *   * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteConsumerGroupSubscribeRelationRequest $request DeleteConsumerGroupSubscribeRelationRequest
      *
-     * @return DeleteConsumerGroupSubscribeRelationResponse
+     * @return DeleteConsumerGroupSubscribeRelationResponse DeleteConsumerGroupSubscribeRelationResponse
      */
     public function deleteConsumerGroupSubscribeRelation($request)
     {
@@ -6693,10 +7543,23 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
+     *   * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
+     *   * **Warning**
+     *   * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
+     *   * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
+     *   * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
+     *   * ****
+     *   * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
+     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceRequest $request DeleteDeviceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceResponse
+     * @return DeleteDeviceResponse DeleteDeviceResponse
      */
     public function deleteDeviceWithOptions($request, $runtime)
     {
@@ -6733,9 +7596,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceRequest $request
+     * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
+     *   * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
+     *   * **Warning**
+     *   * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
+     *   * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
+     *   * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
+     *   * ****
+     *   * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
+     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceRequest $request DeleteDeviceRequest
      *
-     * @return DeleteDeviceResponse
+     * @return DeleteDeviceResponse DeleteDeviceResponse
      */
     public function deleteDevice($request)
     {
@@ -6745,10 +7621,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceDistributeJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceDistributeJobRequest $request DeleteDeviceDistributeJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceDistributeJobResponse
+     * @return DeleteDeviceDistributeJobResponse DeleteDeviceDistributeJobResponse
      */
     public function deleteDeviceDistributeJobWithOptions($request, $runtime)
     {
@@ -6776,9 +7656,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceDistributeJobRequest $request
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceDistributeJobRequest $request DeleteDeviceDistributeJobRequest
      *
-     * @return DeleteDeviceDistributeJobResponse
+     * @return DeleteDeviceDistributeJobResponse DeleteDeviceDistributeJobResponse
      */
     public function deleteDeviceDistributeJob($request)
     {
@@ -6834,10 +7718,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceFileRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceFileRequest $request DeleteDeviceFileRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceFileResponse
+     * @return DeleteDeviceFileResponse DeleteDeviceFileResponse
      */
     public function deleteDeviceFileWithOptions($request, $runtime)
     {
@@ -6877,9 +7765,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceFileRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceFileRequest $request DeleteDeviceFileRequest
      *
-     * @return DeleteDeviceFileResponse
+     * @return DeleteDeviceFileResponse DeleteDeviceFileResponse
      */
     public function deleteDeviceFile($request)
     {
@@ -6889,10 +7781,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceGroupRequest $request DeleteDeviceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceGroupResponse
+     * @return DeleteDeviceGroupResponse DeleteDeviceGroupResponse
      */
     public function deleteDeviceGroupWithOptions($request, $runtime)
     {
@@ -6923,9 +7819,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDeviceGroupRequest $request DeleteDeviceGroupRequest
      *
-     * @return DeleteDeviceGroupResponse
+     * @return DeleteDeviceGroupResponse DeleteDeviceGroupResponse
      */
     public function deleteDeviceGroup($request)
     {
@@ -6935,10 +7835,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDevicePropRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDevicePropRequest $request DeleteDevicePropRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDevicePropResponse
+     * @return DeleteDevicePropResponse DeleteDevicePropResponse
      */
     public function deleteDevicePropWithOptions($request, $runtime)
     {
@@ -6978,9 +7882,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDevicePropRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteDevicePropRequest $request DeleteDevicePropRequest
      *
-     * @return DeleteDevicePropResponse
+     * @return DeleteDevicePropResponse DeleteDevicePropResponse
      */
     public function deleteDeviceProp($request)
     {
@@ -7085,10 +7993,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeDriverRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * *   You are not allowed to delete a driver that has a published version.
+     *   * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeDriverRequest $request DeleteEdgeDriverRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEdgeDriverResponse
+     * @return DeleteEdgeDriverResponse DeleteEdgeDriverResponse
      */
     public function deleteEdgeDriverWithOptions($request, $runtime)
     {
@@ -7119,9 +8032,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeDriverRequest $request
+     * ## Limits
+     *   * *   You are not allowed to delete a driver that has a published version.
+     *   * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeDriverRequest $request DeleteEdgeDriverRequest
      *
-     * @return DeleteEdgeDriverResponse
+     * @return DeleteEdgeDriverResponse DeleteEdgeDriverResponse
      */
     public function deleteEdgeDriver($request)
     {
@@ -7131,10 +8049,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeDriverVersionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * *   You are not allowed to delete a published driver version.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeDriverVersionRequest $request DeleteEdgeDriverVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEdgeDriverVersionResponse
+     * @return DeleteEdgeDriverVersionResponse DeleteEdgeDriverVersionResponse
      */
     public function deleteEdgeDriverVersionWithOptions($request, $runtime)
     {
@@ -7168,9 +8091,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeDriverVersionRequest $request
+     * ## Limits
+     *   * *   You are not allowed to delete a published driver version.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeDriverVersionRequest $request DeleteEdgeDriverVersionRequest
      *
-     * @return DeleteEdgeDriverVersionResponse
+     * @return DeleteEdgeDriverVersionResponse DeleteEdgeDriverVersionResponse
      */
     public function deleteEdgeDriverVersion($request)
     {
@@ -7180,10 +8108,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeInstanceRequest $request DeleteEdgeInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEdgeInstanceResponse
+     * @return DeleteEdgeInstanceResponse DeleteEdgeInstanceResponse
      */
     public function deleteEdgeInstanceWithOptions($request, $runtime)
     {
@@ -7214,9 +8145,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteEdgeInstanceRequest $request
+     * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteEdgeInstanceRequest $request DeleteEdgeInstanceRequest
      *
-     * @return DeleteEdgeInstanceResponse
+     * @return DeleteEdgeInstanceResponse DeleteEdgeInstanceResponse
      */
     public function deleteEdgeInstance($request)
     {
@@ -7321,10 +8255,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOTAFirmwareRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteOTAFirmwareRequest $request DeleteOTAFirmwareRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteOTAFirmwareResponse
+     * @return DeleteOTAFirmwareResponse DeleteOTAFirmwareResponse
      */
     public function deleteOTAFirmwareWithOptions($request, $runtime)
     {
@@ -7355,9 +8293,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOTAFirmwareRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteOTAFirmwareRequest $request DeleteOTAFirmwareRequest
      *
-     * @return DeleteOTAFirmwareResponse
+     * @return DeleteOTAFirmwareResponse DeleteOTAFirmwareResponse
      */
     public function deleteOTAFirmware($request)
     {
@@ -7367,10 +8309,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOTAModuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * *   The default module cannot be deleted.
+     *   * *   If an update package exists in an OTA module, you cannot delete the OTA module.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteOTAModuleRequest $request DeleteOTAModuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteOTAModuleResponse
+     * @return DeleteOTAModuleResponse DeleteOTAModuleResponse
      */
     public function deleteOTAModuleWithOptions($request, $runtime)
     {
@@ -7404,9 +8352,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOTAModuleRequest $request
+     * ## Limits
+     *   * *   The default module cannot be deleted.
+     *   * *   If an update package exists in an OTA module, you cannot delete the OTA module.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteOTAModuleRequest $request DeleteOTAModuleRequest
      *
-     * @return DeleteOTAModuleResponse
+     * @return DeleteOTAModuleResponse DeleteOTAModuleResponse
      */
     public function deleteOTAModule($request)
     {
@@ -7508,10 +8462,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductRequest $request
-     * @param RuntimeOptions       $runtime
+     * ## Limits
+     *   * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductRequest $request DeleteProductRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProductResponse
+     * @return DeleteProductResponse DeleteProductResponse
      */
     public function deleteProductWithOptions($request, $runtime)
     {
@@ -7542,9 +8501,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductRequest $request
+     * ## Limits
+     *   * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductRequest $request DeleteProductRequest
      *
-     * @return DeleteProductResponse
+     * @return DeleteProductResponse DeleteProductResponse
      */
     public function deleteProduct($request)
     {
@@ -7554,10 +8518,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductTagsRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * *   You can delete a maximum of 10 tags in a single call.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductTagsRequest $request DeleteProductTagsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProductTagsResponse
+     * @return DeleteProductTagsResponse DeleteProductTagsResponse
      */
     public function deleteProductTagsWithOptions($request, $runtime)
     {
@@ -7591,9 +8560,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductTagsRequest $request
+     * ## Limits
+     *   * *   You can delete a maximum of 10 tags in a single call.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductTagsRequest $request DeleteProductTagsRequest
      *
-     * @return DeleteProductTagsResponse
+     * @return DeleteProductTagsResponse DeleteProductTagsResponse
      */
     public function deleteProductTags($request)
     {
@@ -7603,10 +8577,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductTopicRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductTopicRequest $request DeleteProductTopicRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProductTopicResponse
+     * @return DeleteProductTopicResponse DeleteProductTopicResponse
      */
     public function deleteProductTopicWithOptions($request, $runtime)
     {
@@ -7637,9 +8615,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductTopicRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteProductTopicRequest $request DeleteProductTopicRequest
      *
-     * @return DeleteProductTopicResponse
+     * @return DeleteProductTopicResponse DeleteProductTopicResponse
      */
     public function deleteProductTopic($request)
     {
@@ -7649,10 +8631,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
@@ -7683,9 +8669,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -7695,10 +8685,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleActionRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteRuleActionRequest $request DeleteRuleActionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleActionResponse
+     * @return DeleteRuleActionResponse DeleteRuleActionResponse
      */
     public function deleteRuleActionWithOptions($request, $runtime)
     {
@@ -7729,9 +8723,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleActionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteRuleActionRequest $request DeleteRuleActionRequest
      *
-     * @return DeleteRuleActionResponse
+     * @return DeleteRuleActionResponse DeleteRuleActionResponse
      */
     public function deleteRuleAction($request)
     {
@@ -8118,10 +9116,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscribeRelationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteSubscribeRelationRequest $request DeleteSubscribeRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubscribeRelationResponse
+     * @return DeleteSubscribeRelationResponse DeleteSubscribeRelationResponse
      */
     public function deleteSubscribeRelationWithOptions($request, $runtime)
     {
@@ -8155,9 +9157,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscribeRelationRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteSubscribeRelationRequest $request DeleteSubscribeRelationRequest
      *
-     * @return DeleteSubscribeRelationResponse
+     * @return DeleteSubscribeRelationResponse DeleteSubscribeRelationResponse
      */
     public function deleteSubscribeRelation($request)
     {
@@ -8167,10 +9173,23 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteThingModelRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
+     *   * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
+     *   * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
+     *   *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
+     *   *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
+     *   *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
+     *   *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
+     *   * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
+     *   * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 5 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param DeleteThingModelRequest $request DeleteThingModelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteThingModelResponse
+     * @return DeleteThingModelResponse DeleteThingModelResponse
      */
     public function deleteThingModelWithOptions($request, $runtime)
     {
@@ -8216,9 +9235,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteThingModelRequest $request
+     * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
+     *   * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
+     *   * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
+     *   *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
+     *   *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
+     *   *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
+     *   *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
+     *   * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
+     *   * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 5 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param DeleteThingModelRequest $request DeleteThingModelRequest
      *
-     * @return DeleteThingModelResponse
+     * @return DeleteThingModelResponse DeleteThingModelResponse
      */
     public function deleteThingModel($request)
     {
@@ -8228,10 +9260,63 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRouteTableRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DeleteTopicConfigRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteTopicRouteTableResponse
+     * @return DeleteTopicConfigResponse
+     */
+    public function deleteTopicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topicFullName)) {
+            $query['TopicFullName'] = $request->topicFullName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTopicConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTopicConfigRequest $request
+     *
+     * @return DeleteTopicConfigResponse
+     */
+    public function deleteTopicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTopicConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteTopicRouteTableRequest $request DeleteTopicRouteTableRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTopicRouteTableResponse DeleteTopicRouteTableResponse
      */
     public function deleteTopicRouteTableWithOptions($request, $runtime)
     {
@@ -8265,9 +9350,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRouteTableRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DeleteTopicRouteTableRequest $request DeleteTopicRouteTableRequest
      *
-     * @return DeleteTopicRouteTableResponse
+     * @return DeleteTopicRouteTableResponse DeleteTopicRouteTableResponse
      */
     public function deleteTopicRouteTable($request)
     {
@@ -8277,10 +9366,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DetachDestinationRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param DetachDestinationRequest $request DetachDestinationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachDestinationResponse
+     * @return DetachDestinationResponse DetachDestinationResponse
      */
     public function detachDestinationWithOptions($request, $runtime)
     {
@@ -8314,9 +9407,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DetachDestinationRequest $request
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param DetachDestinationRequest $request DetachDestinationRequest
      *
-     * @return DetachDestinationResponse
+     * @return DetachDestinationResponse DetachDestinationResponse
      */
     public function detachDestination($request)
     {
@@ -8519,10 +9616,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DisableThingRequest $request
-     * @param RuntimeOptions      $runtime
+     * ## Limits
+     *   * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DisableThingRequest $request DisableThingRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableThingResponse
+     * @return DisableThingResponse DisableThingResponse
      */
     public function disableThingWithOptions($request, $runtime)
     {
@@ -8559,9 +9661,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DisableThingRequest $request
+     * ## Limits
+     *   * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param DisableThingRequest $request DisableThingRequest
      *
-     * @return DisableThingResponse
+     * @return DisableThingResponse DisableThingResponse
      */
     public function disableThing($request)
     {
@@ -8715,10 +9822,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param EnableThingRequest $request
-     * @param RuntimeOptions     $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param EnableThingRequest $request EnableThingRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableThingResponse
+     * @return EnableThingResponse EnableThingResponse
      */
     public function enableThingWithOptions($request, $runtime)
     {
@@ -8755,9 +9866,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param EnableThingRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param EnableThingRequest $request EnableThingRequest
      *
-     * @return EnableThingResponse
+     * @return EnableThingResponse EnableThingResponse
      */
     public function enableThing($request)
     {
@@ -8767,10 +9882,24 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GenerateDeviceNameListURLRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This operation can be used with other operations to upload a device list file. Procedure:
+     *   * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.
+     *   * The response parameters of this API operation include:
+     *   * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.
+     *   * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.
+     *   * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.
+     *   * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * ## Requirements
+     *   * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
+     *   * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
+     *   *
+     * @param GenerateDeviceNameListURLRequest $request GenerateDeviceNameListURLRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateDeviceNameListURLResponse
+     * @return GenerateDeviceNameListURLResponse GenerateDeviceNameListURLResponse
      */
     public function generateDeviceNameListURLWithOptions($request, $runtime)
     {
@@ -8798,9 +9927,23 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GenerateDeviceNameListURLRequest $request
+     * This operation can be used with other operations to upload a device list file. Procedure:
+     *   * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.
+     *   * The response parameters of this API operation include:
+     *   * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.
+     *   * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.
+     *   * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.
+     *   * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * ## Requirements
+     *   * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
+     *   * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
+     *   *
+     * @param GenerateDeviceNameListURLRequest $request GenerateDeviceNameListURLRequest
      *
-     * @return GenerateDeviceNameListURLResponse
+     * @return GenerateDeviceNameListURLResponse GenerateDeviceNameListURLResponse
      */
     public function generateDeviceNameListURL($request)
     {
@@ -8862,10 +10005,23 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GenerateOTAUploadURLRequest $request
-     * @param RuntimeOptions              $runtime
+     * This operation can be used together with other operations to create an update package. Procedure:
+     *   * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
+     *   * The following section describes the response parameters of this API operation:
+     *   * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
+     *   * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
+     *   * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
+     *   * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
+     *   * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
+     *   * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param GenerateOTAUploadURLRequest $request GenerateOTAUploadURLRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateOTAUploadURLResponse
+     * @return GenerateOTAUploadURLResponse GenerateOTAUploadURLResponse
      */
     public function generateOTAUploadURLWithOptions($request, $runtime)
     {
@@ -8896,9 +10052,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GenerateOTAUploadURLRequest $request
+     * This operation can be used together with other operations to create an update package. Procedure:
+     *   * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
+     *   * The following section describes the response parameters of this API operation:
+     *   * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
+     *   * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
+     *   * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
+     *   * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
+     *   * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
+     *   * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param GenerateOTAUploadURLRequest $request GenerateOTAUploadURLRequest
      *
-     * @return GenerateOTAUploadURLResponse
+     * @return GenerateOTAUploadURLResponse GenerateOTAUploadURLResponse
      */
     public function generateOTAUploadURL($request)
     {
@@ -9000,10 +10169,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceShadowRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## QPS limits
+     *   * You can call this API operation up to 500 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetDeviceShadowRequest $request GetDeviceShadowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceShadowResponse
+     * @return GetDeviceShadowResponse GetDeviceShadowResponse
      */
     public function getDeviceShadowWithOptions($request, $runtime)
     {
@@ -9037,9 +10210,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceShadowRequest $request
+     * ## QPS limits
+     *   * You can call this API operation up to 500 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetDeviceShadowRequest $request GetDeviceShadowRequest
      *
-     * @return GetDeviceShadowResponse
+     * @return GetDeviceShadowResponse GetDeviceShadowResponse
      */
     public function getDeviceShadow($request)
     {
@@ -9049,10 +10226,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetDeviceStatusRequest $request GetDeviceStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceStatusResponse
+     * @return GetDeviceStatusResponse GetDeviceStatusResponse
      */
     public function getDeviceStatusWithOptions($request, $runtime)
     {
@@ -9089,9 +10270,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceStatusRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetDeviceStatusRequest $request GetDeviceStatusRequest
      *
-     * @return GetDeviceStatusResponse
+     * @return GetDeviceStatusResponse GetDeviceStatusResponse
      */
     public function getDeviceStatus($request)
     {
@@ -9255,10 +10440,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeDriverVersionRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeDriverVersionRequest $request GetEdgeDriverVersionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEdgeDriverVersionResponse
+     * @return GetEdgeDriverVersionResponse GetEdgeDriverVersionResponse
      */
     public function getEdgeDriverVersionWithOptions($request, $runtime)
     {
@@ -9292,9 +10481,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeDriverVersionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeDriverVersionRequest $request GetEdgeDriverVersionRequest
      *
-     * @return GetEdgeDriverVersionResponse
+     * @return GetEdgeDriverVersionResponse GetEdgeDriverVersionResponse
      */
     public function getEdgeDriverVersion($request)
     {
@@ -9304,10 +10497,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeInstanceRequest $request GetEdgeInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEdgeInstanceResponse
+     * @return GetEdgeInstanceResponse GetEdgeInstanceResponse
      */
     public function getEdgeInstanceWithOptions($request, $runtime)
     {
@@ -9338,9 +10535,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeInstanceRequest $request GetEdgeInstanceRequest
      *
-     * @return GetEdgeInstanceResponse
+     * @return GetEdgeInstanceResponse GetEdgeInstanceResponse
      */
     public function getEdgeInstance($request)
     {
@@ -9350,10 +10551,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeInstanceDeploymentRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeInstanceDeploymentRequest $request GetEdgeInstanceDeploymentRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEdgeInstanceDeploymentResponse
+     * @return GetEdgeInstanceDeploymentResponse GetEdgeInstanceDeploymentResponse
      */
     public function getEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
@@ -9387,9 +10592,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetEdgeInstanceDeploymentRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetEdgeInstanceDeploymentRequest $request GetEdgeInstanceDeploymentRequest
      *
-     * @return GetEdgeInstanceDeploymentResponse
+     * @return GetEdgeInstanceDeploymentResponse GetEdgeInstanceDeploymentResponse
      */
     public function getEdgeInstanceDeployment($request)
     {
@@ -9448,10 +10657,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayBySubDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetGatewayBySubDeviceRequest $request GetGatewayBySubDeviceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayBySubDeviceResponse
+     * @return GetGatewayBySubDeviceResponse GetGatewayBySubDeviceResponse
      */
     public function getGatewayBySubDeviceWithOptions($request, $runtime)
     {
@@ -9488,9 +10701,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayBySubDeviceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetGatewayBySubDeviceRequest $request GetGatewayBySubDeviceRequest
      *
-     * @return GetGatewayBySubDeviceResponse
+     * @return GetGatewayBySubDeviceResponse GetGatewayBySubDeviceResponse
      */
     public function getGatewayBySubDevice($request)
     {
@@ -9638,10 +10855,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
-     * @param RuntimeOptions $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetRuleRequest $request GetRuleRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRuleResponse
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
@@ -9672,9 +10893,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetRuleRequest $request GetRuleRequest
      *
-     * @return GetRuleResponse
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRule($request)
     {
@@ -9684,10 +10909,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetRuleActionRequest $request
-     * @param RuntimeOptions       $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param GetRuleActionRequest $request GetRuleActionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRuleActionResponse
+     * @return GetRuleActionResponse GetRuleActionResponse
      */
     public function getRuleActionWithOptions($request, $runtime)
     {
@@ -9718,9 +10945,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetRuleActionRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param GetRuleActionRequest $request GetRuleActionRequest
      *
-     * @return GetRuleActionResponse
+     * @return GetRuleActionResponse GetRuleActionResponse
      */
     public function getRuleAction($request)
     {
@@ -10140,10 +11369,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingModelTslRequest $request
-     * @param RuntimeOptions          $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param GetThingModelTslRequest $request GetThingModelTslRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThingModelTslResponse
+     * @return GetThingModelTslResponse GetThingModelTslResponse
      */
     public function getThingModelTslWithOptions($request, $runtime)
     {
@@ -10183,9 +11414,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingModelTslRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param GetThingModelTslRequest $request GetThingModelTslRequest
      *
-     * @return GetThingModelTslResponse
+     * @return GetThingModelTslResponse GetThingModelTslResponse
      */
     public function getThingModelTsl($request)
     {
@@ -10195,10 +11428,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingModelTslPublishedRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingModelTslPublishedRequest $request GetThingModelTslPublishedRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThingModelTslPublishedResponse
+     * @return GetThingModelTslPublishedResponse GetThingModelTslPublishedResponse
      */
     public function getThingModelTslPublishedWithOptions($request, $runtime)
     {
@@ -10241,9 +11478,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingModelTslPublishedRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingModelTslPublishedRequest $request GetThingModelTslPublishedRequest
      *
-     * @return GetThingModelTslPublishedResponse
+     * @return GetThingModelTslPublishedResponse GetThingModelTslPublishedResponse
      */
     public function getThingModelTslPublished($request)
     {
@@ -10253,10 +11494,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingScriptRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingScriptRequest $request GetThingScriptRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThingScriptResponse
+     * @return GetThingScriptResponse GetThingScriptResponse
      */
     public function getThingScriptWithOptions($request, $runtime)
     {
@@ -10287,9 +11532,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingScriptRequest $request
+     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingScriptRequest $request GetThingScriptRequest
      *
-     * @return GetThingScriptResponse
+     * @return GetThingScriptResponse GetThingScriptResponse
      */
     public function getThingScript($request)
     {
@@ -10299,10 +11548,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingTemplateRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingTemplateRequest $request GetThingTemplateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThingTemplateResponse
+     * @return GetThingTemplateResponse GetThingTemplateResponse
      */
     public function getThingTemplateWithOptions($request, $runtime)
     {
@@ -10336,9 +11589,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingTemplateRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingTemplateRequest $request GetThingTemplateRequest
      *
-     * @return GetThingTemplateResponse
+     * @return GetThingTemplateResponse GetThingTemplateResponse
      */
     public function getThingTemplate($request)
     {
@@ -10348,10 +11605,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingTopoRequest $request
-     * @param RuntimeOptions      $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingTopoRequest $request GetThingTopoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThingTopoResponse
+     * @return GetThingTopoResponse GetThingTopoResponse
      */
     public function getThingTopoWithOptions($request, $runtime)
     {
@@ -10394,9 +11655,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetThingTopoRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param GetThingTopoRequest $request GetThingTopoRequest
      *
-     * @return GetThingTopoResponse
+     * @return GetThingTopoResponse GetThingTopoResponse
      */
     public function getThingTopo($request)
     {
@@ -10518,6 +11783,10 @@ class Iot extends OpenApiClient
     public function importDTDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DTInstanceId)) {
+            $query['DTInstanceId'] = $request->DTInstanceId;
+        }
         $body = [];
         if (!Utils::isUnset($request->iotInstanceId)) {
             $body['IotInstanceId'] = $request->iotInstanceId;
@@ -10529,7 +11798,8 @@ class Iot extends OpenApiClient
             $body['ProductKey'] = $request->productKey;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ImportDTData',
@@ -10617,10 +11887,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ImportThingModelTslRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ImportThingModelTslRequest $request ImportThingModelTslRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportThingModelTslResponse
+     * @return ImportThingModelTslResponse ImportThingModelTslResponse
      */
     public function importThingModelTslWithOptions($request, $runtime)
     {
@@ -10666,9 +11941,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ImportThingModelTslRequest $request
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ImportThingModelTslRequest $request ImportThingModelTslRequest
      *
-     * @return ImportThingModelTslResponse
+     * @return ImportThingModelTslResponse ImportThingModelTslResponse
      */
     public function importThingModelTsl($request)
     {
@@ -10727,10 +12007,35 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param InvokeThingServiceRequest $request
-     * @param RuntimeOptions            $runtime
+     * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
+     *   * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
+     *   * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
+     *   * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
+     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+     *   * ```
+     *   * {
+     *   * 	"id": "58***89",
+     *   * 	"code": 200,
+     *   * 	"data": {},
+     *   * 	"message": "success",
+     *   * 	"localizedMsg": "localizedMsg"
+     *   * }
+     *   * ```
+     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
+     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
+     *   * >*   The **message** and **localizedMsg** parameters are optional.
+     *   * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+     *   * ## Limits
+     *   * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param InvokeThingServiceRequest $request InvokeThingServiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvokeThingServiceResponse
+     * @return InvokeThingServiceResponse InvokeThingServiceResponse
      */
     public function invokeThingServiceWithOptions($request, $runtime)
     {
@@ -10773,9 +12078,34 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param InvokeThingServiceRequest $request
+     * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
+     *   * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
+     *   * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
+     *   * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
+     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+     *   * ```
+     *   * {
+     *   * 	"id": "58***89",
+     *   * 	"code": 200,
+     *   * 	"data": {},
+     *   * 	"message": "success",
+     *   * 	"localizedMsg": "localizedMsg"
+     *   * }
+     *   * ```
+     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
+     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
+     *   * >*   The **message** and **localizedMsg** parameters are optional.
+     *   * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+     *   * ## Limits
+     *   * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param InvokeThingServiceRequest $request InvokeThingServiceRequest
      *
-     * @return InvokeThingServiceResponse
+     * @return InvokeThingServiceResponse InvokeThingServiceResponse
      */
     public function invokeThingService($request)
     {
@@ -10785,10 +12115,30 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param InvokeThingsServiceRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can only asynchronously call this operation.
+     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+     *   * ```
+     *   * {
+     *   * 	"id": "58***89",
+     *   * 	"code": 200,
+     *   * 	"data": {},
+     *   * 	"message": "success",
+     *   * 	"localizedMsg": "localizedMsg"
+     *   * }
+     *   * ```
+     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
+     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
+     *   * >*   The **message** and **localizedMsg** parameters are optional.
+     *   * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param InvokeThingsServiceRequest $request InvokeThingsServiceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvokeThingsServiceResponse
+     * @return InvokeThingsServiceResponse InvokeThingsServiceResponse
      */
     public function invokeThingsServiceWithOptions($request, $runtime)
     {
@@ -10828,9 +12178,29 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param InvokeThingsServiceRequest $request
+     * You can only asynchronously call this operation.
+     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+     *   * ```
+     *   * {
+     *   * 	"id": "58***89",
+     *   * 	"code": 200,
+     *   * 	"data": {},
+     *   * 	"message": "success",
+     *   * 	"localizedMsg": "localizedMsg"
+     *   * }
+     *   * ```
+     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
+     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
+     *   * >*   The **message** and **localizedMsg** parameters are optional.
+     *   * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param InvokeThingsServiceRequest $request InvokeThingsServiceRequest
      *
-     * @return InvokeThingsServiceResponse
+     * @return InvokeThingsServiceResponse InvokeThingsServiceResponse
      */
     public function invokeThingsService($request)
     {
@@ -11008,10 +12378,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceDistributeJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListDeviceDistributeJobRequest $request ListDeviceDistributeJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeviceDistributeJobResponse
+     * @return ListDeviceDistributeJobResponse ListDeviceDistributeJobResponse
      */
     public function listDeviceDistributeJobWithOptions($request, $runtime)
     {
@@ -11059,9 +12434,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceDistributeJobRequest $request
+     * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListDeviceDistributeJobRequest $request ListDeviceDistributeJobRequest
      *
-     * @return ListDeviceDistributeJobResponse
+     * @return ListDeviceDistributeJobResponse ListDeviceDistributeJobResponse
      */
     public function listDeviceDistributeJob($request)
     {
@@ -11071,10 +12451,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDistributedDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
+     *   *
+     * @param ListDistributedDeviceRequest $request ListDistributedDeviceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDistributedDeviceResponse
+     * @return ListDistributedDeviceResponse ListDistributedDeviceResponse
      */
     public function listDistributedDeviceWithOptions($request, $runtime)
     {
@@ -11117,9 +12502,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDistributedDeviceRequest $request
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
+     *   *
+     * @param ListDistributedDeviceRequest $request ListDistributedDeviceRequest
      *
-     * @return ListDistributedDeviceResponse
+     * @return ListDistributedDeviceResponse ListDistributedDeviceResponse
      */
     public function listDistributedDevice($request)
     {
@@ -11129,10 +12519,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDistributedProductRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListDistributedProductRequest $request ListDistributedProductRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDistributedProductResponse
+     * @return ListDistributedProductResponse ListDistributedProductResponse
      */
     public function listDistributedProductWithOptions($request, $runtime)
     {
@@ -11175,9 +12570,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListDistributedProductRequest $request
+     * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * ## QPS limits
+     *   * You can call this API operation up to five times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListDistributedProductRequest $request ListDistributedProductRequest
      *
-     * @return ListDistributedProductResponse
+     * @return ListDistributedProductResponse ListDistributedProductResponse
      */
     public function listDistributedProduct($request)
     {
@@ -11239,10 +12639,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAFirmwareRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAFirmwareRequest $request ListOTAFirmwareRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAFirmwareResponse
+     * @return ListOTAFirmwareResponse ListOTAFirmwareResponse
      */
     public function listOTAFirmwareWithOptions($request, $runtime)
     {
@@ -11282,9 +12686,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAFirmwareRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAFirmwareRequest $request ListOTAFirmwareRequest
      *
-     * @return ListOTAFirmwareResponse
+     * @return ListOTAFirmwareResponse ListOTAFirmwareResponse
      */
     public function listOTAFirmware($request)
     {
@@ -11294,10 +12702,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAJobByDeviceRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAJobByDeviceRequest $request ListOTAJobByDeviceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAJobByDeviceResponse
+     * @return ListOTAJobByDeviceResponse ListOTAJobByDeviceResponse
      */
     public function listOTAJobByDeviceWithOptions($request, $runtime)
     {
@@ -11340,9 +12752,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAJobByDeviceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAJobByDeviceRequest $request ListOTAJobByDeviceRequest
      *
-     * @return ListOTAJobByDeviceResponse
+     * @return ListOTAJobByDeviceResponse ListOTAJobByDeviceResponse
      */
     public function listOTAJobByDevice($request)
     {
@@ -11352,10 +12768,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAJobByFirmwareRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAJobByFirmwareRequest $request ListOTAJobByFirmwareRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAJobByFirmwareResponse
+     * @return ListOTAJobByFirmwareResponse ListOTAJobByFirmwareResponse
      */
     public function listOTAJobByFirmwareWithOptions($request, $runtime)
     {
@@ -11392,9 +12812,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAJobByFirmwareRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAJobByFirmwareRequest $request ListOTAJobByFirmwareRequest
      *
-     * @return ListOTAJobByFirmwareResponse
+     * @return ListOTAJobByFirmwareResponse ListOTAJobByFirmwareResponse
      */
     public function listOTAJobByFirmware($request)
     {
@@ -11404,10 +12828,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAModuleByProductRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAModuleByProductRequest $request ListOTAModuleByProductRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAModuleByProductResponse
+     * @return ListOTAModuleByProductResponse ListOTAModuleByProductResponse
      */
     public function listOTAModuleByProductWithOptions($request, $runtime)
     {
@@ -11432,9 +12860,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAModuleByProductRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAModuleByProductRequest $request ListOTAModuleByProductRequest
      *
-     * @return ListOTAModuleByProductResponse
+     * @return ListOTAModuleByProductResponse ListOTAModuleByProductResponse
      */
     public function listOTAModuleByProduct($request)
     {
@@ -11444,10 +12876,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAModuleVersionsByDeviceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAModuleVersionsByDeviceRequest $request ListOTAModuleVersionsByDeviceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAModuleVersionsByDeviceResponse
+     * @return ListOTAModuleVersionsByDeviceResponse ListOTAModuleVersionsByDeviceResponse
      */
     public function listOTAModuleVersionsByDeviceWithOptions($request, $runtime)
     {
@@ -11490,9 +12926,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAModuleVersionsByDeviceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAModuleVersionsByDeviceRequest $request ListOTAModuleVersionsByDeviceRequest
      *
-     * @return ListOTAModuleVersionsByDeviceResponse
+     * @return ListOTAModuleVersionsByDeviceResponse ListOTAModuleVersionsByDeviceResponse
      */
     public function listOTAModuleVersionsByDevice($request)
     {
@@ -11502,10 +12942,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTATaskByJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param ListOTATaskByJobRequest $request ListOTATaskByJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTATaskByJobResponse
+     * @return ListOTATaskByJobResponse ListOTATaskByJobResponse
      */
     public function listOTATaskByJobWithOptions($request, $runtime)
     {
@@ -11548,9 +12992,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTATaskByJobRequest $request
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param ListOTATaskByJobRequest $request ListOTATaskByJobRequest
      *
-     * @return ListOTATaskByJobResponse
+     * @return ListOTATaskByJobResponse ListOTATaskByJobResponse
      */
     public function listOTATaskByJob($request)
     {
@@ -11560,10 +13008,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAUnfinishedTaskByDeviceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request ListOTAUnfinishedTaskByDeviceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOTAUnfinishedTaskByDeviceResponse
+     * @return ListOTAUnfinishedTaskByDeviceResponse ListOTAUnfinishedTaskByDeviceResponse
      */
     public function listOTAUnfinishedTaskByDeviceWithOptions($request, $runtime)
     {
@@ -11606,9 +13058,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListOTAUnfinishedTaskByDeviceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request ListOTAUnfinishedTaskByDeviceRequest
      *
-     * @return ListOTAUnfinishedTaskByDeviceResponse
+     * @return ListOTAUnfinishedTaskByDeviceResponse ListOTAUnfinishedTaskByDeviceResponse
      */
     public function listOTAUnfinishedTaskByDevice($request)
     {
@@ -11771,10 +13227,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListProductByTagsRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   * *   You can specify a tag key or a tag key-value pair for search.
+     *   * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
+     *   *
+     * @param ListProductByTagsRequest $request ListProductByTagsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductByTagsResponse
+     * @return ListProductByTagsResponse ListProductByTagsResponse
      */
     public function listProductByTagsWithOptions($request, $runtime)
     {
@@ -11811,9 +13273,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListProductByTagsRequest $request
+     * ## Limits
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   * *   You can specify a tag key or a tag key-value pair for search.
+     *   * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
+     *   *
+     * @param ListProductByTagsRequest $request ListProductByTagsRequest
      *
-     * @return ListProductByTagsResponse
+     * @return ListProductByTagsResponse ListProductByTagsResponse
      */
     public function listProductByTags($request)
     {
@@ -11823,10 +13291,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListProductTagsRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListProductTagsRequest $request ListProductTagsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductTagsResponse
+     * @return ListProductTagsResponse ListProductTagsResponse
      */
     public function listProductTagsWithOptions($request, $runtime)
     {
@@ -11857,9 +13329,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListProductTagsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListProductTagsRequest $request ListProductTagsRequest
      *
-     * @return ListProductTagsResponse
+     * @return ListProductTagsResponse ListProductTagsResponse
      */
     public function listProductTags($request)
     {
@@ -11869,10 +13345,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListRuleRequest $request
-     * @param RuntimeOptions  $runtime
+     * ## QPS limits
+     *   * You can call this API operation up to 20 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListRuleRequest $request ListRuleRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRuleResponse
+     * @return ListRuleResponse ListRuleResponse
      */
     public function listRuleWithOptions($request, $runtime)
     {
@@ -11909,9 +13389,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListRuleRequest $request
+     * ## QPS limits
+     *   * You can call this API operation up to 20 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListRuleRequest $request ListRuleRequest
      *
-     * @return ListRuleResponse
+     * @return ListRuleResponse ListRuleResponse
      */
     public function listRule($request)
     {
@@ -11921,10 +13405,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListRuleActionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListRuleActionsRequest $request ListRuleActionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRuleActionsResponse
+     * @return ListRuleActionsResponse ListRuleActionsResponse
      */
     public function listRuleActionsWithOptions($request, $runtime)
     {
@@ -11955,9 +13443,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListRuleActionsRequest $request
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListRuleActionsRequest $request ListRuleActionsRequest
      *
-     * @return ListRuleActionsResponse
+     * @return ListRuleActionsResponse ListRuleActionsResponse
      */
     public function listRuleActions($request)
     {
@@ -12030,10 +13522,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListThingModelVersionRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListThingModelVersionRequest $request ListThingModelVersionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListThingModelVersionResponse
+     * @return ListThingModelVersionResponse ListThingModelVersionResponse
      */
     public function listThingModelVersionWithOptions($request, $runtime)
     {
@@ -12064,9 +13561,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListThingModelVersionRequest $request
+     * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListThingModelVersionRequest $request ListThingModelVersionRequest
      *
-     * @return ListThingModelVersionResponse
+     * @return ListThingModelVersionResponse ListThingModelVersionResponse
      */
     public function listThingModelVersion($request)
     {
@@ -12076,10 +13578,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListThingTemplatesRequest $request
-     * @param RuntimeOptions            $runtime
+     * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
+     *   * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListThingTemplatesRequest $request ListThingTemplatesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListThingTemplatesResponse
+     * @return ListThingTemplatesResponse ListThingTemplatesResponse
      */
     public function listThingTemplatesWithOptions($request, $runtime)
     {
@@ -12107,9 +13615,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListThingTemplatesRequest $request
+     * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
+     *   * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ListThingTemplatesRequest $request ListThingTemplatesRequest
      *
-     * @return ListThingTemplatesResponse
+     * @return ListThingTemplatesResponse ListThingTemplatesResponse
      */
     public function listThingTemplates($request)
     {
@@ -12119,10 +13633,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param NotifyAddThingTopoRequest $request
-     * @param RuntimeOptions            $runtime
+     * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
+     *   * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param NotifyAddThingTopoRequest $request NotifyAddThingTopoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return NotifyAddThingTopoResponse
+     * @return NotifyAddThingTopoResponse NotifyAddThingTopoResponse
      */
     public function notifyAddThingTopoWithOptions($request, $runtime)
     {
@@ -12162,9 +13682,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param NotifyAddThingTopoRequest $request
+     * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
+     *   * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param NotifyAddThingTopoRequest $request NotifyAddThingTopoRequest
      *
-     * @return NotifyAddThingTopoResponse
+     * @return NotifyAddThingTopoResponse NotifyAddThingTopoResponse
      */
     public function notifyAddThingTopo($request)
     {
@@ -12445,10 +13971,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PubRequest     $request
-     * @param RuntimeOptions $runtime
+     * This operation does not support device property settings and service invocations.
+     *   * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
+     *   * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+     *   * ## QPS limit
+     *   * You can call this API operation up to 1,600 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PubRequest     $request PubRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PubResponse
+     * @return PubResponse PubResponse
      */
     public function pubWithOptions($request, $runtime)
     {
@@ -12508,9 +14041,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PubRequest $request
+     * This operation does not support device property settings and service invocations.
+     *   * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
+     *   * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+     *   * ## QPS limit
+     *   * You can call this API operation up to 1,600 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PubRequest $request PubRequest
      *
-     * @return PubResponse
+     * @return PubResponse PubResponse
      */
     public function pub($request)
     {
@@ -12520,10 +14060,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PubBroadcastRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
+     *   * ## QPS limits
+     *   * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
+     *   * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PubBroadcastRequest $request PubBroadcastRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PubBroadcastResponse
+     * @return PubBroadcastResponse PubBroadcastResponse
      */
     public function pubBroadcastWithOptions($request, $runtime)
     {
@@ -12560,9 +14105,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PubBroadcastRequest $request
+     * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
+     *   * ## QPS limits
+     *   * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
+     *   * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PubBroadcastRequest $request PubBroadcastRequest
      *
-     * @return PubBroadcastResponse
+     * @return PubBroadcastResponse PubBroadcastResponse
      */
     public function pubBroadcast($request)
     {
@@ -12670,10 +14220,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PublishThingModelRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PublishThingModelRequest $request PublishThingModelRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishThingModelResponse
+     * @return PublishThingModelResponse PublishThingModelResponse
      */
     public function publishThingModelWithOptions($request, $runtime)
     {
@@ -12713,9 +14268,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param PublishThingModelRequest $request
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param PublishThingModelRequest $request PublishThingModelRequest
      *
-     * @return PublishThingModelResponse
+     * @return PublishThingModelResponse PublishThingModelResponse
      */
     public function publishThingModel($request)
     {
@@ -12791,10 +14351,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryBatchRegisterDeviceStatusRequest $request
-     * @param RuntimeOptions                        $runtime
+     * ## QPS limits
+     *   * You can call this API operation up to 30 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryBatchRegisterDeviceStatusRequest $request QueryBatchRegisterDeviceStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBatchRegisterDeviceStatusResponse
+     * @return QueryBatchRegisterDeviceStatusResponse QueryBatchRegisterDeviceStatusResponse
      */
     public function queryBatchRegisterDeviceStatusWithOptions($request, $runtime)
     {
@@ -12828,9 +14392,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryBatchRegisterDeviceStatusRequest $request
+     * ## QPS limits
+     *   * You can call this API operation up to 30 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryBatchRegisterDeviceStatusRequest $request QueryBatchRegisterDeviceStatusRequest
      *
-     * @return QueryBatchRegisterDeviceStatusResponse
+     * @return QueryBatchRegisterDeviceStatusResponse QueryBatchRegisterDeviceStatusResponse
      */
     public function queryBatchRegisterDeviceStatus($request)
     {
@@ -12886,10 +14454,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryClientIdsRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryClientIdsRequest $request QueryClientIdsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryClientIdsResponse
+     * @return QueryClientIdsResponse QueryClientIdsResponse
      */
     public function queryClientIdsWithOptions($request, $runtime)
     {
@@ -12920,9 +14492,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryClientIdsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryClientIdsRequest $request QueryClientIdsRequest
      *
-     * @return QueryClientIdsResponse
+     * @return QueryClientIdsResponse QueryClientIdsResponse
      */
     public function queryClientIds($request)
     {
@@ -12932,10 +14508,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupByGroupIdRequest $request
-     * @param RuntimeOptions                     $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupByGroupIdRequest $request QueryConsumerGroupByGroupIdRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConsumerGroupByGroupIdResponse
+     * @return QueryConsumerGroupByGroupIdResponse QueryConsumerGroupByGroupIdResponse
      */
     public function queryConsumerGroupByGroupIdWithOptions($request, $runtime)
     {
@@ -12966,9 +14546,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupByGroupIdRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupByGroupIdRequest $request QueryConsumerGroupByGroupIdRequest
      *
-     * @return QueryConsumerGroupByGroupIdResponse
+     * @return QueryConsumerGroupByGroupIdResponse QueryConsumerGroupByGroupIdResponse
      */
     public function queryConsumerGroupByGroupId($request)
     {
@@ -12978,10 +14562,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupListRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupListRequest $request QueryConsumerGroupListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConsumerGroupListResponse
+     * @return QueryConsumerGroupListResponse QueryConsumerGroupListResponse
      */
     public function queryConsumerGroupListWithOptions($request, $runtime)
     {
@@ -13002,6 +14590,12 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->subBizCode)) {
+            $query['SubBizCode'] = $request->subBizCode;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -13021,9 +14615,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupListRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupListRequest $request QueryConsumerGroupListRequest
      *
-     * @return QueryConsumerGroupListResponse
+     * @return QueryConsumerGroupListResponse QueryConsumerGroupListResponse
      */
     public function queryConsumerGroupList($request)
     {
@@ -13033,10 +14631,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupStatusRequest $request QueryConsumerGroupStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConsumerGroupStatusResponse
+     * @return QueryConsumerGroupStatusResponse QueryConsumerGroupStatusResponse
      */
     public function queryConsumerGroupStatusWithOptions($request, $runtime)
     {
@@ -13067,9 +14669,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryConsumerGroupStatusRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryConsumerGroupStatusRequest $request QueryConsumerGroupStatusRequest
      *
-     * @return QueryConsumerGroupStatusResponse
+     * @return QueryConsumerGroupStatusResponse QueryConsumerGroupStatusResponse
      */
     public function queryConsumerGroupStatus($request)
     {
@@ -13140,10 +14746,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceRequest $request
-     * @param RuntimeOptions     $runtime
+     * The QueryDevice operation can return up to one million devices each time you call the operation.
+     *   * ## QPS limits
+     *   * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases.
+     *   * In this case, you can call this API operation up to two times per second per account.
+     *   *
+     * @param QueryDeviceRequest $request QueryDeviceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceResponse
+     * @return QueryDeviceResponse QueryDeviceResponse
      */
     public function queryDeviceWithOptions($request, $runtime)
     {
@@ -13183,9 +14795,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceRequest $request
+     * The QueryDevice operation can return up to one million devices each time you call the operation.
+     *   * ## QPS limits
+     *   * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases.
+     *   * In this case, you can call this API operation up to two times per second per account.
+     *   *
+     * @param QueryDeviceRequest $request QueryDeviceRequest
      *
-     * @return QueryDeviceResponse
+     * @return QueryDeviceResponse QueryDeviceResponse
      */
     public function queryDevice($request)
     {
@@ -13195,10 +14813,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceBySQLRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
+     *   * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceBySQLRequest $request QueryDeviceBySQLRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceBySQLResponse
+     * @return QueryDeviceBySQLResponse QueryDeviceBySQLResponse
      */
     public function queryDeviceBySQLWithOptions($request, $runtime)
     {
@@ -13229,9 +14853,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceBySQLRequest $request
+     * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
+     *   * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceBySQLRequest $request QueryDeviceBySQLRequest
      *
-     * @return QueryDeviceBySQLResponse
+     * @return QueryDeviceBySQLResponse QueryDeviceBySQLResponse
      */
     public function queryDeviceBySQL($request)
     {
@@ -13241,10 +14871,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceByStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceByStatusRequest $request QueryDeviceByStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceByStatusResponse
+     * @return QueryDeviceByStatusResponse QueryDeviceByStatusResponse
      */
     public function queryDeviceByStatusWithOptions($request, $runtime)
     {
@@ -13287,9 +14922,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceByStatusRequest $request
+     * ## Limits
+     *   * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceByStatusRequest $request QueryDeviceByStatusRequest
      *
-     * @return QueryDeviceByStatusResponse
+     * @return QueryDeviceByStatusResponse QueryDeviceByStatusResponse
      */
     public function queryDeviceByStatus($request)
     {
@@ -13299,10 +14939,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceByTagsRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * *   You can specify a maximum of 10 tags in a single call.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceByTagsRequest $request QueryDeviceByTagsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceByTagsResponse
+     * @return QueryDeviceByTagsResponse QueryDeviceByTagsResponse
      */
     public function queryDeviceByTagsWithOptions($request, $runtime)
     {
@@ -13339,9 +14984,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceByTagsRequest $request
+     * ## Limits
+     *   * *   You can specify a maximum of 10 tags in a single call.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceByTagsRequest $request QueryDeviceByTagsRequest
      *
-     * @return QueryDeviceByTagsResponse
+     * @return QueryDeviceByTagsResponse QueryDeviceByTagsResponse
      */
     public function queryDeviceByTags($request)
     {
@@ -13400,10 +15050,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDesiredPropertyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   The desired values of read-only properties cannot be queried.
+     *   * *   You can query the desired values of up to 10 properties in a single call.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDesiredPropertyRequest $request QueryDeviceDesiredPropertyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceDesiredPropertyResponse
+     * @return QueryDeviceDesiredPropertyResponse QueryDeviceDesiredPropertyResponse
      */
     public function queryDeviceDesiredPropertyWithOptions($request, $runtime)
     {
@@ -13446,9 +15102,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDesiredPropertyRequest $request
+     * *   The desired values of read-only properties cannot be queried.
+     *   * *   You can query the desired values of up to 10 properties in a single call.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDesiredPropertyRequest $request QueryDeviceDesiredPropertyRequest
      *
-     * @return QueryDeviceDesiredPropertyResponse
+     * @return QueryDeviceDesiredPropertyResponse QueryDeviceDesiredPropertyResponse
      */
     public function queryDeviceDesiredProperty($request)
     {
@@ -13458,10 +15120,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDetailRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDetailRequest $request QueryDeviceDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceDetailResponse
+     * @return QueryDeviceDetailResponse QueryDeviceDetailResponse
      */
     public function queryDeviceDetailWithOptions($request, $runtime)
     {
@@ -13498,9 +15164,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDetailRequest $request
+     * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDetailRequest $request QueryDeviceDetailRequest
      *
-     * @return QueryDeviceDetailResponse
+     * @return QueryDeviceDetailResponse QueryDeviceDetailResponse
      */
     public function queryDeviceDetail($request)
     {
@@ -13510,10 +15180,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDistributeDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDistributeDetailRequest $request QueryDeviceDistributeDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceDistributeDetailResponse
+     * @return QueryDeviceDistributeDetailResponse QueryDeviceDistributeDetailResponse
      */
     public function queryDeviceDistributeDetailWithOptions($request, $runtime)
     {
@@ -13541,9 +15215,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDistributeDetailRequest $request
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDistributeDetailRequest $request QueryDeviceDistributeDetailRequest
      *
-     * @return QueryDeviceDistributeDetailResponse
+     * @return QueryDeviceDistributeDetailResponse QueryDeviceDistributeDetailResponse
      */
     public function queryDeviceDistributeDetail($request)
     {
@@ -13553,10 +15231,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDistributeJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDistributeJobRequest $request QueryDeviceDistributeJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceDistributeJobResponse
+     * @return QueryDeviceDistributeJobResponse QueryDeviceDistributeJobResponse
      */
     public function queryDeviceDistributeJobWithOptions($request, $runtime)
     {
@@ -13584,9 +15266,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceDistributeJobRequest $request
+     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceDistributeJobRequest $request QueryDeviceDistributeJobRequest
      *
-     * @return QueryDeviceDistributeJobResponse
+     * @return QueryDeviceDistributeJobResponse QueryDeviceDistributeJobResponse
      */
     public function queryDeviceDistributeJob($request)
     {
@@ -13596,10 +15282,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceEventDataRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can query only the event records that are generated in the previous 30 days.
+     *   * >  The storage period of an event record is calculated from the day when the record is generated.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDeviceEventDataRequest $request QueryDeviceEventDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceEventDataResponse
+     * @return QueryDeviceEventDataResponse QueryDeviceEventDataResponse
      */
     public function queryDeviceEventDataWithOptions($request, $runtime)
     {
@@ -13654,9 +15346,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceEventDataRequest $request
+     * You can query only the event records that are generated in the previous 30 days.
+     *   * >  The storage period of an event record is calculated from the day when the record is generated.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDeviceEventDataRequest $request QueryDeviceEventDataRequest
      *
-     * @return QueryDeviceEventDataResponse
+     * @return QueryDeviceEventDataResponse QueryDeviceEventDataResponse
      */
     public function queryDeviceEventData($request)
     {
@@ -13666,10 +15364,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceFileRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceFileRequest $request QueryDeviceFileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceFileResponse
+     * @return QueryDeviceFileResponse QueryDeviceFileResponse
      */
     public function queryDeviceFileWithOptions($request, $runtime)
     {
@@ -13709,9 +15411,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceFileRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceFileRequest $request QueryDeviceFileRequest
      *
-     * @return QueryDeviceFileResponse
+     * @return QueryDeviceFileResponse QueryDeviceFileResponse
      */
     public function queryDeviceFile($request)
     {
@@ -13721,10 +15427,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceFileListRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceFileListRequest $request QueryDeviceFileListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceFileListResponse
+     * @return QueryDeviceFileListResponse QueryDeviceFileListResponse
      */
     public function queryDeviceFileListWithOptions($request, $runtime)
     {
@@ -13767,9 +15478,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceFileListRequest $request
+     * ## Limits
+     *   * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceFileListRequest $request QueryDeviceFileListRequest
      *
-     * @return QueryDeviceFileListResponse
+     * @return QueryDeviceFileListResponse QueryDeviceFileListResponse
      */
     public function queryDeviceFileList($request)
     {
@@ -13779,10 +15495,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupByDeviceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Limits
+     *   * *   You can add a device to a maximum of 10 groups.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupByDeviceRequest $request QueryDeviceGroupByDeviceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceGroupByDeviceResponse
+     * @return QueryDeviceGroupByDeviceResponse QueryDeviceGroupByDeviceResponse
      */
     public function queryDeviceGroupByDeviceWithOptions($request, $runtime)
     {
@@ -13816,9 +15537,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupByDeviceRequest $request
+     * ## Limits
+     *   * *   You can add a device to a maximum of 10 groups.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupByDeviceRequest $request QueryDeviceGroupByDeviceRequest
      *
-     * @return QueryDeviceGroupByDeviceResponse
+     * @return QueryDeviceGroupByDeviceResponse QueryDeviceGroupByDeviceResponse
      */
     public function queryDeviceGroupByDevice($request)
     {
@@ -13828,10 +15554,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupByTagsRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupByTagsRequest $request QueryDeviceGroupByTagsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceGroupByTagsResponse
+     * @return QueryDeviceGroupByTagsResponse QueryDeviceGroupByTagsResponse
      */
     public function queryDeviceGroupByTagsWithOptions($request, $runtime)
     {
@@ -13868,9 +15598,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupByTagsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupByTagsRequest $request QueryDeviceGroupByTagsRequest
      *
-     * @return QueryDeviceGroupByTagsResponse
+     * @return QueryDeviceGroupByTagsResponse QueryDeviceGroupByTagsResponse
      */
     public function queryDeviceGroupByTags($request)
     {
@@ -13880,10 +15614,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupInfoRequest $request QueryDeviceGroupInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceGroupInfoResponse
+     * @return QueryDeviceGroupInfoResponse QueryDeviceGroupInfoResponse
      */
     public function queryDeviceGroupInfoWithOptions($request, $runtime)
     {
@@ -13917,9 +15655,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupInfoRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupInfoRequest $request QueryDeviceGroupInfoRequest
      *
-     * @return QueryDeviceGroupInfoResponse
+     * @return QueryDeviceGroupInfoResponse QueryDeviceGroupInfoResponse
      */
     public function queryDeviceGroupInfo($request)
     {
@@ -13929,10 +15671,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupListRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupListRequest $request QueryDeviceGroupListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceGroupListResponse
+     * @return QueryDeviceGroupListResponse QueryDeviceGroupListResponse
      */
     public function queryDeviceGroupListWithOptions($request, $runtime)
     {
@@ -13975,9 +15721,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupListRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupListRequest $request QueryDeviceGroupListRequest
      *
-     * @return QueryDeviceGroupListResponse
+     * @return QueryDeviceGroupListResponse QueryDeviceGroupListResponse
      */
     public function queryDeviceGroupList($request)
     {
@@ -13987,10 +15737,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupTagListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupTagListRequest $request QueryDeviceGroupTagListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceGroupTagListResponse
+     * @return QueryDeviceGroupTagListResponse QueryDeviceGroupTagListResponse
      */
     public function queryDeviceGroupTagListWithOptions($request, $runtime)
     {
@@ -14024,9 +15778,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceGroupTagListRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceGroupTagListRequest $request QueryDeviceGroupTagListRequest
      *
-     * @return QueryDeviceGroupTagListResponse
+     * @return QueryDeviceGroupTagListResponse QueryDeviceGroupTagListResponse
      */
     public function queryDeviceGroupTagList($request)
     {
@@ -14036,10 +15794,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
      */
     public function queryDeviceInfoWithOptions($request, $runtime)
     {
@@ -14076,9 +15836,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceInfoRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
      *
-     * @return QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
      */
     public function queryDeviceInfo($request)
     {
@@ -14088,10 +15850,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceListByDeviceGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceListByDeviceGroupRequest $request QueryDeviceListByDeviceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceListByDeviceGroupResponse
+     * @return QueryDeviceListByDeviceGroupResponse QueryDeviceListByDeviceGroupResponse
      */
     public function queryDeviceListByDeviceGroupWithOptions($request, $runtime)
     {
@@ -14128,9 +15894,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceListByDeviceGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceListByDeviceGroupRequest $request QueryDeviceListByDeviceGroupRequest
      *
-     * @return QueryDeviceListByDeviceGroupResponse
+     * @return QueryDeviceListByDeviceGroupResponse QueryDeviceListByDeviceGroupResponse
      */
     public function queryDeviceListByDeviceGroup($request)
     {
@@ -14140,10 +15910,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalEventDataRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ## Limits
+     *   * *   You can query only the event records that are generated in the last 30 days.
+     *   * >  The storage period of an event record is calculated from the day when the record is generated.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalEventDataRequest $request QueryDeviceOriginalEventDataRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceOriginalEventDataResponse
+     * @return QueryDeviceOriginalEventDataResponse QueryDeviceOriginalEventDataResponse
      */
     public function queryDeviceOriginalEventDataWithOptions($request, $runtime)
     {
@@ -14198,9 +15974,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalEventDataRequest $request
+     * ## Limits
+     *   * *   You can query only the event records that are generated in the last 30 days.
+     *   * >  The storage period of an event record is calculated from the day when the record is generated.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalEventDataRequest $request QueryDeviceOriginalEventDataRequest
      *
-     * @return QueryDeviceOriginalEventDataResponse
+     * @return QueryDeviceOriginalEventDataResponse QueryDeviceOriginalEventDataResponse
      */
     public function queryDeviceOriginalEventData($request)
     {
@@ -14210,10 +15992,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalPropertyDataRequest $request
-     * @param RuntimeOptions                         $runtime
+     * You can query only the property records that are generated within the previous 30 days.
+     *   * >  The data of a property is stored from the day when the data is generated.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalPropertyDataRequest $request QueryDeviceOriginalPropertyDataRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceOriginalPropertyDataResponse
+     * @return QueryDeviceOriginalPropertyDataResponse QueryDeviceOriginalPropertyDataResponse
      */
     public function queryDeviceOriginalPropertyDataWithOptions($request, $runtime)
     {
@@ -14268,9 +16056,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalPropertyDataRequest $request
+     * You can query only the property records that are generated within the previous 30 days.
+     *   * >  The data of a property is stored from the day when the data is generated.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalPropertyDataRequest $request QueryDeviceOriginalPropertyDataRequest
      *
-     * @return QueryDeviceOriginalPropertyDataResponse
+     * @return QueryDeviceOriginalPropertyDataResponse QueryDeviceOriginalPropertyDataResponse
      */
     public function queryDeviceOriginalPropertyData($request)
     {
@@ -14280,10 +16074,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalPropertyStatusRequest $request
-     * @param RuntimeOptions                           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalPropertyStatusRequest $request QueryDeviceOriginalPropertyStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceOriginalPropertyStatusResponse
+     * @return QueryDeviceOriginalPropertyStatusResponse QueryDeviceOriginalPropertyStatusResponse
      */
     public function queryDeviceOriginalPropertyStatusWithOptions($request, $runtime)
     {
@@ -14329,9 +16127,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalPropertyStatusRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalPropertyStatusRequest $request QueryDeviceOriginalPropertyStatusRequest
      *
-     * @return QueryDeviceOriginalPropertyStatusResponse
+     * @return QueryDeviceOriginalPropertyStatusResponse QueryDeviceOriginalPropertyStatusResponse
      */
     public function queryDeviceOriginalPropertyStatus($request)
     {
@@ -14341,10 +16143,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalServiceDataRequest $request
-     * @param RuntimeOptions                        $runtime
+     * ## Limits
+     *   * *   You can query only the service call records that are generated in the last 30 days.
+     *   * >  The storage period of a service call record is calculated from the day when the service is called.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalServiceDataRequest $request QueryDeviceOriginalServiceDataRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceOriginalServiceDataResponse
+     * @return QueryDeviceOriginalServiceDataResponse QueryDeviceOriginalServiceDataResponse
      */
     public function queryDeviceOriginalServiceDataWithOptions($request, $runtime)
     {
@@ -14399,9 +16207,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceOriginalServiceDataRequest $request
+     * ## Limits
+     *   * *   You can query only the service call records that are generated in the last 30 days.
+     *   * >  The storage period of a service call record is calculated from the day when the service is called.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceOriginalServiceDataRequest $request QueryDeviceOriginalServiceDataRequest
      *
-     * @return QueryDeviceOriginalServiceDataResponse
+     * @return QueryDeviceOriginalServiceDataResponse QueryDeviceOriginalServiceDataResponse
      */
     public function queryDeviceOriginalServiceData($request)
     {
@@ -14411,10 +16225,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDevicePropRequest $request QueryDevicePropRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicePropResponse
+     * @return QueryDevicePropResponse QueryDevicePropResponse
      */
     public function queryDevicePropWithOptions($request, $runtime)
     {
@@ -14451,9 +16269,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDevicePropRequest $request QueryDevicePropRequest
      *
-     * @return QueryDevicePropResponse
+     * @return QueryDevicePropResponse QueryDevicePropResponse
      */
     public function queryDeviceProp($request)
     {
@@ -14463,10 +16285,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertiesDataRequest $request
-     * @param RuntimeOptions                   $runtime
+     * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter:
+     *   * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.
+     *   * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
+     *   * - If the value of the **NextValid** parameter is false, all property records are returned.
+     *   * ## Limits
+     *   * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
+     *   * *   You can query property data that is generated within the last 30 days.
+     *   * > The storage period of a property record is calculated from the day when the property record was generated.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDevicePropertiesDataRequest $request QueryDevicePropertiesDataRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicePropertiesDataResponse
+     * @return QueryDevicePropertiesDataResponse QueryDevicePropertiesDataResponse
      */
     public function queryDevicePropertiesDataWithOptions($request, $runtime)
     {
@@ -14518,9 +16351,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertiesDataRequest $request
+     * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter:
+     *   * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.
+     *   * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
+     *   * - If the value of the **NextValid** parameter is false, all property records are returned.
+     *   * ## Limits
+     *   * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
+     *   * *   You can query property data that is generated within the last 30 days.
+     *   * > The storage period of a property record is calculated from the day when the property record was generated.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDevicePropertiesDataRequest $request QueryDevicePropertiesDataRequest
      *
-     * @return QueryDevicePropertiesDataResponse
+     * @return QueryDevicePropertiesDataResponse QueryDevicePropertiesDataResponse
      */
     public function queryDevicePropertiesData($request)
     {
@@ -14530,10 +16374,19 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertyDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
+     *   * ## Limits
+     *   * You can query only property data that is generated within the previous 30 days.
+     *   * >  The data of a property is stored from the day when the data is generated.
+     *   *
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDevicePropertyDataRequest $request QueryDevicePropertyDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicePropertyDataResponse
+     * @return QueryDevicePropertyDataResponse QueryDevicePropertyDataResponse
      */
     public function queryDevicePropertyDataWithOptions($request, $runtime)
     {
@@ -14585,9 +16438,18 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertyDataRequest $request
+     * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
+     *   * ## Limits
+     *   * You can query only property data that is generated within the previous 30 days.
+     *   * >  The data of a property is stored from the day when the data is generated.
+     *   *
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDevicePropertyDataRequest $request QueryDevicePropertyDataRequest
      *
-     * @return QueryDevicePropertyDataResponse
+     * @return QueryDevicePropertyDataResponse QueryDevicePropertyDataResponse
      */
     public function queryDevicePropertyData($request)
     {
@@ -14597,10 +16459,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertyStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 200 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDevicePropertyStatusRequest $request QueryDevicePropertyStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicePropertyStatusResponse
+     * @return QueryDevicePropertyStatusResponse QueryDevicePropertyStatusResponse
      */
     public function queryDevicePropertyStatusWithOptions($request, $runtime)
     {
@@ -14640,9 +16507,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicePropertyStatusRequest $request
+     * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 200 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryDevicePropertyStatusRequest $request QueryDevicePropertyStatusRequest
      *
-     * @return QueryDevicePropertyStatusResponse
+     * @return QueryDevicePropertyStatusResponse QueryDevicePropertyStatusResponse
      */
     public function queryDevicePropertyStatus($request)
     {
@@ -14700,10 +16572,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceServiceDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can query only the service call records of the previous 30 days.
+     *   * >  The storage period of a service call record is calculated from the day when the service is called.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceServiceDataRequest $request QueryDeviceServiceDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceServiceDataResponse
+     * @return QueryDeviceServiceDataResponse QueryDeviceServiceDataResponse
      */
     public function queryDeviceServiceDataWithOptions($request, $runtime)
     {
@@ -14755,9 +16633,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceServiceDataRequest $request
+     * You can query only the service call records of the previous 30 days.
+     *   * >  The storage period of a service call record is calculated from the day when the service is called.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceServiceDataRequest $request QueryDeviceServiceDataRequest
      *
-     * @return QueryDeviceServiceDataResponse
+     * @return QueryDeviceServiceDataResponse QueryDeviceServiceDataResponse
      */
     public function queryDeviceServiceData($request)
     {
@@ -14819,10 +16703,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceStatisticsRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceStatisticsRequest $request QueryDeviceStatisticsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceStatisticsResponse
+     * @return QueryDeviceStatisticsResponse QueryDeviceStatisticsResponse
      */
     public function queryDeviceStatisticsWithOptions($request, $runtime)
     {
@@ -14856,9 +16744,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceStatisticsRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceStatisticsRequest $request QueryDeviceStatisticsRequest
      *
-     * @return QueryDeviceStatisticsResponse
+     * @return QueryDeviceStatisticsResponse QueryDeviceStatisticsResponse
      */
     public function queryDeviceStatistics($request)
     {
@@ -14868,10 +16760,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceSubTopicRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceSubTopicRequest $request QueryDeviceSubTopicRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceSubTopicResponse
+     * @return QueryDeviceSubTopicResponse QueryDeviceSubTopicResponse
      */
     public function queryDeviceSubTopicWithOptions($request, $runtime)
     {
@@ -14905,9 +16801,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceSubTopicRequest $request
+     * ## QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryDeviceSubTopicRequest $request QueryDeviceSubTopicRequest
      *
-     * @return QueryDeviceSubTopicResponse
+     * @return QueryDeviceSubTopicResponse QueryDeviceSubTopicResponse
      */
     public function queryDeviceSubTopic($request)
     {
@@ -15167,10 +17067,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeDriverRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryEdgeDriverRequest $request QueryEdgeDriverRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeDriverResponse
+     * @return QueryEdgeDriverResponse QueryEdgeDriverResponse
      */
     public function queryEdgeDriverWithOptions($request, $runtime)
     {
@@ -15210,9 +17114,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeDriverRequest $request
+     * ## Limits
+     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryEdgeDriverRequest $request QueryEdgeDriverRequest
      *
-     * @return QueryEdgeDriverResponse
+     * @return QueryEdgeDriverResponse QueryEdgeDriverResponse
      */
     public function queryEdgeDriver($request)
     {
@@ -15222,10 +17130,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeDriverVersionRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeDriverVersionRequest $request QueryEdgeDriverVersionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeDriverVersionResponse
+     * @return QueryEdgeDriverVersionResponse QueryEdgeDriverVersionResponse
      */
     public function queryEdgeDriverVersionWithOptions($request, $runtime)
     {
@@ -15268,9 +17180,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeDriverVersionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeDriverVersionRequest $request QueryEdgeDriverVersionRequest
      *
-     * @return QueryEdgeDriverVersionResponse
+     * @return QueryEdgeDriverVersionResponse QueryEdgeDriverVersionResponse
      */
     public function queryEdgeDriverVersion($request)
     {
@@ -15280,10 +17196,12 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+     *   *
+     * @param QueryEdgeInstanceRequest $request QueryEdgeInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeInstanceResponse
+     * @return QueryEdgeInstanceResponse QueryEdgeInstanceResponse
      */
     public function queryEdgeInstanceWithOptions($request, $runtime)
     {
@@ -15320,9 +17238,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceRequest $request
+     * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+     *   *
+     * @param QueryEdgeInstanceRequest $request QueryEdgeInstanceRequest
      *
-     * @return QueryEdgeInstanceResponse
+     * @return QueryEdgeInstanceResponse QueryEdgeInstanceResponse
      */
     public function queryEdgeInstance($request)
     {
@@ -15390,10 +17310,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceDeviceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceDeviceRequest $request QueryEdgeInstanceDeviceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeInstanceDeviceResponse
+     * @return QueryEdgeInstanceDeviceResponse QueryEdgeInstanceDeviceResponse
      */
     public function queryEdgeInstanceDeviceWithOptions($request, $runtime)
     {
@@ -15430,9 +17354,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceDeviceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceDeviceRequest $request QueryEdgeInstanceDeviceRequest
      *
-     * @return QueryEdgeInstanceDeviceResponse
+     * @return QueryEdgeInstanceDeviceResponse QueryEdgeInstanceDeviceResponse
      */
     public function queryEdgeInstanceDevice($request)
     {
@@ -15500,10 +17428,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceDriverRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceDriverRequest $request QueryEdgeInstanceDriverRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeInstanceDriverResponse
+     * @return QueryEdgeInstanceDriverResponse QueryEdgeInstanceDriverResponse
      */
     public function queryEdgeInstanceDriverWithOptions($request, $runtime)
     {
@@ -15540,9 +17472,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceDriverRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceDriverRequest $request QueryEdgeInstanceDriverRequest
      *
-     * @return QueryEdgeInstanceDriverResponse
+     * @return QueryEdgeInstanceDriverResponse QueryEdgeInstanceDriverResponse
      */
     public function queryEdgeInstanceDriver($request)
     {
@@ -15552,10 +17488,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceGatewayRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceGatewayRequest $request QueryEdgeInstanceGatewayRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeInstanceGatewayResponse
+     * @return QueryEdgeInstanceGatewayResponse QueryEdgeInstanceGatewayResponse
      */
     public function queryEdgeInstanceGatewayWithOptions($request, $runtime)
     {
@@ -15586,9 +17526,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceGatewayRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceGatewayRequest $request QueryEdgeInstanceGatewayRequest
      *
-     * @return QueryEdgeInstanceGatewayResponse
+     * @return QueryEdgeInstanceGatewayResponse QueryEdgeInstanceGatewayResponse
      */
     public function queryEdgeInstanceGateway($request)
     {
@@ -15598,10 +17542,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceHistoricDeploymentRequest $request
-     * @param RuntimeOptions                             $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceHistoricDeploymentRequest $request QueryEdgeInstanceHistoricDeploymentRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdgeInstanceHistoricDeploymentResponse
+     * @return QueryEdgeInstanceHistoricDeploymentResponse QueryEdgeInstanceHistoricDeploymentResponse
      */
     public function queryEdgeInstanceHistoricDeploymentWithOptions($request, $runtime)
     {
@@ -15644,9 +17592,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryEdgeInstanceHistoricDeploymentRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryEdgeInstanceHistoricDeploymentRequest $request QueryEdgeInstanceHistoricDeploymentRequest
      *
-     * @return QueryEdgeInstanceHistoricDeploymentResponse
+     * @return QueryEdgeInstanceHistoricDeploymentResponse QueryEdgeInstanceHistoricDeploymentResponse
      */
     public function queryEdgeInstanceHistoricDeployment($request)
     {
@@ -16051,10 +18003,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryOTAFirmwareRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryOTAFirmwareRequest $request QueryOTAFirmwareRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOTAFirmwareResponse
+     * @return QueryOTAFirmwareResponse QueryOTAFirmwareResponse
      */
     public function queryOTAFirmwareWithOptions($request, $runtime)
     {
@@ -16085,9 +18041,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryOTAFirmwareRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryOTAFirmwareRequest $request QueryOTAFirmwareRequest
      *
-     * @return QueryOTAFirmwareResponse
+     * @return QueryOTAFirmwareResponse QueryOTAFirmwareResponse
      */
     public function queryOTAFirmware($request)
     {
@@ -16097,10 +18057,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryOTAJobRequest $request
-     * @param RuntimeOptions     $runtime
+     * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryOTAJobRequest $request QueryOTAJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOTAJobResponse
+     * @return QueryOTAJobResponse QueryOTAJobResponse
      */
     public function queryOTAJobWithOptions($request, $runtime)
     {
@@ -16131,9 +18096,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryOTAJobRequest $request
+     * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryOTAJobRequest $request QueryOTAJobRequest
      *
-     * @return QueryOTAJobResponse
+     * @return QueryOTAJobResponse QueryOTAJobResponse
      */
     public function queryOTAJob($request)
     {
@@ -16143,10 +18113,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryPageByApplyIdRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryPageByApplyIdRequest $request QueryPageByApplyIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPageByApplyIdResponse
+     * @return QueryPageByApplyIdResponse QueryPageByApplyIdResponse
      */
     public function queryPageByApplyIdWithOptions($request, $runtime)
     {
@@ -16183,9 +18157,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryPageByApplyIdRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryPageByApplyIdRequest $request QueryPageByApplyIdRequest
      *
-     * @return QueryPageByApplyIdResponse
+     * @return QueryPageByApplyIdResponse QueryPageByApplyIdResponse
      */
     public function queryPageByApplyId($request)
     {
@@ -16195,10 +18173,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductRequest $request
-     * @param RuntimeOptions      $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryProductRequest $request QueryProductRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryProductResponse
+     * @return QueryProductResponse QueryProductResponse
      */
     public function queryProductWithOptions($request, $runtime)
     {
@@ -16229,9 +18211,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryProductRequest $request QueryProductRequest
      *
-     * @return QueryProductResponse
+     * @return QueryProductResponse QueryProductResponse
      */
     public function queryProduct($request)
     {
@@ -16287,10 +18273,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductListRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## QPS limits
+     *   * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
+     *   *     In this case, each Alibaba Cloud account can run up to 2 QPS.
+     *   *
+     * @param QueryProductListRequest $request QueryProductListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryProductListResponse
+     * @return QueryProductListResponse QueryProductListResponse
      */
     public function queryProductListWithOptions($request, $runtime)
     {
@@ -16330,9 +18322,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductListRequest $request
+     * ## QPS limits
+     *   * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
+     *   *     In this case, each Alibaba Cloud account can run up to 2 QPS.
+     *   *
+     * @param QueryProductListRequest $request QueryProductListRequest
      *
-     * @return QueryProductListResponse
+     * @return QueryProductListResponse QueryProductListResponse
      */
     public function queryProductList($request)
     {
@@ -16342,10 +18340,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductTopicRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryProductTopicRequest $request QueryProductTopicRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryProductTopicResponse
+     * @return QueryProductTopicResponse QueryProductTopicResponse
      */
     public function queryProductTopicWithOptions($request, $runtime)
     {
@@ -16376,9 +18378,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryProductTopicRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryProductTopicRequest $request QueryProductTopicRequest
      *
-     * @return QueryProductTopicResponse
+     * @return QueryProductTopicResponse QueryProductTopicResponse
      */
     public function queryProductTopic($request)
     {
@@ -17563,10 +19569,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QuerySubscribeRelationRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QuerySubscribeRelationRequest $request QuerySubscribeRelationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySubscribeRelationResponse
+     * @return QuerySubscribeRelationResponse QuerySubscribeRelationResponse
      */
     public function querySubscribeRelationWithOptions($request, $runtime)
     {
@@ -17600,9 +19610,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QuerySubscribeRelationRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QuerySubscribeRelationRequest $request QuerySubscribeRelationRequest
      *
-     * @return QuerySubscribeRelationResponse
+     * @return QuerySubscribeRelationResponse QuerySubscribeRelationResponse
      */
     public function querySubscribeRelation($request)
     {
@@ -17673,10 +19687,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QuerySuperDeviceGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QuerySuperDeviceGroupRequest $request QuerySuperDeviceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySuperDeviceGroupResponse
+     * @return QuerySuperDeviceGroupResponse QuerySuperDeviceGroupResponse
      */
     public function querySuperDeviceGroupWithOptions($request, $runtime)
     {
@@ -17707,9 +19725,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QuerySuperDeviceGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QuerySuperDeviceGroupRequest $request QuerySuperDeviceGroupRequest
      *
-     * @return QuerySuperDeviceGroupResponse
+     * @return QuerySuperDeviceGroupResponse QuerySuperDeviceGroupResponse
      */
     public function querySuperDeviceGroup($request)
     {
@@ -17765,10 +19787,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelRequest $request
-     * @param RuntimeOptions         $runtime
+     * TSL features include properties, services, and events.
+     *   * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
+     *   * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelRequest $request QueryThingModelRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryThingModelResponse
+     * @return QueryThingModelResponse QueryThingModelResponse
      */
     public function queryThingModelWithOptions($request, $runtime)
     {
@@ -17808,9 +19837,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelRequest $request
+     * TSL features include properties, services, and events.
+     *   * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
+     *   * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelRequest $request QueryThingModelRequest
      *
-     * @return QueryThingModelResponse
+     * @return QueryThingModelResponse QueryThingModelResponse
      */
     public function queryThingModel($request)
     {
@@ -17820,10 +19856,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelExtendConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelExtendConfigRequest $request QueryThingModelExtendConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryThingModelExtendConfigResponse
+     * @return QueryThingModelExtendConfigResponse QueryThingModelExtendConfigResponse
      */
     public function queryThingModelExtendConfigWithOptions($request, $runtime)
     {
@@ -17863,9 +19903,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelExtendConfigRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelExtendConfigRequest $request QueryThingModelExtendConfigRequest
      *
-     * @return QueryThingModelExtendConfigResponse
+     * @return QueryThingModelExtendConfigResponse QueryThingModelExtendConfigResponse
      */
     public function queryThingModelExtendConfig($request)
     {
@@ -17875,10 +19919,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelExtendConfigPublishedRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelExtendConfigPublishedRequest $request QueryThingModelExtendConfigPublishedRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryThingModelExtendConfigPublishedResponse
+     * @return QueryThingModelExtendConfigPublishedResponse QueryThingModelExtendConfigPublishedResponse
      */
     public function queryThingModelExtendConfigPublishedWithOptions($request, $runtime)
     {
@@ -17915,9 +19963,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelExtendConfigPublishedRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelExtendConfigPublishedRequest $request QueryThingModelExtendConfigPublishedRequest
      *
-     * @return QueryThingModelExtendConfigPublishedResponse
+     * @return QueryThingModelExtendConfigPublishedResponse QueryThingModelExtendConfigPublishedResponse
      */
     public function queryThingModelExtendConfigPublished($request)
     {
@@ -17927,10 +19979,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelPublishedRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelPublishedRequest $request QueryThingModelPublishedRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryThingModelPublishedResponse
+     * @return QueryThingModelPublishedResponse QueryThingModelPublishedResponse
      */
     public function queryThingModelPublishedWithOptions($request, $runtime)
     {
@@ -17970,9 +20026,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryThingModelPublishedRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryThingModelPublishedRequest $request QueryThingModelPublishedRequest
      *
-     * @return QueryThingModelPublishedResponse
+     * @return QueryThingModelPublishedResponse QueryThingModelPublishedResponse
      */
     public function queryThingModelPublished($request)
     {
@@ -17982,10 +20042,58 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryTopicReverseRouteTableRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param QueryTopicConfigRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return QueryTopicReverseRouteTableResponse
+     * @return QueryTopicConfigResponse
+     */
+    public function queryTopicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTopicConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTopicConfigRequest $request
+     *
+     * @return QueryTopicConfigResponse
+     */
+    public function queryTopicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTopicConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param QueryTopicReverseRouteTableRequest $request QueryTopicReverseRouteTableRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryTopicReverseRouteTableResponse QueryTopicReverseRouteTableResponse
      */
     public function queryTopicReverseRouteTableWithOptions($request, $runtime)
     {
@@ -18019,9 +20127,11 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryTopicReverseRouteTableRequest $request
+     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+     *   *
+     * @param QueryTopicReverseRouteTableRequest $request QueryTopicReverseRouteTableRequest
      *
-     * @return QueryTopicReverseRouteTableResponse
+     * @return QueryTopicReverseRouteTableResponse QueryTopicReverseRouteTableResponse
      */
     public function queryTopicReverseRouteTable($request)
     {
@@ -18031,10 +20141,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryTopicRouteTableRequest $request
-     * @param RuntimeOptions              $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryTopicRouteTableRequest $request QueryTopicRouteTableRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTopicRouteTableResponse
+     * @return QueryTopicRouteTableResponse QueryTopicRouteTableResponse
      */
     public function queryTopicRouteTableWithOptions($request, $runtime)
     {
@@ -18065,9 +20179,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryTopicRouteTableRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param QueryTopicRouteTableRequest $request QueryTopicRouteTableRequest
      *
-     * @return QueryTopicRouteTableResponse
+     * @return QueryTopicRouteTableResponse QueryTopicRouteTableResponse
      */
     public function queryTopicRouteTable($request)
     {
@@ -18077,10 +20195,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryVehicleDeviceRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
+     *   * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryVehicleDeviceRequest $request QueryVehicleDeviceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVehicleDeviceResponse
+     * @return QueryVehicleDeviceResponse QueryVehicleDeviceResponse
      */
     public function queryVehicleDeviceWithOptions($request, $runtime)
     {
@@ -18114,9 +20238,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param QueryVehicleDeviceRequest $request
+     * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
+     *   * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
+     *   * ## QPS limits
+     *   * You can call this API operation up to 50 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param QueryVehicleDeviceRequest $request QueryVehicleDeviceRequest
      *
-     * @return QueryVehicleDeviceResponse
+     * @return QueryVehicleDeviceResponse QueryVehicleDeviceResponse
      */
     public function queryVehicleDevice($request)
     {
@@ -18126,10 +20256,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RRpcRequest    $request
-     * @param RuntimeOptions $runtime
+     * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 1000 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RRpcRequest    $request RRpcRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RRpcResponse
+     * @return RRpcResponse RRpcResponse
      */
     public function rRpcWithOptions($request, $runtime)
     {
@@ -18175,9 +20310,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RRpcRequest $request
+     * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 1000 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RRpcRequest $request RRpcRequest
      *
-     * @return RRpcResponse
+     * @return RRpcResponse RRpcResponse
      */
     public function rRpc($request)
     {
@@ -18425,10 +20565,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RegisterDeviceRequest $request
-     * @param RuntimeOptions        $runtime
+     * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
+     *   * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
+     *   * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RegisterDeviceRequest $request RegisterDeviceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterDeviceResponse
+     * @return RegisterDeviceResponse RegisterDeviceResponse
      */
     public function registerDeviceWithOptions($request, $runtime)
     {
@@ -18480,9 +20627,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RegisterDeviceRequest $request
+     * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
+     *   * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
+     *   * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RegisterDeviceRequest $request RegisterDeviceRequest
      *
-     * @return RegisterDeviceResponse
+     * @return RegisterDeviceResponse RegisterDeviceResponse
      */
     public function registerDevice($request)
     {
@@ -18541,10 +20695,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ReleaseProductRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ReleaseProductRequest $request ReleaseProductRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseProductResponse
+     * @return ReleaseProductResponse ReleaseProductResponse
      */
     public function releaseProductWithOptions($request, $runtime)
     {
@@ -18575,9 +20733,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ReleaseProductRequest $request
+     * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ReleaseProductRequest $request ReleaseProductRequest
      *
-     * @return ReleaseProductResponse
+     * @return ReleaseProductResponse ReleaseProductResponse
      */
     public function releaseProduct($request)
     {
@@ -18587,10 +20749,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RemoveThingTopoRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
+     *   * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
+     *   * # QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RemoveThingTopoRequest $request RemoveThingTopoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveThingTopoResponse
+     * @return RemoveThingTopoResponse RemoveThingTopoResponse
      */
     public function removeThingTopoWithOptions($request, $runtime)
     {
@@ -18627,9 +20795,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RemoveThingTopoRequest $request
+     * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
+     *   * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
+     *   * # QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param RemoveThingTopoRequest $request RemoveThingTopoRequest
      *
-     * @return RemoveThingTopoResponse
+     * @return RemoveThingTopoResponse RemoveThingTopoResponse
      */
     public function removeThingTopo($request)
     {
@@ -18737,10 +20911,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ResetConsumerGroupPositionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ResetConsumerGroupPositionRequest $request ResetConsumerGroupPositionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetConsumerGroupPositionResponse
+     * @return ResetConsumerGroupPositionResponse ResetConsumerGroupPositionResponse
      */
     public function resetConsumerGroupPositionWithOptions($request, $runtime)
     {
@@ -18771,9 +20949,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ResetConsumerGroupPositionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ResetConsumerGroupPositionRequest $request ResetConsumerGroupPositionRequest
      *
-     * @return ResetConsumerGroupPositionResponse
+     * @return ResetConsumerGroupPositionResponse ResetConsumerGroupPositionResponse
      */
     public function resetConsumerGroupPosition($request)
     {
@@ -18783,10 +20965,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ResetThingRequest $request
-     * @param RuntimeOptions    $runtime
+     * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
+     *   * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
+     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param ResetThingRequest $request ResetThingRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetThingResponse
+     * @return ResetThingResponse ResetThingResponse
      */
     public function resetThingWithOptions($request, $runtime)
     {
@@ -18823,9 +21012,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ResetThingRequest $request
+     * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
+     *   * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
+     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param ResetThingRequest $request ResetThingRequest
      *
-     * @return ResetThingResponse
+     * @return ResetThingResponse ResetThingResponse
      */
     public function resetThing($request)
     {
@@ -18881,10 +21077,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ReupgradeOTATaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ReupgradeOTATaskRequest $request ReupgradeOTATaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReupgradeOTATaskResponse
+     * @return ReupgradeOTATaskResponse ReupgradeOTATaskResponse
      */
     public function reupgradeOTATaskWithOptions($request, $runtime)
     {
@@ -18918,9 +21119,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ReupgradeOTATaskRequest $request
+     * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param ReupgradeOTATaskRequest $request ReupgradeOTATaskRequest
      *
-     * @return ReupgradeOTATaskResponse
+     * @return ReupgradeOTATaskResponse ReupgradeOTATaskResponse
      */
     public function reupgradeOTATask($request)
     {
@@ -18930,10 +21136,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SaveDevicePropRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   A device can have a maximum of 100 tags.
+     *   * *   You can modify or add a maximum of 100 tags at a time.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SaveDevicePropRequest $request SaveDevicePropRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveDevicePropResponse
+     * @return SaveDevicePropResponse SaveDevicePropResponse
      */
     public function saveDevicePropWithOptions($request, $runtime)
     {
@@ -18973,9 +21185,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SaveDevicePropRequest $request
+     * *   A device can have a maximum of 100 tags.
+     *   * *   You can modify or add a maximum of 100 tags at a time.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SaveDevicePropRequest $request SaveDevicePropRequest
      *
-     * @return SaveDevicePropResponse
+     * @return SaveDevicePropResponse SaveDevicePropResponse
      */
     public function saveDeviceProp($request)
     {
@@ -19034,10 +21252,18 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDeviceDesiredPropertyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   You cannot query the desired values of read-only properties.
+     *   * *   You can specify up to 10 desired property values in a call.
+     *   * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
+     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDeviceDesiredPropertyRequest $request SetDeviceDesiredPropertyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDeviceDesiredPropertyResponse
+     * @return SetDeviceDesiredPropertyResponse SetDeviceDesiredPropertyResponse
      */
     public function setDeviceDesiredPropertyWithOptions($request, $runtime)
     {
@@ -19080,9 +21306,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDeviceDesiredPropertyRequest $request
+     * *   You cannot query the desired values of read-only properties.
+     *   * *   You can specify up to 10 desired property values in a call.
+     *   * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
+     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDeviceDesiredPropertyRequest $request SetDeviceDesiredPropertyRequest
      *
-     * @return SetDeviceDesiredPropertyResponse
+     * @return SetDeviceDesiredPropertyResponse SetDeviceDesiredPropertyResponse
      */
     public function setDeviceDesiredProperty($request)
     {
@@ -19092,10 +21326,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDeviceGroupTagsRequest $request
-     * @param RuntimeOptions            $runtime
+     * A device group can have a maximum of 100 tags.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDeviceGroupTagsRequest $request SetDeviceGroupTagsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDeviceGroupTagsResponse
+     * @return SetDeviceGroupTagsResponse SetDeviceGroupTagsResponse
      */
     public function setDeviceGroupTagsWithOptions($request, $runtime)
     {
@@ -19132,9 +21371,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDeviceGroupTagsRequest $request
+     * A device group can have a maximum of 100 tags.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDeviceGroupTagsRequest $request SetDeviceGroupTagsRequest
      *
-     * @return SetDeviceGroupTagsResponse
+     * @return SetDeviceGroupTagsResponse SetDeviceGroupTagsResponse
      */
     public function setDeviceGroupTags($request)
     {
@@ -19144,10 +21388,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDevicePropertyRequest $request
-     * @param RuntimeOptions           $runtime
+     * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
+     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDevicePropertyRequest $request SetDevicePropertyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDevicePropertyResponse
+     * @return SetDevicePropertyResponse SetDevicePropertyResponse
      */
     public function setDevicePropertyWithOptions($request, $runtime)
     {
@@ -19187,9 +21437,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDevicePropertyRequest $request
+     * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
+     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDevicePropertyRequest $request SetDevicePropertyRequest
      *
-     * @return SetDevicePropertyResponse
+     * @return SetDevicePropertyResponse SetDevicePropertyResponse
      */
     public function setDeviceProperty($request)
     {
@@ -19199,10 +21455,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDevicesPropertyRequest $request
-     * @param RuntimeOptions            $runtime
+     * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDevicesPropertyRequest $request SetDevicesPropertyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDevicesPropertyResponse
+     * @return SetDevicesPropertyResponse SetDevicesPropertyResponse
      */
     public function setDevicesPropertyWithOptions($request, $runtime)
     {
@@ -19239,9 +21500,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SetDevicesPropertyRequest $request
+     * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param SetDevicesPropertyRequest $request SetDevicesPropertyRequest
      *
-     * @return SetDevicesPropertyResponse
+     * @return SetDevicesPropertyResponse SetDevicesPropertyResponse
      */
     public function setDevicesProperty($request)
     {
@@ -19691,10 +21957,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param StartRuleRequest $request
-     * @param RuntimeOptions   $runtime
+     * ## Limits
+     *   * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param StartRuleRequest $request StartRuleRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartRuleResponse
+     * @return StartRuleResponse StartRuleResponse
      */
     public function startRuleWithOptions($request, $runtime)
     {
@@ -19725,9 +21996,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param StartRuleRequest $request
+     * ## Limits
+     *   * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
+     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param StartRuleRequest $request StartRuleRequest
      *
-     * @return StartRuleResponse
+     * @return StartRuleResponse StartRuleResponse
      */
     public function startRule($request)
     {
@@ -19783,10 +22059,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param StopRuleRequest $request
-     * @param RuntimeOptions  $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param StopRuleRequest $request StopRuleRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRuleResponse
+     * @return StopRuleResponse StopRuleResponse
      */
     public function stopRuleWithOptions($request, $runtime)
     {
@@ -19817,9 +22097,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param StopRuleRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param StopRuleRequest $request StopRuleRequest
      *
-     * @return StopRuleResponse
+     * @return StopRuleResponse StopRuleResponse
      */
     public function stopRule($request)
     {
@@ -19829,10 +22113,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SubscribeTopicRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
+     *   * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param SubscribeTopicRequest $request SubscribeTopicRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubscribeTopicResponse
+     * @return SubscribeTopicResponse SubscribeTopicResponse
      */
     public function subscribeTopicWithOptions($request, $runtime)
     {
@@ -19869,9 +22159,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param SubscribeTopicRequest $request
+     * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
+     *   * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+     *   *
+     * @param SubscribeTopicRequest $request SubscribeTopicRequest
      *
-     * @return SubscribeTopicResponse
+     * @return SubscribeTopicResponse SubscribeTopicResponse
      */
     public function subscribeTopic($request)
     {
@@ -20020,10 +22316,64 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param TransformClientIdRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param TestSwitchRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return TransformClientIdResponse
+     * @return TestSwitchResponse
+     */
+    public function testSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TestSwitch',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TestSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TestSwitchRequest $request
+     *
+     * @return TestSwitchResponse
+     */
+    public function testSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param TransformClientIdRequest $request TransformClientIdRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransformClientIdResponse TransformClientIdResponse
      */
     public function transformClientIdWithOptions($request, $runtime)
     {
@@ -20057,9 +22407,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param TransformClientIdRequest $request
+     * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param TransformClientIdRequest $request TransformClientIdRequest
      *
-     * @return TransformClientIdResponse
+     * @return TransformClientIdResponse TransformClientIdResponse
      */
     public function transformClientId($request)
     {
@@ -20167,10 +22522,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UnbindDriverFromEdgeInstanceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UnbindDriverFromEdgeInstanceRequest $request UnbindDriverFromEdgeInstanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindDriverFromEdgeInstanceResponse
+     * @return UnbindDriverFromEdgeInstanceResponse UnbindDriverFromEdgeInstanceResponse
      */
     public function unbindDriverFromEdgeInstanceWithOptions($request, $runtime)
     {
@@ -20204,9 +22563,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UnbindDriverFromEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UnbindDriverFromEdgeInstanceRequest $request UnbindDriverFromEdgeInstanceRequest
      *
-     * @return UnbindDriverFromEdgeInstanceResponse
+     * @return UnbindDriverFromEdgeInstanceResponse UnbindDriverFromEdgeInstanceResponse
      */
     public function unbindDriverFromEdgeInstance($request)
     {
@@ -20360,10 +22723,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Limits
+     *   * *   You cannot modify the default consumer group provided by IoT Platform.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateConsumerGroupRequest $request UpdateConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
      */
     public function updateConsumerGroupWithOptions($request, $runtime)
     {
@@ -20397,9 +22765,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateConsumerGroupRequest $request
+     * ## Limits
+     *   * *   You cannot modify the default consumer group provided by IoT Platform.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateConsumerGroupRequest $request UpdateConsumerGroupRequest
      *
-     * @return UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
      */
     public function updateConsumerGroup($request)
     {
@@ -20467,10 +22840,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDeviceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateDeviceGroupRequest $request UpdateDeviceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDeviceGroupResponse
+     * @return UpdateDeviceGroupResponse UpdateDeviceGroupResponse
      */
     public function updateDeviceGroupWithOptions($request, $runtime)
     {
@@ -20507,9 +22884,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDeviceGroupRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateDeviceGroupRequest $request UpdateDeviceGroupRequest
      *
-     * @return UpdateDeviceGroupResponse
+     * @return UpdateDeviceGroupResponse UpdateDeviceGroupResponse
      */
     public function updateDeviceGroup($request)
     {
@@ -20519,10 +22900,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDeviceShadowRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## QPS limits
+     *   * You can call this API operation up to 500 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateDeviceShadowRequest $request UpdateDeviceShadowRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDeviceShadowResponse
+     * @return UpdateDeviceShadowResponse UpdateDeviceShadowResponse
      */
     public function updateDeviceShadowWithOptions($request, $runtime)
     {
@@ -20562,9 +22947,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDeviceShadowRequest $request
+     * ## QPS limits
+     *   * You can call this API operation up to 500 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateDeviceShadowRequest $request UpdateDeviceShadowRequest
      *
-     * @return UpdateDeviceShadowResponse
+     * @return UpdateDeviceShadowResponse UpdateDeviceShadowResponse
      */
     public function updateDeviceShadow($request)
     {
@@ -20574,10 +22963,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateEdgeDriverVersionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
+     *   * *   You are not allowed to update a published driver version.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateEdgeDriverVersionRequest $request UpdateEdgeDriverVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEdgeDriverVersionResponse
+     * @return UpdateEdgeDriverVersionResponse UpdateEdgeDriverVersionResponse
      */
     public function updateEdgeDriverVersionWithOptions($request, $runtime)
     {
@@ -20632,9 +23027,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateEdgeDriverVersionRequest $request
+     * ## Limits
+     *   * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
+     *   * *   You are not allowed to update a published driver version.
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateEdgeDriverVersionRequest $request UpdateEdgeDriverVersionRequest
      *
-     * @return UpdateEdgeDriverVersionResponse
+     * @return UpdateEdgeDriverVersionResponse UpdateEdgeDriverVersionResponse
      */
     public function updateEdgeDriverVersion($request)
     {
@@ -20644,10 +23045,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateEdgeInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateEdgeInstanceRequest $request UpdateEdgeInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEdgeInstanceResponse
+     * @return UpdateEdgeInstanceResponse UpdateEdgeInstanceResponse
      */
     public function updateEdgeInstanceWithOptions($request, $runtime)
     {
@@ -20690,9 +23095,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateEdgeInstanceRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateEdgeInstanceRequest $request UpdateEdgeInstanceRequest
      *
-     * @return UpdateEdgeInstanceResponse
+     * @return UpdateEdgeInstanceResponse UpdateEdgeInstanceResponse
      */
     public function updateEdgeInstance($request)
     {
@@ -20893,10 +23302,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateOTAModuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateOTAModuleRequest $request UpdateOTAModuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOTAModuleResponse
+     * @return UpdateOTAModuleResponse UpdateOTAModuleResponse
      */
     public function updateOTAModuleWithOptions($request, $runtime)
     {
@@ -20936,9 +23349,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateOTAModuleRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateOTAModuleRequest $request UpdateOTAModuleRequest
      *
-     * @return UpdateOTAModuleResponse
+     * @return UpdateOTAModuleResponse UpdateOTAModuleResponse
      */
     public function updateOTAModule($request)
     {
@@ -21052,10 +23469,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductRequest $request
-     * @param RuntimeOptions       $runtime
+     * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductRequest $request UpdateProductRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProductResponse
+     * @return UpdateProductResponse UpdateProductResponse
      */
     public function updateProductWithOptions($request, $runtime)
     {
@@ -21092,9 +23513,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductRequest $request
+     * ## QPS limits
+     *   * You can call this API operation up to 10 times per second per account.
+     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductRequest $request UpdateProductRequest
      *
-     * @return UpdateProductResponse
+     * @return UpdateProductResponse UpdateProductResponse
      */
     public function updateProduct($request)
     {
@@ -21104,10 +23529,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductFilterConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ## Message deduplication rules
+     *   * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
+     *   * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductFilterConfigRequest $request UpdateProductFilterConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProductFilterConfigResponse
+     * @return UpdateProductFilterConfigResponse UpdateProductFilterConfigResponse
      */
     public function updateProductFilterConfigWithOptions($request, $runtime)
     {
@@ -21144,9 +23576,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductFilterConfigRequest $request
+     * ## Message deduplication rules
+     *   * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
+     *   * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
+     *   * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductFilterConfigRequest $request UpdateProductFilterConfigRequest
      *
-     * @return UpdateProductFilterConfigResponse
+     * @return UpdateProductFilterConfigResponse UpdateProductFilterConfigResponse
      */
     public function updateProductFilterConfig($request)
     {
@@ -21156,10 +23595,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductTagsRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can update a maximum of 10 tags in a single call.
+     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductTagsRequest $request UpdateProductTagsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProductTagsResponse
+     * @return UpdateProductTagsResponse UpdateProductTagsResponse
      */
     public function updateProductTagsWithOptions($request, $runtime)
     {
@@ -21193,9 +23638,15 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductTagsRequest $request
+     * You can update a maximum of 10 tags in a single call.
+     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+     *   * ## QPS limits
+     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductTagsRequest $request UpdateProductTagsRequest
      *
-     * @return UpdateProductTagsResponse
+     * @return UpdateProductTagsResponse UpdateProductTagsResponse
      */
     public function updateProductTags($request)
     {
@@ -21205,17 +23656,27 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductTopicRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductTopicRequest $request UpdateProductTopicRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProductTopicResponse
+     * @return UpdateProductTopicResponse UpdateProductTopicResponse
      */
     public function updateProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->codec)) {
+            $query['Codec'] = $request->codec;
+        }
         if (!Utils::isUnset($request->desc)) {
             $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->enableProxySubscribe)) {
+            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
@@ -21248,9 +23709,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateProductTopicRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateProductTopicRequest $request UpdateProductTopicRequest
      *
-     * @return UpdateProductTopicResponse
+     * @return UpdateProductTopicResponse UpdateProductTopicResponse
      */
     public function updateProductTopic($request)
     {
@@ -21260,10 +23725,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleResponse
+     * @return UpdateRuleResponse UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
@@ -21318,9 +23787,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateRuleRequest $request UpdateRuleRequest
      *
-     * @return UpdateRuleResponse
+     * @return UpdateRuleResponse UpdateRuleResponse
      */
     public function updateRule($request)
     {
@@ -21330,10 +23803,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleActionRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateRuleActionRequest $request UpdateRuleActionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleActionResponse
+     * @return UpdateRuleActionResponse UpdateRuleActionResponse
      */
     public function updateRuleActionWithOptions($request, $runtime)
     {
@@ -21370,9 +23847,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleActionRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateRuleActionRequest $request UpdateRuleActionRequest
      *
-     * @return UpdateRuleActionResponse
+     * @return UpdateRuleActionResponse UpdateRuleActionResponse
      */
     public function updateRuleAction($request)
     {
@@ -21735,10 +24216,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscribeRelationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateSubscribeRelationRequest $request UpdateSubscribeRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSubscribeRelationResponse
+     * @return UpdateSubscribeRelationResponse UpdateSubscribeRelationResponse
      */
     public function updateSubscribeRelationWithOptions($request, $runtime)
     {
@@ -21811,9 +24296,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscribeRelationRequest $request
+     * ## Limits
+     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateSubscribeRelationRequest $request UpdateSubscribeRelationRequest
      *
-     * @return UpdateSubscribeRelationResponse
+     * @return UpdateSubscribeRelationResponse UpdateSubscribeRelationResponse
      */
     public function updateSubscribeRelation($request)
     {
@@ -21823,10 +24312,17 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateThingModelRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+     *   * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateThingModelRequest $request UpdateThingModelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateThingModelResponse
+     * @return UpdateThingModelResponse UpdateThingModelResponse
      */
     public function updateThingModelWithOptions($request, $runtime)
     {
@@ -21869,9 +24365,16 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateThingModelRequest $request
+     * ## Limits
+     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+     *   * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+     *   * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
+     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateThingModelRequest $request UpdateThingModelRequest
      *
-     * @return UpdateThingModelResponse
+     * @return UpdateThingModelResponse UpdateThingModelResponse
      */
     public function updateThingModel($request)
     {
@@ -21881,10 +24384,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateThingScriptRequest $request
-     * @param RuntimeOptions           $runtime
+     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateThingScriptRequest $request UpdateThingScriptRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateThingScriptResponse
+     * @return UpdateThingScriptResponse UpdateThingScriptResponse
      */
     public function updateThingScriptWithOptions($request, $runtime)
     {
@@ -21921,9 +24428,13 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateThingScriptRequest $request
+     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
+     *   *
+     * @param UpdateThingScriptRequest $request UpdateThingScriptRequest
      *
-     * @return UpdateThingScriptResponse
+     * @return UpdateThingScriptResponse UpdateThingScriptResponse
      */
     public function updateThingScript($request)
     {
@@ -21942,11 +24453,23 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->codec)) {
+            $query['Codec'] = $request->codec;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->enableBroadcast)) {
             $query['EnableBroadcast'] = $request->enableBroadcast;
         }
+        if (!Utils::isUnset($request->enableProxySubscribe)) {
+            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
+        }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;

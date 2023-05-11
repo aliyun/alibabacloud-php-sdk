@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryPageByApplyIdResponseBody extends Model
 {
     /**
+     * @description The registered device list information returned if the call succeeds. The **ApplyDeviceInfo** parameter includes the details of the registered devices.
+     *
      * @var applyDeviceList
      */
     public $applyDeviceList;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](/help/en/iot-platform/latest/bce100).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -22,11 +26,15 @@ class QueryPageByApplyIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +42,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public $page;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +51,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +60,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -55,6 +69,11 @@ class QueryPageByApplyIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of devices.
+     *
      * @example 2
      *
      * @var int

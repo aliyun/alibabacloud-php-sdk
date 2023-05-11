@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceDeploymentResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEdgeInstanceDeploymentResponseBody extends Model
     public $code;
 
     /**
+     * @description The deployment task ID that is returned if the call was successful.
+     *
      * @example 38d544b1222d45b4b425240167bf****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateEdgeInstanceDeploymentResponseBody extends Model
     public $deploymentId;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateEdgeInstanceDeploymentResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C8293A57-6BBC-42FB-B093-BF304D5BF09C
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateEdgeInstanceDeploymentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

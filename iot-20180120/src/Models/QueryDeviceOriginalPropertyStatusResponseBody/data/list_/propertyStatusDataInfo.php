@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyStatusDataInfo extends Model
 {
     /**
+     * @description The identifier of the property.
+     *
      * @example Temperture
      *
      * @var string
@@ -16,6 +18,8 @@ class propertyStatusDataInfo extends Model
     public $identifier;
 
     /**
+     * @description The time when the property was modified, in milliseconds.
+     *
      * @example 1517553572362
      *
      * @var int
@@ -23,6 +27,8 @@ class propertyStatusDataInfo extends Model
     public $time;
 
     /**
+     * @description The value of the property.
+     *
      * @example 26
      *
      * @var string

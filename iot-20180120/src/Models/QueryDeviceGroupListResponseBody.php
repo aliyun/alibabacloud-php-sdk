@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupListResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class QueryDeviceGroupListResponseBody extends Model
     public $code;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,23 @@ class QueryDeviceGroupListResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The group information returned if the call succeeds. For more information, see the GroupInfo parameter.
+     *
+     * >  The returned group information is sorted in reverse chronological order in which the groups are created.
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 3
      *
      * @var int
@@ -41,6 +52,8 @@ class QueryDeviceGroupListResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +61,8 @@ class QueryDeviceGroupListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BEFCA316-D6C7-470C-81ED-1FF4FFD4AA0D
      *
      * @var string
@@ -55,6 +70,11 @@ class QueryDeviceGroupListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +82,8 @@ class QueryDeviceGroupListResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of records that were returned.
+     *
      * @example 24
      *
      * @var int

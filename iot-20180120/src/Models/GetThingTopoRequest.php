@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetThingTopoRequest extends Model
 {
     /**
+     * @description The name of the gateway device.
+     *
+     * >  If you specify this parameter, you must also specify the **ProductKey** parameter.
      * @example light
      *
      * @var string
@@ -16,6 +19,9 @@ class GetThingTopoRequest extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the gateway device. The ID is the unique identifier that is issued by IoT Platform to the gateway device.
+     *
+     * >  If you specify this parameter, you do not need to specify the **ProductKey** or **DeviceName** parameter. The **IotId** parameter specifies a unique identifier for the device, and corresponds to a combination of the **ProductKey** and **DeviceName** parameters. If you specify the **IotId** parameter and a combination of the **ProductKey** and **DeviceName** parameters at the same time, the **IotId** parameter takes precedence.
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -23,6 +29,8 @@ class GetThingTopoRequest extends Model
     public $iotId;
 
     /**
+     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for public instances. However, this parameter is required for enterprise-edition instances.
+     *
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -30,6 +38,8 @@ class GetThingTopoRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +47,8 @@ class GetThingTopoRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +56,9 @@ class GetThingTopoRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the gateway device belongs.
+     *
+     * >  If you specify this parameter, you must also specify the **DeviceName** parameter.
      * @example a1BwAGV****
      *
      * @var string

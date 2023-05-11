@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateEdgeInstanceResponseBody extends Model
 {
     /**
+     * @description The return code of the operation.
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateEdgeInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateEdgeInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 10CA6DAD-EBAF-4D3E-9309-9DB5B0FF48F2
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateEdgeInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

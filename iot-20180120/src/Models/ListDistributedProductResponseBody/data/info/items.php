@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the distribution task was created.
+     *
      * @example 1581595942
      *
      * @var int
@@ -16,6 +18,8 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @description The **ProductKey** of the product.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $productKey;
 
     /**
+     * @description The ID of the source instance to which the product belongs.
+     *
      * @example iot-cn-6ja***
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The name of the source instance to which the product belongs.
+     *
      * @example myproInstance
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $sourceInstanceName;
 
     /**
+     * @description The source region to which the product belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -44,6 +54,8 @@ class items extends Model
     public $sourceRegion;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to distribute the product. You can distribute products across regions and instances only within the same Alibaba cloud account. The value of this parameter is the same as the value of the **TargetUid** parameter.
+     *
      * @example 198***
      *
      * @var string
@@ -51,6 +63,8 @@ class items extends Model
     public $sourceUid;
 
     /**
+     * @description The name of the Alibaba Cloud account to which the product is distributed.
+     *
      * @example io****@example.com
      *
      * @var string
@@ -58,6 +72,8 @@ class items extends Model
     public $targetAliyunId;
 
     /**
+     * @description The ID of the destination instance to which the product is distributed.
+     *
      * @example iot-cn-09k***
      *
      * @var string
@@ -65,6 +81,8 @@ class items extends Model
     public $targetInstanceId;
 
     /**
+     * @description The name of the destination instance to which the product is distributed.
+     *
      * @example newinstance
      *
      * @var string
@@ -72,6 +90,8 @@ class items extends Model
     public $targetInstanceName;
 
     /**
+     * @description The destination region to which the product is distributed.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -79,6 +99,9 @@ class items extends Model
     public $targetRegion;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the product is distributed.
+     *
+     * You can distribute devices across regions and instances only within the same Alibaba cloud account. The value of this parameter is the same as the value of the **TargetUid** parameter.
      * @example 198***
      *
      * @var string

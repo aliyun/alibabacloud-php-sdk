@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTADynamicUpgradeJobResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,25 @@ class CreateOTADynamicUpgradeJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The unique identifier of the update batch.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example 9F41D14E-CB5F-4CCE-939C-057F39E688F5
      *
      * @var string
@@ -34,6 +45,8 @@ class CreateOTADynamicUpgradeJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The update batch information returned if the call is successful. For more information, see Data.
+     *
      * @example true
      *
      * @var bool

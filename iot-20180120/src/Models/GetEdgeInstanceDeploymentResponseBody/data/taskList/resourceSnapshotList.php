@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceSnapshotList extends Model
 {
     /**
+     * @description The time when the deployment task snapshot was complete.
+     *
      * @example 2019-06-26 18:12:34
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceSnapshotList extends Model
     public $gmtCompleted;
 
     /**
+     * @description The UNIX timestamp when the deployment task snapshot was complete.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -23,6 +27,8 @@ class resourceSnapshotList extends Model
     public $gmtCompletedTimestamp;
 
     /**
+     * @description The time when the deployment task snapshot was created.
+     *
      * @example 2019-06-26 18:12:29
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceSnapshotList extends Model
     public $gmtCreate;
 
     /**
+     * @description The UNIX timestamp when the deployment task snapshot was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -37,6 +45,8 @@ class resourceSnapshotList extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last time when the deployment task snapshot was modified.
+     *
      * @example 2019-06-26 18:12:34
      *
      * @var string
@@ -44,6 +54,8 @@ class resourceSnapshotList extends Model
     public $gmtModified;
 
     /**
+     * @description The last UNIX timestamp when the deployment task snapshot was modified.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -51,6 +63,8 @@ class resourceSnapshotList extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The logs of resource deployment.
+     *
      * @example [{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":0,\"level\":\"INFO\",\"message\":\"init success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543949858},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":8,\"level\":\"INFO\",\"message\":\"assembly success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543951419},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":16,\"level\":\"INFO\",\"message\":\"package success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543952591},{\"resourceId\":\"device_config\",\"code\":\"0\",\"stage\":32,\"level\":\"INFO\",\"message\":\"download success\",\"resourceType\":\"DEVICE_CONFIG\",\"timestamp\":1561543954149}]
      *
      * @var string
@@ -58,6 +72,11 @@ class resourceSnapshotList extends Model
     public $log;
 
     /**
+     * @description The type of the operation.
+     *
+     *   0: deploys resources.
+     *   1: deletes resources.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +84,8 @@ class resourceSnapshotList extends Model
     public $operateType;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example device_config
      *
      * @var string
@@ -72,6 +93,8 @@ class resourceSnapshotList extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example device_config
      *
      * @var string
@@ -79,6 +102,8 @@ class resourceSnapshotList extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example device_config
      *
      * @var string
@@ -86,6 +111,8 @@ class resourceSnapshotList extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the deployment task snapshot.
+     *
      * @example ab576e84a43043d7840cbcebf4a5****
      *
      * @var string
@@ -93,6 +120,14 @@ class resourceSnapshotList extends Model
     public $snapshotId;
 
     /**
+     * @description The stage of the snapshot task.
+     *
+     *   0: The snapshot task was in the initial state.
+     *   8: The snapshot task was being assembled.
+     *   16: The snapshot task was being packaged.
+     *   24: The snapshot task was being dispatched.
+     *   32: The snapshot task was complete.
+     *
      * @example 32
      *
      * @var int
@@ -100,6 +135,13 @@ class resourceSnapshotList extends Model
     public $stage;
 
     /**
+     * @description The status of the snapshot task.
+     *
+     *   0: The snapshot task was not started.
+     *   1: The snapshot task was being processed.
+     *   2: The snapshot task was successful.
+     *   3: The snapshot task failed.
+     *
      * @example 2
      *
      * @var int

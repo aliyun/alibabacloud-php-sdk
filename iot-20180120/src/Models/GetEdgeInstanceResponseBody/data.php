@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the edge instance was enabled. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $bizEnable;
 
     /**
+     * @description The time when the edge instance was created.
+     *
      * @example 2019-06-26 12:33:25
      *
      * @var string
@@ -23,6 +30,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The UNIX timestamp when the edge instance was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -30,6 +39,8 @@ class data extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last time when the edge instance was updated.
+     *
      * @example 2019-06-26 12:33:25
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The last UNIX timestamp when the edge instance was updated.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The ID of the edge instance.
+     *
      * @example F3APY0tPLhmgGtx0****
      *
      * @var string
@@ -51,6 +66,13 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The status of the latest deployment task. Valid values:
+     *
+     *   0: The task was not started.
+     *   1: The task was being processed.
+     *   2: The task was successful.
+     *   3: The task failed.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +80,11 @@ class data extends Model
     public $latestDeploymentStatus;
 
     /**
+     * @description The type of the latest deployment task. Valid values:
+     *
+     *   deploy: deploys the edge instance.
+     *   reset: resets the edge instance.
+     *
      * @example deploy
      *
      * @var string
@@ -65,11 +92,15 @@ class data extends Model
     public $latestDeploymentType;
 
     /**
+     * @description The name of the edge instance.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     *
      * @example acs:ram::1473922805******:role/aliyuniotaccessingfcrole
      *
      * @var string
@@ -77,6 +108,8 @@ class data extends Model
     public $roleArn;
 
     /**
+     * @description The time when the RAM role was attached to IoT Platform.
+     *
      * @example 2020-02-19 11:25:48
      *
      * @var string
@@ -84,6 +117,8 @@ class data extends Model
     public $roleAttachTime;
 
     /**
+     * @description The UNIX timestamp when the RAM role was attached to IoT Platform.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -91,6 +126,8 @@ class data extends Model
     public $roleAttachTimestamp;
 
     /**
+     * @description The name of the RAM role.
+     *
      * @example AliyunIOTAccessingFCRole
      *
      * @var string
@@ -98,6 +135,12 @@ class data extends Model
     public $roleName;
 
     /**
+     * @description The specifications of the edge instance. Valid values:
+     *
+     *   10: Lite Edition
+     *   20: Standard Edition
+     *   30: Pro Edition
+     *
      * @example 30
      *
      * @var int
@@ -105,6 +148,8 @@ class data extends Model
     public $spec;
 
     /**
+     * @description The tags of the edge instance. Each tag is a `key-value` pair. Multiple tags are separated with commas(,). Example: `k1:v1,k2:v2`.
+     *
      * @example k1:v1,k2:v2
      *
      * @var string
@@ -112,6 +157,11 @@ class data extends Model
     public $tags;
 
     /**
+     * @description Indicates whether you own the edge instance or you are authorized to use the edge instance. Valid values:
+     *
+     *   0: You own the edge instance.
+     *   1: You are authorized to use the edge instance.
+     *
      * @example 0
      *
      * @var string

@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class deviceList extends Model
 {
     /**
-     * @example di0001
-     *
      * @var string
      */
     public $deviceId;
 
     /**
-     * @example dm0001
-     *
      * @var string
      */
     public $deviceModel;
 
     /**
-     * @example mf0001
-     *
+     * @var string
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $manufacturer;
     protected $_name = [
         'deviceId'     => 'DeviceId',
         'deviceModel'  => 'DeviceModel',
+        'deviceName'   => 'DeviceName',
         'manufacturer' => 'Manufacturer',
     ];
 
@@ -46,6 +46,9 @@ class deviceList extends Model
         }
         if (null !== $this->deviceModel) {
             $res['DeviceModel'] = $this->deviceModel;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->manufacturer) {
             $res['Manufacturer'] = $this->manufacturer;
@@ -67,6 +70,9 @@ class deviceList extends Model
         }
         if (isset($map['DeviceModel'])) {
             $model->deviceModel = $map['DeviceModel'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['Manufacturer'])) {
             $model->manufacturer = $map['Manufacturer'];

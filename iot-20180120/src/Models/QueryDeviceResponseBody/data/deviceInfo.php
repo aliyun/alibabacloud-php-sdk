@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @description The ID of the device.
+     *
+     * >  This parameter is deprecated. Do not use this parameter to identify a device. You can use the **IotId** parameter or a combination of the **ProductKey** and **DeviceName** parameters to identify a device.
      * @example dwnS41bhNxjslDAI****
      *
      * @var string
@@ -16,6 +19,8 @@ class deviceInfo extends Model
     public $deviceId;
 
     /**
+     * @description The name of the device.
+     *
      * @example light
      *
      * @var string
@@ -23,6 +28,8 @@ class deviceInfo extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
      * @example sLefbFmN9SYfnWLJTePG893XNuRV****
      *
      * @var string
@@ -30,6 +37,13 @@ class deviceInfo extends Model
     public $deviceSecret;
 
     /**
+     * @description The status of the device. Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is deactivated.
+     *
      * @example ONLINE
      *
      * @var string
@@ -37,6 +51,9 @@ class deviceInfo extends Model
     public $deviceStatus;
 
     /**
+     * @description The category of the product to which the device belongs.
+     *
+     * >  This parameter is not returned.
      * @example Lighting
      *
      * @var string
@@ -44,6 +61,8 @@ class deviceInfo extends Model
     public $deviceType;
 
     /**
+     * @description The time when the device was created. The time is in the GMT format.
+     *
      * @example Wed, 20-Feb-2019 02:16:09 GMT
      *
      * @var string
@@ -51,6 +70,8 @@ class deviceInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the device information was last updated. The time is in the GMT format.
+     *
      * @example Wed, 20-Feb-2019 02:16:09 GMT
      *
      * @var string
@@ -58,6 +79,8 @@ class deviceInfo extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the device. The ID is a unique identifier that is issued by IoT Platform to the device.
+     *
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -65,11 +88,15 @@ class deviceInfo extends Model
     public $iotId;
 
     /**
+     * @description The alias of the device.
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -77,6 +104,8 @@ class deviceInfo extends Model
     public $productKey;
 
     /**
+     * @description The time when the device was created. The time is displayed in UTC.
+     *
      * @example 2019-02-20T02:16:09.000Z
      *
      * @var string
@@ -84,6 +113,8 @@ class deviceInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the device information was last updated. The time is displayed in UTC.
+     *
      * @example 2019-02-20T02:16:09.000Z
      *
      * @var string

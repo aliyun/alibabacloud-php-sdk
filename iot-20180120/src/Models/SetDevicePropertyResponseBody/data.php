@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the message that IoT Platform sends to the device.
+     *
      * @example abcabc123
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
+     * @description The identifier of the service.
+     *
      * @example Set
      *
      * @var string
@@ -16,25 +18,33 @@ class serviceInfo extends Model
     public $identifier;
 
     /**
-     * @example {\"code\":200,\"data\":{},\"id\":\"100686\",\"message\":\"success\",\"version\":\"1.0\"}
+     * @description The input parameter of the service. The value is a string in the MAP format. Syntax: key:value.
+     *
+     * @example {\"LightAdjustLevel\":123}
      *
      * @var string
      */
     public $inputData;
 
     /**
+     * @description The service name.
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @example {\"LightAdjustLevel\":123}
+     * @description The output parameter of the service. The value is a string in the MAP format. Syntax: key:value.
+     *
+     * @example {\"code\":200,\"data\":{},\"id\":\"100686\",\"message\":\"success\",\"version\":\"1.0\"}
      *
      * @var string
      */
     public $outputData;
 
     /**
+     * @description The time when the service was called.
+     *
      * @example 1579249499000
      *
      * @var string

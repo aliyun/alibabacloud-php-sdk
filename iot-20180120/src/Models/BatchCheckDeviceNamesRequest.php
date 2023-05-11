@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class BatchCheckDeviceNamesRequest extends Model
 {
     /**
-     * @example light
-     *
      * @var string[]
      */
     public $deviceName;
@@ -22,6 +20,12 @@ class BatchCheckDeviceNamesRequest extends Model
     public $deviceNameList;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -29,6 +33,8 @@ class BatchCheckDeviceNamesRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product to which the devices belong.
+     *
      * @example a1BwAGV****
      *
      * @var string

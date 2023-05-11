@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @description The list of device information.
+     *
      * @var deviceList[]
      */
     public $deviceList;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 15
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The number of devices.
+     *
      * @example 4
      *
      * @var int

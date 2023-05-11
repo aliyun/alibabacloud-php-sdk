@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupStatusResponseBody extends Model
 {
     /**
+     * @description The message consumption rate. Unit: messages/minute.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $accumulatedConsumeCountPerMinute;
 
     /**
+     * @description The number of accumulated messages.
+     *
      * @example 13
      *
      * @var int
@@ -24,11 +28,15 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $accumulationCount;
 
     /**
+     * @description The details about the client. For more information, see **ConsumerGroupClientConnectionInfo**.
+     *
      * @var clientConnectionStatusList
      */
     public $clientConnectionStatusList;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](/help/en/iot-platform/latest/bce100).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The message consumption rate of the consumer group. Unit: messages/minute.
+     *
      * @example 14
      *
      * @var int
@@ -43,11 +53,15 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $consumerSpeed;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The time when the last message was consumed. The time is in the yyyy-MM-dd\"T\"HH:mm:ss.SSSZ format. The time is displayed in UTC and accurate to milliseconds.
+     *
      * @example 2020-05-29T03:37:56.000Z
      *
      * @var string
@@ -55,6 +69,8 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $lastConsumerTime;
 
     /**
+     * @description The consumption rate of real-time messages in the consumer group. Unit: messages/minute.
+     *
      * @example 14
      *
      * @var int
@@ -62,6 +78,8 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $realTimeConsumeCountPerMinute;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -69,6 +87,11 @@ class QueryConsumerGroupStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

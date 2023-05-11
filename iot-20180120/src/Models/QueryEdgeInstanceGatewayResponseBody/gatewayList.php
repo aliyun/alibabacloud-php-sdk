@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gatewayList extends Model
 {
     /**
+     * @description The name of the gateway.
+     *
      * @example gateway_01
      *
      * @var string
@@ -16,6 +18,8 @@ class gatewayList extends Model
     public $deviceName;
 
     /**
+     * @description The version number of Link IoT Edge.
+     *
      * @example v1.0.0
      *
      * @var string
@@ -23,6 +27,8 @@ class gatewayList extends Model
     public $edgeVersion;
 
     /**
+     * @description The ID of the gateway in IoT Platform.
+     *
      * @example LuD9x5hiRUdVemWU****000101
      *
      * @var string
@@ -30,6 +36,8 @@ class gatewayList extends Model
     public $iotId;
 
     /**
+     * @description The key that uniquely identifies the product to which the gateway belongs.
+     *
      * @example a1mAdeG****
      *
      * @var string

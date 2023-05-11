@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAVerifyJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class CreateOTAVerifyJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The task information returned if the call is successful. For more information, see the following parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request. The ID uniquely identifies this request.
+     *
      * @example 29EC7245-0FA4-4BB6-B4F5-5F04818FDFB1
      *
      * @var string
@@ -34,6 +42,11 @@ class CreateOTAVerifyJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

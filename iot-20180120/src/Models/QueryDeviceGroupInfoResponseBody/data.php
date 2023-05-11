@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of activated devices.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $deviceActive;
 
     /**
+     * @description The total number of devices.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $deviceCount;
 
     /**
+     * @description The number of online devices.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $deviceOnline;
 
     /**
+     * @description The rule of the dynamic group. This parameter is returned if a dynamic group is queried.
+     *
      * @example product_key = "a1***" and name LIKE "test%"
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $dynamicGroupExpression;
 
     /**
+     * @description The description of the group.
+     *
      * @example usefulGroup
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $groupDesc;
 
     /**
+     * @description The ID of the group.
+     *
      * @example tDQvBJqbUyHs****
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $groupId;
 
     /**
+     * @description The name of the group.
+     *
      * @example aliyun
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $groupName;
 
     /**
+     * @description The time when the group was created.
+     *
      * @example 2018-09-14T14:35:51.000Z
      *
      * @var string

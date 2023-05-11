@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class QueryDeviceGroupListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the group.
+     *
+     *   If you specify this parameter, the system queries groups by group name. You can perform a fuzzy search by group name.
+     *   If you do not specify this parameter, the system queries all groups.
+     *
      * @example GroupName1
      *
      * @var string
@@ -30,6 +37,12 @@ class QueryDeviceGroupListRequest extends Model
     public $groupTypes;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -37,6 +50,8 @@ class QueryDeviceGroupListRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of the entries to return on each page. Maximum value: 200. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +59,8 @@ class QueryDeviceGroupListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the parent group. If you need to query the subgroups of a parent group, specify this parameter.
+     *
      * @example 8vDubXr4nUvZkNgk9mle010200
      *
      * @var string

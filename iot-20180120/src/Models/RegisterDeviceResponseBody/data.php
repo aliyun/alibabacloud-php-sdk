@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The DevEUI of the LoRaWAN device. This parameter is returned only when you create a LoRaWAN device.
+     *
      * @example e8SDdgeIlk3nED****
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $devEui;
 
     /**
+     * @description The DeviceName of the device.
+     *
+     * > Keep the information confidential.
      * @example light
      *
      * @var string
@@ -23,6 +28,9 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
+     * > Keep the information confidential.
      * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
      *
      * @var string
@@ -30,6 +38,9 @@ class data extends Model
     public $deviceSecret;
 
     /**
+     * @description The ID of the device. The ID is the unique identifier that is issued by IoT Platform to the device.
+     *
+     * > Keep the information confidential.
      * @example 1O4YPNtRqB2anumz2Canp4GB7q****
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $iotId;
 
     /**
+     * @description The JoinEUI of the LoRaWAN device. This parameter is returned only when you create a LoRaWAN device.
+     *
      * @example Ede4tde8erth****
      *
      * @var string
@@ -44,11 +57,16 @@ class data extends Model
     public $joinEui;
 
     /**
+     * @description The alias of the device.
+     *
+     * If you do not specify an alias for the device, this parameter is empty.
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the consumer group was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss.SSSZ format. The time is displayed in UTC and accurate to milliseconds.
+     *
      * @example 2020-05-20T00:05:20.000Z
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The ID of the consumer group.
+     *
      * @example nJRaJPn5U1JITGf******
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $groupId;
 
     /**
+     * @description The name of the consumer group.
+     *
      * @var string
      */
     public $groupName;

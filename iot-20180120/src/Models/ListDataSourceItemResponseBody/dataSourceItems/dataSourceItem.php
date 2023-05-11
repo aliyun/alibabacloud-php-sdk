@@ -16,16 +16,22 @@ class dataSourceItem extends Model
     public $dataSourceItemId;
 
     /**
+     * @example lightDevice
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example aw3****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example PRODUCT
+     *
      * @var string
      */
     public $scopeType;

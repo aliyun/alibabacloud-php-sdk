@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOTAModuleVersionsByDeviceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $code;
 
     /**
+     * @description The current page number.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,22 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The module version information returned if the call is successful. The information was submitted by the device. For more information, see the **SimpleOTAModuleInfo** parameter in this table.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +51,8 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $pageCount;
 
     /**
+     * @description The number of module versions returned on each page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +60,8 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 291438BA-6E10-4C4C-B761-243B9A0D324F
      *
      * @var string
@@ -55,6 +69,11 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +81,8 @@ class ListOTAModuleVersionsByDeviceResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of module versions that was submitted by the device.
+     *
      * @example 10
      *
      * @var int

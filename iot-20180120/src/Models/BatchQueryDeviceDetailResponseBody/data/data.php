@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
      * @example light
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
      * @example mz2Canp4GB7qRVf1OYPNtRqB2anu****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $deviceSecret;
 
     /**
+     * @description The firmware version number of the device.
+     *
      * @example V1.0.0.0
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $firmwareVersion;
 
     /**
+     * @description The activation time of the device. The time is displayed in UTC.
+     *
      * @example 2019-06-21 20:33:00
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $gmtActive;
 
     /**
+     * @description The creation time of the device. The time is displayed in UTC.
+     *
      * @example 2019-06-21 20:31:42
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The unique ID of the device. The device ID is issued by IoT Platform.
+     *
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -51,11 +63,18 @@ class data extends Model
     public $iotId;
 
     /**
+     * @description The alias of the device.
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **0**: device. Sub-devices cannot be mounted on a gateway. A device can connect to IoT Platform directly or as a sub-device of a gateway.
+     *   **1**: gateway. Sub-devices can be attached to a gateway. A gateway can manage sub-devices, maintain the topological relationships with sub-devices, and synchronize the topological relationships to IoT Platform.
+     *
      * @example 0
      *
      * @var int
@@ -63,6 +82,8 @@ class data extends Model
     public $nodeType;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -70,11 +91,15 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the device belongs.
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The ID of the region where the device resides. The region is the same as the region where IoT Platform resides. You can view the region in the IoT Platform console.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -82,6 +107,13 @@ class data extends Model
     public $region;
 
     /**
+     * @description The status of the device. Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example ONLINE
      *
      * @var string
@@ -89,6 +121,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The activation time of the device. The time is displayed in UTC.
+     *
      * @example 2019-06-21T12:31:42.000Z
      *
      * @var string
@@ -96,6 +130,8 @@ class data extends Model
     public $utcActive;
 
     /**
+     * @description The creation time of the device. The time is displayed in UTC.
+     *
      * @example 2019-06-21T12:31:42.000Z
      *
      * @var string

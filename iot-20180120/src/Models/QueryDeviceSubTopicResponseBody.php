@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceSubTopicResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryDeviceSubTopicResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request. The ID uniquely identifies this request.
+     *
      * @example E4C0FF92-2A86-41DB-92D3-73B60310D25E
      *
      * @var string
@@ -29,6 +35,11 @@ class QueryDeviceSubTopicResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +47,8 @@ class QueryDeviceSubTopicResponseBody extends Model
     public $success;
 
     /**
+     * @description The information about the topics to which the device has subscribed. This parameter is returned if the call was successful.
+     *
      * @var topicList[]
      */
     public $topicList;

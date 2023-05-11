@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicRouteTableResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class QueryTopicRouteTableResponseBody extends Model
     public $code;
 
     /**
+     * @description The list of destination topics returned if the call is successful.
+     *
      * @var dstTopics
      */
     public $dstTopics;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FCC27691-9151-4B93-9622-9C90F30542EC
      *
      * @var string
@@ -34,6 +42,11 @@ class QueryTopicRouteTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

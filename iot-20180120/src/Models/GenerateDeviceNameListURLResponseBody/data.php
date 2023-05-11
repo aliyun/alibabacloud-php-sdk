@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID of the bucket owner.
+     *
+     * The OSS bucket stores the file.
      * @example cS8uRRy54Rsz****
      *
      * @var string
@@ -16,6 +19,9 @@ class data extends Model
     public $accessKeyId;
 
     /**
+     * @description The URL of the file that is stored in OSS.
+     *
+     * After the device list file is uploaded, this parameter is used to call the [CreateOTAStaticUpgradeJob](~~147496~~) operation to create a static update batch.
      * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com/ota/65dfcda0473be29836dfde585472****\/ck2nfzljo00023g7kysg0****.csv
      *
      * @var string
@@ -23,6 +29,8 @@ class data extends Model
     public $fileUrl;
 
     /**
+     * @description The endpoint of OSS.
+     *
      * @example https://iotx-ota.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -30,6 +38,8 @@ class data extends Model
     public $host;
 
     /**
+     * @description The full path of the file in OSS. You can call the OSS PostObject operation to upload the file to OSS.
+     *
      * @example ota/65dfcda0473be29836dfde585472****\/ck2nfzljo00023g7kysg0****.csv
      *
      * @var string
@@ -37,6 +47,8 @@ class data extends Model
     public $key;
 
     /**
+     * @description The type of the object storage. Default value: OSS.
+     *
      * @example OSS
      *
      * @var string
@@ -44,6 +56,8 @@ class data extends Model
     public $objectStorage;
 
     /**
+     * @description The parameter that is used by OSS to verify form fields for the request.
+     *
      * @example eyJleHBpcmF****
      *
      * @var string
@@ -51,6 +65,8 @@ class data extends Model
     public $policy;
 
     /**
+     * @description The signature that is calculated based on **AccessKeySecret** and **Policy**. When you call an OSS operation, OSS uses the signature information to verify the POST request.
+     *
      * @example v6lViO4FBvfquajQjg20K5hK****
      *
      * @var string
@@ -58,6 +74,8 @@ class data extends Model
     public $signature;
 
     /**
+     * @description The time when the URL of the file that you want to upload was generated. The time is displayed in UTC.
+     *
      * @example 2019-11-04T06:21:54.607Z
      *
      * @var string

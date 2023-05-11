@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClientIdsResponseBody extends Model
 {
     /**
+     * @description The response code. The value Success indicates that the call was successful. Other values indicate that errors occurred. For more information about error codes, see [Error codes](~~87387~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteClientIdsResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteClientIdsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 89F22330-BAEE-****-****-41BA46D6E267
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteClientIdsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

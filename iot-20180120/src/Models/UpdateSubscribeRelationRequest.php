@@ -16,6 +16,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $consumerGroupIds;
 
     /**
+     * @description Specifies whether to push upstream device messages. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -23,6 +29,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $deviceDataFlag;
 
     /**
+     * @description Specifies whether to push messages about device lifecycle changes. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -30,6 +42,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $deviceLifeCycleFlag;
 
     /**
+     * @description Specifies whether to push messages about device status changes. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -37,6 +55,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $deviceStatusChangeFlag;
 
     /**
+     * @description Specifies whether to push messages about topological relationship changes of devices. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -44,6 +68,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $deviceTagFlag;
 
     /**
+     * @description Specifies whether to push messages about topological relationship changes of devices. Valid values:
+     *
+     *   **true**: yes. This parameter is valid only for gateway products.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -51,6 +81,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $deviceTopoLifeCycleFlag;
 
     /**
+     * @description Specifies whether to push messages if a gateway detects new sub-devices. Valid values:
+     *
+     *   **true**: yes. This parameter is valid only for gateway products.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -58,6 +94,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $foundDeviceListFlag;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-cn-0pp1n8t****
      *
      * @var string
@@ -65,6 +107,9 @@ class UpdateSubscribeRelationRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The configurations of the MNS queue. This parameter is required if the **Type** parameter is set to **AMQP**.
+     *
+     * For more information, see the "Definition of the MnsConfiguration parameter" section.
      * @example {     "queueName": "mns-test-topic1",     "regionName": "cn-shanghai",     "role": {         "roleArn": "acs:ram::5645***:role/aliyuniotaccessingmnsrole",         "roleName": "AliyunIOTAccessingMNSRole"     } }
      *
      * @var string
@@ -72,6 +117,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $mnsConfiguration;
 
     /**
+     * @description Specifies whether to push notifications about the status of OTA update batches. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -79,6 +130,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $otaEventFlag;
 
     /**
+     * @description Specifies whether to push notifications about the statuses of OTA update batches. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -86,6 +143,12 @@ class UpdateSubscribeRelationRequest extends Model
     public $otaJobFlag;
 
     /**
+     * @description Specifies whether to push messages about OTA module version numbers. Valid values:
+     *
+     *   **true**: yes. This parameter takes effect only if the **Type** parameter is set to **AMQP**.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -93,6 +156,8 @@ class UpdateSubscribeRelationRequest extends Model
     public $otaVersionFlag;
 
     /**
+     * @description The **ProductKey** of the product that is specified for the subscription.
+     *
      * @example a1fyXVF****
      *
      * @var string
@@ -100,11 +165,19 @@ class UpdateSubscribeRelationRequest extends Model
     public $productKey;
 
     /**
+     * @example {     "jt808DeviceDataFlag": true }
+     *
      * @var string
      */
     public $subscribeFlags;
 
     /**
+     * @description Specifies whether to push upstream historical Thing Specification Language (TSL) data. Valid values:
+     *
+     *   **true**: yes.
+     *   **false**: no.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var bool
@@ -112,6 +185,11 @@ class UpdateSubscribeRelationRequest extends Model
     public $thingHistoryFlag;
 
     /**
+     * @description The type of the subscription. Valid values:
+     *
+     *   **MNS**
+     *   **AMQP**
+     *
      * @example AMQP
      *
      * @var string

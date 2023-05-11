@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,16 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @description The details of the products.
+     *
+     * >  The returned product information is sorted in reverse-chronological order based on the time when the products were created.
      * @var list_
      */
     public $list;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 92
      *
      * @var int
@@ -29,6 +36,8 @@ class data extends Model
     public $pageCount;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 2
      *
      * @var int
@@ -36,6 +45,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of products.
+     *
      * @example 184
      *
      * @var int

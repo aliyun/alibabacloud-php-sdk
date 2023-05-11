@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileSummary extends Model
 {
     /**
+     * @description The ID of each file. The ID is the unique identifier for the file.
+     *
      * @example xL0G67MBLBDtkR7GCfT******
      *
      * @var string
@@ -16,6 +18,8 @@ class fileSummary extends Model
     public $fileId;
 
     /**
+     * @description The name of the file.
+     *
      * @example testFile2.txt
      *
      * @var string
@@ -23,6 +27,8 @@ class fileSummary extends Model
     public $name;
 
     /**
+     * @description The size of the file. Unit: KB.
+     *
      * @example 1024000
      *
      * @var string
@@ -30,6 +36,8 @@ class fileSummary extends Model
     public $size;
 
     /**
+     * @description The time when the file was created.
+     *
      * @example 2019-03-21T08:45:42.000Z
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRouteTableResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateTopicRouteTableResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -24,11 +28,18 @@ class CreateTopicRouteTableResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The list of topics returned if the call fails.
+     *
      * @var failureTopics
      */
     public $failureTopics;
 
     /**
+     * @description Indicates whether all the message routing relationships between topics are established.
+     *
+     *   **true**: All the message routing relationships between topics are established.
+     *   **false**: Not all the message routing relationships between topics are established.
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +47,8 @@ class CreateTopicRouteTableResponseBody extends Model
     public $isAllSucceed;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FCC27691-9151-4B93-9622-9C90F30542EC
      *
      * @var string
@@ -43,6 +56,11 @@ class CreateTopicRouteTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

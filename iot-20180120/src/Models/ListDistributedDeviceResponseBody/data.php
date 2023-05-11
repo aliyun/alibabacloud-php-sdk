@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the device.
+     *
      * @var info
      */
     public $info;
 
     /**
+     * @description The total number of returned devices.
+     *
      * @example 10
      *
      * @var int

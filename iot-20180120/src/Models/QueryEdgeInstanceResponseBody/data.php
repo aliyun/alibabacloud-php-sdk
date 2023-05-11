@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,18 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @description Indicates whether you own the edge instance or you are authorized to use the edge instance.
+     *
+     *   0: You own the edge instance.
+     *   1: You are authorized to use the edge instance.
+     *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
+     * @description The number of edge instances.
+     *
      * @example 2
      *
      * @var int
@@ -29,6 +38,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description A list of edge instances.
+     *
      * @example 201
      *
      * @var int

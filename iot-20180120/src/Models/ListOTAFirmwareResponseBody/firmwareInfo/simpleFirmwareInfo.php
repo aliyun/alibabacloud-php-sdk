@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class simpleFirmwareInfo extends Model
 {
     /**
+     * @description The version number of the OTA update package.
+     *
      * @example 4.0.0
      *
      * @var string
@@ -16,6 +18,8 @@ class simpleFirmwareInfo extends Model
     public $destVersion;
 
     /**
+     * @description The description of the OTA update package.
+     *
      * @example firmwareDesc
      *
      * @var string
@@ -23,6 +27,8 @@ class simpleFirmwareInfo extends Model
     public $firmwareDesc;
 
     /**
+     * @description The unique ID of the OTA update package.
+     *
      * @example UfuxnwygsuSkVE0VCN****0100
      *
      * @var string
@@ -30,6 +36,8 @@ class simpleFirmwareInfo extends Model
     public $firmwareId;
 
     /**
+     * @description The name of the OTA update package.
+     *
      * @example t3q5rkNm
      *
      * @var string
@@ -37,6 +45,8 @@ class simpleFirmwareInfo extends Model
     public $firmwareName;
 
     /**
+     * @description The signature of the OTA update package.
+     *
      * @example 3d04ab6462633508606e5f3daac8****
      *
      * @var string
@@ -44,6 +54,8 @@ class simpleFirmwareInfo extends Model
     public $firmwareSign;
 
     /**
+     * @description The size of the update package. Unit: bytes.
+     *
      * @example 924
      *
      * @var int
@@ -51,6 +63,8 @@ class simpleFirmwareInfo extends Model
     public $firmwareSize;
 
     /**
+     * @description The name of the module.
+     *
      * @example module1234
      *
      * @var string
@@ -58,6 +72,8 @@ class simpleFirmwareInfo extends Model
     public $moduleName;
 
     /**
+     * @description The ProductKey of the product to which the OTA update package belongs.
+     *
      * @example a19mzPZ****
      *
      * @var string
@@ -65,6 +81,8 @@ class simpleFirmwareInfo extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the OTA update package belongs.
+     *
      * @example MyProduct
      *
      * @var string
@@ -72,6 +90,8 @@ class simpleFirmwareInfo extends Model
     public $productName;
 
     /**
+     * @description The signature method of the OTA update package.
+     *
      * @example MD5
      *
      * @var string
@@ -79,6 +99,9 @@ class simpleFirmwareInfo extends Model
     public $signMethod;
 
     /**
+     * @description The version number of the original update package to be updated.
+     *
+     * >  The return value is null if you perform a full update.
      * @example V1.0.0
      *
      * @var string
@@ -86,6 +109,13 @@ class simpleFirmwareInfo extends Model
     public $srcVersion;
 
     /**
+     * @description The status of the OTA update package. Valid values:
+     *
+     *   **0**: unverified
+     *   **1**: verified
+     *   **2**: verifying
+     *   **3**: failed to be verified
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +123,11 @@ class simpleFirmwareInfo extends Model
     public $status;
 
     /**
+     * @description The type of the OTA update package. Valid values:
+     *
+     *   **0**: complete firmware
+     *   **1**: differential firmware
+     *
      * @example 0
      *
      * @var int
@@ -100,6 +135,8 @@ class simpleFirmwareInfo extends Model
     public $type;
 
     /**
+     * @description The time when the update package was created. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:42:22.000Z
      *
      * @var string
@@ -107,6 +144,8 @@ class simpleFirmwareInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the update task was last modified. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:42:22.000Z
      *
      * @var string

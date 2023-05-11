@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListProductByTagsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,14 @@ class ListProductByTagsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     *
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-v64***
      *
      * @var string
@@ -24,6 +34,8 @@ class ListProductByTagsRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int

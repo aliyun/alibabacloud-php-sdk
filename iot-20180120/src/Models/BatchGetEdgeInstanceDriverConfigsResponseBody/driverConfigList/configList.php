@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
      * @example dac71722ceac4a299dbf3e8dc3c8****
      *
      * @var string
@@ -16,6 +18,8 @@ class configList extends Model
     public $configId;
 
     /**
+     * @description The configuration content or the Object Storage Service (OSS) path of the configuration file.
+     *
      * @example {\"test\":123}
      *
      * @var string
@@ -23,6 +27,8 @@ class configList extends Model
     public $content;
 
     /**
+     * @description The format of the configuration. Valid values: KV (key-value pair), JSON (JSON string), and FILE (configuration file).
+     *
      * @example JSON
      *
      * @var string
@@ -30,6 +36,8 @@ class configList extends Model
     public $format;
 
     /**
+     * @description The key of the configuration. If multiple configurations are available, keywords can be used to identify the configurations.
+     *
      * @example key1
      *
      * @var string

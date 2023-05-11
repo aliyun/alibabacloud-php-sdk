@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetInstanceConfigs extends Model
 {
     /**
+     * @description The ID of the destination instance.
+     *
      * @example iot-cn-6ja***
      *
      * @var string
@@ -16,11 +18,15 @@ class targetInstanceConfigs extends Model
     public $targetInstanceId;
 
     /**
+     * @description The name of the destination instance.
+     *
      * @var string
      */
     public $targetInstanceName;
 
     /**
+     * @description The region where the destination instance resides.
+     *
      * @example cn-shanghai
      *
      * @var string

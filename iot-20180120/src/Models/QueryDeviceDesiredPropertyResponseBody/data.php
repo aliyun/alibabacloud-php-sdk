@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The desired property information returned in the **DesiredPropertyInfo** parameter.
+     *
      * @var list_
      */
     public $list;

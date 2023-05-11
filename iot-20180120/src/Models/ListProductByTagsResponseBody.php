@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListProductByTagsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,23 @@ class ListProductByTagsResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The details of the products returned if the call is successful. The details are included in the **ProductInfo** parameter.
+     *
+     * >  The returned product information is sorted in reverse-chronological order based on the time when the products were created.
      * @var productInfos
      */
     public $productInfos;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +43,11 @@ class ListProductByTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

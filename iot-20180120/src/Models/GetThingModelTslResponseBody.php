@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetThingModelTslResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,25 @@ class GetThingModelTslResponseBody extends Model
     public $code;
 
     /**
+     * @description The URI that is used to store the TSL data in Object Storage Service (OSS). The URI is valid for 60 minutes.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +45,8 @@ class GetThingModelTslResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The TSL data returned if the call is successful.
+     *
      * @example true
      *
      * @var bool

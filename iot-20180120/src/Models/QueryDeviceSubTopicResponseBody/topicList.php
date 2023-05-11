@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topicList extends Model
 {
     /**
+     * @description The time when the device subscribed to a topic. Unit: milliseconds.
+     *
      * @example 1662039965873
      *
      * @var int
@@ -16,6 +18,8 @@ class topicList extends Model
     public $timestamp;
 
     /**
+     * @description The name of the topic.
+     *
      * @example /hf768****\/device1/user/test
      *
      * @var string

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The alias of the OTA module.
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The description of the OTA module.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The time when the OTA module was created. The time is displayed in UTC.
+     *
      * @example 2020-10-13T09:46Z
      *
      * @var string
@@ -26,6 +32,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The last time when the OTA module was updated. The time is displayed in UTC.
+     *
      * @example 2020-10-19T09:46Z
      *
      * @var string
@@ -33,6 +41,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The name of the OTA module.
+     *
      * @example barcodeScanner
      *
      * @var string
@@ -40,6 +50,8 @@ class data extends Model
     public $moduleName;
 
     /**
+     * @description The ProductKey of the product.
+     *
      * @example aluctKe****
      *
      * @var string

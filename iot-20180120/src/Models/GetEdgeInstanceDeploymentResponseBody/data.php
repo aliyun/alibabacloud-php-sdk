@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the deployment task.
+     *
      * @example 9261e308a9504fde9b4cf8462b0b****
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $deploymentId;
 
     /**
+     * @description The description of the deployment task.
+     *
      * @example deploy_1561543948874
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The time when the deployment task was complete.
+     *
      * @example 2019-06-26 18:12:35
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $gmtCompleted;
 
     /**
+     * @description The UNIX timestamp when the deployment task was complete.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -38,6 +46,8 @@ class data extends Model
     public $gmtCompletedTimestamp;
 
     /**
+     * @description The time when the deployment task was created.
+     *
      * @example 2019-06-26 18:12:29
      *
      * @var string
@@ -45,6 +55,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The UNIX timestamp when the deployment task was created.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -52,6 +64,8 @@ class data extends Model
     public $gmtCreateTimestamp;
 
     /**
+     * @description The last time when the deployment task was modified.
+     *
      * @example 2019-06-26 18:12:35
      *
      * @var string
@@ -59,6 +73,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The last UNIX timestamp when the deployment task was modified.
+     *
      * @example 1581912859713
      *
      * @var int
@@ -66,6 +82,13 @@ class data extends Model
     public $gmtModifiedTimestamp;
 
     /**
+     * @description The status of the deployment task.
+     *
+     *   0: The task was not started.
+     *   1: The task was being processed.
+     *   2: The task was successful.
+     *   3: The task failed.
+     *
      * @example 2
      *
      * @var int
@@ -73,11 +96,18 @@ class data extends Model
     public $status;
 
     /**
+     * @description The list of deployment subtasks.
+     *
      * @var taskList[]
      */
     public $taskList;
 
     /**
+     * @description The type of the deployment task.
+     *
+     *   deploy: deploys the edge instance.
+     *   reset: resets the edge instance.
+     *
      * @example deploy
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceOriginalServiceDataResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.device.InvalidIoTId
      *
      * @var string
@@ -17,16 +19,22 @@ class QueryDeviceOriginalServiceDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The service call records returned if the call succeeds.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +42,11 @@ class QueryDeviceOriginalServiceDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call succeeds.
+     *
+     *   true: The call succeeded.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of each group.
+     *
      * @example Group test
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $groupDesc;
 
     /**
+     * @description The ID of the group. The ID is the globally unique identifier (GUID) that the system generates for the group.
+     *
      * @example HtMLECKbdJQL****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $groupId;
 
     /**
+     * @description The name of the group.
+     *
      * @example grouptest
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $groupName;
 
     /**
+     * @description The time when the group was created.
+     *
      * @example 2018-10-17T11:19:31.000Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class device extends Model
 {
     /**
+     * @description The names of the devices to be removed. You can specify a maximum of 200 devices.
+     *
      * @example ZHuPo6sZzv7pOzYh****
      *
      * @var string
@@ -16,6 +18,8 @@ class device extends Model
     public $deviceName;
 
     /**
+     * @description The ProductKeys of the products to which the devices belong. You can specify a maximum of 200 ProductKeys.
+     *
      * @example a1kORrK****
      *
      * @var string

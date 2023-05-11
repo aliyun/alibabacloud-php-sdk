@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateProductTopicRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $codec;
+
+    /**
+     * @description The description of the topic category. The description must be 1 to 100 characters in length.
+     *
      * @example submit a test topic
      *
      * @var string
@@ -16,6 +23,17 @@ class CreateProductTopicRequest extends Model
     public $desc;
 
     /**
+     * @var bool
+     */
+    public $enableProxySubscribe;
+
+    /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -23,6 +41,12 @@ class CreateProductTopicRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The operation permissions of the device on the topic category. Valid values:
+     *
+     *   **SUB**: Subscribe.
+     *   **PUB**: Publish.
+     *   **ALL**: Publish and Subscribe.
+     *
      * @example PUB
      *
      * @var string
@@ -30,6 +54,8 @@ class CreateProductTopicRequest extends Model
     public $operation;
 
     /**
+     * @description The ProductKey of the product for which you want to create a topic category.
+     *
      * @example aldDEin****
      *
      * @var string
@@ -37,17 +63,22 @@ class CreateProductTopicRequest extends Model
     public $productKey;
 
     /**
+     * @description The name of the user-defined category level that you want to set. By default, a topic category includes the following levels: \_productkey\_ and \_devicename\_. Separate the two levels with slashes (/). Format of a topic category: `productKey/deviceName/topicShortName` .
+     *
+     * >  Each level can contain letters, digits, and underscores (\_), and cannot be empty.
      * @example submit
      *
      * @var string
      */
     public $topicShortName;
     protected $_name = [
-        'desc'           => 'Desc',
-        'iotInstanceId'  => 'IotInstanceId',
-        'operation'      => 'Operation',
-        'productKey'     => 'ProductKey',
-        'topicShortName' => 'TopicShortName',
+        'codec'                => 'Codec',
+        'desc'                 => 'Desc',
+        'enableProxySubscribe' => 'EnableProxySubscribe',
+        'iotInstanceId'        => 'IotInstanceId',
+        'operation'            => 'Operation',
+        'productKey'           => 'ProductKey',
+        'topicShortName'       => 'TopicShortName',
     ];
 
     public function validate()
@@ -57,8 +88,14 @@ class CreateProductTopicRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->codec) {
+            $res['Codec'] = $this->codec;
+        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->enableProxySubscribe) {
+            $res['EnableProxySubscribe'] = $this->enableProxySubscribe;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
@@ -84,8 +121,14 @@ class CreateProductTopicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Codec'])) {
+            $model->codec = $map['Codec'];
+        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['EnableProxySubscribe'])) {
+            $model->enableProxySubscribe = $map['EnableProxySubscribe'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];

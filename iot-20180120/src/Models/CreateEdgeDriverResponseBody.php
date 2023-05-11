@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeDriverResponseBody extends Model
 {
     /**
+     * @description The error code. Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEdgeDriverResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the driver created.
+     *
      * @example fec565038d7544978d9aed5c1a******
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateEdgeDriverResponseBody extends Model
     public $driverId;
 
     /**
+     * @description The error message returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateEdgeDriverResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BB179FE4-94AB-41B0-AE8A-66DDB7B8B13A
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateEdgeDriverResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. true indicates that the call was successful. false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

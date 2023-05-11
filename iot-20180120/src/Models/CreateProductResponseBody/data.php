@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the product.
+     *
+     *   **iothub_senior**: A TSL model was used.
+     *   **iothub**: No TSL model was used.
+     *
      * @example iothub_senior
      *
      * @var string
@@ -16,6 +21,12 @@ class data extends Model
     public $aliyunCommodityCode;
 
     /**
+     * @description The authentication method that is used to connect the devices of the product to IoT Platform. Valid values:
+     *
+     *   **secret**: uses DeviceSecrets to verify the devices.
+     *   **id2**: uses IoT Internet Device ID to verify the devices.
+     *   **x509**: uses X.509 certificates to verify the devices.
+     *
      * @example secret
      *
      * @var string
@@ -23,6 +34,12 @@ class data extends Model
     public $authType;
 
     /**
+     * @description The data format.
+     *
+     *   **0**: custom data format.
+     *   **1**: Alink JSON format.
+     *
+     * >  This parameter is returned only if the AliyunCommodityCode parameter is set to iothub_senior.
      * @example 1
      *
      * @var int
@@ -30,6 +47,8 @@ class data extends Model
     public $dataFormat;
 
     /**
+     * @description The description of the product.
+     *
      * @example Product test
      *
      * @var string
@@ -37,6 +56,11 @@ class data extends Model
     public $description;
 
     /**
+     * @description Indicates whether IoT Internet Device ID was enabled.
+     *
+     *   **true**: IoT Internet Device ID was enabled.
+     *   **false**: IoT Internet Device ID was disabled.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +68,12 @@ class data extends Model
     public $id2;
 
     /**
+     * @description The node type of the product. Valid values:
+     *
+     *   **0**: device. Sub-devices cannot be attached to a device. A device can be directly connected to IoT Platform or connected to IoT Platform as a sub-device of a gateway.
+     *   **1**: gateway. Sub-devices can be attached to a gateway. A gateway can manage sub-devices, maintain topological relationships with sub-devices, and synchronize topological relationships to IoT Platform.
+     *
+     * >  This parameter is available only if the AliyunCommodityCode parameter is set to iothub_senior.
      * @example 0
      *
      * @var int
@@ -51,6 +81,9 @@ class data extends Model
     public $nodeType;
 
     /**
+     * @description The ProductKey of the product. A ProductKey is a globally unique identifier (GUID) issued by IoT Platform to a new product.
+     *
+     * >  Secure the **ProductKey** of the product. The ProductKey is required when you perform specific operations.
      * @example a1FlqIQ****
      *
      * @var string
@@ -58,6 +91,8 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The name of the product.
+     *
      * @example Test
      *
      * @var string
@@ -65,6 +100,8 @@ class data extends Model
     public $productName;
 
     /**
+     * @description The ProductSecret of the product.
+     *
      * @example U5tW7i44uilc****
      *
      * @var string
@@ -72,6 +109,9 @@ class data extends Model
     public $productSecret;
 
     /**
+     * @description The protocol used by the devices of the product to connect to the gateway.
+     *
+     * >  This parameter is available only if the AliyunCommodityCode parameter is set to iothub_senior.
      * @example modbus
      *
      * @var string

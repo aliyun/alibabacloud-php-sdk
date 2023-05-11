@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateThingScriptResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateThingScriptResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request. The ID uniquely identifies this request.
+     *
      * @example BB71E443-4447-4024-A000-EDE09922891E
      *
      * @var string
@@ -28,6 +34,11 @@ class CreateThingScriptResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceHistoricDeploymentResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryEdgeInstanceHistoricDeploymentResponseBody extends Model
     public $code;
 
     /**
+     * @description The data that is returned if the call was successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryEdgeInstanceHistoricDeploymentResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C9D9C91B-1B3B-4D84-BE58-68E7B2A989E4
      *
      * @var string
@@ -36,6 +44,8 @@ class QueryEdgeInstanceHistoricDeploymentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicePropertiesDataRequest extends Model
 {
     /**
+     * @description The sorting order of the returned property records. Valid values:
+     *
+     *   **0**: in reverse chronological order. In this case, the time that is specified by the **StartTime** parameter must be later than the time that is specified by the **EndTime** parameter.
+     *   **1**: in chronological order. In this case, the time that is specified by the **StartTime** parameter must be earlier than the time that is specified by the **EndTime** parameter.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class QueryDevicePropertiesDataRequest extends Model
     public $asc;
 
     /**
+     * @description The DeviceName of the device.
+     *
      * @example airconditioning
      *
      * @var string
@@ -23,6 +30,8 @@ class QueryDevicePropertiesDataRequest extends Model
     public $deviceName;
 
     /**
+     * @description The end of the time range to query. The value is a 13-digit timestamp in milliseconds, for example 1579249499000.
+     *
      * @example 1579249499000
      *
      * @var int
@@ -37,6 +46,9 @@ class QueryDevicePropertiesDataRequest extends Model
     public $identifier;
 
     /**
+     * @description The ID of the device. The device ID is issued by IoT Platform.
+     *
+     * >  The **IotId** parameter is a globally unique identifier (GUID), and corresponds to a combination of the **ProductKey** and **DeviceName** parameters. If you specify the **IotId** parameter and a combination of the **ProductKey** and **DeviceName** parameters at the same time, the **IotId** parameter is used.
      * @example Q7uOhVRdZRRlDnTLv****00100
      *
      * @var string
@@ -44,6 +56,12 @@ class QueryDevicePropertiesDataRequest extends Model
     public $iotId;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot_instc_pu****_c*-v64********
      *
      * @var string
@@ -51,6 +69,9 @@ class QueryDevicePropertiesDataRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @description The maximum number of records that is returned for each property. Maximum value: 100.
+     *
+     * The number of records that are returned for an arbitrary property cannot exceed the limit.
      * @example 10
      *
      * @var int
@@ -58,6 +79,8 @@ class QueryDevicePropertiesDataRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -65,6 +88,8 @@ class QueryDevicePropertiesDataRequest extends Model
     public $productKey;
 
     /**
+     * @description The start of the time range to query. The value is a 13-digit timestamp in milliseconds, for example, 1579249499000.
+     *
      * @example 1579249499000
      *
      * @var int

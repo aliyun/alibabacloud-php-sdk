@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of property information. The information about each property is indicated by the **PropertyStatusInfo** parameter.
+     *
      * @var list_
      */
     public $list;

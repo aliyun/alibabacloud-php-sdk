@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deviceGroup extends Model
 {
     /**
+     * @description The ID of the group.
+     *
      * @example Z0ElGF5aqc0t****
      *
      * @var string
@@ -16,6 +18,8 @@ class deviceGroup extends Model
     public $groupId;
 
     /**
+     * @description The name of the group.
+     *
      * @example test11
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeInstanceResponseBody extends Model
 {
     /**
+     * @description The return code of the operation. A value of Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEdgeInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned if the call failed.
+     *
      * @example request parameter error
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteEdgeInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F29C33E5-BF22-48FE-9FEF-8A24146E3388
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteEdgeInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+     *
      * @example true
      *
      * @var bool

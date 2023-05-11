@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The status of the device. Valid values:
+     *
+     *   **ONLINE**: The device is online.
+     *   **OFFLINE**: The device is offline.
+     *   **UNACTIVE**: The device is not activated.
+     *   **DISABLE**: The device is disabled.
+     *
      * @example ONLINE
      *
      * @var string
@@ -16,6 +23,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The time when the device status changed.
+     *
      * @example 1557062301656
      *
      * @var int

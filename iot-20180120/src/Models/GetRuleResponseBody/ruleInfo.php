@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleInfo extends Model
 {
     /**
+     * @description The ID of the user who created the rule.
+     *
      * @example 100000000000000
      *
      * @var int
@@ -16,6 +18,8 @@ class ruleInfo extends Model
     public $createUserId;
 
     /**
+     * @description The time when the rule was created. The time is displayed in UTC-6.
+     *
      * @example Thu Feb 28 14:14:33 CST 2019
      *
      * @var string
@@ -23,6 +27,8 @@ class ruleInfo extends Model
     public $created;
 
     /**
+     * @description The data type of the rule. Valid values: **JSON** and **BINARY** .
+     *
      * @example JSON
      *
      * @var string
@@ -30,6 +36,8 @@ class ruleInfo extends Model
     public $dataType;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 100000
      *
      * @var int
@@ -37,6 +45,8 @@ class ruleInfo extends Model
     public $id;
 
     /**
+     * @description The time when the rule was last modified. The time is displayed in UTC-6.
+     *
      * @example Thu Feb 28 14:20:58 CST 2019
      *
      * @var string
@@ -44,6 +54,8 @@ class ruleInfo extends Model
     public $modified;
 
     /**
+     * @description The name of the rule.
+     *
      * @example iotrules
      *
      * @var string
@@ -51,6 +63,8 @@ class ruleInfo extends Model
     public $name;
 
     /**
+     * @description The ProductKey of the product to which the rule applies.
+     *
      * @example a1KiV******
      *
      * @var string
@@ -58,6 +72,8 @@ class ruleInfo extends Model
     public $productKey;
 
     /**
+     * @description The description of this rule.
+     *
      * @example rule1Desc
      *
      * @var string
@@ -65,6 +81,8 @@ class ruleInfo extends Model
     public $ruleDesc;
 
     /**
+     * @description The values of **Select** in the SQL statements of the rule.
+     *
      * @example deviceName() as deviceName
      *
      * @var string
@@ -72,6 +90,9 @@ class ruleInfo extends Model
     public $select;
 
     /**
+     * @description The topic to which the rule applies. The topic does not include the ProductKey level. Format: `${deviceName}/topicShortName`. ${deviceName} indicates the name of the device, and topicShortName indicates the custom name of the topic.
+     *
+     * >  For information about how to use the `+` or `#` wildcard in a topic, see [Topic wildcards](~~73731~~).
      * @example +/user/pm25data
      *
      * @var string
@@ -79,6 +100,11 @@ class ruleInfo extends Model
     public $shortTopic;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **RUNNING**: Running
+     *   **STOP**: Stopped
+     *
      * @example STOP
      *
      * @var string
@@ -86,6 +112,9 @@ class ruleInfo extends Model
     public $status;
 
     /**
+     * @description The complete topic to which the rule applies. Format: `${productKey}/${deviceName}/topicShortName`.
+     *
+     * >  For information about how to use the `+` or `#` wildcard in a topic, see [Topic wildcards](~~73731~~).
      * @example /a1QsMlL44pp/+/user/pm25data
      *
      * @var string
@@ -93,6 +122,13 @@ class ruleInfo extends Model
     public $topic;
 
     /**
+     * @description The type of the topic. This parameter is returned if you set the SQL statement for the rule. Valid values:
+     *
+     *   **0**: a basic communication topic or TSL communication topic.
+     *   **1**: a custom topic.
+     *   **2**: a device status topic.
+     *
+     * If no SQL statement is set for the rule, the value **-1** is returned.
      * @example 1
      *
      * @var int
@@ -100,6 +136,8 @@ class ruleInfo extends Model
     public $topicType;
 
     /**
+     * @description The time when the rule was created. The time is displayed in UTC.
+     *
      * @example 2019-02-28T06:14:33.000Z
      *
      * @var string
@@ -107,6 +145,8 @@ class ruleInfo extends Model
     public $utcCreated;
 
     /**
+     * @description The time when the rule was last modified. The time is displayed in UTC.
+     *
      * @example 2019-02-28T06:20:58.000Z
      *
      * @var string
@@ -114,6 +154,8 @@ class ruleInfo extends Model
     public $utcModified;
 
     /**
+     * @description The **Where** query condition in the SQL statements of the rule.
+     *
      * @example Temperature>35
      *
      * @var string

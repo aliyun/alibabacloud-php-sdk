@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of property records.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The start time of the property records on the next page.
+     *
+     * - If the **Asc** parameter is set to **0**, you can specify this value for the **EndTime** parameter when you call this operation again to query the next page of property records.
+     * - If the **Asc** parameter is set to **1**, you can specify this value for the **StartTime** parameter when you call this operation again to query the next page of property records.
      * @example 1579249499000
      *
      * @var int
@@ -22,6 +28,11 @@ class data extends Model
     public $nextTime;
 
     /**
+     * @description Indicates whether the next page exists.
+     *
+     *   **true**: The next page exists. If the return value of the NextValid parameter is true, the value of the **NextTime** parameter is returned. For more information, see the description of the **NextTime** parameter in this topic.
+     *   **false**: The next page does not exist.
+     *
      * @example true
      *
      * @var bool

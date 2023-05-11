@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The destination firmware version of the update.
+     *
      * @example 1.0.1
      *
      * @var string
@@ -18,6 +20,8 @@ class data extends Model
     public $destVersion;
 
     /**
+     * @description The download protocol of the update package.
+     *
      * @example HTTPS
      *
      * @var string
@@ -25,6 +29,12 @@ class data extends Model
     public $downloadProtocol;
 
     /**
+     * @description The mode of dynamic update. Valid values:
+     *
+     *   **1**: constantly updates the devices that meet the conditions.
+     *   **2**: updates only the devices that subsequently submit the latest firmware versions.
+     *
+     * This parameter is returned only if you perform a dynamic update.
      * @example 1
      *
      * @var int
@@ -32,6 +42,8 @@ class data extends Model
     public $dynamicMode;
 
     /**
+     * @description The ID of the update package.
+     *
      * @example UfuxnwygsuSkVE0VCN****0100
      *
      * @var string
@@ -39,6 +51,9 @@ class data extends Model
     public $firmwareId;
 
     /**
+     * @description The phase ratio of the phased update.
+     *
+     * This parameter is returned only if you perform a phased update.
      * @example 50.00
      *
      * @var string
@@ -46,6 +61,8 @@ class data extends Model
     public $grayPercent;
 
     /**
+     * @description The ID of the device group to be updated.
+     *
      * @example CtjzCkNuOxUR***
      *
      * @var string
@@ -53,6 +70,8 @@ class data extends Model
     public $groupId;
 
     /**
+     * @description The name of the device group to be updated.
+     *
      * @example test
      *
      * @var string
@@ -60,6 +79,8 @@ class data extends Model
     public $groupName;
 
     /**
+     * @description The description of the update batch.
+     *
      * @example batch upgrade
      *
      * @var string
@@ -67,6 +88,8 @@ class data extends Model
     public $jobDesc;
 
     /**
+     * @description The ID of the update batch.
+     *
      * @example HvKuBpuk3rdk6E92CP****0200
      *
      * @var string
@@ -74,6 +97,13 @@ class data extends Model
     public $jobId;
 
     /**
+     * @description The status of the update batch.
+     *
+     *   **PLANNED**: The update batch is being planned. The batch is created, but the scheduled time has not arrived. This parameter is returned only if you perform a static update.
+     *   **IN_PROGRESS**: The update batch is running.
+     *   **COMPLETED**: The update batch is completed.
+     *   **CANCELED**: The update batch is canceled.
+     *
      * @example IN_PROGRESS
      *
      * @var string
@@ -81,6 +111,11 @@ class data extends Model
     public $jobStatus;
 
     /**
+     * @description The type of the batch. Valid values:
+     *
+     *   **VERFIY_FIRMWARE**: update package verification.
+     *   **UPGRADE_FIRMWARE**: batch update.
+     *
      * @example UPGRADE_FIRMWARE
      *
      * @var string
@@ -88,6 +123,8 @@ class data extends Model
     public $jobType;
 
     /**
+     * @description The maximum number of devices to which the download URL of the update package is pushed per minute.
+     *
      * @example 1000
      *
      * @var int
@@ -95,6 +132,12 @@ class data extends Model
     public $maximumPerMinute;
 
     /**
+     * @description Specifies whether the device supports simultaneous updates of multiple modules.
+     *
+     *   **false** (default): no.
+     *   **true**: yes.
+     *
+     * For more information, see [Overview](~~58328~~).
      * @example false
      *
      * @var bool
@@ -102,6 +145,8 @@ class data extends Model
     public $multiModuleMode;
 
     /**
+     * @description The name of the update package.
+     *
      * @example Firmware2
      *
      * @var string
@@ -109,6 +154,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description Specifies whether to confirm the update by using your mobile app.
+     *
      * @example false
      *
      * @var bool
@@ -116,6 +163,8 @@ class data extends Model
     public $needConfirm;
 
     /**
+     * @description Specifies whether to automatically push update tasks from IoT Platform to devices.
+     *
      * @example true
      *
      * @var bool
@@ -123,6 +172,12 @@ class data extends Model
     public $needPush;
 
     /**
+     * @description Specifies whether to overwrite the previous update task. Valid values:
+     *
+     *   **1**: The previous update task is not overwritten. If a device already has an update task, the previous update task is implemented.
+     *   **2**: The previous update task is overwritten. Only the current update task is implemented.
+     *
+     * The update task that is in progress is not overwritten.
      * @example 1
      *
      * @var int
@@ -130,6 +185,8 @@ class data extends Model
     public $overwriteMode;
 
     /**
+     * @description The ProductKey of the product to which the update package belongs.
+     *
      * @example a19mzPZ****
      *
      * @var string
@@ -137,6 +194,9 @@ class data extends Model
     public $productKey;
 
     /**
+     * @description The number of automatic retries after a device fails to be updated.
+     *
+     * This parameter is returned if a retry policy is set when you create the update batch.
      * @example 1
      *
      * @var int
@@ -144,6 +204,9 @@ class data extends Model
     public $retryCount;
 
     /**
+     * @description The automatic retry interval after a device fails to be updated. Unit: minutes.
+     *
+     * This parameter is returned if a retry policy is set when you create the update batch.
      * @example 60
      *
      * @var int
@@ -151,6 +214,11 @@ class data extends Model
     public $retryInterval;
 
     /**
+     * @description The update policy of the update batch. Valid values:
+     *
+     *   **DYNAMIC**: dynamic update. This value is returned if you call the [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch.
+     *   **STATIC**: static update. This value is returned if you call the [CreateOTAStaticUpgradeJob](~~147496~~) API operation to create an update batch.
+     *
      * @example STATIC
      *
      * @var string
@@ -158,16 +226,27 @@ class data extends Model
     public $selectionType;
 
     /**
+     * @description The list of firmware versions to be updated.
+     *
      * @var srcVersions
      */
     public $srcVersions;
 
     /**
+     * @description The tags of the update batch.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The scope of the update batch. Valid values:
+     *
+     * - **ALL**: updates all devices.
+     * - **SPECIFIC**: updates specified devices.
+     * - **GRAY**: performs a phased update.
+     *
+     * >  The value ALL is returned if you call the [CreateOTADynamicUpgradeJob](/help/en/iot-platform/latest/av6dui) API operation to create an update batch.
      * @example SPECIFIC
      *
      * @var string
@@ -175,6 +254,9 @@ class data extends Model
     public $targetSelection;
 
     /**
+     * @description The timeout period of the device update. Unit: minutes.
+     *
+     * This parameter is returned if the timeout period is set when you create the update batch.
      * @example 5
      *
      * @var int
@@ -182,6 +264,8 @@ class data extends Model
     public $timeoutInMinutes;
 
     /**
+     * @description The time when the update batch was created. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string
@@ -189,6 +273,9 @@ class data extends Model
     public $utcCreate;
 
     /**
+     * @description The end time of the update batch. The time is displayed in UTC.
+     *
+     * This parameter is returned only after the update batch is completed.
      * @example 2019-12-29T02:43:10.000Z
      *
      * @var string
@@ -196,6 +283,8 @@ class data extends Model
     public $utcEndTime;
 
     /**
+     * @description The time when the update batch was last modified. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string
@@ -203,6 +292,8 @@ class data extends Model
     public $utcModified;
 
     /**
+     * @description The end time of the scheduled update batch. This parameter is returned only if the update batch is scheduled and the end time of the scheduled update batch is specified.
+     *
      * @example 2019-12-30T02:43:10.000Z
      *
      * @var string
@@ -210,6 +301,8 @@ class data extends Model
     public $utcScheduleFinishTime;
 
     /**
+     * @description The start time of the scheduled update batch. This parameter is returned only for scheduled update batches.
+     *
      * @example 2019-12-29T02:43:10.000Z
      *
      * @var string
@@ -217,6 +310,8 @@ class data extends Model
     public $utcScheduleTime;
 
     /**
+     * @description The start time of the update batch. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string

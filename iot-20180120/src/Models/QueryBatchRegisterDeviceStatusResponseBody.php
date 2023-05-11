@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QueryBatchRegisterDeviceStatusResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
+     * >  X.509 certificates are available only for devices in the China (Shanghai) region. If devices do not reside in the China (Shanghai) region, you cannot generate X.509 certificates for the devices and the iot.device.RegionNotSupportX509 error code is returned.
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +20,22 @@ class QueryBatchRegisterDeviceStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The status information returned if the call is successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
      *
      * @var string
@@ -34,6 +43,11 @@ class QueryBatchRegisterDeviceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

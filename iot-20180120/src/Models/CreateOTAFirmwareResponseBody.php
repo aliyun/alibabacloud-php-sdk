@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAFirmwareResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class CreateOTAFirmwareResponseBody extends Model
     public $code;
 
     /**
+     * @description The OTA update package information that is returned if the call is successful. For more information, see the "**Data**" section of this topic.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 291438BA-6E10-4C4C-B761-243B9A0D324F
      *
      * @var string
@@ -34,6 +42,11 @@ class CreateOTAFirmwareResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful. The value indicates that the OTA update package was created.
+     *   **false**: The call failed. The value indicates that the system failed to create the OTA update package.
+     *
      * @example true
      *
      * @var bool

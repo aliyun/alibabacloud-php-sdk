@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @description The time when the product was created.
+     *
      * @example 1545355537000
      *
      * @var int
@@ -16,6 +18,8 @@ class productInfo extends Model
     public $createTime;
 
     /**
+     * @description The description of the product.
+     *
      * @example This is a test product.
      *
      * @var string
@@ -23,6 +27,11 @@ class productInfo extends Model
     public $description;
 
     /**
+     * @description The node type of the product. Valid values:
+     *
+     *   **0**: device. Sub-devices cannot be attached to a device. A device can connect to IoT Platform directly or as a sub-device of a gateway.
+     *   **1**: gateway. Sub-devices can be attached to a gateway. A gateway can manage sub-devices, maintain the topological relationships with sub-devices, and synchronize the topological relationships to IoT Platform.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class productInfo extends Model
     public $nodeType;
 
     /**
+     * @description The ProductKey of the product. A ProductKey is a globally unique identifier (GUID) issued by IoT Platform to a new product.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -37,6 +48,8 @@ class productInfo extends Model
     public $productKey;
 
     /**
+     * @description The name of the product.
+     *
      * @var string
      */
     public $productName;

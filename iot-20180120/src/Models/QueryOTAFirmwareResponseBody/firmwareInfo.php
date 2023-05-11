@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class firmwareInfo extends Model
 {
     /**
+     * @description The version number of the OTA update package.
+     *
      * @example 4.0.0
      *
      * @var string
@@ -17,6 +19,8 @@ class firmwareInfo extends Model
     public $destVersion;
 
     /**
+     * @description The description of the OTA update package.
+     *
      * @example modified-WiFi-module
      *
      * @var string
@@ -24,6 +28,8 @@ class firmwareInfo extends Model
     public $firmwareDesc;
 
     /**
+     * @description The unique ID of the OTA update package.
+     *
      * @example UfuxnwygsuSkVE0VCN****0100
      *
      * @var string
@@ -31,6 +37,8 @@ class firmwareInfo extends Model
     public $firmwareId;
 
     /**
+     * @description The name of the OTA update package.
+     *
      * @example t3q5rkNm
      *
      * @var string
@@ -38,6 +46,9 @@ class firmwareInfo extends Model
     public $firmwareName;
 
     /**
+     * @description The signature of the OTA update package.
+     *
+     * >  This parameter is available if the OTA update package contains a single file.
      * @example 3d04ab6462633508606e5f3daac8****
      *
      * @var string
@@ -45,6 +56,9 @@ class firmwareInfo extends Model
     public $firmwareSign;
 
     /**
+     * @description The size of the OTA update package file. Unit: bytes.
+     *
+     * >  This parameter is available if the OTA update package contains a single file.
      * @example 924
      *
      * @var int
@@ -52,6 +66,9 @@ class firmwareInfo extends Model
     public $firmwareSize;
 
     /**
+     * @description The URL of the update package file that is stored in Object Storage Service (OSS).
+     *
+     * >  This parameter is available if the OTA update package contains a single file.
      * @example https://ota-***.aliyuncs.com/ota/572ef2fd12ca4791a5b21a9eb948****\/5E962CF83DB1495E8337E9C8A4D1****.bin?Expires=1577587360&OSSAccessKeyId=cS8uRRy54Rsz****&Signature=farzC8%2FVMN4HYdEtXvdiC2OevH****
      *
      * @var string
@@ -59,6 +76,9 @@ class firmwareInfo extends Model
     public $firmwareUrl;
 
     /**
+     * @description The name of the module.
+     *
+     * OTA updates are based on the firmware modules of a device. For more information, see [Add a custom OTA module to an update package](~~202664~~).
      * @example WifiConfigModify
      *
      * @var string
@@ -66,11 +86,15 @@ class firmwareInfo extends Model
     public $moduleName;
 
     /**
+     * @description The information about the OTA update package files. This parameter is available if the OTA update package contains multiple files.
+     *
      * @var multiFiles[]
      */
     public $multiFiles;
 
     /**
+     * @description The **ProductKey** of the product to which the OTA update package belongs.
+     *
      * @example a19mzPZ****
      *
      * @var string
@@ -78,6 +102,8 @@ class firmwareInfo extends Model
     public $productKey;
 
     /**
+     * @description The name of the product to which the OTA update package belongs.
+     *
      * @example MyProduct
      *
      * @var string
@@ -85,6 +111,8 @@ class firmwareInfo extends Model
     public $productName;
 
     /**
+     * @description The signature method of the OTA update package.
+     *
      * @example MD5
      *
      * @var string
@@ -92,6 +120,9 @@ class firmwareInfo extends Model
     public $signMethod;
 
     /**
+     * @description The version number of the original update package to be updated.
+     *
+     * >  This parameter is returned if you perform a delta update. For more information about update package types, see the description of the **Type** parameter.
      * @example 1.0.0
      *
      * @var string
@@ -99,6 +130,14 @@ class firmwareInfo extends Model
     public $srcVersion;
 
     /**
+     * @description The status of the OTA update package. Valid values:
+     *
+     *   **-1**: no verification is required
+     *   **0**: unverified
+     *   **1**: verified
+     *   **2**: verifying
+     *   **3**: failed to be verified
+     *
      * @example 2
      *
      * @var int
@@ -106,6 +145,11 @@ class firmwareInfo extends Model
     public $status;
 
     /**
+     * @description The type of the OTA update package. Valid values:
+     *
+     *   **0**: The uploaded file contains a full update package. IoT Platform pushes the full update package to a device for update.
+     *   **1**: The uploaded file contains only the differences between the latest update package and previous update package. IoT Platform pushes only the differences to a device for update.
+     *
      * @example 0
      *
      * @var int
@@ -113,11 +157,16 @@ class firmwareInfo extends Model
     public $type;
 
     /**
+     * @description The custom information that was pushed to the device. The information can be up to 4,096 characters in length. No limit is applies to the content format.
+     *
+     * After you add the update package and create an update task, IoT Platform sends the custom information to the specified device when IoT Platform pushes the update notification.
      * @var string
      */
     public $udi;
 
     /**
+     * @description The time when the OTA update package was created. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:42:22.000Z
      *
      * @var string
@@ -125,6 +174,8 @@ class firmwareInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the update task was last modified. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:42:41.000Z
      *
      * @var string
@@ -132,6 +183,12 @@ class firmwareInfo extends Model
     public $utcModified;
 
     /**
+     * @description The verification status of the OTA update package. Valid values:
+     *
+     *   **0**: unverified
+     *   **100**: verified
+     *   A value N between 0 and 100 indicates that the update task is N percent completed. You can check the response parameter **Status** to see the verification status.
+     *
      * @example 0
      *
      * @var int

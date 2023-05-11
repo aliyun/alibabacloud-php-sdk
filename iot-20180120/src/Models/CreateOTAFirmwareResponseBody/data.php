@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the OTA update package. The ID is a unique identifier issued by IoT Platform to the OTA update package.
+     *
      * @example s8SSHiKjpBfrM3BSN0z803****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $firmwareId;
 
     /**
+     * @description The time when the OTA update package was created. The time is displayed in UTC.
+     *
      * @example 2019-11-04T06:21:54.607Z
      *
      * @var string

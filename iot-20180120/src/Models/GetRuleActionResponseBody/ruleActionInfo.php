@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleActionInfo extends Model
 {
     /**
+     * @description The ID of rule action.
+     *
      * @example {\"topic\":\"/sys/a1zSA28****\/device/thing/service/property/set\",\"topicType\":0,\"uid\":\"1231579*******\"}
      *
      * @var string
@@ -16,6 +18,15 @@ class ruleActionInfo extends Model
     public $configuration;
 
     /**
+     * @description The type of the rule action. Valid values:
+     *
+     *   **REPUBLISH**: forwards data to another topic.
+     *   **OTS**: stores data to Tablestore.
+     *   **MNS**: sends data to Message Service (MNS).
+     *   **FC**: sends data to Function Compute.
+     *   **RDS**: Save to cloud databases.
+     *   **AMQP**: forwards data to an AMQP consumer group.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +34,8 @@ class ruleActionInfo extends Model
     public $errorActionFlag;
 
     /**
+     * @description The ID of the rule based on which the rule action is performed.
+     *
      * @example 100001
      *
      * @var int
@@ -37,6 +50,8 @@ class ruleActionInfo extends Model
     public $ruleId;
 
     /**
+     * @description The configurations of the rule action.
+     *
      * @example REPUBLISH
      *
      * @var string

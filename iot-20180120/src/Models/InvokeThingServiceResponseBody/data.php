@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the message. IoT Platform sends the message to the device to call the service.
+     *
      * @example abcabcabc1234****
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $messageId;
 
     /**
+     * @description The result of the synchronous call.
+     *
+     * If you asynchronously call the service, this parameter is not returned.
      * @example {"param1":1}
      *
      * @var string

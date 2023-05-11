@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the update batch was created. The time is displayed in UTC.
+     *
      * @example XUbmsMHmkqv0PiAG****010001
      *
      * @var string

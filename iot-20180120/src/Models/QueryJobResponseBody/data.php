@@ -20,8 +20,6 @@ class data extends Model
     public $description;
 
     /**
-     * @example { "serviceIdentifier": "test_service", "params": { "key1": "value1", "key2": "value2" } } }
-     *
      * @var string
      */
     public $jobDocument;

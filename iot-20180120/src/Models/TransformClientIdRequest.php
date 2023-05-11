@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransformClientIdRequest extends Model
 {
     /**
+     * @description The ClientID of the device.
+     *
      * @example 9rSz********UNMWj33f000112
      *
      * @var string
@@ -16,6 +18,8 @@ class TransformClientIdRequest extends Model
     public $clientId;
 
     /**
+     * @description The ID of the device.
+     *
      * @example BXPV9Ks3bxwM9fD****0000101
      *
      * @var string
@@ -23,6 +27,12 @@ class TransformClientIdRequest extends Model
     public $iotId;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
      * @example iot-02****43
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceGroupResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,16 +19,22 @@ class CreateDeviceGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The group information returned if the call succeeds.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4D6D7F71-1C94-4160-8511-EFF4B8F0634D
      *
      * @var string
@@ -34,6 +42,11 @@ class CreateDeviceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class simpleOTAJobInfo extends Model
 {
     /**
+     * @description The ID of the update package.
+     *
      * @example UfuxnwygsuSkVE0VCN****0100
      *
      * @var string
@@ -17,6 +19,8 @@ class simpleOTAJobInfo extends Model
     public $firmwareId;
 
     /**
+     * @description The ID of the update batch.
+     *
      * @example HvKuBpuk3rdk6E92CP****0200
      *
      * @var string
@@ -24,6 +28,13 @@ class simpleOTAJobInfo extends Model
     public $jobId;
 
     /**
+     * @description The status of the update batch.
+     *
+     *   **PLANNED**: The update batch is being planned. The batch is created, but the scheduled time has not arrived. This parameter is returned only if you perform a static update.
+     *   **IN_PROGRESS**: The update batch is running.
+     *   **COMPLETE**: The update batch is completed.
+     *   **CANCELED**: The update batch is canceled.
+     *
      * @example IN_PROGRESS
      *
      * @var string
@@ -31,6 +42,11 @@ class simpleOTAJobInfo extends Model
     public $jobStatus;
 
     /**
+     * @description The type of the batch. Valid values:
+     *
+     *   **VERFIY_FIRMWARE**: update package verification.
+     *   **UPGRADE_FIRMWARE**: batch update.
+     *
      * @example UPGRADE_FIRMWARE
      *
      * @var string
@@ -38,6 +54,8 @@ class simpleOTAJobInfo extends Model
     public $jobType;
 
     /**
+     * @description The ProductKey of the product to which the update package belongs.
+     *
      * @example a19mzPZ****
      *
      * @var string
@@ -45,6 +63,11 @@ class simpleOTAJobInfo extends Model
     public $productKey;
 
     /**
+     * @description The update policy of the update batch. Valid values:
+     *
+     *   **DYNAMIC**: dynamic update. This value is returned if you call the [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch.
+     *   **STATIC**: static update. This value is returned if you call the [CreateOTAStaticUpgradeJob](~~147496~~) API operation to create an update batch.
+     *
      * @example STATIC
      *
      * @var string
@@ -52,11 +75,20 @@ class simpleOTAJobInfo extends Model
     public $selectionType;
 
     /**
+     * @description The tags of the update batch.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The scope of the update batch. Valid values:
+     *
+     * - **ALL**: updates all devices.
+     * - **SPECIFIC**: updates specified devices.
+     * - **GRAY**: performs a phased update.
+     *
+     * >  The value ALL is returned if you call the [CreateOTADynamicUpgradeJob](/help/en/iot-platform/latest/av6dui) API operation to create an update batch.
      * @example SPECIFIC
      *
      * @var string
@@ -64,6 +96,8 @@ class simpleOTAJobInfo extends Model
     public $targetSelection;
 
     /**
+     * @description The time when the update batch was created. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string
@@ -71,6 +105,9 @@ class simpleOTAJobInfo extends Model
     public $utcCreate;
 
     /**
+     * @description The end time of the update batch. The time is displayed in UTC.
+     *
+     * This parameter is returned only after the update batch is completed.
      * @example 2019-12-29T02:43:10.000Z
      *
      * @var string
@@ -78,6 +115,8 @@ class simpleOTAJobInfo extends Model
     public $utcEndTime;
 
     /**
+     * @description The time when the update batch was last modified. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string
@@ -85,6 +124,8 @@ class simpleOTAJobInfo extends Model
     public $utcModified;
 
     /**
+     * @description The start time of the update batch. The time is displayed in UTC.
+     *
      * @example 2019-12-28T02:43:10.000Z
      *
      * @var string

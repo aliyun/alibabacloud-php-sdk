@@ -4,23 +4,14 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryVehicleDeviceResponseBody;
 
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryVehicleDeviceResponseBody\data\jtProtocolDeviceData;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example ******
+     * @description The timestamp when the device was created. Unit: milliseconds.
      *
-     * @var string
-     */
-    public $authCode;
-
-    /**
-     * @var string
-     */
-    public $city;
-
-    /**
      * @example 1557062301656
      *
      * @var int
@@ -28,20 +19,8 @@ class data extends Model
     public $createTime;
 
     /**
-     * @example di0001
+     * @description The DeviceName of the device.
      *
-     * @var string
-     */
-    public $deviceId;
-
-    /**
-     * @example dm0001
-     *
-     * @var string
-     */
-    public $deviceModel;
-
-    /**
      * @example light
      *
      * @var string
@@ -49,6 +28,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The ID is a unique identifier that is issued by IoT Platform to the device.
+     *
      * @example dm0001
      *
      * @var string
@@ -56,13 +37,13 @@ class data extends Model
     public $iotId;
 
     /**
-     * @example mf0001
-     *
-     * @var string
+     * @var jtProtocolDeviceData
      */
-    public $manufacturer;
+    public $jtProtocolDeviceData;
 
     /**
+     * @description The timestamp when the device was last updated. Unit: milliseconds.
+     *
      * @example 1657062301656
      *
      * @var int
@@ -70,6 +51,8 @@ class data extends Model
     public $modifiedTime;
 
     /**
+     * @description The **ProductKey** of the gateway product to which the device belongs.
+     *
      * @example a1BwAGV****
      *
      * @var string
@@ -79,49 +62,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $province;
-
-    /**
-     * @example 1517062301656
-     *
-     * @var int
-     */
-    public $registerTime;
-
-    /**
-     * @example create
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @example 1
-     *
-     * @var string
-     */
-    public $vehicleColour;
-
-    /**
-     * @var string
-     */
-    public $vehicleNumber;
+    public $protocol;
     protected $_name = [
-        'authCode'      => 'AuthCode',
-        'city'          => 'City',
-        'createTime'    => 'CreateTime',
-        'deviceId'      => 'DeviceId',
-        'deviceModel'   => 'DeviceModel',
-        'deviceName'    => 'DeviceName',
-        'iotId'         => 'IotId',
-        'manufacturer'  => 'Manufacturer',
-        'modifiedTime'  => 'ModifiedTime',
-        'productKey'    => 'ProductKey',
-        'province'      => 'Province',
-        'registerTime'  => 'RegisterTime',
-        'status'        => 'Status',
-        'vehicleColour' => 'VehicleColour',
-        'vehicleNumber' => 'VehicleNumber',
+        'createTime'           => 'CreateTime',
+        'deviceName'           => 'DeviceName',
+        'iotId'                => 'IotId',
+        'jtProtocolDeviceData' => 'JtProtocolDeviceData',
+        'modifiedTime'         => 'ModifiedTime',
+        'productKey'           => 'ProductKey',
+        'protocol'             => 'Protocol',
     ];
 
     public function validate()
@@ -131,20 +80,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authCode) {
-            $res['AuthCode'] = $this->authCode;
-        }
-        if (null !== $this->city) {
-            $res['City'] = $this->city;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->deviceModel) {
-            $res['DeviceModel'] = $this->deviceModel;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
@@ -152,8 +89,8 @@ class data extends Model
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->manufacturer) {
-            $res['Manufacturer'] = $this->manufacturer;
+        if (null !== $this->jtProtocolDeviceData) {
+            $res['JtProtocolDeviceData'] = null !== $this->jtProtocolDeviceData ? $this->jtProtocolDeviceData->toMap() : null;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -161,20 +98,8 @@ class data extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->province) {
-            $res['Province'] = $this->province;
-        }
-        if (null !== $this->registerTime) {
-            $res['RegisterTime'] = $this->registerTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->vehicleColour) {
-            $res['VehicleColour'] = $this->vehicleColour;
-        }
-        if (null !== $this->vehicleNumber) {
-            $res['VehicleNumber'] = $this->vehicleNumber;
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -188,20 +113,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthCode'])) {
-            $model->authCode = $map['AuthCode'];
-        }
-        if (isset($map['City'])) {
-            $model->city = $map['City'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['DeviceModel'])) {
-            $model->deviceModel = $map['DeviceModel'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
@@ -209,8 +122,8 @@ class data extends Model
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
-        if (isset($map['Manufacturer'])) {
-            $model->manufacturer = $map['Manufacturer'];
+        if (isset($map['JtProtocolDeviceData'])) {
+            $model->jtProtocolDeviceData = jtProtocolDeviceData::fromMap($map['JtProtocolDeviceData']);
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
@@ -218,20 +131,8 @@ class data extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['Province'])) {
-            $model->province = $map['Province'];
-        }
-        if (isset($map['RegisterTime'])) {
-            $model->registerTime = $map['RegisterTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['VehicleColour'])) {
-            $model->vehicleColour = $map['VehicleColour'];
-        }
-        if (isset($map['VehicleNumber'])) {
-            $model->vehicleNumber = $map['VehicleNumber'];
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         return $model;

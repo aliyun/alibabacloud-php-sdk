@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicReverseRouteTableResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example iot.system.SystemException
      *
      * @var string
@@ -17,11 +19,18 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   **true**: The call was successful.
+     *   **false**: The call failed.
+     *
      * @example FCC27691-9151-4B93-9622-9C90F30542EC"
      *
      * @var string
@@ -34,6 +43,8 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public $srcTopics;
 
     /**
+     * @description The list of source topics returned if the call is successful.
+     *
      * @example true
      *
      * @var bool

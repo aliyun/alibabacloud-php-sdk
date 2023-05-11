@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @description The authentication method that was used to connect the devices of the product to IoT Platform. Valid values:
+     *
+     *   **secret**: DeviceSecrets were used to authenticate the devices.
+     *   **id2**: IoT Internet Device ID was used to authenticate the devices.
+     *   **x509**: X.509 certificates were used to authenticate the devices.
+     *
      * @example secret
      *
      * @var string
@@ -16,6 +22,13 @@ class productInfo extends Model
     public $authType;
 
     /**
+     * @description The data format that was used by a communication protocol to transmit data between the devices and IoT Platform. This parameter is available only if the AliyunCommodityCode parameter is set to iothub_senior.
+     *
+     * Valid values:
+     *
+     *   **0**: custom. A custom serial data format was used. In this case, the device can submit raw data, such as binary data streams. IoT Platform converts the raw data into standard Alink JSON data by using a specified data parsing script.
+     *   **1**: Alink JSON. Alink JSON data is transmitted between the devices and IoT Platform. Alink is a data exchange protocol that is pre-defined by IoT Platform.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +36,8 @@ class productInfo extends Model
     public $dataFormat;
 
     /**
+     * @description The description of the product.
+     *
      * @example This is a test product.
      *
      * @var string
@@ -30,6 +45,8 @@ class productInfo extends Model
     public $description;
 
     /**
+     * @description The number of devices in the product.
+     *
      * @example 128
      *
      * @var int
@@ -37,6 +54,8 @@ class productInfo extends Model
     public $deviceCount;
 
     /**
+     * @description The time when the product was created. The value is a timestamp in milliseconds.
+     *
      * @example 1581595942000
      *
      * @var int
@@ -44,6 +63,11 @@ class productInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description The node type of the product. This parameter is available only if the AliyunCommodityCode parameter is set to iothub_senior. Valid values:
+     *
+     *   **0**: device. Sub-devices cannot be attached to a device. A device can be directly connected to IoT Platform or connected to IoT Platform as a sub-device of a gateway.
+     *   **1**: gateway. Sub-devices can be attached to a gateway. A gateway can manage sub-devices, maintain topological relationships with sub-devices, and synchronize topological relationships to IoT Platform.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +75,8 @@ class productInfo extends Model
     public $nodeType;
 
     /**
+     * @description The ProductKey of the product. When you create a product, a ProductKey is a globally unique identifier (GUID) that is issued by IoT Platform to the product.
+     *
      * @example a1T27vz****
      *
      * @var string
@@ -58,6 +84,8 @@ class productInfo extends Model
     public $productKey;
 
     /**
+     * @description The name of the service.
+     *
      * @var string
      */
     public $productName;
