@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
-     * @description The code of the city where the monitored node is deployed.
+     * @description The code of the city node to monitor.
      *
      * @example 503
      *
@@ -18,7 +18,7 @@ class ispCityNode extends Model
     public $cityCode;
 
     /**
-     * @description The code of the Internet service provider (ISP) to which the monitored node belongs.
+     * @description The code of the Internet service provider (ISP) node to monitor.
      *
      * @example 465
      *

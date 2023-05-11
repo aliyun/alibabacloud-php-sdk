@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The addresses in the address pool.
+     * @description The address pools.
      *
      * @var addr[]
      */
     public $addr;
 
     /**
-     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     * @description The number of consecutive health check failures.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $evaluationCount;
 
     /**
-     * @description The ID of the GTM instance for which you want to create an address pool.
+     * @description The instance ID.
      *
      * @example instance1
      *
@@ -45,7 +45,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $interval;
 
     /**
-     * @description The monitored nodes.
+     * @description The city nodes to monitor.
      *
      * @var ispCityNode[]
      */
@@ -61,7 +61,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $lang;
 
     /**
-     * @description The load balancing policy for the address pool. Valid values:
+     * @description The load balancing policy of the address pool. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
@@ -73,26 +73,26 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $lbaStrategy;
 
     /**
-     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     * @description The extended information. The required parameters vary based on the health check protocol.
      *
      *   HTTP or HTTPS:
      *
-     *   port: the port to check.
+     *   port: the check port.
      *
-     *   host: the host configuration.
+     *   host: the host settings.
      *
-     *   path: the health check URL.
+     *   path: the URL path.
      *
-     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal.
+     *   code: the return code greater than the specified value.
      *
      *   failureRate: the failure rate.
      *
-     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is only required for the HTTPS protocol. Valid values:
+     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when Health Check Protocol is set to HTTPS. Valid values:
      *
      *   true: enables SNI.
-     *   Other value: disables SNI.
+     *   other: disables SNI.
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: The type of the node to monitor when the address pool type is DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
@@ -105,18 +105,18 @@ class AddDnsGtmAddressPoolRequest extends Model
      *
      *   packetLossRate: the loss rate of ping packets.
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
      *
      *   TCP:
      *
-     *   port: the port to check.
+     *   port: the check port.
      *
      *   failureRate: the failure rate.
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
@@ -128,10 +128,10 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $monitorExtendInfo;
 
     /**
-     * @description Specifies whether to enable the health check. If this parameter is set to OPEN, the system validates the health check configuration. If this parameter is set to CLOSE, the health check configuration is discarded. Default value: CLOSE. Valid values:
+     * @description Specifies whether to enable the health check feature. If you set this parameter to OPEN, the system verifies the health check configurations. If you set this parameter to CLOSE, the system discards the health check configurations. Default value: CLOSE. Valid values:
      *
-     *   OPEN: enables the health check.
-     *   CLOSE: disables the health check.
+     *   OPEN: enables the health check feature.
+     *   CLOSE: disables the health check feature.
      *
      * @example open
      *
@@ -140,7 +140,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $monitorStatus;
 
     /**
-     * @description The name of the address pool that you want to create.
+     * @description The name of the address pool.
      *
      * @example test
      *
@@ -149,7 +149,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $name;
 
     /**
-     * @description The protocol used for the health check. Valid values:
+     * @description The health check protocol. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -163,7 +163,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $protocolType;
 
     /**
-     * @description The health check timeout period. Unit: milliseconds.
+     * @description The period of health check timeout. Unit: milliseconds.
      *
      * @example 1
      *
@@ -174,9 +174,9 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The type of the address pool. Valid values:
      *
-     *   IPV4: IPv4 address
-     *   IPV6: IPv6 address
-     *   DOMAIN: domain name
+     *   IPV4: IPv4 address.
+     *   IPV6: IPv6 address.
+     *   DOMAIN: domain name.
      *
      * @example ipv4
      *

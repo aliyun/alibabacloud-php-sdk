@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResolveStatisticsSummaryRequest extends Model
 {
     /**
+     * @description The order in which you want to sort the query results. Valid values: DESC and ASC. DESC indicates that the query results are sorted in descending order. ASC indicates that the query results are sorted in ascending order.
+     *
      * @example DESC
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $direction;
 
     /**
+     * @description The end time in the yyyy-MM-dd format, for example, 2023-03-13.
+     *
      * @example 2023-03-01
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $endDate;
 
     /**
+     * @description The keyword. The Keyword parameter must be used together with the SearchMode parameter.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $keyword;
 
     /**
+     * @description The language used. Valid values: zh, en, and ja.
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +63,9 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search mode of the keyword. Valid values:
+     *
+     * LIKE and EXACT. LIKE is the default value and indicates the fuzzy search mode. EXACT indicates the exact match mode.
      * @example EXACT
      *
      * @var string
@@ -58,6 +73,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $searchMode;
 
     /**
+     * @description The start time in the yyyy-MM-dd format, for example, 2023-03-01.
+     *
      * @example 2023-03-01
      *
      * @var string
@@ -65,6 +82,8 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $startDate;
 
     /**
+     * @description The threshold for the number of resolution requests. You can query the paid domain names at the specified quantity level of resolution requests and query the number of resolution requests. For example, if you set this parameter to 100, you can obtain data about the paid domain names with less than 100 resolution requests. If you do not specify this parameter, the data about the paid domain names that have resolution requests is obtained. If you set this parameter to a value less than 0, the data about all paid domain names is obtained. If you set this parameter to 0, the data about the paid domain names that do not have resolution requests is obtained. If you set this parameter to a value greater than 0, the data about the paid domain names whose number of resolution requests is less than or equal to the value of this parameter is obtained.
+     *
      * @example -1
      *
      * @var int

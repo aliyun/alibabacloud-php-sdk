@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDomainGroupRequest extends Model
 {
     /**
-     * @description The name of the domain name group.
+     * @description The ID of the request.
      *
      * @example MyGroup
      *
@@ -18,7 +18,7 @@ class AddDomainGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The language type.
+     * @description The name of the domain name group.
      *
      * @example en
      *

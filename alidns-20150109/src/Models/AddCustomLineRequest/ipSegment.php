@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipSegment extends Model
 {
     /**
-     * @description The end IP address of the CIDR block.
+     * @description The start IP address of the CIDR block.
      *
      * @example 192.0.2.254
      *
@@ -18,7 +18,7 @@ class ipSegment extends Model
     public $endIp;
 
     /**
-     * @description The start IP address of the CIDR block.
+     * @description The unique ID of the custom line.
      *
      * @example 192.0.2.0
      *

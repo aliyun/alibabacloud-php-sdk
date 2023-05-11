@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,7 +28,7 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description RequestId
+     * @description The request ID.
      *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
@@ -33,11 +37,15 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The statistics.
+     *
      * @var statistics[]
      */
     public $statistics;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +53,8 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

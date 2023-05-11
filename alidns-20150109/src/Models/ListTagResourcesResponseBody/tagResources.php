@@ -18,7 +18,7 @@ class tagResources extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. The returned parameter value is fixed to DOMAIN.
+     * @description The type of the resource. Only DOMAIN is returned.
      *
      * @example DOMAIN
      *

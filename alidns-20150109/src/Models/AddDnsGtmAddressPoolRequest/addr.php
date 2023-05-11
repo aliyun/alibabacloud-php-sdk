@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
-     * @description The address.
+     * @description The address in the address pool.
      *
      * @example 1.1.1.1
      *
@@ -18,15 +18,15 @@ class addr extends Model
     public $addr;
 
     /**
-     * @description The source region of the address. The value is a JSON string.
+     * @description The source region of the address, in JSON-formatted string.
      *
-     *   lineCode: the line code of the source region of the address.
+     *   LineCode: the line code of the source region of the address.
      *
      *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
      *
-     *   NO_NEED: no need for rectification
-     *   RECTIFIED: rectified
-     *   AUTO: automatic rectification
+     *   NO_NEED: no need for rectification.
+     *   RECTIFIED: rectified.
+     *   AUTO: automatic rectification.
      *
      * @example default
      *
@@ -44,11 +44,11 @@ class addr extends Model
     public $lbaWeight;
 
     /**
-     * @description The mode of the address. Valid values:
+     * @description The response mode of address resolution. Valid values:
      *
-     *   SMART: smart return
-     *   ONLINE: always online
-     *   OFFLINE: always offline
+     *   SMART: smart return.
+     *   ONLINE: always online.
+     *   OFFLINE: always offline.
      *
      * @example online
      *
@@ -57,7 +57,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The description of the address.
+     * @description The additional information about the address.
      *
      * @example test
      *

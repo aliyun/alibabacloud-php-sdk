@@ -11,8 +11,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainNsResponseBody extends Model
 {
     /**
-     * @description Indicates whether all the name servers were Alibaba Cloud DNS servers.
-     *
      * @example true
      *
      * @var bool
@@ -20,27 +18,25 @@ class DescribeDomainNsResponseBody extends Model
     public $allAliDns;
 
     /**
+     * @description 检测失败原因编码
+     *
+     * @example DnsCheck.Failed
+     *
      * @var string
      */
     public $detectFailedReasonCode;
 
     /**
-     * @description The list of DNS servers for the domain name.
-     *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
-     * @description The list of DNS servers assigned by Alibaba Cloud.
-     *
      * @var expectDnsServers
      */
     public $expectDnsServers;
 
     /**
-     * @description Indicates whether the name servers included Alibaba Cloud DNS servers.
-     *
      * @example true
      *
      * @var bool
@@ -48,8 +44,6 @@ class DescribeDomainNsResponseBody extends Model
     public $includeAliDns;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 16C7DC7A-2FA7-4D14-8B12-88A2BB6373DB
      *
      * @var string

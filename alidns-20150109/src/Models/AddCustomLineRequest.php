@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineRequest extends Model
 {
     /**
-     * @description The domain name for which you configure the custom line.
+     * @description The name of the custom line.
      *
      * @example example.com
      *
@@ -24,7 +24,7 @@ class AddCustomLineRequest extends Model
     public $ipSegment;
 
     /**
-     * @description The language type.
+     * @description The domain name for which you configure the custom line.
      *
      * @example en
      *
@@ -33,7 +33,7 @@ class AddCustomLineRequest extends Model
     public $lang;
 
     /**
-     * @description The name of the custom line.
+     * @description The end IP address of the CIDR block.
      *
      * @var string
      */

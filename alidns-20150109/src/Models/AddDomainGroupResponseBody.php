@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDomainGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the domain name group.
+     * @description The name of the domain name group.
      *
      * @example 2223
      *
@@ -18,8 +18,6 @@ class AddDomainGroupResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The name of the domain name group.
-     *
      * @example NewName
      *
      * @var string
@@ -27,7 +25,7 @@ class AddDomainGroupResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the domain name group.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

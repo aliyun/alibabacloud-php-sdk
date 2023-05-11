@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmAddressPoolResponseBody extends Model
 {
     /**
-     * @description The ID of the address pool created.
+     * @description The ID of the address pool.
      *
      * @example testpool1
      *
@@ -18,7 +18,7 @@ class AddDnsGtmAddressPoolResponseBody extends Model
     public $addrPoolId;
 
     /**
-     * @description The ID of the health check configuration.
+     * @description The ID of the health check task.
      *
      * @example test1
      *
@@ -27,7 +27,7 @@ class AddDnsGtmAddressPoolResponseBody extends Model
     public $monitorConfigId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *

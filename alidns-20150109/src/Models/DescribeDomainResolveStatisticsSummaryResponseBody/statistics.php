@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The number of resolution requests.
+     *
      * @example 35509014
      *
      * @var string
@@ -16,6 +18,8 @@ class statistics extends Model
     public $count;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class statistics extends Model
     public $domainName;
 
     /**
+     * @description The instance type. Valid values: PUBLIC and CACHE. PUBLIC indicates an authoritative domain name. CACHE indicates a cache-accelerated domain name.
+     *
      * @example CACHE
      *
      * @var string

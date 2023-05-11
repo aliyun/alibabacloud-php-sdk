@@ -15,7 +15,12 @@ class OperateBatchDomainRequest extends Model
     public $domainRecordInfo;
 
     /**
-     * @description The language type.
+     * @description The type of the batch operation. Valid values:
+     *
+     *   **DOMAIN_ADD**: adds domain names in batches.
+     *   **DOMAIN_DEL**: deletes domain names in batches.
+     *   **RR_ADD**: adds DNS records in batches.
+     *   **RR_DEL**: deletes DNS records in batches. (If RR or VALUE exists, DNS records corresponding to the specified RR or VALUE are deleted. If both of them exist, DNS records corresponding to the specified RR and VALUE are deleted. If no RR or VALUE is specified, the DNS records corresponding to the DomainName parameter are deleted.)
      *
      * @example en
      *
@@ -24,13 +29,9 @@ class OperateBatchDomainRequest extends Model
     public $lang;
 
     /**
-     * @description The type of the batch operation. Valid values:
+     * @description The type of DNS record N. For the DNS record types supported by Alibaba Cloud DNS, see [Resolution record type formats](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
      *
-     *   **DOMAIN_ADD**: adds domain names in batches.
-     *   **DOMAIN_DEL**: deletes domain names in batches.
-     *   **RR_ADD**: adds DNS records in batches.
-     *   **RR_DEL**: deletes DNS records in batches. (If RR or VALUE exists, DNS records corresponding to the specified RR or VALUE are deleted. If both of them exist, DNS records corresponding to the specified RR and VALUE are deleted. If no RR or VALUE is specified, the DNS records corresponding to the DomainName parameter are deleted.)
-     *
+     * >  If you set the Type parameter to **RR_ADD**, you must also specify this parameter.
      * @example RR_ADD
      *
      * @var string

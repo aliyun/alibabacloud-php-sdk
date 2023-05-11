@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmAccessStrategyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
      *
      * @var string
@@ -18,7 +16,7 @@ class AddDnsGtmAccessStrategyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the access policy.
+     * @description The ID of the request.
      *
      * @example testStrategyId1
      *

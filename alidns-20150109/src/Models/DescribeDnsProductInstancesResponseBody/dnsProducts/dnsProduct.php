@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dnsProduct extends Model
 {
     /**
-     * @description The number of times you can change domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     * @description The number of subdomain name levels.
      *
      * @example 3
      *
@@ -18,7 +18,7 @@ class dnsProduct extends Model
     public $bindCount;
 
     /**
-     * @description The number of domain names that can be bound to the DNS instance.
+     * @description The time at which the instance expired.
      *
      * @example 5
      *
@@ -27,7 +27,7 @@ class dnsProduct extends Model
     public $bindDomainCount;
 
     /**
-     * @description The number of domain names that have been bound to the DNS instance.
+     * @description The list of ISP line subdivisions.
      *
      * @example 3
      *
@@ -36,7 +36,7 @@ class dnsProduct extends Model
     public $bindDomainUsedCount;
 
     /**
-     * @description The number of times you have changed domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     * @description The bound domain name.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class dnsProduct extends Model
     public $bindUsedCount;
 
     /**
-     * @description The DDoS protection traffic. Unit: GB.
+     * @description The number of times you can change domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
      *
      * @example 50
      *
@@ -54,7 +54,7 @@ class dnsProduct extends Model
     public $DDosDefendFlow;
 
     /**
-     * @description The DDoS protection frequency. Unit: 10,000 QPS.
+     * @description The ID of the Alibaba Cloud DNS instance.
      *
      * @example 50
      *
@@ -63,8 +63,6 @@ class dnsProduct extends Model
     public $DDosDefendQuery;
 
     /**
-     * @description The number of IP addresses supported by a domain name or line.
-     *
      * @example 15
      *
      * @var int
@@ -72,11 +70,7 @@ class dnsProduct extends Model
     public $dnsSLBCount;
 
     /**
-     * @description The DNS security policy. Valid values:
-     *
-     *   **no**: not required.
-     *   **basic**: anti-DDoS basic.
-     *   **advanced**: anti-DDoS advanced.
+     * @description The number of IP addresses supported by a domain name or line.
      *
      * @example no
      *
@@ -85,7 +79,7 @@ class dnsProduct extends Model
     public $dnsSecurity;
 
     /**
-     * @description The bound domain name.
+     * @description The monitoring frequency. Unit: minutes.
      *
      * @example example.com
      *
@@ -94,7 +88,7 @@ class dnsProduct extends Model
     public $domain;
 
     /**
-     * @description The time at which the instance expired.
+     * @description The time when the DNS instance was purchased.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -103,7 +97,7 @@ class dnsProduct extends Model
     public $endTime;
 
     /**
-     * @description The UNIX timestamp representing the expiration time of the instance.
+     * @description The version name of the Alibaba Cloud DNS instance.
      *
      * @example 1474335170000
      *
@@ -112,7 +106,11 @@ class dnsProduct extends Model
     public $endTimestamp;
 
     /**
-     * @description Indicates whether global server load balancing (GSLB) was allowed.
+     * @description The DNS security policy. Valid values:
+     *
+     *   **no**: not required.
+     *   **basic**: anti-DDoS basic.
+     *   **advanced**: anti-DDoS advanced.
      *
      * @example true
      *
@@ -121,21 +119,21 @@ class dnsProduct extends Model
     public $gslb;
 
     /**
-     * @description The list of ISP lines.
+     * @description The list of search engine lines.
      *
      * @var string
      */
     public $ISPLines;
 
     /**
-     * @description The list of ISP line subdivisions.
+     * @description The minimum TTL. Unit: seconds.
      *
      * @var string
      */
     public $ISPRegionLines;
 
     /**
-     * @description Indicates whether the request for domain name resolution was in the black hole.
+     * @description The number of domain names that have been bound to the DNS instance.
      *
      * @example false
      *
@@ -144,7 +142,7 @@ class dnsProduct extends Model
     public $inBlackHole;
 
     /**
-     * @description Indicates whether the request for domain name resolution was being cleared.
+     * @description The URL forwarding quantity.
      *
      * @example false
      *
@@ -153,7 +151,7 @@ class dnsProduct extends Model
     public $inClean;
 
     /**
-     * @description The ID of the Alibaba Cloud DNS instance.
+     * @description The DDoS protection traffic. Unit: GB.
      *
      * @example i-8fj
      *
@@ -162,7 +160,7 @@ class dnsProduct extends Model
     public $instanceId;
 
     /**
-     * @description The monitoring frequency. Unit: minutes.
+     * @description Indicates whether the request for domain name resolution was being cleared.
      *
      * @example 50
      *
@@ -171,7 +169,7 @@ class dnsProduct extends Model
     public $monitorFrequency;
 
     /**
-     * @description The number of monitored nodes.
+     * @description Indicates whether the request for domain name resolution was in the black hole.
      *
      * @example 5
      *
@@ -180,7 +178,7 @@ class dnsProduct extends Model
     public $monitorNodeCount;
 
     /**
-     * @description The number of monitoring tasks.
+     * @description The number of times you have changed domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
      *
      * @example 2
      *
@@ -189,7 +187,7 @@ class dnsProduct extends Model
     public $monitorTaskCount;
 
     /**
-     * @description DDoS protection traffic outside China. Unit: GB.
+     * @description Indicates whether regional lines were allowed.
      *
      * @example 1
      *
@@ -198,7 +196,7 @@ class dnsProduct extends Model
     public $overseaDDosDefendFlow;
 
     /**
-     * @description The type of the overseas line.
+     * @description The number of monitored nodes.
      *
      * @var string
      */
@@ -212,7 +210,7 @@ class dnsProduct extends Model
     public $paymentType;
 
     /**
-     * @description Indicates whether regional lines were allowed.
+     * @description Indicates whether global server load balancing (GSLB) was allowed.
      *
      * @example true
      *
@@ -221,14 +219,14 @@ class dnsProduct extends Model
     public $regionLines;
 
     /**
-     * @description The list of search engine lines.
+     * @description The UNIX timestamp representing the expiration time of the instance.
      *
      * @var string
      */
     public $searchEngineLines;
 
     /**
-     * @description The time when the DNS instance was purchased.
+     * @description DDoS protection traffic outside China. Unit: GB.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -237,7 +235,7 @@ class dnsProduct extends Model
     public $startTime;
 
     /**
-     * @description The UNIX timestamp representing when the DNS instance was purchased.
+     * @description The DDoS protection frequency. Unit: 10,000 QPS.
      *
      * @example 1474335170000
      *
@@ -246,7 +244,7 @@ class dnsProduct extends Model
     public $startTimestamp;
 
     /**
-     * @description The number of subdomain name levels.
+     * @description The number of domain names that can be bound to the DNS instance.
      *
      * @example 6
      *
@@ -255,7 +253,7 @@ class dnsProduct extends Model
     public $subDomainLevel;
 
     /**
-     * @description The minimum TTL. Unit: seconds.
+     * @description The list of ISP lines.
      *
      * @example 10
      *
@@ -264,7 +262,7 @@ class dnsProduct extends Model
     public $TTLMinValue;
 
     /**
-     * @description The URL forwarding quantity.
+     * @description The UNIX timestamp representing when the DNS instance was purchased.
      *
      * @example 20
      *
@@ -273,7 +271,7 @@ class dnsProduct extends Model
     public $URLForwardCount;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The number of monitoring tasks.
      *
      * @example version1
      *
@@ -282,7 +280,7 @@ class dnsProduct extends Model
     public $versionCode;
 
     /**
-     * @description The version name of the Alibaba Cloud DNS instance.
+     * @description The version code of the Alibaba Cloud DNS instance.
      *
      * @var string
      */

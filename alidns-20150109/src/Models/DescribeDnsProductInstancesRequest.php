@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $direction;
+
+    /**
      * @example PUBLIC
      *
      * @var string
@@ -16,7 +21,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $domainType;
 
     /**
-     * @description The language type.
+     * @description The IP address of the client.
      *
      * @example en
      *
@@ -25,7 +30,12 @@ class DescribeDnsProductInstancesRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @var string
+     */
+    public $orderBy;
+
+    /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
      *
      * @example 1
      *
@@ -34,7 +44,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     * @description The version code of the Alibaba Cloud DNS instance.
      *
      * @example 20
      *
@@ -43,7 +53,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The IP address of the client.
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * @example 192.0.2.0
      *
@@ -52,7 +62,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $userClientIp;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The total number of domain names.
      *
      * @example version1
      *
@@ -60,8 +70,10 @@ class DescribeDnsProductInstancesRequest extends Model
      */
     public $versionCode;
     protected $_name = [
+        'direction'    => 'Direction',
         'domainType'   => 'DomainType',
         'lang'         => 'Lang',
+        'orderBy'      => 'OrderBy',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'userClientIp' => 'UserClientIp',
@@ -75,11 +87,17 @@ class DescribeDnsProductInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -105,11 +123,17 @@ class DescribeDnsProductInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

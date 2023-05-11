@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The addresses in the address pool.
+     * @description The address pools.
      *
      * @var addr[]
      */
@@ -35,7 +35,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     public $lang;
 
     /**
-     * @description The load balancing policy for the address pool. Valid values:
+     * @description The load balancing policy of the address pool. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.

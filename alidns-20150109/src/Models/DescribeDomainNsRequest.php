@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainNsRequest extends Model
 {
     /**
-     * @description The domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeDomainNsRequest extends Model
     public $domainName;
 
     /**
-     * @description The language type.
-     *
      * @example en
      *
      * @var string

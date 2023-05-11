@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language in which you want some response parameters to be returned.
      *
      * @example en
      *
@@ -19,7 +19,7 @@ class ListTagResourcesRequest extends Model
     public $lang;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     * @description The token that determines the start point of the query.
      *
      * @example 4698691
      *
@@ -35,7 +35,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example DOMAIN
      *
@@ -44,7 +44,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The key-value pairs of tags.
+     * @description An array of tag key-value pairs.
      *
      * @var tag[]
      */

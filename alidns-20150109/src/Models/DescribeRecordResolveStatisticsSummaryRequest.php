@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordResolveStatisticsSummaryRequest extends Model
 {
     /**
+     * @description The order in which you want to sort the query results. Valid values: DESC and ASC. DESC is the default value and indicates that the query results are sorted in descending order. ASC indicates that the query results are sorted in ascending order.
+     *
      * @example DESC
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $direction;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $domainName;
 
     /**
+     * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
+     *
+     * PUBLIC and CACHE. PUBLIC is the default value and indicates an authoritative domain name. CACHE indicates a cache-accelerated domain name.
      * @example PUBLIC
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $domainType;
 
     /**
+     * @description The end time in the yyyy-MM-dd format, for example, 2023-03-13.
+     *
      * @example 2023-03-29
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $endDate;
 
     /**
+     * @description The keyword. The Keyword parameter is used together with the SearchMode parameter.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +55,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $keyword;
 
     /**
+     * @description The language used. Valid values: zh, en, and ja.
+     *
      * @example zh
      *
      * @var string
@@ -51,6 +64,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +73,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +82,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search mode of the keyword. Valid values:
+     *
+     * LIKE (default): fuzzy search. EXACT: exact match.
      * @example LIKE
      *
      * @var string
@@ -72,6 +92,8 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $searchMode;
 
     /**
+     * @description The start time in the yyyy-MM-dd format, for example, 2023-03-01.
+     *
      * @example 2023-03-29
      *
      * @var string
@@ -79,6 +101,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $startDate;
 
     /**
+     * @description The threshold for the number of resolution requests. You can query the subdomain names at the specified quantity level of resolution requests and query the number of resolution requests for each subdomain name. For example, if you set this parameter to 100, you can obtain data about the subdomain names with less than 100 resolution requests.
+     *
+     * If you set this parameter to a value greater than 0, the data about the subdomain names whose number of resolution requests is less than or equal to the value of this parameter is obtained.
      * @example -1
      *
      * @var int
