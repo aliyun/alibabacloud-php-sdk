@@ -16,6 +16,11 @@ class data extends Model
     public $decryptKey;
 
     /**
+     * @var string
+     */
+    public $stunInfo;
+
+    /**
      * @example rtmp://***\/***.mp4
      *
      * @var string
@@ -23,6 +28,7 @@ class data extends Model
     public $vodUrl;
     protected $_name = [
         'decryptKey' => 'DecryptKey',
+        'stunInfo'   => 'StunInfo',
         'vodUrl'     => 'VodUrl',
     ];
 
@@ -35,6 +41,9 @@ class data extends Model
         $res = [];
         if (null !== $this->decryptKey) {
             $res['DecryptKey'] = $this->decryptKey;
+        }
+        if (null !== $this->stunInfo) {
+            $res['StunInfo'] = $this->stunInfo;
         }
         if (null !== $this->vodUrl) {
             $res['VodUrl'] = $this->vodUrl;
@@ -53,6 +62,9 @@ class data extends Model
         $model = new self();
         if (isset($map['DecryptKey'])) {
             $model->decryptKey = $map['DecryptKey'];
+        }
+        if (isset($map['StunInfo'])) {
+            $model->stunInfo = $map['StunInfo'];
         }
         if (isset($map['VodUrl'])) {
             $model->vodUrl = $map['VodUrl'];

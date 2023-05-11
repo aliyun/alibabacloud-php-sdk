@@ -9,21 +9,25 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example {"iv": "MDEy****OTo7PD0+Pw==","key": "eA2r****fHjOmnyBfQ=="}
-     *
-     * @var string
-     */
-    public $decryptKey;
-
-    /**
      * @example rtmp://47.100.***.***:8000/live?token=dc1****120ce394ef94974/Eb****6RBe8l4_0
      *
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $relayDecryptKey;
+
+    /**
+     * @var string
+     */
+    public $stunInfo;
     protected $_name = [
-        'decryptKey' => 'DecryptKey',
-        'path'       => 'Path',
+        'path'            => 'Path',
+        'relayDecryptKey' => 'RelayDecryptKey',
+        'stunInfo'        => 'StunInfo',
     ];
 
     public function validate()
@@ -33,11 +37,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->decryptKey) {
-            $res['DecryptKey'] = $this->decryptKey;
-        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->relayDecryptKey) {
+            $res['RelayDecryptKey'] = $this->relayDecryptKey;
+        }
+        if (null !== $this->stunInfo) {
+            $res['StunInfo'] = $this->stunInfo;
         }
 
         return $res;
@@ -51,11 +58,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DecryptKey'])) {
-            $model->decryptKey = $map['DecryptKey'];
-        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['RelayDecryptKey'])) {
+            $model->relayDecryptKey = $map['RelayDecryptKey'];
+        }
+        if (isset($map['StunInfo'])) {
+            $model->stunInfo = $map['StunInfo'];
         }
 
         return $model;

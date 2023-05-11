@@ -16,6 +16,11 @@ class QueryDeviceVodUrlRequest extends Model
     public $deviceName;
 
     /**
+     * @var bool
+     */
+    public $enableStun;
+
+    /**
      * @example 0
      *
      * @var int
@@ -86,6 +91,7 @@ class QueryDeviceVodUrlRequest extends Model
     public $urlValidDuration;
     protected $_name = [
         'deviceName'       => 'DeviceName',
+        'enableStun'       => 'EnableStun',
         'encryptType'      => 'EncryptType',
         'fileName'         => 'FileName',
         'iotId'            => 'IotId',
@@ -107,6 +113,9 @@ class QueryDeviceVodUrlRequest extends Model
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->enableStun) {
+            $res['EnableStun'] = $this->enableStun;
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
@@ -152,6 +161,9 @@ class QueryDeviceVodUrlRequest extends Model
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EnableStun'])) {
+            $model->enableStun = $map['EnableStun'];
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];

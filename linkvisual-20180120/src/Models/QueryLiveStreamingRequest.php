@@ -23,6 +23,11 @@ class QueryLiveStreamingRequest extends Model
     public $deviceName;
 
     /**
+     * @var bool
+     */
+    public $enableStun;
+
+    /**
      * @example 1
      *
      * @var int
@@ -94,6 +99,7 @@ class QueryLiveStreamingRequest extends Model
     protected $_name = [
         'cacheDuration'    => 'CacheDuration',
         'deviceName'       => 'DeviceName',
+        'enableStun'       => 'EnableStun',
         'encryptType'      => 'EncryptType',
         'forceIFrame'      => 'ForceIFrame',
         'iotId'            => 'IotId',
@@ -118,6 +124,9 @@ class QueryLiveStreamingRequest extends Model
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->enableStun) {
+            $res['EnableStun'] = $this->enableStun;
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
@@ -166,6 +175,9 @@ class QueryLiveStreamingRequest extends Model
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EnableStun'])) {
+            $model->enableStun = $map['EnableStun'];
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];

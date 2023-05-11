@@ -2489,6 +2489,9 @@ class Linkvisual extends OpenApiClient
         if (!Utils::isUnset($request->deviceName)) {
             $query['DeviceName'] = $request->deviceName;
         }
+        if (!Utils::isUnset($request->enableStun)) {
+            $query['EnableStun'] = $request->enableStun;
+        }
         if (!Utils::isUnset($request->encryptType)) {
             $query['EncryptType'] = $request->encryptType;
         }
@@ -2564,6 +2567,9 @@ class Linkvisual extends OpenApiClient
         }
         if (!Utils::isUnset($request->deviceName)) {
             $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->enableStun)) {
+            $query['EnableStun'] = $request->enableStun;
         }
         if (!Utils::isUnset($request->encryptType)) {
             $query['EncryptType'] = $request->encryptType;
@@ -3430,6 +3436,9 @@ class Linkvisual extends OpenApiClient
         }
         if (!Utils::isUnset($request->deviceName)) {
             $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->enableStun)) {
+            $query['EnableStun'] = $request->enableStun;
         }
         if (!Utils::isUnset($request->encryptType)) {
             $query['EncryptType'] = $request->encryptType;
