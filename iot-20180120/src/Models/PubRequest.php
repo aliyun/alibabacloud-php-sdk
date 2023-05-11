@@ -63,6 +63,11 @@ class PubRequest extends Model
     public $messageContent;
 
     /**
+     * @var int
+     */
+    public $messageExpiryInterval;
+
+    /**
      * @description The payload identifier of the message when you use MQTT 5.0 for communication. Valid values:
      *
      *   **0**: The message is unknown byte data.
@@ -108,6 +113,11 @@ class PubRequest extends Model
     public $responseTopic;
 
     /**
+     * @var bool
+     */
+    public $retained;
+
+    /**
      * @description The custom topic for the device that receives the message.
      *
      *   Topic format: `/${productKey}/${deviceName}/user/${TopicShortName}`.
@@ -132,10 +142,12 @@ class PubRequest extends Model
         'deviceName'             => 'DeviceName',
         'iotInstanceId'          => 'IotInstanceId',
         'messageContent'         => 'MessageContent',
+        'messageExpiryInterval'  => 'MessageExpiryInterval',
         'payloadFormatIndicator' => 'PayloadFormatIndicator',
         'productKey'             => 'ProductKey',
         'qos'                    => 'Qos',
         'responseTopic'          => 'ResponseTopic',
+        'retained'               => 'Retained',
         'topicFullName'          => 'TopicFullName',
         'userProp'               => 'UserProp',
     ];
@@ -162,6 +174,9 @@ class PubRequest extends Model
         if (null !== $this->messageContent) {
             $res['MessageContent'] = $this->messageContent;
         }
+        if (null !== $this->messageExpiryInterval) {
+            $res['MessageExpiryInterval'] = $this->messageExpiryInterval;
+        }
         if (null !== $this->payloadFormatIndicator) {
             $res['PayloadFormatIndicator'] = $this->payloadFormatIndicator;
         }
@@ -173,6 +188,9 @@ class PubRequest extends Model
         }
         if (null !== $this->responseTopic) {
             $res['ResponseTopic'] = $this->responseTopic;
+        }
+        if (null !== $this->retained) {
+            $res['Retained'] = $this->retained;
         }
         if (null !== $this->topicFullName) {
             $res['TopicFullName'] = $this->topicFullName;
@@ -213,6 +231,9 @@ class PubRequest extends Model
         if (isset($map['MessageContent'])) {
             $model->messageContent = $map['MessageContent'];
         }
+        if (isset($map['MessageExpiryInterval'])) {
+            $model->messageExpiryInterval = $map['MessageExpiryInterval'];
+        }
         if (isset($map['PayloadFormatIndicator'])) {
             $model->payloadFormatIndicator = $map['PayloadFormatIndicator'];
         }
@@ -224,6 +245,9 @@ class PubRequest extends Model
         }
         if (isset($map['ResponseTopic'])) {
             $model->responseTopic = $map['ResponseTopic'];
+        }
+        if (isset($map['Retained'])) {
+            $model->retained = $map['Retained'];
         }
         if (isset($map['TopicFullName'])) {
             $model->topicFullName = $map['TopicFullName'];

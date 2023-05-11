@@ -13999,6 +13999,9 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
         }
+        if (!Utils::isUnset($request->messageExpiryInterval)) {
+            $query['MessageExpiryInterval'] = $request->messageExpiryInterval;
+        }
         if (!Utils::isUnset($request->payloadFormatIndicator)) {
             $query['PayloadFormatIndicator'] = $request->payloadFormatIndicator;
         }
@@ -14010,6 +14013,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->responseTopic)) {
             $query['ResponseTopic'] = $request->responseTopic;
+        }
+        if (!Utils::isUnset($request->retained)) {
+            $query['Retained'] = $request->retained;
         }
         if (!Utils::isUnset($request->topicFullName)) {
             $query['TopicFullName'] = $request->topicFullName;
